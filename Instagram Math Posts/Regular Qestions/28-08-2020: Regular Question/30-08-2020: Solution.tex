@@ -1,0 +1,29 @@
+
+\documentclass[12pt]{article}
+\usepackage[paperheight=14in,paperwidth=14in,margin=1in]{geometry}
+%\usepackage{fullpage}
+
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{background}
+\usepackage{blindtext}
+\backgroundsetup{ scale=1, angle=0, opacity=1, contents={\begin{tikzpicture}[remember picture,overlay] \path [inner color=Yellow,outer color=Apricot] (current page.south west)rectangle (current page.north east);  \end{tikzpicture}} }
+
+\pagestyle{empty}
+\begin{document}
+\pagebreak 
+\vspace*{4cm}
+	
+\Huge{\begin{align*}
+& \frac{y+z}{x} + \frac{z+x}{y} + \frac{x+y}{z} \geq 3+2\left(\frac{x}{y+z}+\frac{y}{z+x}+\frac{z}{x+y}\right)\\[5mm]
+\iff & \frac{y+z}{x} + \frac{z+x}{y} + \frac{x+y}{z} +3\geq 2\left(\frac{x}{y+z}+\frac{y}{z+x}+\frac{z}{x+y}+3\right)\\[5mm]
+\iff & \frac{y+z}{x}+1 + \frac{z+x}{y} +1+ \frac{x+y}{z}+1 \geq 2\left(\frac{x}{y+z}+1+\frac{y}{z+x}+1+\frac{z}{x+y}+1\right)\\[5mm]
+\iff & \frac{x+y+z}{x} + \frac{y+z+x}{y} + \frac{x+y+z}{z} \geq 2\left(\frac{x+y+z}{y+z}+\frac{y+z+x}{z+x}+\frac{z+x+y}{x+y}\right)\\[5mm]
+\iff & (x+y+z)\left(\frac{1}{x} + \frac{1}{y} + \frac{1}{z}\right) \geq 2(x+y+z)\left(\frac{1}{y+z}+\frac{1}{z+x}+\frac{1}{x+y}\right) \\[5mm] 
+\iff & \frac{1}{x} + \frac{1}{y} + \frac{1}{z}\geq 2\left(\frac{1}{y+z}+\frac{1}{z+x}+\frac{1}{x+y}\right)\\[5mm] 
+\iff & \sum_{cyc} \frac{1}{2}\left(\frac{1}{x}+\frac{1}{y}\right)-\frac{2}{x+y}=\sum_{cyc} \frac{x (x+y)+y (x+y)-4xy}{2xy (x+y)}=\sum_{cyc} \frac{(x-y)^2}{2xy (x+y)}\geq 0
+\end{align*}}
+\end{document}
