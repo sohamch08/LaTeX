@@ -1,0 +1,540 @@
+\documentclass{report} 
+\input{structure}
+\title{\Huge{\textbf{\textcolor{Red}{Inequalities Proposed by xzlbq\\ in AOPS}}}}
+\author{\huge{\textbf{\textcolor{Blue}{Soham Chatterjee}\\ \textbf{sohamchatterjee999@gmail.com}}}}
+\date{}
+\begin{document}
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{6.jpg}}; % Background image
+\draw[anchor=north] (midpoint) node [fill=Red!0!white,fill opacity=0,text=white,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Inequalities Proposed by xzlbq in AOPS\\[15pt] % Book title{\Large A Profound Subtitle}\\[20pt] % Subtitle
+{\Huge Soham Chatterjee}}}; % Author name
+\end{tikzpicture}};
+\end{tikzpicture}
+\vfill
+\endgroup
+
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+
+
+\thispagestyle{empty}
+\tableofcontents{}
+\thispagestyle{empty}
+
+
+\setcounter{page}{0}
+
+
+\chapter{3--Variable Inequalities}
+
+\section{Solved Problems}
+
+\begin{enumerate}
+	\item Let $ a,b,c\ge 0$ Prove that$$\sum\sqrt{\frac{a}{b+c}} \le \frac{3}{2}\sqrt{\frac{4}{3}+\frac{4}{9}\sum\frac{a}{b+c}}$$
+	
+	\textbf{Solution:} After squaring,$$ \implies 2\sum \sqrt {\frac {ab}{(b + c)(a+ c)}}\le3$$ By AM-GM, $$ LHS\le\sum\left( \frac a{a + c} + \frac b{b + c}\right) = 3$$
+	\begin{flushright}
+		[Solved by spanferkel]
+	\end{flushright}
+	\item Let $a,b,c$ be positive real numbers. and $a+b^2+c^3=1$, Prove that the following inequality holds$$(1-a)(1-b^2)(1-c^3) \geq 8ab^2c^3$$
+	
+	\textbf{Solution:} Let $ x=a,y=b^2,z=c^3$, ineq becomes $$ x+y+z=1,\,\,(1-x)(1-y)(1-z)\ge 8xyz$$ i.e. $$ (x+y)(y+z)(z+x)\ge8xyz$$ which is true
+	\begin{flushright}
+		[Solved by kuing]
+	\end{flushright}
+	\item Let $ a,b,c$ be real positive numbers and $ a+b+c=1$, Prove that$$2\geq\frac{(1-a)^3}{3a+b+c}+\frac{(1-b)^3}{3b+c+a}+\frac{(1-c)^3}{3c+a+b}\geq\frac{8}{15}$$ 
+	
+	\textbf{Solution:}  By Cauchy, we have
+	\[ \sum \frac{(b+c)^4}{(b+c)(b+c+3a)} \ge \frac{\left( \sum (b+c)^2 \right)^2}{\sum (b+c)(b+c+3a)} \ge \frac{15}{8}.\]
+	Denote $ \sum a^2=x$, $ \sum ab=y$. Then the inequality is equivalent to\[ 9x^2+6xy \ge 17y^2,\]which is obvious, as $ \sum a^2 \ge \sum ab$ with equality if and only if $ a=b=c$.
+	
+	We have $ 3a+b+c \ge a+b+c$ and so on. Hence
+	\[ \sum \frac{(b+c)^3}{b+c+3a} \le \sum \frac{(b+c)^3}{a+b+c} \le 2\Leftrightarrow 3\sum (a^2b+ab^2) + 12abc \ge 0,\]which is true. Equality holds if and only if $ a=b=0$, $ c=1$ and permutations.
+	\begin{flushright}
+		[Solved by hedeng123]
+	\end{flushright}
+	\item Let $a,b,c>0$,such that $a+b+c=1$,prove that:$$3 \geq \sqrt{a+b^2+c^2}+\sqrt{b+c^2+a^2}+\sqrt{c+a^2+b^2} \geq \sqrt{5}$$
+	
+	\textbf{Solution:} For the left :Use Cauchy-Schwarz ineq, we have:\begin{align*}\sqrt {a + {b^2} + {c^2}}  + \sqrt {b + {c^2} + {a^2}}  + \sqrt {c + {a^2} + {b^2}}& \le \sqrt {3(a + b + c + 2({a^2} + {b^2} + {c^2}))}\\& \le \sqrt {3(a + b + c + {2{(a + b + c)}^2})}= 3\end{align*}Equality holds when (a,b,c)=(1,0,0)\\For the right : Use Mincowski ineq, we have:\begin{align*}&{(\sqrt {a + {b^2} + {c^2}}  + \sqrt {b + {c^2} + {a^2}}  + \sqrt {c + {a^2} + {b^2}} )^2}\\ =&\,  a + b + c + 2({a^2} + {b^2} + {c^2}) + 2\sum {\sqrt {(a + {b^2} + {c^2})(b + {c^2} + {a^2})} }\\ = &\, 1 + 2({a^2} + {b^2} + {c^2}) + 2\sum {\sqrt {({a^2} + {b^2} + {c^2} + a(b + c))({b^2} + {c^2} + {a^2} + b(c + a))} }\\ \ge &\, 1 + 2({a^2} + {b^2} + {c^2}) + 2\sum {({a^2} + {b^2} + {c^2} + \sqrt {ab(c + a)(c + b)} } ) \\  = &\, 1 + 8({a^2} + {b^2} + {c^2}) + 2\sum {\sqrt {ab(c + a)(c + b)} } \end{align*}We need to prove:\begin{align*}& 1 + 8({a^2} + {b^2} + {c^2}) + 2\sum {\sqrt {ab(c + a)(c + b)} }  \ge  5\\ \iff &\, 2({a^2} + {b^2} + {c^2}) + \sum {\sqrt {ab(c + a)(c + b)} } \ge 4(ab + bc + ca) \end{align*}By AM-GM ineq , we have:$$\sum {\sqrt {ab(c + a)(c + b)} }  \ge 2\sum {\sqrt {abc\sqrt {ab} } }  \ge 6\sqrt[3]{{{a^2}{b^2}{c^2}}} \ge \frac{{18abc}}{{a + b + c}}$$So this ineq can be rewriten:\[{a^2} + {b^2} + {c^2} + \frac{{9abc}}{{a + b + c}} \ge 2(ab + bc + ca)\]It's Schur inequality\\Equality holds when $a=b=c=\frac{1}{3}$
+	\begin{flushright}
+		[Solved by minhhoang]
+	\end{flushright}
+	\item Let $ a,b,c$ be real positive numbers and $ a + b + c = 1$, Prove that$$ \frac {9}{2}(2 - a)(2 - b)(2 - c) \geq (3 - a)(3 - b)(3 - c) + (1 - a)(1 - b)(1 - c) \geq \frac {104}{25}(2 - a)(2 - b)(2 - c)$$
+	
+	\textbf{Solution:}\begin{align*}&9\prod{(2-a)}-2\prod{(3-a)}-2\prod{(1-a)}\\ =&\, 9\prod{(a+2b+2c)}-2\prod{(2a+3b+3c)}-2\prod{(b+c)}\\=&\,25abc+10\sum{ab(a+b)}\end{align*} \begin{align*}&25\prod{(3-a)}+25\prod{(1-a)}-104\prod{(2-a)}\\=&\, 25\prod{(2a+3b+3c)}+25\prod{(b+c)}-104\prod{(a+2b+2c)}\\=&\, 22(a^3+b^3+c^3-3abc)+6(2a^3+2b^3+2c^3-\sum{ab(a+b)})\end{align*}
+	\begin{flushright}
+		[Solved by kuing]
+	\end{flushright}
+	\item $x,y,z>0$, prove that$$\sqrt {1+4\,{\frac {xyz}{ \left( y+z \right)  \left( z+x \right)\left( x+y \right) }}}\geq \prod \limits_{cyc}{\frac {y+z-x}{\sqrt { \left( y+z \right)\left( x+y+z \right) }}}$$
+	\textbf{Solution:} We need to prove that $$\sqrt{(x+y+z)\sum_{cyc}(x^2y+x^2z+2xyz)}\geq\sum_{cyc}(x+y-z)\sqrt{(x+z)(y+z)}$$By C-S$$\sqrt{(x+y+z)\sum_{cyc}(x^2y+x^2z+2xyz)}=\sqrt{(x+y+z)\sum_{cyc}x(y+z)^2}\geq\sum_{cyc}x(y+z)=2(xy+xz+yz)$$Thus, it remains to prove that$$2(xy+xz+yz)\geq\sum_{cyc}(x+y-z)\sqrt{(x+z)(y+z)}$$or$$\sum_{cyc}(x+y-z)\left(\sqrt{x+z}-\sqrt{y+z}\right)^2\geq\sum_{cyc}(x+y-z)(x+z+y+z)-4(xy+xz+yz)$$ or$$\sum_{cyc}\frac{(x-y)^2(x+y-z)}{\left(\sqrt{x+z}+\sqrt{y+z}\right)^2}\geq0$$Let $x\geq y\geq z$.
+	
+	Hence,\begin{align*}
+	&\,\sum_{cyc}\frac{(x-y)^2(x+y-z)}{\left(\sqrt{x+z}+\sqrt{y+z}\right)^2}\\
+	\geq&\,\frac{(x-z)^2(x+z-y)}{\left(\sqrt{x+y}+\sqrt{y+z}\right)^2}+\frac{(y-z)^2(y+z-x)}{\left(\sqrt{x+y}+\sqrt{x+z}\right)^2}\\
+	\geq&\,\frac{(y-z)^2(x-y)}{\left(\sqrt{x+y}+\sqrt{y+z}\right)^2}+\frac{(y-z)^2(y-x)}{\left(\sqrt{x+y}+\sqrt{x+z}\right)^2}\\
+	=&\,(y-z)^2(x-y)\left(\frac{1}{\left(\sqrt{x+y}+\sqrt{y+z}\right)^2}-\frac{1}{\left(\sqrt{x+y}+\sqrt{x+z}\right)^2}\right)\geq0
+	\end{align*}
+	\begin{flushright}
+		[Solved by arqady]
+	\end{flushright}
+	\item Let $x,y,z$ are positive real numbers, prove that:\[ \frac{z}{x}+\frac{z}{y}+\frac{x+y}{z}+\frac{64}{3}\frac{xyz}{(y+z)(z+x)(x+y)} \geq \frac{20}{3}\]
+	\textbf{Solution:} Let $ x = tz,\ y = uz$ and $ p = t + u, q = tu$, that we have $ 0 < q \le \dfrac{p^2}{4}$ and inequality becomes$$ f(q) = (3{p}^{2} - 20p + 64)\left(q + \frac {p(3{p}^{2} - 14p - 20)}{2(3{p}^{2} - 20p + 64)}\right)^{2} + \frac {{p}^{2}( - 9{p}^{2} + 84p + 92)(p - 2)^{2}}{4(3{p}^{2} - 20p + 64)} \ge 0$$
+	Easy to prove that $$ 3{p}^{2} - 20p + 64 > 0$$so\begin{enumerate}
+		\item If $$ - 9{p}^{2} + 84p + 92 \ge 0$$ then ineq clear holds;
+		\item If $$ - 9{p}^{2} + 84p + 92 < 0$$ we have $$ 3{p}^{2} - 14p - 20 > 28p + \frac {92}{3} - 14p - 20 = 14p + \frac {32}{3} > 0$$ so we get $$ f(q) > f(0)$$, but $$ f(0) = 3p^2(p + 1) > 0$$So ineq holds.
+	\end{enumerate} 
+	\begin{flushright}
+		[Solved by kuing]
+	\end{flushright}
+	\item Let $x,y,z$ are positive real numbers, prove that:$$ \frac{y+z}{x}+\frac{z+x}{y}+\frac{x+y}{z}\geq3+2\left( \frac{x}{y+z}+\frac{y}{z+x}+\frac{z}{x+y}\right) $$
+	\textbf{Solution 1:}\begin{align*}
+	&\sum{\frac{y+z}{x}} \ge 3+2\sum{\frac{x}{y+z}}\\
+	\iff & \sum{\left(\frac{y+z}{x}-1-\frac{2x}{y+z}\right)} \ge 0\\
+	\iff & \sum{\frac{(x+y+z)(y+z-2x)}{x(y+z)}} \ge 0\\
+	\iff & \sum{\frac{y-x+z-x}{x(y+z)}} \ge 0\\
+	\iff &\sum{\left(\frac{y-x}{x(y+z)}+\frac{x-y}{y(z+x)}\right)} \ge 0\\
+	\iff & \sum{\frac{(x-y)^2z}{xy(y+z)(z+x)}} \ge 0
+	\end{align*}
+	
+	\begin{flushright}
+		[Solved by kuing]
+	\end{flushright}
+	\textbf{Solution 2:}\begin{align*}
+	&\frac {y + z}{x} + \frac {z + x}{y} + \frac {x + y}{z} \geq 3 + 2\left( \frac {x}{y + z} + \frac {y}{z + x} + \frac {z}{x + y}\right) \\
+	\iff & \splitdfrac{\displaystyle{(x - y)^2(y - z)^2(z - x)^2 + 4\sum y^2z^2(x - y)(x - z)}}{\displaystyle{+ 2xyz\sum x(x - y)(x - z) + 3xyz\sum (y + z)(x - y)(x - z)\geq0}}\\[2mm]
+	\iff & \sum_{sym}x^4y^2+\sum_{sym}x^3y^3\geq\sum_{sym}x^3y^2z+\sum_{sym}x^2y^2z^2
+	\end{align*}obvious true.
+	\begin{flushright}
+		[Solved by hedeng123]
+	\end{flushright}
+	\item Let x,y,z are positive real numbers,prove that:$$ \frac {1}{3} \geq \frac {1}{(y + z)\left( \frac {1}{x} + \frac {1}{y} + \frac {1}{z}\right) } + \frac {1}{\left( \frac {1}{y} + \frac {1}{z}\right) \left( x + y + z\right) }$$
+	\textbf{Solution:} $$\left(y^2 - yz + z^2\right)x^2 + (y + z)\left(z^2 - 3yz + y^2\right)x + yz\left(y^2 - yz + z^2\right) \geq 0$$
+	\begin{flushright}
+		[Solved by xzlbq]
+	\end{flushright}
+\item  Let $ x,y,z$ are positive real numbers,and $ x+y+z=1,t \geq 1$,prove that:$$ \frac{x^2}{x^2-2x+t}+\frac{y^2}{y^2-2y+t}+\frac{z^2}{z^2-2z+t} 
+\geq  \frac{3}{9t-5}$$
+\textbf{Solution:} When $ 0<x<1, t \ge 1$, we have$$ \frac {x^2}{x^2 - 2x + t} \ge \frac{(54t-18)x-9t+1}{(9t-5)^2} \iff \frac{(3 x-1)^2((2-6t)x+9t^2-t)}{(9t-5)^2(x^2-2x+t)} \ge 0$$so we have$$ \frac {x^2}{x^2 - 2x + t} + \frac {y^2}{y^2 - 2y + t} + \frac {z^2}{z^2 - 2z + t}\geq \frac{(54t-18)(x+y+z)-27t+3}{(9t-5)^2} =\frac{3}{9t-5}$$
+\begin{flushright}
+	[Solved by kuing]
+\end{flushright}
+\item Let $ x,y,z \geq 0$,$ t > 0$,and $ x + y + z = txyz$,prove that:$$ xy + yz + zx + x + y + z \geq \frac {3(3 + \sqrt {3t})}{t}$$
+\textbf{Solution:} The inequality is equivalent to:$$ (x+y+z)^{2}+(xy+yz+zx)(x+y+z)\geq9xyz+3\sqrt{3xyz(x+y+z)}$$we have : $$ xy+yz+zx\geq \sqrt{3xyz(x+y+z)}$$then let's prove that$$ (x+y+z)^{2}+(xy+yz+zx)(x+y+z)\geq9xyz+3(xy+yz+zx)$$but:$$ (xy+yz+zx)(x+y+z)\geq9xyz$$ and $$ (x+y+z)^{2}\geq3(xy+yz+zx)$$
+\begin{flushright}
+	[Solved by anonyme93]
+\end{flushright}
+
+\end{enumerate}
+%==============================================
+\section{Unsolved Problems}
+
+\begin{enumerate}
+	\item Let $ a,b,c$ be a positive real numbers such that $ abc = 1$ Prove that$$ (a^3 + 1)(b^3 + 1)(c^3 + 1) \geq \frac {(a + b)^2(b + c)^2(c + a)^2}{(a + b + c)(bc + ca + ab) - 1}$$
+	
+	\item Let $ a,b,c\ge 0$ Prove this$$\sum\sqrt {\frac {a}{b + c}}\geq\sqrt {9 - 3\sum\frac {b + c}{2a + b + c}}$$
+	\item Let a,b,c be positive real numbers,and a+b+c=3. Prove that the following inequality holds$$ \frac {a}{(b + c)^2} + \frac {b}{(c + a)^2} + \frac {c}{(a + b)^2}\geq \left( \frac {2}{3} + \frac {\sqrt {2}}{3}\right) \left( \frac {a}{b + c} + \frac {b}{c + a} + \frac {c}{a + b}\right)  - \frac {1}{4} - \frac {\sqrt {2}}{2}$$
+	\item Let $ a,b,c$ be real positive numbers and $ a+b+c=1$, find $f(t)$ and $g(t)$ $$ f(t) \geq \frac {(1 - a)^t}{ta + b + c} + \frac {(1 - b)^t}{tb + c + a} + \frac {(1 - c)^t}{tc + a + b} \geq g(t)$$
+	\item Let $ a,b,c$ be real positive numbers and $ a + b + c = 1$, Prove that$$ \frac {11}{18} \geq \frac {(1 - a)(2 - b)}{(3 - c)^2} + \frac {(1 - b)(2 - c)}{(3 - a)^2} + \frac {(1 - c)(2 - a)}{(3 - b)^2} \geq \frac {15}{32}$$
+	\item Let $ a,b,c$ be real positive numbers and $ a + b + c = 1$, Prove that$$ \splitdfrac{\left( \dfrac {5\sqrt {6}}{6} + \dfrac {\sqrt {2}}{6}\right) \sqrt {(2 - a)(2 - b)(2 - c)} \geq \sqrt {(1 - a)(1 - b)(1 - c)}}{+ \sqrt {(3 - a)(3 - b)(3 - c)} \geq \dfrac {3\sqrt {2}}{2}\sqrt {(2 - a)(2 - b)(2 - c)}} $$
+	\item $x,y,z>0$, $x+y>\frac{z}{5}$, $y+z>\frac{x}{5}$, $z+x>\frac{y}{5}$, prove that\[{\frac {y+z-x}{\sqrt {y+z}}}+{\frac {z+x-y}{\sqrt {z+x}}}+{\frac {x+y-z}{\sqrt{x+y}}}>0\]
+	\item Let $f(x,y,z)$ fits as $f(x,y,z)=f(x,z,y)$ or $f(x,y,z)=f(z,y,x)$	or $f(x,y,z)=f(y,x,z)$ then 
+	\begin{align*}
+	\begin{vmatrix}
+	f(x,y,z) & f(y,z,x) & f(z,x,y)\\
+	f(z,y,x) & f(x,z,y) & f(y,x,z)\\
+	f(x,y,z)f(z,y,x) & f(y,z,x)f(x,z,y) & f(z,x,y)f(y,x,z)\\
+	\end{vmatrix} & \geq 0
+	\end{align*}
+	\item Let $ x,y,z$ are positive real numbers, $ a,b,c \geq 0$, and $ a \le b + c$, prove that:$$ \frac {1}{(by + cz)(\frac {a}{x} + \frac {b}{y} + \frac {c}{z})} + \frac {1}{(\frac {b}{y} + \frac {c}{z})(ax + by + cz)} \le \frac {2}{(b + c)(a + b + c)}$$
+	\item Let $ a,b,c > 0$,$$ \sqrt {\frac {2a}{b + c}} + \sqrt {\frac {2b}{c + a}} + \sqrt {\frac {2c}{a + b}}\le \frac {(a + b + c)^2}{bc + ca + ab}$$
+	\item Let $ a,b,c > 0$,$$ \sqrt{\frac{a}{b+c}}+\sqrt{\frac{b}{c+a}}+\sqrt{\frac{c}{a+b}} \le \frac{\sqrt{6}}{2}\frac{a+b+c}{\sqrt{ab+bc+ca}}$$
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\item Let $a,b,c$ be positive real numbers. Prove that$$\sqrt {{\frac {a}{b}}}+\sqrt {{\frac {b}{c}}}+\sqrt {{\frac {c}{a}}}+\sqrt {{\frac {a+b}{b+c}}}+\sqrt {{\frac {b+c}{c+a}}}+\sqrt {{\frac {c+a}{a+b}}}\leq \sqrt {{\frac {2\,a+b+c}{a}}}+\sqrt {{\frac {2\,b+c+a}{b}}}+\sqrt {{\frac {2\,c+a+b}{c}}}$$
+	\item Prove that:$$\splitdfrac{0\leq  \left( 2304\,y+2304\,z \right) {x}^{3}+ \left( -1154\,{y}^{2}-1154\,{z}^{2}-764\,yz \right) {x}^{2}}{-2\, \left( y+z \right)  \left( 577\,{z}^{2}-770\,yz+577\,{y}^{2} \right) x+2\, \left( 2\,{y}^{2}-959\,yz+2\,{z}^{2} \right)  \left( y-z \right) ^{2}}$$
+	\item 
+	$x,y,z>0$, prove that\[\sqrt {x \left( y+z \right) }+\sqrt {y \left( z+x \right) }+\sqrt {z\left( x+y \right) }\leq \frac{3}{2}\,\sqrt {3}\sqrt {{\frac { \left( y+z\right)  \left( z+x \right)  \left( x+y \right) }{x+y+z}}}\]
+	\item $x,y,z>0$, prove\[{\frac {y\sqrt { \left( z+x \right)  \left( x+y \right) }z}{{x}^{2}\left( y+z \right) }}+{\frac {z\sqrt { \left( x+y \right)  \left( y+z\right) }x}{{y}^{2} \left( z+x \right) }}+{\frac {x\sqrt { \left( y+z\right)\left( z+x \right) }y}{{z}^{2} \left( x+y \right) }}\geq 3\]
+	\item Let $ x,y,z$ are positive real numbers, prove that: $$\frac{z}{x}+\frac{z}{y}+\frac{x+y}{z}\geq1+\frac{y+z}{z+x}+\frac{z+x}{x+y}+\frac{x+y}{y+z}$$
+	\item Let $ x,y,z$ are positive real numbers, prove that:$$ \frac {1}{3} \geq \frac {1}{(2y + 3z)(\frac {1}{x} + \frac {2}{y} + \frac {3}{z})} + \frac {1}{(\frac {2}{y} + \frac {3}{z})(x + 2 y + 3 z)}$$
+\end{enumerate}
+
+
+%----------------------------------------------
+\chapter{4--Variable Inequalities}
+\section{Solved Problems}
+\begin{enumerate}
+	\item Let a,b,c be positive numbers, $ t \geq 0$prove that:$${\frac {a + t}{b + t}} + {\frac {b + t}{c + t}} + {\frac {c + t}{a + t}}\leq {\frac {a }{b}} + {\frac {b}{c}} + {\frac {c}{a}}$$
+	\textbf{Solution 1:} It's equivalent to
+	\[(t^3+(a+b+c)t^2)\sum_{cyc}(a^2c-abc)+t\sum_{cyc}(a^3c^2-a^2b^2c)\geq0\]
+	\begin{flushright}
+		[solved by arqady]
+	\end{flushright}
+	\textbf{Solution 2:} Without loss of generality, we can assume that $ c = \min\{a,b,c\}$, and we have\[\splitdfrac{\dfrac {a}{b} + \dfrac {b}{c} + \dfrac {c}{a} - \left( {\dfrac {{a + t}}{{b + t}} + \dfrac {{b + t}}{{c + t}} + \dfrac {{c + t}}{{a + t}}} \right)}{= \left( {\dfrac {1}{{ab}} - \dfrac {1}{{\left( {a + t} \right)\left( {b + t} \right)}}} \right)\left( {a - b} \right)^2 + \left( {\dfrac {1}{{ac}} - \dfrac {1}{{\left( {a + t} \right)\left( {c + t} \right)}}} \right)\left( {a - c} \right)\left( {b - c} \right)}\]so, ineq clear true.
+	\begin{flushright}
+		[solved by kuing]
+	\end{flushright}
+	\textbf{Solution 3:} Let$$ f(t) = \frac {a}{b} + \frac {b}{c} + \frac {c}{a} - \left( {\frac {{a + t}}{{b + t}} + \frac {{b + t}}{{c + t}} + \frac {{c + t}}{{a + t}}} \right)$$ where $(t \ge 0)$. Then we have$$ f'(t) = \frac {a + t}{(b + t)^2} + \frac {b + t}{(c + t)^2} + \frac {c + t}{(a + t)^2} - \frac {1}{a + t} - \frac {1}{b + t} - \frac {1}{c + t}$$easy to prove that$$ \frac {a + t}{(b + t)^2} + \frac {b + t}{(c + t)^2} + \frac {c + t}{(a + t)^2} \ge \frac {1}{a + t} + \frac {1}{b + t} + \frac {1}{c + t}$$Thus, we get $ f'(t) \ge 0$, so we have$$ f(t) \ge f(0) = 0$$and get the result.
+	\begin{flushright}
+		[solved by kuing]
+	\end{flushright}
+\item Let $ x,y,z > 0$, $$ f(t) = \frac {y + z}{(y + z)^2 + tx(x + y + z)} + \frac {z + x}{(z + x)^2 + ty(x + y + z)} + \frac {x + y}{(x + y)^2 + tz(x + y + z)} - \frac {18}{(4 + 3t)(x + y + z)}$$if $ t \geq 2$, then: $ f(t) \geq 0$ else if $ \frac {5}{3}\geq t\geq \frac {52}{57} - \frac {16}{57}\sqrt {7}$ then: $ f(t) \le 0$
+
+\textbf{Solution:} $$ f(t) = \frac{y + z}{(y + z)^2 + tx(x + y + z)} + \frac{z + x}{(z + x)^2 + ty(x + y + z)} + \frac {x + y}{(x + y)^2 + tz(x + y + z)} - \frac{18}{(4 + 3t)(x + y + z)}$$ if $ t \geq 2$, then: $ f(t) \geq 0$ 
+\begin{align*}
+f(t) \geq 0\iff & (6t^2 - 10t)\sum(x^4(x - y)(x - z)) + ( - 33t + 13t^2 + 3t^3 + 4)\sum(x^3(y + z)(x - y)(x - z))\\
+& + (6 - 32t - 13t^2 + 15t^3)(x - y)^2(y - z)^2(z - x)^2\\
+& + (8 - 36t - 80t^2 + 48t^3)\sum(y^2z^2(x - y)(x - z))\\
+& + ( - 146t + 12t^2 + 36t^3 + 24)xyz\sum(x(x - y)(x - z)) \\
+&+ (12 - 63t - 36t^2 + 36t^3)xyz\sum((y + z)(x - y)(x - z))\geq 0
+\end{align*}
+
+
+easy prove $ t\geq 2$
+\begin{align*}
+&6t^2 - 10t\ge 0\\
+&- 33t + 13t^2 + 3t^3 + 4\geq 0\\
+&6 - 32t - 13t^2 + 15t^3\ge 0\\
+& 8 - 36t - 80t^2 + 48t^3\geq 0\\
+&- 146t + 12t^2 + 36t^3 + 24\ge 0\\
+&12 - 63t - 36t^2 + 36t^3\geq 0
+\end{align*}
+so $ t \geq 2$ then $ f(t) \geq 0$.
+
+
+we can prove $ \frac {52}{57} - \frac {16}{57}\sqrt {7}\le t \le \frac {5}{3}$
+\begin{align*}
+&6t^2 - 10t\le 0\\
+& - 33t + 13t^2 + 3t^3 + 4\leq 0\\
+& 6 - 32t - 13t^2 + 15t^3\le 0\\
+& 8 - 36t - 80t^2 + 48t^3\leq 0\\
+& - 146t + 12t^2 + 36t^3 + 24\le 0\\
+&12 - 63t - 36t^2 + 36t^3\leq 0
+\end{align*}
+so $ \frac {52}{57} - \frac {16}{57}\le t \le \frac {5}{3}$ then $ f(t) \leq 0$
+\begin{flushright}
+	[solved by hedeng123]
+\end{flushright}
+
+\end{enumerate}
+%==============================================
+\section{Unsolved Problems}
+
+\begin{enumerate}
+	\item Let$ x_1,x_2,x_3,x_4$ be real positive numbers and$ x_1+x_2+x_3+x_4=1$, Prove that $$ \frac {x_1}{x_2} + \frac {x_2}{x_3} + \frac {x_3}{x_4} + \frac {x_4}{x_1} \geq \frac {1 - x_1}{1 - x_2} + \frac {1 - x_2}{1 - x_3} + \frac {1 - x_3}{1 - x_4} + \frac {1 - x_4}{1 - x_1}$$
+	\item Let $a,b,c,d>0$, prove that\[\frac{4}{\sqrt{13}}=\sqrt {{\frac {a}{a+4 \left( b+c+d \right) }}}+\sqrt {{\frac {b}{b+4 \left( a+c+d \right) }}}+\sqrt{{\frac {c}{c+4 \left( d+a+b \right) }}}+\sqrt {{\frac {d}{d+4 \left( a+b+c \right) }}}\]equality hold when $a=b=c=\dfrac{d}{27}$
+	\item Let $ x_1,x_2,x_3,x_4$ are positive real numbers, prove that:$$ \frac {1}{6} \geq {\frac {1}{\left( {\it x_2} + {\it x_3} + {\it x_4} \right) \left( {{\it x_1 }}^{ - 1} + {{\it x_2}}^{ - 1} + {{\it x_3}}^{ - 1} + {{\it x_4}}^{ - 1} \right) }} + {\frac {1}{\left( {{\it x_2}}^{ - 1} + {{\it x_3}}^{ - 1} + {{\it x_4}}^{ - 1} \right) \left( {\it x_1} + {\it x_2} + {\it x_3} + {\it x_4} \right) }}$$
+	\item Let $ x_1,x_2,....,x_n$ are positive real numbers,$ n \geq 3$, prove that:$$ \frac {2}{n(n - 1)}\geq \frac {1}{\sum_{i = 2}^n{x_i}\sum_{i = 1}^n{x_i^{ - 1}}} + \frac {1}{\sum_{i = 2}^n{x_i^{ - 1}}\sum_{i = 1}^n{x_i}}$$
+	\item Let $ x_1,x_2,x_3,x_4$ are positive real numbers, prove that:$$ \frac{1}{4} \geq {\frac {1}{\left( {\it x_2} + {\it x_1} \right) \left( {{\it x_1}}^{ - 1} + {{\it x_2}}^{ - 1} + {{\it x_3}}^{ - 1} + {{\it x_4}}^{ - 1} \right) }} + {\frac { 1}{\left( {{\it x_1}}^{ - 1} + {{\it x_2}}^{ - 1} \right) \left( {\it x_1} + {\it x_2} + {\it x_3} + {\it x_4} \right) }}$$
+	
+\end{enumerate}
+
+
+%----------------------------------------------
+\chapter{More than 4 Variable Inequalities}
+\section{Solved Problems}
+\begin{enumerate}
+	\item Let $ x_1,x_2,x_3,x_4 \geq0$,prove that:$$\splitdfrac{2(x_1+x_2+x_3+x_4)^2(x_1^2x_2^2+x_2^2x_3^2+x_3^2x_4^2+x_4^2x_1^2)}{\geq (x_1x_2+x_2x_3+x_3x_4+x_1x_4)^2(x_1^2+x_2^2+x_3^2+x_4^2+x_1x_2+x_2x_3+x_3x_4+x_1x_4)}  $$
+	\textbf{Solution:} $$\splitdfrac{0\leq \left( {\it x_1} + {\it x_2} + {\it x_3} + {\it x_4} + {\it x_5} \right) ^{2 } \left( {{\it x_1}}^{2}{{\it x_2}}^{2} + {{\it x_2}}^{2}{{\it x_3}}^{2} + {{ \it x_3}}^{2}{{\it x_4}}^{2} + {{\it x_4}}^{2}{{\it x_5}}^{2} + {{\it x_5}}^{2} {{\it x_1}}^{2} \right)}{- \left( {\it x_1}\,{\it x_2} + {\it x_2}\,{\it x_3} + {\it x_3}\,{\it x_4} + {\it x_4}\,{\it x_5} + {\it x_5}\,{\it x_1} \right) ^{3}} $$
+\end{enumerate}
+%==============================================
+\section{Unsolved Problems}
+\begin{enumerate}
+	\item Let $ a,b,c,k_1,k_2,k_3$be real positive numbers and $ a + b + c = 1$ give the minimum and the maximum of $$ \frac {a + k_1}{b + k_2} + \frac {b + k_2}{c + k_3} + \frac {c + k_3}{a + k_1}$$ in terms of $ k_1,k_2,k_3$
+	\item $a,b,c,x,y,z$ be positive numbers\[ \frac {x}{y} + \frac {y}{z} + \frac {z}{a} + \frac {a}{b} + \frac {b}{c} + \frac {c}{x} \ge 3 + \frac {{x + a}}{{y + b}} + \frac {{y + b}}{{z + c}} + \frac {{z + c}}{{x + a}}\]
+	\item Let $x_1,x_2,x_3,x_4,x_5$ be positive real numbers, prove that $$\frac{1}{(x_1+x_2+x_3)(\frac{1}{x_1}+\frac{1}{x_2}+\frac{1}{x_3}+\frac{1}{x_4}+\frac{1}{x_5})}+\frac{1}{(\frac{1}{x_1}+\frac{1}{x_2}+\frac{1}{x_3})(x_1+x_2+x_3+x_4+x_5)} \le \frac{2}{15}$$
+	\item Let $x_1,x_2,x_3,x_4,x_5, x_6$ be positive real numbers, prove that$$\splitdfrac{\displaystyle{\frac{1}{9}\leq {\frac {1}{\left( { x_1} + { x_2} + { x_3} \right) \left( {{ x_1}}^{ - 1} + {{x_2}}^{ - 1} + {{ x_3}}^{ - 1} + {{x_4}}^{ - 1} + {{ x_5}}^{ - 1} + {{ x_6}}^{ - 1} \right) }}}}{+ \displaystyle{{\frac {1}{\left( {{ x_1}}^{ - 1 } + {{\it x_2}}^{ - 1} + {{ x_3}}^{ - 1} \right) \left( { x_1} + { x_2} + { x_3} + { x_4} + { x_5} + { x_6} \right) }}}} $$
+\end{enumerate}
+%----------------------------------------------
+\chapter{$n$--Variable Inequalities}
+\section{Solved Problems}
+
+%==============================================
+\section{Unsolved Problems}
+
+\begin{enumerate}
+	\item Let $x_i>0,i=1,...,n,n\geq 3,S=\sum_{i=1}^n{x_i}$,prove that\[n\sqrt {{\frac {1}{1+ \left( n-1 \right) n}}}\geq \sum_{i=1}^n{\sqrt {{\frac {{\it x_i}}{{\it x_i}+n \left( S-{\it x_i} \right) }}}}\]equality hold $x_1=x_2...=\dfrac{x_n}{(n-1)^2}$
+	\item Prove or disprove that if $x_i>0$ for $i=1,2,\cdots,n$ where $n\geq 3$ and $x_{n+1}=x-1, x_{n+2}=x_2$ then \[\sum \limits_{i=1}^nx_i\sum \limits_{i=1}^n \frac{1}{x_i+x_{i+1}}-\frac{n^2}{2}\geq\sum \limits_{i=1}^n \frac{x_i}{x_{i+1}+x_{i+1}}-\frac{n}{2} \]
+	\item Let $ x_i$ are positive real numbers for all $i=1,2,\cdots,n$, prove that:\[\sum_{i=1}^n\frac{x_i+x_{i+1}}{x_{i+2}}\geq n+2\sum_{i=1}^n \frac{x_i}{x_{i+1}+x_{i+2}}\]
+	\item Let $ x_1,x_2,...,x_n > 0,\ n \geq 2 ,k \geq n - 1,$, prove that:\[{ \frac {2}{k + n - 1} \geq \frac {x_1}{kx_1 + \sum\limits_{i = 2}^n{x_i}} + \frac {x_1^{ - 1}}{kx_1^{ - 1} + \sum\limits_{i = 2}^n{x_i^{ - 1}}}}\]
+	\item Let $ x_1,x_2,...,x_n > 0,\ n \geq 2 ,k \geq n - 1,$, prove that:\[\frac {\sum\limits_{i = 2}^n{x_i}}{kx_1 + \sum\limits_{i = 2}^n{x_i}}+\frac {\sum\limits_{i = 2}^n{x_i^{-1}}}{kx_1^{-1} + \sum\limits_{i = 2}^n{x_i^{-1}}} \geq \frac{2(n - 1)}{k + n - 1}\]
+	\item Let $ x_1,x_2,....,x_n$ are positive real numbers,$ n \geq 3$, prove that:$$ \frac {2}{n(n - 1)}\geq \frac {1}{\sum_{i = 2}^n{x_i}\sum_{i = 1}^n{x_i^{ - 1}}} + \frac {1}{\sum_{i = 2}^n{x_i^{ - 1}}\sum_{i = 1}^n{x_i}}$$
+	\item Let $x_i> 0,\ i=1,2,\cdots,n$ $$\frac {2}{kn}\geq \frac {1}{\sum_{i = 1}^k{x_i}\sum_{i = 1}^n{x_i^{ - 1}}} + \frac {1}{\sum_{i = 1}^k{x_i^{ - 1}}\sum_{i = 1}^n{x_i}}$$or$$\frac {2}{kn}\le \frac {1}{\sum_{i = 1}^k{x_i}\sum_{i = 1}^n{x_i^{ - 1}}} + \frac {1}{\sum_{i = 1}^k{x_i^{ - 1}}\sum_{i = 1}^n{x_i}}$$
+	\item Let $ x_i \geq 0,i = 1,2,...,n,$ $n \geq 3,x_{n + 1} = x_i$, prove   that:$$\frac{n^2}{4}\geq \sum \limits_{i=1}^n\frac{x_i}{x_i+x_{i+1}}\cdot \sum \limits_{i=1}^n\frac{x_i^{-1}}{x_i^{-1}+x_{i+1}^{-1}}\geq n-1+2^n\left(\frac{n^2}{4}-n+1\right)\prod \limits_{i=1}^n\frac{x_i}{x_i+x_{i+1}}$$
+	\item Let $ x_1,x_2,...,x_n \geq 0,n \geq 3,\sum_{i = 1}^n{x_i} = S,x_0 = x_n$,prove that:$$ \sum{\frac {1}{x_i^t}(\frac {1}{S - x_{i - 1}} - \frac {1}{S - x_i})} \geq0 (t \geq 0)$$and$$ \sum{\frac {1}{x_i^t}(\frac {1}{S - x_{i - 1}} - \frac {1}{S - x_i})} \le0 (t \le 0)$$
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{enumerate}
+
+
+%----------------------------------------------
+\chapter{Geometric Inequalities}
+\section{List of Symbols}
+
+\begin{tabular}{lcl}
+	$a,b,c$ & $\implies$ & The lengths of sides of a triangle\\
+	$R$ & $\implies$ & The circumradius\\
+	$r$ & $\implies$ & The radius of the incircle\\
+	$r_a,r_b,r_c$ & $\implies$ & The radii of excircles\\
+	$h_a,h_b,h_c$ & $\implies$ & The altitudes\\
+	$m_a,m_b,m_c$ & $\implies$ & The lengths of medians\\
+	$w_a,w_b,w_c$ & $\implies$ & The bisectors of angles\\
+	$S$ & $\implies$ & The area of a triangle 
+\end{tabular}
+\pagebreak
+\section{Solved Problems}
+
+\begin{enumerate}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\item Prove that in $\triangle ABC$, with the usual notations, the following inequality holds:$$\frac{1}{8}\,a \left( \left( s-b \right) ^{-1}+ \left( s-c \right) ^{-1}\right) {\it h_a}+\frac{1}{2}\,{\it h_a}\geq {\it w_a}$$
+	\textbf{Solution:} \begin{align*}
+	& \left( \frac{1}{8}\,a \left( \left( s-b \right) ^{-1}+ \left( s-c \right) ^{-1} \right) {\it h_a}+\frac{1}{2}\,{\it h_a} \right) ^{2}-{{\it w_a}}^{2}\\
+	= & \frac{1}{16}\,{\frac { \left( b-c \right) ^{2} \left( a+b+c \right) \left( b+c-a\right) \left( \left( b-c \right) ^{2} \left( a+b+c \right)\left( b+c-a \right) +{a}^{4}+12\, \left( s-b \right) {a}^{2} \left(s-c \right) \right) }{ \left( a+c-b \right) {a}^{2} \left( a+b-c\right) \left( b+c \right) ^{2}}}
+	\end{align*} 
+	\item In triangle, prove$$\splitfrac{{\dfrac{\cos \left( A \right) \cos \left( B \right) \cos \left( A-B\right) }{1+\cos \left( C \right) }}+{\dfrac {\cos \left( A \right)\cos \left( C \right) \cos \left( A-C \right) }{1+\cos \left( B\right) }}}{+{\dfrac {\cos \left( B \right) \cos \left( C \right) \cos\left( B-C \right) }{1+\cos \left( A \right) }}\geq 4\,\cos \left( A \right) \cos \left( B \right) \cos \left( C \right) }$$
+	\textbf{Solution:} $$\splitfrac{{{\it u3}}^{2} \left( 9\,{r}^{2}+{s}^{2} \right) +2\,{\it u1}\,{r}^{2}\left( 8\,{r}^{3}+11\,R{r}^{2}+12\,r{R}^{2}+4\,{R}^{3} \right) }{+2\,{\it u10}\, \left(24\,{r}^{3}+38\,R{r}^{2}+40\,r{R}^{2}+7\,{s}^{2}R\right) +2\,{\it u3}\,R \left( 16\,{R}^{3}+7\,r{s}^{2} \right) }$$
+	\begin{flushright}
+		[Proposed by xzlbq]
+	\end{flushright}
+	\item In acute triangle, prove\[\sum{\frac{\cos{B}\cos{C}}{1+\cos{2A}}}\geq \frac{3}{2}\]
+	\begin{flushright}
+		[Proposed by xzlbq]
+	\end{flushright}
+	\textbf{Solution 1:} $${{\it u3}}^{2} \left( 4\,{R}^{2}+{r}^{2}+{s}^{2}+4\,Rr \right) +20\,{\it u4}\,{\it u3}\,{R}^{2} \left( 2\,R+r+s \right) +{\it u10}\,\left( 8\,{r}^{3}+32\,R{r}^{2}+8\,r{s}^{2} \right) +16\,{\it u3}\,{R}^{3}r$$
+	\begin{flushright}
+		[Proposed by xzlbq]
+	\end{flushright}
+	\textbf{Solution:} By AM-GM,$$\sum{\frac{\cos B\cos C}{1+\cos2A}}=\frac{1}{2}\sum\frac{\cos B\cos C}{ \cos^2A}\geq \frac{3}{2}$$
+	\begin{flushright}
+		[Proposed by sqing]
+	\end{flushright}
+\item Let ABC be a triangle,prove that:$$ r_a + r_b + r_c\geq w_aw_bw_c(\frac {1}{w_a^2} + \frac {1}{w_b^2} + \frac {1}{w_c^2}) \geq \sqrt {3}s$$
+\textbf{Solution:} $$ r_a + r_b + r_c\geq w_aw_bw_c\left( \frac {1}{w_a^2} + \frac {1}{w_b^2} + \frac {1}{w_c^2}\right) $$ $$\iff (r_a + r_b + r_c)^2\geq \left( w_aw_bw_c\left( \frac {1}{w_a^2} + \frac {1}{w_b^2} + \frac {1}{w_c^2}\right) \right) ^2\cdots(*)$$substitution $ a = x + y,b = y + z,c = z + x$ $$ (*)\iff\sum_{sym} \left( x^3y^2 - x^2y^2z\right) \geq 0$$from Muirhead theorem the inequality holds
+	\begin{flushright}
+	[Proposed by hedeng123]
+\end{flushright}
+\end{enumerate}
+
+%==============================================
+\section{Unsolved Problems}
+
+\begin{enumerate}
+	\item In any triangle$$\frac {a}{b} + \frac {b}{c} + \frac {m_a}{m_b} + \frac {m_b}{m_c} \geq 4$$	
+	\item In acute triangle $$\frac {a}{b} + \frac {b}{c} + \frac {w_a}{w_b} + \frac {w_b}{w_c} \geq 4$$
+	\item In any triangle $$\left( {\frac {2\,{\it r_a} + {\it w_a}}{{\it r_a}\, \left( b + c \right) }} + {\frac {2\,{\it r_b} + {\it w_b}}{{\it r_b}\, \left( c + a \right) }} + {\frac {2\,{\it r_c} + {\it w_c}}{{\it r_c}\, \left( a + b \right) }} \right) a \geq \frac {9}{2}\,{\frac {2\,{\it w_b} + 2\,{\it w_c} - {\it w_a}}{{\it w_a} + {\it w_b} + {\it w_c}}}$$	
+	\item In any triangle$$\left( {\frac {2\,{\it r_a} + {\it w_a}}{{\it r_a}\, \left( b + c \right) }} + {\frac {2\,{\it r_b} + {\it w_b}}{{\it r_b}\, \left( c + a \right) }} + {\frac {2\,{\it r_c} + {\it w_c}}{{\it r_c}\, \left( a + b \right) }} \right) a \geq \frac {9}{2}\,{\frac {2\,{\it h_b} + 2\,{\it h_c} - {\it h_a}}{{\it h_a} + {\it h_b} + {\it h_c}}}$$
+	\item In any triangle $${\frac {81}{2}}\, \left( s - a \right) ar\leq {\it w_a}\, \left( {\it w_a} + {\it w_b} + {\it w_c} \right) ^{2}$$
+	\item In any triangle$$\sqrt {\cot\frac {B}{2}\cot\frac {C}{2}} \geq \frac {27}{2}\frac {\cos\frac {B}{2} + \cos\frac {C}{2} - \cos\frac {A}{2}}{(\cos\frac {B}{2} + \cos\frac {C}{2} + \cos\frac {A}{2})^2}$$
+	\item In any triangle$$\frac {r_a}{r_b + r_c} + \frac {\cos{A}}{\cos{B} + \cos{C}} + \sin\frac {A}{2}\geq \frac {3}{2}$$
+	\item In any triangle$$sw_a+w_bw_c\tan\frac{A}{2} \geq bw_b+cw_c;$$
+	\item In any triangle$$\frac {w_a}{r_a} + \frac {w_b + w_c}{w_a}\geq 3(\frac {a}{b + c} + \frac {w_a}{w_b + w_c})\geq 3$$
+	\item In any triangle$$m_bm_c\geq \frac {\sqrt {3}}{12}a(9r + \sum{h_a})$$
+	\item In any triangle$$\frac {1}{2} \geq e_b(1 - e_b) + e_c(1 - e_c) \geq \frac {r}{R}$$where$$(e_b,e_c) = \left( \sin\frac {B}{2},\sin\frac {C}{2}\right) ,\left( \frac {r_b}{r_b + w_b},\frac {r_c}{r_c + w_c}\right) ,\left( \frac {r}{w_b - r},\frac {r}{w_c - r}\right) $$
+	\item In any triangle$$\cos\frac {B - C}{2}\cos^{ - 1}\frac {A}{2}\geq (\sin\frac {A}{2} + \sin\frac {B}{2})\cos^{ - 1}\frac {C}{2} + (\sin\frac {A}{2} + \sin\frac {C}{2})\cos^{ - 1}\frac {B}{2} - (\sin\frac {B}{2} + \sin\frac {C}{2})\cos^{ - 1}\frac {A}{2}\geq \frac {2r}{R}\cos^{ - 1}\frac {A}{2}$$
+	\item In any triangle$$a(b+c) \geq \frac{4}{9}(w_b+w_c)\sum{w_a}$$
+	\item In any triangle$$ \frac {w_a - r}{w_b + w_c}-\frac {s - a}{s} \geq \frac {1}{2}\left( \frac {w_a}{w_b + w_c} + \frac {a}{b + c} - 1\right) \geq 0$$
+	\item In any triangle$$2\sin\frac {B}{2}\sin\frac {C}{2} + \sin\frac {B}{2} + \sin\frac {C}{2}\geq\cos\frac {A}{2}(\sin{B} + \sin{C})$$
+	\item In any triangle$$\frac {3}{2}\sum\frac {w_a}{a}\geq \sum\cos^{ - 1}\frac {A}{2} - \sum\tan\frac {A}{2}\geq \sqrt {3}$$
+	\item In any triangle$$\frac {9}{16}\frac {(b + c)^2}{s(s - a)}\geq 1 + \frac {l_b + l_c}{l_a}$$where$$ \left( l_a,l_b,l_c\right)  = \left( w_a,w_b,w_c\right) ,\left( m_a,m_b,m_c\right) $$
+	\item In any triangle$$ \frac {w_b}{s - b} + \frac {w_c}{s - c}\geq 3\sqrt {3}\left( \frac {l_b^{ - 1} + l_c^{ - 1}}{l_a^{ - 1} + l_b^{ - 1} + l_c^{ - 1}}\right) $$where$$ \left( l_a,l_b,l_c\right)  = \left( h_a,h_b,h_c\right) ,\left( w_a,w_b,w_c\right) $$
+	\item In any triangle$$\frac{s}{w_b+w_c}\geq \cos\frac{A}{2}$$
+	\item In any triangle$$\frac {b + c}{w_b + w_c}\geq \frac {3\sqrt {3}}{2}\frac {bc}{s^2}$$
+	\item In any triangle$$\sum{(w_a - w_b)(w_a - w_c)(w_a - h_a)}\geq0$$	
+	\item In any triangle$$2\sum\frac {r_b + r_c}{w_a} \le \sum\frac {(r_a + r_b)(r_a + r_c)}{w_bw_c}$$
+	\item In any triangle$$2\sum\frac {r_b + r_c}{w_a} + \frac {1}{8}\frac {1}{r^2}(s^2 - 31r^2 + 2Rr) \geq \sum\frac {(r_a + r_b)(r_a + r_c)}{w_bw_c}$$
+	\item In any triangle$$\sum\frac {w_a - kr}{w_b + w_c}\geq \frac {3}{2} - \frac {1}{2}k\, (k\geq0)$$
+	\item In any triangle$$bw_b+cw_c\geq \frac{1}{2}aw_a+2S+\frac{27}{2}\frac{R}{s}r^2$$
+	\item In any triangle$$ (a - b)[w_b + tw_c - (t + 1)w_a] + (b - c)[w_c + tw_a - (t + 1)w_b]\geq 0$$where $(11\geq t\geq - \frac {5}{6})$
+	\item In any triangle$$\frac {(w_b + r_b)(w_c + r_c)}{(w_a + w_b)(w_a + w_c)}\geq \frac {r_abc}{(r_a + w_a)^2r}\geq 1$$
+	\item In any triangle$$\sum\frac {\cos\frac {B}{2} + \cos\frac {C}{2}}{\sin\frac {B}{2} + \sin\frac {C}{2}} = \prod\frac {\cos\frac {B}{2} + \cos\frac {C}{2}}{\sin\frac {B}{2} + \sin\frac {C}{2}}$$
+	\item In any triangle$$w_a\left( \frac {w_b}{r_b} + \frac {w_c}{r_c}\right)\geq w_b + w_c$$
+	\item In any triangle$$\frac{3\sqrt{3}}{8}bc(b+c)\geq w_a^2(w_b+w_c)$$
+	\item In any triangle$$\frac {\cos{A}}{\cos{B} + \cos{C}} + \frac {\sin{A}}{\sin{B} + \sin{C}}\geq \frac {1}{2} + \cos{A}$$
+	\item In any triangle$$\sum\frac{w_a}{b+c}\geq \frac{1}{2}\sum\frac{-w_a+w_b+w_c}{a}$$
+	\item In any triangle$$\frac{1}{2}\sqrt {\frac {(a + b)(b + c)(c + a)}{s}} + 2r \geq \sum{\frac {a(s - a)}{w_a}}$$
+	\item In any triangle$$\frac {1}{2}R\left( \sum\frac {w_bw_c}{w_a}\right) ^2\geq\sum{w_a^3}$$
+	\item In any triangle$$\prod\cos\frac {B - C}{2}\geq \prod{\left( \cos{A} + \sin\frac {A}{2}\right) }$$
+	\item In any triangle$$\prod{\left( \frac {b}{w_b} + \frac {c}{w_c}\right) }\geq \frac {32}{9}\sum\frac {a}{h_a}$$
+	\item In any triangle$$\sum\cos\frac {A}{2}\geq \frac {1}{2}\sum\frac {w_b + w_c}{a}\geq \frac {27}{16}\prod{\frac {s - b}{w_b} + \frac {s - c}{w_c}}\geq\sum\sin{A}$$
+	\item In any triangle$$ \frac {5}{2}\sum\frac {r_a}{r_b + r_c}\geq \sum{(\sin\frac {B}{2} + \sin\frac {C}{2} - \sin\frac {A}{2})^2} + 3\geq\frac {5}{2}\sum\frac {a}{b + c}$$
+	\item In any triangle$$\sum\frac {w_a}{w_b}\geq 1 + \frac {2}{3}\sum\frac {w_a}{h_a}$$
+	\item In any triangle$$\sum{w_a}\geq\sum\frac {r(w_b + w_c)(r_a + w_a)}{bc}\geq\sum{h_a}$$
+	\item In any triangle$$\prod\cos\frac {A}{2}\geq \prod{\left( \cos\frac {B}{2} + \cos\frac {C}{2} - \cos\frac {A}{2}\right) }\geq\prod{\sin{A}}$$
+	\item In any triangle$$\sum{w_a^5}\geq rs^5$$
+	\item In any triangle$$(a + b + c)bc\geq (b + c)(w_b + w_c)w_a$$
+	\item In any triangle$$\frac {2}{3}\sum{h_a}\geq\sum\frac {h_b + h_c}{w_a}\geq6r$$
+	\item In any triangle$$ \sum{w_a^3w_b}\geq3(\frac {w_a}{w_b} + \frac {w_b}{w_c} + \frac {w_c}{w_a})S^2$$
+	\item In any triangle$$ \left( \sum\frac {w_a}{a}\right) ^2\geq\frac {55}{12} + \frac {13}{35}\sum \frac {b + c}{a}$$
+	\item In any triangle$$ \left( \sum\frac {w_a}{a}\right) ^2\geq\frac {55}{12} + \frac {13}{35}\left( 1 - \frac {2r}{R}\right) $$
+	\item In any triangle$$\sum{r_a}\sum{r_a^{ - 1}}\geq\sum\frac {w_b + w_c}{w_a - r}\geq \sum{a}\sum{a^{ - 1}}$$
+	\item In any triangle$$(2r_a + w_a)(w_a - r)(w_b + w_c)\geq4w_aw_bw_c$$
+	\item In any triangle$$w_cr_c + w_br_b\geq w_a(w_b + w_c)$$
+	\item In any triangle$$0\geq (r_aw_a - w_bw_c)(r_bw_b - w_cw_a)(r_cw_c - w_aw_b)$$
+	\item In any triangle$$\sum{w_bw_c}\geq S\sqrt {9 + 6\sum\frac {w_a}{h_a}}$$
+	\item In any triangle$$\sqrt {3}\geq\sum\frac {s - a}{w_a}\geq\frac {2}{3}\sum\cos\frac {A}{2}$$
+	\item In any triangle$$\frac {4}{5}w_a + \frac {9}{20}\frac {a(b + c)}{w_a}\geq w_b + w_c$$
+	\item In any triangle$$\sum\frac {w_a}{r_a}\sum\frac {r_a}{w_a}\geq\sum\frac {a}{b}\sum\frac {r_a}{r_b}$$
+	\item In any triangle$$ (w_b + r_b)(w_c + r_c) - (w_a + w_b)(w_a + w_c)\geq5[r_cw_c + r_bw_b - w_a(w_b + w_c)]\geq0$$	
+	\item In any triangle$$ \sum\frac {w_a}{a}\sum\frac {a}{w_a}\geq\sum{w_a}\sum\frac {1}{w_a}\geq\frac {3\sqrt {3}}{2}\sum\frac {a}{w_a}$$
+	\item In any triangle$$ 12Rr\geq\frac {\prod{w_b + w_c}}{\sum{w_a}}\geq\frac {8\sqrt {3}}{3}S$$	
+	\item In any triangle$$\sum \frac{a}{w_a}\geq \sum \frac{w_b^{-1} + w_c^{-1}}{b^{-1} + c^{-1}}\geq\sum\cos^{-1}\frac{A}{2}\geq2\sqrt{3}$$
+	\item In any triangle$$ (a + b)(w_a + w_b) + (a + c)(w_a + w_c)\geq (b + c)(w_b + w_c) + 4ah_a$$	
+	\item In any triangle$$\frac {s - a}{l_a^2} + \frac {s - b}{l_b^2}\geq\frac {s - c}{l_c^2} + \frac {l_c^2}{(s - c)s^2}$$	where\begin{align*} (l_a,l_b,l_c) &= (h_a,h_b,h_c),\, \text{in Acute triangle}\\ &=  (w_a,w_b,w_c)\\ &= \left( \frac {s(s - a)}{w_a},\frac {s(s - b)}{w_b},\frac {s(s - c)}{w_c}\right)\\ &=  (m_a,m_b,m_c) \end{align*}
+	\item In any triangle$$w_bw_cbc+w_cw_aca\geq w_aw_bab+\frac{4}{3}(w_a+w_b+w_c)^2r^2$$	
+	\item In any triangle$$k_2\left( \sum\frac {a}{b + c} - \frac {3}{2}\right) \geq \sum\frac {w_a - 2r}{w_a - r} - \frac {3}{2} \geq k_1\left( \sum\frac {a}{b + c} - \frac {3}{2}\right) $$	$max(k_1)=?$ when $min(k_2)=3$.
+	\item In any triangle$$(w_a+w_b+w_c)(2r_a+w_a)\geq 9w_bw_c$$	
+	\item In any triangle$$\sum\left( \frac {r_ah_a}{w_bw_c} - \frac {h_a}{w_a}\right) (a - b)(a - c)\geq0$$	
+	\item In any triangle$$\frac{1}{2}\sum((r_b-r_c)^2)\geq \sum{(w_b-r_b)(r_c-w_c)}\geq \frac{1}{2}\sum((b-c)^2)$$	
+	\item In any triangle\begin{enumerate}\item $$\sum\frac {r_a}{r_a + 2w_a}\geq1$$\item $$\sum\frac {r_a}{r_a + 2^{ - 1}w_a}\le2$$\item $$\sum\frac {r_a}{r_a + 2m_a}\geq1$$\end{enumerate}	
+	\item In any triangle$$\frac{9}{8}\frac{b+c}{w_a+w_b+w_c} \geq \cos\frac{A}{2}$$	
+	\item In any triangle$$w_a - r \geq \left( \frac {l_bl_c - r_ar}{r_a + l_a}\right) \left( \frac {b + c}{a}\right) $$	where$$(l_a,l_b,l_c) = (h_a,h_b,h_c),(w_a,w_b,w_c)$$
+	\item In any triangle$$\frac{a}{b+c}\frac{l_a}{l_a-r} \geq \frac{(w_b+w_c)^2}{(b+c)^2}$$	where$$(l_a,l_b,l_c) = (h_a,h_b,h_c),(w_a,w_b,w_c)$$
+	\item In any triangle$$\frac{w_a-r}{b+c-a}+\frac{w_b-r}{c+a-b}+\frac{w_c-r}{a+b-c} \geq \sqrt{3}$$	
+	\item In any triangle$$2\sum\cos\frac{A}{2} \geq \frac{b+c-a}{w_a-r}+\frac{c+a-b}{w_b-r}+\frac{a+b-c}{w_c-r} \geq 2\sum\sin{A}$$	
+	\item In any triangle$$\frac{1}{r}+\frac{1}{h_a} \geq \frac{1}{w_b}+\frac{1}{w_c}$$	
+	\item In any triangle$$1 + \frac {2(h_a + h_b + h_c)}{w_a + w_b + w_c} \geq \sum\frac {h_a}{w_a}$$	
+	\item In any triangle$$1 + \frac {1}{3}\sum{\sin^{ - 1}\frac {A}{2}} \geq \sum\cos^{ - 1}\frac {B - C}{2}$$	
+	\item Prove nice triangle Inequality:$$ \sqrt {w_bw_c}(\frac {1}{r_a} + \frac {1}{w_a}) \geq 2$$
+	\item Prove nice triangle Inequality:$$\sqrt {r_aw_a}(\frac {1}{w_b} + \frac {1}{w_c}) \geq 2$$
+	\item Let ABC be a triangle. Prove that$$ \frac{3\sqrt{3}}{2} \geq \frac{3}{8}\sum\frac{\sin{B}+\sin{B}}{\cos\frac{B}{2}\cos\frac{C}{2}} \geq \sum\cos\frac{A}{2}$$
+	\item Let ABC be a triangle,prove that:$$ \sum\frac {a}{w_a} \geq \sum\frac {(b + c)r_a}{(w_a + r_a)w_a} \geq \frac {8}{3}\sum\frac {\cos\frac {B}{2}\cos\frac {C}{2}}{\sin{B} + \sin{C}} \geq \sum\frac {1}{\cos\frac {A}{2}}$$
+	\item Let ABC be a triangle,prove that:$$ 2\sum\frac{\sin\frac{A}{2}}{\sin\frac{B}{2}\sin\frac{C}{2}} \geq \sum\frac{\cos{B}+\cos{C}}{\sin\frac{B}{2}\sin\frac{C}{2}} \geq \sum\frac{1}{\sin\frac{B}{2}\sin\frac{C}{2}}$$
+	\item Let ABC be a triangle,prove that:$$ \frac{a}{b}+\frac{b}{c}+\frac{c}{a} \geq 4\sum(\frac{h_a}{h_a+h_b})^2 \geq \frac{a+b}{b+c}+\frac{b+c}{c+a}+\frac{c+a}{a+b}$$
+	\item Let ABC be a triangle,prove that:$$ \frac {w_a^2}{(w_a + r_b)^2} + \frac {w_b^2}{(w_b + r_c)^2} + \frac {w_c^2}{(w_c + r_a)^2} \geq \frac {3}{4}$$
+	\item Let ABC be a triangle:$$ \frac {h_a^t}{(h_a + r_b)^t} + \frac {h_b^t}{(h_b + r_c)^t} + \frac {h_c^2}{(h_c + r_a)^t} \geq \frac {3}{2^t}$$prove that : if $t=4$,then this inequality holds and $ t(min) = ?$
+	\item Let ABC be a triangle:$$ \sum{a^2} \geq 4\sqrt {3}S +\frac {1}{2}\sum{(\frac {a}{b + c} + \frac {b + c}{a})(b - c)^2}$$
+	\item Let ABC be a triangle:$$\sum{a^2} \geq 4\sqrt {3}S + \frac {1}{2}\sum{(\frac {a}{b + c} + \frac {b + c}{a})(w_b - w_c)^2}$$
+	\item Let ABC be a triangle, prove that:$$ \sum\frac{r_a}{r_b} \geq \sum\frac{h_bh_c}{w_a^2} \geq \frac {\sum\cot\frac {A}{2}}{\sum\tan\frac {A}{2}} \geq \sum\frac {a}{b} \geq \sqrt {3}\sqrt {\frac {\sum\cot\frac {A}{2}}{\sum\tan\frac {A}{2}}} \geq \sum\frac {a + b}{b + c}$$
+	\item Let ABC be a triangle, prove that:$$\sum\frac {a}{b} \geq 2\sum\frac {h_a}{h_a + 3r} \geq \sum\frac {a + b}{b + c}$$
+	\item Let ABC be a triangle, prove that:$$ \frac{\sin{A}}{\cos\frac{B}{2}}+\frac{\sin{B}}{\cos\frac{C}{2}}+\frac{\sin{C}}{\cos\frac{A}{2}} \le 3$$
+	\item Let ABC be a triangle, prove that:$$2\sum\sin\frac{A}{2} \geq \frac {\sin{A}}{\cos\frac {B}{2}} + \frac {\sin{B}}{\cos\frac {C}{2}} + \frac {\sin{C}}{\cos\frac {A}{2}}$$
+	\item In any triangle $$ \frac {\sqrt {3}}{2}\sum\frac {a}{w_a}\geq \sum\frac {a}{b}$$
+	\item Let $ ABC$ is a triangle, $ w_a, w_b, w_c$ are bisectors of angles, $ h_a, h_b, h_c$ are altitudes respectively, $ r$ is radius of the incircle$$ h_a + h_b + h_c \geq 3(\frac {(s - b)(s - c)w_a}{w_bw_c} + \frac {(s - c)(s - a)w_b}{w_cw_a} + \frac {(s - a)(s - b)w_c}{w_aw_b}) \geq 9r$$
+	\item Let $ ABC$ is a triangle, $ w_a, w_b, w_c$ are bisectors of angles, $ h_a, h_b, h_c$ are altitudes respectively, $ r$ is radius of the incircle, prove that:$$ \frac{s-a}{w_a}+\frac{s-b}{w_b}+\frac{s-c}{w_c}+\frac{9}{8}\tan\frac{A}{2}\tan\frac{B}{2}\tan\frac{C}{2} \geq \frac{9}{8}\frac{w_a+w_b+w_c}{s}$$
+	\item Let $ ABC$ is a triangle, $ w_a, w_b, w_c$ are bisectors of angles, prove that:$$ \frac {w_a}{h_a} + \frac {w_b}{h_b} + \frac {w_c}{hc} \geq 1 + \frac {4abc}{(a + b)(b + c)(c + a)}(\frac {a}{w_a}\cot\frac {A}{2} + \frac {b}{w_b}\cot\frac {B}{2} + \frac {c}{w_c}\cot\frac {C}{2} - 2)$$
+	\item In any triangle$$ \left( \frac{1}{w_a-r}+\frac{1}{w_b-r}+\frac{1}{w_c-r}\right)\left( w_a+w_b+w_c\right)  \geq \frac{27}{2}$$
+	\item In any triangle$$ \left( \frac{1}{h_a-r}+\frac{1}{h_b-r}+\frac{1}{h_c-r}\right) \left( h_a+h_b+h_c\right)  \geq \frac{27}{2}$$
+	\item In any triangle $$ \frac{1}{2}\left( \frac {1}{w_a - 2r} + \frac {1}{w_b - 2r} + \frac {1}{w_c - 2r}\right)\geq  \frac {1}{w_a - r} + \frac{1}{w_b - r} + \frac {1}{w_c - r}$$
+	\item Let $ a,b,c$ denote the sides of a triangle opposite the angles $ \angle A,\angle B$, and $\angle  C$, respectively. Let $R$ the circumradius of the triangle. If angle $\angle A > 90^{\circ}$, $h_a$ is altitudes prove that $$\frac {a^2}{m_a^2} + \frac {8}{3}\frac {h_a}{m_a} \geq 4$$
+	\item Let $ a,b,c$ denote the sides of a triangle opposite the angles $ \angle A,\angle B$, and $\angle  C$, respectively. Let $R$ the circumradius of the triangle. If angle $\angle A > 90^{\circ}$ prove that$$\frac {b}{m_b} + \frac {c}{m_c} \le \frac {4\sqrt {3}}{3}$$
+	\item Let $ a,b,c$ denote the sides of a triangle opposite the angles $ \angle A,\angle B$, and $\angle  C$, respectively. Let $R$ the circumradius of the triangle. If angle $\angle A > 90^{\circ}$, $h_a$ is altitudes prove that$$m_b+m_c-2m_a \geq \frac{22}{3}(m_a-h_a)$$
+	\item In any triangle$$ \frac {w_b + w_c}{w_a} + 9\frac {r_a + w_a}{2r_a + w_a} \geq 8$$
+	\item In any trianle $$\frac {w_b^t + w_c^t}{w_a^t} + 9\frac {r_a^t + w_a^t}{2r_a^t + w_a^t} \geq 8$$where $t\in \mathbb{R}$
+	\item Let is a triangle, $ w_a,w_b,w_c$ be bisectors of angles,$ a = max(a,b,c)$, prove that:$$ \frac {w_a^{ - 1}}{w_b^{ - 1} + w_c^{ - 1}} \geq \frac {r_a}{r_a + w_a}$$whether holds$$\frac {w_a^{ - 1}}{w_b^{ - 1} + w_c^{ - 1}} \geq \frac {r_a}{r_a + m_a}$$
+	\item Let ABC is a triangle, $ a = max(a,b,c)$, prove that:$$ \frac {a}{b + c} + \frac {h_a}{h_b + h_c} \geq 1$$
+	\item Let is a triangle, $ w_a,w_b,w_c$ be bisectors of angles,prove that:$$ \frac {w_a^{ - 1}}{w_b^{ - 1} + w_c^{ - 1}} \geq \sin \frac {A}{2}$$
+	\item Let is a triangle, $ w_a,w_b,w_c$ be bisectors of angles,prove that:$$ \frac {\cos\frac {A}{2} + \cos\frac {B}{2} + \cos\frac {C}{2}}{\sin\frac {A}{2}} \geq \frac {4w_a + w_b + w_c}{a}$$
+	\item Let is a triangle, $ w_a,w_b,w_c$ be bisectors of angles,prove that:$$ \left( \cos\frac {A}{2} + \cos\frac {B}{2} + \cos\frac {C}{2}\right) \cos\frac {A}{2} \le \frac {4w_a + w_b + w_c}{8r}$$
+	\item In any triangle $$ \left( \frac {1}{w_a} + \frac {1}{w_b} + \frac {1}{w_c}\right) \frac {1}{m_a}\geq \frac {16}{(b + c)^2}$$
+	\item In any triangle$$ \frac{1}{m_a}+\frac{1}{m_b}+\frac{1}{m_c} \le \frac{3(4R+r)}{s^2}$$
+	\item Let ABC be a triangle,prove that:$$ \frac {b + c}{a} + \frac {x_b + x_c}{x_a} \geq \frac {x_b + x_c}{x_a}\frac {b + c}{a}$$where
+	$$\left( x_a,x_b,x_c\right)  =\left(m_a,m_b,m_c\right),\left(w_a,w_b,w_c\right),\left(\frac{s(s - a)}{w_a},\frac{s(s - b)}{w_b},\frac{s(s - c)}{w_c} \right)  $$
+	\item Let ABC be a triangle,prove that:$$ \frac {3}{2}\frac {b + c}{a + b + c} \geq \frac {\frac {w_b}{s - b} + \frac {w_c}{s - c} }{\frac {a}{w_a} + \frac {b}{w_b} + \frac {c}{w_c} }$$
+	\item In an triangle$$\frac {R}{2r} \geq \frac {1}{6}\frac {r_a + r_b + r_c}{h_a} + \frac {1}{6}\frac {m_a}{r} \geq \frac {m_a}{h_a}$$
+	\item In a triangle $$\frac {R}{2r} \geq \frac {r}{h_a} + \frac {1}{2}\frac {b^2 + c^2}{h_a(h_b + h_c)} \geq \frac {m_a}{h_a}$$
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\item In acute triangle, prove$$\sum {\frac{\sin{B}\sin{C}\cos{(B-C)}}{1+\cos{2A}}}\geq \frac{9}{2}$$Equality holds when $a=b=kc\, k=\dfrac{1}{8}(1+\sqrt{17})\, k=\dfrac{1}{8}(-1+\sqrt{17})$
+	\item In acute triangle, prove that\[{\it \sum} \left( \sqrt {{\frac {1}{\cos \left( A \right)  \left( 1+\cos \left( A \right)  \right) }}} \right) \geq 9\,{\frac {1}{\sin \left(	A \right) +\sin \left( B \right) +\sin \left( C \right) }}\]
+	\item In acute triangle, prove that\[\sqrt {{\frac {\cos \left( B-C \right) }{\cos \left( A \right)			\left( 1+\cos \left( A \right)  \right) }}}+\sqrt {{\frac {\cos\left( A-C \right) }{\cos \left( B \right)  \left( 1+\cos \left( B	\right)  \right) }}}+\sqrt {{\frac {\cos \left( A-B \right) }{\cos	\left( C \right)  \left( 1+\cos \left( C \right)  \right) }}}\geq 2\,\sqrt {3}\]
+\end{enumerate}
+
+\end{document}
