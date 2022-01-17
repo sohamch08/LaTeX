@@ -1,0 +1,57 @@
+-1\documentclass[12pt]{article}
+\usepackage[paperheight=7.8in,paperwidth=7.8in,margin=0.5in]{geometry}
+%\usepackage{fullpage}
+\usepackage{times}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{background}
+\usepackage{blindtext}
+\backgroundsetup{ scale=1, angle=0, opacity=1, contents={\begin{tikzpicture}[remember picture,overlay] \path [left color=white,right color=Orchid1] (current page.south west)rectangle (current page.north east);  \end{tikzpicture}} }
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\Large\bfseries}
+\setcounter{section}{3}
+\setcounter{subsection}{1}
+\pagestyle{empty}
+\begin{document}
+	\pagebreak 
+
+
+\subsection{Proof :-}
+\Large{We prove by cases:
+\begin{enumerate}
+	\item $M(t)\ge M(0)\ge M(-t)$ for $t>0$
+	\item $M(k_1)\ge M(k_2)$ for $k_1 \ge k_2$ with $k_1k_2>0$
+\end{enumerate} 
+\subsubsection{Case 1 :}
+Note that
+\begin{align*}
+&\ \displaystyle{\Bigg(\sum\limits_{i=1}^n w_ia_i^{t} \Bigg)^{\dfrac{1}{t}} } \ge  \displaystyle{\prod\limits_{i=1}^n a_i^{w_i}}\\
+\Longleftarrow &\ \frac{1}{t} \ln\Bigg( \sum_{i=1}^n w_i a_i^{t} \Bigg)  \ge \sum_{i=1}^n w_i \ln{a_i}, \quad \text{as } e^x \text{ is increasing} \\
+ \Longleftarrow &\ \ln\left( \sum_{i=1}^n w_i a_i^{t} \right) \ge \sum_{i=1}^n w_i \ln{a_i^t} \quad\text{as } t>0
+\end{align*}As $\ln(x)$ is concave, by Jensen's Inequality, the last inequality is true, proving $M(t)\ge M(0)$. By replacing $t$ by $-t$, the last inequality implies $M(0)\ge M(-t)$ as the inequality signs are flipped after multiplication by $-\dfrac{1}{t}$.
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

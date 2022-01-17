@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{anyfontsize}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage[paperheight=6in,paperwidth=6in,margin=0.6in]{geometry}
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\setlength{\parindent}{0cm}
+\usepackage{graphicx}
+\usepackage{background}
+\usepackage{blindtext}
+\backgroundsetup{ scale=1, angle=0, opacity=1, contents={\begin{tikzpicture}[remember picture,overlay] \path [left color=LightSkyBlue1, right color=white] (current page.south west)rectangle (current page.north east);  
+\end{tikzpicture}} }
+\graphicspath{{images/}}
+\setcounter{section}{5}
+\setcounter{subsection}{1}
+\pagestyle{empty}
+\begin{document}
+\color{black}
+\pagebreak
+
+
+\subsection{Proof:-}
+\begin{align*}
+& \sum_{k=1}^n \left[\frac{p_kf_k}{\displaystyle{\int_a^b f_k (x)dx}}\right]\geq \prod_{k=1}^n \left[\left(\frac{f_k (x)}{\displaystyle{\int_a^b f_k (x)dx}} \right)^{p_k}\right]\\
+\implies & \int_a^b \left[\sum_{k=1}^n \left(\frac{p_kf_k(x)}{\displaystyle{\int_a^b f_k (x)dx}}\right) \right]dx \geq \int_a^b \left[  \prod_{k=1}^n \left[\left(\frac{f_k (x)}{\displaystyle{\int_a^b f_k (x)dx}} \right)^{p_k}\right]\right]dx\\
+\implies & \sum_{k=1}^n \left[\frac{\displaystyle{p_k\int_a^bf_k(x)dx}}{\displaystyle{\int_a^b f_k (x)dx}}\right]\geq \frac{\displaystyle{\int_a^b \left[ 
+\prod\limits_{k=1}^n \left( f_k (x)\right)^{p_k}\right]dx }}{\displaystyle{\prod\limits_{k=1}^n \left[\left(\int_a^b f_k (x)dx \right)^{p_k}\right]}}\\
+\implies & \prod\limits_{k=1}^n \left[\left(\int_a^b f_k (x)dx \right)^{p_k}\right] \geq \int_a^b\left[ \prod_{k=1}^n\left(f_k (x)\right)^{p_k}\right]dx
+\end{align*}
+This completes the proof
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
