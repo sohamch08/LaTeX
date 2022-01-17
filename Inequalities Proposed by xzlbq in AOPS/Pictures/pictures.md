@@ -1,0 +1,1 @@
+# Picture for front page
