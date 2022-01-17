@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{authblk}
+\usepackage{titling}
+
+\title{\huge{Analysis Assignment 1\\ \hspace{5cm}- Rajeeva L. Karandikar}}
+\author{Soham Chatterjee\\Roll: BMC202175}
+\date{}
+
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\setlength{\parindent}{1cm}
+
+\begin{document}
+	\maketitle\pagebreak
+\begin{enumerate}
+\item \begin{enumerate}
+	\item[(i)] We know that if $b_n=\sup\{a_i\mid i\geq n.\ i,n\in\mathbb{N}\}$ then $\alpha=\lim\limits_{n\to\infty}b_n$. Hence $\exists \ N\in\mathbb{N}$ such that $$|b_n-\alpha|<\epsilon\implies \alpha-\epsilon<b_n<\alpha+\epsilon$$for all $n>N$. Since $\alpha-\epsilon$ is less than supremum of the set $\{a_i\mid i\geq n,\ i,n\in\mathbb{N}\}$ there exists a $a_m$ where $m\geq n$ such that $$\alpha-\epsilon<a_m\leq b_n\implies\alpha-\epsilon<a_m<\alpha+\epsilon$$Here $m\geq n>N\implies m>N$. Now if we take $\max\{N,k\}=N_1$, for all $n>N_1$, $ \alpha-\epsilon<b_n<\alpha+\epsilon$ and hence there exists a term of the sequence $a_m$ where $m\geq n$ such that the inequality  $$\alpha-\epsilon<a_m\leq b_n<\alpha+\epsilon$$satisfies where $m\geq n>N_1\geq k$. Hence $\forall\ k<\infty$ and $\epsilon>0$ $\exists\ m>k$ such that $$\alpha-\epsilon<a_m<\alpha+\epsilon$$
+	\item[(ii)]Using the statement of previous problem $\forall \epsilon>0$ and $k<\infty$ where $k\in\mathbb{N}$ $\exists \ m>k$ such that $$\alpha-\epsilon<a_m<\alpha+\epsilon$$
+	
+	\hspace{1cm}Now given that $\exists$ $\{n_j\mid 1\leq j\leq t\}$ where $n_1<n_2<\cdots<n_t$, $t\in\mathbb{N}$ such that$$\alpha-\frac{1}{j}<a_{n_j}<\alpha+\frac1j$$where $j\in\{1,2,\cdots,t\}$. Now if we choose $\epsilon=\frac{1}{t+1}$ and $k=n_t+1$ there exists $m>k$ such that$$\alpha-\frac{1}{t+1}<a_{m}<\alpha+\frac1{t+1}$$Now take $m=n_{t+1}$ then we have $n_{t+1}>n_t$ which satisfies the inequality$$\alpha-\frac{1}{t+1}<a_{n_{t+1}}<\alpha+\frac1{t+1}$$
+	\item[(iii)] Using the statement in problem (i) we can say that for $k_1=1$ and $\epsilon_1=1$ there exists $m>k_1$ such that $$\alpha-1<a_m<\alpha+1$$Take $m=n_1$. Now if we choose $k_2=m$ and $\epsilon_2=\frac12$ using the statement in previous problem there exists a $m'>k_2$ such that $$\alpha-\frac12<a_{m'}<\alpha+\frac12$$Take this $m'=n_2$. Now if there exists $\{n_j\mid 1\leq j\leq t\}$ where $t\in\mathbb{N}$ and $n_1<n_2<\cdots<n_t$ such that $$\alpha-\frac1j<a_{n_j}<\alpha+\frac1j$$$j\in\{1,2,\cdots,t\}$ there exists $n_{t+1}>n_t$ such that the following inequality satisfies$$\alpha-\frac1{t+1}<a_{n_{t+1}}<\alpha+\frac1{t+1}$$Hence by Mathematical Induction we can say that $\forall\ k\in\mathbb{N}$ there exists $a_{n_{k+1}}>a_{n_{k}}$ such that$$\alpha-\frac1{k+1}<a_{n_{k+1}}<\alpha+\frac1{k+1}$$Hence we get a sequence $\{a_{n_k}\}$ where $n_k>n_{k-1}$ such that $\forall \ k\in\mathbb{N}$ $$\alpha-\frac1k<a_{n_k}<\alpha+\frac1k$$Hence the sequence $\{a_{n_k}\}$ converges to $\alpha$. Therefore $\exists\ \{n_j\mid j\geq 1\} $ such that $n_j<n_{j+1}$ where $j\geq 1$ such that $$\lim\limits_{j\to\infty}a_{n_j}=\alpha\ [\text{Proved}]$$
+	\item[(iv)] First take the sequence $\{c_n\}$. Let $c=\lim\limits_{n\to\infty}\sup c_n$. Therefore using the statement in previous problem we can say that $\exists \{n_j\mid j\geq 1.\ j\in\mathbb{N}\} $ such that $n_j<n_{j+1}$ where $j\geq 1$ such that $$\lim\limits_{j\to\infty}c_{n_j}=c$$Given that any subsequence of the sequence $\{c_n\}$ converges to $\theta$. Therefore we can say $\theta=c$.
+	
+	\hspace{1cm}Now consider the sequence $|{-c_n}$. Suppose $d=\lim\limits_{n\to\infty}\sup (-c_n)$. Hence $\exists \{m_j\mid j\geq 1,\ j\in\mathbb{N}\} $ such that $m_j<m_{j+1}$ where $j\geq 1$ such that $$\lim\limits_{j\to\infty}(-c_{m_j})=d$$
+	
+	\hspace{1cm}Let $b_n=\sup\{(-c_k)\mid k\geq n,\ k,n\in\mathbb{N}\}$. Hence $b_n\geq (-c_k)$ $\forall \ k\geq n$. Hence $-b_n\leq c_k$ $\forall\ k\geq n$. Hence $-b_n=\inf\{c_k\mid\ k\geq n\}$. Hence $$-d=-\lim\limits_{n\to\infty}\sup (-c_n)=-\lim\limits_{n\to\infty}b_n=\lim\limits_{n\to\infty}(-b_n)=\lim\limits_{n\to\infty}\inf c_n$$Therefore $\exists \{m_j\mid j\geq 1,\ j\in\mathbb{N}\} $ such that $m_j<m_{j+1}$ where $j\geq 1$ such that $$\lim\limits_{j\to\infty}c_{m_j}=-d=\lim\limits_{n\to\infty}\inf c_n$$As any subsequence of the sequence $\{c_n\}$ converges to $\theta$ we can say $-d=\theta.$ Therefore$$\lim\limits_{n\to\infty}\sup c_n=\lim\limits_{n\to\infty}\inf c_n=\theta$$Hence we can say $$\lim\limits_{n\to\infty} c_n=\theta$$
+\end{enumerate}
+\item\begin{enumerate}
+	\item[(i)] Given that $\{b_n\}$ is a decreasing sequence. Therefore $b_1\geq b_2\geq b_3\geq\cdots$. Now $w_k=u_k+1=2^k+1$ and $v_k=2^{k+1}$ hence there are exactly $2^k$ terms from $w_k$ to $v_k$. Now $b_{w_k}\geq b_n$ for all $n\geq w_k$. Therefore $$\sum\limits_{j=w_k}^{v_k}b_j\leq \sum\limits_{j=w_k}^{v_k}b_{w_k}=2^kb_{w_k}$$Again $b_{v_k}\leq b_n$ for all $n\in\{1,2,\cdots,v_k\}$. Hence$$\sum\limits_{j=w_k}^{v_k}b_j\geq \sum\limits_{j=w_k}^{v_k}b_{v_k}=2^kb_{v_k}$$Therefore$$2^kb_{v_k}\leq \sum\limits_{j=w_k}^{v_k}b_j\leq 2^kb_{w_k}$$
+	\item[(ii)] As $\{b_n\}$ is a decreasing sequence. Therefore $b_1\geq b_2\geq b_3\geq\cdots$. Now  $\sum\limits_{n=1}^{\infty}b_n=\lim\limits_{k\to\infty}\sum\limits_{n=1}^kb_n$. Let $2^m<k\leq 2^{m+1}$ where $k\in\mathbb{N}$. Suppose Now suppose $\sum\limits_{n=1}^{\infty}2^nb_{2^n}$ converges.  Then\begin{align*}
+		& \sum\limits_{n=1}^kb_n\leq b_1+(b_2+b_3)+(b_4+b_5+b_6+b_7)+\cdots+\sum\limits_{n=2^i}^{2^{i+1}-1}b_n+\cdots+\sum\limits_{n=2^m}^{2^{m+1}-1}b_n\\
+		\implies & \sum\limits_{n=1}^kb_n\leq \sum\limits_{i=1}^{k}\Bigg(\sum\limits_{n=2^i}^{2^{i+1}-1}b_n\Bigg)\\
+		\implies & \sum\limits_{n=1}^kb_n\leq \sum\limits_{i=0}^{m}\Bigg(\sum\limits_{n=2^i}^{2^{i+1}-1}b_{2^i}\Bigg)\\
+		\implies & \sum\limits_{n=1}^kb_n\leq \sum\limits_{i=0}^{m}2^ib_{2^i}
+	\end{align*}Therefore$$\sum\limits_{n=1}^{\infty}b_n=\lim\limits_{k\to\infty}\sum\limits_{n=1}^kb_n\leq \lim\limits_{k\to\infty}\sum\limits_{n=0}^k2^nb_{2^n}=\sum\limits_{n=0}^{\infty}2^nb_{2^n}$$Hence $\sum\limits_{n=1}^{\infty}b_n$ converges  as  $\sum\limits_{n=1}^{\infty}2^nb_{2^n}$ converges. 
+
+\hspace{1cm}Now suppose $\sum\limits_{n=1}^{\infty}b_{n}$ converges. Then\begin{align*}
+	& \sum\limits_{n=1}^kb_n\geq  b_1+b_2+(b_3+b_4)+\cdots+\sum\limits_{n=2^i+1}^{2^{i+1}}b_n+\cdots +\sum\limits_{n=2^{m-1}+1}^{2^{m}}b_n\\
+	\implies & \sum\limits_{n=1}^kb_n\geq \frac{1}{2}b_1+b_2+2b_4+\cdots+2^{i}b_{2^{i+1}}+\cdots+2^{m-1}b_{2^m}\\
+	\implies &  \sum\limits_{n=1}^kb_n\geq \frac12\Bigg[\sum\limits_{i=0}^{m-1}2^{i}b_{2^{i+1}}\Bigg]
+\end{align*}Therefore$$\sum\limits_{n=1}^{\infty}b_n=\lim\limits_{k\to\infty}\sum\limits_{n=1}^kb_n\geq \lim\limits_{k\to\infty}\frac12\Bigg[\sum\limits_{n=0}^{k-1}2^{n}b_{2^{n+1}}\Bigg]=\frac12\Bigg[\lim\limits_{k\to\infty}\sum\limits_{n=0}^{k-1}2^{n}b_{2^{n+1}}\Bigg]=\frac12\Bigg[\sum\limits_{n=1}^{\infty}2^{n}b_{2^{n+1}}\Bigg]$$Hence $\Bigg[\sum\limits_{n=1}^{\infty}2^{n}b_{2^{n+1}}$ converges  as  $\sum\limits_{n=1}^{\infty}b_n$ converges.
+
+\hspace{1cm}Therefore $\sum\limits_{n=1}^{\infty}b_n$ converges  if and only if  $\sum\limits_{n=1}^{\infty}2^nb_{2^n}$ converges. [Proved]
+\item[(iii)] Let $p>1$. Using the statement in the previous problem we can say that $\sum\limits_{n=1}^{\infty}\frac{1}{n^p}$ converges if and only if $\sum\limits_{n=1}^{\infty}2^n\frac{1}{(2^n)^p}$ converges. Now $$\sum\limits_{n=1}^{\infty}2^n\frac{1}{(2^n)^p}=\sum\limits_{n=1}^{\infty}2^{n(1-p)}=\sum\limits_{n=1}^{\infty}(2^{1-p})^n$$As $p>1$, $1-p<0$ hence $2^{1-p}<1$. Hence $\sum\limits_{n=1}^{\infty}(2^{1-p})^n$ is a geometric series which converges and therefore $\sum\limits_{n=1}^{\infty}2^n\frac{1}{(2^n)^p}$ converges. Hence $\sum\limits_{n=1}^{\infty}\frac{1}{n^p}$ converges.
+
+\hspace{1cm}Let $\sum\limits_{n=1}^{\infty}\frac{1}{n^p}$ converges. Therefore $\sum\limits_{n=1}^{\infty}2^n\frac{1}{(2^n)^p}=\sum\limits_{n=1}^{\infty}2^{n(1-p)}$.  converges. Now if $p\leq 1$ then $1-p\geq 0$. Hence$$\sum\limits_{n=1}^{\infty}2^{n(1-p)}\geq\sum\limits_{n=1}^{\infty}2^{n\cdot 0}= \sum\limits_{n=1}^{\infty}1=\lim\limits_{k\to\infty}\sum\limits_{n=1}^k1=\lim\limits_{k\to\infty}k$$Now $\lim\limits_{k\to\infty}k$ diverges. Then $\sum\limits_{n=1}^{\infty}\frac{1}{n^p}$ will also diverge but we said that $\sum\limits_{n=1}^{\infty}\frac{1}{n^p}$ converges. Contradiction. Hence $p>1$.
+
+\hspace{1cm} Therefore $\sum\limits_{n=1}^{\infty}\frac{1}{n^p}$ converges if and only if $p>1$. [Proved]
+\end{enumerate}
+\end{enumerate}
+\end{document}

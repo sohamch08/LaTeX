@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{authblk}
+\usepackage{titling}
+\usepackage{tikz}
+
+\title{\huge{CMI ALGEBRA 1 (2021) ASSIGNMENT 2\\\hspace{7cm}- T. R. Ramadas}
+}
+\author{Soham Chatterjee\\Roll: BMC202175}
+\date{}
+
+\newcommand{\mJ}{\mathcal{J}}
+\newcommand{\mS}{\mathcal{S}}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\setlength{\parindent}{1cm}
+\begin{document}
+	\maketitle\pagebreak
+	\begin{enumerate}
+		\item For the linear map $\hat{A}:\mathbb{R}^3\to \mathbb{R}$ such that$$\hat{A}((x, y, z)) = x + y + z$$it has a right inverse $\hat{B}:\mathbb{R}\to \mathbb{R}^3$ such that $\hat{A}\circ\hat{B}=I_{\mathbb{R}}$. If we take $$\hat{B}(x)=\left( \frac{x}{3},\frac{x}{3},\frac{x}{3}\right) $$then $$\hat{A}\circ\hat{B}(x)=\hat{A}(\hat{B}(x))=\hat{A}\left( \left( \frac{x}{3},\frac{x}{3},\frac{x}{3}\right) \right) =\frac{x}{3}+\frac{x}{3}+\frac{x}{3}=x=I_{\mathbb{R}}(x)$$Hence $\hat{B}$ here is a right inverse of $\hat{A}$.
+		
+		\hspace{1cm}The linear map $\hat{A}:\mathbb{R}^3\to \mathbb{R}$ has no left inverse.
+		
+		
+		\item For the linear map $\hat{A}:\mathbb{R}^2\to \mathbb{R}^3$ such that $$\hat{A}((x, y)) = (x - y, x + y, 0)$$ has no right inverse.
+		
+		\hspace{1cm} The linear map $\hat{A}:\mathbb{R}^2\to \mathbb{R}^3$, it has a left inverse $\hat{C}:\mathbb{R}^3\to \mathbb{R}^2$ such that $\hat{C}\circ\hat{A}=I_{\mathbb{R}^2}$. If we take $$\hat{C}((x,y,z))=\left( \frac{x+y}{2},\frac{y-x}{2}\right) $$then $$\hat{C}\circ\hat{A}((x,y))=\hat{C}(\hat{A}((x,y)))=\hat{C}((x-y,x+y,0))=\left( \frac{(x-y)+(x+y)}{2},\frac{(x+y)-(x-y)}{2}\right) =(x,y)=I_{\mathbb{R}^2}((x,y))$$Hence $\hat{C}$ here is a left inverse of $\hat{A}$.
+		
+		\item  For the linear map $\hat{A}:\mathbb{R}^3\to \mathbb{R}^3$ such that $$\hat{A}((x, y, z)) = (x- y, y - z, z - x)$$ has no left and right inverse.
+		
+			\item  For the linear map $\hat{A}:\mathbb{R}^3\to \mathbb{R}^3$ such that $$\hat{A}((x, y, z)) = (x, 2y, 3z)$$ it has a right inverse $\hat{B}:\mathbb{R}^3\to \mathbb{R}^3$ such that $\hat{A}\circ\hat{B}=I_{\mathbb{R}^3}$. If we take $$\hat{B}((x,y,z))=\left( x,\frac{y}{2},\frac{z}{3}\right) $$then$$\hat{A}\circ\hat{B}((x,y,z))=\hat{A}(\hat{B}((x,y,z)))=\hat{A}\left( \left( x,\frac{y}{2},\frac{z}{3}\right) \right) =\left( x,2\cdot\frac{y}{2},3\cdot\frac{z}{3}\right)=(x,y,z)=I_{\mathbb{R}^3}((x,y,z))$$Hence $\hat{B}$ here is a right inverse of $\hat{A}$.
+		
+			\hspace{1cm}The linear map $\hat{A}:\mathbb{R}^3\to \mathbb{R}^3$ has a left inverse $\hat{C}:\mathbb{R}^3\to \mathbb{R}^3$ such that $\hat{C}\circ\hat{A}=I_{\mathbb{R}^3}$. If we take $$\hat{C}((x,y,z))=\left( x,\frac{y}{2},\frac{z}{3}\right) $$then $$\hat{C}\circ\hat{A}((x,y,z))=\hat{C}(\hat{A}((x,y,z)))=\hat{C}((x,2y,3z))=\left( x,\frac{2y}{2},\frac{3z}{3}\right) =(x,y,z)=I_{\mathbb{R}^3}((x,y,z))$$Hence $\hat{C}$ here is a left inverse of $\hat{A}$.
+	\end{enumerate}
+\end{document}
