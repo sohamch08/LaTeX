@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{amsfonts}
+\usepackage[paperheight=7in,paperwidth=7in,margin=0.5in]{geometry}
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{1.png}}; 
+\end{tikzpicture}};
+\end{tikzpicture}
+
+
+
+
+
+\huge{\begin{enumerate}
+\item If $0\leq n\alpha-\left\lfloor\frac{n\alpha }{2\pi }\right\rfloor\times 2\pi<\frac{\pi}{2 }$ sign changes 0 times.
+\item If $\frac{\pi}{2 }\leq n\alpha-\left\lfloor\frac{n\alpha }{2\pi }\right\rfloor\times 2\pi<\frac{3\pi}{2 }$ sign changes 1 times
+\item If $\frac{3\pi}{2 }\leq n\alpha-\left\lfloor\frac{n\alpha }{2\pi }\right\rfloor\times 2\pi<2\pi$ sign changes 2 times
+\end{enumerate}
+
+Hence $$\text{max}\big\{V_n(\alpha)\big\}=2\bigg\lfloor\dfrac{n\alpha}{2\pi}\bigg\rfloor+ 2$$ and $$\text{min}\big\{V_n(\alpha)\big\}=2\bigg\lfloor\dfrac{n\alpha}{2\pi}\bigg\rfloor$$}
+
+
+\end{document}

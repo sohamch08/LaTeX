@@ -1,0 +1,32 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{amsfonts}
+\usepackage[paperheight=7in,paperwidth=7in,margin=0.4in]{geometry}
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{1.png}}; 
+\end{tikzpicture}};
+\end{tikzpicture}
+
+
+
+
+
+\huge{Therefore$$2\bigg\lfloor\dfrac{n\alpha}{2\pi}\bigg\rfloor+ 2\geq V_n (\alpha)\geq 2\bigg\lfloor\dfrac{n\alpha}{2\pi}\bigg\rfloor$$ Now,  $$\lim\limits_{n\to \infty}\dfrac{2\bigg\lfloor\dfrac{n\alpha}{2\pi}\bigg\rfloor}{n}=\dfrac{\alpha}{\pi}$$ and $$\lim\limits_{n\to\infty} \dfrac{2\bigg\lfloor\dfrac{n\alpha}{2\pi}\bigg\rfloor+ 2}{n}=\dfrac{\alpha}{\pi}$$\\[1mm]
+ Hence by Sandwich Theorem We get $$\lim\limits_{n\to \infty}\dfrac{V_n(\alpha)}{n}=\dfrac{\alpha}{\pi}$$}
+\end{document}

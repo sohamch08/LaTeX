@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{amsfonts}
+\usepackage[paperheight=7in,paperwidth=7in,margin=0.6in]{geometry}
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+
+
+
+\begin{document}
+
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{1.png}}; 
+\end{tikzpicture}};
+\end{tikzpicture}
+
+
+\vspace*{2cm}
+
+
+\huge{Now, $$\text{Length of }\mathcal{I}=
+2\alpha$$ 
+
+Hence$$\lim\limits_{n\to\infty}\dfrac{V_n(\alpha)}{n}=\dfrac{2\alpha}{2\pi}=\dfrac{\alpha}{\pi}$$
+\vfill
+\begin{center}
+	\textbf{Swipe} $\boldsymbol{\longrightarrow}$ \textbf{For Second Solution}
+\end{center}}
+\end{document}
+
