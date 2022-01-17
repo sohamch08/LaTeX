@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,csquotes}
+\usepackage{times}
+\usepackage{anyfontsize}
+\usepackage{amsfonts}
+\usepackage[paperheight=5in,paperwidth=5in,margin=0.1in]{geometry}
+
+
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mQ}{\mathbb{Q}}
+\pagestyle{empty}
+
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+	\put(0,0){%
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\vfill
+			\centering
+			\includegraphics[width=\paperwidth,height=\paperheight,%
+			keepaspectratio]{1.jpg}%
+			\vfill
+}}}
+
+\newtcolorbox{mybox}{colback=black!5!white,colframe=black}
+
+\begin{document}
+	\AddToShipoutPicture*{\BackgroundPic}
+	%\color{white}
+	
+	
+	
+	Let $k$ be fixed. Consider tossing an unbiased coin until you get to see either $k+1$ Heads or $k+1$ Tails. It is evident, by the pigeonhole, that this experiment will last for at most $2k+1$ rounds (and also at least $k+1$) rounds.
+	
+	For any $k+1+\leq i\leq 2k+1$, let $P_i$ denotes the probability that the experiment ends at round $i$. Then, it is the case that either (a) round $i$ is the first time we see exactly $k+1$ Heads or (b) it is the first time we see exactly $k+1$ Tails. Both events are equiprobable with probability. Suppose we finally get heads. Then the remaining $k$ heads arrange in $i-1$ tosses in ${{i-1}\choose{k}}$ ways. Therefore $$P_i={{i-1}\choose{k}}2^{-i}\times 2={{i-1}\choose{k}}2^{-i+1}$$Now we know $\sum\limits_{i=k+1}^{2k+1}P_i=1$ and notice $$\sum\limits_{i=k+1}^{2k+1}P_i=\sum\limits_{i=k+1}^{2k+1}{{i-1}\choose{k}}2^{-(i-1)}=2^{-2k}\sum\limits_{i=0}^{k}{{k+i}\choose{i}}2^{k-i}=1$$Hence the given sum is equal to $2^{2k}=4^k$. [Proved
+	\pagebreak 
+	
+\end{document}
