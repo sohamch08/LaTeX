@@ -1,0 +1,83 @@
+9\documentclass[12pt]{article}
+\usepackage{times}
+\usepackage[paperheight=12in,paperwidth=12in,margin=1in]{geometry}
+%\usepackage{fullpage}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+%\usepackage{background}
+%\usepackage{blindtext}
+%\backgroundsetup{ scale=1, angle=0, opacity=1, contents={\begin{tikzpicture}[remember picture,overlay] \path [color=black] (current page.south west)rectangle (current page.north east);  	\end{tikzpicture}} }
+\pagestyle{empty}
+
+\begin{document}
+
+	\pagebreak
+	%\pagecolor{black}
+	%\color{white}
+\Huge{As $a+b+c=1$ and $a,b,c>0$ $a>a^2,\ b>b^2,\ c>c^2$. Hence $$\sum_{cyc}\sqrt{a+b^2+c^2} \leq\sum_{cyc} \sqrt{a+b+c}=3$$
+	
+Now for the right oneI have two proofs, one using $Jensen$ and other one without using Jensen
+\section*{\Huge{1. Using Jensen:-}}
+First $$b^2+c^2=\frac{b^2+(b^2+c^2)+c^2}{2}\geq \frac{b^2+2bc+c^2}{2}=\frac{(b+c)^2}{2}=\frac{(1-a)^2}{2}$$Hence $$\sqrt{a+b^2+c^2}\geq \sqrt{a+\frac{(1-a)^2}{2}}=\sqrt{\frac{1+a^2}{2}}$$Hence$$\sum_{cyc}\sqrt{a+b^2+c^2}\geq \sum_{cyc}\sqrt{\frac{1+a^2}{2}}$$Now, let $f(x)=\sqrt{\dfrac{1+x^2}{2}}$. You can easily check that $f''(x)\geq 0$.
+
+\vspace*{2mm}
+
+Hence using Jensen Inequality we get $$\frac{f(a)+f(b)+f(c)}{3}\geq f\bigg(\frac{a+b+c}{3}\bigg)=f\bigg(\frac{1}{3}\bigg)$$or,$$\sum_{cyc}\sqrt{a+b^2+c^2}\geq \sum_{cyc}\sqrt{\frac{1+a^2}{2}}\geq 3\sqrt{\frac{\dfrac{1}{9}+1}{2}}=\sqrt{5}$$
+
+\section*{\Huge{2. Without Using Jensen:-}}
+\begin{align}
+& \Big(\sqrt{a+b^2+c^2}+\sqrt{b+c^2+a^2}+\sqrt{c+a^2+b^2}  \Big)^2\nonumber  \\[2mm]
+=\ & a+b+c+2\Big(a^2+b^2+c^2\Big)+2\sum_{cyc}\sqrt{(a+b^2+c^2)(b+c^2+a^2)}\nonumber  \\[2mm]
+=\ & 1+2\Big(a^2+b^2+c^2\Big)+\nonumber \\[2mm]
+& \qquad 2\sum_{cyc}\sqrt{(a(a+b+c)+b^2+c^2)(b(a+b+c)+c^2+a^2)}\nonumber  \\[5mm]
+=\ & 1+2\Big(a^2+b^2+c^2\Big)+ \nonumber \\[2mm]
+&  \label{eq:1} 2\sum_{cyc}\sqrt{(a^2++b^2+c^2+a(b+c))(a^2+b^2+c^2+a+b(c+a))}
+\end{align}
+Now By Cauchy-Schwarz we get:-
+
+\begin{equation}
+\label{eq:2}\splitdfrac{\displaystyle{\sum_{cyc}\sqrt{\Big(a^2++b^2+c^2+a(b+c)\Big)\Big(a^2+b^2+c^2+a+b(c+a)\Big)}}}{{\displaystyle{\geq \sum_{cyc} a^2+b^2+c^2+\sqrt{ab(b+c)(c+a)}}}}
+\end{equation}
+
+Hence from (\ref{eq:1}) and (\ref{eq:2}) we get:-
+\begin{align*}
+ & 1+2\Big(a^2+b^2+c^2\Big)+ \nonumber \\[2mm]
+&   2\sum_{cyc}\sqrt{(a^2++b^2+c^2+a(b+c))(a^2+b^2+c^2+a+b(c+a))}\nonumber \\[2mm]
+\geq & 1+2\Big(a^2+b^2+c^2\Big)+ 2\sum_{cyc}\Big[a^2+b^2+c^2+\sqrt{ab(b+c)(c+a)}\Big]\nonumber \\[2mm]
+=\ & 1+8(a^2+b^2+c^2)+2\sum_{cyc}\sqrt{ab(b+c)(c+a)}
+\end{align*}
+Hence we need to prove \begin{align}
+& 1+8(a^2+b^2+c^2)+2\sum_{cyc}\sqrt{ab(b+c)(c+a)}\geq 5\nonumber \\
+\implies & 8(a^2+b^2+c^2)+2\sum_{cyc}\sqrt{ab(b+c)(c+a)}\geq 4\nonumber \\
+\implies & 4(a^2+b^2+c^2)+\sum_{cyc}\sqrt{ab(b+c)(c+a)}\geq 2(a+b+c)^2\nonumber \\
+\implies & \label{eq:3}2(a^2+b^2+c^2)+\sum_{cyc}\sqrt{ab(b+c)(c+a)}\geq 4(ab+bc+ca)
+\end{align}
+}\begin{align}
+\sum_{cyc}\sqrt{ab(b+c)(c+a)} & \geq \sum_{cyc}\sqrt{ab\times 2\sqrt{ca}\times 2\sqrt{bc}}\nonumber\\
+& = \sum_{cyc}2\sqrt{abc\sqrt{ab}}\nonumber\\
+& 2\times 3\sqrt[3]{abc\sqrt{ab}\times abc\sqrt{bc}\times abc\sqrt{ca}}\nonumber\\[5mm]
+&= 6\sqrt[3]{a^2b^2c^2}\nonumber\\
+\label{eq:4}&= 6\frac{abc}{\sqrt[3]{abc}}
+\end{align}
+Now,\begin{equation}
+\label{eq:5}1=a+b+c\geq\sqrt[3]{abc}\implies \frac{1}{\sqrt[3]{abc}}\geq \frac{3}{a+b+c}
+\end{equation}
+Hence from (\ref{eq:4}) and (\ref{eq:5}) we get$$6\frac{abc}{\sqrt[3]{abc}}\geq \frac{18}{a+b+c}$$
+Hence from (\ref{eq:3}) and (\ref{eq:5}) we need to prove\begin{align*}
+& a^2+b^2+c^2+\sum_{cyc}\frac{9}{a+b+c}\geq 2(ab+bc+ca)\\
+\implies & (a^2+b^2+c^2)(a+b+c) +9abc\geq  2(ab+bc+ca)(a+b+c)\\
+\implies & a^3+a^2+ca^2+ab^2+b^3+b^c+c^2a+bc^2+c^3+9abc\geq \\
+& \quad 2a^2b+2ab^2+2abc+2abc+2b^2c+2bc^2+2ca^2+2c^2a+2abc\\
+\implies & \sum_{cyc}\Big[a^3-a^b-a^c+abc\Big]\\
+\implies &  \sum_{cyc}a(a-b)(a-c)
+\end{align*} 
+Without loss of generality let's assume $a\geq b\geq c$. Hence $c(c-a)(c-b)\geq 0$Hence we need to prove\begin{align*}
+a(a-b)(a-c)+b(b-a)(b-c)\geq 0\\
+\implies & (a-b)(a^2-ac-b^2+bc)\geq 0\\
+\implies &  (a-b)^2(a+b-c)\geq 0
+\end{align*}
+Which is obviously true. Hence $$\sqrt{a+b^2+c^2}+\sqrt{b+c^2+a^2}+\sqrt{c+a^2+b^2} \geq \sqrt{5}$$
+\end{document}

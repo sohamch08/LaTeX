@@ -1,0 +1,228 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[overload]{empheq}
+\usepackage[inline, shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{mathtools}
+\definecolor{myyellow}{RGB}{225,225,20}
+\definecolor{myred}{RGB}{255,50,40}
+\definecolor{mygreen}{RGB}{100,255,100}
+\definecolor{myblue}{RGB}{74,230,230}
+\definecolor{mypurple}{RGB}{200,140,255}
+\definecolor{myorange}{RGB}{255,150,50}
+\color{white}
+\pagecolor{black}
+\title{}
+\author{}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\maketitle
+\huge
+
+\textcolor{myred}{$\qquad \!\!\!$ \underline{Cauchy-Schwarz Inequality}}
+
+\small
+\medskip
+$$\text{@all.about.mathematics} \times
+\text{@creative.math\_solving}$$
+
+\large
+$$\left(\textcolor{myblue}{\sum_{k=1}^{n}}\, \textcolor{myyellow}{a_{k}}^{2}\right)\left(\textcolor{myblue}{\sum_{k=1}^{n}}\, \textcolor{mygreen}{b_{k}}^{2}\right) \geq\left(\textcolor{myblue}{\sum_{k=1}^{n}}\textcolor{myyellow}{a_{k}} \,\textcolor{mygreen}{b_{k}}\right)^{2}$$
+\LARGE
+
+\vspace{3cm}
+$$\quad \text{Swipe left} \implies \text{for explanation!} \:\:$$
+\normalsize
+$$\text{(including Titu's lemma and examples!)}$$
+
+\newpage
+\large
+\section{Statement}
+Let $\mathbf{u},\mathbf{v}$ belong to an inner product space $\mathbb{F}$. Then
+\begin{equation} 
+|\langle\mathbf{u}, \mathbf{v}\rangle|^{2} \leq\langle\mathbf{u}, \mathbf{u}\rangle \cdot\langle\mathbf{v}, \mathbf{v}\rangle
+\end{equation}
+Where $\langle \cdot , \cdot\rangle$ denotes the inner product.
+
+\medskip
+\noindent
+If $\mathbf{F}=\mathbb{R}^n$, the inner product is the dot product.
+
+\medskip
+\noindent
+In this case, the inequality can be restated as:
+
+\medskip
+\noindent
+If $\{a_{1}, \cdots ,a_{n}\}$ and $\{b_{1}, \cdots ,b_{n}\}$ are two sets of real numbers,
+\begin{equation}
+\left({\sum_{k=1}^{n}}\, {a_{k}}^{2}\right)\left({\sum_{k=1}^{n}}\, {b_{k}}^{2}\right) \geq\left({\sum_{k=1}^{n}}{a_{k}} \,{b_{k}}\right)^{2}
+\end{equation}
+Equality in $(1)$ holds if and only if $\mathbf{u},\mathbf{v}$ are linearly dependent.
+
+\medskip
+\noindent
+Therefore, equality in $(2)$ holds if and only if
+$$a_k=c\,(b_k) \quad \forall k\in\{1,\cdots,n\}$$
+For some constant $c$
+
+\newpage
+\section{Proof of special case}
+Let's consider the case where $n=2$.
+
+\medskip
+\noindent
+Let the 2 sets of real numbers be $\{a,b\}$ and $\{c,d\}$. 
+
+\medskip
+\noindent
+Then the theorem states that
+\begin{equation} 
+\left(a^{2}+b^{2}\right)\left(c^{2}+d^{2}\right) \geq(a c+b d)^{2}
+\end{equation}
+To prove $(3)$, recall the Fibonacci-Brahmagupta identity:
+$$\left(a^{2}+b^{2}\right)\left(c^{2}+d^{2}\right)=(a c+b d)^{2}+(a d-b c)^{2}$$
+Then $(3)$ follows since
+$$(a d-b c)^{2}\geq 0$$
+Note that equality in $(3)$ holds if and only if 
+$$ad=bc \Longleftrightarrow a=\lambda c \:,\: b=\lambda d$$
+For some constant $\lambda$.
+
+\medskip
+\noindent
+This special case can also be proven by the AM-GM inequality.
+
+\newpage
+\section{Proof of general case}
+Let 
+$$A=\sum_{k=1}^{n} {a_{k}}^{2}\:,\:\: B=\sum_{k=1}^{n} {b_{k}}^{2}\:,\:\: C=\sum_{k=1}^{n} a_{k} \,b_{k}$$
+Then the theorem is equivalent to
+\begin{equation}
+C^2\leq A B
+\end{equation}If $B=0,$ $b_{i}=0$ for $i=1,\cdots ., n$. So $C=0$ and (4) is true. 
+
+\medskip
+\noindent
+Now, we only need to consider the case $ B >0 $. We have
+\begin{align*}
+0 \leq \sum_{i=1}^{n}\left(B a_{i}-C b_{i}\right)^{2} &=\sum_{i=1}^{n}\left(B^{2} a_{i}^{2}-2 B C a_{i} b_{i}+C^{2} b_{i}^{2}\right) \\
+&=B^{2} \sum_{i=1}^{n} a_{i}^{2}-2 B C \sum_{i=1}^{n} a_{i} b_{i}+C^{2} \sum_{i=1}^{n} b_{i}^{2} \\
+&=B\left(A B-C^{2}\right)
+\end{align*}
+Since $B>0, A B-C^{2} \geq 0 $ and we obtain $(4)$. 
+
+\medskip 
+\noindent 
+Moreover, equality in $(4)$ holds if and only if
+$$\sum_{i=1}^{n}\left(B a_{k}-C b_{k}\right)^{2}=0 \Longleftrightarrow {a_{k}}=\frac{C}{B}\, {b_{k}} \quad \forall k\in\{1, \cdots, n\}$$
+
+\newpage
+\section{Example: IrMO 2004 P5}
+Let $a,b\ge 0$. Prove that
+$$\sqrt{2}\left(\sqrt{a(a+b)^3}+b\sqrt{a^2+b^2}\right)\le 3(a^2+b^2)$$    
+Rewriting the terms in the L.H.S,
+$$\sqrt{2a(a+b)^3}=\sqrt{2a(a+b)}\times \sqrt{(a+b)^2}$$and$$b\sqrt{2(a^2+b^2)}=\sqrt{2b^2}\times \sqrt{a^2+b^2}$$
+Applying the Cauchy-Schwarz Inequality we get:
+\begin{align*}
+\sqrt{2a(a+b)^3}+\sqrt{2b^2(a^2+b^2)}&\leq \sqrt{\big(2a(a+b)+2b^2\big)\big((a+b)^2+a^2+b^2\big)}\\
+&= \sqrt{\big(2a^2+2b^2+2ab\big)\big(2a^2+2b^2+2ab\big)}\\
+&=2a^2+2b^2+2ab\leq 3(a^2+b^2)
+\end{align*}
+As $a^2+b^2\geq 2ab$
+\newpage
+\normalsize
+\section{Example: Japan TST 2004}
+Let $a,b,c$ be positive reals with $a+b+c=1$. Prove that $$\frac{1+a}{1-a}+\frac{1+b}{1-b}+\frac{1+c}{1-c}\leq \frac{2a}{b}+\frac{2b}{c}+\frac{2c}{a}$$
+Note that
+$$\sum\limits_{cyc}\frac{1+a}{1-a}=3+\sum\limits_{cyc}\frac{2a}{1-a}\leq  \sum\limits_{cyc}\frac{2a}{b}\implies \frac{3}{2}\leq\sum\limits_{cyc}\bigg(\frac{a}{b}-\frac{a}{b+c}\bigg)=\sum\limits_{cyc}\frac{ca}{b(b+c)}$$
+By the Cauchy-Schwarz inequality,
+$$\bigg(\sum\limits_{cyc}\frac{c^2a^2}{abc(b+c)}\bigg)\bigg(\sum\limits_{cyc} abc(b+c) \bigg) \geq (ab+bc+ca)^2$$ $$\implies \sum\limits_{cyc}\frac{c^2a^2}{abc(b+c)} \geq \frac{(ab+bc+ca)^2}{2abc (a+b+c)}$$Now$$(ab+bc+ca)^2=a^2b^2+b^2c^2+c^2a^2+2abc(a+b+c)\geq 3abc(a+b+c)$$
+Hence
+$$\sum\limits_{cyc}\frac{ca}{b(b+c)}\geq \frac{3}{2}$$
+\newpage 
+\section{Titu's lemma}
+This lemma is named after Titu Andreescu and is a direct consequence of the Cauchy-Schwarz inequality.
+
+\medskip
+\noindent
+To obtain the lemma, substitute the below into the inequality
+$$a_{k}=\frac{x_{k}}{\sqrt{y_{k}}} \quad b_{k}=\sqrt{y_{k}}$$ 
+We have
+$$\left(\frac{{x_{1}}^{2}}{y_{1}}+\frac{{x_{2}}^{2}}{y_{2}}+\cdots+\frac{{x_{n}}^{2}}{y_{n}}\right)\left(y_{1}+y_{2}+\cdots+y_{n}\right) \geq\left(x_{1}+x_{2}+\cdots+x_{n}\right)^{2}$$
+It is often written in the form
+$$\frac{{x_{1}}^{2}}{y_{1}}+\frac{{x_{2}}^{2}}{y_{2}}+\cdots+\frac{{x_{n}}^{2}}{y_{n}} \geq \frac{\left(x_{1}+x_{2}+\cdots+x_{n}\right)^{2}}{\left(y_{1}+y_{2}+\cdots+y_{n}\right)}$$
+This inequality is very useful in mathematical Olympiads, as we'll see in the next 2 slides.
+
+\newpage
+\section{Example: Nesbitt's Inequality}
+Nesbitt's inequality states that for positive real numbers $a,b,c,$
+\begin{equation}
+\frac{a}{b+c}+\frac{b}{a+c}+\frac{c}{b+a} \geq \frac{3}{2}
+\end{equation}
+To apply Titu's lemma, we rewrite $(5)$:
+$$\frac{a^{2}}{a b+a c}+\frac{b^{2}}{a b+b c}+\frac{c^{2}}{b c+a c}\geq \frac{3}{2}$$
+By Titu's lemma, we have
+$$\frac{a^{2}}{a b+a c}+\frac{b^{2}}{a b+b c}+\frac{c^{2}}{b c+a c} \geq \frac{(a+b+c)^{2}}{2(a b+b c+c a)}$$
+To prove $(5)$, note that
+$$\frac{(a+b+c)^{2}}{2(a b+b c+c a)}\geq\frac{3}{2} \Longleftrightarrow (a+b+c)^{2} \geq 3(a b+b c+c a)$$
+$$\Longleftrightarrow a^{2}+b^{2}+c^{2} \geq a b+b c+c a $$
+\begin{equation} 
+\Longleftrightarrow (a-b)^{2}+(b-c)^{2}+(c-a)^{2} \geq 0
+\end{equation}
+Since $(6)$ is true, $(5)$ follows.
+
+\newpage
+\section{Example: IMO 1995 P2}
+If $a,b,c$ are positive real numbers and $abc=1$, prove that
+\begin{equation} 
+\frac{1}{a^{3}(b+c)}+\frac{1}{b^{3}(a+c)}+\frac{1}{c^{3}(a+b)} \geq \frac{3}{2}
+\end{equation}
+We will solve this question using Titu's lemma. Rewriting (7), 
+$$\frac{\frac{1}{a^{2}}}{a b+a c}+\frac{\frac{1}{b^{2}}}{b a+b c}+\frac{\frac{1}{c^{2}}}{c a+c b} \geq \frac32$$
+By Titu's lemma,
+\begin{equation} 
+\frac{\frac{1}{a^{2}}}{a b+a c}+\frac{\frac{1}{b^{2}}}{b a+b c}+\frac{\frac{1}{c^{2}}}{c a+c b} \geq
+\frac{\left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}\right)^{2}}{2(a b+b c+c a)}
+\end{equation}
+Using the condition $abc=1$, we have
+$$\left(\frac{1}{a}+\frac{1}{b}+\frac{1}{c}\right)^{2}=(a b+b c+c a)^{2}$$
+By the AM-GM inequality, the L.H.S of $(8)$
+is
+$$\geq \frac{(a b+b c+c a)}{2} \geq  \frac{\sqrt[\leftroot{2}\uproot{2}3]{(a b c)^{2}}}{2}=\frac{3}{2}$$
+Therefore the problem is solved.
+
+\newpage
+\Large
+\section{Exercise to the readers :D}
+Congratulations if you've read till the end!
+
+\bigskip
+\noindent
+Here's an easy problem that can be solved by applying the Cauchy-Schwarz inequality or Titu's lemma!
+ 
+\bigskip
+\begin{tcolorbox}
+Given that $a,b,c>0$ and $a+b+c=1$.
+
+\medskip
+\noindent
+Find the minimum value of
+$$a^2+2b^2+c^2$$
+\end{tcolorbox}
+\bigskip
+\noindent
+\LARGE
+$$\text{Comment your answers!}$$
+\end{document} 
+
+

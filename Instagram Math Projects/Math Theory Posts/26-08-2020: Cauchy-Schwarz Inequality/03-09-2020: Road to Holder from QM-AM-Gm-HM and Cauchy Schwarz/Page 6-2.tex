@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage[paperheight=7.8in,paperwidth=7.8in,margin=0.5in]{geometry}
+%\usepackage{fullpage}
+\usepackage{times}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{background}
+\usepackage{blindtext}
+\backgroundsetup{ scale=1, angle=0, opacity=1, contents={\begin{tikzpicture}[remember picture,overlay] \path [left color=Orchid1,right color=white] (current page.south west)rectangle (current page.north east);  \end{tikzpicture}} }
+
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\Large\bfseries}
+\setcounter{section}{3}
+\setcounter{subsection}{2}
+\setcounter{subsubsection}{1}
+\pagestyle{empty}
+\begin{document}
+	\pagebreak 
+
+
+\subsubsection{Case 2 :}
+\Large{For $k_1\ge k_2>0$,
+\begin{align}
+& \ \Bigg(\sum_{i=1}^n w_ia_i^{k_1} \Bigg)^{\dfrac{1}{k_1}} \ge \Bigg(\sum_{i=1}^n w_ia_i^{k_2} \Bigg)^{\dfrac{1}{k_2}}\nonumber\\
+\label{eq:1}\Longleftarrow & \ \left(\sum_{i=1}^n w_ia_i^{k_1} \right)^{\dfrac{k_2}{k_1}} \ge \sum_{i=1}^n w_ia_i^{k_2} 
+\end{align}As the function $f(x)=x^{\frac{k_2}{k_1}}$ is concave for all $x > 0$, by Jensen's Inequality,\[\Bigg(\sum_{i=1}^n w_i a_i^{k_1} \Bigg)^{\dfrac{k_2}{k_1}} = f\Bigg(\sum_{i=1}^n w_i a_i^{k_1} \Bigg) \geq \sum_{i=1}^n w_i f\Big(a_i^{k_1}\Big) =\sum_{i=1}^n w_i a_{i}^{k_2}\]For $0>k_1\ge k_2$, $f(x)$ becomes convex as $|k_1|\le |k_2|$, so the inequality sign when applying Jensen's Inequality the inequality is flipped. Thus, the inequality sign in $(\ref{eq:1})$ is flipped, but as $k_2<0$, $x^{\frac{1}{k_2}}$ is a decreasing function, so the inequality sign is flipped again after applying $x^{\frac{1}{k_2}}$, resulting in $M(k_1)\ge M(k_2)$ as desired.}
+
+\end{document}
+
+
+
+\begin{align} &&  \nonumber \\ & \label{eq} \end{align}

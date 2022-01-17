@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{anyfontsize}
+\usepackage{amsfonts}
+\usepackage[paperheight=7in,paperwidth=7in,margin=0.5in]{geometry}
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+%\usepackage[pages=some]{background} \backgroundsetup{ scale=1, color=black, opacity=0.4, angle=0, contents={ \includegraphics[width=\paperwidth,height=\paperheight]{(1).jpg} }% }
+
+%to set gradiant background for whole document
+%\usepackage{background}
+%\usepackage{blindtext}
+%\backgroundsetup{ scale=1, angle=0, opacity=1, contents={\begin{tikzpicture}[remember picture,overlay] \path [inner color = DarkOliveGreen1,outer color = SpringGreen1] (current page.south west)rectangle (current page.north east);  \end{tikzpicture}} }
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\begin{document}
+	
+\newtcolorbox{mybox}{colback=red!5!white,colframe=red}
+
+%for gradiant background this code below
+
+
+%\begin{tikzpicture}[remember picture,overlay]
+%\path [inner color=Yellow,outer color=Apricot] (current page.north east)rectangle (current page.south west);
+%\end{tikzpicture}
+
+%for adding picture in background this code below
+
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{1.png}}; 
+\end{tikzpicture}};
+\end{tikzpicture}
+
+%\begin{tikzpicture}
+%\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{Q.jpg}}; 
+%\end{tikzpicture}
+
+
+
+%\color{blue}
+	\begin{center}
+		\thispagestyle{empty}
+		%\pagecolor{BrickRed}
+
+%\vspace*{2cm}
+
+\Huge{\textbf{\underline{Sunday Special \#17}}}
+		
+		\vspace*{1cm}
+
+		{\Huge\textbf{DM me Your Answer!}}
+		\vspace*{0.5cm}
+	\end{center}
+		
+		{\Huge Let $0\leq\alpha\leq \pi $. $V_n (\alpha) $ denote the number of sign changes in the sequence $\cos\alpha,$ $\cos2\alpha,$ $\cos3\alpha,$ $\ldots,$ $\cos n\alpha $. Then prove that $$\lim\limits_{n\to\infty}\dfrac{V_n (\alpha)}{n}=\dfrac{\alpha}{\pi}$$}
+		
+		\vspace{0.5cm}
+	\begin{center}	
+		
+
+{\Huge
+		
+		$$\boldsymbol{\sum \limits_{i=0}^{Creative} Math_i = Solving}$$}
+		
+	%	\vspace{1cm}
+		
+%		\begin{mybox}\Huge{\begin{center}\textbf{\textcolor{red}{Solution $\to$}} \end{center}}\end{mybox}
+	\end{center}
+
+\end{document}

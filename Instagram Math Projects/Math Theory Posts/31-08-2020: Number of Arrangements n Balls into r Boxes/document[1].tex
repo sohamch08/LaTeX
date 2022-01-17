@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{anyfontsize}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage[paperheight=7in,paperwidth=7in,margin=0.9in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+
+%\setlength{\parindent}{0cm}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{background}
+\usepackage{blindtext}
+\backgroundsetup{ scale=1, angle=0, opacity=1, contents={\begin{tikzpicture}[remember picture,overlay] \path [left color=LimeGreen] (current page.south west)rectangle (current page.north east);  
+\end{tikzpicture}} }
+\pagestyle{empty}
+
+\begin{document}
+\pagebreak
+
+
+\section{\underline{Distinct Balls into Distinct Boxes}}
+
+Distinct balls into distinct boxes is a type of problem in combinatorics in which the goal is to count the number of possible distributions of objects into bins where each ball and box are distinct. In this type of arrangement there are two cases:-
+\subsection{No Constriants:-}
+That is a box can contain 0 balls. Suppose there are $n $ distinct balls that are to be distributed among $r $ distinct boxes. For each ball, there are $r $ boxes it can be placed into. This placement occurs for each of the $n$ objects. By the rule of product, this can be done in $$\underbrace{r\times r\times\cdots\times r}_{n\text{ times}} =r^n \text{ ways}$$ Hence if no constriants are applied then the number of ways to arrange $n $ distinct balls into $r$ distinct boxex is \boxed{\boldsymbol{r^n}}
+\subsection{Each Box Contains At Least 1 Ball:-}
+If $n <r$ then the number of such possible arrangements is 0. So let's discuss the the case when $n\geq r $. Now if no constriants were applied then the formula is $r^n $ we just proved. So in this case to we have to substract the cases when at least one of the box is empty. So the number of arrangements when at least 1 box was empty(Let's say the first box) is $(r-1)^n $. This is for each box. Hence the number of arrangements when at least 1 box was empty is $=r (r-1)^n $. 
+
+No we counted the cases when Box 2 boxes (Let $m $th and $n $th box) both were empty two times. So we have to substract that one time from the sum. Any two box can be chossen in ${{r}\choose {2}}$ ways. Then in other boxes balls can be arranged in $(r-2)^n $ ways. Hence it becomes $r (r-1)^n -{{r}\choose {2}}(r-2)^n$. Not complte yet. We have counted the cases when 3 boxes are empty 3 times in both $(r-1)^n$ and ${{r}\choose {2}}(r-2)^n$. Hence we actually deleted those cases from our counting. So we have to add those cases to make them counted. Hence the formula becomes $r (r-1)^n -{{r}\choose {2}}(r-2)^n + {{r}\choose {3}}(r-3)^n$. Still now it is incomplete. We have counted the cases when 4 boxes are empty 4 times in $r (r-1)^n$, 6 times in $ {{r}\choose {2}}(r-2)^n$ and 4 times in $ {{r}\choose {3}}(r-3)^n$. So we counted that case two times. So we have to substract that case one time. Hence the formula becomes $r (r-1)^n -{{r}\choose {2}}(r-2)^n + {{r}\choose {3}}(r-3)^n-{{r}\choose {4}}(r-4)^n$. Still now it is incomplete. We have cancelled all the cases when 5 boxes are empty. So we will continue like this. This adding and substracting will finally end becase there are finite number of boxes. Once it will be ${{r}\choose {r-1}}(1)^n$ and then it will end. So the formula for arranging $n$ distinct balls in $r $ distinct boxes so that at least one box is empty is $\sum_{i=1}^{r-1}(-1)^{i-1}{{r}\choose {i}}(r-i)^n $. Now we have to substract this from $r^n$ to get the number of ways to arrange so that each box contains atleast one ball. So it becomes $r^n-r (r-1)^n+{{r}\choose {2}}(r-2)^n-{{r}\choose {3}}(r-3)^n+\cdots +(-1)^{r-1} {{r}\choose {r-1}}(1)^n$. 
+
+So the formula for the number of ways to arrange $n $ distinct balls into $r $ distinct boxes so that each box contains atleast one ball is \boxed{\displaystyle{\boldsymbol{\sum\limits_{i=0}^{r-1}(-1)^i {{r}\choose {i}}(r-i)^n}}}
+
+\section{\underline{Identical Balls into Distinct Boxes}}
+
+Identical balls into distinct boxes is a problem in combinatorics in which the goal is to find the number of distributions of a number of identical ball into a number of distinct boxes. Similar to the previous part this case also has two cases. To solve those first we have to come up with an strategy to count the arrangements. An efficient way to count the distributions requires some creative thinking. This approach, called \textbf{Ball and Bars}, is also used in other areas of combinatorics.
+\subsection{Ball and Bars Strategy:-}
+Imagine there are $n $ identical balls in a line. We have to divide them into $r $ distinct parts. As a general rule, if we would like to divide the balls into $r$ distinct groups, this will require $r-1$ bars. So we can count the number of ways by counting in how many ways we can place the bars in the gaps between two balls and in the gaps before the first ball (and after the last ball if no constriants were applied). The number of balls present between $k $th and $(k+1) $th bar is the number balls is present in the $(k+1) $th box. If the the number of ball is 0 then that box contains 0 balls.
+\subsection{No Constriants:-}
+So there are $n$ balls in a line and we have $r-1$ bars. As no constriantsare applied one box can contain 0 balls. There are total $n+1$ places where we can put the bars. 1 before the first ball, $n-1$ place between two successive balls and 1 after the last ball. In any gap we can put all $r-1$ bars. So we have $(n+1)+(r-1)-1=n+r-1$ choices to keep the bars [1 is substracted because we have counted the placing of the first bar at any gap two times- one while counting the number of gaps and one while counting the number of bars]. So among these choices we have to choose $r-1$ choices. So the number of ways is ${{n+r-1}\choose {r-1}}$
+
+So if no constriants were applied then the number of ways to arrange $n $ identical balls into $r $ distinct boxes is \boxed{\displaystyle{\boldsymbol{{{n+r-1}\choose {r-1}}}}}
+\subsection{Each Box Contains At Least 1 Ball:-}
+In this case we dont have the choices to put the bars before the first ball and after the last ball. We can't also put more than one bar in one gap. So in that case the number of choices reduces to $n-1$. So out of them we have to choose $r-1 $ places among $n-1$ gaps to place the bars. So the number of ways to arrange the balls in this case is ${{n-1}\choose {r-1}}$
+
+So the number of ways to arrange $n $ identical balls into $r $ distinct boxes so that each box contains at least one ball is \boxed{\displaystyle{\boldsymbol{{{n-1}\choose {r-1}}}}}
+
+
+\section{\underline{Distinct Balls into Identical Boxes}}
+Identical Balls into Distinct Boxes is a problem in combinatorics in which the goal is to find the number of distributions of a number of identical balls into a number of distinct boxes. This problem has a similar wording to problems such as distinct objects into distinct bins and distinct objects into identical bins, but the approach for these type of problems is quite different. For this problem we need Stirling Numbers of the Second Kind.
+\subsection{Stirling number of the Second Kind:-}
+\textbf{Defination of A Stirling number of the second kind:} It denoted as $S(n,r)$ \linebreak or $\left\{n \atop r\right\}$, is the number of ways a set of $n$ elements can be partitioned into $r$ non-empty sets.
+
+ Equivalently, a Stirling number of the second kind can identify how many ways a number of distinct objects can be distributed among identical non-empty bins. Before going to further about this case let's explore the Stirling Numbers of the Second Kind a bit more.
+
+Stirling number of the second kind follows a beautiful recurrence relation $$S (n,r)=r\cdot S (n-1,r)+ S (n-1,r-1)$$\textbf{Proof:} To develop this relation, consider a single object to be fixed, and then consider where the remaining objects go. There are two cases:
+\subsubsection{Case 1:} The fixed object is in its own bin. There are $n-1$ remaining objects to be distributed into $r - 1$ bins, which gives $S(n-1, r - 1 )$ distributions for this case.
+\subsubsection{Case 2:} The fixed object is in a bin with other objects. The remaining $n-1$ objects are distributed into $r$ bins, which gives $S(n-1,r)$ distributions. For each of these distributions, there are $r$ ways to group the fixed object with the other objects. Thus, there are $r\cdot S ( n-1, r )$ distributions for this case.
+
+\vspace*{0.5cm}
+
+Summing both cases together yields$$S (n,r)=r\cdot S (n-1,r)+ S (n-1,r-1)$$ The recurrence relation allows one to calculate Stirling numbers of the second kind from basic cases. Now back to our problem.
+
+\subsection{No Constriants:-}
+In this case we have to add all Stirling number of the second kind when 0 boxes are empty, one box is empty, 2 boxes empty and continuing this upto $(n-1) $ box is empty. 
+
+So if no constriants were applied then the number of ways to arrange $n $ distinct balls into $r $ identical boxes is \boxed {\displaystyle{\boldsymbol{\sum\limits_{i=1}^{r}S(n,i)}}}
+
+\subsection{Each Box Contains At Least 1 Ball:-}
+In this case each box contains at least one ball. Hence it is the case when $n $ balls are partitioned into $r $ distinct parts. 
+
+So the number of ways to arrange $n $ distinct  balls into $r $ identical boxes so that each box contains at least one ball is \boxed{\boldsymbol{S (n,r)}}
+
+\section{\underline{Identical Balls into Identical Boxes}}
+Identical Balls into Identical Boxes is a type of problem in combinatorics in which the goal is to count the number of ways a number of identical balls can be placed into identical boxes.
+
+In this type of problem, the balls are identical. This means that it does not matter which balls are grouped together; it only matters how many balls go into each box. In addition to this, the boxes are identical. This means that the ordering of the boxes does not matter.
+
+The ``identical balls into identical boxes" problem is closely related to the problem of \textbf{Partitioning an Integer}. Many of the same problem-solving strategies will be used. Problems of the type ``identical balls into any number of identical boxes" are equivalent to the partition of an integer problem. Let's learn about the partition function.
+
+\subsection{Partition Function:-}
+\textbf{Defination of Partition Function:} number of partitions of an integer $n $ is denoted as $p (n) $ and this function is called Partition Function. 
+
+The number of partition of an integer $n $ into $r$ parts is denoted as $p (n,r) $. Let's return to our problem
+\subsection{No Constriants:-}
+In this case one box can contain 0 balls. So we can coount total number of ways by adding the cases when 0 box are empty, 1 box is empty, 2 boxes are empty, $\cdots $ upto $r-1$ boxes empty. So we have to add all cases when $n $ is partitioned into $1$ part, 2 parts, 3 parts, $\cdots$ upto $r $ parts. 
+
+So if no constriants were applied then the number of ways to arrange $n $ identical  balls into $r $ identical boxes is  \boxed {\displaystyle{\boldsymbol{\sum\limits_{i=1}^{r}p(n,i)}}}
+
+\subsection{Each Box Contains At Least 1 Ball:-}
+
+In this case each box contains at least one ball. Hence it is just equivalent to partitioning $n $ into $r $ parts. 
+
+So the number of ways to arrange $n $ identical   balls into $r $ identical boxes so that each box contains at least one ball is \boxed{\boldsymbol{p (n,r)}}
+
+I am not talking much about partitions in this note as partition is really a big topic to talk about. That requires another post where i will discuss many recurrence relations of partitions, many formulas etc. 
+\end{document}
