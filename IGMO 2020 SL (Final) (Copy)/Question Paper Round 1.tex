@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{relsize}
+\usepackage{amssymb}
+\usepackage{dirtytalk}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{tcolorbox}
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+\definecolor{myexamplebg}{HTML}{F2FBF8}
+\definecolor{myexamplefr}{HTML}{88D6D1}
+\definecolor{myexampleti}{HTML}{2A7F7F}
+\definecolor{mydefinitbg}{HTML}{E5E5FF}
+\definecolor{mydefinitfr}{HTML}{3F3FA3}
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem[number within=section]{Theorem}{Theorem}
+  {%
+     enhanced
+    ,colback = mytheorembg
+    ,frame hidden
+    ,boxrule = 0sp
+    ,borderline west = {2pt}{0pt}{mytheoremfr}
+    ,sharp corners
+    ,detach title
+    ,before upper = \tcbtitle\par\smallskip
+    ,coltitle = mytheoremfr
+    ,fonttitle = \bfseries\sffamily
+    ,description font = \mdseries
+    ,terminator sign dash
+    ,separator sign none
+  }
+  {th}
+\newtcbtheorem[number within=section]{Example}{Example}
+  {%
+     colback = myexamplebg
+    ,colframe = myexamplefr
+    ,coltitle = myexampleti
+    ,boxrule = 1pt
+    ,sharp corners
+    ,detach title
+    ,before upper=\tcbtitle\par\smallskip
+    ,fonttitle = \bfseries
+    ,description font = \mdseries
+    ,separator sign none
+    ,description delimiters parenthesis
+  }
+  {ex}
+\newtcolorbox{Definition}[1]
+  {
+     enhanced
+    ,colback = mydefinitbg
+    ,colframe = mydefinitfr
+    ,coltitle = mydefinitfr
+    ,colbacktitle = mydefinitbg
+    ,fonttitle = \bfseries
+    ,title = {#1}
+    ,attach boxed title to top right = {yshift = -5pt, xshift = -7mm}
+    ,boxed title style = { boxrule = .25mm }
+    ,arc = 5mm
+    ,interior code app =
+      {
+        \node
+          [
+             anchor=south west
+            ,line width = 0.5mm
+            ,rounded corners
+            ,inner sep = 5pt
+            ,draw = mydefinitfr
+            ,fill = mydefinitbg
+            ,yshift = -5pt%3.5pt
+            ,xshift = 7mm
+            ,text = mydefinitfr
+            ,font = \bfseries
+          ] at (frame.north west)
+          {\ Definition\ \null};
+      }
+  }
+\setlength{\parindent}{0cm}
+
+\title{IGMO 2020 Questions}
+\author{IG Math Community }
+\date{November 2020}
+\begin{document}
+
+\maketitle
+
+
+\end{document}
