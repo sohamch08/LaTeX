@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\colorlet{verylightgray}{lightgray!70!}
+\newtcbox{\enterkey}{on line, 
+	boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,coltext=blue,
+	colframe=white,colback=verylightgray,  
+	highlight math style={enhanced},fontupper=\ttfamily
+}
+
+\usepackage{tikz}
+
+\newcommand{\cd}[1]{\enterkey{#1}}
+
+\begin{document}
+	\section{Initial Things to know before using}
+	\subsection{Insert-Command Mode (Most Basic):} If you are in command mode hit \cd{i} to go into insert mode and if you are in insert mode hit \cd{esc} or \cd{Ctrl+C} to go to command mode
+	\subsection{Open a file with vim:} To open a file use \cd{vim <file name.ext>} vim in terminal. 
+	\subsection{Quit vim:} First type \cd{:}. You will notice your cursor is down. Then type \cd{q} which means quit. If you prefix \cd{q} with \cd{w} which means you type \cd{:wq} it will save and quit or if you post-fix \cd{q} with \cd{!} which means you type \cd{:q!} it will quit and don't save the file. After typing hit \cd{enter}
+	\subsection{Save your file:} Hit \cd{:w} and it will save your file.
+	\subsection{Putting number with the command:} If you type some integer number then hit the command(s) that is you type \cd{<number> <command>} it will do that command that many time
+	\subsection{Undo-Redo:} After doing any command in command mode ( if you enter insert mode after doing that command go to the command mode then) and hit \cd{u} to undo the process. Hit \cd{Ctrl+r}  to redo the process in command mode.
+
+\section{Move your Cursor:-}
+	
+\subsection{Basic movement:} \cd{h} for going left, \cd{j} for going down. \cd{k} for going up and \cd{l} for going right.
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) node{\cd{h}\cd{j}\cd{k}\cd{l}};
+			\draw[->] (-1.2,0) -- (-1.8,0);
+			\draw[->] (1.2,0) -- (1.8,0);
+			\draw[->] (-0.25,-0.4) -- (-0.25,-1);
+			\draw[->] (0.25,0.35) -- (0.25,0.95);
+		\end{tikzpicture}
+	\end{center}
+	
+You can also hold them to move continuously.
+\subsection{Moving by Skipping a Block of Code:} If you hit \cd{Shift+]} you go down by skipping a block of code and if you hit \cd{Shift+[} you go up by skipping a block of code. 
+\subsection{Moving to Staring and Ending line :}
+Hit \cd{Shift+g} to go to ending line of the file and hit double \cd{g} that is \c{gg} to go to the starting line of the file
+	\section{Delete text:-}
+	
+		\subsection{Basic Delete:} If you press \cd{d} twice that is \cd{dd} it deletes a line. Actually \cd{d} works like Cut function.
+\section{Copy-Paste:-}
+\subsection{Copy:}
+If you hit \cd{y} two times that is \cd{yy} then it copies the line (But you will not see that in your clipboard in windows)
+\subsection{Paste:} In any line after copying (Clip board copying in windows also works) if you hit \cd{p} it will paste that in the next line  by making a new line before the line you were present and if you hit \cd{Shift+p} it will paste in the previous line by making a new line before the line you were present
+\section{Select:-}
+\subsection{Start with Selecting a Line:} If you press \cd{Shift+v} it will select the line and will be in select mode that is if you go up-down (All type of movement commands works) it will select the line above or bottom too. 
+\section{More Additional Commands:-}
+\subsection{Make a new line before-after current line and go to insert mode:} If you hit \cd{o} it will make a new line after the current line and go there and enter into insert mode and if you hit \cd{Shift+o} it will make a new line before the current line and go there and enter into insert mode.
+\end{document}
