@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{authblk}
+\usepackage{titling}
+\usepackage{tikz}
+
+\title{\huge{Classical Mechanics 1, Autumn 2021 CMI \\ Problem set 3\\\hspace{7cm}- Govind S. Krishnaswami}
+}
+\author{Soham Chatterjee\\Roll: BMC202175}
+\date{}
+
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\setlength{\parindent}{1cm}
+\begin{document}
+	\maketitle
+	\pagebreak
+
+\begin{enumerate}
+	\item Given that $$\phi=\frac{1}{\sqrt{x^2+y^2+z^2}}$$Hence\begin{align*}
+		\nabla \phi\ &=\nabla\bigg(\frac{1}{\sqrt{x^2+y^2+z^2}}\bigg)\\
+		&=\bigg(\frac{\partial}{\partial x}\hat{i}+\frac{\partial}{\partial y}\hat{j}+\frac{\partial}{\partial z}\hat{k}\bigg)\bigg(\frac{1}{\sqrt{x^2+y^2+z^2}}\bigg)\\
+		&=-\frac{1}{2}\, \frac{2x}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{i}-\frac{1}{2}\, \frac{2y}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{j}-\frac{1}{2}\, \frac{2z}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{k}\\
+		&=-\frac{x}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{i}-\frac{y}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{j}-\frac{z}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{k}
+	\end{align*}Therefore in Cartesian  Coordinates the gradient of $\phi$ is $$\nabla\phi=-\frac{x}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{i}-\frac{y}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{j}-\frac{z}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{k}$$In Spherical Polar Coordinates $$r=\sqrt{x^2+y^2+z^2}\text{ and }\boldsymbol{r}=x\hat{i}+y\hat{j}+z\hat{k}$$Substituting these in the expression of $\nabla\phi$we get\begin{align*}
+	\nabla \phi\ &=-\frac{x}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{i}-\frac{y}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{j}-\frac{z}{(x^2+y^2+z^2)^{\frac{3}{2}}}\hat{k}\\
+	&=-\frac{\boldsymbol{r}}{(r^2)^{\frac{3}{2}}}=-\frac{\boldsymbol{r}}{r^{3}}=-\frac{1}{r^2}\hat{r}
+	\end{align*}Therefore in Spherical Polar Coordinates gradient of $\phi$ is $$\nabla\phi=-\frac{1}{r^2}\hat{r}$$
+
+	\item In Spherical Polar Coordinates we have$$\hat{r}=\sin\theta\cos\phi\hat{i}+\sin\theta\sin\phi\hat{j}+\cos\theta\hat{k}$$ $$\hat{\theta}=\cos \theta \cos \phi \hat{i}+\cos \theta \sin \phi \hat{j}-\sin \theta \hat{k}$$ $$\hat{\phi}=-\sin \phi \hat{i}+\cos \phi \hat{j}$$Hence\begin{align*}
+		\dot{\hat{r}}\ &=(\dot{\theta}\cos \theta  \cos \phi-\dot{\phi}\sin \theta \sin \phi ) \hat{i}+(\dot{\theta}\cos \theta  \sin \phi+\dot{\phi}\sin \theta \cos \phi ) \hat{j}-\dot{\theta}\sin \theta  \hat{k}
+	\end{align*}Now
+\begin{align*}
+	\boldsymbol{v}=\dot{\boldsymbol{r}}=\dot{r}\hat{r}+r\dot{\hat{r}}
+\end{align*}Hence\begin{align*}
+\boldsymbol{r}\times \boldsymbol{v}\ &=r\hat{r}\times(\dot{r}\hat{r}+r\dot{\hat{r}})\\
+&=r\hat{r}\times (r\dot{\hat{r}})\\
+&=r^2(\hat{r}\times\dot{\hat{r}})\\
+&=r^2(\sin\theta\cos\phi\hat{i}+\sin\theta\sin\phi\hat{j}+\cos\theta\hat{k})\times((\dot{\theta}\cos \theta  \cos \phi-\dot{\phi}\sin \theta \sin \phi ) \hat{i}\\
+&\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+(\dot{\theta}\cos \theta  \sin \phi+\dot{\phi}\sin \theta \cos \phi ) \hat{j}-\dot{\theta}\sin \theta  \hat{k})\\
+&=r^2\Big[[\sin\theta\sin\phi\hat(-\dot{\theta}\sin \theta)-\cos\theta(\dot{\theta}\cos \theta  \sin \phi+\dot{\phi}\sin \theta \cos \phi )]\hat{i}+\\
+& \ \ \ \  [\cos\theta((\dot{\theta}\cos \theta  \cos \phi-\dot{\phi}\sin \theta \sin \phi)-\sin\theta\cos\phi(-\dot{\theta}\sin \theta )]\hat{j}+\\
+& \ \ \ \  [\sin\theta\cos\phi(\dot{\theta}\cos \theta  \sin \phi+\dot{\phi}\sin \theta \cos \phi )-\sin\theta\sin\phi((\dot{\theta}\cos \theta  \cos \phi-\dot{\phi}\sin \theta \sin \phi)]\hat{k}\Big]
+\end{align*}Now Angular Momentum ($L$) is $$\boldsymbol{L}=\boldsymbol{r}\times\boldsymbol{p}$$where $\boldsymbol{p}$ is the linear momentum vector. Assuming the mass of the particle ($m$) is constant, $\boldsymbol{p}=m\boldsymbol{v}$ Hence$$\boldsymbol{L}=\boldsymbol{r}\times (m\boldsymbol{v})=m(\boldsymbol{r}\times\boldsymbol{v})$$Since we need the $z$ component of angular momentum\begin{align*}
+\boldsymbol{L}_z\ &=m(\boldsymbol{r}\times\boldsymbol{v})_z\\
+&=mr^2[\sin\theta\cos\phi(\dot{\theta}\cos \theta  \sin \phi+\dot{\phi}\sin \theta \cos \phi )-\sin\theta\sin\phi((\dot{\theta}\cos \theta  \cos \phi-\dot{\phi}\sin \theta \sin \phi)]\hat{k}\\
+&=[\dot{\theta}(\sin\theta\sin\phi\cos\theta\cos\phi-\sin\theta\sin\phi\cos\theta\cos\phi)+\dot{\phi}(\sin^2\theta\cos^2\phi+\sin^2\theta\sin^2\phi)]\hat{k}\\
+&=mr^2\dot{\phi}\sin^2\theta\hat{k}
+\end{align*}Therefore the $z$ component of the angular momentum of the particle is $$L_z=mr^2\dot{\phi}\sin^2\theta\ [\text{Proved}]$$ 
+\item To specify a line segment of fixed length $l$, first we need to specify one end point of the line segment. For that we need 3 parameters to specify the end point $(r,\theta,\phi).$ Now the other endpoint lies in the circumference of the sphere of radius $l$ whose centre is at the first end point. Now in this spherical coordinate system we only need $\theta$ and $\phi$ to specify the other end point.
+
+\hspace{1cm}Therefore in total we need 5 parameters to specify a line segment. Hence a line segment has 5 Degrees of Freedom
+\end{enumerate}
+\end{document}

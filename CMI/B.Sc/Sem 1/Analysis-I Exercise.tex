@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{authblk}
+\usepackage{titling}
+
+\title{\huge{Analysis-I Exercise\\ \hspace{5cm}- Rajeeva L. Karandikar}}
+\author{Soham Chatterjee\\Roll: BMC202175}
+\date{}
+
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\setlength{\parindent}{1cm}
+\begin{document}
+	\maketitle
+	\pagebreak
+	\section{Exercise A}
+	\begin{enumerate}
+		\item[A1.] Given that $$a+t=b+t$$where $a,b,t\in\mathbb{R}$. Now adding $-t$ both sides we get
+		\begin{align*}
+			& (a+t)-t=(b+t)-t\\
+			\text{or, } & a+(t-t)=b+(t-t)\\
+			\text{or, } & a+0=b+0\\
+			\text{or, } & a=b\ [\text{Proved}]
+		\end{align*}
+		\item[A2.]  Given that $$a\cdot s=b\cdot s$$where $a,b,s\in\mathbb{R}$. Now multiplying $\frac1s$ both sides we get
+		\begin{align*}
+			& (a\cdot s)\cdot \frac1s=(b\cdot s)\cdot \frac1s\\
+			\text{or, } & a\cdot (s\cdot \frac1s)=b\cdot (s\cdot \frac1s)\\
+			\text{or, } & a\cdot 1=b\cdot 1\\
+			\text{or, } & a=b\ [\text{Proved}]
+		\end{align*}
+		\item[A3.] Given that $$a+t<b+t$$where $a,b,t\in\mathbb{R}$. Now adding $-t$ both sides we get
+		\begin{align*}
+			& (a+t)-t<(b+t)-t\\
+			\text{or, } & a+(t-t)<b+(t-t)\\
+			\text{or, } & a+0<b+0\\
+			\text{or, } & a<b\ [\text{Proved}]
+		\end{align*}
+		\item[A4.] We know that $x-x=0$. If $x>0$ then $x-x>0-x\implies 0>-x$. Similarly if  $x<0$ then   $x-x<0-x\implies 0<-x$.
+		
+		\hspace{1cm}Let $x\cdot y>0$ and $x>0$. Let $y<0$. Hence $z>0$. Hence $x\cdot -y>0$. Hence $$x\cdot y+x\cdot (-y)>0 \implies x\cdot(y-y)>0\implies x\cdot 0>0$$ which is not true. Hence $y>0$. If $x<0$ assume $y>0$. Hence $-x>0$.  Hence $(-x)\cdot y>0$. Hence $$x\cdot y+(-x)\cdot y>0 \implies (x-x)\cdot y>0\implies 0\cdot y>0$$ which is not true. Hence $y<0$.
+		
+		\hspace{1cm}Now for the given problem
+		\begin{align*}
+			& a\cdot s<b\cdot s\\
+			\text{or, } & a\cdot s+(-a)\cdot s<b\cdot s+(-a)\cdot s\\
+			\text{or, } & (a-a)\cdot s<(b-a)\cdot s\\
+			\text{or, } & 0\cdot s<(b-a)\cdot s\\
+			\text{or, } & 0<(b-a)\cdot s\\
+		\end{align*}
+		As $s<0$ hence $$b-a<0\implies b-a+a<0+a\implies b<a\ [\text{Proved}]$$
+		\item[A5.] Gicen that $x\cdot y=x$. Multiplying both sides by $\frac1x$\begin{align*}
+			& x\cdot y=x\\
+			\text{or, } & (x\cdot y)\cdot \frac1x=x\cdot \frac1x\\
+			\text{or, } & y\cdot \bigg(x\cdot \frac1x\bigg)=1\\
+			\text{or, } & y\cdot 1=1\\
+			\text{or, } &  y=1\ [\text{Proved}]
+		\end{align*}
+	\end{enumerate}
+	\section{Exercise B}
+	\begin{enumerate}
+		\item[B1.] Given $y>1$. As $y>0$, $\frac1y$ multiplying both sides by $\frac{1}{y}$ we get$$y\cdot \frac1y >1\cdot \frac1y\implies 1>\frac1y \ [\text{Proved}]$$
+		\item[B2.] Consider the real number $\frac1z$. By Archimedean Property $\exists\ n\in\mathbb{N}$ such that $n\cdot \frac1z >1$ Now multiplying $z$ in both sides we get $$\bigg(n\cdot \frac1z >1\bigg)\cdot z>1\cdot z\implies n\cdot\bigg(\frac1z \cdot z\bigg)>z\implies n>z$$Hence $\exists n\in \mathbb{N}$ such that $n>z$.[Proved]
+		\item[B3.] Let $A$ be a non-empty set of integers which is bounded above. As $A\subset \mathbb{Z}\subset \mathbb{R}$, $A$ has a least upper bound. Let's say it is $s$. Hence $\forall \epsilon >0$ $\exists\ a\in A$ such that $$s-\epsilon<a\leq s$$Because if it is not true then there exists no such $a\in A$ which is greater than $s-\epsilon$. Then $s-\epsilon$ would be an upper which is less than $s$ which is not possible since $s$ is the least upper bound. Now $a$ is an integer. Take $\epsilon=1$. If $s>a$ then $a$ is not the upper bound $\exists\ b\in A$ such that $$s\geq b>a>s-1$$Hence there exists two distinct integers such that $0<b-a<1$ which is not possible. Hence $s=a$. Therefore the least upper bound of a bounded non-empty set of integers is also an integer and belongs to that set.
+		
+		\hspace{1cm}Now, let $S$ be the set of all integers $n$ such that $n\leq z$. Then $\exists$ a least upper bound of $B$. Let $b$ be the least upper bound of $B$. As we previously proved $b$ is an integer and $b\in B.$ Hence $b\leq z$.
+		
+		\hspace{1cm}Now, if $b+1\leq z$ then $b+1\in B$. Then there exists an upper bound of the set $B$ which is greater than the least upper bound and also an element of $B$ which is not possible. Hence $b+1>z$. Hence $\exists\ t\in\mathbb{Z}$ such that $t-1\leq z< t$.[Proved]
+		\item[B4.] $\forall\ z>1,\ z\in\mathbb{R}$ $\exists\ t\in\mathbb{Z}$ such that $t-1\leq z< t$. As $t-1\leq z$ we can say$$t-1+1\leq z+1\implies t\leq z+1$$Hence $$z<t\leq z+1$$Therefore $\exists\ s\in\mathbb{Z}$ such that $z<s\leq z+1$.[Proved]
+		\item[B5.] Given that $y>x$. Hence $y-x>0$. Now by Archimedean Property $\exists\ k\in\mathbb{N}$ such that $$k\cdot(y-x)>1\implies k\cdot y>1+k\cdot x\ [\text{Proved}] $$
+		\item[B6.] Now, $\exists\ k\in\mathbb{N}$ such that $$1+k\cdot x<k\cdot y$$Now $\exists\ m\in\mathbb{N}$ such that $k\cdot x<m\leq k\cdot x+1$. Hence $$k\cdot x <m< k\cdot y$$There $\exists\ k,m\in\mathbb{N}$ such that $k\cdot x <m< k\cdot y$. [Proved]
+		\item[B7.] We know that there $\exists\ k,m\in\mathbb{N}$ such that $k\cdot x <m< k\cdot y$. Multiplying $\frac1k$ we get$$\frac1k\cdot k\cdot x <\frac1k\cdot m< \frac1k\cdot k\cdot y\implies x<\frac{m}{k}<y$$As $m,k$ are integers $\frac{m}{k}\in\mathbb{Q}$. Therefore there $\exists\ r\in\mathbb{Q}$ such that $x <r< y$.[Proved]
+		\item[B8.] AS $\beta>\alpha$, $\beta-\alpha>0$. By Archimedean Property $\exists\ n\in\mathbb{N}$ such that $n\cdot(\beta-\alpha)>1\implies \beta-\alpha>\frac1n$. Now let $S$ be the set of all integers $k$ such that $k>n\cdot \alpha$. Hence the set $S$ has a greatest lower bound. Let $m$ be the greatest lower bound. Hence $m>n\cdot \alpha\implies \frac{m}{n}>\alpha$.
+		
+		\hspace{1cm}Now $n\cdot \alpha+1> m$ because if not then $m-1$ be an element of $S$ which is less than the greatest lower bound which is not possible. Hence $$n\cdot x+1> m\implies\alpha+\frac1n>\frac{m}{n}$$Therefore $$\alpha+(\beta-\alpha)>\alpha+\frac{1}{n}>\frac{m}{n}>\alpha\implies y>\frac{m}{n}>\alpha$$Hence $\forall\ \alpha,\beta\in\mathbb{R}\ \exists\  r\in\mathbb{Q}$ such that $\alpha<r<\beta$.[Proved]
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{authblk}
+\usepackage{titling}
+\usepackage{tikz}
+
+\title{\huge{Classical Mechanics 1, Autumn 2021 CMI \\ Problem set 4\\\hspace{7cm}- Govind S. Krishnaswami}
+}
+\author{Soham Chatterjee\\Roll: BMC202175}
+\date{}
+
+\newcommand{\bma}{\boldsymbol{a}}
+\newcommand{\bmb}{\boldsymbol{b}}
+\newcommand{\bmc}{\boldsymbol{c}}
+\newcommand{\bmr}{\boldsymbol{r}}
+\newcommand{\bmv}{\boldsymbol{v}}
+\newcommand{\bmp}{\boldsymbol{p}}
+\newcommand{\bmF}{\boldsymbol{F}}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\setlength{\parindent}{1cm}
+\begin{document}
+	\maketitle\pagebreak
+	\begin{enumerate}
+		\item Given that $\hat{x}\times\hat{y}=\hat{z}$. If $\theta$ is the angle between the vectors $\theta$ then\begin{align*}
+		& |\hat{x}\times\hat{y}|=|\hat{x}|\cdot|\hat{y}|\sin\theta\\
+		\implies & |\hat{z}|=|\hat{x}|\cdot|\hat{y}|\sin\theta\\
+		\implies & 1=1\times 1\times \sin\theta\\
+		\implies & \sin\theta=1
+	\end{align*}
+Therefore $\theta=90^{\circ}$. Hence $\hat{x}$ and $\hat{y}$ are perpendicular. Therefore $\hat{x}\cdot\hat{y}=0$.
+
+\hspace{1cm}Given the identity$$\bma \times (\bmb\times\bmc)=\bmb(\bma\cdot\bmc)-\bmc(\bma\cdot\bmb)$$
+Now putting $\bma=\hat{y}$, $\bmb=\hat{x}$ and $\bmc=\hat{y}$ we get\begin{align*}
+	& \hat{y}\times(\hat{x}\times\hat{y})=\hat{x}(\hat{x}\cdot\hat{x})-\hat{x}(\hat{x}\cdot\hat{y})\\
+	\implies & \hat{y}\times \hat{z}=\hat{x}-0\\
+	\implies & \hat{y}\times \hat{z}=\hat{x}\ [\text{Proved}]
+\end{align*}
+
+\hspace{1cm}Again putting $\bma=\hat{x}$, $\bmb=\hat{x}$ and $\bmc=\hat{y}$ we get\begin{align*}
+	& \hat{x}\times(\hat{x}\times\hat{y})=\hat{x}(\hat{x}\cdot\hat{y})-\hat{y}(\hat{x}\cdot\hat{x})\\
+	\implies & \hat{x}\times \hat{z}=0-\hat{y}\\
+	\implies & -\hat{x}\times \hat{z}=\hat{y}\\
+	\implies & \hat{z}\times \hat{x}=\hat{y}\ [\text{Proved}]
+\end{align*}
+\item The particle is moving counterclockwise round a circle of length $l$ and constant speed $v$. Therefore angular speed of the particle $\omega$ is also constant and $\omega=\frac{v}{l}$. Hence angle covered in time $t$ from initial position is $\theta=\omega t$. Now at any time $t$ the position vector of the particle$$\bmr=l(\cos\omega t\hat{x}+\sin\omega t\hat{y})$$ Hence the velocity of the particle is $$\bmv=\dot{\bmr}=l\omega(-\sin\omega t\hat{x}+\cos\omega t\hat{y})$$. Hence the acceleration of the particle is $$\bma=\dot{\bmv}=l\omega^2(-\cos\omega t\hat{x}-\sin\omega t\hat{y})=-\omega^2[l(\cos\omega t\hat{x}+\sin\omega t\hat{y})]=-\omega^2\bmr=-\Bigg(\frac{v}{r}\Bigg)^2\bmr=-\frac{v^2}{r}\hat{r}$$Mass of the particle is $m$. Hence the force on the particle is $m\bma=-m\frac{v^2}{r}\hat{r}$
+\item \begin{enumerate}
+	\item The position of the particle can be specified by two parameters $\theta $ and $\phi$. Hence the particle has two degrees of freedom.
+
+\item There are 4  real numbers which have to be specified for initial conditions. Two for initial postion and two for initial velocity.
+
+\item For initial position we can specify by $\theta$ and $\phi$. As the velocity vector is perpendicular to the position vector we can specify the initial velocity by $\hat{\theta}$ and $\hat{\phi}$.
+\end{enumerate}
+\item Given the force on the particle of mass $m$ moving on real line ($x-$axis) is $$\bmF=-kx\hat{x}$$Let the  velocity of the particle is $\bmv$. Therefore $\frac{dx}{dt}\hat{x}=\bmv$. Hence $$\bmF=\frac{d}{dt}\bmp=-k\frac{dx}{dt}\hat{x}=-k\bmv$$where$\bmp$ is the momentum vector of the particle. Hence $\bmv=\frac{\bmp}{m}$. Now\begin{align*}
+	\frac{d}{dt}\begin{pmatrix}
+		x\\
+		p
+	\end{pmatrix}=\begin{pmatrix}
+	\frac{dx}{dt}\\
+	\frac{dp}{dt}
+\end{pmatrix}=\begin{pmatrix}
+\frac{p}{m}\\
+-kv
+\end{pmatrix}=\begin{pmatrix}
+0&\frac{1}{m}\\
+-k&0
+\end{pmatrix}\begin{pmatrix}
+x\\
+p
+\end{pmatrix}
+\end{align*}Hence $$A=\begin{pmatrix}
+0&\frac1m\\
+-k&0
+\end{pmatrix}$$Hence $$A^2=\begin{pmatrix}
+0&\frac1m\\
+-k&0
+\end{pmatrix}\begin{pmatrix}
+0&\frac1m\\
+-k&0
+\end{pmatrix}=\begin{pmatrix}
+-\frac{k}{m}&0\\
+0&-\frac{k}{m}
+\end{pmatrix}=-\frac{k}{m}\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}=-\frac{k}{m}I$$Therefore$$A^3=(A^2)A=\left( -\frac{k}{m}I\right) A=-\frac{k}{m}A$$ $$A^4=(A^2)^2=\left( -\frac{k}{m}I\right) ^2=\frac{k^2}{m^2}I^2=\frac{k^2}{m^2}I$$Generalizing the result we get$$A^{2n}=(A^2)^n=\left( -\frac{k}{m}I\right)^n=(-1)^n\frac{k^n}{m^n}I$$
+$$A^{2n+1}=A^{2n}A=\left((-1)^n\frac{k^n}{m^n}I \right) A=(-1)^n\frac{k^n}{m^n}A=(-1)^n\frac{k^n}{m^n}\begin{pmatrix}
+	0&\frac1m\\
+	-k&0
+\end{pmatrix}$$
+	\end{enumerate}
+\end{document}

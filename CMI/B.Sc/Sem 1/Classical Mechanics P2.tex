@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{authblk}
+\usepackage{titling}
+\usepackage{tikz}
+
+\title{\huge{Classical Mechanics 1, Autumn 2021 CMI \\ Problem set 2\\\hspace{7cm}- Govind S. Krishnaswami}
+}
+\author{Soham Chatterjee\\Roll: BMC202175}
+\date{}
+
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\setlength{\parindent}{1cm}
+\begin{document}
+	\maketitle
+	\pagebreak
+	
+\begin{enumerate}
+	\item The radius of the circle = $l$ and the angular speed is $\omega$. Hence at any time $t$ if $\boldsymbol{r}(t)$ is the position vector of the particle then$$\boldsymbol{r}(t)=l\cos\omega t \hat{x}+l\sin\omega t\hat{y}$$
+	\begin{center}
+	\begin{tikzpicture}
+		\draw[<->] (0,-1)node[yshift=-0.2cm]{$Y'$} -- (0,4)node[yshift=0.2cm]{$Y$};
+		\draw[<->] (-1,0) node[xshift=-0.2cm]{$X'$} -- (4,0)node[xshift=0.2cm]{$X$};
+		\draw (3,0) arc [start angle=0,end angle=90, radius=3cm];
+		\draw[->] (0,0) -- (1.8,2.4) node[xshift=1.8cm,yshift=0.2cm]{$\boldsymbol{r}(t)=l\cos\omega t \hat{x}+l\sin\omega t\hat{y}$};
+		\draw[dashed] (1.8,2.4) -- (1.8,0)node[xshift=0.2cm,yshift=1cm,rotate=-90]{$l\sin\omega t$};
+		\draw[dashed] (1.8,2.4) -- (0,2.4) node[xshift=0.7cm,yshift=0.2cm]{$l\cos\omega t$};
+		\draw[<->] (0,-0.3) -- (3,-0.3) node[yshift=-0.35cm,xshift=-1cm]{$l$};
+	\end{tikzpicture}
+	\end{center}
+		Hence velocity of the particle $(\boldsymbol{v}(t))$ at any time $t$ is the derivative of $\boldsymbol{r}(t)$. Hence$$\boldsymbol{v}(t)=\dot{\boldsymbol{r}}(t)=-l\omega\sin\omega t\hat{x}+l\omega\cos\omega t\hat{y}$$
+		Given that $\boldsymbol{a}(t)$ is the acceleration of the particle. Hence$$\boldsymbol{a}(t)=\dot{\boldsymbol{v}}(t)=-l\omega^2\cos\omega t\hat{x}-l\omega^2\sin\omega t\hat{y}=-\omega^2\boldsymbol{r}(t)$$Therefore$$\dot{\boldsymbol{a}}(t)=-\omega^2\dot{\boldsymbol{r}}(t)=-\omega^2\boldsymbol{v}(t)$$Hence \begin{align*}
+			\dot{\boldsymbol{a}}(t)\cdot\boldsymbol{a}(t)\ &=-\omega^2\boldsymbol{v}(t)\cdot (-\omega^2\boldsymbol{r}(t))\\
+			& =\omega^4\boldsymbol{v}\cdot\boldsymbol{r}\\
+			&=\omega^4(-l\omega\sin\omega t\hat{x}+l\omega\cos\omega t\hat{y})\cdot (l\cos\omega t \hat{x}+l\sin\omega t\hat{y})\\
+			&=\omega^4(-l\omega^2\sin\omega t\cos\omega t+l\omega^2\cos\omega t\sin \omega t)=0
+		\end{align*}
+	Hence $\dot{\boldsymbol{a}}(t)\cdot\boldsymbol{a}(t)=0$. Therefore acceleration and its derivative are perpendicular and henceforth the derivative of the acceleration only changes the direction of acceleration not its value.
+	\pagebreak
+		\item Let any point whose cartesian coordinate is $(x,y)$ and polar coordinate is $(r,\theta)$. $\hat{x}$, $\hat{y}$ denote the unit vectors in cartesian coordinate system and $\hat{r}$, $\hat{\theta}$ denote the unite vectors in polar coordinate system.
+		\begin{center}
+			\begin{tikzpicture}
+				\draw[<->] (0,-1)node[yshift=-0.2cm]{$Y'$} -- (0,4)node[yshift=0.2cm]{$Y$};
+				\draw[<->] (-1,0) node[xshift=-0.2cm]{$X'$} -- (4,0)node[xshift=0.2cm]{$X$};
+				\draw (0,0) node[xshift=-0.2cm,yshift=-0.2cm]{$O$};
+				\draw (1,0) arc [start angle=0,end angle=37, radius=1cm]node[xshift=0.3cm,yshift=-0.3cm]{$\theta$};
+				\draw (0,0) -- (3,2.25);
+				\draw[->] (3,2.25)--(4,3)node[xshift=-0.5cm,yshift=-0.2cm]{$\hat{r}$};
+				\draw[->] (3,2.25)--(2.25,3.25)node[xshift=0.15cm,yshift=-0.5cm]{$\hat{\theta}$};
+				\draw[->] (3,2.25)--(3,3.25)node[xshift=0.15cm,yshift=-0.4cm]{$\hat{y}$};
+				\draw[->] (3,2.25)--(4,2.25)node[xshift=-0.25cm,yshift=-0.2cm]{$\hat{x}$};
+				\draw (3.5,2.25) arc [start angle=0,end angle=37, radius=0.5cm]node[xshift=0.23cm,yshift=-0.13cm]{$\theta$};
+				\draw (3,2.75) arc [start angle=90,end angle=127, radius=0.5cm]node[xshift=0.13cm,yshift=0.2cm]{$\theta$};
+			\end{tikzpicture}
+		\end{center}
+	We can decompose $\hat{r}$ and $\hat{\theta}$ as\begin{equation}
+		\hat{r}=\cos\theta\hat{x}+\sin\theta\hat{y}=\frac{x}{r}\hat{x}+\frac{y}{r}\hat{y}\label{e1}
+	\end{equation}
+\begin{equation}
+	\hat{\theta}=-\sin\theta\hat{x}+\cos\theta\hat{y}=-\frac{y}{r}\hat{x}+\frac{x}{r}\hat{y}\label{e2}
+\end{equation}Now multiplying \eqref{e1} with $y$ and \eqref{e2} with $x$ and adding them we get\begin{align*}
+&y\hat{r}+x\hat{\theta}\ =(\frac{xy}{r}\hat{x}+\frac{y^2}{r}\hat{y})+(-\frac{xy}{r}\hat{x}+\frac{x^2}{r}\hat{y})\\
+\implies&y\hat{r}-x\hat{\theta}\ =\frac{x^2+y^2}{r}\hat{y}\\
+\implies & \frac{r^2}{r}\hat{y}=y\hat{r}+x\hat{\theta}
+\implies & \hat{y}=\frac{y}{r}\hat{r}+\frac{x}{r}\hat{\theta}
+\end{align*}
+Now multiplying \eqref{e1} with $x$ and \eqref{e2} with $y$ and subtracting \eqref{e2} from \eqref{e1} we get\begin{align*}
+	&x\hat{r}-y\hat{\theta}\ =(\frac{x^2}{r}\hat{x}+\frac{xy}{r}\hat{y})+(-\frac{y^2}{r}\hat{x}+\frac{xy}{r}\hat{y})\\
+	\implies&x\hat{r}-y\hat{\theta}\ =\frac{x^2+y^2}{r}\hat{y}\\
+	\implies & \frac{r^2}{r}\hat{x}=x\hat{r}-y\hat{\theta}\\
+	\implies & \hat{x}=\frac{x}{r}\hat{r}-\frac{y}{r}\hat{\theta}
+\end{align*}Therefore$$\hat{x}=\frac{x}{r}\hat{r}-\frac{y}{r}\hat{\theta}$$ and $$\hat{y}=\frac{y}{r}\hat{r}+\frac{x}{r}\hat{\theta}$$
+\pagebreak
+\item Here we are doing the transformation $$(x,y)\mapsto(u,v)=(ax+by,cx+dy)$$Hence for any vector $\boldsymbol{r}=x\hat{x}+y\hat{y}$ will be transformed into$$\boldsymbol{r}'=(ax+by)\hat{u}+(cx+dy)\hat{v}$$For $\boldsymbol{u}$ and $\boldsymbol{v}$ we know$$\boldsymbol{u}=a\hat{x}+b\hat{y}\text{ and }\boldsymbol{v}=c\hat{x}+d\hat{y}$$For $\boldsymbol{u}$ and $\boldsymbol{v}$ to be orthogonal their dot product have to be zero and the modulus of $\boldsymbol{u}$ and $\boldsymbol{v}$ have to be 1.
+$$\boldsymbol{u}\cdot\boldsymbol{v}=0\implies(a\hat{x}+b\hat{y})\cdot(c\hat{x}+d\hat{y})=0\implies ac+bd=0$$ $$|\boldsymbol{u}|=1\implies\sqrt{a^2+b^2=1}\implies a^2+b^2=1$$ $$|\boldsymbol{v}|=1\implies\sqrt{c^2+d^2=1}\implies c^2+d^2=1$$Now let $A=\begin{pmatrix}
+	a & b\\
+	c&d
+\end{pmatrix}$Then $A^T=\begin{pmatrix}
+a&c\\
+b&d
+\end{pmatrix}$Then $$AA^T=\begin{pmatrix}
+a & b\\
+c&d
+\end{pmatrix}\begin{pmatrix}
+a&c\\
+b&d
+\end{pmatrix}=\begin{pmatrix}
+a^2+b^2&ac+bd\\
+ac+bd&c^2+d^2
+\end{pmatrix}=\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}=I$$Therefore the necessary condition for the matrix $\begin{pmatrix}
+a & b\\
+c&d
+\end{pmatrix}$ is that it has to be orthogonal.
+\item Given that $$\begin{aligned}
+	&\hat{r}=\cos \theta \hat{z}+\sin \theta(\cos \phi \hat{x}+\sin \phi \hat{y}) \\
+	&\hat{\theta}=-\sin \theta \hat{z}+\cos \theta(\cos \phi \hat{x}+\sin \phi \hat{y}) \\
+	&\hat{\phi}=-\sin \phi \hat{x}+\cos \phi \hat{y}
+\end{aligned}$$Now \begin{align*}
+\hat{r}\times\hat{\theta}\ &=\begin{vmatrix}
+	\hat{x}&\hat{y}&\hat{z}\\
+	\sin \theta\cos \phi&\sin \theta\sin\phi&\cos \theta\\
+	\cos \theta\cos \phi&\cos \theta\sin \phi&-\sin\theta
+\end{vmatrix}\\
+&=(-\sin^2\theta\sin\phi-\cos^2\theta\sin\phi)\hat{x}+(\cos^2\theta\cos\phi+\sin^2\theta\cos\phi)\hat{y}\\
+&\qquad\qquad\qquad\qquad\qquad\qquad+(\sin\theta\cos\theta\sin\phi\cos\phi-\sin\theta\cos\theta\sin\phi\cos\phi)\hat{z}\\
+&=-\sin\phi\hat{x}+\cos\phi\hat{y}\\
+&=\hat{\phi}\end{align*}
+Now to confirm $\hat{r},\hat{\theta},\hat{\phi}$ are orthogonal we have to check if the dot product of any two are 0.\begin{align*}
+	\hat{r}\cdot\hat{\theta}\ &=(\cos \theta \hat{z}+\sin \theta(\cos \phi \hat{x}+\sin \phi \hat{y}))\cdot(-\sin \theta \hat{z}+\cos \theta(\cos \phi \hat{x}+\sin \phi \hat{y}))\\
+	&=-\sin\theta\cos\theta+\sin\theta\cos\theta\sin^2\phi+\sin\theta\cos\theta\cos^2\phi\\
+	&=-\sin\theta\cos\theta+\sin\theta\cos\theta=0\\
+	\qquad\\
+	\hat{\theta}\cdot\hat{\phi}\ &=(-\sin \theta \hat{z}+\cos \theta(\cos \phi \hat{x}+\sin \phi \hat{y}))\cdot(-\sin \phi \hat{x}+\cos \phi \hat{y})\\
+	&=-\cos\theta\cos\phi\sin\phi+\cos\theta\cos\phi\cos\phi=0\\
+	\qquad\\
+	\hat{\phi}\cdot\hat{r}\ &=(-\sin \phi \hat{x}+\cos \phi \hat{y})\cdot(\cos \theta \hat{z}+\sin \theta(\cos \phi \hat{x}+\sin \phi \hat{y}))\\
+	&=-\sin\theta\cos\phi\sin\phi+\sin\theta\cos\phi\cos\phi=0
+\end{align*}
+Therefore $\hat{r},\hat{\theta},\hat{\phi}$ are perpendicular to each other. Hence $(\hat{r},\hat{\theta},\hat{\phi})$ is. right handed orthogonal.
+\item Given that$$\hat{r}=\cos \theta(t) \hat{z}+\sin \theta(t)\cos \phi(t) \hat{x}+\sin \theta(t)\sin \phi(t) \hat{y}$$Hence \begin{align*}
+	\dot{\hat{r}}\ &=-\dot{\theta}(t)\sin \theta \hat{z}+(\dot{\theta}(t)\cos\theta(t)\cos\phi(t)-\dot{\phi}(t)\sin\theta(t)\sin\phi(t))\hat{x}\\
+	&\qquad\qquad\qquad\qquad\qquad\qquad+(\dot{\theta}(t)\cos\theta(t)\sin\phi(t)+\dot{\phi}(t)\sin\theta(t)\cos\phi(t))\hat{y}\\
+	&=\dot{\theta}(t)\big(-\sin \theta \hat{z}+\cos\theta(t)\cos\phi(t)\hat{x}+\cos\theta(t)\sin\phi(t)\hat{y}\big)+\dot{\phi}(t)\big(-\sin\theta(t)\sin\phi(t)\hat{x}+\sin\theta(t)\cos\phi(t)\hat{y}\big)\\
+	&=\dot{\theta}(t)\hat{\theta}+\dot{\phi}(t)\sin\theta(t)\big(-\sin\phi(t)\hat{x}+\cos\phi(t)\hat{y}\big)\\
+	&=\dot{\theta}(t)\hat{\theta}+\dot{\phi}(t)\sin\theta(t)\hat{\phi}
+\end{align*}
+Hence$$\dot{\hat{r}}=\dot{\theta}(t)\hat{\theta}+\dot{\phi}(t)\sin\theta(t)\hat{\phi}$$ where coefficient of $\hat{r}$ is 0.
+\end{enumerate}
+\end{document}
