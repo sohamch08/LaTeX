@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{mathtools,amsmath,amsfonts,fullpage,enumitem,authblk}
+
+\include{letterfonts}
+\title{\LARGE{\textsc{Algebra 2 Week 6 -- Artin 5.1, 5.2, 5.6 Chapter 8}}}
+\author{\LARGE{\textsf{\textbf{Name:} Soham Chatterjee\hfill \textbf{Roll:} BMC202175}\\\hrule}}
+\date{}
+
+\begin{document}
+	
+\maketitle
+\thispagestyle{empty}
+	\begin{enumerate}[label=5.\arabic*.]
+		\item \begin{enumerate}
+			\item Since its an Euclidean Space the form is positive definite and symmetric. Hence $\forall\ \lambda\in\bbR$,  $\langle v-\lambda w,v-\lambda w\rangle\geq0$. Hence \begin{align*}
+				\langle v-\lambda w,v-\lambda w\rangle & = \langle v,v\rangle - \lambda\langle v,w\rangle +\lambda^2\langle w\rangle
+			\end{align*}Now $\langle v,v\rangle - \lambda\langle v,w\rangle +2\lambda^2\langle w,w\rangle\geq 0$ is a quadratic  equation of $\lambda$ where it gives positive value when $v\neq \lambda w$ and 0 when $v=\lambda w$. Therefore the discriminant must be negative or zero. Hence \begin{align*}
+				 & 4\langle v,w\rangle ^2-4\langle v,v\rangle\langle w,w\rangle\leq 0\\
+			\iff & \langle v,w\rangle^2\leq \langle v,v\rangle\langle w ,w\rangle\\
+			\iff & |\langle v,w\rangle| \leq | v||w|\qquad [\text{Proved}]
+		\end{align*}
+		\item We have for any $v\in V$ $|v|^2=\langle v,v\rangle$. Now \begin{align*}
+			|v+w|^2 + |v-w|^2 & = \langle v+w,v+w\rangle +\langle v-w,v-w\rangle \\
+			& = [\langle v,v\rangle +2\langle v,w\rangle  +\langle w,w\rangle] +[\langle v,v\rangle -2\langle v,w\rangle +\langle w,w\rangle]\\
+			& = 2\langle v,v\rangle +2\langle w,w\rangle \\
+			& =2|v|^2+2|w|^2\qquad [\text{Proved}]
+		\end{align*}
+	\item Given that $|v|=|w|\implies |v|^2=|w|^2\implies \langle v,v\rangle=\langle w,w\rangle$. To prove $(v+w)\perp (v-w)$ if we show that $\langle v+w,v-w\rangle=0$ we are done. Now \begin{align*}
+		\langle v+w,v-w\rangle & = \langle v,v\rangle +\langle v,w\rangle - \langle w,v\rangle -\langle w,w\rangle \\
+		& = \langle v,v\rangle -\langle w,w\rangle\\
+		& = 0 \qquad [\text{Proved}]
+	\end{align*}
+		\end{enumerate}
+	\item $W^{\perp}=\{v\mid v\in V, \ \langle v,w\rangle =0\ \forall\ w\in W\}$. Hence $W^{\perp\perp}=\{w'\mid w'\in V, \ \langle w',v\rangle =0\ \forall\ v\in W^{\perp}\}\}$. Let $w\in W$ then $\langle w,v\rangle =0\ \forall v\in W^{\perp}$. Hence $w\in W^{\perp\perp}$. Therefore $W\subseteq W^{\perp\perp}$. Now we know that $V=W\oplus W=W^{\perp}\oplus W^{\perp\perp}$ Hence $\dim W^{\perp}=\dim W^{\perp\perp}$. We can say then $W=W^{\perp\perp}$ [Proved]
+	\addtocounter{enumi}{3}
+	\item Let $\lambda \in \bbC$ be an eigen value of the unitary matrix $A$. Hence $AX=\lambda X$ for some column vector $X$. Now $$(PX)^*(PX)=X^*P^*PX=X^*X\qquad (PX)^*(PX)=(\lambda X)^*(\lambda X)=\overline{\lambda}X^*\lambda X=\overline{\lambda}\lambda X^*X $$Hence $X^*X=\overline{\lambda}\lambda X^*X\implies \overline{\lambda}\lambda =1\implies |\lambda|^2=1$. Hence the complex numbers with unit modulous 1 will appear as eigenvalues of a unitary matrix.
+	\end{enumerate}
+\end{document} 

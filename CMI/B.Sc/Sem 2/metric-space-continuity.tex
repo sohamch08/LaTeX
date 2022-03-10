@@ -1,0 +1,96 @@
+\chapter{Continuity in Metric Space}
+\section{Limit Point and Closure:-}
+
+\dfn{Limit Point}{$S\subset X$ is a metric space. We say that $x\in X$ is a limit point of $S$ if $\exists$ a sequence $\{s_n\}$ with all $s_n\in S\setminus\{x\}$ such that $s_n\to x$ (each $s_n$ is different from $x$)}
+
+\begin{Theorem}{}{limitpoint}	
+	 $x$ is a limit point of $S$ $\iff$ every neighborhood of $x$ in $X$ contains a point of $S$ other than $S$.
+\end{Theorem}
+\begin{myproof}
+	\subsubsection*{If Part:}
+	Let $x$ be a limit point of $S$. Therefore take a sequence $\{s_n\}$ in $S\setminus \{x\}  $ with $s_n\to x$ . 
+	
+	To prove what we want it is enough to show that $B_r(x)\cap S$ contains a point other than $x$. As $s_n \to x$, $\exists $ $N$ s.t.  $\forall $ $n>N$ $d(x,s_n)<r$ i.e. $s_n\in B_r(x)$. In particular $s_n]in B_r(x)\cap (S\setminus \{x\})$
+	\subsubsection*{Only If Part:}
+	We need to produce  a sequence $\{s_n\} \in S\setminus \{x\}$ with $\lim s_n=x$. Take $s_n\in B_{\frac1n}(x)\cap (S\setminus \{x\})$ See that $\lim\limits_{n\to \infty}s_n=x$. This is essentially because $\frac1n\to 0$.
+	
+	Complete the rest of the proof.
+	
+\end{myproof}
+\dfn{Closure}{Given a topological space $X$ and $S\subset X$, the closure of the set $S$ is $\overline{S}$ the smallest closed set containing $S$.}
+\begin{Theorem}{}{closure}
+	\begin{tabular}{rl}
+	$\overline{S} $ & $=\text{Smallest closed set of } X\text{ containing }S $                                     = \setword{A}{A} \\
+	                & $ =S\cup (\text{limit points of }S)$                                                         =                \setword{B}{B} \\
+	                & $=\{x\in X\mid x=\lim\limits_{n\to \infty} \text{ for some sequence }\{s_n\} \text{ in }S\}$ =                \setword{C}{C} \\
+	                & $=\{x\in X\mid \text{Every neighborhood of }x\text{ intersects }S\}$                         =                \setword{D}{D}
+\end{tabular}
+\end{Theorem}
+\begin{myproof}
+	\subsubsection*{$\bs{A\subset D}$}
+		\begin{tabular}{l}\hspace{1.5cm}$A^c=\bigcup$ (All open set $V$ s.t. $V\cap S=\phi$) \\ \hspace{1.5cm}$D^c=\{x\in X\mid \exists \text{ open neighborhood of }x,B\text{ s.t. }B\cap S=\phi \}$\end{tabular}
+		
+		\setlength{\parindent}{0cm}Clearly for all $x\in D^c$, $x\in A^c$. Hence $D^c\subset A^c\implies A \subset D$\setlength{\parindent}{1cm}
+		\subsubsection*{$\bs{D\subset B}$}
+		Take $x\in D$. Suppose $x\notin S$. Now any neighborhood of $x$ intersects $S$ in a point hence it has to be a different point from $x$ since $x\notin S$. Therefore $x$ is a limit point of $S$. $D\subset B$
+		\subsubsection*{$\bs{B\subset C}$}
+		If $x\in S$ then take a sequence 
+	
+\end{myproof}
+
+\qs{}{What does it mean to be smallest closed set containing the set $S$ here ?}
+\sol $\bigcap$ All closed sets containing $S$ is automatically closed and hence the smallest closed set containing $S$.
+\begin{myproof}
+	For proof of \ref{th:closure} notice \ref{A},\ref{B},\ref{C},\ref{D} all contains $S$ (obvious).
+	\nt{We don't need to show \ref{B},\ref{C},\ref{D} are closed. We can also take the sets element wise and show each set is a subset of the other. This may simplify our way of proof. (exercise)}
+	
+	Now see $A$ and $D$ completely deal with topology. \ref{A} is about closed sets and \ref{D} is about open sets. So \ref{A} and \ref{D} close to each other. Now by the \ref{th:limitpoint} we have equivalence of \ref{C} and \ref{D}. So we can prove like this
+	$$\ref{A}\iff\ref{D}\iff\ref{B}\ \&\ \ref{C}$$Left as exercise
+\end{myproof}\nt{For these kind of proofs instead of looking for the most efficient way try to find a path that allows you to go from anywhere to anywhere}
+\section{Continuity:-}
+\dfn{Continuity}{$f:X\to Y$ function between metric spaces is continuous at $a\in X$ if $\forall$ $\eps>0$ $\exists$ $\delta>0$ s.t. \begin{align*}
+	d(x,a)<\delta      & \implies d(f(a),f(x))<\eps      \\
+	\Updownarrow\qquad & \qquad\qquad\qquad \Updownarrow \\
+	x\in B_{\delta}(x) & \implies f(x)\in B_{\eps}(f(a))
+\end{align*}}
+\setlength{\parindent}{0cm}That means $f^{-1}$(Any ball around $f(a)$) $\supset$ Ball around $a$.\setlength{\parindent}{1cm}
+
+So $f:X\to Y$ is continuous at all points $\iff$ $f^{-1}(\text{Any ball intersecting the range})\supset $ A ball
+\nt{We can not say $f^{-1}(\text{Any ball})$ because because we need a ball that contains a point in the range
+}
+\begin{Theorem}{}{}
+	$f$ is continuous $\iff$ $f^{-1}(\text{Any open set in }Y)$ is open in $X$
+\end{Theorem}
+\begin{myproof}
+	\subsubsection*{If Part:-}
+	It is enough to show $f^{-1}(\text{Any ball})$ is open on $X$ because $f^{-1}$ preserves unions $f^{-1}\left(\bigcup\limits_{\alpha}V_{\alpha}\right)=\bigcup\limits_{\alpha}\left(f^{-1}(V_{\alpha})\right)$
+	
+	Let $B$ is any open set (as its conceptually simpler to take open set here instead of a ball) in $Y$. Let $a\in f^{-1}(B)$. Hence we can say $f(a)\in B$. Since $B$ is an open set we can say there is a ball $B_{\eps}(f(a))\subset B$. Since $f$ is continuous $\exists$ $\delta $ such that $f(x)\in B_{\eps}(f(a))$ whenever $x\in B_{\delta}(a)$. Now $f^{-1}(B)\supset f^{-1}\Big(B_{\eps}(f(a))\big)\supset B_{\delta}(a)$ Hence $f^{-1} (B)$ is open. 
+	
+	\subsubsection*{Only If Part:-}
+	Lets prove continuity ar $a\in X$. We are given that $f^{-1}\Big(B_{\eps}(f(a))\Big)$ is open and obviously contains $a$. Therefore $f^{-1}\Big(B_{\eps}\big(f(a)\big)\Big)$ contains a ball around $a$. Take $\delta=$ Radius of the ball.
+\end{myproof}
+
+\qs{}{
+		For a metric space $X$, show that $\overline{S} =\{x\in X\mid \lim\limits_{n\to\infty}s_n=x\}$ for some sequence $\{s_n\}$ in $S$.}
+
+\qs{}{For a function $f:X\to Y$ between metric spaces, show that the followings are equivalent.\begin{enumerate}
+			\item $f$ is continuous 
+			\item $f^{-1}(\text{Open Set)}$ is open
+			\item $f^{-1}(\text{Closed Set})$ is closed
+			\item \label{itm:wrong} $f(\overline{S})=\overline{f(S)}$
+			\item $x_n\to x \implies f(x_n)\to f(x)$
+		\end{enumerate}
+		One or more of the above are wrong so check if they are true and if not then find the true statement.}
+\sol \ref{itm:wrong} is wrong. How to correct and rest is left as exercise
+\qs{}{For $f:X\to Y$ any set map\begin{enumerate}[label=(\roman*)]
+		\item $f^{-1}$ preserves unions, intersections, complements
+		\item Is there any condition on $f$ under which $f$ possesses the property above ?
+	\end{enumerate}}
+\ex{Continuous Function}{\begin{itemize}
+		\item $X\xrightarrow{f} Y\xrightarrow{g}Z$ $f,g\text{ continuous} \implies g\cdot f$ is continuous
+		\item Is $ S\subset X$ then $S\xrightarrow{\text{Inclusion}}X$ is continuous
+	\end{itemize}
+}
+\qs{}{$\bbR^n\to \bbR$ projects any coordinate is continuous}
+\qs{}{$X\xrightarrow{f}\bbR^n$ $f$ is continuous $\iff f(x)\to (f_1(x),f_2(x),\cdots ,f_n(x))$ where each $f_i$ is continuous}
