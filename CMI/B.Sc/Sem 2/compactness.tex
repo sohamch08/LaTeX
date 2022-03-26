@@ -1,0 +1,234 @@
+\chapter{Compactness}
+\section{Sequentially Compact:-}
+\dfn{Sequentially Compact}{Let $(X,d)$ be a metric space. $X$ is called
+	sequentially compact if every sequence in $X$ has a convergent subsequence.
+	(Often applied to a subset $S$ of $X$)}
+\nt{For $S$ to be sequentially compact the limit of subsequence must be in $S$}
+\dfn{Boundedness}{A subset $S$ of $(X, d)$ is bounded if $S \subset B_r(x)$ for
+	some $x \in X$ and $r > 0$}
+\nt{Boundedness depends on the metric but if two metrics are ``equivalent"
+	(analogous to norms)}
+\begin{Theorem}{}{}
+	A subset $K$ of $\bbR^n$ is sequentially compact $\iff$ $K$ is closed and
+	bounded
+\end{Theorem}
+\begin{myproof}
+	Proof in steps
+	\begin{enumerate}
+		\item \label{hnbsc: step 1}\subsubsection{A closed interval $\bs{[a, b]}$ in
+			$\bbR$ is sequentially compact}\parinn
+		\begin{myproof}
+			Given a sequence $x_1 , x_2 , \cdots$  in $\bbR$ in $[a, b]$ we can extract a
+			monotonic subsequence as follows:
+			
+			
+			We call $x_i$ to be a peak if $x_i > x_j$ $\forall\ j > i$. Now there are two
+			cases. If number of peaks is
+			infinite then the next peak comes after the previous one so smaller than the
+			previous one. So its a
+			strictly decreasing sequence. If number of peaks are finite then at some
+			point we cant find a peak with
+			this property that means no matter which term i peak there is at least one
+			term after that which is
+			greater than or equal to that term. $y_1 = $a term after the last peak. and
+			$y_{i+1} = $a term after $y_i$ such
+			that $y_{i+1} \geq y_i$. Hence $y_1 , y_2 ,\cdots$ is a weakly increasing
+			sequence.
+			
+			When $\{x_n\}$ contained in $[a, b]$ by boundedness of the monotonic
+			subsequence, it converges to its
+			sup/inf and the limit is in $[a, b]$
+		\end{myproof}
+		\item \label{hnbsc: step 2}\subsubsection{$\bs{[a_1,b_1]\times [a_2,b_2]\times
+				\cdots \times [a_n,b_n]\subset \bbR^n}$ is sequentially compact (w.r.t
+			$\bs{p-}$norm for $\bs{p=1,2,\infty}$. Later for any norm)}
+		
+		\begin{myproof}
+			
+			Recall a sequence $\{x_m\}\to x$ in $\bbR^n$ $\iff$ The sequence converges in
+			each coordinate i.e. $x_{m_i}\to x_i$
+			
+			Take a sequence in the given box. Extract a subsequence whose entries in 1st
+			slot converge (necessarily to $x_i$ in $[a_1,b_1]$ by \hyperref[hnbsc: step
+			1]{step 1} From this sequence, extract a further subsequence whose entries	in
+			second slot converge to $x_2\in [a_2,b_2]$. Continue
+		\end{myproof}
+		
+		\item \label{hnbsc: step 3}\subsubsection{Every closed subset of a sequentially
+			compact set is sequentially compact}\parinn
+		\begin{myproof}
+			Exercise
+		\end{myproof}
+		
+		This will show each closed and bounded subset of the Euclidean Space $\bbR^n$ is
+		sequentially compact. (because such a set will be contained in a box)
+		\item \label{hnbsc: step 4}\subsubsection{If K is sequentially compact then K is
+			closed and bounded}\parinn
+		\begin{myproof}
+			If $K$ is not closed then some limit point $x$ of $K$ will not be in $K$. Then
+			there is a sequence $\{y_m\}$ in $K$ converges to $x\notin K$  violating
+			sequential compactness of $K$.
+			
+			If $K$ is not bounded take $\{x_m\}\in K$ with $\|x_m\|\geq n$ then $\{x_m\}$
+			can not be convergent
+		\end{myproof}
+	\end{enumerate}
+\end{myproof}
+\nt{\hyperref[hnbsc: step 4]{Step 4} works for any metric space. Then we need to
+	have a ball instead of norm}
+\begin{Theorem}{}{}
+	If $K$ is a sequentially compact of a metric space $X$, then $K$ is closed and
+	bounded
+\end{Theorem}
+\begin{myproof}
+	Same argument as \hyperref[hnbsc: step 4]{step 4} use $x_m$ such that
+	$d(x_m,x)\geq m$
+\end{myproof}
+\qs{}{If $K$ is closed and bounded in $(X, d)\implies K$ is sequentially
+	compact}
+\sol{No. Any counter-example. Define a metric on real number which induces same
+	topology as the	normal topology in such a way that there is a closed and bounded
+	set that is not compact.}
+\qs{}{
+	\begin{enumerate}
+		\item If $V$, $W$ are normed linear spaces can we define a norm on $V\times W$
+		?
+		\item If $V$, $W$ are metric spaces can we define a metric on $V\times W$ ?
+		\item If $V$, $W$ are topological spaces can we define a topology on $V\times
+		W$ ?
+	\end{enumerate}
+}
+\section{Open Cover and Compactness:-}
+\dfn{Open Cover}{
+	Let $\{V_{\alpha}\}_{\alpha\in I}$  be a family of subsets of metric space $X$
+	we say that $\{V_{\alpha}\}_{\alpha\in I}$ is a cover of $X$ if
+	$\bigcup\limits_{\alpha} V_{\alpha}=X$ and we say that
+	$\{V_{\alpha}\}_{\alpha\in I}$  is an open cover if each $V_{\alpha}$ is open
+	(in $X$)
+}
+\dfn{Compact}{
+	$X$ is called compact if each open cover of $X$ has a finite subcover i.e.
+	$\{V_{\alpha_1},V_{\alpha_2},\cdots , V_{\alpha_n}\}\subset
+	\{V_{\alpha}\}_{\alpha\in I}$ with $V_{\alpha_1}\cup V_{\alpha_2}\cup \cdots
+	\cup V_{\alpha_n}=X$
+}
+
+\nt{\begin{enumerate}
+		\item \parinn This definition makes sense for any topological space $X$.
+		
+		If $X$ is a metric space then it is a fact that $X$ is compact $\iff$ $X$ is
+		sequentially compact. This is not true for general topological spaces. Both
+		implications fail.
+		\item \parinn Reformulation of compactness for subset $K$ of $X$ in terms of
+		open sets of $X$ 
+		\begin{center}
+			\begin{tabular}{p{2.1cm}p{1cm}p{11cm}}
+				$K$ is compact & $\iff$ & Every cover of $K$ bt open sets of $K$ has a
+				finite subcover.\\
+				\multicolumn{3}{c}{As open sets of $K$ are precisely (open sets of $X)\cap
+					K$. We have the following} \\
+				$K$ is compact & $\iff$ & For any family $\{V_{\alpha}\cap K\}_{\alpha\in
+					I}$ where $V_{\alpha}$ are open in $X$ whose union is $K$, there is a finite
+				subcover.\\
+				& $\iff$ & For any family $\{V_{\alpha}\cap K\}_{\alpha\in I}$ of open sets
+				in $X$ such that $\bigcup\limits_{\alpha\in I}V_{\alpha} \supset K$, there must
+				be a finite subfamily $V_{\alpha_1},V_{\alpha_2},\cdots,V_{\alpha_n}$ with
+				$\bigcup\limits_{i=1}^nV_{\alpha_i}\supset K$
+			\end{tabular}
+		\end{center}
+		If i take this definition of compactness of a subset $K$ of metric space $X$
+		then $K$ is compact as subset of $X$ $\iff$ $K$ is compact as a subset of it
+		itself
+\end{enumerate}}
+\begin{Theorem}{Haine Borel Theorem}{hnb}
+	\begin{center}
+		\begin{tabular}{rcl}
+			$K\subset \bbR^n$ is compact & $\iff$ & $K$ is closed and boundeded
+		\end{tabular}
+	\end{center}
+	(w.r.t $p=1,2$ or $\infty$ norm as they are equivalent.)
+\end{Theorem}
+\begin{myproof}
+	\subsubsection{Only If Part:-}
+	Proof in steps
+	\begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
+		\item \label{hnb: s1}Closed interval $[a,b]$ is compact in $\bbR$. %\textbf{\textit{Proof:}} \ref{hnb:st1}
+		\item \label{hnb: s2}Closed box $[a_1,b_1]\times [a_2,b_2]\times\cdots\times
+		[a_n,b_n]$ is compact in $\bbR^n$. %\textbf{\textit{Proof:}} \ref{hnb:st2}
+		\item \label{hnb: s3}A closed subset of a compact set is compact. \textbf{\textit{Proof:}} \hyperref[th:hnb:s3]{Theorem \ref{th:hnb:s3}}
+	\end{enumerate}
+	These steps would give the backward direction of \hyperref[th:hnb]{Haine Borel
+		Theorem} i.e. suppose $K$ is closed and bounded in $\bbR^n$ $\implies$ $K\in
+	[-M.M]^n\implies $ compact by \ref{hnb: s2}
+	
+	\subsubsection{If Part:-}
+	\textbf{Bounded:} First we have to show that $K$ is compact $\implies K$ is
+	bounded an i.e. $K\subset B_r(x)$ in $(X,d)$ for some $x\in X$, $r>0$
+	
+	Consider open cover $\{B_n(x)\}_{n\in\bbZ^+}$ of $X$ and hence of $K$. This must
+	have a finite subcover $B_{n_1}(x),B_{n_2})x_,\cdots , B_{n_k}(x)$. Take
+	$r=\max\{n_1,n_2,\cdots,n_k\}$ Hence $$K\text{ is compact }\implies K\text{ is
+		closed}$$
+	
+	\parinf\textbf{Closed: }\parinn We will show that $X\setminus K$ is open. Pick 
+	$x\notin K$. Enough to construct an open neighborhood $U_x\ni x$ such that
+	$U_x\cap x=\phi$
+	
+	Take $z\in K$. Let $c=d(x,z)$ then \begin{center}
+		\begin{tabular}{cccl}
+			$B_{\frac{c}{3}}(x)$ &$\cap$ & $B_{\frac{c}{3}}(z)=\phi$& by triangle
+			inequality \\
+			$\parallel$ & & $\parallel$& \\
+			$W_z$ && $V_z$ &
+		\end{tabular}
+	\end{center} 
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (-1,0) -- (-2,2) -- (0,3) -- (4,2) node[xshift=-2cm,yshift=8mm]{$K$} --
+			(3.5,-0.2) --cycle;
+			\draw[red] (1,1.3) node[yshift=1cm]{$V_z$} circle (0.8cm);
+			\draw[red, fill=red] (1,1.3) node[xshift=2mm]{$z$} circle (1pt);
+			\draw[blue] (4,1)node[xshift=1.1cm]{$W_z$} circle (0.8cm);
+			\draw[blue, fill=blue] (4,1) node[xshift=2mm]{$x$} circle (1pt);
+		\end{tikzpicture}
+	\end{center}
+	Now $\bigcup\limits_{z\in K}V_z\supset K$. So $\{V_z\}$ is an open cover of $K$.
+	By compactness we have $V_{z_1}\cup V_{z_2}\cup \cdots\cup V_{z_n}\supset K$. 
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[red] (1,0)node[xshift=-1.3cm]{$V_{z_1}$} circle (1cm);
+			\draw[red] (4,0)node[xshift=1.4cm,yshift=-5mm]{$W_{z_1}$} circle (1cm);
+			\draw[blue] (1.5,1)node[xshift=-9mm,yshift=1cm]{$W_{z_2}$} circle (1cm);
+			\draw[blue] (3.5,-1)node[xshift=1.3cm,yshift=-5mm]{$V_{z_1}$} circle (1cm);
+			\draw[myg] (3.7,1)node[xshift=1.6cm,yshift=1.1cm]{$V_{z_3}$} circle (1.6cm);
+			\draw[myg] (1.5,-2)node[xshift=-2cm]{$W_{z_3}$} circle (1.6cm);
+			
+		\end{tikzpicture}
+	\end{center}
+	As $W_z\cap V_z=\phi$ $\forall z\in K$.  We have $\underbrace{\left( W_{z_1}\cup
+		W_{z_2}\cup \cdots \cup W_{z_n}\right) }_{\substack{\text{Finite intersection
+				of}\\ \text{open neighborhoods of } x,\\ \text{so call this }U_x}}\cap K=\phi$
+\end{myproof}
+
+Key fact that made this work: For $x\neq z$ in $X$, we could find open
+neighborhoods of $V$ and $W$ (of $x$ and $z$ respectively) such that $V\cap
+W=\phi$. Topological spaces that satisfy this property are called Housdorff.
+
+What we proved is the following
+\begin{Theorem}{}{}
+	For a Housdorff Topological space $X$ any compact subset $K$ is closed and
+	bounded
+\end{Theorem}
+
+\begin{Theorem}{}{hnb:s3}
+	$C$ is a closed subset of compact set $X$ $\implies $ $C$ is compact.
+\end{Theorem}
+\begin{myproof}
+	Take any open cover $\{V_{\alpha}\}_{\alpha\in I}$ of $C$by open sets in $X$
+	i.e $\bigcup\limits_{\alpha}V_{\alpha}\supset C$. Now $\opensets \cup \{X\setminus C\}$ is an open cover of $x$. We have a finite
+	subcover by compactness of $X$. The same subcover (after dropping $X\setminus
+	C$ if necessary) works for $C$.
+\end{myproof}
+\qs{}{Suppose $X$ is a topological space that is compact and housdorff (Take $x$ ro be a compact metric space if you like). Prove that given disjoint compact subsets $K$ and $L$, there are disjoint open sets $U$ and $V$ with $K\subset U$ and $L\subset V$(First do it for $K=$ single point)}
+
