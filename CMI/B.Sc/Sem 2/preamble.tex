@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=1in,bmargin=2cm]{geometry}
+\usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
 \usepackage{enumitem}
 \usepackage{hyperref,theoremref}
@@ -19,7 +19,7 @@
 \usepackage{etoolbox}
 %\usepackage{authblk}
 \usepackage{nameref}
-\usepackage{multicol}
+\usepackage{multicol,array}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
@@ -460,6 +460,7 @@
 \newcommand{\parinf}{\setlength{\parindent}{0cm}}
 \newcommand{\norm}{\|\cdot\|}
 \newcommand{\inorm}{\norm_{\infty}}
+\newcommand{\opensets}{\{V_{\alpha}\}_{\alpha\in I}}
 %\usepackage{framed}
 %\usepackage{titletoc}
 %\usepackage{etoolbox}
@@ -500,25 +501,25 @@
 \definecolor{doc}{RGB}{0,60,110}
 \usepackage{titletoc}
 \contentsmargin{0cm}
-\titlecontents{chapter}[2.2pc]
+\titlecontents{chapter}[3.7pc]
 {\addvspace{30pt}%
 	\begin{tikzpicture}[remember picture, overlay]%
-		\draw[fill=doc!60,draw=doc!60] (-4,-.1) rectangle (-1,.5);%
-		\pgftext[left,x=-3.4cm,y=0.2cm]{\color{white}\Large\sc\bfseries chapter\ \thecontentslabel};%
+		\draw[fill=doc!60,draw=doc!60] (-5.5,-.1) rectangle (-0.9,.5);%
+		\pgftext[left,x=-3.5cm,y=0.2cm]{\color{white}\Large\sc\bfseries Chapter\ \thecontentslabel};%
 	\end{tikzpicture}\color{doc!60}\large\sc\bfseries}%
 {}
 {}
 {\;\titlerule\;\large\sc\bfseries Page \thecontentspage
 	\begin{tikzpicture}[remember picture, overlay]
-		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (6,0.1pt);
+		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (3,0.1pt);
 	\end{tikzpicture}}%
-\titlecontents{section}[2.4pc]
+\titlecontents{section}[3.7pc]
 {\addvspace{2pt}}
-{\contentslabel[\thecontentslabel]{2.4pc}}
+{\contentslabel[\thecontentslabel]{2pc}}
 {}
 {\hfill\small \thecontentspage}
 []
-\titlecontents*{subsection}[4pc]
+\titlecontents*{subsection}[3.7pc]
 {\addvspace{-1pt}\small}
 {}
 {}
