@@ -1,4 +1,4 @@
-\chapter{Normed Linear Space:-}
+\chapter{Normed Linear Space}
 \dfn{Limit of Sequence in $\bs{\bbR}$}{Let $\{s_n\}$ be a sequence in $\bbR$. We say $$\lim_{n\to\infty}s_n=s$$ where $s\in\bbR$ if $\forall$ real numbers $\eps>0$ $\exists$ natural number $N$ such that for $n>N$ $$s-\eps<s_n<s+\eps\text{ i.e. }|s-s_n|<\eps$$}
 
 Want to generalize this to a sequence in $\bbR^n$ i.e. $s_n\in\bbR^n$ $\forall$ $n\in\bbN$. Now the $s-s_n$ makes no sense. So it is useful to have a notion of whether vectors are big or small. We have magnitude of a vector. So lets revisit this
@@ -16,12 +16,35 @@ From school, for v=$v_1,v_2,\cdots,v_n$ we had $$\|v\|=\sqrt{v_1^2+v_2^2+\cdots+
 
 	$\bullet $ Same definition works with $V$ a vector space over $\bbC$ (again $\|\cdot\|\to\bbR_{\geq 0}$) where \ref{n:2} becomes $\|\lambda x\|=|\lambda|\|x\|$ $\forall$ $\lambda\in\bbC$, $x\in V$, where for $\lambda=a+ib$, $|\lambda|=\sqrt{a^2+b^2}$ }
 
+
 \ex{$\bs{p-}$Norm}{\label{pnorm}$V={\bbR}^m$, $p\in\bbR_{\geq 0}$. Define for $x=(x_1,x_2,\cdots,x_m)\in\bbR^m$ $$\|x\|_p=\Big(|x_1|^p+|x_2|^p+\cdots+|x_m|^p\Big)^{\frac1p}$$(In school $p=2$)}
 \textbf{Special Case $\bs{p=1}$}: $\|x\|_1=|x_1|+|x_2|+\cdots+|x_m|$ is clearly a norm by usual triangle inequality. \par
 \textbf{Special Case $\bs{p\to\infty\ (\bbR^m$ with $\|\cdot\|_{\infty})}$}: $\|x\|_{\infty}=\max\{|x_1|,|x_2|,\cdots,|x_m|\}$\\
 For $m=1$ these $p-$norms are nothing but $|x|$.
 Now exercise
 \exs{}{\label{exs1}Prove that triangle inequality is true if $p\geq 1$ for $p-$norms. (What goes wrong for $p<1$ ?)}
+\sol{\textbf{For Property \ref{n:3} for norm-2}	\subsubsection*{\textbf{When field is $\bbR:$}} We have to show\begin{align*}
+		& \sum_i(x_i+y_i)^2\leq \left(\sqrt{\sum_ix_i^2} +\sqrt{\sum_iy_i^2}\right)^2                                       \\
+		\implies & \sum_i (x_i^2+2x_iy_i+y_i^2)\leq \sum_ix_i^2+2\sqrt{\left[\sum_ix_i^2\right]\left[\sum_iy_i^2\right]}+\sum_iy_i^2 \\
+		\implies & \left[\sum_ix_iy_i\right]^2\leq \left[\sum_ix_i^2\right]\left[\sum_iy_i^2\right]
+	\end{align*}So in other words prove $\langle x,y\rangle^2 \leq \langle x,x\rangle\langle y,y\rangle$ where
+	$$\langle x,y\rangle =\sum\limits_i x_iy_i$$
+	
+	\begin{note}
+		\begin{itemize}
+			\item $\|x\|^2=\langle x,x\rangle$
+			\item $\langle x,y\rangle=\langle y,x\rangle$
+			\item $\langle \cdot,\cdot\rangle$ is $\bbR-$linear in each slot i.e. \begin{align*}
+				\langle rx+x',y\rangle=r\langle x,y\rangle+\langle x',y\rangle	\text{ and similarly for second slot}
+			\end{align*}Here in $\langle x,y\rangle$ $x$ is in first slot and $y$ is in second slot.
+		\end{itemize}
+	\end{note}Now the statement is just the Cauchy-Schwartz Inequality. For proof $$\langle x,y\rangle^2\leq \langle x,x\rangle\langle y,y\rangle $$ expand everything of $\langle x-\lambda y,x-\lambda y\rangle$ which is going to give a quadratic equation in variable $\lambda $ \begin{align*}
+		\langle x-\lambda y,x-\lambda y\rangle & =\langle x,x-\lambda y\rangle-\lambda\langle y,x-\lambda y\rangle                                       \\
+		& =\langle x ,x\rangle -\lambda\langle x,y\rangle -\lambda\langle y,x\rangle +\lambda^2\langle y,y\rangle \\
+		& =\langle x,x\rangle -2\lambda\langle x,y\rangle+\lambda^2\langle y,y\rangle
+	\end{align*}Now unless $x=\lambda y$ we have $\langle x-\lambda y,x-\lambda y\rangle>0$ Hence the quadratic equation has no root therefore the discriminant is greater than zero.
+	
+	\subsubsection*{\textbf{When field is $\bbC:$}}Modify the definition by $$\langle x,y\rangle=\sum_i\overline{x_i}y_i$$Then we still have $\langle x,x\rangle\geq 0$}
 \section{Open and Closed Ball:-}
 \dfn{Open and Closed Ball in Normed Linear Space}{An open Ball of radius $r$ with center $x$ in Normed Linear Space $V$ is the set$$\{y\in V\mid \|x-y\|<r\}=B_r(x)$$and Closed ball is the set $$\{y\in V\mid\|x-y\|\leq r\}=\overline{B_r(x)}$$}
 
@@ -31,32 +54,19 @@ Now take $B_r(0)$ w.r.t \textcolor{myr}{$\bs{\|\cdot\|_1}$}, \textcolor{myg}{$\b
 %	\centering
 %	\includegraphics[width=4cm]{images/1.png}
 %\end{figure}
-Now imagine a sequence converging to origin. So if I draw a ordinary circle around the origin then no matter how small the circle the points of the sequence are eventually land inside the circle. If instead of that circle can same be said for diamond w.r.t norm 2. Then i can take circle that is inside that diamond. Same is true for $\infty-$norm. Hence convergence with respect to all norm $1$ and norm 2 and even $\infty$ results for convergence.
-\thm{}{\label{thm1}For a finite dimensional normed linear space, notion of convergence is independent of norm chosen}
+Now imagine a sequence converging to origin. So if I 
+\begin{center}
+	\begin{tikzpicture}
+	\draw (-2.5, 0) -- (2.5, 0) ;
+	\draw (0, -2.5) -- (0, 2.5) ;
+	\draw[myg,thick] (0,0) circle (2cm);
+	\draw[myb,thick] (-2,2) -- (2,2) -- (2,-2) -- (-2,-2) -- cycle;
+	\draw[myr,thick] (2,0) -- (0,-2) -- (-2,0) -- (0,2) --cycle;
+\end{tikzpicture}
+\end{center}
 
-\begin{myproof} \textbf{For Property \ref{n:3} for norm-2}	\subsubsection*{\textbf{When field is $\bbR:$}} We have to show\begin{align*}
-		         & \sum_i(x_i+y_i)^2\leq \left(\sqrt{\sum_ix_i^2} +\sqrt{\sum_iy_i^2}\right)^2                                       \\
-		\implies & \sum_i (x_i^2+2x_iy_i+y_i^2)\leq \sum_ix_i^2+2\sqrt{\left[\sum_ix_i^2\right]\left[\sum_iy_i^2\right]}+\sum_iy_i^2 \\
-		\implies & \left[\sum_ix_iy_i\right]^2\leq \left[\sum_ix_i^2\right]\left[\sum_iy_i^2\right]
-	\end{align*}So in other words prove $\langle x,y\rangle^2 \leq \langle x,x\rangle\langle y,y\rangle$ where
-	$$\langle x,y\rangle =\sum\limits_i x_iy_i$$
+draw a ordinary circle around the origin then no matter how small the circle the points of the sequence are eventually land inside the circle. If instead of that circle can same be said for diamond w.r.t norm 2. Then i can take circle that is inside that diamond. Same is true for $\infty-$norm. Hence convergence with respect to all norm $1$ and norm 2 and even $\infty$ results for convergence.
 
-	\begin{note}
-		\begin{itemize}
-			\item $\|x\|^2=\langle x,x\rangle$
-			\item $\langle x,y\rangle=\langle y,x\rangle$
-			\item $\langle \cdot,\cdot\rangle$ is $\bbR-$linear in each slot i.e. \begin{align*}
-				      \langle rx+x',y\rangle=r\langle x,y\rangle+\langle x',y\rangle	\text{ and similarly for second slot}
-			      \end{align*}Here in $\langle x,y\rangle$ $x$ is in first slot and $y$ is in second slot.
-		\end{itemize}
-	\end{note}Now the statement is just the Cauchy-Schwartz Inequality. For proof $$\langle x,y\rangle^2\leq \langle x,x\rangle\langle y,y\rangle $$ expand everything of $\langle x-\lambda y,x-\lambda y\rangle$ which is going to give a quadratic equation in variable $\lambda $ \begin{align*}
-		\langle x-\lambda y,x-\lambda y\rangle & =\langle x,x-\lambda y\rangle-\lambda\langle y,x-\lambda y\rangle                                       \\
-		                                       & =\langle x ,x\rangle -\lambda\langle x,y\rangle -\lambda\langle y,x\rangle +\lambda^2\langle y,y\rangle \\
-		                                       & =\langle x,x\rangle -2\lambda\langle x,y\rangle+\lambda^2\langle y,y\rangle
-	\end{align*}Now unless $x=\lambda y$ we have $\langle x-\lambda y,x-\lambda y\rangle>0$ Hence the quadratic equation has no root therefore the discriminant is greater than zero.
-
-	\subsubsection*{\textbf{When field is $\bbC:$}}Modify the definition by $$\langle x,y\rangle=\sum_i\overline{x_i}y_i$$Then we still have $\langle x,x\rangle\geq 0$
-\end{myproof}
 
 
 
