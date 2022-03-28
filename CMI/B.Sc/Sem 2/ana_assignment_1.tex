@@ -1,0 +1,178 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage[fleqn]{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Overleaf Example},
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+\include{letterfonts}
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Qed}{\begin{flushright}\qed\end{flushright}}
+\newcommand{\sol}[1]{\begin{solution}#1\end{solution}\Qed}
+% The problem environment introduced.
+%\newenvironment{problem}[2][Problem]
+%{ \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+%	{  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+{\textbf{\textit{Solution:}}\setlength{\parindent}{1cm}}
+{}
+
+%\renewcommand{\qed}{\quad\qedsymbol}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	%Header-Make sure you update this information!!!!
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 1}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Analysis 2 \hfill Date: \today \\
+	\noindent\rule{7in}{2.8pt}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{Rudin Chapt. 4 Problem 10}{p1}
+            Complete the details of the following alternative proof of Theorem $4.19:$ If $f$ is not uniformly continuous, then for some $\varepsilon>0$ there are sequences $\left\{p_{n}\right\},\left\{q_{n}\right\}$ in $X$ such that $d_{X}\left(p_{n}, q_{n}\right) \rightarrow 0$ but $d_{Y}\left(f\left(p_{n}\right), f\left(q_{n}\right)\right)>\varepsilon$. Use Theorem $2.37$ to obtain a contradiction.
+	\end{problem}
+	
+    \sol{ Theorem 2.37 says if $E$ is an infinite subset of a compact set $K$ then $E$ has a limit point. Now the set of all terms in the sequence $\{p_n\}$ is an infinite subset of the compact set. Hence the set has a limit point. Let the limit point is $p$. Hence there is a convergent subsequence $\{p_{n_k}\}$ of $\{p_n\}$ such that $p_{n_k}\to p$ as $n_k\to \infty$. Similarly $\{q_n\}$ has a convergent subsequence $\{q_{n_k}\}$ which converges to $q$. 
+
+            Now given that $d(p_n,q_n)\to 0\implies d_X(p_{n_k},q_{n_k})\to 0$. Hence Both $\{p_{n_k}\}$ and $\{q_{n_k}\}$ converges to same limit. Hence $p=q$. Since $f$ is continuous $f(p_{n_k})\to f(p)$ and $f(q_{n_k})\to f(q)$. Since $p=q$ we have $d_Y\big(f(p_{n_k}),f(q_{n_k})\big)\to 0$. Hence $f(p)=f(q)$. Which contradicts the assumption that $d_Y(f(p_n),f(q_n))>\epsilon$
+
+            Hence $f$ is uniformly continuous.
+	}
+	
+	%\noindent\rule{7in}{2.8pt}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+    \begin{problem}{Rudin Chapt. 4 Problem 20}{p2}
+            If $E$ is a nonempty subset of a metric space $X$, define the distance from $x \in X$ to $E$ by
+            $$\rho_{E}(x)=\inf _{z \in E} d(x, z)$$\begin{enumerate}[label=(\alph*)]
+                    \item Prove that $\rho{E}(x)=0$ if and only if $x \in \overline{E}$.
+                            \item Prove that $\rho_{E}$ is a uniformly continuous function on $X$, by showing that$$\left|\rho_{E}(x)-\rho_{E}(y)\right| \leq d(x, y)$$for all $x \in X, y \in X$.
+
+Hint: $\rho_{E}(x) \leq d(x, z) \leq d(x, y)+d(y, z)$, so that$$\rho_{E}(x) \leq d(x, y)+\rho_{E}(y) .$$
+\end{enumerate}
+			\end{problem}
+	
+            \sol{\begin{enumerate}[label=(\alph*)]
+                    \item Let $x\in \overline{E}$. If its a limit point of $E$ then for every $\delta>0$ $\exists\ z\in E$ such that $z\in B_{\delta}(x)$. Hence $d(x,z)<\delta$. Hence $\inf\limits_{z\in E} d(x,z)=0\implies \rho_E(x)=0$. If $x$ is not a limit point then $x\in E$. Then $\inf\limits_{z\in E} d(x,z)=d(x,x)=0$
+                    
+                    Similarly if $\rho_E(x)=0$ hence for every $\delta>0$ $\exists\  z\in E$ such that $0\leq d(x,z)< \delta$. Hence for every $\delta>0$, $B_{\delta}(x)\cap E\neq \phi$. Hence $x $ is an limit point of $E$. Hence $x\in \overline{E}$. 
+                    \item $\rho_E(x)\leq d(x,z)$ $\forall\ z\in E$. Since $d(x,z)\leq d(x,y)+d(y,z)$ we have $\rho_E(x)\leq d(x,y)+d(y,z)$ forall $z\in E$. Since forall $z\in E$ $\rho_E(x)\leq d(x,y)+d(y,z)$ we have $\rho_E(x)\leq d(y,z)+\rho_E(y)$. Therefore $$|\rho_E(x)-\rho_E(y)|\leq d(x,y)$$Hence $\rho_E$ is uniformly continuous function on $X$.
+                    \end{enumerate}}
+	
+%	\noindent\rule{7in}{2.8pt}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 3
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{Rudin Chapt. 4 Problem 21}{p3}
+		Suppose $K$ and $F$ are disjoint sets in a metric space $X, K$ is compact, $F$ is closed. Prove that there exists $\delta>0$ such that $d(p, q)>\delta$ if $p \in K, q \in F$. Hint: $\rho_{F}$ is a continuous positive function on $K$.
+		
+		\hspace{1cm}Show that the conclusion may fail for two disjoint closed sets if neither is compact.
+	\end{problem}
+	
+	\sol{
+We have proved in the \hyperref[p:p2]{Problem \ref{p:p2}} that $\rho_F$ is a continuous function on the metric space $X$. Since $K$ is compact we have a continuous function on a compact set $K$. Therefore $\exists\ p\in K$ such that $\rho_F(p)=\inf\limits_{x\in K}\rho_F(x)$. Now if $\rho_F(p)=0$ then $p\in \overline{F}$. Since $F$ is a closed set $F=\overline{F}$ Hence $p\in F$ But $K$ and $F$ are disjoint. Therefore $\rho_F(p)\neq 0$. Let $2\delta=\rho_F(p)$. Hence $\forall\ p\in K,q\in F$, $d(p,q)>\delta$.
+
+We can take the two sets as $K=\{\text{Set of all positive integers}\}$. and $F=\bigcup\limits_{n=1}^{\infty}\left[n+\frac{1}{n+1},n+1-\frac1{n+1}\right]$. Then there exists no positive number $\delta $ such that $d(p,q)>\delta$ $\forall\ p\in K,q\in F$
+}
+	
+%	\noindent\rule{7in}{2.8pt}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 4
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{Rudin Chapt. 4 Problem 22}{p4}
+		Let $A$ and $B$ be disjoint nonempty closed sets in a metric space $X$, and define$$		f(p)=\frac{\rho_{A}(p)}{\rho_{A}(p)+\rho_{B}(p)} \quad(p \in X)$$Show that $f$ is a continuous function on $X$ whose range lies in $[0,1]$, that $f(p)=0$ precisely on $A$ and $f(p)=1$ precisely on $B$. This establishes a converse of Exercise 3: Every closed set $A \subset X$ is $Z(f)$ for some continuous real $f$ on $X$. Setting$$V=f^{-1}\left(\left[0, \frac{1}{2}\right)\right), \quad W=f^{-1}\left(\left(\frac{1}{2}, 1\right]\right),$$		show that $V$ and $W$ are open and disjoint, and that $A \subset V, B \subset W$. (Thus pairs of disjoint closed sets in a metric space can be covered by pairs of disjoint open sets. This property of metric spaces is called normality.)
+	\end{problem}
+	
+	\sol{
+	If $p\in A$. Then $\rho_A(p)=0$ Hence $$f(p)=\dfrac{\rho_{A}(p)}{\rho_{A}(p)+\rho_{B}(p)}=\frac{0}{0+\rho_{B}(p)}=0$$If $p\in B$ then $\rho_{B}(p)=0$. Hence $$f(p)=\dfrac{\rho_{A}(p)}{\rho_{A}(p)+\rho_{B}(p)}=\frac{\rho_{A}(p)}{\rho_{A}(p)+0}=1$$Hence $f(p)=0$ when $p\in A$ and $f(p)=1$ when $p\in B$. If $f(p)=0$ then $\inf\limits_{z\in A}d(p,z)=0$ or we can say $\forall\ \delta>0$ $\exists \ z\in A$ such that $d(p,z)<\delta$. Hence $p\in \overline{A}=A$ Hence $p\in A$ if $f(p)=0$. If $f(p)=1$ then $\rho_B(p)=0$. By similar argument in case of $\rho_A(p)=0$ we conclude $p\in B$. For any other $p\in X$ but $p\notin A\cup B$ $\rho_{A}(p)> 0$ and $\rho_B(p)> 0$. Now by \hyperref[p:p1]{Problem \ref{p:p1}}  $\rho_A(p)$ and $\rho_B(p)$ are continuous. Hence $\rho_A(p)+\rho_B(p)$ is also continuous. $\rho_A(p)+\rho_B(p)$ can not be 0 because if its 0 then both $\rho_A(p)=0$ and $\rho_B(p)=0$ which is not possible because that would mean $p\in A$ and $p\in B$ but $A,B$ are disjoint. Hence $\rho_A(p)+\rho_B(p)>0$ $\forall\ p\in X$. Therefore $\frac1{\rho_A(p)+\rho_B(p)}$ is also continuous. Hence $\rho_A(p)\times \frac1{\rho_A(p)+\rho_B(p)}=\frac{\rho_A(p)}{\rho_A(p)+\rho_B(p)}=f(p)$ is also continuous.
+	
+	$\left[\left.0,\frac12\right)\right.$ and $\left(\left.\frac12,1 \right]\right.$ are two open sets in $[0,1]$. As $f$ is continuous we have $f^{-1}(\text{open set})=$open set. Hence $V$ and $W$ are open sets and they are disjoint.
+}
+	
+%	\noindent\rule{7in}{2.8pt}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{}{p5}
+		Show that a subset $K$ of $\bbR^n$ is compact if and only if every infinite subset of $K$ has a limit point in $K$. (Do this without appeal to the Heine-Borel theorem proved in class.)
+	\end{problem}
+	
+	\sol{
+		\subsubsection*{Proof of forward direction ($\boldsymbol{\Rightarrow}$)}
+	Let $K$ is compact. Let $S$ is an infinite subset of $K$. If $S$ has no limit points in $K$ then $S$ is closed in $K$. Hence $S$ is a closed infinite subset of compact set $K$. Therefore $S$ is compact too. Since $S$ has no limit points $\forall\ x\in S$ $\exists \ r_x>0$ such that $B_{r_x}(x)$ contains at most one point of $S$. Now we create a collection of open balls with all such open balls $B_{r_x}(x)$ . Certainly this collection is an open cover of $S$. Since $S$ is compact there is a finite subcover of $S$. Let $B_{r_1}(x_1),B_{r_2}(x_2),\cdots,B_{r_m}(x_m)$. Each  $B_{r_i}(x_i)$ open ball cover at most one point of $S$. Hence $\bigcup\limits_{i=1}^mB_{r_i}(x_i)$ is a finite set. But $S$ is infinite set. Hence contradiction. $S$ contains a limit point.
+	\subsubsection*{Proof of backward direction ($\boldsymbol{\Leftarrow}$)}
+	Let every infinite subset of $K$ has a limit point in $K$. Let $x$ is a limit point of $K$. Hence $\forall\ \delta>0$ $\exists\ z\in K$ such that $z\in B_{\delta}(x)\cap K$. So if we choose a sequence of $\{\delta_n\}$ where $\delta_n=\frac1n$ then $\exists\ z_n$ such that $z_n\in B_{\delta_n}(x)\cap K$. If we take the set $S=\{z_n\mid z_n\in B_{\delta_n}\cap K\}$ then  $S\subseteq K$. If $S$ is a finite set then $x\in S$ and hence $x\in K$. If $S$ is an infinite set then $S$ has a limit point $y$ in $K$. Since the sequence $z_n\to x$ we have $y=x$. Hence $x\in K$. Therefore $K$ contains all its limit points. Hence $K$ is closed. 
+	
+	Suppose $K$ is not bounded then there exists $x_n\in K$ such that $\|x_n\|>n$. If we take the set $S=\{x_n\mid \|x_n\|>n\}$ then $S$ is an infinite subset of $K$. Hence $S$ should have a limit point in $K$. But the sequence $\{x_n\}$ is not convergent. Hence contradiction. $K$ is bounded. 
+	
+	Therefore $K$ is a closed and bounded set of $\bbR^n$. Hence $K$ can be bounded by $[-M,M]^n$ in $\bbR^n$. Now we know that $[-M,M]^n$ is a compact set. Hence $K$ is a closed subset of a compact set. Hence $K$ is also compact. Therefore if any infinite subset of $K$ has a limit point then $K$ is compact.
+}
+	
+%	\noindent\rule{7in}{2.8pt}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\end{document}
