@@ -1,0 +1,168 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage[fleqn]{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Analysis 2 - Assignment 2}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+\include{letterfonts}
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Qed}{\begin{flushright}\qed\end{flushright}}
+\newcommand{\sol}[1]{\begin{solution}#1\end{solution}\Qed}
+\newcommand{\parinn}{\setlength{\parindent}{1cm}}
+\newcommand{\parinf}{\setlength{\parindent}{0cm}}
+
+% The problem environment introduced.
+%\newenvironment{problem}[2][Problem]
+%{ \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+	%	{  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+{\textbf{\textit{Solution:}}\setlength{\parindent}{1cm}}
+{}
+
+%\renewcommand{\qed}{\quad\qedsymbol}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	%Header-Make sure you update this information!!!!
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 2}\\
+		Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+		\normalsize Course: Analysis 2 \hfill Date: \today \\
+		\noindent\rule{7in}{2.8pt}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{Rudin Chapt. 9 Problem 6}{p1%Problem Name
+		}
+		%Problem		
+		If $f(0,0)=0$ and
+		$$
+		f(x, y)=\frac{x y}{x^{2}+y^{2}} \quad \text { if }(x, y) \neq(0,0)
+		$$
+		prove that $\left(D_{1} f\right)(x, y)$ and $\left(D_{2} f\right)(x, y)$ exist at every point of $R^{2}$, although $f$ is not continuous at $(0,0)$.
+	\end{problem}
+	
+	\sol{When $(x,y)\neq 0$ then $$(D_1f)(x,y)=\frac{y(y^2-x^2)}{(x^2+y^2)^2}\text{ and }(D_2f)(X,y)=\frac{x(x^2-y^2)}{(x^2+y^2)^2}$$Now at $(0,0)$ \begin{align*}
+		(D_1f)(0,0) & =\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{|h|}              & (D_2f)(0,0) & =\lim_{k\to0} \frac{f(0,k)-f(0,0)}{|k|}                \\
+		            & =\lim_{h\to0}\frac{\frac{h\times 0}{h^2+0} - 0}{|h|} &             & = \lim_{k\to 0}\frac{\frac{0\times k}{0+k^2} - 0}{|k|} \\
+		            & =\lim_{h\to 0}\frac{0}{|h|}                          &             & =\lim_{k\to 0}\frac{0}{|k|}                            \\
+		            & =0                                                   &             & =0
+	\end{align*}Hence $(D_1f)(x,y)$ and $(D_2f)(x,y)$ exists at every point of $\bbR^2$. 
+
+Now if we approach $(0,0)$ along the line then it  approaches to 0. But if we approach $(0,0)$ along the line $y=x$ then $$\lim_{h\to 0}f(h,h)=\lim_{h\to 0}\frac{h^2}{2h^2}=\frac12$$ Hence $f$ is not continuous at (0,0)
+		
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{Rudin Chapt. 9 Problem 7}{p2%Problem Name
+		}
+		%Problem		
+		Suppose that $f$ is a real-valued function defined in an open set $E \subset R^{n}$, and that the partial derivatives $D_{1} f, \ldots, D_{n} f$ are bounded in $E$. Prove that $f$ is continuous in $E$.\parinn
+		
+		Hint: Proceed as in the proof of Theorem 9.21.
+	\end{problem}
+	
+	\sol{We have to show that $\forall\ \epsilon>0$}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 3
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{Rudin Chapt. 9 Problem 8}{p3%Problem Name
+		}
+		%Probleem		
+		Suppose that $f$ is a differentiable real function in an open set $E \subset R^{n}$, and that $f$ has a local maximum at a point $x \in E$. Prove that $f^{\prime}(x)=0$.
+	\end{problem}
+	
+	\sol{}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 4
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{Rudin Chapt. 9 Problem 10}{p4%Problem Name
+		}
+		%Probleem
+				If $f$ is a real function defined in a convex open set $E \subset R^{n}$, such that $\left(D_{1} f\right)(x)=0$ for every $x \in E$, prove that $f(x)$ depends only on $x_{2}, \ldots, x_{n}$.\parinn
+				
+				Show that the convexity of $E$ can be replaced by a weaker condition, but that some condition is required. For example, if $n=2$ and $E$ is shaped like a horseshoe, the statement may be false.
+	\end{problem}
+	
+	\sol{}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{Rudin Chapt. 9 Problem 13}{p5%Problem Name
+		}
+		%Probleem		
+		Suppose $f$ is a differentiable mapping of $R^{1}$ into $R^{3}$ such that $|f(t)|=1$ for every $t$. Prove that $f^{\prime}(t) \cdot f(t)=0$.\parinn
+		
+		Interpret this result geometrically.
+	\end{problem}
+	
+	\sol{}
+
+	
+\end{document}
