@@ -1,0 +1,280 @@
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/Arch Linux) 
+ restricted system commands enabled.
+(./analysis_class-note.tex
+LaTeX2e <2021-11-15> patch level 1
+ L3 programming layer <2021-11-22>
+(/usr/share/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo)) (./preamble.tex
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texmf-dist/tex/latex/hyperref/hluatex.def
+(/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texmf-dist/tex/latex/theoremref/theoremref.sty)
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+(/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texmf-dist/tex/latex/graphics-def/luatex.def)))
+(/usr/share/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def)))
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex))
+(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg))
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code
+.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.te
+x) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics
+.code.tex))) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)
+) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex)
+
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.t
+ex) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.te
+x) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex)
+ (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex)))
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex)
+(/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty)
+(/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty))
+(/usr/share/texmf-dist/tex/latex/tools/verbatim.sty)
+(/usr/share/texmf-dist/tex/latex/environ/environ.sty
+(/usr/share/texmf-dist/tex/latex/trimspaces/trimspaces.sty))
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '5.0.1'
+) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '5.0.1'
+(/usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)))
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
+x) (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+topaths.code.tex)))
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '5.0.1'
+)) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '5.0.1'
+(/usr/share/texmf-dist/tex/generic/oberdiek/pdfcol.sty)
+(/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty))
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '5.0.1'
+) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '5.0.1'
+) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '5.0.1'
+) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
+Library (tcolorbox): 'tcbxparse.code.tex' version '5.0.1'
+(/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def))))
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '5.0.1'
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '5.0.1'
+(/usr/share/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/share/texmf-dist/tex/latex/listings/listings.cfg))
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '5.0.1'
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '5.0.1'
+(/usr/share/texmf-dist/tex/latex/tools/shellesc.sty)))))
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '5.0.1'
+) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '5.0.1'
+) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '5.0.1'
+
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+fadings.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex)))
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '5.0.1'
+)) (/usr/share/texmf-dist/tex/latex/varwidth/varwidth.sty)
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty))
+(/usr/share/texmf-dist/tex/latex/tools/multicol.sty)
+(/usr/share/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+arrows.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+calc.code.tex)
+(/usr/share/texmf-dist/tex/latex/pgf-blur/tikzlibraryshadows.blur.code.tex
+ v1.02, 2012/12/09
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+shadows.code.tex)) (/usr/share/texmf-dist/tex/latex/titlesec/titletoc.sty))
+(./letterfonts.tex) (./analysis_class-note.aux (./ch1-norm.aux)
+(./ch2-metric-space.aux) (./ch3-metric-space-continuity.aux) (./ch4-norm-eq.aux
+) (./ch5-compactness.aux) (./ch6-differentiation.aux))
+(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd)
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+(./analysis_class-note.out) (./analysis_class-note.out)
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd) [1{/var/lib/texmf/fonts/map/
+pdftex/updmap/pdftex.map}]
+
+LaTeX Font Warning: Font shape `TU/lmr/bx/sc' undefined
+(Font)              using `TU/lmr/bx/n' instead on input line 17.
+
+(./analysis_class-note.toc)
+warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
+[1
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+Missing character: There is no ; (U+003B) in font nullfont!
+] (./ch1-norm.tex
+Chapter 1.
+[2] [3] [4]) [5] (./ch2-metric-space.tex
+Chapter 2.
+[6] [7] [8] [9] [10]) [11] (./ch3-metric-space-continuity.tex
+Chapter 3.
+[12] [13] [14] [15]) [16] (./ch4-norm-eq.tex
+Chapter 4.
+[17] [18]) [19] (./ch5-compactness.tex
+Chapter 5.
+[20] [21] [22] [23] [24]
+
+LaTeX Warning: Hyper reference `yh:hnb:s1' on page 25 undefined on input line 2
+52.
+
+[25]) [26] (./ch6-differentiation.tex
+Chapter 6.
+[27] [28]) [29] (./analysis_class-note.aux (./ch1-norm.aux)
+(./ch2-metric-space.aux) (./ch3-metric-space-continuity.aux) (./ch4-norm-eq.aux
+) (./ch5-compactness.aux) (./ch6-differentiation.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+)
+(see the transcript file for additional information)
+ 1567 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 138 attribute, 61 glue_
+spec, 138 attribute_list, 4 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 2:5197,3:3413,4:277,5:603,6:81,7:6487,8:98,9:1332,10:10,11:223
+</usr/share/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/shar
+e/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texmf-di
+st/fonts/opentype/public/lm/lmsans10-bold.otf></usr/share/texmf-dist/fonts/open
+type/public/lm/lmroman10-bolditalic.otf></usr/share/texmf-dist/fonts/opentype/p
+ublic/lm/lmroman9-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmro
+man10-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman9-regular
+.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></us
+r/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texm
+f-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/amsfonts/cmextra/cmbsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type
+1/public/amsfonts/symbols/msbm7.pfb>
+Output written on analysis_class-note.pdf (30 pages, 410792 bytes).
+Transcript written on analysis_class-note.log.
