@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/Arch Linux)  (format=lualatex 2022.3.4)  31 MAR 2022 22:52
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/Arch Linux)  (format=lualatex 2022.3.4)  1 APR 2022 02:14
  restricted system commands enabled.
 **analysis_class-note.tex
 (./analysis_class-note.tex
@@ -1096,7 +1096,7 @@ Chapter 6.
 
 
 
-] [28] [29]) [30] (./analysis_class-note.aux (./ch1-norm.aux)
+] [28] [29] [30]) [31] (./analysis_class-note.aux (./ch1-norm.aux)
 (./ch2-metric-space.aux) (./ch3-metric-space-continuity.aux) (./ch4-norm-eq.aux
 ) (./ch5-compactness.aux) (./ch6-differentiation.aux))
 
@@ -1105,21 +1105,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `analysis_class-note.out' has not changed.
 (rerunfilecheck)             Checksum: F3F3BAC46FD2D26975B793F225BF1B19;2842.
 )
 
 Here is how much of LuaTeX's memory you used:
- 31680 strings out of 477875
+ 31694 strings out of 477875
  100000,1144653 words of node,token memory allocated
- 1583 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 142 attribute, 61 glue_s
-pec, 142 attribute_list, 4 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 2:5189,3:3413,4:277,5:603,6:81,7:6487,8:98,9:1332,10:10,11:223
- 50824 multiletter control sequences out of 65536+600000
+ 1595 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 145 attribute, 61 glue_s
+pec, 145 attribute_list, 4 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 2:5183,3:3413,4:277,5:603,6:81,7:6487,8:98,9:1332,10:10,11:223
+ 50833 multiletter control sequences out of 65536+600000
  94 fonts using 7364415 bytes
  104i,17n,101p,817b,1738s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/share
@@ -1147,10 +1144,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
 nts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm7.pfb>
-Output written on analysis_class-note.pdf (31 pages, 415578 bytes).
+Output written on analysis_class-note.pdf (32 pages, 421933 bytes).
 
-PDF statistics: 746 PDF objects out of 1000 (max. 8388607)
- 572 compressed objects within 6 object streams
- 195 named destinations out of 1000 (max. 131072)
+PDF statistics: 754 PDF objects out of 1000 (max. 8388607)
+ 579 compressed objects within 6 object streams
+ 200 named destinations out of 1000 (max. 131072)
  838 words of extra memory for PDF output out of 10000 (max. 100000000)
 

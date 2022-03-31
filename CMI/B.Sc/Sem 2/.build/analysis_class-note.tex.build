@@ -236,7 +236,7 @@ LaTeX Warning: Hyper reference `yh:hnb:s1' on page 25 undefined on input line 2
 
 [25]) [26] (./ch6-differentiation.tex
 Chapter 6.
-[27] [28] [29]) [30] (./analysis_class-note.aux (./ch1-norm.aux)
+[27] [28] [29] [30]) [31] (./analysis_class-note.aux (./ch1-norm.aux)
 (./ch2-metric-space.aux) (./ch3-metric-space-continuity.aux) (./ch4-norm-eq.aux
 ) (./ch5-compactness.aux) (./ch6-differentiation.aux))
 
@@ -245,15 +245,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 )
 (see the transcript file for additional information)
- 1583 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 142 attribute, 61 glue_
-spec, 142 attribute_list, 4 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 2:5189,3:3413,4:277,5:603,6:81,7:6487,8:98,9:1332,10:10,11:223
+ 1595 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 145 attribute, 61 glue_
+spec, 145 attribute_list, 4 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 2:5183,3:3413,4:277,5:603,6:81,7:6487,8:98,9:1332,10:10,11:223
 </usr/share/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/shar
 e/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/share/texmf-di
 st/fonts/opentype/public/lm/lmsans10-bold.otf></usr/share/texmf-dist/fonts/open
@@ -279,5 +276,5 @@ msfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 re/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msbm7.pfb>
-Output written on analysis_class-note.pdf (31 pages, 415578 bytes).
+Output written on analysis_class-note.pdf (32 pages, 421933 bytes).
 Transcript written on analysis_class-note.log.
