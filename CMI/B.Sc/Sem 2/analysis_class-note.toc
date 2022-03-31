@@ -1,5 +1,5 @@
 \contentsline {chapter}{\numberline {1}Normed Linear Space}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Defination:-}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.1}Defination:-}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Open and Closed Ball:-}{4}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Limit of a Sequence:-}{5}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Continuity:-}{5}{section.1.4}%
@@ -25,5 +25,7 @@
 \contentsline {chapter}{\numberline {6}Differentiation }{27}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Partial Derivatives:-}{27}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Differentiation:-}{28}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Operator Name:-}{30}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Chain Rule:-}{30}{section.6.4}%
 \contentsline {subsubsection}{1-Variable Case}{31}{section*.23}%
 \contentsfinish 
