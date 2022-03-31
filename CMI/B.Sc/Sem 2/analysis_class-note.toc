@@ -25,4 +25,5 @@
 \contentsline {chapter}{\numberline {6}Differentiation }{27}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Partial Derivatives:-}{27}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Differentiation:-}{28}{section.6.2}%
+\contentsline {subsubsection}{1-Variable Case}{31}{section*.23}%
 \contentsfinish 

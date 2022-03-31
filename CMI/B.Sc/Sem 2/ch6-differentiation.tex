@@ -92,4 +92,27 @@ T(e_j) & =\lim_{\lm\to 0}\frac{f(a+\lm e_j)-f(a)}{\lm}\\
 \deld{f_n}{x_1}(a) & \cdots & \deld{f_n}{x_m}(a)
 \end{bmatrix}$$We have proved if $f'(a)$ exists, then  all partial derivatives  $\del{f_i}{x_j}$ exists at $x=a$ and make up the matrix  of $f'(a)$
 \end{myproof}
-
+If all $\del{f_i}{x_j}$ exists at $x=a$, does not imply  $f$ is differentiable at $x=a$?
+\qs{}{Under Which conditions if all $\del{f_i}{x_j}$ exists at $x=a$, it implies that $f$ is differentiable at $x=a$?}
+\begin{Theorem}{}{}
+	If $f'(a)$ exists then $f$ is continuous at $x=a$
+\end{Theorem}
+\begin{myproof}
+	If $f'(a)$ exists then $f$ is continuous at $x=a\iff\lim\limits_{h\to 0}f(a+h)=f(a)\iff\lim\limits_{h\to 0}\|f(a+h)-f(a)\|=0$
+	$$\|f(a+h)-f(a)+T(h)-T(h)\|\leq \|f(a+h)-f(a)-T(h)\|+\|T(h)\|$$Now $\lim\limits_{h\to 0}\dfrac{\|f(a+h)-f(a)-T(h)\|}{\|h\|}\|h\|=0\cdot 0=0$ and $$\lim_{h\to 0}\|T(h)\|=0\text{ because }\begin{cases*}
+		T\text{ is continuous (being linear) so}\\
+		T(h)\to T(0)=0
+	\end{cases*}$$
+\end{myproof}
+\pagebreak
+\begin{Theorem}{}{}
+	$\bbR^m\supset \underset{  \substack{{\uin} \\ {a}}  }{U} \underset{  \substack{\quad \\[0.25cm]\longmapsto}}{\xrightarrow{f}}   \underset{\substack{  \uin \\ b}}{  \overset{\substack{{\bbR^n} \\ \usubset}}{V}  }\xrightarrow{g}\bbR^k $. $f$ is differentiable at $a$. and $g$  is differentiable at $b=f(a)$. Then $g\circ f$ is differentiable at $a$  and $$(g\circ f)'(a)=\underbrace{g'(f(a))f'(a)}_{\substack{\text{Multiplication}\\ \text{of matrices}}}$$
+\end{Theorem}
+\begin{myproof}
+	\subsubsection{1-Variable Case}
+	$\frac{dz}{dx}=\frac{dz}{dy}\, \frac{dy}{dx}$\begin{align*}
+		\frac{dz}{dx} =\lim_{\Delta x\to 0} \frac{\Delta z}{\Delta x} &=\lim_{\Delta x\to 0}\frac{\Delta z}{\Delta y}\, \frac{\Delta y}{\Delta x}\\
+		& =\lim_{\Delta x\to 0}\frac{\Delta z}{\Delta y}\lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}\\
+		& =\lim_{\Delta y\to 0}\frac{\Delta z}{\Delta y}\lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}\qquad [\text{As }\Delta x\to0,\ \Delta y\to 0]
+	\end{align*}
+\end{myproof}
