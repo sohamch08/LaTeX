@@ -1,0 +1,15 @@
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/Arch Linux) 
+ restricted system commands enabled.
+! I can't find file `anal'.
+<*> anal
+     
+(Press Enter to retry, or Control-D to exit)
+Please type another input file name: 
+! Emergency stop.
+<*> anal
+     
+ 270 words of node memory still in use:
+   1 hlist, 39 glue_spec nodes
+   avail lists: 2:12,3:1,4:1,5:1
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on texput.log.
