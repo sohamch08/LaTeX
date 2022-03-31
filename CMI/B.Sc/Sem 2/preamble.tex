@@ -460,6 +460,8 @@
 	#1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
 }
 \makeatother
+\newcommand{\deld}[2]{\dfrac{\partial #1}{\partial #2}}
+
 \newcommand{\parinn}{\setlength{\parindent}{1cm}}
 \newcommand{\parinf}{\setlength{\parindent}{0cm}}
 \newcommand{\norm}{\|\cdot\|}
@@ -468,6 +470,10 @@
 \newcommand{\oset}{V_{\alpha}}
 \newcommand{\opset}[1]{V_{\alpha_{#1}}}
 \newcommand{\lub}{\text{lub}}
+\newcommand{\del}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\Del}[3]{\frac{\partial^{#1} #2}{\partial^{#1} #3}}
+\newcommand{\Deld}[3]{\dfrac{\partial^{#1} #2}{\partial^{#1} #3}}
+\newcommand{\lm}{\lambda}
 
 %\usepackage{framed}
 %\usepackage{titletoc}
