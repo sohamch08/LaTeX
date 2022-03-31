@@ -104,19 +104,3 @@ If all $\del{f_i}{x_j}$ exists at $x=a$, does not imply  $f$ is differentiable a
 		T(h)\to T(0)=0
 	\end{cases*}$$
 \end{myproof}
-
-\section{Operator Name:-}
-
-\section{Chain Rule:-}
-
-\begin{Theorem}{}{}
-	$\bbR^m\supset \underset{  \substack{{\uin} \\ {a}}  }{U} \underset{  \substack{\quad \\[0.25cm]\longmapsto}}{\xrightarrow{f}}   \underset{\substack{  \uin \\ b}}{  \overset{\substack{{\bbR^n} \\ \usubset}}{V}  }\xrightarrow{g}\bbR^k $. $f$ is differentiable at $a$. and $g$  is differentiable at $b=f(a)$. Then $g\circ f$ is differentiable at $a$  and $$(g\circ f)'(a)=\underbrace{g'(f(a))f'(a)}_{\substack{\text{Multiplication}\\ \text{of matrices}}}$$
-\end{Theorem}
-\begin{myproof}
-	\subsubsection{1-Variable Case}
-	$\frac{dz}{dx}=\frac{dz}{dy}\, \frac{dy}{dx}$\begin{align*}
-		\frac{dz}{dx} =\lim_{\Delta x\to 0} \frac{\Delta z}{\Delta x} &=\lim_{\Delta x\to 0}\frac{\Delta z}{\Delta y}\, \frac{\Delta y}{\Delta x}\\
-		& =\lim_{\Delta x\to 0}\frac{\Delta z}{\Delta y}\lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}\\
-		& =\lim_{\Delta y\to 0}\frac{\Delta z}{\Delta y}\lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}\qquad [\text{As }\Delta x\to0,\ \Delta y\to 0]
-	\end{align*}
-\end{myproof}
