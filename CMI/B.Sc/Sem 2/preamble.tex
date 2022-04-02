@@ -19,6 +19,8 @@
 %\usepackage{authblk}
 \usepackage{nameref}
 \usepackage{multicol,array}
+\usepackage{tikz-cd}
+
 %\usepackage{import}
 %\usepackage{xifthen}
 %\usepackage{pdfpages}
@@ -434,6 +436,7 @@
 \newcommand{\exs}[2]{\begin{question}{#1}{}#2\end{question}}
 \newcommand{\qs}[2]{\begin{question}{#1}{}#2\end{question}}
 \newcommand{\sol}{\setlength{\parindent}{0cm}\textbf{\textit{Solution:}}\setlength{\parindent}{1cm} }
+\newcommand{\solve}[1]{\setlength{\parindent}{0cm}\textbf{\textit{Solution:}}\setlength{\parindent}{1cm}#1 \Qed}
 \newcommand{\pf}[2]{\begin{myproof}[#1]#2\end{myproof}}
 \newcommand{\nt}[1]{\begin{note}#1\end{note}}
 \newcommand{\eps}{\epsilon}
@@ -476,6 +479,19 @@
 \newcommand{\lm}{\lambda}
 \newcommand{\uin}{\mathbin{\rotatebox[origin=c]{90}{$\in$}}}
 \newcommand{\usubset}{\mathbin{\rotatebox[origin=c]{90}{$\subset$}}}
+\newcommand{\lt}{\left}
+\newcommand{\rt}{\right}
+
+
+
+
+\tikzset{
+	symbol/.style={
+		draw=none,
+		every to/.append style={
+			edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+	}
+}
 
 %\usepackage{framed}
 %\usepackage{titletoc}
