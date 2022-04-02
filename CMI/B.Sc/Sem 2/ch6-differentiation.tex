@@ -41,7 +41,7 @@ $f'(a)$ is a number such that $\lim\limits_{h\to 0}\frac{f(a+h)-f(a)-f'(a)h}{h}=
 Note that $f'(a)h$ = Value of linear map $f'(a)$ applied to a vector $h$
 \nt{If the above limit is 0 w.r.t any norm on $\bbR^M$ (respectively $\bbR^n$) then the same limit is 0 w.r.t any other norm on $\bbR^m$ (respectively $\bbR^n$) because \hyperref[th:all norms equiv]{all norms are equivalent}}
 \begin{Theorem}{}{}
-	Derivative is unique i.e. if $a\in U (\text{Open in }\bbR^m)\xrightarrow{f}\bbR^n$, and $$\lim_{h\to 0}\frac{\|f(a+h)-f(a)-T(h)\|}{\|h\|}=0 =\lim_{h\to 0}\frac{\|f(a+h)-f(a)-S(h)\|}{\|h\|}$$then $T=S$ i.e $T(v)=S(v)$ $\forall\ v\in\bbR^m$
+	Derivative is unique i.e. if $a\in U (\text{Open in }\bbR^m)\xrightarrow{f}\bbR^n$,  and $$\lim_{h\to 0}\frac{\|f(a+h)-f(a)-T(h)\|}{\|h\|}=0 =\lim_{h\to 0}\frac{\|f(a+h)-f(a)-S(h)\|}{\|h\|}$$then $T=S$ i.e $T(v)=S(v)$ $\forall\ v\in\bbR^m$
 \end{Theorem}
 \begin{myproof}
 	Let $R=S-T$. Want to show $R(v)=0$ $\forall \ v\in\bbR^m$ \begin{multline*}
@@ -52,9 +52,9 @@ Note that $f'(a)h$ = Value of linear map $f'(a)$ applied to a vector $h$
 Fix any nonzero $v$, $\lim\limits_{\lm\to 0}\lm v=0$. Take $h=\lm v$ ($\lm\neq 0$)$$\frac{\|R(h)\|}{\|h\|}=\frac{|\lm|\|R(v)\|}{|\lm|\|v\|}=\frac{\|R(v)\|}{\|v\|}$$Hence $$0=\lim\limits_{h\to 0}\frac{\|R(h)\|}{\|h\|}=\lim_{h\to 0}\frac{\|R(v)\|}{\|v\|}\implies\|R(v)\|=0\implies Rv=0$$
 \end{myproof}
 \qs{}{If $f:\underset{v\mapsto Av}{\bbR^m\to\bbR^n}$ is a linear map then what is $f':\bbR^m\to\bbR^n$}
-\sol{See that $f'(a)=f$. (Immediate from definition)}
+\sol{See that $f'(a)=f$. (Immediate from definition)\Qed}
 \qs{}{For an affine map $\underset{v\mapsto Av+c}{\bbR^m\xrightarrow{g}\bbR^n}$ for some $c\in\bbR^n$. Calculate $g'(a)$.}
-\sol{$g'(a)=$ the map $h\mapsto Ah$}
+\sol{$g'(a)=$ the map $h\mapsto Ah$\Qed}
 \begin{Theorem}{Matrix of $f'(a)$}{}
 	Prove that the matrix  of $f'(a)$ w.r.t standard basis of $\bbR^m$ and $\bbR^n$ is the Jacobian Matrix
 \end{Theorem}
