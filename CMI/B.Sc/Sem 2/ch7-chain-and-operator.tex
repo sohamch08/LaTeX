@@ -1,10 +1,35 @@
-\chapter{Chain Rule of Differentiation}
+\chapter{Chain Rule of Differentiation and Operator Norm}
 \section{Operator Name:-}
+$V,W$ are vector spaces. $\mcL(V,W)=$ Set of linear maps $V\to W$ is a vector space via $(A+B)(v)=A(v)+B(v)$ and $A(\lm v)=\lm A(v)$
+
+If $V=\bbR^m$ and $\bbR^n$, $\dim (\bbR^m,\bbR^n)=mn$. We can identity $\mcL(\bbR^m,\bbR^n)$ with $n\times m$ matrices. $$\|A\|_{\mcL(\bbR^m,\bbR^n)}=\|A\|=\sup\limits_{\|u\|=1} \|A(u)\|$$This gives a norm because $\|A\|\geq 0$ and $\|A\|=0\implies A=0$ and  $\|\lm A\|=|\lm|\|A\|$. As  $(A+B)(u)=A(u)+B(u)$ we have $\|(A+B)(u)\|\leq \\A(u)\|+\|B(u)\|$ in $W$ and hemce $\|A+B\|\leq \|A\|+\|B\|$.
+\qs{}{Why this is well defined ?}
+\solve{The set $S=\{u\mid \|u\|=1\} $ is closed and bounded in $V$, therefore compact. $A$ being linear  is continuous. $\therefore A(S)$ is a compact subset of $W\implies A(S)$ is bounded.}
+
+\textbf{Basic Properties:-}
+\begin{enumerate}
+	\item $\|Av\|\leq \|A\| \|v\|$ i.e. $\|Av\|_W\leq \|A\|_{\mcL}\|v\|_V$
+	\begin{myproof}
+		If $v=0$ then we are done. If $v\neq 0$, $u=\frac{v}{\|v\|}$ so $\|u\|=1$. Hence $$\|A\|\geq \|Au\|=\left\|A\left(\frac{v}{\|v\|}\right)\right\|=\frac{\|Av\|}{\|v\|}$$
+	\end{myproof}
+\item $\|A(v)\|\leq M\|v\|$ for all $v\implies \|A\|\leq M$ in fact $\inf\{M\mid \|A(v)\|\leq M\|v\|\ \forall\ v\}$
+\begin{myproof}
+	Suppose $\|A(v)\|\leq M\|v\|$ $\forall\ v$. In particular $\forall\ v$ with $\|v\|=1$. So $\|A(v)\|\leq M$.
+	
+	Rest exercise: If $L<\inf$ of the set  show $\exists \ u$ of norm=1 with $\|A(v)\| >L$.
+\end{myproof}
+\item $U\xrightarrow{A}V\xrightarrow{B}W$ linear maps between finite dimensional vector spaces  then $\|BA\|\leq \|B\|\|A\|$
+\begin{myproof}
+	Take $u$ with $\|u\|=1$. Then $$\|BA(u)\|\leq \|B\|\|A(u)\|\leq \|B\|\|A\|\|u\|=\|B\|\|A\|$$Now take $\sup$ over $u$.
+\end{myproof}
+\nt{$\underset{\mcL(U,V)\oplus\mcL(V,W)}{A,B}\underset{\to}{\mapsto}\underset{\mcL(U,W)}{BA}$ is continuous because  each slot of matrix of $BA$ is obtained by adding/multiplying entries of $A$ and $B$.}
+\end{enumerate}
+\qs{}{Show $A_n\to A$ in $\mcL(U,V)$, $B_n\to B$ in $\mcL(V,W)$ then $B_nA_n\to BA$ in $\mcL(U,W)$}
 
 \section{Chain Rule:-}
 
 \begin{Theorem}{}{}
-	$\bbR^m\supset \underset{  \substack{{\uin} \\ {a}}  }{U} \underset{  \substack{\quad \\[0.25cm]\longmapsto}}{\xrightarrow{f}}   \underset{\substack{  \uin \\ b}}{  \overset{\substack{{\bbR^n} \\ \usubset}}{V}  }\xrightarrow{g}\bbR^k $. $f$ is differentiable at $a$. and $g$  is differentiable at $b=f(a)$. Then $g\circ f$ is differentiable at $a$  and $$(g\circ f)'(a)=\underbrace{g'(f(a))f'(a)}_{\substack{\text{Multiplication}\\ \text{of matrices}}}$$
+	$\bbR^m\supset \underset{  \substack{{\uin} \\[0.05cm] {a}}  }{U} \underset{  \substack{\quad \\[0.25cm]\longmapsto}}{\xrightarrow{f}}   \underset{\substack{  \uin \\ b}}{  \overset{\substack{{\bbR^n} \\ \usubset}}{V}  }\xrightarrow{g}\bbR^k $. $f$ is differentiable at $a$. and $g$  is differentiable at $b=f(a)$. Then $g\circ f$ is differentiable at $a$  and $$(g\circ f)'(a)=\underbrace{g'(f(a))f'(a)}_{\substack{\text{Multiplication}\\ \text{of matrices}}}$$
 \end{Theorem}
 \begin{myproof}
 	\subsubsection{1-Variable Case}
@@ -13,4 +38,51 @@
 		& =\lim_{\Delta x\to 0}\frac{\Delta z}{\Delta y}\lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}\\
 		& =\lim_{\Delta y\to 0}\frac{\Delta z}{\Delta y}\lim_{\Delta x\to 0} \frac{\Delta y}{\Delta x}\qquad [\text{As }\Delta x\to0,\ \Delta y\to 0]
 	\end{align*}
+\subsubsection{Multi Variable Case}
+Note that $\bbR^m\xrightarrow{f'(a)}\bbR^n\xrightarrow{g'(f(a))}\bbR^k$
+
+If $T=f'(a)$ then $$\lim_{h\to 0}\frac{\|f(a+h)-f(a)-T(h)\|}{\|h\|}=0$$and $S=g'(f(a))=g'(b)$ then $$ \lim_{h\to 0}7\frac{\|fg(b+k)-g(b)-S(k)\|}{\|k\|}=0$$Let \begin{align*}
+	\alpha(h) & = f(a+h)-f(a)-T(h) & \eps(h)   & = \frac{\|\alpha(h)\|}{\|h\|}\to 0\text{ as }h\to 0\\[3mm]
+	\beta(k)  & = g(b+k)-g(b)-S(k) & \eta(k)   & = \begin{cases*}
+		\dfrac{\|\beta(k)\|}{\|k\|}\to0  \text{ as }k\to 0 \\
+		0      \text{ when }                         k=0
+	\end{cases*}
+\end{align*}
+$\eta$ is continuous at $k=0$. Now note that $\eta:V-b\to \bbR$ because we ae always taking $b+k$ for $\eta$. We want to show that \[\lim_{h\to 0}\frac{\|g(f(a+h))-g(f(a))-ST(h)\|}{\|h\|}=0\iff \lim_{k\to 0}\frac{\|g(b+k)-g(b)-ST(h)\|}{\|h\|}=0\]where $f(a+h)=b+k\iff k=f(a+h)-f(a)$. We have taken a specific value of $k$ depending on $h$. So now $k$ is a function of $h$. Hence $T(h)=f(a+h)-f(a)-\alpha(h)=k-\alpha(h)$
+\begin{align*}
+	  & g(b+k) -g(b) -ST(h)           \\
+	= & g(b+k) -g(b) -S(k-\alpha(h))  \\
+	= & g(b+k)-g(b)-S(k)+S(\alpha(h))
+\end{align*}Therefore\[ \frac{\|g(b+k)-g(b)-ST(h)\|}{\|h\|}\leq \frac{\|g(b+k)-g(b)-S(k)\|}{\|h\|}+\frac{\|S(\alpha(h))\|}{\|h\|}\] want to bound each of these separately
+\[\frac{\|S(\alpha(h))\|}{\|h\|}\leq \|S\|\frac{\|\alpha(h)\|}{\|h\|}\to 0\]Now how to bound the first term. In the first term $\frac{\|\beta(k)\|}{\|h\|}=\eta(k)\frac{\|k\|}{\|h\|}$. Now \begin{align*}
+	         & k=T(h)+\alpha(h)                                                                                                                    \\
+	\implies & \|k\|\leq \|T(h)\|+\|\alpha(h)\|                                                                                                    \\
+	\implies & \frac{\|k\|}{\|h\|}\leq \frac{\|T(h)\|}{\|h\|}+\frac{\|\alpha(h)\|}{\|h\|}\leq \frac{\|T\|\|h\|}{\|h\|}+\frac{\|\alpha(h)\|}{\|h\|} = \|T\|+\frac{\|\alpha(h)\|}{\|h\|}
+\end{align*}Hence $$\frac{\|\beta(k)\|}{\|k\|}=\eta(k)\frac{\|k\|}{\|h\|}\leq \eta(k)\lt[\|T\|+\frac{\|\alpha(h)\|}{\|h\|}\rt]$$As $h\to 0$ $\|T\|+\frac{\|\alpha(h)\|}{\|h\|}\to \|T\|+0$ which is finite. And as $h\to 0$, $k\to 0\implies \eta(k)\to 0$ because $\eta$ is continuous at 0.
 \end{myproof}
+
+\section{Special Case of Chain Rule: When $\bs{m=k=1}$:-}
+Open interval in $\bbR\xrightarrow{\gamma}\bbR^n\xrightarrow{g}\bbR$. $\gamma=$ parameterized curve in $\bbR^n$
+$$(g\circ \gamma)'(t)=g'(\gamma(t))\cdot \gamma'(t)$$ ${\bbR\xrightarrow{\gamma}\bbR^n}$ maps $t\to\begin{bmatrix}\gamma_1(t)\\ \vdots\\ \gamma_n(t)	\end{bmatrix}$ hence $\gamma'(t)=\begin{bmatrix}
+	\gamma_1'(t)\\ \vdots\\ \gamma_n'(t)
+\end{bmatrix}$
+
+Now $g'(y)=\begin{bmatrix}
+	\lt.\deld{g}{x_1}\rt|_y\cdots \lt.\deld{g}{x_n}\rt|_y
+\end{bmatrix}$. Hence \begin{align*}
+(g\circ \gamma)'(t) & = \begin{bmatrix}
+	\lt.\deld{g}{x_1}\rt|_y\cdots \lt.\deld{g}{x_n}\rt|_y
+\end{bmatrix}\begin{bmatrix}
+\gamma_1'(t)\\ \vdots\\ \gamma_n'(t)
+\end{bmatrix}\\
+& = \begin{bmatrix}
+	\lt.\deld{g}{x_1}\rt|_y \\ \vdots \\ \lt.\deld{g}{x_n}\rt|_y
+\end{bmatrix}\cdot \begin{bmatrix}
+	\gamma_1'(t)\\ \vdots\\ \gamma_n'(t)
+\end{bmatrix}\qquad[\text{Usual dot product of vectors in }\bbR^n] \\
+\end{align*}Call $\begin{bmatrix}
+\lt.\del{g}{x_1}\rt|_y \\ \vdots \\ \lt.\del{g}{x_n}\rt|_y
+\end{bmatrix}$ $\nabla g(\gamma(t))=$ Gradient of $g$ at the point $\gamma(t)$. Hence $(g\circ\gamma)'(t)=\nabla g(\gamma(t))\cdot\gamma'(t)$
+\qs{}{Fix $u,v\in \bbR^n$ and take parameterized curve $\gamma(t)=u+tv$. What does the above equation give at $t=0$ (for a given function $g$)}
+
+
