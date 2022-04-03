@@ -78,7 +78,7 @@
 	
 	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 2}\\
 		Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
-		\normalsize Course: Analysis 2 \hfill Date: \today \\
+		\normalsize Course: Analysis 2 \hfill Date: April 4, 2022 \\
 		\noindent\rule{7in}{2.8pt}}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,13 +119,17 @@ Now if we approach $(0,0)$ along the line then it  approaches to 0. But if we ap
 		Hint: Proceed as in the proof of Theorem 9.21.
 	\end{problem}
 	
-	\sol{Let $a$ is any arbitrary point in $E$. We have to show that $\forall\ \epsilon>0$ $\exists \ \delta>0$ $|f(a+h)-f(a)|\epsilon$ wherever $\|h\|<\delta$. Now. Let $h=\sum\limits_{i=1}^n h_ie_i$ where $e_i$ is the $i-$th vector of the standard basis of $\bbR^m$. \begin{align*}
+	\sol{Let $a$ is any arbitrary point in $E$. Since $E$ is an open set there exists an open ball $B_r(a)$ centered at $a$ of radius $r>0$ inside $E$. We have to show that $\forall\ \epsilon>0$ $\exists \ \delta>0$ $|f(a+h)-f(a)|<\epsilon$ wherever $\|h\|<\delta$ where $a+h\in B_r(a)$. 
+		
+		Now any open ball $B_r(a)$ centered at $a$ of radius $r>0$ in $\bbR^n$ is a convex set. Because if we take any two points $x,y\in B_r(a)$ then for any $\theta\in (0,1)$ $$\|(\theta x+(1-\theta) y)-a\|=\|\theta (x-a)+(1-\theta)(y-a)\|\leq \theta\|x-a\|+(1-\theta)\|y-a\|< \theta r+(1-\theta )r=r$$and henceforth $\theta x+(1-\theta)y\in B_r(a)$. Therefore any open ball in $\bbR^n$ is a convex set.
+		
+		Now. Let $h=\sum\limits_{i=1}^n h_ie_i$ where $e_i$ is the $i-$th vector of the standard basis of $\bbR^m$. \begin{align*}
 		f(a+h)-f(a) & =f\left(a+\sum_{i=1}^nh_ie_i\right)-f(a)                                                                                                                                                                                                      \\
 		            & =\left[f\left(a+\sum_{i=1}^nh_ie_i\right)-f\left(a+\sum_{i=1}^{n-1}h_ie_i\right)\right]+\left[f\left(a+\sum_{i=1}^{n-1}h_ie_i\right)-f\left(a+\sum_{i=1}^{n-2}h_ie_i\right)\right]\\
 		            & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+\cdots+\left[f\left(a+h_1e_1\right)-f\left(a\right)\right] \\
 		            & =\sum_{k=1}^n\left[f\left(a+\sum_{i=1}^kh_ie_i\right)-f\left(a+\sum_{i=1}^{k-1}h_ie_i\right)\right]
 	\end{align*} Now each $f\left(a+\sum\limits_{i=1}^kh_ie_i\right)-f\left(a+\sum\limits_{i=1}^{k-1}h_ie_i\right)$ is a one-variable function from $\bbR$ to $\bbR$. By Mean Value Theorem $\exists \ \theta_k\in \left(0,1\right)$ such that $$f\left(a+\sum\limits_{i=1}^kh_ie_i\right)-f\left(a+\sum\limits_{i=1}^{k-1}h_ie_i\right)=\left.\frac{\partial f}{\partial x_k}\right|_{v_k}h_k$$where $v_k= a+\sum\limits_{i=1}^{k-1} h_ie_i+\theta_k h_k e_k$. Hence $$f(a+h)-f(a)=\sum_{i=1}^n \left.\frac{\partial f}{\partial x_i}\right|_{v_i}h_i=\sum_{i=1}^nD_if(v_i)h_i$$Since all $D_if$ are bounded in, Let $D_if$ is bounded by $M_i$ where $M_i>0$. Then take $M=\max\{M_i\mid 1\leq i\ leq n\}$ Hence $\left|D_1(v_i)h_i\right|<M|h_i|$. Hence
-	$$|f(a+h)-f(a)|=\left|\sum_{i=1}^nD_if(v_i)h_i\right|=\sum_{i=1}^kM|h_i|=M\|h\|_1$$Now as $h\to 0$ we can say $\|h\|\to 0$. Hence $M\|h\|_1\to 0$ Therefore $|f(a+h)-f(a)|\to 0$. Hence $\forall\ \epsilon>0$ $\exists\ \delta>0$ such that $\|h\|<\delta$ whenever $|f(a+h)-f(a)|<\epsilon$. Therefore $f$ is continuous in $E$}
+	$$|f(a+h)-f(a)|=\left|\sum_{i=1}^nD_if(v_i)h_i\right|=\sum_{i=1}^kM|h_i|=M\|h\|_1$$Now as $h\to 0$ we can say $\|h\|_1\to 0$. Hence $M\|h\|_1\to 0$ Therefore $|f(a+h)-f(a)|\to 0$. Hence $\forall\ \epsilon>0$ $\exists\ \delta>0$ such that $\|h\|_1<\delta$ whenever $|f(a+h)-f(a)|<\epsilon$. Therefore $f$ is continuous in $E$}
 	
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
