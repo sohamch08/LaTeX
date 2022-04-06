@@ -1,1 +1,21 @@
 \chapter{Mean Value Theorem}
+We will use Euclidean norm on $\bbR^n$ and have Cauchy-Schwarz Inequality $|v\cdot w|\leq \|v\|\|w\|$.
+\begin{Theorem}{1-Variable MVT}{}
+	If $f:[a,b]\to \bbR$ continuous and $f'$ exists on $(a,b)$, then $\exists7 c\in(a,b)$ s.t $$f(a)-f(b)=f'(c)(b-a)$$
+\end{Theorem}
+\begin{myproof}1-variable MVT
+
+\hspace{1cm} $\Uparrow$ Via Rolle's Theorem, using $f'(\text{extremum})=0$
+		
+\hspace*{0.5cm}Extreme Value Theorem
+			
+\hspace{1cm} $\Uparrow$ $[a,b]$ is compact, $f$ is continuous $\implies f([a,b])$ is compact in $\bbR\implies $ closed and bounded
+			
+\hspace*{0.5cm}Heine Borel Theorem
+\end{myproof}
+
+\qs{}{First consider $f:[a,b]\to\bbR^n$ continuous and $f'$ exists on $(a,b)$. Is there a $c\in (a,b)$ s.t. $$\|f(b)-f(a)\|\overset{?}{=}\|f'(c)\|(b-a)$$}
+\solve{No. For example $f:[0,2\pi]\to\bbR^2$ which maps $t\mapsto (\sin t,\cos t)$. Then $f'(t)=(\cos t,-\sin t)$ and $\|f'(t)\|=1$. $f(2\pi)-f(0)=(0,0)$}
+\begin{Theorem}{}{}
+	If 
+\end{Theorem}
