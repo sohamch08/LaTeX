@@ -1,0 +1,283 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Probability Assignment 4}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 4}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Probability Theory \hfill Date: May 2, 2022 \\
+	\noindent\rule{7in}{2.8pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statemnet
+}{p1% problem reference text
+}
+%Problem		
+Let $X_{1}, \ldots, X_{n}$ be independent identically distributed (i.i.d.) random variables such that $E\left(X_{1}\right)$ and $E\left(1 / X_{1}\right)$ exist. Show that $E\left(S_{m} / S_{n}\right)=m / n$ where $S_{m}=X_{1}+\ldots+X_{m}$ where $m \leq n$.
+\end{problem}
+
+\solve{
+	%Solution
+	Since the random variables are independently identically distributed we have $$E\lt[\frac{S_m}{S_n}\rt]=\sum_{i=1}^nE\lt[\frac{X_i}{S_n}\rt]=mE\lt[\frac{X_1}{S_n}\rt]$$Now \begin{align*}
+		     & E\lt[\frac{S_n}{S_n}\rt]=E[1]=1                                                                         \\
+		\iff & \sum\limits_{i=1}^n E\lt[\frac{X_i}{S_n}\rt]=nE\lt[\frac{X_1}{S_n}\rt]=E\lt[\frac{X_1}{S_n}\rt]=\frac1n
+	\end{align*}
+	Hence we get $$E\lt[\frac{S_m}{S_n}\rt]=mE\lt[\frac{X_1}{S_n}\rt]=\frac{m}{n}$$}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statemnet
+}{p2% problem reference text
+}
+%Problem		
+\begin{enumerate}[label=(\alph*)]
+	\item Let $X=N(0,1)$ and let $Y=e^{X}$. Find the density function of $Y$.
+	\item Let $X$ be uniform on $(0,1)$. Let $g:(0,1) \rightarrow \mathbb{N}$ defined as $g(x)=k$ if $2^{-k} \leq x<2^{1-k}$. Find the mass function of $Y=g(X)$.
+\end{enumerate}
+\end{problem}
+
+\solve{
+	%Solution
+	\begin{enumerate}[label=(\alph*)]
+		\item Given that $X=N(0,1)$ and $Y=e^X$. Let $f\st_X(x)$ and $f\st_Y(y)$ are the density functions for random variable $X$ and $Y$ respectively. $F\st_Y(y)$ is the distribution function for random variable $Y$.
+
+		      Hence $$f\st_X(x)=\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}$$Now $$F\st_Y(y)=P(Y\leq y)=P(e^X\leq y)=P(X\leq \ln y)=\int_{-\infty}^{\ln y}f\st_X(x)dx$$Differentiating both sides we get $$f\st_Y(y)=f\st_X(\ln y)\,\frac1y-\lim\limits_{x\to-\infty}f\st_X(x)$$
+		      Since $\lim\limits_{x\to-\infty}f\st_X(x)=0$ we have $f\st_Y(y)=\frac1ye^{-\frac12(\ln y)^2}$\Qed
+		\item $X$ is uniformly distributed on $(0,1)$. Let $f\st_X(x)$ is mass function of $X$. The mass function of $Y$ is $f\st_Y(y)$. Then $$f\st_X(x)=\begin{cases}
+				      1 & 0< x <1         \\
+				      0 & x\leq 0,x\geq 1
+			      \end{cases}$$Now $Y$ is a discrete random variable. Hence $$f\st_Y(k)=P(Y=k)=P(2^{-k}\leq X<2^{-(k-1)})=\int_{2^{-k}}^{2^{-(k-1)}}f\st_X(x)dx=2^{-(k-1)}-2^{-k}=2^{-k}$$Therefore $f\st_Y(k)=2^{-k}$ where $k\in\bbN$
+	\end{enumerate}
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statemnet
+}{p3% problem reference text
+}
+%Problem		
+Let $X_{1}, \ldots, X_{n}$ be i.i.ds with finite mean and variance. Let $\bar{X}=\left(X_{1}+\ldots+X_{n}\right) / n$. Show that $\operatorname{cov}\left(\bar{X}, X_{n}-\bar{X}\right)=0$.
+\end{problem}
+
+\solve{
+	%Solution
+	Since $X_1,\dots,X_n$ are i.i.ds with finite mean and variance they all have same mean and variance. Let $E(X_i)=\mu$ and $Var(X_i)=\sigma^2$. Now \begin{align*}
+		Cov\lt(\overline{X},X_n-\overline{X}\rt) & =E\lt[\overline{X}\lt(X_n-\overline{X}\rt)\rt]-E\lt[\overline{X}\rt]E\lt[X_n-\overline{X}\rt]                            \\
+		                                         & =E\lt[X_n\overline{X}\rt]-E\lt[\overline{X}^2\rt]-E\lt[\overline{X}\rt]E\lt[X_n-\overline{X}\rt]                         \\
+		                                         & =E\lt[X_n\overline{X}\rt]-Var\lt(\overline{X}\rt)-E\lt[\overline{X}\rt]^2-E\lt[\overline{X}\rt]E\lt[X_n-\overline{X}\rt]
+	\end{align*}Now \begin{align*}
+		E\lt[X_n\overline{X}\rt]  & =E\lt[X_n\frac{X_1+\cdots+X_n}{n}\rt]                                  \\
+		                          & =\frac1n\lt(E[X_nX_1]+E[X_nX_2]+\cdots+E[X_nX_{n-1}]+E[X_n^2]\rt)      \\
+		                          & =\frac1n\lt(E[X_n]E[X_1]+\cdots+E[X_n]E[X_{n-1}]+Var(X_n)+E[X_n]^2\rt) \\
+		                          & =\frac1n((n-1)\mu^2+\sigma^2+\mu^2)=\mu^2+\frac{\sigma^2}n             \\
+		                          &                                                                        \\
+		E[\overline{X}]           & = E\lt[\frac{X_1+\cdots+X_n}{n}\rt]                                    \\
+		                          & =\frac1nE[X_1+\cdots+X_n]                                              \\
+		                          & = \frac1n(E[X_1]+\cdots+E[X_n])=\frac1n(n\mu)=\mu                      \\
+		                          &                                                                        \\
+		E\lt[X_n-\overline{X}\rt] & =E\lt[X_n\rt]-E\lt[\overline{X}\rt]=\mu - \mu=0                        \\
+		                          &                                                                        \\
+		Var(\overline{X})         & =Var\lt(\frac{X_1+\cdots+X_n}{n}\rt)                                   \\
+		                          & = \frac1{n^2}Var\lt(X_1+\cdots+X_n\rt)                                 \\
+		                          & = \frac1{n^2}\lt(Var(X_1)+\cdots+Var(X_n)\rt)                          \\
+		                          & =\frac1{n^2}(n\sigma^2)=\frac{\sigma^2}{n}
+	\end{align*}
+	Hence putting these values we get\begin{align*}
+		Cov\lt(\overline{X},X_n-\overline{X}\rt) & =E\lt[X_n\overline{X}\rt]-Var\lt(\overline{X}\rt)-E\lt[\overline{X}\rt]^2-E\lt[\overline{X}\rt]E\lt[X_n-\overline{X}\rt] \\
+		                                         & =\mu^2+\frac{\sigma^2}{n}-\frac{\sigma^2}{n}-\mu^2-\mu\times 0=0
+	\end{align*}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statemnet
+}{p4% problem reference text
+}
+%Problem		
+Let $X_{r}, r \geq 1$, be independent uniformly distributed on $[0,1]$. Let $0<x<1$ and let $N=\min \left\{k \mid X_{1}+\ldots+X_{k}>x\right\}$. Show that $P(N>n)=x^{n} / n !$. Find the mean and variance of $N$.
+\end{problem}
+
+\solve{
+%Solution
+Given that $N=\min \left\{k \mid X_{1}+\ldots+X_{k}>x\right\}$. Therefore $N$ is a discrete random variable. Hence $N>n\iff X_1+\cdots+X_n\leq x$. Let $f_n(x)=P(N>n)=P(X_{1}+\ldots+X_{n}\leq x)$. Let $X_n=a$ where $0\leq a_n\leq x$. Hence $$f_n(x)=\int_0^xf_{n-1}(x-a_n)da_n=\int_0^xf_{n-1}(a_n)da_n$$Similarly we can say let $X_{n-1}=a_{n-1}$ where $0\leq a_{n-1}\leq a_n$. Hence $$f_{n-1}(a_n)=\int_0^{a_n}f_{n-2}(a_n-a_{n-1})da_{n-1}=\int_0^{a_n}f_{n-2}(a_{n-1})da_{n-1}$$Therefore $$f_n(x)=\int_0^xf_{n-1}(a_n)da_n=\int_0^x\int_0^{a_n}f_{n-2}(a_{n-1})da_{n-1}da_n=\underbrace{\int_0^x\int_0^{a_n}\cdots\int_0^{a_2}}_{n\text{ times}}f_0(a_1)da_1\cdots da_{n-1}da_n$$Now $f_0(a_1)=P(N>0)=1$ since $N\geq 1$ always. Hence $$f_n(x)=\underbrace{\int_0^x\int_0^{a_n}\cdots\int_0^{a_2}}_{n\text{ times}}f_0(a_1)da_1\cdots da_{n-1}da_n=\underbrace{\int_0^x\int_0^{a_n}\cdots\int_0^{a_2}}_{n\text{ times}}da_1\cdots da_{n-1}da_n=\frac{x^n}{n!}$$
+
+Now $P(N=n)=P(N>n-1)-P(N>n)=\frac{x^{n-1}}{(n-1)!}-\frac{x^n}{n!}$. Hence \begin{align*}
+	E[N] & =\sum_{k=1}^{\infty}kP(N=k)                                                                                                       \\
+	     & =\sum_{k=1}^{\infty}k\lt(\frac{x^{k-1}}{(k-1)!}-\frac{x^k}{k!}\rt)                                                                \\
+	     & =\sum_{k=1}^{\infty}k\frac{x^{k-1}}{(k-1)!}-\sum_{k=1}^{\infty}k\frac{x^k}{k!}                                                    \\
+	     & =\sum_{k=1}^{\infty}(k-1)\frac{x^{k-1}}{(k-1)!}+\sum_{k=1}^{\infty}\frac{x^{k-1}}{(k-1)!}-x\sum_{k=1}^{\infty}k\frac{x^{k-1}}{k!} \\
+	     & =x\sum_{k=2}^{\infty}\frac{x^{k-2}}{(k-2)!}+\sum_{k=1}^{\infty}\frac{x^{k-1}}{(k-1)!}-x\sum_{k=1}^{\infty}\frac{x^{k-1}}{(k-1)!}  \\
+	     & =xe^x+e^x-xe^x=e^x
+\end{align*}
+\begin{align*}
+	E[N^2] & =\sum_{k=1}^{\infty}k^2P(N=k)                                                                                      \\
+	       & =\sum_{k=1}^{\infty}k^2\lt(\frac{x^{k-1}}{(k-1)!}-\frac{x^k}{k!}\rt)                                               \\
+	       & =\sum_{k=1}^{\infty}k^2\frac{x^{k-1}}{(k-1)!}-\sum_{k=1}^{\infty}k^2\frac{x^k}{k!}=G(x)-H(x)\qquad[\text{Suppose}]
+\end{align*}
+
+Now we will evaluate $H(x)$ first. \begin{align*}
+	H(x) & = \sum_{k=1}^{\infty}k^2\frac{x^k}{k!}= \sum_{k=1}^{\infty}k\frac{x^k}{(k-1)!}           \\
+	     & =\sum_{k=1}^{\infty}(k-1)\frac{x^{k}}{(k-1)!}+\sum_{k=1}^{\infty}\frac{x^{k}}{(k-1)!}    \\
+	     & =x^2\sum_{k=2}^{\infty}\frac{x^{k-2}}{(k-2)!}+x\sum_{k=1}^{\infty}\frac{x^{k-1}}{(k-1)!} \\
+	     & =x^2e^x+xe^x=x(x+1)e^x
+\end{align*}\begin{align*}
+	     & H(x)=\sum\limits_{k=1}^{\infty}k^2\dfrac{x^k}{k!}=\sum\limits_{k=1}^{\infty}(k-1)^2\dfrac{x^{k-1}}{(k-1)!}                                                      \\
+	\iff & H(x)=\sum\limits_{k=1}^{\infty}k^2\dfrac{x^{k-1}}{(k-1)!}-2\sum\limits_{k=1}^{\infty}k\dfrac{x^{k-1}}{(k-1)!}+\sum\limits_{k=1}^{\infty}\dfrac{x^{k-1}}{(k-1)!} \\
+	\iff & H(x)=G(x)-\frac2x\sum\limits_{k=1}^{\infty}k\dfrac{x^{k}}{(k-1)!}+\sum\limits_{k=1}^{\infty}\dfrac{x^{k-1}}{(k-1)!}                                             \\
+	\iff & H(x)=G(x)-\frac2xH(x)+e^x                                                                                                                                       \\
+	\iff & G(x)-H(x)=\frac2xH(x)-e^x                                                                                                                                       \\
+	\iff & G(x)-H(x)=\frac{2}{x}x(x+1)e^x-e^x=(2x+1)e^x                                                                                                                    \\
+	\iff & E[N^2]=(2x+1)e^x
+\end{align*}Therefore$$Var(N)=E[N^2]-E[N]^2=(2x+1)e^x-e^{2x}$$
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statemnet
+}{p5% problem reference text
+}
+%Problem		
+Find the density function of $Z=X+Y$ where $(X, Y)$ have joint density function $f(x, y)=(x+y) e^{-(x+y)} / 2, x, y \geq 0 .$
+\end{problem}
+
+\solve{
+%Solution
+Given that $Z=X+Y$. Let $f\st_Z(z)$ and $F\st_Z(z)$ are the mass function and distribution function of $Z$ respectively. Hence $$F\st_Z(z)=\int_{-\infty}^zf\st_Z(t)dt$$ and in another way we can say $$F\st_Z(z)=P(Z\leq z)=P(X\leq x,Y\leq z-x)=\int_{x=-\infty}^{\infty}\int_{y=-\infty}^{z-x}f(x,y)dydx$$Now let $U=X$ and $V=X+Y$. Then $X=U$ and $Y=V-U$. Hence the \textit{Jacobian Matrix}. $\mcJ$ becomes $$\mcJ=\begin{bmatrix}
+		\deld{X}{U} & \deld{Y}{U}\\[3mm] \deld{X}{V} & \deld{Y}{V}\end{bmatrix}=\begin{bmatrix}
+		\deld{U}{U} & \deld{(V-U)}{U}\\[3mm] \deld{U}{V} & \deld{(V-U)}{V}\end{bmatrix}=\begin{bmatrix}
+		1 & -1 \\ 0 & 1
+	\end{bmatrix}\implies |\mcJ|=1$$Hence
+\begin{align*}
+	F\st_Z(z) & =\int_{x=-\infty}^{\infty}\int_{y=-\infty}^{z-x}f(x,y)dydx       \\
+	          & =\int_{u=-\infty}^{\infty}\int_{v=-\infty}^{z}f(u,v-u)|\mcJ|dvdu \\
+	          & =\int_{-\infty}^{z}\lt[\int_{-\infty}^{\infty}f(u,v-u)du\rt]dv
+\end{align*}Now differentiating both sides with respect to $z$ we get $f\st_Z(v)=\displaystyle{\int_{-\infty}^{\infty}}f(u,v-u)du$.
+
+Now given that $$f(x,y)=\begin{cases}
+		\frac12(x+y)e^{-(x+y)} & x,y\geq 0        \\
+		0                      & \text{Otherwise}
+	\end{cases}$$Now in case of $u,v-u\geq 0 \iff v\geq u\geq 0$. Hence when $v\geq u\geq 0$ $$f(u,v-u)=\frac12(u+v-u)e^{-(u+v-u)}=\frac12ve^{-v}$$Therefore $$f\st_Z(v)=\int_{-\infty}^{\infty}f(u,v-u)du=\int_{-\infty}^{\infty}\frac12ve^{-v}du=\frac12ve^{-v}\int_{0}^{v}du=\frac12v^2e^{-v}$$
+}Therefore $$f\st_Z(v)=\begin{cases}
+		\frac12v^2e^{-v} & v\geq 0 \\
+		0                & v<0
+	\end{cases}$$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statemnet
+}{p5% problem reference text
+}
+%Problem
+Suppose that $X, Y$ have bivariate normal distribution with zero expectations, variances $\sigma^{2}, \tau^{2}$ respectively, and, covariance $\rho>0$. Show that $E(Y \mid X)=\lambda X$ where $\lambda=\rho \tau / \sigma$.
+\end{problem}
+
+\solve{
+%Solution
+Given that $X,Y$ have bivariate normal distributions with zero expectations, variances $\sigma^2,\tau^2$ respectively and their covariance is $\rho>0$. Hence the join distribution function of $X,Y$ is $$f\st_{X,Y}(x,y)=\frac{1}{2\pi \sigma\tau
+		\sqrt{1-\rho^2}}e^{-\frac1{2(1-\rho^2)}\lt(\frac{x^2}{\sigma^2}-\frac{2\rho xy}{\sigma\tau}+\frac{y^2}{\tau^2}\rt)}$$Hence we have $$f\st_{Y\mid X}(Y=y\mid X=x)=\frac{f\st_{X,Y}(x,y)}{f\st_X(x)}$$Now\begin{align*}
+	f\st_X(x) & =\dps{\int_{-\infty}^{\infty}f\st_{X,Y}(x,y)dy}                                                                                                                                                                                      \\
+	          & =\int_{-\infty}^{\infty}\frac{1}{2\pi \sigma\tau\sqrt{1-\rho^2}}e^{-\frac1{2(1-\rho^2)}\lt(\frac{x^2}{\sigma^2}-\frac{2\rho xy}{\sigma\tau}+\frac{y^2}{\tau^2}\rt)}dy                                                                \\
+	          & =\frac{1}{2\pi \sigma\tau\sqrt{1-\rho^2}}e^{-\frac1{2(1-\rho^2)}\frac{x^2}{\sigma^2}(1-\rho^2)}\int_{-\infty}^{\infty}e^{-\frac1{2(1-\rho^2)} \lt( \frac{\rho^2 x^2}{\sigma^2}-\frac{2\rho xy}{\sigma\tau}+\frac{y^2}{\tau^2}\rt)}dy \\
+	          & =\frac{1}{2\pi \sigma\tau\sqrt{1-\rho^2}}e^{-\frac12 \frac{x^2}{\sigma^2}}\int_{-\infty}^{\infty}e^{-\frac1{2(1-\rho^2)}\lt(\frac{\rho x}{\sigma}-\frac{y}{\tau}\rt)^2}dy                                                            \\
+	          & =\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac12 \frac{x^2}{\sigma^2}} \lt[ \frac{1}{\sqrt{2\pi(1-\rho^2)}\tau}\int_{-\infty}^{\infty}e^ {-\frac1{2(1-\rho^2)}\frac{(y\sigma -\rho \tau x^2)}{\sigma^2\tau^2}}dy   \rt]                       \\
+	          & =\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac12 \frac{x^2}{\sigma^2}}\lt[ \int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\tau^2(1-\rho^2)}}e^{-\frac12 \frac{\lt(y-\frac{\rho \tau}{\sigma}x \rt)^2}{\tau^2(1-\rho^2)}  }dy \rt]                \\
+	          & =\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac12 \frac{x^2}{\sigma^2}}\lt[ \int_{-\infty}^{\infty}N\lt(\frac{\rho \tau}{\sigma}x,\tau^2(1-\rho^2)  \rt) \rt]                                                                                \\
+	          & =\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac12 \frac{x^2}{\sigma^2}}
+\end{align*}
+
+Hence \begin{align*}
+	f\st_{Y\mid X}(Y=y\mid X=x) & =\frac{\frac{1}{2\pi \sigma\tau\sqrt{1-\rho^2}}e^{-\frac1{2(1-\rho^2)}\lt(\frac{x^2}{\sigma^2}-\frac{2\rho xy}{\sigma\tau}+\frac{y^2}{\tau^2}\rt)}}{\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac12 \frac{x^2}{\sigma^2}}} \\
+	                            & =\frac{1}{\sqrt{2\pi\tau^2(1-\rho^2)}}e^{-\frac1{2(1-\rho^2)}\lt(\frac{\rho^2x^2}{\sigma^2}-\frac{2\rho xy}{\sigma\tau}+\frac{y^2}{\tau^2}\rt)}                                                                     \\
+	                            & = \frac{1}{\sqrt{2\pi\tau^2(1-\rho^2)}}e^{-\frac1{2(1-\rho^2)}\lt(\frac{\rho x}{\sigma}-\frac{y}{\tau}\rt)^2}
+\end{align*}Now we will find the expectation of $Y\mid X=x$ \begin{align*}
+	E[Y\mid X=x] & = \int_{-\infty}^{\infty}yf\st_{Y\mid X}(Y=y\mid X=x)dy =\int_{-\infty}^{\infty}y\frac{1}{\sqrt{2\pi\tau^2(1-\rho^2)}}e^{-\frac1{2(1-\rho^2)}\lt(\frac{\rho x}{\sigma}-\frac{y}{\tau}\rt)^2}dy
+\end{align*}Now we substitute $$u=\frac{1}{\sqrt{1-\rho^2}}\lt(\frac{\rho x}{\sigma}-\frac{y}{\tau}\rt)\iff y =\tau\lt(\frac{\rho x}{\sigma}- u\sqrt{1-\rho^2} \rt)\implies dy = \tau\sqrt{1-\rho^2}du$$Substituting u in the integration we get \begin{align*}
+	E[Y\mid X=x] & = \int_{-\infty}^{\infty}\tau\lt(\frac{\rho x}{\sigma}- u\sqrt{1-\rho^2} \rt)\frac{1}{\sqrt{2\pi\tau^2(1-\rho^2)}}e^{-\frac12u^2}\tau\sqrt{1-\rho^2}du                                                                            \\
+	             & = \int_{-\infty}^{\infty}\tau\lt(\frac{\rho x}{\sigma}- u\sqrt{1-\rho^2} \rt)\frac{1}{\sqrt{2\pi}}{e^{-\frac12u^2}}du                                                                                                             \\
+	             & =\frac{\tau\rho x}{\sigma}\int_{-\infty}^{\infty}\underbrace{\frac{1}{\sqrt{2\pi}}e^{-\frac12u^2}}_{N(0,1)}du- \tau\sqrt{1-\rho^2}\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\underbrace{ue^{-\frac12u^2}}_{\substack{\text{Odd} \\ \text{Function}}}du= \frac{\tau\rho }{\sigma}x
+\end{align*} Hence $E[Y\mid X=x]=\lm x$ where $\lm=\frac{\tau\rho }{\sigma}$
+}
+
+\end{document}
