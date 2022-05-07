@@ -1,0 +1,88 @@
+\chapter{Higher Derivatives}
+Open $U$ in $\bbR^m\xrightarrow{f}\bbR^n$. $D(f(a))$ is a linear map $\bbR^m\to \bbR^n$ i.e $D(f(a))\in \mcL(\bbR^m,\bbR^n)$. If $f$ is differentiable at each $a\in U$, then we get a function $Df:{U\to\mcL(\bbR^m,\bbR^n)}$  which maps $a\longmapsto D(f(a))=f'(a)$. We can ask about continuity and differentiability of this map $Df$.
+
+We want to consider $C^1(U)$ functions which are all functions that are differentiable at each $a\in U$ and $Df$ is continuous i.e $C^1(U)=$ Set of continuously differentiable functions
+\dfn{$\bs{C^1}$ Functions}{
+	$ U$ open in $\bbR^m\xrightarrow{f}\bbR^n$. Suppose $f'(a)$ exists $\forall\ a\in U$ then we get a function \begin{center}
+		\begin{tikzcd}[ampersand replacement=\&]
+			f: \&[-1cm] U \arrow[r] \& {\mathcal{L}(\mathbb{R}^m,\mathbb{R}^n)} \&[-1cm] {\backsimeq \bbR^{mn}}\\[-0.7cm]
+			\& a\arrow[r, maps to] \& f'(a) \&
+		\end{tikzcd}
+	\end{center}  which maps ${a\longmapsto f'(a)}$. We say $f\in C^1(U)$, "$f$ is continuously differentiable" if $f'(a)$ exists for each $a$ and $f'$ is a continuous function
+	
+}
+\begin{Theorem}{}{}
+A function $f:U$ Open in $\bbR^m\to \bbR^n$ is $C^1(U)\iff \lt.\deld{f_i}{x_j}\rt|_a$ exists at each $a\in U$ and are continuous functions
+\end{Theorem}
+\begin{myproof}
+	\subsubsection{If Part:-}
+	\begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
+		\item \label{df:1} $a\in U$ Open in $\bbR^m\xrightarrow{f}\bbR^n$ s.t $f(a)=\lt[ \begin{matrix}
+		f_1(a)\\ \vdots\\ f_n(a)
+	\end{matrix} \rt]$, $\lim\limits_{h\to 0}\dfrac{f(a+h)-f(a)-Th}{\|h\|}=0$Matrix of $T$ w.r.t standard basis of $\bbR^m$ and $\bbR^n$ is \[T=  \lt[ \begin{matrix}
+	\lt.\deld{f}{x_1}\rt|_a & \cdots & \lt.\deld{f}{x_m}\rt|_a
+\end{matrix} \rt]=\lt[ \begin{matrix}
+\lt.\deld{f_1}{x_1}\rt|_a & \cdots & \lt.\deld{f_1}{x_m}\rt|_a\\
+\vdots & \ddots & \vdots\\
+\lt.\deld{f_n}{x_1}\rt|_a & \cdots & \lt.\deld{f_n}{x_m}\rt|_a
+\end{matrix} \rt]\]
+\item \label{df:2}$\lim\limits_{x\to v}f(x)=\lt[ \begin{matrix}
+	b_1\\ \vdots\\ b_n
+\end{matrix} \rt]\iff \lim\limits_{x\to v}f_I(x)=b_i$ for each $i=1,2,\dots,n$
+	\end{enumerate}
+By \ref{df:1} and \ref{df:2}  the proof of forward direction is obvious
+\subsubsection{Only If Part:-}
+If we prove that $f'(a)$ exists for each $a\in U$ then $f'$ is automatically continuous because by \ref{df:1} the matrix of $f'(a)$ must be the Jacobian Matrix and we are given that all entries of this matrix namely the functions $\deld{f_i}{x_j}$ are continuous so apply \ref{df:2}
+
+\textbf{Another reduction: }We may assume that $n=1$ because this case in general, it follows immediately  that for $f==\lt[ \begin{matrix}
+	f_1\\ \vdots\\ f_n
+\end{matrix} \rt]$, $$f'(a)=\lt[ \begin{matrix}
+f_1(a)\\ \vdots\\ f_n(a)
+\end{matrix} \rt]=\lt[ \begin{matrix}
+\lt.\deld{f}{x_1}\rt|_a & \cdots & \lt.\deld{f}{x_m}\rt|_a
+\end{matrix} \rt]$$Hence $$\dfrac{f(a+h)-f(a)-Th}{\|h\|}=\frac1{\|h\|}\lt( \lt[ \begin{matrix}
+f_1(a+h)\\ \vdots\\ f_n(a+h)
+\end{matrix} \rt]-\lt[ \begin{matrix}
+f_1(a)\\ \vdots\\ f_n(a)
+\end{matrix} \rt]-\lt[ \begin{matrix}
+f_1'(a)h\\ \vdots\\ f_n'(a)h
+\end{matrix} \rt] \rt)$$$\lim\limits_{h\to 0}$ of this $= 0$ because in each slot the limits is 0 by $n=1$ case which we have assumed, and will prove now.
+\nt{Proof of the fact that in case of $n=1$ if $\deld{f_i}{x_j}$ $(j=1,2,\dots,m)$ are continuous functions $U\to \bbR$ then $f'(a)$ exists for each $a\in U$}
+\vspace*{2mm}
+We want to show $f'(a)=\lt[\begin{matrix}
+	\lt.\del{f}{x_1}\rt|_a & \cdots & \lt.\del{f}{x_m}\rt|_a
+\end{matrix} \rt]$ i.e $\lim\limits_{h\to 0}\dfrac{f(a+h)-f(a)-Th}{\|h\|}=0$. We want to bound the numerator. Fix $a=\lt[ \begin{matrix}
+a_1 & \cdots & a_m
+\end{matrix} \rt]^T$. Let $h=\lt[ \begin{matrix}
+h_1 & \cdots & h_m
+\end{matrix} \rt]^T$. Now choose $r>0$ such that $B_r(a)\subset U$ and restrict $h$ such that $\|h\|<r$. \[ Th=\sum_j\lt.\deld{f}{x_j}\rt|_ah_j = \lt\langle \underbrace{\lt[\begin{matrix}
+	\lt.\del{f}{x_1}\rt|_a \\ \vdots \\ \lt.\del{f}{x_m}\rt|_a
+\end{matrix} \rt]}_{\substack{\parallel \\ q}}, \lt[ \begin{matrix}
+h_1 \\ \vdots \\ h_m
+\end{matrix} \rt] \rt\rangle \]And $f(a+h)-f(a)=f(a_1,h_1,\dots, a_m+h_m)-f(a_1,\dots, a_n)$
+
+\textbf{Idea:} Bound this in terms of partial derivatives using the mean value theorem (ordinary 1-variable version, which is applicable because each $\del{f}{x_j}$ is continuous)
+
+\begin{align*}
+	f(a+h)-f(a) & = f(a_1+h_1,a_2,\dots, a_m) - f(a)\\
+	&\quad + f(a_1+h_1,a_2+h_2,\dots, a_m) - f(a_1+h_1,a_2,\dots, a_m)\\
+	&\quad \qquad\qquad\qquad \vdots\qquad\qquad\qquad\qquad\qquad\qquad \vdots\\
+	&\quad + f(a_1+h_1,a_2+h_2,\dots, a_m+h_m) - f(a_1+h_1,a_2+h_2,\dots,a_{m-1}+h_{m-1}, a_m)\\
+	& \overset{\text{MVT}}{=} \lt.\del{f}{x_1}\rt|_{v_1}h_1+\lt.\del{f}{x_2}\rt|_{v_2}h_2+\cdots + \lt.\del{f}{x_m}\rt|_{v_m}h_m\\
+	& =\lt\langle \underbrace{\lt[\begin{matrix}
+		\lt.\del{f}{x_1}\rt|_{v_1} \\ \vdots \\ \lt.\del{f}{x_m}\rt|_{v_m}
+	\end{matrix} \rt]}_{\substack{\parallel \\ p}}, \lt[ \begin{matrix}
+		h_1 \\ \vdots \\ h_m
+	\end{matrix} \rt] \rt\rangle 
+\end{align*}Notice that $v_1,v_2,\dots,v_m$ are functions of $h$. Putting together we get
+\begin{align*}
+	\dfrac{f(a+h)-f(a)-Th}{\|h\|} & = \frac1{\|h\|} \lt\langle h,\lt[ \begin{matrix}
+		\lt.\del{f}{x_1}\rt|_{v_1} -	\lt.\del{f}{x_1}\rt|_a \\
+		\vdots                                              \\
+		\lt.\del{f}{x_m}\rt|_{v_m}-	\lt.\del{f}{x_1}\rt|_a
+	\end{matrix} \rt]  \rt\rangle\\
+& =\frac1{\|h\|}\|h\|\|p-q\|=\|p-q\|
+\end{align*}
+Showing $\lim\limits_{h\to 0}\|p-q\|=0$ is enough to complete the proof $$ \lim\limits_{h\to 0}\|p-q\|=0\impliedby  p-q\to 0 \text{ as }h\to 0 \impliedby \lt.\del{f}{x_i}\rt|_{v_i} -	\lt.\del{f}{x_i}\rt|_a  \to 0\text{ as }h\to 0 $$ which is true because $\del{f}{x_i}$ is a continuous function. More formally choose $\|h\|<\delta$ s.t $$\lt\|\del{f}{x_i}(b)-	\del{f}{x_1}(a)\rt\| <\frac{\eps}{m}\ \forall \ b\in B_{\delta}(a)$$That ensures $\|p-q\|<\eps$ by triangle inequality.
+
+\end{myproof}
