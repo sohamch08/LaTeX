@@ -16,23 +16,23 @@ In $\bbR^n$, $u=(u_1,u_2,\cdots,u_n)$ where each $u_i\in \bbR$. we have \hyperre
 \underline{Observe}: A set $V$ in $\bbR^2$ is
 \begin{center}
 	\begin{tabular}{lcl}
-		open w.r.t. $\norm_1$ & $\iff$ & $V=\bigcup\limits_{u\in V}$ Box in $V$ centered box\\
-		open w.r.t. $\norm_2$ & $\iff$ & $V=\bigcup\limits_{u\in V}$ Diamond in $V$ centered box\\
-		open w.r.t. $\inorm$ & $\iff$ & $V=\bigcup\limits_{u\in V}$ Circle in $V$ centered box
+		open w.r.t. $\norm_1$ & $\iff$ & $V=\bigcup\limits_{u\in V}$ Box in $V$ centered box     \\
+		open w.r.t. $\norm_2$ & $\iff$ & $V=\bigcup\limits_{u\in V}$ Diamond in $V$ centered box \\
+		open w.r.t. $\inorm$  & $\iff$ & $V=\bigcup\limits_{u\in V}$ Circle in $V$ centered box
 	\end{tabular}
 \end{center}
 \dfnc{Equivalence of Norms}{Suppose $\norm$, $\norm'$ are two norms in vector space $V$, We say that the two norms are equivalent if there are constants $\alpha,\beta>0$ s.t. $$\alpha\|x\|'\leq \|x\|\leq \beta\|x\|'$$}
 \ex{Norm Equivalence}{\begin{enumerate}
 		\item \textbf{$\bs{p=\infty}$ and $\bs{p=1}$}
-		
-		$\|x\|_{\infty}=\max\{|x_i|\mid 1\leq i\leq n\}\leq \|x\|_1=\sum\limits_i |x_i|$
-		
-		$\|x\|_{\infty}\geq $ each $|x_i|\implies n\|x\|_{\infty}\geq \|x\|_1$
-		
-		Hence $$\|x\|_{\infty}|\leq \|x\|_1\leq n\|x\|_{\infty}\text{ and }\frac1n\|x\|_1\leq \|x\|_{\infty}\leq \|x\|_1$$
+
+		      $\|x\|_{\infty}=\max\{|x_i|\mid 1\leq i\leq n\}\leq \|x\|_1=\sum\limits_i |x_i|$
+
+		      $\|x\|_{\infty}\geq $ each $|x_i|\implies n\|x\|_{\infty}\geq \|x\|_1$
+
+		      Hence $$\|x\|_{\infty}|\leq \|x\|_1\leq n\|x\|_{\infty}\text{ and }\frac1n\|x\|_1\leq \|x\|_{\infty}\leq \|x\|_1$$
 		\item \textbf{$\bs{p=\infty}$ and $\bs{p=2}$}
-		$$\|x\|_{\infty}\leq \|x\|_2\leq \sqrt{n}\|x\|_{\infty}$$
-\end{enumerate}}
+		      $$\|x\|_{\infty}\leq \|x\|_2\leq \sqrt{n}\|x\|_{\infty}$$
+	\end{enumerate}}
 \begin{theorem}{}{}
 	All norms on a finite dimensional vector space are equivalent
 \end{theorem}
@@ -46,18 +46,18 @@ In $\bbR^n$, $u=(u_1,u_2,\cdots,u_n)$ where each $u_i\in \bbR$. we have \hyperre
 	\end{enumerate}
 \end{theorem}
 \begin{myproof}
-	For both proofs if we just prove one direction the we are done actually since we can just replace 
+	For both proofs if we just prove one direction the we are done actually since we can just replace
 	the words to prove for opposite direction,
 	\begin{enumerate}[label=(\roman*)]
 		\item \parinn\subsubsection{If Part:-}
-		Since $\norm,\norm^{\prime}$ are equivalent we have $\exists\ \alpha, \beta$ such that $\alpha\|x\|^{\prime} \leq\|x\| \leq \beta\|x\|^{\prime}$. So if we show $\alpha\left\|x_{n}-x\right\|<\left\|x_{n}-x\right\|<\alpha \epsilon$ we are done.
-		
-		Let $\{x_{n}\} \to x$ w.r.t $\norm$ i.e. $\forall\ \epsilon>0\ \exists N$ s.t. $\forall\ n>N\ \left\|x_{n}-x\right\|<\alpha \epsilon$. Hence we have $\alpha\left\|x_{n}-x\right\|^{\prime}<\alpha \epsilon$. Hence $\forall \ \epsilon>0\ \exists\ N$ such that $\forall\ n>N\ \left\|x_{n}-x\right\|^{\prime}<\epsilon$\Qed
-	
+		      Since $\norm,\norm^{\prime}$ are equivalent we have $\exists\ \alpha, \beta$ such that $\alpha\|x\|^{\prime} \leq\|x\| \leq \beta\|x\|^{\prime}$. So if we show $\alpha\left\|x_{n}-x\right\|<\left\|x_{n}-x\right\|<\alpha \epsilon$ we are done.
+
+		      Let $\{x_{n}\} \to x$ w.r.t $\norm$ i.e. $\forall\ \epsilon>0\ \exists N$ s.t. $\forall\ n>N\ \left\|x_{n}-x\right\|<\alpha \epsilon$. Hence we have $\alpha\left\|x_{n}-x\right\|^{\prime}<\alpha \epsilon$. Hence $\forall \ \epsilon>0\ \exists\ N$ such that $\forall\ n>N\ \left\|x_{n}-x\right\|^{\prime}<\epsilon$\Qed
+
 		\item \subsubsection{Only If Part:-}\parinn
-		$V$ is open w.r.t $\norm\iff\bigcup\limits_{x\in V}B_r(x)$ and $V'$ is open w.r.t $\norm'\iff\bigcup\limits_{x\in V}B'_r(x)$
-		
-		Now we have $$B_r(x)=\{y\mid \|y-x\|<r\}\text{ and } B'_r(x)=\{y\mid \|y-x\|'<s\}$$Hence by equivalence of the norms for any $v$ $$\alpha \|v\|'\leq \|v\|\leq \beta\|v\|'$$ Since $\|v\|<r$ we have $$\|v\|'\leq \frac{r}{\beta}\implies B'_{\frac{r}{\beta}}(x)\subset B_r(x)$$
+		      $V$ is open w.r.t $\norm\iff\bigcup\limits_{x\in V}B_r(x)$ and $V'$ is open w.r.t $\norm'\iff\bigcup\limits_{x\in V}B'_r(x)$
+
+		      Now we have $$B_r(x)=\{y\mid \|y-x\|<r\}\text{ and } B'_r(x)=\{y\mid \|y-x\|'<s\}$$Hence by equivalence of the norms for any $v$ $$\alpha \|v\|'\leq \|v\|\leq \beta\|v\|'$$ Since $\|v\|<r$ we have $$\|v\|'\leq \frac{r}{\beta}\implies B'_{\frac{r}{\beta}}(x)\subset B_r(x)$$
 	\end{enumerate}
 
 \end{myproof}
@@ -70,9 +70,9 @@ In $\bbR^n$, $u=(u_1,u_2,\cdots,u_n)$ where each $u_i\in \bbR$. we have \hyperre
 \nt{We can check this w.r.t $\inorm$
 	\begin{center}
 		\begin{tabular}{rcl}
-			$\overline{x_m}\to \overline{x}$ w.r.t $\inorm$ & $\iff$ & $\forall\ \eps>0\ \exists \ N$ s.t. $\forall\ m>N$ $\max\{|x_{m_i}-x_i| \mid 1\leq i\leq n\}$\\
-			&$\iff$&each $|x_{m_i}-x_i|<\eps\ \forall\ i$\\
-			&$\iff$&$\lim\limits_{n\to \infty}x_{m_i}=x_i\ \forall \ i$ 
+			$\overline{x_m}\to \overline{x}$ w.r.t $\inorm$ & $\iff$ & $\forall\ \eps>0\ \exists \ N$ s.t. $\forall\ m>N$ $\max\{|x_{m_i}-x_i| \mid 1\leq i\leq n\}$ \\
+			                                                & $\iff$ & each $|x_{m_i}-x_i|<\eps\ \forall\ i$                                                         \\
+			                                                & $\iff$ & $\lim\limits_{n\to \infty}x_{m_i}=x_i\ \forall \ i$
 		\end{tabular}
 	\end{center}
 }
