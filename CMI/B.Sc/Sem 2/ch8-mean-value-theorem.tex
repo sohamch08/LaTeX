@@ -16,7 +16,7 @@ We will use Euclidean norm on $\bbR^n$ and have Cauchy-Schwarz Inequality $|v\cd
 
 \qs{}{First consider $f:[a,b]\to\bbR^n$ continuous and $f'$ exists on $(a,b)$. Is there a $c\in (a,b)$ s.t. $$\|f(b)-f(a)\|\overset{?}{=}\|f'(c)\|(b-a)$$}
 \solve{No. For example $f:[0,2\pi]\to\bbR^2$ which maps $t\mapsto (\sin t,\cos t)$. Then $f'(t)=(\cos t,-\sin t)$ and $\|f'(t)\|=1$. $f(2\pi)-f(0)=(0,0)$}
-\begin{theorem}{}{}
+\begin{theorem}{MVT of Real-Valued Functions}{}
 	Let $f$ be a continuous function $[a,b]\to \bbR^n$ and $f'(c)$ exists $\forall\ c\in(a,b)$. Then $\exs\ c\in (a,b)$ s.t $$\|f(b)-f(a)\|\leq (b-a)\|f'(c)\|$$(Here the norm is Euclidean norm. For the inequality which norm we take does matter.)
 \end{theorem}
 \begin{myproof}
@@ -35,8 +35,8 @@ We will use Euclidean norm on $\bbR^n$ and have Cauchy-Schwarz Inequality $|v\cd
 		&=\langle f(b)-f(a),z\rangle=\langle z,z\rangle=\|z\|^2
 	\end{align*}And$$\phi'(c)=(g\circ f)'(c)=g'(f(c))\circ f'(c)=\langle z ,f'(c)\rangle$$Therefore$$\|z\|^2=\langle z,f'(c)\rangle\leq (b-a)\|z\|\|f'(c)\|$$Nothing to prove if $\|z\|=0$ and else cancel $\|z\|$ from both sides.
 \end{myproof}
-\begin{theorem}{}{}
-	Let $\bbR^n\supset \text{Convex Open }U\xrightarrow{f}\bbR^n$, $ f$ differentiable on $U$ and $ \|f'(x)\|<M \ \forall\ x\in U$. Then $\forall\ a,b\in U$ $$\|f(b)-f(a)\|\leq M\|b-a\|$$
+\begin{theorem}{General Multivariable MVT}{}
+	Let $\bbR^m\supset \text{Convex Open }U\xrightarrow{f}\bbR^n$, $ f$ differentiable on $U$ and $ \|f'(x)\|<M \ \forall\ x\in U$. Then $\forall\ a,b\in U$ $$\|f(b)-f(a)\|\leq M\|b-a\|$$
 \end{theorem}
 \begin{myproof}
 	Given $a,b\in U$ holds $\gamma:[0,1]\to U$ which maps $t\to a+t(b-a)$ [This is valid by convexity]. Apply MVT to
@@ -45,5 +45,5 @@ We will use Euclidean norm on $\bbR^n$ and have Cauchy-Schwarz Inequality $|v\cd
 				{[0,1]} \arrow[r, "\gamma"] \arrow[rr, "g"', bend right] & U \arrow[r, "f"] & \bbR^n\\[-0.7cm]
 			\end{tikzcd}
 		\end{center}
-	We get $\in(0,1)$ such that $\|g(1)-g(0)\|\leq \|g'(t)\|$ i.e $$\|f(b)-f(a)\|\leq \| \underbrace{f'(\gamma(t))\circ \gamma'(t)}_{\substack{ \downarrow \\ \text{Matrix Vector} \\ \text{Multiplication} }} \|\leq  M\|b-a\|$$
+	We get $\in(0,1)$ such that $\|g(1)-g(0)\|\leq \|g'(t)\|$ i.e $$\|f(b)-f(a)\|\leq \| \underbrace{f'(\gamma(t))\circ \gamma'(t)}_{\substack{ \text{Matrix Vector} \\ \text{Multiplication} }} \| \underbrace{\leq}_{\substack{\downarrow \\ \text{Justify}}}  M\|b-a\|$$
 \end{myproof}
