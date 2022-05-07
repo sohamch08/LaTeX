@@ -86,53 +86,53 @@ Analogous to: For continuous function $f:[0,1]\to\bbR$, the image is a closed in
 \begin{myproof}
 	\begin{enumerate}
 		\item Let $\{V_{\alpha}\}_{\alpha\in I}$ be a collection of open sets where $I$ is an index set. We want ti show $\bigcup\limits_{\alpha\in I}V_{\alpha}$ is open in $X$. Since each $V_{\alpha}$ is open $V_{\alpha}=\bigcup\limits_{\beta \in J_{\alpha}} B_{r_{\beta}}(c_{\beta})$ Then \begin{align*}
-			\bigcup\limits_{\alpha\in I} V_{alpha} & =\bigcup\limits_{\alpha\in I}\bigcup\limits_{\beta \in J_{\alpha}}B_{r_{\beta}}(c_{\beta}) \\
-			& =\bigcup\limits_{\beta \in \sqcup J_{\alpha}}B_{r_{\beta}}(c_{\beta})
-		\end{align*} which is still a union of balls
-	\Qed
-	\item \setlength{\parindent}{1cm}The statement implies intersection of finite number of open sets is open. We can prove this by induction. 
-	
-	We will do by showing that for each $x\in V_1\cap V_2$ $\exists$ $r>0$ s.t. $B_r(x)\subset V_1\cap V_2$
-	 
-	 	\begin{center}
-	 	\begin{tikzpicture}
-	 		\draw[red] (0,0) circle [x radius=4cm, y radius=2cm] ;
-	 		\draw[blue] (5,0) circle [x radius=3.5cm, y radius=2.5cm] ;
-	 		\draw (0,2.2) node[red]{$V_1$};
-	 		\draw (5,2.7) node[blue]{$V_2$};
-	 		\draw [red] (2.5,0) circle (1.27cm) ;
-	 		\filldraw[red] (2.5,0) circle (1.5pt) node[anchor=west]{$\bs{x}$};
-	 	%	\draw [blue] (2.5,0) circle (0.85cm) node [yshift=1cm]{$B_{r}(x)$} ;
-	 		\draw [green!40!black] (2.5,0) circle (0.7cm) node [yshift=0.9cm]{$B_{r}(x)$} ;
-	 		\filldraw[green!40!black] (2.5,0) circle (1pt) node[anchor=west]{$x$};
-	 	\end{tikzpicture}
-	 \end{center}
- As $x\in V_1$ $\exists$ $r_1$ such that $x\in B_{r_1}(x)\subset V_1$. Similarly $x\in V_2$ $\exists$ $r_2$ such that $x\in B_{r_2}(x)\subset V_2$. Take $r=\min\{r_1,r_2\}$. Thus we have $x\in B_r(x)\subset V_1\cap V_2$
-	
+			      \bigcup\limits_{\alpha\in I} V_{alpha} & =\bigcup\limits_{\alpha\in I}\bigcup\limits_{\beta \in J_{\alpha}}B_{r_{\beta}}(c_{\beta}) \\
+			                                             & =\bigcup\limits_{\beta \in \sqcup J_{\alpha}}B_{r_{\beta}}(c_{\beta})
+		      \end{align*} which is still a union of balls
+		      \Qed
+		\item \setlength{\parindent}{1cm}The statement implies intersection of finite number of open sets is open. We can prove this by induction.
+
+		      We will do by showing that for each $x\in V_1\cap V_2$ $\exists$ $r>0$ s.t. $B_r(x)\subset V_1\cap V_2$
+
+		      \begin{center}
+			      \begin{tikzpicture}
+				      \draw[red] (0,0) circle [x radius=4cm, y radius=2cm] ;
+				      \draw[blue] (5,0) circle [x radius=3.5cm, y radius=2.5cm] ;
+				      \draw (0,2.2) node[red]{$V_1$};
+				      \draw (5,2.7) node[blue]{$V_2$};
+				      \draw [red] (2.5,0) circle (1.27cm) ;
+				      \filldraw[red] (2.5,0) circle (1.5pt) node[anchor=west]{$\bs{x}$};
+				      %	\draw [blue] (2.5,0) circle (0.85cm) node [yshift=1cm]{$B_{r}(x)$} ;
+				      \draw [green!40!black] (2.5,0) circle (0.7cm) node [yshift=0.9cm]{$B_{r}(x)$} ;
+				      \filldraw[green!40!black] (2.5,0) circle (1pt) node[anchor=west]{$x$};
+			      \end{tikzpicture}
+		      \end{center}
+		      As $x\in V_1$ $\exists$ $r_1$ such that $x\in B_{r_1}(x)\subset V_1$. Similarly $x\in V_2$ $\exists$ $r_2$ such that $x\in B_{r_2}(x)\subset V_2$. Take $r=\min\{r_1,r_2\}$. Thus we have $x\in B_r(x)\subset V_1\cap V_2$
+
 	\end{enumerate}
-The second part for closed sets are left as exercise
+	The second part for closed sets are left as exercise
 \end{myproof}
 
 \section{Topological Space:-}
 \dfn{Topological Space}{\label{topological-space}A topological space is a set $X$ together with a collection of subsets of $X$ (i.e. a subset of the power set of $X$) that is closed under taking arbitrary unions and finite intersections. This collection is called a topology on $X$}
 
 
- \nt{Union means $\bigcup\limits_{\alpha\in I}S_{\alpha}=\{x\in X\mid \exists\ \alpha\text{ s.t. }x\in S_{\alpha}\}$\\
- 	Intersection means $\bigcap\limits_{\alpha\in I}S_{\alpha}=\{x\in X\mid \forall\alpha,\ x\in S_{\alpha}\}$}
- 
- \qs{}{  Suppose i have a topological space $X$ under given some topology. Is the entire set open ? And that the empty set is open ?
- }\sol If $I=\phi$, $\bigcup\limits_{\alpha\in I}S_{\alpha}=\{x\in X\mid \exists\ \alpha\in I\text{ s.t. }x\in S_{\alpha}\}$  gives $\phi$
- and\\ $\bigcap\limits_{\alpha\in I}S_{\alpha}=\{x\in X\mid \forall\alpha\in I,\ x\in S_{\alpha}\}$  gives $X$ because $\forall\ \alpha\in I$ condition is vacuously true for each $x\in X$. 
- \nt{Intersection of empty families are not defined in set theory. This brings a very important point. In a set theory you have to have a universe. (Set theory have to avoid paradoxes, Russel Paradox) At the beginning you construct a large enough universe and you taking subsets only from that universe. Notice all subsets we are considering here are subsets of $X$ and here we defined how we union and intersection mean. Though it still this asks what our axioms of set theory. So you can change the part of the definition of \hyperref[topological-space]{topological space} like this ``$\dots$with a collection of subsets of $X$ including the empty set and the whole space$\dots$"} (If you don't like this as it is)
- \nt{If $S$ is a subset of metric space $X$, then $S$ is itself a metric space and as such open/closed sets as subsets of metric space}
- \qs{}{Is there any connection between being open in $X$ and being open in $S$ (Similar question for closed)}
- 
- \sol Let $x\in S$. Now, Ball of radius $r$ in $S = S\cap$ Ball of radius $r$ in $X$. Therefore \begin{align*}
- 	\text{Open Set in } S & =\bigcup \text{ Balls in }S\\
- 	& =\bigcup\ (\text{Balls in }X\cap S)\\
- 	& =\left(\bigcup \text{ Balls in }X\right)\cap S\\ 
- 	& =\text{Open set }X\cap S
- \end{align*}
+\nt{Union means $\bigcup\limits_{\alpha\in I}S_{\alpha}=\{x\in X\mid \exists\ \alpha\text{ s.t. }x\in S_{\alpha}\}$\\
+Intersection means $\bigcap\limits_{\alpha\in I}S_{\alpha}=\{x\in X\mid \forall\alpha,\ x\in S_{\alpha}\}$}
+
+\qs{}{  Suppose i have a topological space $X$ under given some topology. Is the entire set open ? And that the empty set is open ?
+}\sol If $I=\phi$, $\bigcup\limits_{\alpha\in I}S_{\alpha}=\{x\in X\mid \exists\ \alpha\in I\text{ s.t. }x\in S_{\alpha}\}$  gives $\phi$
+and\\ $\bigcap\limits_{\alpha\in I}S_{\alpha}=\{x\in X\mid \forall\alpha\in I,\ x\in S_{\alpha}\}$  gives $X$ because $\forall\ \alpha\in I$ condition is vacuously true for each $x\in X$.
+\nt{Intersection of empty families are not defined in set theory. This brings a very important point. In a set theory you have to have a universe. (Set theory have to avoid paradoxes, Russel Paradox) At the beginning you construct a large enough universe and you taking subsets only from that universe. Notice all subsets we are considering here are subsets of $X$ and here we defined how we union and intersection mean. Though it still this asks what our axioms of set theory. So you can change the part of the definition of \hyperref[topological-space]{topological space} like this ``$\dots$with a collection of subsets of $X$ including the empty set and the whole space$\dots$"} (If you don't like this as it is)
+\nt{If $S$ is a subset of metric space $X$, then $S$ is itself a metric space and as such open/closed sets as subsets of metric space}
+\qs{}{Is there any connection between being open in $X$ and being open in $S$ (Similar question for closed)}
+
+\sol Let $x\in S$. Now, Ball of radius $r$ in $S = S\cap$ Ball of radius $r$ in $X$. Therefore \begin{align*}
+	\text{Open Set in } S & =\bigcup \text{ Balls in }S                    \\
+	                      & =\bigcup\ (\text{Balls in }X\cap S)            \\
+	                      & =\left(\bigcup \text{ Balls in }X\right)\cap S \\
+	                      & =\text{Open set }X\cap S
+\end{align*}
 Part 2 is left as exercise
 
 \cor{}{
@@ -146,21 +146,21 @@ Part 2 is left as exercise
 \wc{}{ If $x\in $ open $V$ then there exists $r>0$ such that $x\in B_r(x)\subset V$
 	\begin{center}
 		\begin{tikzpicture}
-	\draw (-5.5,2.5) rectangle (5.5,-2.5) node[xshift=3mm,yshift=2mm]{$X$};
-	\draw[red] (0,0) circle [x radius=5cm, y radius=2cm] ;
-	\draw (3,1.8) node[red]{$V$};
-	\draw [blue] (1,0) circle (1.5cm) ;
-	\filldraw[blue] (1,0) circle (1pt) node[anchor=west]{$x$};
-	\draw (2.7,0.4) node[blue]{$B$};
-	%\node[black,text width=10cm] at (9,1){If $N$ itseld is open. then we say that $N$ is an open neighbourhood of $x$};
-\end{tikzpicture}
+			\draw (-5.5,2.5) rectangle (5.5,-2.5) node[xshift=3mm,yshift=2mm]{$X$};
+			\draw[red] (0,0) circle [x radius=5cm, y radius=2cm] ;
+			\draw (3,1.8) node[red]{$V$};
+			\draw [blue] (1,0) circle (1.5cm) ;
+			\filldraw[blue] (1,0) circle (1pt) node[anchor=west]{$x$};
+			\draw (2.7,0.4) node[blue]{$B$};
+			%\node[black,text width=10cm] at (9,1){If $N$ itseld is open. then we say that $N$ is an open neighbourhood of $x$};
+		\end{tikzpicture}
 	\end{center}
-\textbf{Idea: }Why not we take $r=\inf \{\text{distance from }x\text{ to boundary of ball } B\}$.
-	
+	\textbf{Idea: }Why not we take $r=\inf \{\text{distance from }x\text{ to boundary of ball } B\}$.
+
 	Now we first have to ensure $r>0$. Suppose that's true.
-	
+
 	Then we have to define boundary. What is boundary, We can give a reasonable definition (Boundary has already a definition but we don't know that for now). Let boundary of $B=\{x\in X\mid d(c,x)=\delta\}$ Now this definition is not proper for our purpose.Because if we take union of all balls in $V$ then we will have lots of points as boundary but part of them should not be considered as boundary. Even if we take this definition.
-	
+
 	Then the big question comes/ We are taking a infimum of a certain set of real numbers. The very first question arises is whether this set is nonempty. For example if we take $B$ to be the metric space it self we have no boundary.
 	\tcblower
 	Questions which come thorough this.
