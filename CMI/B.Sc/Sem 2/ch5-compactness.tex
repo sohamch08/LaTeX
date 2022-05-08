@@ -1,5 +1,5 @@
 \chapter{Compactness}
-\section{Sequentially Compact:-}
+\section{Sequentially Compact}
 \dfn{Sequentially Compact}{Let $(X,d)$ be a metric space. $X$ is called sequentially compact if every sequence in $X$ has a convergent subsequence. (Often applied to a subset $S$ of $X$)}
 \nt{For $S$ to be sequentially compact the limit of subsequence must be in $S$}
 \dfn{Boundedness}{A subset $S$ of $(X, d)$ is bounded if $S \subset B_r(x)$ for some $x \in X$ and $r > 0$}
@@ -58,7 +58,7 @@
 		\item If $V$, $W$ are topological spaces can we define a topology on $V\times W$ ?
 	\end{enumerate}
 }
-\section{Open Cover and Compactness:-}
+\section{Open Cover and Compactness}
 \dfn{Open Cover}{
 Let $\{V_{\alpha}\}_{\alpha\in I}$  be a family of subsets of metric space $X$ we say that $\{V_{\alpha}\}_{\alpha\in I}$ is a cover of $X$ if $\bigcup\limits_{\alpha} V_{\alpha}=X$ and we say that $\{V_{\alpha}\}_{\alpha\in I}$  is an open cover if each $V_{\alpha}$ is open (in $X$)
 }
@@ -73,9 +73,9 @@ $X$ is called compact if each open cover of $X$ has a finite subcover i.e.	$\{V_
 		\item \parinn Reformulation of compactness for subset $K$ of $X$ in terms of		open sets of $X$
 		      \begin{center}
 			      \begin{tabular}{p{2.1cm}p{1cm}p{11cm}}
-				      $K$ is compact & $\iff$ & Every cover of $K$ bt open sets of $K$ has a	finite subcover.                                                                                                                                                                                                           \\
-				      \multicolumn{3}{c}{As open sets of $K$ are precisely (open sets of $X)\cap	K$. We have the following}                                                                                                                                                                                             \\
-				      $K$ is compact & $\iff$ & For any family $\{V_{\alpha}\cap K\}_{\alpha\in I}$ where $V_{\alpha}$ are open in $X$ whose union is $K$, there is a finite	subcover.                                                                                                                                  \\
+				      $K$ is compact & $\iff$ & Every cover of $K$ bt open sets of $K$ has a	finite subcover.                                                                                                                                                                                                               \\
+				      \multicolumn{3}{c}{As open sets of $K$ are precisely (open sets of $X)\cap	K$. We have the following}                                                                                                                                                                                                 \\
+				      $K$ is compact & $\iff$ & For any family $\{V_{\alpha}\cap K\}_{\alpha\in I}$ where $V_{\alpha}$ are open in $X$ whose union is $K$, there is a finite	subcover.                                                                                                                                      \\
 				                     & $\iff$ & For any family $\{V_{\alpha}\cap K\}_{\alpha\in I}$ of open sets	in $X$ such that $\bigcup\limits_{\alpha\in I}V_{\alpha} \supset K$, there must	be a finite subfamily $V_{\alpha_1},V_{\alpha_2},\cdots,V_{\alpha_n}$ with			$\bigcup\limits_{i=1}^nV_{\alpha_i}\supset K$
 			      \end{tabular}
 		      \end{center}
@@ -249,7 +249,7 @@ In the above exercise we could have replaced the word compact with another word 
 	$K=[a_1,b_1]\times[a_2,b_2]\times \cdots\times [a_n,b_n]$ is compact in $\bbR^n$
 \end{Theorem}
 \begin{myproof}
-	Induction on $n$. $n=1$ we already proved in \hyperref[yh:hnb:s1]{Theorem \ref{th:hnb:s1}}.Let $\mcF=\opensets$ be a cover of $K$ by open sets in $\bbR^n$. Fix $u\in [a_1,b_1]$ and consider  $\{u\}\times \underbrace{[a_2,b_2]\times \cdots\times [a_n,b_n]}_{\substack{=C\text{ is compact}\\\text{by induction on }n}}$ Hence $\{u\}\times C$ is compact because   $\bbR^{n-1}\to\bbR^n$ which maps $(y_2,y\cdots,y_n)\mapsto (u,y_2,\cdots,y_n)$ or $ {f(C)=\{u\}\times C} $ is continuous.
+	Induction on $n$. $n=1$ we already proved in \hyperref[th:hnb:s1]{Theorem \ref{th:hnb:s1}}.Let $\mcF=\opensets$ be a cover of $K$ by open sets in $\bbR^n$. Fix $u\in [a_1,b_1]$ and consider  $\{u\}\times \underbrace{[a_2,b_2]\times \cdots\times [a_n,b_n]}_{\substack{=C\text{ is compact}\\\text{by induction on }n}}$ Hence $\{u\}\times C$ is compact because   $\bbR^{n-1}\to\bbR^n$ which maps $(y_2,y\cdots,y_n)\mapsto (u,y_2,\cdots,y_n)$ or $ {f(C)=\{u\}\times C} $ is continuous.
 
 	For each $p=(u,y_2,\cdots,y_n)$ in $\{u\}\times C$ pick an open neighborhood $V_p\in \mcF$. Hence $V_{p}\supset (x-\eps,x+\eps)\times \underbrace{(y_2-\eps,y_2+\eps)\times \cdots\times (y_n-\eps,y_n+\eps)}_{W_p}$ for some $\eps=\eps_p$ depending on $p$
 	\begin{center}
