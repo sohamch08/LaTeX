@@ -5,11 +5,14 @@
 
 \usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{bookmark}
 \usepackage{enumitem}
 \usepackage{hyperref,theoremref}
 \hypersetup{
 	pdftitle={Analysis 2 Class Notes},
-	colorlinks=true, linkcolor=doc!90
+	colorlinks=true, linkcolor=doc!90,
+	bookmarksnumbered=true,
+	bookmarksopen=true
 }
 \usepackage[most,many,breakable]{tcolorbox}
 \usepackage{xcolor}
@@ -250,20 +253,20 @@
 	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
 	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
 	boxed title style={frame code={
-			\path[fill=tcbcolback]
-			([yshift=-1mm,xshift=-1mm]frame.north west)
-			arc[start angle=0,end angle=180,radius=1mm]
-			([yshift=-1mm,xshift=1mm]frame.north east)
-			arc[start angle=180,end angle=0,radius=1mm];
-			\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
-			middle color=tcbcolback!80!black]
-			([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
-			[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
-			-- (frame.south east) -- (frame.south west)
-			-- ([xshift=-1mm,yshift=-1mm]frame.north west)
-			[sharp corners]-- cycle;
-		},interior engine=empty,
-	},
+					\path[fill=tcbcolback]
+					([yshift=-1mm,xshift=-1mm]frame.north west)
+					arc[start angle=0,end angle=180,radius=1mm]
+					([yshift=-1mm,xshift=1mm]frame.north east)
+					arc[start angle=180,end angle=0,radius=1mm];
+					\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+						middle color=tcbcolback!80!black]
+					([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+					[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+					-- (frame.south east) -- (frame.south west)
+					-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+					[sharp corners]-- cycle;
+				},interior engine=empty,
+		},
 	fonttitle=\bfseries,
 	title={#2},#1}{def}
 
@@ -461,10 +464,10 @@
 
 \tikzset{
 	symbol/.style={
-		draw=none,
-		every to/.append style={
-			edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
-	}
+			draw=none,
+			every to/.append style={
+					edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+		}
 }
 
 %\usepackage{framed}
