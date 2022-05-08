@@ -7,7 +7,7 @@ Want to generalize this to a sequence in $\bbR^n$ i.e. $s_n\in\bbR^n$ $\forall$ 
 The same definition works if we interpret $\|v\|=$ length of the vector $v$.
 
 From school, for v=$v_1,v_2,\cdots,v_n$ we had $$\|v\|=\sqrt{v_1^2+v_2^2+\cdots+v_n^2}$$But it will be useful to have a more general notion of length (of which the above will be an example)
-\section{Defination:-}
+\section{Defination}
 \dfn{\label{norm}Normed Linear Space and Norm $\boldsymbol{\|\cdot\|}$}{Let $V$ be a vector space over $\bbR$ (or $\bbC$). A norm on $V$ is function $\|\cdot\|\ V\to \bbR_{\geq 0}$ satisfying \begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
 		\item \label{n:1}$\|x\|=0 \iff x=0$ $\forall$ $x\in V$
 		\item \label{n:2}	$\|\lambda x\|=|\lambda|\|x\|$ $\forall$ $\lambda\in\bbR$(or $\bbC$), $x\in V$
@@ -45,7 +45,7 @@ Now exercise
 	\end{align*}Now unless $x=\lambda y$ we have $\langle x-\lambda y,x-\lambda y\rangle>0$ Hence the quadratic equation has no root therefore the discriminant is greater than zero.
 
 	\subsubsection*{\textbf{When field is $\bbC:$}}Modify the definition by $$\langle x,y\rangle=\sum_i\overline{x_i}y_i$$Then we still have $\langle x,x\rangle\geq 0$}
-\section{Open and Closed Ball:-}
+\section{Open and Closed Ball}
 \dfn{Open and Closed Ball in Normed Linear Space}{An open Ball of radius $r$ with center $x$ in Normed Linear Space $V$ is the set$$\{y\in V\mid \|x-y\|<r\}=B_r(x)$$and Closed ball is the set $$\{y\in V\mid\|x-y\|\leq r\}=\overline{B_r(x)}$$}
 
 
@@ -89,9 +89,9 @@ Now there is no reason why we can not consider a norm on an infinite dimensional
 		\item $C[0,1]=$ Set of all continuous functions $[0,1]\to \bbR$ with norm $\|f\|=\sup\limits_{x\in[0,1]}|f(x)|$
 	\end{enumerate}
 }
-\section{Limit of a Sequence:-}
+\section{Limit of a Sequence}
 \dfn{Limit of Sequence in Normed Linear Space}{A sequence  $\{s_n\}$ in a normed linear space $V$ converge to $s$ means $\forall$ real number $\eps>0$ $\exists$ natural number $N$ such that for $\forall\ n>N$ $\|s-s_n\|<\eps$}
-\section{Continuity:-}
+\section{Continuity}
 \dfn{Continuity in Normed Linear Space}{Let $S$ be a subset of $V$ and $f:\ S\to W$ where $V,W$ are normed linear space. $f$ is continuous at $v\in V$ means $\forall$ $\eps>0$, $\exists$ $\delta>0$, st whenever $\|x-v\|<\delta$ for $x\in S$ one has $\|f(x)-f(v)\|<\eps$}
 Distance in a normed linear space for $x,y\in V$ is $$d(x,y)=\|x,y\|$$ Hence properties of this $d$ are\begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
 	\item[\ref{n:1}] \label{m:1} $d(x,y)=0 \iff x=y$
