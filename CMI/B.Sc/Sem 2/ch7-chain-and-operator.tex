@@ -1,5 +1,5 @@
 \chapter{Chain Rule of Differentiation and Operator Norm}
-\section{Operator Name:-}
+\section{Operator Name}
 $V,W$ are vector spaces. $\mcL(V,W)=$ Set of linear maps $V\to W$ is a vector space via $(A+B)(v)=A(v)+B(v)$ and $A(\lm v)=\lm A(v)$
 
 If $V=\bbR^m$ and $\bbR^n$, $\dim (\bbR^m,\bbR^n)=mn$. We can identity $\mcL(\bbR^m,\bbR^n)$ with $n\times m$ matrices. $$\|A\|_{\mcL(\bbR^m,\bbR^n)}=\|A\|=\sup\limits_{\|u\|=1} \|A(u)\|$$This gives a norm because $\|A\|\geq 0$ and $\|A\|=0\implies A=0$ and  $\|\lm A\|=|\lm|\|A\|$. As  $(A+B)(u)=A(u)+B(u)$ we have $\|(A+B)(u)\|\leq \\A(u)\|+\|B(u)\|$ in $W$ and hemce $\|A+B\|\leq \|A\|+\|B\|$.
@@ -26,10 +26,18 @@ If $V=\bbR^m$ and $\bbR^n$, $\dim (\bbR^m,\bbR^n)=mn$. We can identity $\mcL(\bb
 \end{enumerate}
 \qs{}{Show $A_n\to A$ in $\mcL(U,V)$, $B_n\to B$ in $\mcL(V,W)$ then $B_nA_n\to BA$ in $\mcL(U,W)$}
 
-\section{Chain Rule:-}
+\section{Chain Rule}
 
 \begin{Theorem}{}{}
-	$\bbR^m\supset \underset{  \substack{{\uin} \\[0.05cm] {a}}  }{U} \underset{  \substack{\quad \\[0.25cm]\longmapsto}}{\xrightarrow{f}}   \underset{\substack{  \uin \\ b}}{  \overset{\substack{{\bbR^n} \\ \usubset}}{V}  }\xrightarrow{g}\bbR^k $. $f$ is differentiable at $a$. and $g$  is differentiable at $b=f(a)$. Then $g\circ f$ is differentiable at $a$  and $$(g\circ f)'(a)=\underbrace{g'(f(a))f'(a)}_{\substack{\text{Multiplication}\\ \text{of matrices}}}$$
+	Let\begin{center}
+		\begin{tikzcd}[ampersand replacement = \&]
+			\&[-1cm]       \&\mathbb{R}^n     \&              \\[-0.7cm]
+			\&[-1cm]          \& \usubset          \&              \\[-0.7cm]
+			\mathbb{R}^m \supset \&[-1cm] U \arrow[r, "f"]     \& V \arrow[r, "g"] \& \mathbb{R}^k \\[-0.7cm]
+			\&[-1cm] \uin                  \& \uin              \&              \\[-0.7cm]
+			\&[-1cm] a \arrow[r, maps to] \& b                \&
+		\end{tikzcd}
+	\end{center} $f$ is differentiable at $a$. and $g$  is differentiable at $b=f(a)$. Then $g\circ f$ is differentiable at $a$  and $$(g\circ f)'(a)=\underbrace{g'(f(a))f'(a)}_{\substack{\text{Multiplication}\\ \text{of matrices}}}$$
 \end{Theorem}
 \begin{myproof}
 	\subsubsection{1-Variable Case}
@@ -61,7 +69,7 @@ If $V=\bbR^m$ and $\bbR^n$, $\dim (\bbR^m,\bbR^n)=mn$. We can identity $\mcL(\bb
 	\end{align*}Hence $$\frac{\|\beta(k)\|}{\|k\|}=\eta(k)\frac{\|k\|}{\|h\|}\leq \eta(k)\lt[\|T\|+\frac{\|\alpha(h)\|}{\|h\|}\rt]$$As $h\to 0$ $\|T\|+\frac{\|\alpha(h)\|}{\|h\|}\to \|T\|+0$ which is finite. And as $h\to 0$, $k\to 0\implies \eta(k)\to 0$ because $\eta$ is continuous at 0.
 \end{myproof}
 
-\section{Special Case of Chain Rule: When $\bs{m=k=1}$:-}
+\section{Special Case of Chain Rule: When \texorpdfstring{$m=k=1$}{m=k=1}}
 Open interval in $\bbR\xrightarrow{\gamma}\bbR^n\xrightarrow{g}\bbR$. $\gamma=$ parameterized curve in $\bbR^n$
 $$(g\circ \gamma)'(t)=g'(\gamma(t))\cdot \gamma'(t)$$ ${\bbR\xrightarrow{\gamma}\bbR^n}$ maps $t\to\begin{bmatrix}\gamma_1(t)\\ \vdots\\ \gamma_n(t)	\end{bmatrix}$ hence $\gamma'(t)=\begin{bmatrix}
 		\gamma_1'(t) \\ \vdots\\ \gamma_n'(t)

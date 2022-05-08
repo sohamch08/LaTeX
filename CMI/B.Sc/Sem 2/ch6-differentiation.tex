@@ -12,7 +12,7 @@ $f(a+h)-f(a)$ makes sense in $\bbR^n$ but can't divide by $h$, which is a vector
 		                                    & =\lim_{h\to 0}\frac{f(p+he_1)-f(p)}{h}\qquad[p=re_1+se_2+te_3\text{ using standard basis }e_1,e_2,e_3]
 	\end{align*} Its a real number if the limit exists
 }
-\section{Partial Derivatives:-}
+\section{Partial Derivatives}
 \dfn{Partial Derivative  of $\bs{f:\bbR^n\supset U\to \bbR}$}{For $f: $(Open $U$ in $\bbR^m$)$\to\bbR^n$, define ``$i-$th partial derivative of $f$ at $a\in U$" to be $\left(\text{Notation }\left.\del{f}{x_i}\right|_a,\right.$ $\left.\del{f}{x_i}(a),D_if(a)\right)$ $\lim\limits_{h\to a}\frac{f(a+he_i)-f(a)}{h}\qquad(i=1,2,\cdots,m)$}
 
 Note that this limit (if exists) is in $\bbR^n$. $$\begin{rcases*}
@@ -35,7 +35,7 @@ Note that this limit (if exists) is in $\bbR^n$. $$\begin{rcases*}
 		\end{tikzpicture}
 	\end{center}
 }
-\section{Differentiation:-}
+\section{Differentiation}
 $f'(a)$ is a number such that $\lim\limits_{h\to 0}\frac{f(a+h)-f(a)-f'(a)h}{h}=0$. Inspired by this for $a\in U (\text{Open in }\bbR^m)\xrightarrow{f}\bbR^n$, we define $f'(a)$ is a linear map $\bbR^m\to\bbR^n$ such that $$\lim\limits_{h\to 0}\frac{\|f(a+h)-f(a)-f'(a)h\|}{\|h\|}=0\text{ in }\bbR $$($h$ is a small vector $\in\bbR$)
 \dfn{Differentiation of $\bs{f:\bbR^m\supset U\to \bbR^n}$}{$U$ open set in $\bbR^m$, $f:U\to\bbR^n$, $a\in U$ given. We say that $f$ is differentiable  at $a$  if there is a  linear map  $T:\bbR^m\to\bbR^n$ such that $$\lim_{h\to 0}\frac{\|f(a+h)-f(a)-T(h)\|}{\|h\|}=0$$i.e $\forall\ \eps>0$, $\exists\ \delta>0$ s.t. $$\|h\|<\delta\implies \dfrac{\|f(a+h)-f(a)-T(h)\|}{\|h\|}<\eps$$We call such a linear map $T$ the derivative  of $f$ at $a$, denoted by $f'(a),D(f(a))$}
 Note that $f'(a)h$ = Value of linear map $f'(a)$ applied to a vector $h$
