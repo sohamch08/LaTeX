@@ -12,7 +12,7 @@ We want to consider $C^1(U)$ functions which are all functions that are differen
 	\end{center}  which maps ${a\longmapsto f'(a)}$. We say $f\in C^1(U)$, "$f$ is continuously differentiable" if $f'(a)$ exists for each $a$ and $f'$ is a continuous function
 
 }
-\begin{Theorem}{}{}
+\begin{Theorem}{}{C1 def}
 	A function $f:U$ Open in $\bbR^m\to \bbR^n$ is $C^1(U)\iff \lt.\deld{f_i}{x_j}\rt|_a$ exists at each $a\in U$ and are continuous functions
 \end{Theorem}
 \begin{myproof}
@@ -65,17 +65,30 @@ We want to consider $C^1(U)$ functions which are all functions that are differen
 	\textbf{Idea:} Bound this in terms of partial derivatives using the mean value theorem (ordinary 1-variable version, which is applicable because each $\del{f}{x_j}$ is continuous)
 
 	\begin{align*}
-		f(a+h)-f(a) & = f(a_1+h_1,a_2,\dots, a_m) - f(a)                                                                                         \\
-		            & \quad + f(a_1+h_1,a_2+h_2,\dots, a_m) - f(a_1+h_1,a_2,\dots, a_m)                                                          \\
-		            & \quad \qquad\qquad\qquad \vdots\qquad\qquad\qquad\qquad\qquad\qquad \vdots                                                 \\
-		            & \quad + f(a_1+h_1,a_2+h_2,\dots, a_m+h_m) - f(a_1+h_1,a_2+h_2,\dots,a_{m-1}+h_{m-1}, a_m)                                  \\
-		            & \overset{\text{MVT}}{=} \lt.\del{f}{x_1}\rt|_{v_1}h_1+\lt.\del{f}{x_2}\rt|_{v_2}h_2+\cdots + \lt.\del{f}{x_m}\rt|_{v_m}h_m \\
-		            & =\lt\langle \underbrace{\lt[\begin{matrix}
-					                                          \lt.\del{f}{x_1}\rt|_{v_1} \\ \vdots \\ \lt.\del{f}{x_m}\rt|_{v_m}
-				                                          \end{matrix} \rt]}_{\substack{\parallel                              \\ p}}, \lt[ \begin{matrix}
+		f(a+h)-f(a) & = f(a_1+h_1,a_2,\dots, a_m) - f(a)                                                                                                                                                                                       \\
+		            & \quad + f(a_1+h_1,a_2+h_2,\dots, a_m) - f(a_1+h_1,a_2,\dots, a_m)                                                                                                                                                        \\
+		            & \quad \qquad\qquad\qquad \vdots\qquad\qquad\qquad\qquad\qquad\qquad \vdots                                                                                                                                               \\
+		            & \quad + f(a_1+h_1,a_2+h_2,\dots, a_m+h_m) - f(a_1+h_1,a_2+h_2,\dots,a_{m-1}+h_{m-1}, a_m)                                                                                                                                \\
+		            & \overset{\text{MVT}}{=} \lt.\del{f}{x_1}\rt|_{v_1}h_1+\lt.\del{f}{x_2}\rt|_{v_2}h_2+\cdots + \lt.\del{f}{x_m}\rt|_{v_m}h_m =\lt\langle \underbrace{\lt[\begin{matrix}
+					                                                                                                                                                                     \lt.\del{f}{x_1}\rt|_{v_1} \\ \vdots \\ \lt.\del{f}{x_m}\rt|_{v_m}
+				                                                                                                                                                                     \end{matrix} \rt]}_{\substack{\parallel \\ p}}, \lt[ \begin{matrix}
 				h_1 \\ \vdots \\ h_m
 			\end{matrix} \rt] \rt\rangle
-	\end{align*}Notice that $v_1,v_2,\dots,v_m$ are functions of $h$. Putting together we get
+	\end{align*}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) -- (3,0) -- (4.5,1) -- (4.5,3);
+			\draw[fill=black] (0,0) node[yshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (2,0) node[yshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (3,0) node[yshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (3.6,0.4) node[xshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (4.5,1) node[xshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (4.5,2.2) node[xshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (4.5,3) node[xshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+		\end{tikzpicture}
+	\end{center}
+
+	Notice that $v_1,v_2,\dots,v_m$ are functions of $h$. Putting together we get
 	\begin{align*}
 		\dfrac{f(a+h)-f(a)-Th}{\|h\|} & = \frac1{\|h\|} \lt\langle h,\lt[ \begin{matrix}
 				                                                                  \lt.\del{f}{x_1}\rt|_{v_1} -	\lt.\del{f}{x_1}\rt|_a \\
@@ -102,13 +115,21 @@ Now we want to define class $C^k$  of functions for $k\geq 0$. [Like in 1-Variab
 
 Now second derivative of $f:U\to\bbR^n$ at $a\in U\subset\bbR^m =$ derivative at $a$ of $f':U\to \mcL(\bbR^m,\bbR^n)\backsimeq \bbR^{mn}$. $\therefore$ $f''(a)$ or $D^2f(a):\bbR^m\to \mcL(\bbR^m,\bbR^n)$. Matrix of $f''(a)$ has $mn$ rows and $m$ columns and equals to $\deld{f'_{pq}}{x_j}$ where $p=1,\dots,n$, $q=1,\dots, m$ and $j=1,\dots, m$
 
-\qs{}{Can these be understood interms of partial derivatives of $f_i$ ? Specifically $\deld{}{x_l}\deld{}{x_k}f_i$ ? }
 \qs{}{Do $\deld{}{x_l}$ and $\deld{}{x_k}$ commute ?}
 \solve{No but actually yes under some good conditions. We discussed here}
 
 If $f''(a)$ exists for all $a\in U$, then  we get a  function $f''$ or $D^2f:U\to \mcL(\bbR^m,\mcL(\bbR^m,\bbR^n))$ which maps $a\mapsto f''(a)$. Dimension of the RHS is $m^2n$. Now we can ask about continuity and differentiability of $f''$
 
-\dfn{$C^k$ Functions}{Open $U\subset \bbR^m$, $f:U\to\bbR^n$
+\dfn{$\bs{C^k}$ Functions}{Open $U\subset \bbR^m$, $f:U\to\bbR^n$. Then
+	\begin{center}
+		\begin{tabular}{rcl}
+			$f$ is $C^0$ if        &                                           & $f$ is continuous       \\
+			$f$ is $C^1$ if        & $f'(a)$ exists $\forall\ a\in U$ and      & $f'$ is continuous      \\
+			$f$ is $C^2$ if        & $f''(a)$ exists $\forall\ a\in U$ and     & $f''$ is continuous     \\
+			$\vdots$\hspace{0.5cm} & $\vdots$                                  & \hspace{1cm}$\vdots$    \\
+			$f$ is $C^k$ if        & $f^{(k)}(a)$ exists $\forall\ a\in U$ and & $f^{(k)}$ is continuous
+		\end{tabular}
+	\end{center}
 
 }
 
@@ -121,4 +142,16 @@ If $f''(a)$ exists for all $a\in U$, then  we get a  function $f''$ or $D^2f:U\t
 				\&            \&              \&                       \& b \arrow[rr, maps to] \&              \& {\phi(a,b)}                    \&            \&                        \&                      \&                    \&                \&
 			\end{tikzcd}}
 	\end{center}
-	Under this dictionary, maps in $\mcL(V,\mcL(U,W))$ must correspond to some special kind of maps  $V\times U\to W$. What kind of maps ?}
+	Under this dictionary, maps in $\mcL(V,\mcL(U,W))$ must correspond to some special kind of maps  $V\times U\to W$. }
+
+Hence we can say $\mcL(\bbR^m,\mcL(\bbR^m,\bbR^n))$ is equivalent to the space of maps $\bbR^m\times \bbR^m\to \bbR^n$ which is space of bilinear maps from $\bbR^m\times \bbR^m$ to $\bbR^n$
+
+Component functions of $f':U\to \mcL(\bbR^m,\bbR^n)$ are precisely $\del{f_i}{x_j}$ where $i=1,\dots, n$ and $j=1,\dots, m$. So matrix of $f''(a)$ w.r.t standard basis  of $\bbR^m$ and $\mcL(\bbR^m,\bbR^n)$ will consist of numbers $\lt(\deld{}{x_k}\lt(\deld{}{x_j}f_i\rt)\rt)(a)$. If $f''(a)$ exists   then these are generated to exist. If $f''(a)$ exists at each $a\in U$ then we have the function
+\begin{center}
+	\begin{tikzcd}
+		{f'':} &[-1cm] U\arrow[r] & {\mcL(\bbR^m,\mcL(\bbR^m,\bbR^n))}\ &[-1.2cm] {\backsimeq\text{Space of bilinear maps }\bbR^m\times \bbR^m\to \bbR^n}\\[-0.7cm]
+		&[-1cm] a \arrow[r, mapsto] & f''(a)
+	\end{tikzcd}
+\end{center}
+
+$f''$ is $C^2(U) \overset{\text{definition}}{\iff} f''$ is continuous on $U\iff \deld{}{x_k}\deld{}{x_j}f_i$ are continuous  functions $U\to \bbR$

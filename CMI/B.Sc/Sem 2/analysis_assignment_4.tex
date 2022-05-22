@@ -1,0 +1,251 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=blue!70!red,
+	pdftitle={Analysis Assignment 4}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 4}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Analysis 2 \hfill Date: May 15, 2022 \\
+	\noindent\rule{7in}{2.8pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Rudin Chapt. 9 Problem 18
+}{p1% problem reference text
+}
+%Problem	
+Answer analogous questions for the mapping defined by
+$$
+	u=x^{2}-y^{2}, \quad v=2 x y
+$$
+\end{problem}
+
+\solve{
+	%Solution
+	\begin{enumerate}[label=(\alph*)]
+		\item Let the mapping defined by $f=(f_1,f_2)$ where $f_1(x,y)=x^2-y^2$ and $f_2(x,y)=2xy$. Hence $f(x,y)=(u,v)$. Then the range of $f$ is the whole $\bbR^2$ plane. For any point $(u,v)\in\bbR^2$ not equal to the origin $f$ maps two distinct maps to $(u,v)$\[
+			      \begin{array}{ccl}
+				      \lt( \sqrt{\frac{\sqrt{u^2+v^2}+u}{2}},\sqrt{\frac{\sqrt{u^2+v^2}-u}{2}} \rt)  & \lt( -\sqrt{\frac{\sqrt{u^2+v^2}+u}{2}},-\sqrt{\frac{\sqrt{u^2+v^2}-u}{2}} \rt) & \text{when }v\text{ is positive} \\
+				      \lt( \sqrt{\frac{\sqrt{u^2+v^2}+u}{2}},-\sqrt{\frac{\sqrt{u^2+v^2}-u}{2}} \rt) & \lt( -\sqrt{\frac{-\sqrt{u^2+v^2}+u}{2}},\sqrt{\frac{\sqrt{u^2+v^2}-u}{2}} \rt) & \text{when }v\text{ is negative}
+			      \end{array}
+		      \]
+
+		\item The matrix of $f'(x,y)$ is \[ f'(x,y) =\lt[ \begin{matrix}
+					      2x & -2y \\ 2y & 2x
+				      \end{matrix}\rt] \] Therefore the jacobian of $f$ is $4(x^2+y^2)$. Hence at any point $(u,v)\in \bbR^2$ except the orijin $\mcJ$ is nonzero. Hence if we exclude the origin in both planes, $f$ becomes locally one-one and globally two-one.
+		\item Let $r=\sqrt{u^2+v^2}$ which is the distance from origin to the point $(u,v)$. Let $\textbf{a}=\lt(0,\frac{\pi}{3}\rt)$, then $f$ maps the pointto  $\textbf{b}=\lt(-\frac{\pi^2}{9},0\rt)$. Hence locally $f$ has the inverse function, $g(u,v)=\lt(\sqrt{\frac{r+u}{2}},\sqrt{\frac{w-u}{2}} \rt)$. Hence $$ g'(u,v)=\lt[ \begin{matrix}
+					      \frac{u+r}{4r}\sqrt{\frac{2}{u+r}} & \frac{v}{4r}\sqrt{\frac{2}{u+r}} \\
+					      \frac{r-u}{4r}\sqrt{\frac{2}{r-u}} & \frac{v}{4r}\sqrt{\frac{2}{r-u}}
+				      \end{matrix}\rt]$$  Therefore $$g(u,0)=\lt[ \begin{matrix}
+					      \sqrt{\frac{u+|u|}{2}} & \sqrt{\frac{|u|-u}{2}} \end{matrix}\rt]=\begin{cases}
+				      (\sqrt{u},0) & \text{ when } u\geq 0\\ (0,\sqrt{-u}) & \text{ when }u<0\end{cases}$$Hence
+		      \begin{align*}
+			      \lt.\del{g_1(u,v)}{u}\rt|_{\lt( -\frac{\pi^2}{9}, 0\rt)} & =\lim_{h\to 0}\frac{g_1\lt(-\frac{\pi^2}{9}+h,0\rt) - g_1\lt(-\frac{\pi^2}{9},0\rt)}{h}                                                                                \\
+			                                                               & = \lim_{h\to 0}\frac{0-0}{h}=0                                                                                                                                         \\
+			      \lt.\del{g_1(u,v)}{v}\rt|_{\lt( -\frac{\pi^2}{9}, 0\rt)} & =\lim_{k\to 0 } \frac{g_1\lt(-\frac{\pi^2}{9},k\rt) - g_1\lt(-\frac{\pi^2}{9},0\rt)}{k}                                                                                \\
+			                                                               & = \lim_{k\to 0}\frac1k \sqrt{\frac{\sqrt{\frac{\pi^4}{81}+k^2}-\frac{\pi^2}{9}}{2}} =\lim_{k\to 0}\sqrt{ \frac{\sqrt{a^2+k^2}-a}{2}}                                   \\
+			                                                               & = \frac1{\sqrt{2}}\lim_{\theta\to 0}\frac{\sqrt{\sqrt{a^2+a^2\tan^2\theta}-a }}{a\tan\theta}\qquad\lt[\text{Assume }k=a\tan\theta,a=\frac{\pi^2}{9}\rt]                \\
+			                                                               & =\frac1{\sqrt{2a}}\lim_{\theta\to 0}\frac{\sqrt{\sec\theta-1}}{\tan\theta}=\frac1{\sqrt{2a}}\lim_{\theta\to 0}\sqrt{\cos\theta}\frac{\sqrt{1-\cos\theta}}{\sin\theta }
+		      \end{align*}\begin{align*}
+			      \qquad\qquad\quad                                        & = \frac1{\sqrt{2a}}\lim_{\theta\to 0} \sqrt{\cos\theta}\sqrt{\frac{2\sin^2\frac{\theta}{2}}{4\sin^2\frac{\theta}2\cos^2\frac{\theta}2}}=\frac1{\sqrt{2a}}\lim_{\theta\to 0} \sqrt{\cos\theta}\sqrt{\frac1{2\cos^2\frac{\theta}2}  }             \\
+			                                                               & = \frac1{2\sqrt{a}}=\frac3{2\pi}                                                                                                                                                                                                                \\
+			      \lt.\del{g_2(u,v)}{u}\rt|_{\lt( -\frac{\pi^2}{9}, 0\rt)} & =\lim_{h\to 0}\frac{g_2\lt(-\frac{\pi^2}{9}+h,0\rt) - g_2\lt(-\frac{\pi^2}{9},0\rt)}{h}                                                                                                                                                         \\
+			                                                               & = \lim_{h\to 0} \frac{\sqrt{\frac{\pi^2}{9}-h}-\frac{\pi}{3}}{h}=\frac{d}{dx}\lt.\lt( \sqrt{\frac{\pi^2}{9}-x}\rt)\rt|_{x=0}                                                                                                                    \\
+			                                                               & = \lt.\frac12 \frac{-1}{\sqrt{\frac{\pi^2}{9}-x}}\rt|_{x=0}=-\frac{3}{2\pi}                                                                                                                                                                     \\
+			      \lt.\del{g_2(u,v)}{v}\rt|_{\lt( -\frac{\pi^2}{9}, 0\rt)} & =  \lim_{k\to 0 } \frac{g_2\lt(-\frac{\pi^2}{9},k\rt) - g_2\lt(-\frac{\pi^2}{9},0\rt)}{k}                                                                                                                                                       \\
+			                                                               & = \lim_{k\to 0 } \frac{ \sqrt{ \frac{ \sqrt{ \frac{pi^4}{81}+k^2 } +\frac{\pi^2}{9} }{2} }-\frac{\pi}{3} }{k}                                                                                                                                   \\
+			                                                               & = \lim_{\theta\to 0 } \frac{ \frac1{\sqrt{2}} \sqrt{a\sec\theta +a}-\sqrt{a} }{a\tan\theta}\lt[\text{ Assume }\frac{\pi^2}{9}=a, k=a\tan\theta \rt]                                                                                             \\
+			                                                               & = \frac1{\sqrt{a}}\lim_{\theta\to 0 } \frac{ \frac1{\sqrt{2}}\sqrt{\frac{1+\cos\theta}{\cos\theta}}-1 }{\tan\theta}=\frac1{\sqrt{a}}\lim_{\theta\to 0 } \frac{\sqrt{2}\sqrt{\frac{1+\cos\theta}{\cos\theta}}-2 }{2\tan\theta}                   \\
+			                                                               & = \frac1{\sqrt{a}}\lim_{\theta\to 0 } \frac{\cos\theta\lt(\sqrt{2}\sqrt{\frac{1+\cos\theta}{\cos\theta}}-2\rt)\lt(\sqrt{2}\sqrt{\frac{1+\cos\theta}{\cos\theta}}+2 \rt) }{2\sin\theta\lt(\sqrt{2}\sqrt{\frac{1+\cos\theta}{\cos\theta}}+2 \rt)} \\
+			                                                               & = \frac1{\sqrt{a}}\lim_{\theta\to 0 } \frac{ \cos\theta \lt( 2\frac{1+\cos\theta}{\cos\theta}-4 \rt)}{2\sin\theta\lt(\sqrt{2}\sqrt{\frac{1+\cos\theta}{\cos\theta}}+2 \rt)}                                                                     \\
+			                                                               & = \frac1{\sqrt{a}}\lim_{\theta\to 0 } \frac{2(1-\cos\theta)}{2\sin\theta\lt(\sqrt{2}\sqrt{\frac{1+\cos\theta}{\cos\theta}}+2 \rt)}                                                                                                              \\
+			                                                               & = \frac1{\sqrt{a}}\lim_{\theta\to0} \frac{2\sin^2\frac{\theta}{2}}{2\sin\frac{\theta}{2}\cos\frac{\theta}{2}\lt(\sqrt{2}\sqrt{\frac{1+\cos\theta}{\cos\theta}}+2 \rt)}                                                                          \\
+			                                                               & = \frac1{\sqrt{a}}\lim_{\theta\to0} \frac{\sin\frac{\theta}{2}}{\cos\frac{\theta}{2}\lt(\sqrt{2}\sqrt{\frac{1+\cos\theta}{\cos\theta}}+2 \rt)}=0
+		      \end{align*}Therefore $$g'\lt(-\frac{\pi^2}{9},0\rt)=\lt[ \begin{matrix}
+					      0 & \frac{3}{2\pi} \\ \frac{3}{2\pi} & 0
+				      \end{matrix} \rt]$$Now we previously determined $f'(x,y)=\lt[ \begin{matrix}
+					      2x & -2y \\ 2y & 2x
+				      \end{matrix} \rt]$Therefore \[
+			      f'(\textbf{a})\circ g'(\textbf{b})=\lt[ \begin{matrix}
+					      0 & -\frac{2\pi}{3} \\ \frac{2\pi}{3} & 0 \end{matrix}\rt] \lt[ \begin{matrix}
+					      0 & \frac{3}{2\pi} \\ -\frac{3}{2\pi} & 0 \end{matrix}\rt] = \lt[ \begin{matrix}
+					      1 & 0 \\ 0 & 1\end{matrix}\rt]
+		      \]
+		\item Thepoints parallel to $x-$axis are of the form $(x,c)$ and the points of the form parallel to $y-$axix are $(c,y)$. Image of $f$ of the lines parallel to $x-$ axis and $y-$axis are $$f(x,c)=\lt[ \begin{matrix}2x & -2c\\ 2c & 2x\end{matrix}\rt]\qquad f(c,y)=\lt[ \begin{matrix}2c & -2y\\ 2y& 2c\end{matrix}\rt]$$
+	\end{enumerate}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Rudin Chapt. 9 Problem 19
+}{p2% problem reference text
+}
+%Problem		
+Show that the system of equations
+$$
+	\begin{array}{r}
+		3 x+y-z+u^{2}=0 \\
+		x-y+2 z+u=0     \\
+		2 x+2 y-3 z+2 u=0
+	\end{array}
+$$
+can be solved for $x, y, u$ in terms of $z$; for $x, z, u$ in terms of $y ;$ for $y, z, u$ in terms of $x$; but not for $x, y, z$ in terms of $u$.
+\end{problem}
+
+\solve{
+%Solution
+Let $f$ be the map from $\bbR^4$ to $\bbR^3$ such that $$f(x,y,z,u)=(3 x+y-z+u^{2},x-y+2 z+u,2 x+2 y-3 z+2 u)=(f_1(x,y,z,u),f_2(x,y,z,u),f_3(x,y,z,u))$$where each $f_i:\bbR^4\to\bbR$ function. Now $f(0,0,0,0)=(0,0,0)$. Now the matrix of $f'(x,y,z,u)$ is $$f'(x,y,z,u)=\lt[ \begin{matrix}
+			3 & 1 & -1 & 2u \\ 1 & -1 & 2 & 1 \\ 2 & 2 & -3 & 2
+		\end{matrix} \rt]$$
+
+The determinant of the part $x,y,u$ is $8u-12\neq 0$ near $\textbf{0}$. So by implicit function theorem there exists a solution of $f(x(z),y(z),z,u(z))=\textbf{0}$ near \textbf{0}.
+
+
+The determinant of the part $x,z,u$ is $21-14u\neq 0$ near $\textbf{0}$. So by implicit function theorem there exists a solution of $f(x(y),y,z(y),u(y))=\textbf{0}$ near \textbf{0}.
+
+The determinant of the part $y,z,u$ is $3-2u\neq 0$ near $\textbf{0}$. So by implicit function theorem there exists a solution of $f(x,y(x),z(x),u(x))=\textbf{0}$ near \textbf{0}.
+
+But in case of $x,y,z$ the determinant is 0. Therefore there exists infinite solutions and they does not depend on $u$. Hence $x,y,z$ can not be expressed in terms of $u$
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Rudin Chapt. 9 Problem 23
+}{p3% problem reference text
+}
+%Problem		
+Define $f$ in $R^{3}$ by
+$$
+	f\left(x, y_{1}, y_{2}\right)=x^{2} y_{1}+e^{x}+y_{2} \text {. }
+$$
+Show that $f(0,1,-1)=0,\left(D_{1} f\right)(0,1,-1) \neq 0$, and that there exists therefore a differentiable function $g$ in some neighborhood of $(1,-1)$ in $R^{2}$, such that $g(1,-1)=0$ and
+$$
+	f\left(g\left(y_{1}, y_{2}\right), y_{1}, y_{2}\right)=0
+$$Find $(D_1g)(1,-1)$ and $(D_2g)(1,-1)$.
+\end{problem}
+
+\solve{
+%Solution
+$$f(0,1,-1)=0^2\times 1+e^0-1=0$$Hence $f(0,1,-1)=0$. Now $D_1f(x,y_1,y_2)=2xy_1+e^x$. Then $$D_1f(0,1,-1)=2\times 0\times 1+e^0\neq 0$$Hence by Implicit Function Theorem there exists a $C^1$ function $g:\bbR^2\to \bbR$ and a neighbourhood near $(1,-1)$ such that for any point $(y_1,y_2)\in U$ $f(g(y_1,y_2),y_1,y_2)=0$ and $g(1,-1)=0$
+
+Let $$h(y_1,y_2)=f(g(y_1y_2),y_1,y_2)=g^2(y_1,y_2)y_1+e^{g(y_1,y_2)}+y_2=0$$where $(y_1,y_2)\in U$. Therefore $$0=D_1h(y_1,y_2)=\lt(2g(y_1,y_2)y_1+e^{g(y_1,y_2)}\rt)D_1g(y_1,y_2)+g(y_1,y_2)^2 $$ Similarly $$0=D_2h(y_1,y_2)=\lt(2g(y_1,y_2)y_1+e^{g(y_1,y_2)}\rt)D_2g(y_1,y_2)+1$$Putting $y_1=1,y_2=-1,g(y_1,g_2)=0$ we get $$D_1g(1,-1)=0\qquad D_2g(1.-1)=-1$$
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+}{p4% problem reference text
+}
+%Problem		
+Find max/min of $x+y+z$ subject to $x^2-y^2=1$ and $2x+z=1.$
+\end{problem}
+
+\solve{
+%Solution
+The constraint $x^2-y^2=1$ is a hyperbolic cylinder. Hence it can be parametrized as $(\theta, z)\to (\pm \cosh \theta,\sinh\theta,z)$. Now given the contraint $2x+z=1\iff z=1-2x$ the points can be parametrized as $h_{\pm}:\theta \to (\pm\cosh\theta,\sinh\theta, 1\mp 2\cosh\theta)$. We define function $g_{\pm}=f\circ h_{\pm}$. Hence $$g(\theta)=\pm \cosh\theta +\sin\theta+1+\mp\cosh\theta=1+\sinh\theta\mp\cosh\theta$$Hence $g_{\pm}'(\theta)=\cosh\theta-\mp\sinh\theta=e^{\mp\theta}$ which has no extrema for all $\theta\in \bbR$. Hence $x+y+z$ has no extrema under the constraints $x^2-y^2=1$ and $2x+z=1$
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+}{p5% problem reference text
+}
+%Problem		
+Show that tangent vectors can be realized as velocity vectors of curves. More precisely, let $U$ be an open set in $\mathbb{R}^{n}$. Let $g$ be a $C^{1}$ map $U \rightarrow \mathbb{R}^{m}$. Let $c$ a point in the image of $g$, $M=g^{-1}(c)$ and $p \in M$ such that $g^{\prime}(p)$ is surjective. Recall that $T_{p} M=$ the kernel of $g^{\prime}(p)$ is called the tangent space of $M$ at $p$. Show that this tangent space is spanned by the velocity vectors of all $C^{1}$ paths $\gamma$ in $M$ based at $p$, i.e., by $\gamma^{\prime}(0)$, where $\gamma:(-\epsilon, \epsilon) \rightarrow M$ is a $C^{1}$ function with $\gamma(0)=p$.
+\end{problem}
+
+\solve{
+%Solution
+Let $p=(p_1,p_2,\dots,p_n)$ and $d=n-m$. Now since $g'(p)$ is surjective it spans $\bbR^m$. Hence the matrix of $g'(p)$ has $m$ linearly independent columns. Suppose the last $m$ columns are linearly independent. Let $A$ be the matrix of $g'(p)$ and $$A=[A_d\mid A_m]$$ where $A_d$ is a $d\times m$ and $A_m$ is a $m\times m$ matrix. Hence $A_m$ is invertible. Let $p=(P_d,P_m)$ where $$P_d=(p_1,p_2,\dots,p_d)\text{ and }P_m=(p_{d+1},p_{d+2},\dots, p_{m})$$By implicit function theorem there $\exs$ a open ball $V\subset \bbR^d$ containing $P_d$, an open ball $W\subset \bbR^m$ containing $P_m$ and a $C_1$ function $h:\bbR^d\to \bbR^m$ such that $h(x)=y$ and $g(x,y)=c$ and $h(P_d)=P_m$
+
+Now let $v=(v_d,v_m)\in T_pM$ where $v_d\in \bbR^d$ and $v_m\in \bbR^m$. We define a function $a:\bbR\to \bbR^d$ such that $$a(t)=P_d+tv_d$$ and a function $c$ such that $$c(t)=(a(t),h(a(t)))$$ Since $V$ is an open ball we can bound $|t|$ by $\eps>0$ such that $c(-\eps,\eps)\subset V$.
+
+Now $$c(0)=(a(0),h(a(0)))=(p_d,h(p_d))=(p_d,p_m)$$. Now we need to show $c'(0)=v$. Notice that $$c'(0)=\lt( a'(t),\lt.\frac{d}{dt}h(a(t))\rt|_{t=0} \rt)=\lt(v_d,\lt.\frac{d}{dt}h(a(t))\rt|_{t=0} \rt)$$. Now we will find $\lt.\frac{d}{dt}h(a(t))\rt|_{t=0}$.\begin{align*}
+	\lt.\frac{d}{dt}h(a(t))\rt|_{t=0}  = h'(a(0))a'(0)=h'(P_d)v_d
+\end{align*}Now by implicit theorem we also have $h'(P_d)=-A_m^{-1}A_d$. Hence \begin{multline*}
+	h'(P_d)v_d=-A_m^{-1}A_dv_d=-A_m^{-1}(A_dv_d)=-A_m^{-1}([A_d\mid 0]v)=-A_m^{-1}(g'(p)v-[0\mid A_m]v) \\
+	=-A_m^{-1}(-[0\mid A_m]v)=-A_m^{-1}(-A_mv_m)=v_m
+\end{multline*}Therefore $$c'(0)=(v_d,v_m)=v$$Hence there exists a $C^1$ function $c:(-\eps,\eps)\to M$ such that $c(0)=p$ and $c'(0)=v$ where $v\in T_pM$
+}
+
+
+\end{document}
