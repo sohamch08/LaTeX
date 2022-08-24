@@ -1,0 +1,67 @@
+\chapter{Tutorial 2}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+	\begin{enumerate}[label=(\alph*)]
+		\item If $x\in IJ$, then $x=\sum a_ib_i$ where $a_i\in I$ and $b_i\in J$. Thus for any fixed $i$, we have that since $a_i\in I$, we have that $a_ib_i\in I$, and the same argument shows that $a_ib_i\in J$, thus $\sum a_ib_i\in I$ and $\sum a_ib_i\in J$, this means that $x=\sum a_ib_i\in I\cap J$, and thus $IJ\subseteq I\cap J$. 
+		
+		Now
+		\begin{align*}
+			I \cap J & = (I \cap J)  R                 \\
+			& = (I \cap J)  (I + J)           \\
+			& = (I \cap J)  I + (I \cap J)  J \\
+			& \subseteq IJ + IJ = IJ
+		\end{align*}Hence $I\cap J=IJ$
+	\item Since $1\in R$ and $I+J=R$, $\exs \ x\in I,$ $y\in J$ such that $x+y=1$. Now consider the element $bx+ay$ in $R$. $$bx+ay-a=bx-ax=(b-a)x\in I\quad bx+ay-b=-by+ay=(a-b)y\in J$$
+	\item Consider the homomorphism $\varphi: R\to (R/I)\times (R/J)$ which maps any element $r\in R$ to $(r+I,r+J)$. Now this homomorphism is injective becasue if not then suppose for $r,s\in R$, $r\neq s$ $(r,I,r+J)=(s+I,s+J)$. Hence that means $((r-s)+I,(r-s)+J)=(I,J)$. Hence $r-s\in I,J$. Therefore $r-s\in I\cap J$. But $I\cap J=IJ$ and given that $IJ=(0)$. Hence $r-s=0$ But we assumed $r\neq s$. Hence contradiction. Therefore $\varphi$ is injective. 
+	
+	Now $\varphi$ is surjective. Because let $(a+I,b+J)$ be any element of $(R/I)\times (R/J)$. Then  by part (b) we have an element $x$ in $R$  such that $x-a\in I$ and $x-b\in J$. Hence $(x-a)+a=x\in a+I$ and $(x-b)+b=x\in b+J$. Therefore $a+I=x+I$ and $b+J=x+J$. Hence $(a+I,b+J)=(x+I,x+J)$. Now since $x\in R$. $\varphi(x)=(x+I,x+J)=(a+I,b+J)$. Hence $\varphi$ is surjective.
+	
+	Hence $\varphi$ is isomorphism. Thereofer $R\cong (R/I)\times (R/J)$
+	\end{enumerate}
+	
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+	
+	
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+	
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+	
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+	
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+	
+}
+\begin{problem}{}{}
+
+\end{problem}
+\solve{
+
+}
+\begin{problem}{}{}
+
+\end{problem}
+\solve{
+
+}

@@ -1,0 +1,97 @@
+\chapter{Tutorial 1}
+\begin{problem}{
+        Let $\bbR$ denote the set of real numbers. Put $\bbH \coloneqq \bbR\cdot 1\oplus \bbR\cdot i\oplus \bbR\cdot j\oplus \bbR\cdot k$ where $i^2=j^2=-1$, $ij=-ji=k$. Show that $\bbH$ is a division ring
+    }{t1-p1}
+\end{problem}
+\solve{Any element $p\in \bbH$, $p\neq 0$ can be written as $p=a+bi+cj+dk$. Now If we take $q=\frac{1}{a^2+b^2+c^2+d^2}(a-bi-cj-dk)$ then \begin{align*}
+	pq & = \frac{(a^2+b^2+c^2+d^2)+(ab-cd+cd-ab)i+(ac-ac+bd-bd)j+(ad-ad-ac+ac)k}{a^2+b^2+c^2+d^2}=1
+\end{align*}
+Hence for any nonzero element in $bbH$ there exists an multiplicative inverse of that element. Hence nonzero elements of $\bbH$ are units. Hence $\bbH$ is a division ring.}
+\begin{problem}{}{}
+	
+\end{problem}
+\begin{problem}{}{}
+
+\end{problem}
+\solve{Let $f(x),g(x)$ elements of $R[X]$. Suppose $$f(x)=\sum_{i=0}^na_ix^i,\quad g(x)=\sum_{i=0}^mb_ix^i$$where $a_n\neq 0$ and $b_m\neq 0.$ Hence $$f(x)g(x)=cx^{n+m}+\cdots+a_0b_0$$ where $a_nb_n=c$. Since $R[X]$ is an integral domain $c\neq 0$. Hence for any two elements $f,g\in R[X]$ $$\deg(fg)=\deg(f)+\deg(g)$$
+
+Any unit in $R$ is also an unit of $R[X]$. Hence $U(R)\subseteq U(R[X])$. Now Let $f$ be an unit in $R[X]$. Suppose $f'$ is the multiplicative inverse of $f$. If $\deg(f(x))\geq 1$ then $$0=\deg(1)=\deg(ff')=\deg(f)+\deg(f')\geq 1$$Hence All the units in $R[X]$ are constant polynomials which are also units in $R$. Hence $U(R[X])\subseteq U(R)$. Therefore $U(R)=U(R[X])$
+
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{\begin{align*}
+		(2x+1)^2 & = 4x^2+4x+1 = 1
+\end{align*}Hence $(2x+1)$ is an unit of $\bbZ/4\bbZ[X]$ but it is not in $\bbZ/4\bbZ$}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+Consider the surjective group homomorphism $\varphi:\bbZ\to \bbZ/n\bbZ$. Then the kernel of the homomorphism is $n\bbZ$. Hence by the correspondence theorem the set of ideals of $\bbZ$ containing $n\bbZ$ is isomorphic to the set of ideals of $\bbZ/n\bbZ$
+
+Now the ideals containg $n\bbZ$ in $\bbZ$ are the ideals of the form $d\bbZ$ where $d\mid n$. Hence 
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\begin{problem}{}{}
+
+\end{problem}
+\solve{Let $R$ is the commutative ring. Suppose $R$ is integral domain. Now $$ab=ac\implies a(b-c)=0\implies b-c=0\implies b=c$$Now suppose $ab=ac\implies b=c$. Suppose $R$ is not an integral domain. Then there exists at least one element $x\in R$ such that $x$ is an zero divisor. Let $xy=0$. Now $zb=zc$ does not imply $b=c$ because $b$ can be equal to $y$ and $c$ can be equal to 0. Hence contradiction. THere does not exists any zero divisors in $R$. Hence $R$ is an integral domain.}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{For left zero divisor $\lt(\begin{matrix}0 & 1\\ 0 & 0\end{matrix}\rt)$. No nonzero element exists such that it becomes a right zero divisor}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{\begin{enumerate}[label=(\alph*)]
+		\item Given that $(a,b)\sim(c,d)$ iff $ad=bc$. Let $(a,b)\in S(R)$. Then $(a,b)\sim (a,b)$ iff $ab=ba$. Given that $R$ is a commutative ring. Hence $ab=ba$. Therefore $(a,b)\sim (a,b)$. 
+		
+		Now let $(a,b),(c,d)\in S(R)$ and $(a,b)\sim (c,d)\iff ad=bc$. Now $(c,d)\sim (a,b)$  if $cb=da$. Now we know $R$ is a commutative ring. Hence $ad=da $ and $bc=cb$. Therefore $$ad=bc\iff da=cb \iff (c,d)\sim (a,b)$$
+		
+		Again suppose $(a,b),(c,d),(e,f)\in S(R)$ and $(a,b)\sim (c,d)$ and $(c,d)\sim (e,f)$. Therefore $ad=bc$ and $cf=de$. Now $(a,b)\sim (e,f)$ if $af=be$. Now multiplying both sides of $ad=bc$ by $f$ from right and both sides of $cf=de$ by $b$ from left we get $$adf=bcf\qquad bcf=bde\iff adf=bde\iff afd-bed=0 \iff (af-be)d=0 $$Since $R$ is an integral domain and $f\neq 0$we have $af-be=0\iff af=be$
+		\item Let $\overline{(a,b)}=\overline{(a',b')}$ and $\overline{(c,d)}=\overline{(c',d')}$. Hence $(a,b)\sim (a',b')$ and $(c,d)\sim(c',d')$ therefore $ab'=a'b$ and $cd'=c'd$. Now $$ \overline{(a,b)}+\overline{(c,d)}=\overline{(ad+bc,bd)}\qquad \overline{(a',b')}+\overline{(c',d')}=\overline{(a'd'+b'c',b'd')}$$
+		Now $\overline{(ad+bc,bd)}= \overline{(a'd'+b'c',b'd')}$ iff $(ad+bc,bd)=(a'd'+b'c',b'd')$ if $(ad+bc)b'd'=(a'd'+b'c')bd$. Now since $R$ is integral doamin $R$ is commutative hence $$(ad+bc)b'd'-(a'd'+b'c')bd=adb'd'+bcb'd'-a'd'bd-b'c'bd=ab'dd'-a'bdd'+bb'cd'-bb'c'd=0 $$Therefore $ (ad+bc)b'd'=(a'd'+b'c')bd$. Hence $\overline{(ad+bc,bd)}= \overline{(a'd'+b'c',b'd')}$. 
+		
+		Now $$\overline{(a,b)}\circ\overline{(c,d)}=\overline{(ac,bd)}\qquad \overline{(a',b')}\circ\overline{(c',d')}=\overline{(a'c',b'd')}$$Now $\overline{(ac,bd)}=\overline{(a'c',b'd')}\iff (ac,bd)\sim (a'c',b'd')$ if $acb'd'=bda'c'$. Now $$acb'd'-bda'c'=acb'd'-a'bcd'+a'bcd'-bda'c'=cd'(ab'-a'b)+a'b(cd'-c'd)=0$$ Hence $acb'd'=bda'c'$. Therefore $\overline{(ac,bd)}=\overline{(a'c',b'd')}$
+		
+		Therefore the sum and the product operations are well-defined
+	\end{enumerate}}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+	Let $\frac{a}{b},\frac{c}{d}\in R$. Hence $\frac{-c}{d}\in R$. Now $$\frac{a}{b}+\frac{-c}{d}=\frac{ad-cb}{bd}=\frac{a}{b}+\frac{-c}{d}$$Now since $p\nmid b$ and $p\nmid d$ then $p\nmid bd$. Hence $\frac{ad-cb}{bd}\in R$. Hence $(R,+)$ is an additie abelian group. 
+	
+	Now let $\frac{a}{b},\frac{c}{d}\in R$. Then $$\frac{a}{b}\frac{c}{d}=\frac{ac}{bd}$$Now as $p\nmid b$ and $p\nmid d$ we have $p\nmid bd$. Therefore $\frac{ac}{bd}\in R$. Hence $R$ is closed under multiplication. 
+	
+	Let $\frac{a}{b},\frac{c}{d},\frac{e}{f}\in R$. Now $$\frac{a}{b}\lt(\frac{c}{d}\frac{e}{f}\rt)=\frac{a}{b}\frac{ce}{df}=\frac{ace}{bdf}=\frac{ac}{bd}\frac{e}{f}=\lt(\frac{a}{b}\frac{c}{d}\rt)\frac{e}{f}$$Hence multiplication is associative.
+	
+	Let $\frac{a}{b},\frac{c}{d},\frac{e}{f}\in R$. Now \begin{align*}
+		\frac{a}{b}\lt(\frac{c}{d}+\frac{e}{f}\rt) & = \frac{a}{b}\frac{cf+ed}{df}\\
+		& =\frac{a(cf+de)}{bdf}\\
+		& = \frac{acf+ade}{bfd}\\
+		\frac{a}{b}\frac{c}{d}+\frac{a}{b}\frac{e}{f} & = \frac{ac}{bd}+\frac{ae}{bf}\\
+		& =\frac{acf+ade}{bdf}
+	\end{align*}Hence $$\frac{a}{b}\lt(\frac{c}{d}+\frac{e}{f}\rt) =\frac{a}{b}\frac{c}{d}+\frac{a}{b}\frac{e}{f} $$Hence elements in $R$ follows distributive property. Therefore $R$ is a ring
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{
+Given that for any element $a\in R$ $$a^2=a$$ Now $$2a=(a+a)=(a+a)^2=a^2+2a+a^2=a+2a+a\iff a+a=0$$Then $$a+b=(a+b)^2=a^1+ab+ba+b^2=a+ab+ba+b\iff ab+ba=0\iff ab=-ba\iff ab=ba$$Therefore the ring is commutative
+}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{We have $0 \in Z(R)$ since $0 \cdot r = 0 = r \cdot 0$ for all $r \in R$; in particular, $Z(R)$ is nonempty. Next, if $x,y \in Z(R)$ and $r \in R$, then $$(x-y)r = xr - yr = rx - ry = r(x-y).$$ Hence $Z(R) \leq R$. Now $xyr = xry = rxy$, so that $xy \in Z(R)$ then by definition, $Z(R)$ is a subring.}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{Same is P7}
+\begin{problem}{}{}
+	
+\end{problem}
+\solve{The ideal of a ring is a subgroup. Hence the ideal of $\bbZ$ is a subgroup of $Z$. Now we know the only subgroup of $\bbZ$ is $n\bbZ$ where $n\in \bbZ$. Hence the ideals of $R$ of the form $n\bbZ$ where $n\in \bbZ$}
