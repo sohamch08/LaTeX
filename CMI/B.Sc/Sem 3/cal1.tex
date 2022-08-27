@@ -1,0 +1,260 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{xcolor}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 1}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Analysis 2 \hfill Date: April 8, 2022 \\
+	\noindent\rule{7in}{2.8pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+}{p1% problem reference text
+}
+Is the function $\log  x$ uniformly continuous on $[1,\infty)$? 
+%Problem		
+\end{problem}
+
+\solve{
+	%Solution
+	For all $x\in [1,\infty)$ we have $$\log x\leq x-1$$Hence for  $\eps>0$ , $x,y\in [1,\infty)$ ]let $$|\log x - \log y|<\eps \iff \lt|\log\frac{x}{y}\rt|<\eps$$Now if $|x-y|<\delta$ where $\delta>0$ and suppose $x\geq y$ then $x=y+k$ for some $0\geq k<\delta$ then $$\log\frac{x}{y}=\log \lt(1+\frac{k}{y}\rt)\leq \frac{k}{y}\leq \frac{k}{1}<\delta$$Hence if we take $\eps=\delta$ then  for all $x,y\in [1,\infty)$,  if $|x-y|<\delta $ then $$\lt|\log x-\log y\rt|<\eps$$Therefore $\log x$ is uniformly continuous in $[1,\infty)$
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+}{p2% problem reference text
+}
+%Problem		
+Let us agree that  \emph{a complex-valued function $f=f_r+if_i$ defined on $I$ will be called Riemann integrable} if its real and imaginary parts $f_r,f_i$ are Riemann Integrable; in which case, we define
+\[
+\int_0^1 f(x) dx  \equiv  \int_0^1 f_r(x) dx + i \int_0^1 f_i(x) dx \ .
+\]
+Prove that if $f$ is Riemann integrable then $|f|$ is Riemann integrable, and
+\[
+\left|\int_0^1 f(x) dx\right| \le \int_0^1 |f(x)| dx
+\]
+\end{problem}
+
+\solve{
+	%Solution
+	As $\sqrt{f_r^2(x)+f_i^2(x)}\geq 0$ for all $x\in [0,1]$. Now if $\dps{\int_0^1 f_r(x)dx=\int_0^1f_i(x)dx=0}$ then $$\int_0^1|f(x)|dx\geq \lt|\int_0^1f(x)dx\rt|$$If at least one of $\int_0^1 f_r(x)dx,\int_0^1f_i(x)dx$ is nonzero then let $$a=\dfrac{\int_0^1f_r(x)dx}{\sqrt{\lt(\int_0^1f_r(x)dx\rt)^2+\lt(\int_0^1f_i(x)dx\rt)^2}}\qquad b=\dfrac{\int_0^1f_i(x)dx}{\sqrt{\lt(\int_0^1f_r(x)dx\rt)^2+\lt(\int_0^1f_i(x)dx\rt)^2}}$$Therefore $a^2+b^2=1$.  Now by Cauchy Schwarz Inequality $$\sqrt{a^2+b^2}\sqrt{f_r^2(x)+f_i^2(x)} =\sqrt{f_r^2(x)+f_i^2(x)}\geq af_r(x)+bf_i(x)\qquad \forall \ x\in I$$Hence \begin{align*}
+		     & a\int_0^1f_r(x)dx+b\int_0^1f_i(x)dx=\int_0^1(af_r(x)+bf_i(x))dx                                      \\
+		\iff & a\int_0^1f_r(x)dx+b\int_0^1f_i(x)dx\leq \int_0^1\sqrt{f_r^2(x)+f_i^2(x)}dx                           \\
+		\iff & \sqrt{\lt(\int_0^1f_r(x)dx\rt)^2+\lt(\int_0^1f_i(x)dx\rt)^2}\leq \int_0^1 \sqrt{f_r^2(x)+f_i^2(x)}dx \\
+		\iff & \lt|\int_0^1f(x)dx\rt|\leq \int_0^1|f(x)|dx
+	\end{align*}
+	
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+}{p3% problem reference text
+}
+%Problem	
+The following problems are (with minor changes) taken from Rudin.  Let $p,q$ be positive real numbers satisfying
+\[
+\frac{1}{p} + \frac{1}{q} =1 
+\]
+(These  are said to be \emph{conjugate exponents} to each other. Note that $p=2,q=2$ are conjugate. Note also the ``limiting cases'' $p=1,q=\infty$, $p=\infty, q=1$.)
+\begin{enumerate}[label=(\alph*)]
+	\item If $u \ge 0, \ v \ge 0$, prove that
+	\[
+	uv \le \frac{u^p}{p}+\frac{v^q}{q}
+	\]
+	(Hint: Reduce to proving the case when $u=1$ and $0 \le v \le 1$. When $v=0$ or $v=1$, the inequality is clear; now use convexity. )
+	
+	\item  If $f,g$ are Riemann integrable non-negative functions on $I$, then
+	\[
+	\int_0^1 fg\ dx  \le \left\{\int_a^b f^p dx\right\}^{\frac{1}{p}} \left\{\int_a^b g^q dx\right\}^{\frac{1}{q}}
+	\]
+	(Hint: Reduce to the case when both factors on the right are equal to one. Then use (a).)
+	
+	\item If $f,g$ are complex-valued and Riemann integrable on $I$,
+	\[
+	\left|\int_0^1 fg\ dx\right|  \le \left\{\int_0^1 |f|^p dx\right\}^{\frac{1}{p}} \left\{\int_0^1 |g|^q dx\right\}^{\frac{1}{q}}
+	\]
+\end{enumerate} 	
+\end{problem}
+
+\solve{
+	%Solution
+	\begin{enumerate}[label=(\alph*)]
+		\item If $u=v=0$ then we are done. Suppose at least one of is nonzero. Let $v^q\geq u^p$. Hence $v\neq 0$. Then \begin{align*}
+			& uv \leq \frac{u^p}{p}+\frac{v^q}{q}\\
+			\iff & \frac{uv}{v^q} \leq \frac1p\, \frac{u^p}{v^q}+\frac1q\\
+			\iff & \frac{u}{v^{q-1}}\leq \frac1p\, \frac{u^p}{v^q}+\frac1q
+		\end{align*}Let $x=\frac{u^p}{v^q}$. Now $$\frac1p+\frac1q=1\iff \frac1p=\frac{q-1}q\iff \frac{q}{p}=q-1$$Hence $x^{\frac1p}=\frac{u}{v^q}$. Hence substituting the values we need to prove $$x^{\frac1p}\leq \frac{x}{p}+\frac1q\qquad \forall\ x\in [0,1]$$Now take the function $f(x)=x^{\frac1p}-\frac{x}{p}$. Now at $x=1$ we have $$f(1)=1-\frac1p=\frac1q$$ and at $x=0$ we have $f(0)=0$. Now $f$ is a differentiable function. $$f'(x)=\frac1p x^{\frac1p-1}-\frac1p=\frac1p\lt(x^{-\frac1q}-1\rt)$$Now since $0\leq x\leq 1$ we have $0\leq x^{\frac1q}\leq 1$ and therefore $x^{-\frac1q}\geq 1$. Hence $\forall \ x\in [0,1]$ we have $f'(x)\geq 0$. Hence $f$ is increasing. Hence the maximum value $f$ attains on $[0,1]$ is $\frac1q$. Hence $$x^{\frac1p}\leq \frac{x}{p}+\frac1q$$Therefore $$uv\leq \frac{u^p}{p}+\frac{v^q}{q}$$\Qed
+	\item $A=\lt(\dps{\int_0^1f^p(x)dx}\rt)^{\frac1p}$ and $B=\lt(\dps{\int_0^1g^q(x)dx}\rt)^{\frac1q}$. Now using part (a) we get
+	\begin{align*}
+		 & \frac{f(x)}{A}\frac{ g(x) }{B}\leq \frac1p\lt(\frac{ f(x) }{A}\rt)^p+\frac1q\lt(\frac{ g(x) }{B}\rt)^q\\
+		 \iff & \int_0^1\frac{ f(x)g(x) }{AB}dx\leq \int_0^1\lt[\frac1p\lt(\frac{ f(x) }{A}\rt)^p+\frac1q\lt(\frac{ g(x) }{B}\rt)^q\rt]dx\\
+		 \iff & \frac{ \dps{\int_0^1f(x)g(x)} dx}{AB}\leq \frac1p\frac{\dps{\int_0^1 f^p(x) dx}}{A^p}+\frac1q\frac{\dps{\int_0^1 g^q(x)dx}}{B^q}\\ 
+		 \iff &\frac{ \dps{\int_0^1f(x)g(x)} }{AB}\leq \frac1p+\frac1q=1\\
+		 \iff & \int_0^1f(x)g(x)dx \leq AB\\
+		 \iff & \int_0^1f(x)g(x)dx \leq  \lt(\dps{\int_0^1f^p(x)dx}\rt)^{\frac1p}\lt(\dps{\int_0^1g^q(x)dx}\rt)^{\frac1q}
+	\end{align*}\Qed
+	\item $A=\lt(\dps{\int_0^1|f(x)|^pdx}\rt)^{\frac1p}$ and $B=\lt(\dps{\int_0^1|g(x)|^qdx}\rt)^{\frac1q}$. Now using part (a) we get
+	\begin{align*}
+		& \frac{|f(x)|}{A}\frac{ |g(x)| }{B}\leq \frac1p\lt(\frac{ |f(x)| }{A}\rt)^p+\frac1q\lt(\frac{ |g(x)| }{B}\rt)^q\\
+		\iff & \int_0^1\frac{ |f(x)g(x)| }{AB}dx\leq \int_0^1\lt[\frac1p\lt(\frac{ |f(x)| }{A}\rt)^p+\frac1q\lt(\frac{ |g(x)| }{B}\rt)^q\rt]dx\\
+		\iff & \frac{ \dps{\int_0^1|f(x)g(x)|} dx}{AB}\leq \frac1p\frac{\dps{\int_0^1 |f(x)|^p dx}}{A^p}+\frac1q\frac{\dps{\int_0^1 |g(x)|^qdx}}{B^q}\\ 
+		\iff &\frac{ \dps{\int_0^1|f(x)g(x)|} }{AB}\leq \frac1p+\frac1q=1\\
+		\iff & \int_0^1|f(x)g(x)|dx \leq AB\\
+		\iff & \int_0^1|f(x)g(x)|dx \leq  \lt(\dps{\int_0^1|f(x)|^pdx}\rt)^{\frac1p}\lt(\dps{\int_0^1|g(x)|^qdx}\rt)^{\frac1q}
+		\end{align*}Using (\ref{p:p1}) we have $$\lt|\int_0^1f(x)g(x)dx \rt|\leq \int_0^1|f(x)g(x)|dx $$Hence $$\lt|\int_0^1f(x)g(x)dx \rt|\leq \lt(\dps{\int_0^1|f(x)|^pdx}\rt)^{\frac1p}\lt(\dps{\int_0^1|g(x)|^qdx}\rt)^{\frac1q}$$
+	\end{enumerate}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+}{p4% problem reference text
+}
+%Problem		
+Consider the set $S=\{(x,y)|x,y \in \bbQ\} \subset I^2$. Is $S$ Jordan-measurable? If yes, compute its area. If not \begin{enumerate}[label = (\alph*)]
+	\item  show directly that $\chi_S$ is not integrable \emph{and} \item  show that $\partial S$ does not have content zero.
+\end{enumerate}
+\end{problem}
+
+\solve{
+	%Solution
+	$S$ is Jordan-Measurable iff $\partial S$ has measure content zero $\iff$ $\chi_S$ is integrable. Since $\bbQ\cap I$ is dense in $I$, $\bbQ^2\cap I^2=S $ is dense in $I^2$. Now We take the closed rectangle $R=I^2$ which covers the whole $S$. Let $P$ be any partition of $I^2$. Since $S$ is dense in $I^2$ for any rectangle $R_i$ we have $S\cap R_i\neq \phi$ and $(I^2\S)\cap R_i\neq \phi$. Hence $M_{R_i}(x)=1,m_{R_i}(x)=0$ for all $x\in R_i$. Hence $$U(P,R)-L(P,R)=\sum_i(M_{R_i}(x)-m_{R_i}(x))Vol(R_i)=\sum_i(1-0)Vol(R_i)=\sum_iVol(R_i)=Vol(R)=1$$For all partitions of $R$ we have this. Hence $\chi_S$ is not integrable. Hence $S$ is not Jordan-Measurable.
+	\begin{enumerate}[label=(\alph*)]
+		\item We just show that $\chi_S$ is not integrable.\Qed
+		\item Since $\chi_S $ integrable $\iff$ $\partial S$ is content zero and since $\chi_S$ is not integrable we have $\partial S$ is not content zero.
+	\end{enumerate}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+}{p5% problem reference text
+}
+%Problem		
+What about the set 
+\[
+S=\{(x,y)\}\setminus \underset{n=1,\dots}\bigcup \left\{\left(\frac{1}{n},y\right)\right\}\subset I^2 \ ?
+\]
+\end{problem}
+
+\solve{
+	%Solution
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p5% problem reference text
+	}
+	%Problem		
+	Let $f:I \to \bbR$ be a continuous function, and let $\Gamma_f=\{(x,f(x))|x \in I\} \subset \bbR^2$ be its graph. Show that $\Gamma_f$ has content zero. What if $f$ is only integrable?
+\end{problem}
+
+\solve{
+	%Solution
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p5% problem reference text
+	}
+	%Problem		
+	Let $D:I \to \bbR$ be the function $D(t)=1-t$. 
+	\begin{enumerate} 
+		\item What is $\int_\bbR \tilde{D}$? (Notation of the notes.)
+		\item Compute
+		\[
+		\int_{I \times I} D(x)D(xy) dxdy
+		\]
+		Justify the steps, even when you have to just refer to a definition.
+	\end{enumerate} 
+\end{problem}
+
+\solve{
+	%Solution
+}
+
+
+\end{document}
