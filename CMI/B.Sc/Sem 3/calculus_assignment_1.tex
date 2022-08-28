@@ -62,7 +62,7 @@
 
 \textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 1}\\
 	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
-	\normalsize Course: Analysis 2 \hfill Date: April 8, 2022 \\
+	\normalsize Course: Calculus \hfill Date: August 29, 2022 \\
 	\noindent\rule{7in}{2.8pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -149,28 +149,28 @@ The following problems are (with minor changes) taken from Rudin.  Let $p,q$ be 
 	%Solution
 	\begin{enumerate}[label=(\alph*)]
 		\item If $u=v=0$ then we are done. Suppose at least one of is nonzero. Let $v^q\geq u^p$. Hence $v\neq 0$. Then \begin{align*}
-			& uv \leq \frac{u^p}{p}+\frac{v^q}{q}\\
-			\iff & \frac{uv}{v^q} \leq \frac1p\, \frac{u^p}{v^q}+\frac1q\\
+			     & uv \leq \frac{u^p}{p}+\frac{v^q}{q}                     \\
+			\iff & \frac{uv}{v^q} \leq \frac1p\, \frac{u^p}{v^q}+\frac1q   \\
 			\iff & \frac{u}{v^{q-1}}\leq \frac1p\, \frac{u^p}{v^q}+\frac1q
 		\end{align*}Let $x=\frac{u^p}{v^q}$. Now $$\frac1p+\frac1q=1\iff \frac1p=\frac{q-1}q\iff \frac{q}{p}=q-1$$Hence $x^{\frac1p}=\frac{u}{v^q}$. Hence substituting the values we need to prove $$x^{\frac1p}\leq \frac{x}{p}+\frac1q\qquad \forall\ x\in [0,1]$$Now take the function $f(x)=x^{\frac1p}-\frac{x}{p}$. Now at $x=1$ we have $$f(1)=1-\frac1p=\frac1q$$ and at $x=0$ we have $f(0)=0$. Now $f$ is a differentiable function. $$f'(x)=\frac1p x^{\frac1p-1}-\frac1p=\frac1p\lt(x^{-\frac1q}-1\rt)$$Now since $0\leq x\leq 1$ we have $0\leq x^{\frac1q}\leq 1$ and therefore $x^{-\frac1q}\geq 1$. Hence $\forall \ x\in [0,1]$ we have $f'(x)\geq 0$. Hence $f$ is increasing. Hence the maximum value $f$ attains on $[0,1]$ is $\frac1q$. Hence $$x^{\frac1p}\leq \frac{x}{p}+\frac1q$$Therefore $$uv\leq \frac{u^p}{p}+\frac{v^q}{q}$$\Qed
 	\item $A=\lt(\dps{\int_0^1f^p(x)dx}\rt)^{\frac1p}$ and $B=\lt(\dps{\int_0^1g^q(x)dx}\rt)^{\frac1q}$. Now using part (a) we get
 	\begin{align*}
-		 & \frac{f(x)}{A}\frac{ g(x) }{B}\leq \frac1p\lt(\frac{ f(x) }{A}\rt)^p+\frac1q\lt(\frac{ g(x) }{B}\rt)^q\\
-		 \iff & \int_0^1\frac{ f(x)g(x) }{AB}dx\leq \int_0^1\lt[\frac1p\lt(\frac{ f(x) }{A}\rt)^p+\frac1q\lt(\frac{ g(x) }{B}\rt)^q\rt]dx\\
-		 \iff & \frac{ \dps{\int_0^1f(x)g(x)} dx}{AB}\leq \frac1p\frac{\dps{\int_0^1 f^p(x) dx}}{A^p}+\frac1q\frac{\dps{\int_0^1 g^q(x)dx}}{B^q}\\ 
-		 \iff &\frac{ \dps{\int_0^1f(x)g(x)} }{AB}\leq \frac1p+\frac1q=1\\
-		 \iff & \int_0^1f(x)g(x)dx \leq AB\\
-		 \iff & \int_0^1f(x)g(x)dx \leq  \lt(\dps{\int_0^1f^p(x)dx}\rt)^{\frac1p}\lt(\dps{\int_0^1g^q(x)dx}\rt)^{\frac1q}
+		     & \frac{f(x)}{A}\frac{ g(x) }{B}\leq \frac1p\lt(\frac{ f(x) }{A}\rt)^p+\frac1q\lt(\frac{ g(x) }{B}\rt)^q                           \\
+		\iff & \int_0^1\frac{ f(x)g(x) }{AB}dx\leq \int_0^1\lt[\frac1p\lt(\frac{ f(x) }{A}\rt)^p+\frac1q\lt(\frac{ g(x) }{B}\rt)^q\rt]dx        \\
+		\iff & \frac{ \dps{\int_0^1f(x)g(x)} dx}{AB}\leq \frac1p\frac{\dps{\int_0^1 f^p(x) dx}}{A^p}+\frac1q\frac{\dps{\int_0^1 g^q(x)dx}}{B^q} \\
+		\iff & \frac{ \dps{\int_0^1f(x)g(x)} }{AB}\leq \frac1p+\frac1q=1                                                                        \\
+		\iff & \int_0^1f(x)g(x)dx \leq AB                                                                                                       \\
+		\iff & \int_0^1f(x)g(x)dx \leq  \lt(\dps{\int_0^1f^p(x)dx}\rt)^{\frac1p}\lt(\dps{\int_0^1g^q(x)dx}\rt)^{\frac1q}
 	\end{align*}\Qed
 	\item $A=\lt(\dps{\int_0^1|f(x)|^pdx}\rt)^{\frac1p}$ and $B=\lt(\dps{\int_0^1|g(x)|^qdx}\rt)^{\frac1q}$. Now using part (a) we get
 	\begin{align*}
-		& \frac{|f(x)|}{A}\frac{ |g(x)| }{B}\leq \frac1p\lt(\frac{ |f(x)| }{A}\rt)^p+\frac1q\lt(\frac{ |g(x)| }{B}\rt)^q\\
-		\iff & \int_0^1\frac{ |f(x)g(x)| }{AB}dx\leq \int_0^1\lt[\frac1p\lt(\frac{ |f(x)| }{A}\rt)^p+\frac1q\lt(\frac{ |g(x)| }{B}\rt)^q\rt]dx\\
-		\iff & \frac{ \dps{\int_0^1|f(x)g(x)|} dx}{AB}\leq \frac1p\frac{\dps{\int_0^1 |f(x)|^p dx}}{A^p}+\frac1q\frac{\dps{\int_0^1 |g(x)|^qdx}}{B^q}\\ 
-		\iff &\frac{ \dps{\int_0^1|f(x)g(x)|} }{AB}\leq \frac1p+\frac1q=1\\
-		\iff & \int_0^1|f(x)g(x)|dx \leq AB\\
+		     & \frac{|f(x)|}{A}\frac{ |g(x)| }{B}\leq \frac1p\lt(\frac{ |f(x)| }{A}\rt)^p+\frac1q\lt(\frac{ |g(x)| }{B}\rt)^q                         \\
+		\iff & \int_0^1\frac{ |f(x)g(x)| }{AB}dx\leq \int_0^1\lt[\frac1p\lt(\frac{ |f(x)| }{A}\rt)^p+\frac1q\lt(\frac{ |g(x)| }{B}\rt)^q\rt]dx        \\
+		\iff & \frac{ \dps{\int_0^1|f(x)g(x)|} dx}{AB}\leq \frac1p\frac{\dps{\int_0^1 |f(x)|^p dx}}{A^p}+\frac1q\frac{\dps{\int_0^1 |g(x)|^qdx}}{B^q} \\
+		\iff & \frac{ \dps{\int_0^1|f(x)g(x)|} }{AB}\leq \frac1p+\frac1q=1                                                                            \\
+		\iff & \int_0^1|f(x)g(x)|dx \leq AB                                                                                                           \\
 		\iff & \int_0^1|f(x)g(x)|dx \leq  \lt(\dps{\int_0^1|f(x)|^pdx}\rt)^{\frac1p}\lt(\dps{\int_0^1|g(x)|^qdx}\rt)^{\frac1q}
-		\end{align*}Using (\ref{p:p1}) we have $$\lt|\int_0^1f(x)g(x)dx \rt|\leq \int_0^1|f(x)g(x)|dx $$Hence $$\lt|\int_0^1f(x)g(x)dx \rt|\leq \lt(\dps{\int_0^1|f(x)|^pdx}\rt)^{\frac1p}\lt(\dps{\int_0^1|g(x)|^qdx}\rt)^{\frac1q}$$
+	\end{align*}Using (\ref{p:p1}) we have $$\lt|\int_0^1f(x)g(x)dx \rt|\leq \int_0^1|f(x)g(x)|dx $$Hence $$\lt|\int_0^1f(x)g(x)dx \rt|\leq \lt(\dps{\int_0^1|f(x)|^pdx}\rt)^{\frac1p}\lt(\dps{\int_0^1|g(x)|^qdx}\rt)^{\frac1q}$$
 	\end{enumerate}
 }
 
@@ -190,10 +190,10 @@ Consider the set $S=\{(x,y)|x,y \in \bbQ\} \subset I^2$. Is $S$ Jordan-measurabl
 
 \solve{
 	%Solution
-	$S$ is Jordan-Measurable iff $\partial S$ has measure content zero $\iff$ $\chi_S$ is integrable. Since $\bbQ\cap I$ is dense in $I$, $\bbQ^2\cap I^2=S $ is dense in $I^2$. Now We take the closed rectangle $R=I^2$ which covers the whole $S$. Let $P$ be any partition of $I^2$. Since $S$ is dense in $I^2$ for any rectangle $R_i$ we have $S\cap R_i\neq \phi$ and $(I^2\S)\cap R_i\neq \phi$. Hence $M_{R_i}(x)=1,m_{R_i}(x)=0$ for all $x\in R_i$. Hence $$U(P,R)-L(P,R)=\sum_i(M_{R_i}(x)-m_{R_i}(x))Vol(R_i)=\sum_i(1-0)Vol(R_i)=\sum_iVol(R_i)=Vol(R)=1$$For all partitions of $R$ we have this. Hence $\chi_S$ is not integrable. Hence $S$ is not Jordan-Measurable.
+	 Since $\bbQ\cap I$ is dense in $I$, $\bbQ^2\cap I^2=S $ is dense in $I^2$. FOr any closed rectangle $R$ in $I^2$ we can write $R=I_1\times I_2$ where $I_1,I_2$ are closed intervals in $I$. Then we will always have a point from $\bbQ\cap I$ and a point from $(\bbR\setminus\bbQ)\cap I$ in eaech of $I_1,I_2$. Now We take the closed rectangle $R=I^2$ which covers the whole $S$. Let $P$ be any partition of $I^2$. Since $S$ is dense in $I^2$ for any rectangle $R_i$ we have $S\cap R_i\neq \phi$ and $(I^2\setminus S)\cap R_i\neq \phi$. Hence $M_{R_i}(x)=1,m_{R_i}(x)=0$ for all $x\in R_i$. Hence $$U(P,R)-L(P,R)=\sum_i(M_{R_i}(x)-m_{R_i}(x))Vol(R_i)=\sum_i(1-0)Vol(R_i)=\sum_iVol(R_i)=Vol(R)=1$$for all partitions $P$ of $R$ we have this. Hence $\chi_S$ is not integrable. Therefore $\partial S$ does not have measure zero.  Hence $S$ is not Jordan-Measurable.
 	\begin{enumerate}[label=(\alph*)]
 		\item We just show that $\chi_S$ is not integrable.\Qed
-		\item Since $\chi_S $ integrable $\iff$ $\partial S$ is content zero and since $\chi_S$ is not integrable we have $\partial S$ is not content zero.
+		\item Since $\chi_S $ is not integrable $\iff$ $\partial S$ is content zero and since $\chi_S$ is not integrable we have $\partial S$ is not content zero.
 	\end{enumerate}
 }
 
@@ -214,6 +214,18 @@ S=\{(x,y)\}\setminus \underset{n=1,\dots}\bigcup \left\{\left(\frac{1}{n},y\righ
 
 \solve{
 	%Solution
+	Since $$S=\lt\{(x,y)\in I^2\rt\}    \setminus \lt\{\lt(\frac1n,y\rt) \mid y\in I,\ n\in \bbN\rt\}=\bigcup_{i=1}^{\infty} \lt(\frac{1}{i+1},\frac1i\rt)\times I$$Hence the   \begin{multline*}
+		\partial S=S\cup  \lt\{ \{x\}\times I,I\times \{x\}\mid x=0,1 \rt\}    =\lt\{\lt(\frac1n,y\rt) \mid y\in I,\ n\in \bbN\rt\}\cup  \lt\{ \{x\}\times I,I\times \{x\}\mid x=0,1 \rt\} \\
+		=  \lt\{ \{x\}\times I,I\times \{x\}\mid x=0,1 \rt\}\cup\lt[\bigcup_{i=1}^{\infty}\lt\{\frac1i\rt\}\times I\rt]
+	\end{multline*}  Now for any $\eps>0$ the set $\lt\{\frac1i\rt\}\times I$ can be covered by the rectangle $\lt[\frac1i-\frac{\eps}{2\times2^{i+1}},\frac1i+\frac{\eps}{2\times2^{i+1}}\rt]$ Hence $$Vol\lt( \lt\{\frac1i\rt\}\times I\rt)\leq Vol\lt(\lt[\frac1i-\frac{\eps}{2\times2^{i+1}},\frac1i+\frac{\eps}{2\times2^{i+1}}\rt]\times I\rt)=\frac{\eps}{2\times2^i}\times 1=\frac{\eps}{2\times2^i}$$Now $$\bigcup_{i=1}^{\infty}\lt\{\frac1i\rt\}\times I\subseteq \bigcup_{i=1}^{\infty}\lt[\frac1i-\frac{\eps}{2\times2^{i+1}},\frac1i+\frac{\eps}{2\times2^{i+1}}\rt]\times I$$Therefore \begin{align*}
+		Vol\lt(\bigcup_{i=1}^{\infty}\lt\{\frac1i\rt\}\times I\rt) & \leq Vol\lt(\bigcup_{i=1}^{\infty}\lt[\frac1i-\frac{\eps}{2\times2^{i+1}},\frac1i+\frac{\eps}{2\times2^{i+1}}\rt]\times I\rt)\\
+		& =\sum_{i=1}^{\infty} Vol\lt(\lt[\frac1i-\frac{\eps}{2\times2^{i+1}},\frac1i+\frac{\eps}{2\times2^{i+1}}\rt]\times I\rt)\\
+		& < \sum_{i=1}^{\infty}\frac{\eps}{2\times2^i}=\frac{\eps}{2}
+	\end{align*}Now each $\{0\}\times I,\{1\}\times I,I\times \{0\},I\times \{1\}$ can be covered with respectively  
+$ \lt[ -\frac{\eps}{8},\frac{\eps}{8} \rt]\times I  , \lt[1 -\frac{\eps}{8},1+\frac{\eps}{8} \rt]\times I,I\times \lt[ -\frac{\eps}{8},\frac{\eps}{8} \rt],I\times \lt[1 -\frac{\eps}{8},1+\frac{\eps}{8} \rt]$. Therefore there total volume is less than $\frac{\eps}{2}$. Hence $$Vol(\partial S)<\frac{\eps}{2}+\frac{\eps}{2}=\eps$$
+Hence $\partial S$ has measure zero. Therefore $S$ is Jordan-Measurable.
+
+We know that for any closed rectangle $R$ if $R^0$ is the interior of $R$ then $\int\chi_{R^0}=Vol(R)$ i.e. $Vol(R^0)=Vol(R)$. Now in $S$ for each $ \lt(\frac{1}{i+1},\frac1i\rt)\times I$ $$ \lt(\frac{1}{i+1},\frac1i\rt)\times (0,1) \subset  \lt(\frac{1}{i+1},\frac1i\rt)\times I\subset  \lt[\frac{1}{i+1},\frac1i\rt]\times I$$Since $$Vol\lt( \lt(\frac{1}{i+1},\frac1i\rt)\times (0,1) \rt)=Vol\lt(\lt[\frac{1}{i+1},\frac1i\rt]\times I\rt)=\frac{1}{i(i+1)}$$ we have $$Vol\lt(\lt(\frac{1}{i+1},\frac1i\rt)\times I\rt)=\frac1{i(i+1)}$$Hence $$Vol(S)=\sum_{i=1}^{\infty}Vol\lt(\lt(\frac{1}{i+1},\frac1i\rt)\times I\rt)=\sum_{i=1}^{\infty}\frac1{i(i+1)}=\sum_{i=1}^{\infty}\frac1{i}-\frac1{i+1}=1$$
 }
 
 
@@ -230,6 +242,11 @@ S=\{(x,y)\}\setminus \underset{n=1,\dots}\bigcup \left\{\left(\frac{1}{n},y\righ
 
 \solve{
 	%Solution
+	Since $f$ is continuous on a closed interval $f$ is uniformly continuous. Hence for every $\eps>0$, $\exs \ \delta>0$ such that for all $x,y\in I$, $|f(x)-f(y)|<\eps$ whenever $|x-y|<\delta$. Hence there exists $n\in \bbN$ such that $\frac1n\leq \delta<\frac1{n-1}$. Now we partition $I$ into $x_0,x_1,\ldots, x_{n-1},x_n$ where $x_i=\frac{i}{n}$ for $i=0,1,2,\ldots, n$. Now for any closed interval $x,y\in [x_i,x_{i+1}]$ we have $|f(x)-(y)|<\eps$ and therefore $M_{f_i}(x)-m_{f_i}(x)<\eps$. Now the set $\Gamma_f$ can be covered with the rectangles $R_i=\lt[m_{f_i}(x),M_{f_i}(x)\rt]\times [x_i,x_i+1]$ for $i=0,1,\ldots, n-1$. Now for each $R_i$ $$Vol(R_i)< \eps\times \frac1n=\frac{\eps}{n}$$Hence $$Vol(\Gamma_f)\leq \sum_{i=0}^{n-1}Vol(R_i)<\sum_{i=0}^{n-1}\frac{\eps}{n}=\eps$$Hence $\Gamma_f$ has content zero.\Qed
+	
+	Given that $f$ is integrable. Therefore for all $\eps>0$ there exists a partition $P$ of $I$ such that $$U(P,I)-L(P,I)<\eps$$Let the partition $P=\{x_0,x_1,\ldots,x_n\}$ where $x_0=0$ and $x_n=1$. Now $$U(P,I)-L(P,I)=\sum_{i=0}^{n-1}\lt(M_{f_i}(x)-m_{f_i}(x)\rt)(x_{i+1}-x_i)$$
+If We choose the rectangles $\{R_i\}$ such that $R_i=\lt[ m_{f_i}(x), M_{f_i}(x)\rt]\times [x_i,x_{i+1}]$ then $\Gamma_f$ is covered by the union of all rectangles $R_i$. Hence $Vol(\Gamma_f)\leq \sum\limits_{i=0}^{n-1}Vol(R_i)<\eps$. Hence $\Gamma_f$ has content zero.
+
 }
 
 
@@ -254,6 +271,9 @@ S=\{(x,y)\}\setminus \underset{n=1,\dots}\bigcup \left\{\left(\frac{1}{n},y\righ
 
 \solve{
 	%Solution
+	\begin{enumerate}[label=(\alph*)]
+		\item $\tilde{D}=D\chi_I$. Since both $D$ and $\chi_I$ are integrable $\tilde{D}$ is also integrable. Then $$\int_{\bbR}\tilde{D}=\int_{I}\tilde{D}=\int_{I}D\chi_I=\int_0^1(1-t)dt=\lt[t-\frac{t^2}{2}\rt]_0^1=1-\frac12=\frac12$$
+	\end{enumerate}
 }
 
 
