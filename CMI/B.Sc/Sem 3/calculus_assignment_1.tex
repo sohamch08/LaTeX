@@ -184,16 +184,16 @@ The following problems are (with minor changes) taken from Rudin.  Let $p,q$ be 
 }
 %Problem		
 Consider the set $S=\{(x,y)|x,y \in \bbQ\} \subset I^2$. Is $S$ Jordan-measurable? If yes, compute its area. If not \begin{enumerate}[label = (\alph*)]
-	\item  show directly that $\chi_S$ is not integrable \emph{and} \item  show that $\partial S$ does not have content zero.
+	\item  show directly that $\rchi_S$ is not integrable \emph{and} \item  show that $\partial S$ does not have content zero.
 \end{enumerate}
 \end{problem}
 
 \solve{
 	%Solution
-	 Since $\bbQ\cap I$ is dense in $I$, $\bbQ^2\cap I^2=S $ is dense in $I^2$. FOr any closed rectangle $R$ in $I^2$ we can write $R=I_1\times I_2$ where $I_1,I_2$ are closed intervals in $I$. Then we will always have a point from $\bbQ\cap I$ and a point from $(\bbR\setminus\bbQ)\cap I$ in eaech of $I_1,I_2$. Now We take the closed rectangle $R=I^2$ which covers the whole $S$. Let $P$ be any partition of $I^2$. Since $S$ is dense in $I^2$ for any rectangle $R_i$ we have $S\cap R_i\neq \phi$ and $(I^2\setminus S)\cap R_i\neq \phi$. Hence $M_{R_i}(x)=1,m_{R_i}(x)=0$ for all $x\in R_i$. Hence $$U(P,R)-L(P,R)=\sum_i(M_{R_i}(x)-m_{R_i}(x))Vol(R_i)=\sum_i(1-0)Vol(R_i)=\sum_iVol(R_i)=Vol(R)=1$$for all partitions $P$ of $R$ we have this. Hence $\chi_S$ is not integrable. Therefore $\partial S$ does not have measure zero.  Hence $S$ is not Jordan-Measurable.
+	 Since $\bbQ\cap I$ is dense in $I$, $\bbQ^2\cap I^2=S $ is dense in $I^2$. FOr any closed rectangle $R$ in $I^2$ we can write $R=I_1\times I_2$ where $I_1,I_2$ are closed intervals in $I$. Then we will always have a point from $\bbQ\cap I$ and a point from $(\bbR\setminus\bbQ)\cap I$ in eaech of $I_1,I_2$. Now We take the closed rectangle $R=I^2$ which covers the whole $S$. Let $P$ be any partition of $I^2$. Since $S$ is dense in $I^2$ for any rectangle $R_i$ we have $S\cap R_i\neq \phi$ and $(I^2\setminus S)\cap R_i\neq \phi$. Hence $M_{R_i}(x)=1,m_{R_i}(x)=0$ for all $x\in R_i$. Hence $$U(P,R)-L(P,R)=\sum_i(M_{R_i}(x)-m_{R_i}(x))Vol(R_i)=\sum_i(1-0)Vol(R_i)=\sum_iVol(R_i)=Vol(R)=1$$for all partitions $P$ of $R$ we have this. Hence $\rchi_S$ is not integrable. Therefore $\partial S$ does not have measure zero.  Hence $S$ is not Jordan-Measurable.
 	\begin{enumerate}[label=(\alph*)]
-		\item We just show that $\chi_S$ is not integrable.\Qed
-		\item Since $\chi_S $ is not integrable $\iff$ $\partial S$ is content zero and since $\chi_S$ is not integrable we have $\partial S$ is not content zero.
+		\item We just show that $\rchi_S$ is not integrable.\Qed
+		\item Since $\rchi_S $ is not integrable $\iff$ $\partial S$ is content zero and since $\rchi_S$ is not integrable we have $\partial S$ is not content zero.
 	\end{enumerate}
 }
 
@@ -214,7 +214,7 @@ S=\{(x,y)\}\setminus \underset{n=1,\dots}\bigcup \left\{\left(\frac{1}{n},y\righ
 
 \solve{
 	%Solution
-	Since $$S=\lt\{(x,y)\in I^2\rt\}    \setminus \lt\{\lt(\frac1n,y\rt) \mid y\in I,\ n\in \bbN\rt\}=\bigcup_{i=1}^{\infty} \lt(\frac{1}{i+1},\frac1i\rt)\times I$$Hence the   \begin{multline*}
+	Since $$S=\lt\{(x,y)\in I^2\rt\}    \setminus \lt\{\lt(\frac1n,y\rt) \mid y\in I,\ n\in \bbN\rt\}=\lt[\{0\}\times I \rt]\cup \lt[\bigcup_{i=1}^{\infty} \lt(\frac{1}{i+1},\frac1i\rt)\times I\rt]$$Hence the   \begin{multline*}
 		\partial S=S\cup  \lt\{ \{x\}\times I,I\times \{x\}\mid x=0,1 \rt\}    =\lt\{\lt(\frac1n,y\rt) \mid y\in I,\ n\in \bbN\rt\}\cup  \lt\{ \{x\}\times I,I\times \{x\}\mid x=0,1 \rt\} \\
 		=  \lt\{ \{x\}\times I,I\times \{x\}\mid x=0,1 \rt\}\cup\lt[\bigcup_{i=1}^{\infty}\lt\{\frac1i\rt\}\times I\rt]
 	\end{multline*}  Now for any $\eps>0$ the set $\lt\{\frac1i\rt\}\times I$ can be covered by the rectangle $\lt[\frac1i-\frac{\eps}{2\times2^{i+1}},\frac1i+\frac{\eps}{2\times2^{i+1}}\rt]$ Hence $$Vol\lt( \lt\{\frac1i\rt\}\times I\rt)\leq Vol\lt(\lt[\frac1i-\frac{\eps}{2\times2^{i+1}},\frac1i+\frac{\eps}{2\times2^{i+1}}\rt]\times I\rt)=\frac{\eps}{2\times2^i}\times 1=\frac{\eps}{2\times2^i}$$Now $$\bigcup_{i=1}^{\infty}\lt\{\frac1i\rt\}\times I\subseteq \bigcup_{i=1}^{\infty}\lt[\frac1i-\frac{\eps}{2\times2^{i+1}},\frac1i+\frac{\eps}{2\times2^{i+1}}\rt]\times I$$Therefore \begin{align*}
@@ -225,7 +225,7 @@ S=\{(x,y)\}\setminus \underset{n=1,\dots}\bigcup \left\{\left(\frac{1}{n},y\righ
 $ \lt[ -\frac{\eps}{8},\frac{\eps}{8} \rt]\times I  , \lt[1 -\frac{\eps}{8},1+\frac{\eps}{8} \rt]\times I,I\times \lt[ -\frac{\eps}{8},\frac{\eps}{8} \rt],I\times \lt[1 -\frac{\eps}{8},1+\frac{\eps}{8} \rt]$. Therefore there total volume is less than $\frac{\eps}{2}$. Hence $$Vol(\partial S)<\frac{\eps}{2}+\frac{\eps}{2}=\eps$$
 Hence $\partial S$ has measure zero. Therefore $S$ is Jordan-Measurable.
 
-We know that for any closed rectangle $R$ if $R^0$ is the interior of $R$ then $\int\chi_{R^0}=Vol(R)$ i.e. $Vol(R^0)=Vol(R)$. Now in $S$ for each $ \lt(\frac{1}{i+1},\frac1i\rt)\times I$ $$ \lt(\frac{1}{i+1},\frac1i\rt)\times (0,1) \subset  \lt(\frac{1}{i+1},\frac1i\rt)\times I\subset  \lt[\frac{1}{i+1},\frac1i\rt]\times I$$Since $$Vol\lt( \lt(\frac{1}{i+1},\frac1i\rt)\times (0,1) \rt)=Vol\lt(\lt[\frac{1}{i+1},\frac1i\rt]\times I\rt)=\frac{1}{i(i+1)}$$ we have $$Vol\lt(\lt(\frac{1}{i+1},\frac1i\rt)\times I\rt)=\frac1{i(i+1)}$$Hence $$Vol(S)=\sum_{i=1}^{\infty}Vol\lt(\lt(\frac{1}{i+1},\frac1i\rt)\times I\rt)=\sum_{i=1}^{\infty}\frac1{i(i+1)}=\sum_{i=1}^{\infty}\frac1{i}-\frac1{i+1}=1$$
+We know that for any closed rectangle $R$ if $R^0$ is the interior of $R$ then $\int\rchi_{R^0}=Vol(R)$ i.e. $Vol(R^0)=Vol(R)$. Now in $S$ for each $ \lt(\frac{1}{i+1},\frac1i\rt)\times I$ $$ \lt(\frac{1}{i+1},\frac1i\rt)\times (0,1) \subset  \lt(\frac{1}{i+1},\frac1i\rt)\times I\subset  \lt[\frac{1}{i+1},\frac1i\rt]\times I$$Since $$Vol\lt( \lt(\frac{1}{i+1},\frac1i\rt)\times (0,1) \rt)=Vol\lt(\lt[\frac{1}{i+1},\frac1i\rt]\times I\rt)=\frac{1}{i(i+1)}$$ we have $$Vol\lt(\lt(\frac{1}{i+1},\frac1i\rt)\times I\rt)=\frac1{i(i+1)}$$Now since the set $\{0\}\times I$ is measure zero, $Vol(\{0\}\times I)=0$. Hence $$Vol(S)=\sum_{i=1}^{\infty}Vol\lt(\lt(\frac{1}{i+1},\frac1i\rt)\times I\rt)=\sum_{i=1}^{\infty}\frac1{i(i+1)}=\sum_{i=1}^{\infty}\frac1{i}-\frac1{i+1}=1$$
 }
 
 
@@ -248,7 +248,7 @@ We know that for any closed rectangle $R$ if $R^0$ is the interior of $R$ then $
 If We choose the rectangles $\{R_i\}$ such that $R_i=\lt[ m_{f_i}(x), M_{f_i}(x)\rt]\times [x_i,x_{i+1}]$ then $\Gamma_f$ is covered by the union of all rectangles $R_i$. Hence $Vol(\Gamma_f)\leq \sum\limits_{i=0}^{n-1}Vol(R_i)<\eps$. Hence $\Gamma_f$ has content zero.
 
 }
-
+\pagebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Problem 7
@@ -272,7 +272,17 @@ If We choose the rectangles $\{R_i\}$ such that $R_i=\lt[ m_{f_i}(x), M_{f_i}(x)
 \solve{
 	%Solution
 	\begin{enumerate}[label=(\alph*)]
-		\item $\tilde{D}=D\chi_I$. Since both $D$ and $\chi_I$ are integrable $\tilde{D}$ is also integrable. Then $$\int_{\bbR}\tilde{D}=\int_{I}\tilde{D}=\int_{I}D\chi_I=\int_0^1(1-t)dt=\lt[t-\frac{t^2}{2}\rt]_0^1=1-\frac12=\frac12$$
+		\item $\tilde{D}=D\rchi_I$. Since both $D$ and $\rchi_I$ are integrable $\tilde{D}$ is also integrable. Then $$\int_{\bbR}\tilde{D}=\int_{I}\tilde{D}=\int_{I}D\rchi_I=\int_0^1(1-t)dt=\lt[t-\frac{t^2}{2}\rt]_0^1=1-\frac12=\frac12$$\Qed
+		\item $D(x)D(xy)$  is continous function on a closed interval $I^2$. Hence $D(x)D(xy)$ is integrable. Now By Fubini's Theorem where $$\mcL(x)=\underline{\int_I}D(x)D(xy)dy,\qquad \mcU(x)=\overline{\int_I}D(x)D(xy)dy$$ we have $$\int_{I\times I} D(x)D(xy)dxdy=\int_I\mcL(x)dx=\int_I\mcU(x)dx$$ Since $D(x)D(xy)$ is continuous we have $\mcL(x)=\mcU(x)=\mcK(x)$. Hence \begin{multline*}
+			\mcK(x)=\int_ID(x)D(xy)dy=\int_0^1(1-x)(1-xy)dy=	(1-x)\int_0^1(1-xy)dy\\
+			=(1-x)\lt[1-x\frac{y^2}{2}\rt]_0^1=(1-x)\lt(1-\frac{x}{2}\rt)
+		\end{multline*}
+	Now \begin{align*}
+		 \int_I\mcK(x)dx=\int_0^1(1-x)\lt(1-\frac{x}{2}\rt)dx
+		=  \int_0^1\lt(1-\frac{3x}{2}+\frac{x^2}{2}\rt)dx
+		= \lt[ 1-3\frac{x^2}{4}+\frac{x^3}{6}\rt]_0^1
+		= \frac5{12}
+	\end{align*}
 	\end{enumerate}
 }
 
