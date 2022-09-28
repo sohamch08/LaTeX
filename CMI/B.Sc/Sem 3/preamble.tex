@@ -422,6 +422,40 @@
 	#1,
 }
 
+\tcbuselibrary{skins}
+\usetikzlibrary{shadings}
+\newcounter{example}
+\colorlet{colexam}{red!75!black}
+\tcbset{
+	base/.style={
+		empty,
+		frame engine=path,
+		colframe=yellow!10,
+		sharp corners,
+		title={Example \thetcbcounter},
+		attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+		boxed title style={size=minimal, top=4pt, left=4pt},
+		coltitle=colexam,fonttitle=\large\bfseries\sffamily,
+	}
+}
+\newtcolorbox[use counter=example]{myexamplec}{%
+	base,
+	drop fuzzy shadow,
+	coltitle=black,
+	borderline west={3pt}{-3pt}{teal!50},
+	attach boxed title to top left={xshift=-3mm, yshift*=-\tcboxedtitleheight/2},
+	boxed title style={right=3pt, bottom=3pt, overlay={
+			\draw[draw=teal!70, fill=teal!70, line join=round]
+			(frame.south west) -- (frame.north west) -- (frame.north east) --
+			(frame.south east) -- ++(-2pt, 0) -- ++(-2pt, -4pt) --
+			++(-2pt, 4pt) -- cycle;
+	}},
+	overlay unbroken={
+		\scoped \shade[left color=teal!10!black, right color=teal]
+		([yshift=-0.2pt]title.south west) -- ([xshift=-1.5pt, yshift=-0.2pt]title.south-|frame.west) -- ++(0, -6pt) -- cycle;
+	},
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
