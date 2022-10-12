@@ -1,2 +1,0 @@
-\contentsline {chapter}{\numberline {1}Lecture 1}{2}{chapter.1}%
-\contentsfinish 
