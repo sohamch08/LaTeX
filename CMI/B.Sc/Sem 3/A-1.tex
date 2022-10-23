@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+
+
+
+\include{newmacros}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 1. Page 37 prop 6
+% 3. page 57 ex prob 5.19
+
+
+\title{\textbf{Fulton Chapter 3}\\ Intersection Numbers}
+\date{}
+\author{}
+
+
+\begin{document}
+\maketitle
+%\title{\textbf{Fulton chapter 3}\\ Property 6}
+%\maketitle
+\textsf{\noindent \large\textbf{Aritra Kundu} \hfill \textbf{Problem Set - 1}\\
+	\textbf{Email}: \href{aritra@cmi.ac.in}{aritra@cmi.ac.in} \hfill \textbf{Topic}: Algebraic Geometry\\
+	\noindent\rule{\textwidth}{2.8pt}}
+\begin{problem}{Fulton Chapter 3 Property 6}{}
+	If $F=\prod F_i^{r_i}$, and $G=\prod G_j^{s_j}$, then $I(P, F \cap G)=\sum\limits_{i, j} r_i s_j I\left(P, F_i \cap G_j\right)$
+\end{problem}
+
+\solve{
+	It is enough to show that $$I(P,F\cap GH)=I(P,F\cap G)+I(P,F\cap H)$$if one of $I(P,F\cap G)$ or $I(P,F\cap H)$ is infinite then $F$ has a common component with $G$ or $H$. So, $F$ has a common component with $GH$ so, $I(P,F\cap GH)=\infty$
+\setlength{\parindent}{1cm}
+
+Assume that both of $I(P,F\cap G)$ or $I(P,F\cap H)$ is finite.$$F,GH\in (F,G)\implies (F,GH)\subseteq (F,G)\qquad O=O_P(A^2)$$
+so, the natural map $\phi$ from $O/(F,GH)$ to $O/(F,G)$ is onto $ \psi:O/(F,H)\to O/(F,GH)$ s.t. $\psi(\overline{z})=\overline{Gz}$. 
+So clearly $\psi$ is a $k-$ linear map.
+
+Now $$\forall\ \overline{z}\in O/(F,H)\phi(\psi(\overline{z}))=\phi(\overline{Gz})=0$$ in $O/(F,G)$ [As $Gz\in (G)\subseteq (F,G)$]. So, $\im(\psi)\subseteq ker(\phi)$
+
+If $$\overline{z}\in O/(F,GH)\in ker (\phi)\implies z\in (F,G)\implies z=aF+bG$$
+so, $\psi(\overline{b})=\overline{bG}=\overline{z}$ so, im$(\psi)= ker(\phi)$. Let $\psi(\overline{z})=0$. So, $$Gz\in(F,GH)\implies Gz=a_1F+a_2GH$$
+Now $\exists\ D\in k[x,y]$ s.t. $$Dz=c;Da_1=b_1;Da_2=b_2$$ where $c,b_1,b_2\in k[x,y]$ and $D(P)\neq 0$. So, 
+\begin{multline*}
+Gc=b_1F+b_2GH\implies G(b_2H-c)=b_1F\implies F|(b_2H-c)\\
+\implies b_2H-c=Fr\quad [\text{As } F,G\text{ has no common factor}]
+\end{multline*}
+So, $z=a_2H-(r/D)F$ as $D(P)\neq 0\implies D$ is an unit in $O$. So, $z\in (F,H)$. So, $\psi $ is one-one. $$0\longrightarrow O/(F,H)\xrightarrow{\psi}O/(F,GH)\xrightarrow{\phi}O/(F,G)\longrightarrow0$$
+this sequence is exact. So, $$dim_k(O/(F,GH)=dim_k(O/(F,G))+dim_k(O/(F,H))$$So,$$(P,F\cap GH)=I(P,F\cap G)+I(P,F\cap H)$$
+}\
+
+
+
+
+
+
+
+\end{document}

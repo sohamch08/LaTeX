@@ -1,0 +1,406 @@
+\documentclass[11pt]{amsart}
+
+
+\usepackage[all]{xy}
+\usepackage{graphics}
+\usepackage{enumitem}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+\usepackage{showkeys}
+\usepackage{amsfonts,latexsym,amssymb}
+\usepackage{parskip}
+\usepackage{MnSymbol}
+\usepackage{hyperref}
+
+\usepackage{mdwlist}
+\usepackage{tgbonum}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\cA}{{\mathcal{A}}}   \newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cC}{{\mathcal{C}}}   \newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}   \newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}   \newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}   \newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}   \newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}   \newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cO}{{\mathcal{O}}}   \newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}   \newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}   \newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}   \newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}   \newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}   \newcommand{\cZ}{{\mathcal{Z}}}
+
+\newcommand{\hcP}{\hat{\mathcal{P}}}
+\newcommand{\hcQ}{\hat{\mathcal{Q}}}
+\newcommand{\hcR}{\hat{\mathcal{R}}}
+\newcommand{\hcL}{\hat{\mathcal{L}}}
+\newcommand{\hcM}{\hat{\mathcal{M}}} \newcommand{\hphi}{\hat{\phi}}
+\newcommand{\bbk}{\mathbb{k}}   \newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfnu}{\mathbf{nu}}  \newcommand{\hXX}{\hat{\mathbb{X}}}
+\newcommand{\bJ}{\mathbf{J}}
+
+\newcommand{\hD}{{\hat{D}}}   \newcommand{\hE}{{\hat{E}}}
+\newcommand{\hF}{{\hat{F}}}   \newcommand{\hH}{{\hat{H}}}
+\newcommand{\hY}{{\hat{Y}}}   \newcommand{\hP}{{\hat{P}}}
+\newcommand{\hT}{{\hat{T}}}   \newcommand{\hQ}{{\hat{Q}}}
+\newcommand{\hq}{{\hat{q}}}
+\newcommand{\hr}{{\hat{r}}}
+\newcommand{\hu}{{\hat{u}}}
+\newcommand{\hv}{{\hat{v}}}
+\newcommand{\hf}{{\hat{f}}}
+\newcommand{\hg}{{\hat{g}}}
+\newcommand{\hw}{{\hat{w}}}
+\newcommand{\hS}{{\hat{S}}}
+\newcommand{\hV}{{\hat{V}}}
+\newcommand{\hG}{{\hat{G}}}
+\newcommand{\hmu}{{\hat{\mu}}}
+\newcommand {\y}{\V{y}}
+\newcommand {\V}[1]{\mbox{\boldmath$#1$}}
+\newcommand{\iExp}{{\mathrm{iExp\,}}}
+
+\newcommand{\htheta}{{\hat{\theta}}}
+
+
+
+\newcommand{\htu}{{\hat{\tilde{u}}}}
+
+
+\newcommand{\hTR}{{\widehat{TR}}}
+\newcommand{\tsigma}{{\tilde{\sigma}}}
+\newcommand{\tphi}{{\tilde{\phi}}}
+\newcommand{\tpsi}{{\tilde{\psi}}}
+\newcommand{\tzeta}{{\tilde{\zeta}}}
+\newcommand{\tdelta}{{\tilde{\delta}}}
+\newcommand{\tgamma}{{\tilde{\gamma}}}
+\newcommand{\tGamma}{{\tilde{\Gamma}}}
+\newcommand{\tlog}{{\widetilde{\log}}}
+
+
+\newcommand{\txi}{{\tilde{\xi}}}
+\newcommand{\tomega}{{\tilde{\omega}}}
+\newcommand{\tH}{{\tilde{H}}}
+\newcommand{\tI}{{\tilde{I}}}
+
+\newcommand{\tX}{{\tilde{X}}}
+\newcommand{\tV}{{\tilde{V}}}
+\newcommand{\tz}{{\tilde{z}}}
+\newcommand{\ty}{{\tilde{y}}}
+\newcommand{\tx}{{\tilde{x}}}
+\newcommand{\te}{{\tilde{e}}}
+\newcommand{\tf}{{\tilde{f}}}
+\newcommand{\tg}{{\tilde{g}}}
+\newcommand{\tu}{{\tilde{u}}}
+\newcommand{\tm}{{\tilde{m}}}
+\newcommand{\tn}{{\tilde{n}}}
+\newcommand{\tilt}{{\tilde{t}}}
+\newcommand{\tT}{{\tilde{T}}}
+\newcommand{\tL}{{\tilde{L}}}
+\newcommand{\tQ}{{\tilde{Q}}}
+\newcommand{\tB}{{\tilde{B}}}
+\newcommand{\tC}{{\tilde{C}}}
+\newcommand{\tD}{{\tilde{D}}}
+\newcommand{\tU}{{\tilde{U}}}
+\newcommand{\utL}{{\underline{\tilde{L}}}}
+\newcommand{\tF}{{\tilde{F}}}\newcommand{\tilh}{{\tilde{h}}}
+\newcommand{\tk}{{\tilde{k}}}
+\newcommand{\tv}{{\tilde{v}}}
+\newcommand{\tw}{{\tilde{w}}}
+\newcommand{\bx}{\mathbf x}
+\newcommand{\bz}{\mathbf z}
+\newcommand{\bu}{\mathbf u}
+\newcommand{\bv}{\mathbf v}
+\newcommand{\bt}{\mathbf t}
+\newcommand{\bi}{\mathbf i}
+\newcommand{\bj}{\mathbf j}
+\newcommand{\bL}{\mathbf L}
+\newcommand{\bN}{\mathbf N}
+\newcommand{\bM}{\mathbf M}
+\newcommand{\bB}{\mathbf B}
+\newcommand{\bA}{\mathbf A}
+\newcommand{\tbz}{{\tilde{\mathbf z}}}
+\newcommand{\hbx}{\hat{\mathbf x}}
+\newcommand{\tcO}{{\tilde{\mathcal{O}}}}
+\newcommand{\tcC}{{\tilde{\mathcal{C}}}}
+\newcommand{\ocC}{{\overline{\mathcal{C}}}}
+\newcommand{\tcR}{{\tilde{\mathcal{R}}}}
+\newcommand{\tcA}{{\tilde{\mathcal{A}}}}
+
+
+
+
+
+
+
+
+\newcommand{\uL}{\underline L}
+\newcommand{\uM}{\underline M}
+\newcommand{\uE}{\underline E}
+
+\newcommand{\chA}{\check A}
+\newcommand{\chE}{\check E}
+\newcommand{\chL}{\check L}
+\newcommand{\chV}{\check V}
+\newcommand{\chv}{\check v}
+\newcommand{\chw}{\check w}
+\newcommand{\chW}{\check W}
+\newcommand{\chM}{\check M}
+\newcommand{\chQ}{\check Q}
+\newcommand{\chsigma}{\check\sigma}
+
+
+
+\newcommand{\uchL}{\underline{\check L}}
+
+
+
+
+
+
+\newcommand{\BA}{\mathbb{A}}  \newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}}  \newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}  \newcommand{\HH}{\mathbb{H}}
+\newcommand{\JJ}{\mathbb{J}}  \newcommand{\LL}{\mathbb{L}}
+\newcommand{\NN}{\mathbb{N}}  \newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}  \newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}  \newcommand{\VV}{\mathbb{V}}
+\newcommand{\XX}{\mathbb{X}}  \newcommand{\WW}{\mathbb{W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\FM}{\mathfrak{M}}
+\newcommand{\fm}{\mathfrak{m}}
+
+
+\newcommand{\isom}{\cong}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Grass}{\operatorname{Grass}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Quot}{\operatorname{Quot}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\NS}{\operatorname{NS}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\id}{\operatorname{I}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\reg}{\operatorname{reg}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\del}{{\partial}}
+\newcommand{\delb}{{\overline\partial}}
+
+\newcommand{\oX}{{\overline X}}
+\newcommand{\oD}{{\overline D}}
+\newcommand{\ox}{{\overline x}}
+\newcommand{\ow}{{\overline w}}
+\newcommand{\oz}{{\overline z}}
+\newcommand{\oh}{{\overline{h}}}
+\newcommand{\oalpha}{{\overline \alpha}}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+
+
+
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\pardeg}{\operatorname{par-deg}}
+\newcommand{\ad}{{ad\,}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\codim}{\operatorname{codim}}
+
+\hyphenation{pa-ra-bo-lic}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbF}{\mathbb{F}}
+
+
+
+
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{conjecture}[proposition]{Conjecture}
+\newtheorem{corollary}[proposition]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{notation}[proposition]{Notation}
+\newtheorem{example}[proposition]{Example}
+\newtheorem{ex}{Exercise}[section]
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{\textbf{some problems from chapter 3 section 3}\\ Intersection Numbers}
+\maketitle
+problem 3.18\\
+case 1.\\
+$F$ is irreducible.\\
+As $P$ is a simple point of $F$ so $O_P(F)$ is a D.V.R.and the uniformizing parameter  of $M_P(F)$ is a line passes through $P$ but not the tangent at $P$.\\
+let the line is $L$
+let $O_P^F(G)=n$\\
+so,$g=G+(F)=L^n u$[$u$ is an unit in $O_P(F)$]\\
+so, by property 7 $I(P,F\cap G)=I(P,F\cap g)$\\
+by property 6,$I(P,F\cap g)=I(P,F\cap L^n u)=n I(P,F\cap L)+I(P,F\cap u)$\\
+by property 2, $I(P,F\cap u)=0$[as $u$ is an unit in $O_P(F)\implies u(P)\neq 0$ ]\\
+now tangent of $L$ at $P$ is $L$.\\
+so, $F$ and $L$ do not share their tangents at $P$\\
+by property 5, $I(P,F\cap L)=1$[as $P$ is a simple point of $F\implies m_P(F)=1$]\\
+so, $I(P,F\cap G)=I(P,F\cap g)=n=O_P^F(G)$\\
+case 2.\\
+$F$ is reducible.\\
+let $F=\Pi_{i=1}^n F_i^{a_i}$\\
+$P$ is a simple point of $F\implies m_P(F)=\sum_{i=1}^n a_i m_P(F_i)=1\implies$ for some $i,m_P(F_i)=1;a_i=1;m_P(F_j)=0\forall i\neq j\implies F_i$ is the only irreducible component passes through P.\\
+so,$ O_P^F(G)=O_P^{F_i}(G)=I(P,F_i\cap G)$[by case 1]\\
+now $I(P,F\cap G)=\sum_{j=1}^n a_j I(P,F_j\cap G)=I(P,F_i\cap G)$[as $\forall i\neq j F_j$ does not pass through $P$ and $a_i=1$]\\\\
+problem 3.20\\
+let $I(P,F\cap G)=m;I(P,F\cap H)=n$\\
+by the previous problem we know that $m=O_P^F(G);n=O_P^F(H)$\\
+let $L$ be a line which passes through P but not the tangent of $F$ at $P$\\
+so, $g=L^mu_1;h=L^nu_2$\\
+WLOG $m\geq n$\\
+so, $g+h=L^n(L^{m-n}u_1+u_2)$\\
+so, $O_P^F(G+H)\geq n$\\
+let $P=(0,0);F=x^2+y^2;H=x-y;G=x+y$\\
+clearly $I(P,F\cap G)=I(P,F\cap H)=\infty$\\
+but $G+H=2x$ and $ I(P,2x\cap x^2-y^2)=I(P,x\cap x^2-y^2)=2I(P,x\cap y)=2$\\
+so the proposition will be failed if $P$ is not a simple point of $F$.\\\\
+problem 3.21\\
+let $P\in L\cap F$\\
+therefore, $P=(a+kb,c+kd)$ for some $k\in K$\\
+$F(a+kb,c+kd)=0\implies G(k)=0\implies k=\lambda_i$ for some $i$\\
+so, $P=(a+\lambda_ib,c+\lambda_id)$\\
+and for all $\lambda_i,(a+\lambda_ib,c+\lambda_id)\in L\cap F$\\
+so, there is an one one correspondence between $\lambda_i$ and $P_i$\\
+and $P_i=(a+\lambda_ib,c+\lambda_id)$\\
+now $L$ is not a component of $F\implies I(P_i,L\cap F)=m_{P_i}(L)m_{P_i}(F)=m_P(F)$[as the tangent at $P_i$ of $L_i$ is $L_i$]\\
+so, $m_{P_i}(F(X,Y))=m_P(F(X+a+\lambda_ib,Y+c+\lambda_id))$[where $P=(0,0)$]\\
+now either of $b,d$ is non zero [as $L$ is a line]\\
+let $b\neq 0$\\
+let $Y=dX/b$\\
+$F(X+a+\lambda_ib,dX/b+c+\lambda_id)=F(a+b(\lambda_i+X/b),c+d(\lambda_i+X/b))=G(\lambda_i+X/b)$\\
+now the lowest degree of $X$ in $G(X/b+\lambda_i)=m_{P_i}(F)$[as in the least degree homogeneous term if we put $Y=dX/b$ then the degree will be same]\\
+now $G(X/b+\lambda_i)=(X/b)^{e_i}\Pi_{i\neq j}(X/b+\lambda_i-\lambda_j)^{e_j}$\\
+so, the least degree is $e_i\implies m_{P_i}(F)=e_i$[as $\lambda_i\neq \lambda_j\forall i\neq j$]\\
+so $\sum_{i}I(P_i,F\cap L_i)\leq deg (F)$ [as $deg G\leq deg F]$\\\\
+problem 3.23\\
+suppose $P=(0,0),L=Y$.$P$ is a hypercusp if and only if $\frac{\partial F}{{\partial^n X}}(P) \neq 0$ where $n=m_P(F)+1$\\
+let $F=YG+H(X)$ clearly $H(0)=0$[as $F(0,0)=0$]\\
+now $F=Y^{n-1}+F_1$ where $m_P(F_1)\geq n$[as $Y$ is the only tangent at $P$]\\
+so,$H(x)=X^k(H_1(X)$ where $H_1(0)\neq 0$ and $k\geq n$\\
+$\frac{\partial F}{{\partial^n X}}(P) \neq 0\iff$ the coefficient of $X^n$ is non zero.\\
+now $I(P,F\cap Y)=n\iff I(P,Y\cap H(X))=n\iff I(P,Y\cap X^k)=n\iff k=n\iff$the coefficient of $X^n$ is non zero.[as $H_1(0)\neq 0$]\\
+2nd part:
+I will show that $F$ has only one irreducible component passing through $P$\\
+let assume $P=(0,0)$\\
+let $F=\Pi_{i=1}^n F_i^{a_i}$ where $F_i$'s are irreducible \\
+WLOG assume that  $F_1,F_2..F_k$ passes through $P$\\
+let $L$ be the tangent of $F$ at $P$\\
+so, $L$ be the only tangent of $F_i$ at $P$[as if there is a tangent other than $L$ then it will be a tangent of $F$ as well because the least degree form of $F$ is the product of least degree form of $F_i$]\\
+so, $I(P,F\cap L)=\sum_{i=1}^k a_i I(P,F_i\cap L)$\\
+$ I(P,F_i\cap L)>m_P(F_i)m_P(L)\implies  I(P,F_i\cap L)\geq b_i+1$[where $b_i=m_P(F_i)$]\\
+$ I(P,F\cap L)=\sum_{i=1}^k a_i b_i$\\
+$ I(P,F\cap L)=m_P(F)+1=\sum_{i=1}^k a_i b_i+1\geq\sum_{i=1}^k a_i(b_i+1)$\\
+so, $\sum_{i=1}^k a_i \leq 1$\\
+but as $F$ passes through $P\implies$ at least one $a_i>0\implies \sum_{i=1}^k a_i\geq 1$\\
+so, $\sum_{i=1}^k a_i=1\implies a_j=1;a_i=0\forall i\neq j$\\
+so, $F$ has only one irreducible component passing through $P$\\\\
+problem 3.24\\
+clearly $M_P(F)=M=(x,y)$ where $x=X+(F),y=Y+(F)$ and both are non zero [as $m_P(F)>1]$\\
+(a)\\
+let $f:$forms of degree 1 in $k[X,Y]$=V $\to M/M^2$\\
+s.t. $f(aX+bY)=\overline{ax+by}$\\
+clearly $V$ is a vector space of dimension 2 with bases ${X,Y}$ and $F$ is a homomorphism of two k- vector space.\\
+let $aX+bY\in ker(f)$\\
+so, $ax+by\in M^2\implies aX+bY+G\in (F)$ where $m_p(G)>1$\\
+$\implies m_p(F)=1$ which is not possible.\\
+so, $a=b=0\implies f$ is injective .\\
+by problem 3.13 $M/M^2$ is a vector space of dimension 2\\
+so, $f$ is an isomorphism of vector space [by rank nullity theorem].\\
+(b)\\
+$I(P,F\cap L_i)>m_P(F)m_P(L_i)=m$[as $F$ and $L_i$ shares tangent at $P$]\\
+now if $\overline{l_i}=\lambda \overline{l_j}\implies l_i-\lambda l_j\in M^2\implies L_i-L_j+G\in (F)$\\
+but $M_P(F)>1\implies L_i=\lambda L_j$\\
+which is not possible as $L_i$ are distinct tangents at $P$\\
+(c)\\
+$\overline{g_i}\neq 0\implies m_P(G_i)\leq 1$\\
+if $m_P(G_i)=0\implies I(P,F\cap G)=0$ which is not possible.\\
+so, $m_P(G_i)=1\implies G_i=L_i+H_i,m_P(H_i)>1$\\
+so, $G_i$ has only i tangent $L_i$ at $P$ and $I(P,F\cap G_i)>m_P(F)m_P(G_i)\implies F and G_i$ share tangent at $P$\\
+as $\overline{g_i}\neq \lambda \overline{g_j}\implies L_i, L_j$ are distinct [as $\overline{g_i}=\overline{l_i}$]\\
+so, $F$ has m distinct tangents at $P$ and $m_P(F)=m\implies P$ is an ordinary point.\\
+(d)\\
+$dim_kO_P(F)/(g_i)=dim_kO_P(A^2)/(F,G)=I(P,F\cap G)$\\
+so, by (c) if $g_1,g_2..g_m\in M$s.t. $\overline{g_i}\neq \overline{g_j}\forall i\neq j,\lambda \in k k$ and $dim_kO_P(F)/(g_i)=I(P,F\cap G_i)>m\implies P$ is an ordinary point.\\
+if $P$ is an ordinary point take $G_i=L_i$where $L_i$'s are distinct tangent at $P$ $\implies\overline{l_i}\neq \lambda\overline{l_j}\forall i\neq j,\lambda\in k$ and $dim_kO_P(F)/(l_i)>m$\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

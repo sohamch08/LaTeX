@@ -1,0 +1,290 @@
+
+\usepackage[all]{xy}
+\usepackage{graphics}
+\usepackage{enumitem}
+\usepackage{epsfig}
+\usepackage{amsmath,amsthm}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+%\usepackage{showkeys}
+\usepackage{amsfonts,latexsym,amssymb, fullpage, mathtools}
+\usepackage{parskip}
+%\usepackage{MnSymbol}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage{mdwlist}
+%\usepackage{tgbonum}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\cA}{{\mathcal{A}}}   \newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cC}{{\mathcal{C}}}   \newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}   \newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}   \newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}   \newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}   \newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}   \newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cO}{{\mathcal{O}}}   \newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}   \newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}   \newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}   \newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}   \newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}   \newcommand{\cZ}{{\mathcal{Z}}}
+
+\newcommand{\hcP}{\hat{\mathcal{P}}}
+\newcommand{\hcQ}{\hat{\mathcal{Q}}}
+\newcommand{\hcR}{\hat{\mathcal{R}}}
+\newcommand{\hcL}{\hat{\mathcal{L}}}
+\newcommand{\hcM}{\hat{\mathcal{M}}} \newcommand{\hphi}{\hat{\phi}}
+\newcommand{\bbk}{\mathbb{k}}   \newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfnu}{\mathbf{nu}}  \newcommand{\hXX}{\hat{\mathbb{X}}}
+\newcommand{\bJ}{\mathbf{J}}
+
+\newcommand{\hD}{{\hat{D}}}   \newcommand{\hE}{{\hat{E}}}
+\newcommand{\hF}{{\hat{F}}}   \newcommand{\hH}{{\hat{H}}}
+\newcommand{\hY}{{\hat{Y}}}   \newcommand{\hP}{{\hat{P}}}
+\newcommand{\hT}{{\hat{T}}}   \newcommand{\hQ}{{\hat{Q}}}
+\newcommand{\hq}{{\hat{q}}}
+\newcommand{\hr}{{\hat{r}}}
+\newcommand{\hu}{{\hat{u}}}
+\newcommand{\hv}{{\hat{v}}}
+\newcommand{\hf}{{\hat{f}}}
+\newcommand{\hg}{{\hat{g}}}
+\newcommand{\hw}{{\hat{w}}}
+\newcommand{\hS}{{\hat{S}}}
+\newcommand{\hV}{{\hat{V}}}
+\newcommand{\hG}{{\hat{G}}}
+\newcommand{\hmu}{{\hat{\mu}}}
+\newcommand {\y}{\V{y}}
+\newcommand {\V}[1]{\mbox{\boldmath$#1$}}
+\newcommand{\iExp}{{\mathrm{iExp\,}}}
+
+\newcommand{\htheta}{{\hat{\theta}}}
+
+
+
+\newcommand{\htu}{{\hat{\tilde{u}}}}
+
+
+\newcommand{\hTR}{{\widehat{TR}}}
+\newcommand{\tsigma}{{\tilde{\sigma}}}
+\newcommand{\tphi}{{\tilde{\phi}}}
+\newcommand{\tpsi}{{\tilde{\psi}}}
+\newcommand{\tzeta}{{\tilde{\zeta}}}
+\newcommand{\tdelta}{{\tilde{\delta}}}
+\newcommand{\tgamma}{{\tilde{\gamma}}}
+\newcommand{\tGamma}{{\tilde{\Gamma}}}
+\newcommand{\tlog}{{\widetilde{\log}}}
+
+
+\newcommand{\txi}{{\tilde{\xi}}}
+\newcommand{\tomega}{{\tilde{\omega}}}
+\newcommand{\tH}{{\tilde{H}}}
+\newcommand{\tI}{{\tilde{I}}}
+
+\newcommand{\tX}{{\tilde{X}}}
+\newcommand{\tV}{{\tilde{V}}}
+\newcommand{\tz}{{\tilde{z}}}
+\newcommand{\ty}{{\tilde{y}}}
+\newcommand{\tx}{{\tilde{x}}}
+\newcommand{\te}{{\tilde{e}}}
+\newcommand{\tf}{{\tilde{f}}}
+\newcommand{\tg}{{\tilde{g}}}
+\newcommand{\tu}{{\tilde{u}}}
+\newcommand{\tm}{{\tilde{m}}}
+\newcommand{\tn}{{\tilde{n}}}
+\newcommand{\tilt}{{\tilde{t}}}
+\newcommand{\tT}{{\tilde{T}}}
+\newcommand{\tL}{{\tilde{L}}}
+\newcommand{\tQ}{{\tilde{Q}}}
+\newcommand{\tB}{{\tilde{B}}}
+\newcommand{\tC}{{\tilde{C}}}
+\newcommand{\tD}{{\tilde{D}}}
+\newcommand{\tU}{{\tilde{U}}}
+\newcommand{\utL}{{\underline{\tilde{L}}}}
+\newcommand{\tF}{{\tilde{F}}}\newcommand{\tilh}{{\tilde{h}}}
+\newcommand{\tk}{{\tilde{k}}}
+\newcommand{\tv}{{\tilde{v}}}
+\newcommand{\tw}{{\tilde{w}}}
+\newcommand{\bx}{\mathbf x}
+\newcommand{\bz}{\mathbf z}
+\newcommand{\bu}{\mathbf u}
+\newcommand{\bv}{\mathbf v}
+\newcommand{\bt}{\mathbf t}
+\newcommand{\bi}{\mathbf i}
+\newcommand{\bj}{\mathbf j}
+\newcommand{\bL}{\mathbf L}
+\newcommand{\bN}{\mathbf N}
+\newcommand{\bM}{\mathbf M}
+\newcommand{\bB}{\mathbf B}
+\newcommand{\bA}{\mathbf A}
+\newcommand{\tbz}{{\tilde{\mathbf z}}}
+\newcommand{\hbx}{\hat{\mathbf x}}
+\newcommand{\tcO}{{\tilde{\mathcal{O}}}}
+\newcommand{\tcC}{{\tilde{\mathcal{C}}}}
+\newcommand{\ocC}{{\overline{\mathcal{C}}}}
+\newcommand{\tcR}{{\tilde{\mathcal{R}}}}
+\newcommand{\tcA}{{\tilde{\mathcal{A}}}}
+
+
+
+
+
+
+
+
+\newcommand{\uL}{\underline L}
+\newcommand{\uM}{\underline M}
+\newcommand{\uE}{\underline E}
+
+\newcommand{\chA}{\check A}
+\newcommand{\chE}{\check E}
+\newcommand{\chL}{\check L}
+\newcommand{\chV}{\check V}
+\newcommand{\chv}{\check v}
+\newcommand{\chw}{\check w}
+\newcommand{\chW}{\check W}
+\newcommand{\chM}{\check M}
+\newcommand{\chQ}{\check Q}
+\newcommand{\chsigma}{\check\sigma}
+
+
+
+\newcommand{\uchL}{\underline{\check L}}
+
+
+
+
+
+
+\newcommand{\BA}{\mathbb{A}}  \newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}}  \newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}  \newcommand{\HH}{\mathbb{H}}
+\newcommand{\JJ}{\mathbb{J}}  \newcommand{\LL}{\mathbb{L}}
+\newcommand{\NN}{\mathbb{N}}  \newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}  \newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}  \newcommand{\VV}{\mathbb{V}}
+\newcommand{\XX}{\mathbb{X}}  \newcommand{\WW}{\mathbb{W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\FM}{\mathfrak{M}}
+\newcommand{\fm}{\mathfrak{m}}
+
+
+\newcommand{\isom}{\cong}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Grass}{\operatorname{Grass}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Quot}{\operatorname{Quot}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\NS}{\operatorname{NS}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\id}{\operatorname{I}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\reg}{\operatorname{reg}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\del}{{\partial}}
+\newcommand{\delb}{{\overline\partial}}
+
+\newcommand{\oX}{{\overline X}}
+\newcommand{\oD}{{\overline D}}
+\newcommand{\ox}{{\overline x}}
+\newcommand{\ow}{{\overline w}}
+\newcommand{\oz}{{\overline z}}
+\newcommand{\oh}{{\overline{h}}}
+\newcommand{\oalpha}{{\overline \alpha}}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+
+
+
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\pardeg}{\operatorname{par-deg}}
+\newcommand{\ad}{{ad\,}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\codim}{\operatorname{codim}}
+
+\hyphenation{pa-ra-bo-lic}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbF}{\mathbb{F}}
+
+
+
+
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{conjecture}[proposition]{Conjecture}
+\newtheorem{corollary}[proposition]{Corollary}
+
+
+
+%\theoremstyle{definition}
+%\newtheorem{definition}[proposition]{Definition}
+%\newtheorem{remark}[proposition]{Remark}
+%\newtheorem{notation}[proposition]{Notation}
+%\newtheorem{example}[proposition]{Example}
+%\newtheorem{ex}{Exercise}[section]
+
+\usepackage[most,many,breakable]{tcolorbox}
+
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+\newcommand{\Qed}{\begin{flushright}\qed\end{flushright}}
+\newcommand{\solve}[1]{\setlength{\parindent}{0cm}\textbf{\textit{Solution: }}\setlength{\parindent}{1cm}#1 \Qed}

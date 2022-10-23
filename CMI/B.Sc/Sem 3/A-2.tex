@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+
+
+
+\include{newmacros}
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{\textbf{Fulton chapter 3}\\ Intersection Numbers}
+\date{}
+\author{}
+\maketitle
+\textsf{\noindent \large\textbf{Aritra Kundu} \hfill \textbf{Problem Set - 2}\\
+	\textbf{Email}: \href{aritra@cmi.ac.in}{aritra@cmi.ac.in} \hfill \textbf{Topic}: Algebraic Geometry\\
+	\noindent\rule{\textwidth}{2.8pt}}
+$k$ is an algebraically closed field. $F,G$ are two affine plane curves in $k[X,Y]$. $P\in A^2$
+
+
+\textbf{Property 1: }$I(P,F\cap G)\geq 0$,the equality holds if and only if $P\notin V(F)\cap V(G)$
+
+\textbf{Property 2: }Assume $F,G$ both passes through $P$. $I(P,F\cap G)<\infty \iff F,G$ has no common component passes through $P$. Otherwise $I(P,F\cap G)=\infty$
+
+\textbf{Property 3: }For any affine transformation $T$ $I(P,F\cap G)=I(Q,F^T\cap G^T)$ where $T(P)=Q$
+
+\textbf{Property 4: }$I(P,F\cap G)=I(P,G\cap F)$. Let $P$ be a simple point of both $F,G$. $F$ and $G$ are said to be intersected transversely if  they do not share the tangent at $P$.
+
+\textbf{Property 5: }$I(P,F\cap G)\geq m_P(F)m_P(G)$ the equality holds if and only if $F$ and $G$ have no common tangent at $P$. This property requires to ensure the condition that  $F,G$ intersect transversely if and only if $I(P,F\cap G)=1$
+
+\textbf{Property 6: }$I(P,F\cap GH)=I(P,F\cap G)+I(P,F\cap H)$
+
+\textbf{Property 7: }$I(P,F\cap G)=I(P,F\cap G+AF) \forall$ polynomial $A$ in $k[x,y]$. If $F$ is irreducible then  $I(P,F\cap G)$ only depends on the image of $G$ in $\tau(F)$
+
+\textbf{Definition: } If $F,G$ has no common component passing through $P$ then $F,G$ has said to be intersected properly. Lets assume $I(P,F\cap G)$ exists for any two affine curves. 
+
+\begin{problem}{Claim}{}
+	Intersection number of $F,G$ at $P$,$I(P,F\cap G)$ which has the 7 properties is unique.
+\end{problem}
+\solve{We can assume $P=(0,0)$[as by property 3 we can apply an affine transformation to make $P$ to be origin by keeping unchanged  $I(P,F\cap G)$]
+	\begin{enumerate}
+		\item If $F,G$ has a  common component passing through $P$ 
+then $I(P,F\cap G)=\infty$[by property 2]
+\item $I(P,F\cap G)=0\iff$ either $F(P)\neq 0$ or $G(P)\neq 0$
+\item $I(P,F\cap G)=m_P(F)m_p(G)\iff F,G$ do not share any tangent at $P$.
+\end{enumerate}
+So we can assume  $F,G$ has intersected properly and $I(P,F\cap G)$ can not be computed directly from the 3 properties mentioned. Let $F(X,0),G(X,0)$ are  polynomials of degree of degree $r,s$ respectively. Let's assume $r=0$. $P(n)$ be the statement that if $I(P,F\cap G)$ has a value less than $n$ then it is unique.
+
+$P(1)$ is true [by property 1][as then $I(P,F\cap G)=0\iff P\notin V(F)\cap V(G)]$. Let $P(n)$ be true. Let $F,G$ be affine curves such that $I(P,F\cap G)$ has a value equal to $n$. So, $F=YH_1$ and $G=Yg_1+g_2(X)$ where $$g_2(X)=X^{m_1}(a_0+a_1X...a_{s-m_1}X^{s-m_1}.a_0\neq 0\ [ m_1>0\text{ as }P\in V(G)]$$Now by property 6 $I(P,F\cap G)=I(P,Y\cap G)+I(P, H_1\cap G)$
+\begin{multline*}
+	I(P,Y\cap G)=I(P,Y\cap X^{m_1})+I(P,Y\cap (a_0+a_1X+..a_{s-m_1}X^{s-m_1}))=m_1(I(P,Y\cap X)\\
+	=m_1\ [\text{as }a_0\neq 0\implies I(P,Y\cap (a_0+a_1X+..a_{s-m_1}X^{s-m_1}))=0]
+\end{multline*}so,$$I(P,H_1\cap G)+m_1=I(P,F\cap G)$$
+
+Now $I(P,H_1\cap G)<I(P,F\cap G)$ so $I(P,H_1\cap G)<n$ so $I(P,H_1\cap G)$ is unique and so $I(P,F\cap G)$ is unique. Therefore $P(n+1)$ is true. So, $P(n)$ is true $\forall n\in \mathbb{N}$[by principle of mathematical induction]. 
+
+Let $r> 0$. WLOG assume that $r\leq s$[by  property 4]. $a,b$ be the leading coefficients of $F(X,0)$ and $G(X,0)$. Let $H_1=G-(b/a)X^{s-r}F$. So, $$I(P,F\cap G)=I(P,F\cap H_1)$$clearly $deg(H_1(X,0))<deg(G(X,0))$. If $deg(H_1(X,0))>deg(F(X,0))$ then repeating the process for finite number of times we get $H$ s.t.$deg(H(X,0))<deg(F(X,0))$  and  $I(P,F\cap G)=I(P,F\cap H)$. Then interchanging the role of $F,H$  and after repeating the process for finitely many times we can make the minimum of $degA(X,0),degB(X,0)$ is 0 and then go to the previous case.
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

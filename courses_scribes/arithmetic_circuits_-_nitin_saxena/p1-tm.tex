@@ -1,0 +1,126 @@
+\chapter{Introduction}
+\section{Turing Machines}
+Classically, computation i modeled using Turing Machine i.e. a computer program is scene as $TM$ description\parinf
+\vspace{0.5cm}
+
+\textbf{Turing Machine ($TM$)}: {$M=(\Gamma, Q,\delta)$ where \begin{itemize}
+		\item $\Gamma$ $=$ Set of alphabets, say 0,1, $\vartriangleright$ (start), $\square$ (blank)
+		\item $Q$ $=$ Set of states (at least it has start state = $q_s$, final state $=$ $q_f$)
+		
+		[whenever we say computation, we mean $q_s$ to $q_f$ finitely many steps are taken and whatever is there in tape is considered as output.]
+		\item $\delta\ =$ transition function$$\delta : Q\times \underset{\substack{  (\text{Assuming 2}\\ \text{tapes one for} \\ \text{input bit and}\\ \text{other for work}\\ \text{tape for reading}\\ \text{bit at current}\\ \text{work tape head)} }}{\Gamma^2}\longrightarrow Q\times \Gamma^2\times \{\underbrace{\overset{\text{Stay}}{S},\overset{\text{Left}}{L},\overset{\text{Right}}{R}  }_{\text{head movement}} \}$$
+		
+		[you can think $\delta$ as your $C$ program or computer program]
+\end{itemize}
+\parinn
+
+Since work tape is infinite you don't know how many steps will be taken. $TM$ abstracts every possible device
+\dfn{Time and Space of $TM$}{\begin{itemize}
+		\item \textbf{Time} is the number of steps for a given input $x$.
+		\item \textbf{Space} is the number of worktape-cells used by $TM$ on $x$
+\end{itemize}}
+
+\section{Complexity Classes}
+\dfn{$Dtime(f(n))$ and $Space(f(n))$}{For a function $f:\bbN\to\bbR_{>0}$ we can define complexity classes\begin{itemize}
+		\item \textbf{$Dtime(\bmf(\bmn))$}: $\{$ Set of all those problems that can be solved on a $TM$ in time $O(f(n))$ $\}$
+		\item \textbf{$Space(\bmf(\bmn))$}: $\{$ Set of all those problems that can be solved on a $TM$ in work space $O(f(n))$ $\}$
+\end{itemize} }
+
+This leads to a zoo of complexity classes
+\dfn{$P,\ PSpace,\ NP,\ \bbL,\ EXP$}{
+\begin{itemize}
+	\item $P\coloneqq \bigcup\limits_{c>0} Dtime(n^c)$
+	\item $PSpace\coloneqq \bigcup\limits_{c>0} Space(n^c)$
+	\item $NP\coloneqq \bigcup\limits_{c>0} \underset{  \substack{ \downarrow \\ \text{on a non} \\ \text{-deterministic }TM}  }{Ntime(n^c)}$
+	\item $\bbL\coloneqq Space(\log n)$
+	\item $EXP\coloneqq $ $\{$ Problems that can be solved in time $2^{n^c}$ $\}$ 
+\end{itemize}
+}
+
+\nt{
+$$ \bbL\subseteq P\subseteq NP\subseteq PSpace\subseteq EXP\subseteq EXPSpace\subseteq EEXP\subseteq \cdots$$
+}
+There are \textbf{randomized versions} (using probabilistic $TM$)
+$$\underset{ \substack{ \\ \text{zero error}\\ \text{probabilistic}\\ \text{poly-time}\\ \text{(Las-Vegas}\\ \text{Algorithms)}  } }{ZPP}\subseteq \underset{\substack{ \text{one-sided}\\\text{error} }}{RP} \subseteq \underset{ \substack{ \text{both-sided}\\\text{error}\\ \text{(Bounded error}\\ \text{Probabilistic} \\\text{poly-time)} } }{BPP} \subseteq \underset{\substack{ \text{Probabilistic}\\ \text{poly error}=\frac12\\ \text{both sided} }}{PP} \subseteq PSpace$$
+
+\textbf{Oracle-based complexity classes}:
+$$ \underset{ \substack{\ueq \\ \sum_0} }{P} \subseteq \underset{ \substack{\ueq \\ \sum_1} }{NP} \subseteq \underset{ \substack{\ueq \\ \sum_2} }{NP^{NP}} \subseteq \underset{ \substack{\ueq \\ \sum_3} }{NP^{\sum_2}}\subseteq \underset{ \substack{\ueq \\ \sum_4} }{NP^{\sum_3}} \subseteq \cdots\subseteq PH \subseteq PSpace$$This hierarchy is called Polynomial Hierarchy. Union of all of these is called $PH$
+
+\vspace{0.5cm}
+This course will take a different route to build a zoo of complexity classes
+
+\section{Arithmetic Circuits}
+Instead of seeing computation as a sequence of very simple steps (that's what $TM$ does. At each step transition is trivial but in the end something highly non trivial happens.) We'll review it as an algebraic expression
+
+\dfn{Arithmetic Circuits}{
+An arithmetic circuit $C$, over a field $\coef$, is a rooted $DAG$ as follows\begin{itemize}
+	\item The \textbf{leaves} are the variables $x_1,x_2,\dots,x_n$ or field constant
+	\item The \textbf{root} outputs a polynomial $C(\overline{x})\in \bbF[\overline{x}]$ (input)
+\item The \textbf{Internal vertices} are gates that compute $(\times) $ or $(+ )$ in $\bbF [\overline{x}]$
+\item The \textbf{edges} are called wires and they have constant labels to do scalar multiplication.
+\end{itemize}
+}
+\thm{}{Any polynomial has a depth-2 circuit}
+\begin{proof}
+	In first layer you have addition and in the bottom layer you have multiplication
+\end{proof}
+\dfn{Size, Depth, Degree}{\begin{itemize}
+		\item \textbf{Size: } The size of the $DAG$ (\# of wires) is the size of the circuit size $(c)$. Sometimes we include the bit size of the constants on the wires
+		\item \textbf{Depth: }A Max-path from a leaf to the root determines the depth of the circuit.
+		\item \textbf{Degree: }Degree of $c$ is the degree of intermediate polynomials computed in $c$
+\end{itemize}}
+\qs{}{How many monomials are there in $n$ variable $d$ degree polynomial ?}
+\solve{${{n+d}\choose{d}}\approx \lt( \frac{n}{d}\rt)^d,\lt( \frac{d}{n}\rt)^n$}
+
+\ex{}{\circuitdraw{
+		\node[state] (C)
+		{$+$};
+		\node[state] (A) [below left=of C] {$x_1$};
+		\node[state] (B) [below right =of C] {$x_2$};
+		\path (A) edge node[left] {} (C);
+		\path (B) edge node[right] {} (C);
+		\node[state] (D) [above right=1 cm and 1.5 cm of C] {$\times$};
+		\node[state] (E) [above left=1 cm and 3 cm of D] {$+$};
+		\node[state] (F) [above right=1 cm and 3 cm of E] {$\times$};
+		\node[state] (G) [above left=1 cm and 1.5 cm of F] {$\times$};
+		\node (H) [right=2cm of G] {\LARGE{$f$}};
+		\path node[below=0.5cm] {} (C) edge [bend left=10] node[above] {} (D);
+		\path (C) edge [bend right=10] node[below] {} (D);
+		\path (D) edge [bend left=10] node[above] {} (E);
+		\path (D) edge [bend right=10] node[below] {} (E);
+		\path (E) edge [bend left=10] node[above] {}  (F);
+		\path (E) edge [bend right=10] node[below] {} (F);
+		\path (F) edge [bend right=10] node[above] {}  (G);
+		\path (E) edge [bend left=10] node[above=2mm, left=1mm] {-1} (G);
+		\node[text width=10cm, left=5cm of E] {$f(x_1,x_2)=(x_1+x_2)^8-(x_1+x_2)^4$.
+			\vspace{1cm}
+			
+			The circuit size is small because of repeated squaring
+		\vspace{3cm}
+		
+	Another example for repeated squaring is $(1+x)^{2^n}$};
+		\draw[->] (G) to (H);}
+%\path (C) edge [bend left =25] node[below =0.15 cm] {$1/2$} (A);
+%\path (A) edge [bend right = -15] node[below =0.15 cm] {$1/2$} (C);
+%\path (A) edge [bend left =25] node[above] {$1/4$} (B);
+%\path (B) edge [bend left =15] node[below =0.15 cm] {$1/2$} (A);
+%\path (C) edge [bend left =15] node[below =0.15 cm] {$1/2$} (B);
+%\path (B) edge [bend right = -25] node[below =0.15 cm] {$1/2$} (C);
+}
+\qs{Foundational Question in this area}{When a polynomial is not possible to compress by circuit representation and only way is depth-2 (worst possible way)}
+\dfn{Fanin, Fanout, Formula, Family of Circuits}{\begin{itemize}
+		\item \textbf{Fanin: }Maximum in-degree
+		\item \textbf{Fanout: }Maximum out-degree
+		\item \textbf{Formula: }A circuit with fanout=1 is called formula
+\end{itemize}}
+\dfn{Family of Circuits}{Suppose $\mcF\dnt\{f_1(x_1,\dots,x_i)\mid n\geq1\}$ is a family of polynomials (call it a problem). A family of circuits $\mcC\dnt \{C_i(x_1,\dots, x_n)\mid i\geq 1\}$ solves $\mcF$ $\forall\ i$, $C_i=f_i$}
+
+In this case, we say that $\mcF$ can be solved in size bounded by $size(C_n)$ and depth bounded by $depth(C_n)$. THis two functions basically tell you the circuit complexity of the set of polynomials $\mcF$
+
+\nt{
+Depth can be thought of as time (In parallel algorithm). Size can be though of as space.
+
+This gives us a new way to measure the complexity of polynomials (or problems)
+}
+\section{Arithmetic Complexity Classes}
+Arithmetic Complexity Classes were first defined by Valiant (1979). In particular, the arithmetic analogues of $P$ and $NP$

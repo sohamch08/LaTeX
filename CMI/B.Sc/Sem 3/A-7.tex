@@ -1,0 +1,380 @@
+\documentclass[11pt]{amsart}
+
+
+\usepackage[all]{xy}
+\usepackage{graphics}
+\usepackage{enumitem}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+\usepackage{showkeys}
+\usepackage{amsfonts,latexsym,amssymb}
+\usepackage{parskip}
+\usepackage{MnSymbol}
+\usepackage{hyperref}
+
+\usepackage{mdwlist}
+\usepackage{tgbonum}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\cA}{{\mathcal{A}}}   \newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cC}{{\mathcal{C}}}   \newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}   \newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}   \newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}   \newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}   \newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}   \newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cO}{{\mathcal{O}}}   \newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}   \newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}   \newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}   \newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}   \newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}   \newcommand{\cZ}{{\mathcal{Z}}}
+
+\newcommand{\hcP}{\hat{\mathcal{P}}}
+\newcommand{\hcQ}{\hat{\mathcal{Q}}}
+\newcommand{\hcR}{\hat{\mathcal{R}}}
+\newcommand{\hcL}{\hat{\mathcal{L}}}
+\newcommand{\hcM}{\hat{\mathcal{M}}} \newcommand{\hphi}{\hat{\phi}}
+\newcommand{\bbk}{\mathbb{k}}   \newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfnu}{\mathbf{nu}}  \newcommand{\hXX}{\hat{\mathbb{X}}}
+\newcommand{\bJ}{\mathbf{J}}
+
+\newcommand{\hD}{{\hat{D}}}   \newcommand{\hE}{{\hat{E}}}
+\newcommand{\hF}{{\hat{F}}}   \newcommand{\hH}{{\hat{H}}}
+\newcommand{\hY}{{\hat{Y}}}   \newcommand{\hP}{{\hat{P}}}
+\newcommand{\hT}{{\hat{T}}}   \newcommand{\hQ}{{\hat{Q}}}
+\newcommand{\hq}{{\hat{q}}}
+\newcommand{\hr}{{\hat{r}}}
+\newcommand{\hu}{{\hat{u}}}
+\newcommand{\hv}{{\hat{v}}}
+\newcommand{\hf}{{\hat{f}}}
+\newcommand{\hg}{{\hat{g}}}
+\newcommand{\hw}{{\hat{w}}}
+\newcommand{\hS}{{\hat{S}}}
+\newcommand{\hV}{{\hat{V}}}
+\newcommand{\hG}{{\hat{G}}}
+\newcommand{\hmu}{{\hat{\mu}}}
+\newcommand {\y}{\V{y}}
+\newcommand {\V}[1]{\mbox{\boldmath$#1$}}
+\newcommand{\iExp}{{\mathrm{iExp\,}}}
+
+\newcommand{\htheta}{{\hat{\theta}}}
+
+
+
+\newcommand{\htu}{{\hat{\tilde{u}}}}
+
+
+\newcommand{\hTR}{{\widehat{TR}}}
+\newcommand{\tsigma}{{\tilde{\sigma}}}
+\newcommand{\tphi}{{\tilde{\phi}}}
+\newcommand{\tpsi}{{\tilde{\psi}}}
+\newcommand{\tzeta}{{\tilde{\zeta}}}
+\newcommand{\tdelta}{{\tilde{\delta}}}
+\newcommand{\tgamma}{{\tilde{\gamma}}}
+\newcommand{\tGamma}{{\tilde{\Gamma}}}
+\newcommand{\tlog}{{\widetilde{\log}}}
+
+
+\newcommand{\txi}{{\tilde{\xi}}}
+\newcommand{\tomega}{{\tilde{\omega}}}
+\newcommand{\tH}{{\tilde{H}}}
+\newcommand{\tI}{{\tilde{I}}}
+
+\newcommand{\tX}{{\tilde{X}}}
+\newcommand{\tV}{{\tilde{V}}}
+\newcommand{\tz}{{\tilde{z}}}
+\newcommand{\ty}{{\tilde{y}}}
+\newcommand{\tx}{{\tilde{x}}}
+\newcommand{\te}{{\tilde{e}}}
+\newcommand{\tf}{{\tilde{f}}}
+\newcommand{\tg}{{\tilde{g}}}
+\newcommand{\tu}{{\tilde{u}}}
+\newcommand{\tm}{{\tilde{m}}}
+\newcommand{\tn}{{\tilde{n}}}
+\newcommand{\tilt}{{\tilde{t}}}
+\newcommand{\tT}{{\tilde{T}}}
+\newcommand{\tL}{{\tilde{L}}}
+\newcommand{\tQ}{{\tilde{Q}}}
+\newcommand{\tB}{{\tilde{B}}}
+\newcommand{\tC}{{\tilde{C}}}
+\newcommand{\tD}{{\tilde{D}}}
+\newcommand{\tU}{{\tilde{U}}}
+\newcommand{\utL}{{\underline{\tilde{L}}}}
+\newcommand{\tF}{{\tilde{F}}}\newcommand{\tilh}{{\tilde{h}}}
+\newcommand{\tk}{{\tilde{k}}}
+\newcommand{\tv}{{\tilde{v}}}
+\newcommand{\tw}{{\tilde{w}}}
+\newcommand{\bx}{\mathbf x}
+\newcommand{\bz}{\mathbf z}
+\newcommand{\bu}{\mathbf u}
+\newcommand{\bv}{\mathbf v}
+\newcommand{\bt}{\mathbf t}
+\newcommand{\bi}{\mathbf i}
+\newcommand{\bj}{\mathbf j}
+\newcommand{\bL}{\mathbf L}
+\newcommand{\bN}{\mathbf N}
+\newcommand{\bM}{\mathbf M}
+\newcommand{\bB}{\mathbf B}
+\newcommand{\bA}{\mathbf A}
+\newcommand{\tbz}{{\tilde{\mathbf z}}}
+\newcommand{\hbx}{\hat{\mathbf x}}
+\newcommand{\tcO}{{\tilde{\mathcal{O}}}}
+\newcommand{\tcC}{{\tilde{\mathcal{C}}}}
+\newcommand{\ocC}{{\overline{\mathcal{C}}}}
+\newcommand{\tcR}{{\tilde{\mathcal{R}}}}
+\newcommand{\tcA}{{\tilde{\mathcal{A}}}}
+
+
+
+
+
+
+
+
+\newcommand{\uL}{\underline L}
+\newcommand{\uM}{\underline M}
+\newcommand{\uE}{\underline E}
+
+\newcommand{\chA}{\check A}
+\newcommand{\chE}{\check E}
+\newcommand{\chL}{\check L}
+\newcommand{\chV}{\check V}
+\newcommand{\chv}{\check v}
+\newcommand{\chw}{\check w}
+\newcommand{\chW}{\check W}
+\newcommand{\chM}{\check M}
+\newcommand{\chQ}{\check Q}
+\newcommand{\chsigma}{\check\sigma}
+
+
+
+\newcommand{\uchL}{\underline{\check L}}
+
+
+
+
+
+
+\newcommand{\BA}{\mathbb{A}}  \newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}}  \newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}  \newcommand{\HH}{\mathbb{H}}
+\newcommand{\JJ}{\mathbb{J}}  \newcommand{\LL}{\mathbb{L}}
+\newcommand{\NN}{\mathbb{N}}  \newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}  \newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}  \newcommand{\VV}{\mathbb{V}}
+\newcommand{\XX}{\mathbb{X}}  \newcommand{\WW}{\mathbb{W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\FM}{\mathfrak{M}}
+\newcommand{\fm}{\mathfrak{m}}
+
+
+\newcommand{\isom}{\cong}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Grass}{\operatorname{Grass}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Quot}{\operatorname{Quot}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\NS}{\operatorname{NS}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\id}{\operatorname{I}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\reg}{\operatorname{reg}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\del}{{\partial}}
+\newcommand{\delb}{{\overline\partial}}
+
+\newcommand{\oX}{{\overline X}}
+\newcommand{\oD}{{\overline D}}
+\newcommand{\ox}{{\overline x}}
+\newcommand{\ow}{{\overline w}}
+\newcommand{\oz}{{\overline z}}
+\newcommand{\oh}{{\overline{h}}}
+\newcommand{\oalpha}{{\overline \alpha}}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+
+
+
+
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\pardeg}{\operatorname{par-deg}}
+\newcommand{\ad}{{ad\,}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\codim}{\operatorname{codim}}
+
+\hyphenation{pa-ra-bo-lic}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbF}{\mathbb{F}}
+
+
+
+
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{conjecture}[proposition]{Conjecture}
+\newtheorem{corollary}[proposition]{Corollary}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{notation}[proposition]{Notation}
+\newtheorem{example}[proposition]{Example}
+\newtheorem{ex}{Exercise}[section]
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{\textbf{some problems from chapter 4  section 2}\\ Projective Algebraic Sets}
+\maketitle
+problem 4.7\\
+Show that each irreducible component of a cone is a cone.\\
+let $V$ is an algebraic set over $P^n$\\
+$C(V)=\{(x_1,x_2,...x_{n+1})|(x_1,x_2,...x_{n+1})\in A^{n+1}$ or $ (x_1,x_2,...x_{n+1})=(0,0...0)$\}$ $ is defined to be the cone over $V$\\
+let $V=\cup_{i=1}^n V_i$ where $V_i$ is an irreducible component of $V$\\
+claim:$C(V)=\cup_{i=1}^n C(V_i)$\\
+let $a\in C(V)\implies a=(0,0,..0)$ or $a\in V$\\
+in both of the cases $a\in \cup_{i=1}^n C(V_i)$\\
+if $b\in \cup_{i=1}^n C(V_i)\implies b\in C(V_i)\implies b=(0,0,...0)$ or $b\in V_i\implies b\in C(V)$\\
+so, $C(V)=\cup_{i=1}^n C(V_i)$\\
+now $I_a(C(V_i))=I_p(V_i)$ as $V_i$ is an irreducible projective space \\
+$I_p(V_i)$ is prime $\implies C(V_i)$ is irreducible.\\
+so, irreducible component of $C(V)$ is also a cone[as the decomposition is unique]\\\\
+4.12\\
+let $H_1,H_2..H_m$ be hypersurfaces in $P^n,m\leq n$.Show that $H_1\cap H_2\cap ...H_m\neq \phi$
+hyperplane is a hypersurface  defined by a form of degree 1.i.e ,$V$ is a hypersurface if $V=V(F)$ where $deg(F)=1$ and $F$ is a form.\\
+$V=\cap_{i=1}^nH_i$\\
+let $H_i=V(F_i)$\\
+$V=V(F_1,F_2...F_m)$\\
+let $F_i(X_1,X_2..X_{n+1})=\sum_{j=1}^{n+1}a_{ji}X_j$\\
+let $A=(a_{ij})$ which is a $(n+1)\times m$ order matrix.\\
+so rank of $A=r,1<r<n+1$ [as $m<n+1$]\\
+so, by the problem $4.11$  $\exists$ a projective change of co-ordinates $T$ s.t.$ V^{T}=V(X_{r+1},...X_{n+1})$\\
+so,$V^T\neq \phi$\\
+so, $V\neq \phi$\\\\
+
+4.13\\
+let $P=(a_1,a_2..a_{n+1}),Q=(b_1,b_2...b_{n+1})$ be two distinct points of $P^n$.The line $L$ through $P$ and $Q$ is defined by $L=\{(\lambda a_1+\mu b_1...\lambda a_{n+1}+\mu b_{n+1})|\lambda,\mu \neq 0\}$\\
+a)if $T$ is a projective change of co-ordinates then $T(L)$ is the line passing through $T(P),T(Q)$\\
+$T(L)=\{(T(\lambda P+\mu Q))|\lambda,\mu \neq 0\}=\{(\lambda T(P)+\mu T(Q))|\lambda,\mu \neq 0\}$[as $T$ maps linearly to the co-ordinates]\\
+so, $T(L)$ is  the line passing through $T(P),T(Q)$\\ 
+b)a line is a linear subvariety of dimension 1 and a linear subvariety of dimension 1 is a line passing through any two of its point.\\
+let $L$ be a line passing through $P=(a_1,a_2..a_{n+1}),Q=(b_1,b_2...b_{n+1})$\\
+ as $P,Q$ are distinct point in $P^n\implies (a_1,a_2..a_{n+1}),(b_1,b_2...b_{n+1})$ are linearly independent vectors in $k^{n+1}$\\
+ so, there is an invertible matrix $A$ of $n+1\times n+1$ s.t. $A(1,0,...0)=(a_1,a_2..a_{n+1}),A(0,1,...0)=(b_1,b_2...b_{n+1})$\\
+ so, there corresponding projective change of co ordinate $T$ will transform $e_1$ to $P$, $e_2$ to $Q$.\\
+ now $ L^{T}=T^{-1}(L)$ is the line passing through $T^{-1}(P)=e_1,T^{-1}(Q)=e_2$\\
+ so, $T^{-1}(L)=(\lambda,\mu,0,0,....0)=V(X_3,...X_{n+1})$[as $\lambda,\mu\neq 0$] which is a linear subvariety of dimension 1\\
+ similarly if $V$ is a linear subvariety of dimension 1 then $\exists$ a projective change of co-ordinates $T$ s.t. $T^{-1}(L)=V(X_3,.......,X_{n+1})$ which is the line passing through $e_1,e_2\implies L$ is a line passing through $T(e_1),T(e_2)$\\
+ c)In $P^2$ a line is the same thing as a hyperplane .\\
+If $L$ is a line in $P^2$\\
+so, $T^{-1}(L)=V(X_3)=\{(\lambda,\mu,0)|\lambda,\mu\neq 0\}\implies L=V(X_3(T_1,T_2,T_3))\implies L$is a hyperplane.\\
+d)let$P, P^{'} \in P^1,L1,L2$ are two distinct lines passing through $P$ and $L^{'}1,L^{'}2$ are two distinct passing through $P^{'}$ show that there is an projective change of co-ordinates $T$ s.t.$T(P)=P^{'},T(Li)=L^{'}i.i=1,2$\\\\
+$4.14)$\\
+let $P_1,P_2,P_3$ (resp. $Q_1,Q_2,Q_3)$ be three points in $P^2$ not lying on a line .Show that $\exists$ a projective change of co-ordinates $T:P^2\to P^2$ s.t. $T(P_i)=Q_i$\\
+Solution:\\
+let $P_i=(a_i1,a_i2,a_i3)$ \\
+since $P_1,P_2,P_3$(resp $Q_1,Q_2,Q_3)$ are not lying in a line so, they are linearly independent in $K^3\implies $ forms a basis in $K^3$ .\\
+so, $\exists$ an invertible matrix $A$ s.t. $A(P_i)=Q_i$\\
+let $T$ be the corresponding projective change of co-ordinates w.r.t $A$\\
+so, $T(P_i)=Q_i$\\\\
+$4.15$)\\
+Show that any two distinct lines in $P^2$ intersect in one point.\\
+Solution:\\
+let $L_1=(\lambda,\mu,0)$(ie, the line passing through $(1,0,0)=e_1;e_2=(0,1,0)$ $,L_2=(\lambda P+\mu Q)$\\
+let $P=(a_1,a_2,a_3),Q=(b_1,b_2,b_3)$\\
+so, $L_2=\{(\lambda a_1+\mu b_1),(\lambda a_2+\mu b_2),(\lambda a_3+\mu b_3)\}$\\
+if both $a_3,b_3$ are zero then $L_1,L_2$ becomes the same line.\\
+let $a_3\neq 0$\\
+if $b_3=0$ then $Q=b_1 e_1+b_2 e_2\in L_1$\\
+so, $L_1,L_2$ intersect in $Q$\\
+let $b_3\neq 0$\\
+$b_3(P)-a_3(Q)=(b_3a_1-a_3b_1,b_3a_2-a_3b_2,0)\in L_1$\\
+so, $L_1,L_2$ intersect in a point.\\
+let $A,B$ be two lines \\
+so, $\exists$ a projective change of co-ordinates $T$ s.t. $T(A)=L_1$\\
+let $T(B)=L_2$\\
+so,let $R$ be the intersection point of $L_1,L_2$\\
+so, $T^{-1}(R)$ is the intersection point of $A,B$\\\\
+$4.16)$\\
+Let $L_1,L_2,L_3$(resp.$M_1,M_2,M_3)$ are three line in $P^2$ s.t. not all $3$ passes through a same point .show that there is a projective change of co-ordinates $T$ s.t. $T(L_i)=M_i)$\\
+Solotion:\\
+let $P_{ij}$ is the point of intersection of $L_i$ and $L_j$ and $Q_{ij}$ is the point of intersection of $M_i$ and $M_j$ where $i<j$\\
+so, as $P_{12},P_{13},P_{23}$(resp,($Q_{12},Q_{13},Q_{23})$ does not lie in a line so, by problem 4.14  $\exists$ a projective change of co-ordinates $T$ s.t.$T(P_{ij})=Q_{ij}$\\
+and so by the problem 4.13 part $a$ $T(L_i)=M_i$\\\\ 
+$4.18$\\
+let $H=V(\sum a_iX_i)$ be a hyperpalne in $P^n.(a_1,a_2...a_{n+1})$ is determined by $H$ upto constant.\\
+a)show that assigning $(a_1,a_2,...a_{n+1})=P\in P^n,$ to $H$ sets a natural one to one correspondence between \{hyperplanes in $P^n$\} and $P^n$.\\
+Solution:\\
+$\phi:P^n\to $ \{hyperplanes in $P^n$\} s.t. $\phi(a_1,a_2..a_{n+1})=V(a_1X_1+..a_{n+1}X^{n+1})$\\
+clearly $\phi_1$ is well defined.\\
+$\psi:$ \{hyperplanes in $P^n$\} $\to P^n$ s.t.
+$V(F)=V(a_1X_1+..a_{n+1}X^{n+1})=(a_1,a_2..a_{n+1})$\\
+let $V(a_1X_1+..a_{n+1}X^{n+1})=V(b_1X_1+..b_{n+1}X^{n+1}) \implies I(V(a_1X_1+..a_{n+1}X^{n+1}))=I(V(b_1X_1+..b_{n+1}X^{n+1}))$\\
+$\implies a_1X_1+..a_{n+1}X^{n+1}=\lambda(b_1X_1+..b_{n+1}X^{n+1}),\lambda\neq 0$[as forms of deg 1 are irreducible]\\
+$\implies (a_1,a_2..a_{n+1})=(b_1,b_2..b_{n+1}) $ in $P^n$\\
+and $\phi o \psi$ and $\psi o \phi$ both are identity.
+so, assigning $(a_1,a_2,...a_{n+1})=P\in P^n,$ to $H$ sets a natural one to one correspondence between \{hyperplanes in $P^n$\} and $P^n$.\\
+$P\in P^{n},P^*=\phi(P)$, $H$ is a hyperplane then $H^*=\psi(H)$\\
+b)Show that $P^{**}=P;H^{**}=H$.Show that $P\in H\iff H^{*}\in P^{*}$\\
+Solution:\\
+clearly by part a  $P^{**}=P;H^{**}=H$\\
+let $P=(p_1,p_2..p_{n+1}\in H=V(a_1X_1+..a_{n+1}X^{n+1})\iff a_1p_1+...a_{n+1}p_{n+1}=0\iff (a_1,a_2,...a_{n+1})\in V(p_1X_1+..p_{n+1}X^{n+1})\iff H^{*}\in P^{*}$\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

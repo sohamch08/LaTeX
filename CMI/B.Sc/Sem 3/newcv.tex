@@ -1,0 +1,219 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+						
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	\textheight=700px                    % Saving trees ;-)
+%\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{White}{%
+			\parbox{6em}{%
+			\hfill\color{Black}\boxed{#2}}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntryNoTime}[4]{				  % Same as \EducationEntry
+	\noindent \textbf{#1} \hfill      % Jobname
+	\colorbox{White}{\color{Black}#2} \par  % Duration
+	\noindent \textit{#3} \par              % Company
+	\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+	\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{White}{\color{Black}\boxed{#2}} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Aritra Kundu}
+%\MySlogan{Indian Institute of Engineering Science and Technology,Shibpur}
+
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+
+\PersonalEntry{Birth}{June 15,2000}
+\PersonalEntry{Address}{31/1 E Beadon Row,Kolkata 700006,West Bengal,India}
+\PersonalEntry{Phone}{+91-7980405627}
+\PersonalEntry{E-mail}{\href{aritra@cmi.ac.in}{aritra@cmi.ac.in}}
+
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{B.Sc. in Mathematics and Computer Science, Chennai Mathematical Institute}{2019-2022}{Secured 8.79  GPA.(overall)}{secured 9.25 GPA (Maths)}
+
+\sepspace
+
+\sepspace
+
+\EducationEntry{12th Hare School}{2016-2018}{West Bengal Council of Higher Secondary Education}{Secured 88.20\% marks in 12th standard.}
+\sepspace
+
+\EducationEntry{10th Hare School}{2016}{West Bengal Board of Secondary Education}{Secured 93.8\% marks in 10th standard.(2nd position in school)}
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Relavant Course Work}{}
+
+\WorkEntryNoTime{Mathematics}{}{Linear Algebra, Group,Rings Fields, Modules and Galois Theory,\\ Homological Algebra,Algebraic Geometry 1,\\Algebraic Curves and Riemann Surfaces,Algebraic Groups, \\Combinatorics and Commutative Algebra,Algebraic Number Theory}
+\sepspace
+
+\WorkEntryNoTime{Computer Science}{}{Functional Programming(Haskell),Advanced Programming (Python),Design and Analysis of Algorithms,Discrete Math,Theory of Computation}
+\sepspace
+\WorkEntryNoTime{other courses}{}{Classical Mechanics 1,English,Economics}
+\sepspace
+
+\newpage
+
+%%% project
+%%% ------------------------------------------------------------
+\NewPart{Summer Experience}{}
+
+\WorkEntry{Algebraic Curves(Summer Internship)}{May 2021-August 2021}{Supervision : Under \href{https://www.cmi.ac.in/~krishna/}{Prof.Krishna Hanumanthu},Associate Dean,\\Chennai Mathematical Institute\\ Studied 1st 6 Chapters of the book Algebraic Curves by William Fulton and presented some interesting problems}
+\sepspace
+
+
+\WorkEntry{Advanced Instructional School on Representation theory}{June -July, 2022}{Organizers: \href{https://www.cmi.ac.in/people/fac-profile.php?id=upendra}{Prof.Upendra Kulkarni}(Chennai Mathematical Institute) and \\\href{https://www.imsc.res.in/~amri/}{Prof. Amritanshu Prasad}(Institute of Mathematical Sciences,Chennai)}
+{Character Theory,Representation of finite groups,introduction to modular representation theory were taught there.
+}
+\sepspace
+
+
+\WorkEntry{CREST SCHOOL 2022}{July,2022}{Applied Combinatorics- Crytptography and Combinatorial Topology}
+
+
+\NewPart{Teaching Assistant}{}
+
+\WorkEntry{Algebra 2}{January,2022-May,2022}{\href{https://www.cmi.ac.in/~mkummini/}{Prof.Manoj Kummini(Associate Dean)} }{}
+\sepspace
+\WorkEntry{Algebra 3}{August,2022-Present}{\href{https://www.cmi.ac.in/people/fac-profile.php?id=clare}{Prof.Clare D Cruz}}{}
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Achievements}{}
+
+\begin{enumerate}
+    \item Selected as a young researcher in 9th Heidelberg Laureate Forum(18th September,2022-23rd September,2022)
+    \item Selected as \href{https://jbnsts.ac.in/}{Jagadish Bose National Science Talent Search} Senior Scholar,2018.
+    \item Received SRIRAM Scholarship(Instiution fee waiver and monthly stipend)  based on my performance in B.Sc. admission test of Chennai Mathematical Institute.
+    \item Direct admission for M.Sc.(maths) in C.M.I. based on my B.Sc. performance.
+    \item Selected for interview of National Board Of Higher Mathematics(NBHM) Doctoral Fellowship through NBHM (PhD)Written Exam.
+    \item Topper in the \href{https://swayam.gov.in/nc_details/NPTEL}{N.P.T.E.L.} course on Algebraic Combinatorics and received silver medal.
+    \item \href{https://online-inspire.gov.in/}{Inspire} Scholarship (a National level scholarship program) holder (2018-2019) 
+    
+
+\end{enumerate}
+
+\newpage
+
+\NewPart{Skills}{}
+\SkillsEntry{Languages}{Bengali (mother tongue)}
+\SkillsEntry{}{English(fluent)}
+\SkillsEntry{}{Hindi(fluent)}
+\sepspace
+
+\SkillsEntry{Programming Languages}{\textsc{Python}, \textsc{Haskell}}
+%\SkillsEntry{}{Python}
+%\SkillsEntry{}{PHP}
+%\SkillsEntry{}{Java}
+%\SkillsEntry{}{VHDL}
+\sepspace
+
+\SkillsEntry{Documentation}{\textsc{Latex}}
+\sepspace
+
+
+\end{document}

@@ -23,6 +23,8 @@
 \usepackage{nameref}
 \usepackage{multicol,array}
 \usepackage{tikz-cd}
+\usepackage{textcomp}
+\usetikzlibrary {positioning}
 
 %\usepackage{import}
 %\usepackage{xifthen}
@@ -51,7 +53,7 @@
 \definecolor{mygr}{HTML}{2C3338}
 \definecolor{myred}{RGB}{127,0,0}
 \definecolor{myyellow}{RGB}{169,121,69}
-
+\definecolor{processblue}{cmyk}{0.96,0,0,0}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TCOLORBOX SETUPS
@@ -493,7 +495,14 @@
 }
 \makeatother
 
-
+\newcommand{\circuitdraw}[1]{\begin{center}
+		\begin{tikzpicture}[-latex ,auto ,node distance =1 cm and 1.5cm ,on grid ,
+	semithick ,
+	state/.style ={ circle ,top color =white , bottom color = processblue!20 ,
+		draw,processblue , text=blue , font=\LARGE, minimum width =1 cm}]
+	#1
+\end{tikzpicture}
+\end{center}}
 
 
 \tikzset{
