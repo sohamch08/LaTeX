@@ -1,6 +1,0 @@
-\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Turing Machines}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Complexity Classes}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Arithmetic Circuits}{3}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Arithmetic Complexity Classes}{5}{section.1.4}%
-\contentsfinish 

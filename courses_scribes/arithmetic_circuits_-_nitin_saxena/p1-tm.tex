@@ -79,10 +79,10 @@ An arithmetic circuit $C$, over a field $\coef$, is a rooted $DAG$ as follows\be
 		\node[state] (B) [below right =of C] {$x_2$};
 		\path (A) edge node[left] {} (C);
 		\path (B) edge node[right] {} (C);
-		\node[state] (D) [above right=1 cm and 1.5 cm of C] {$\times$};
-		\node[state] (E) [above left=1 cm and 3 cm of D] {$+$};
-		\node[state] (F) [above right=1 cm and 3 cm of E] {$\times$};
-		\node[state] (G) [above left=1 cm and 1.5 cm of F] {$\times$};
+		\node[state] (D) [above right=1 cm and 1 cm of C] {$\times$};
+		\node[state] (E) [above left=1 cm and 2 cm of D] {$\times$};
+		\node[state] (F) [above right=1 cm and 2 cm of E] {$\times$};
+		\node[state] (G) [above left=1 cm and 1 cm of F] {$+$};
 		\node (H) [right=2cm of G] {\LARGE{$f$}};
 		\path node[below=0.5cm] {} (C) edge [bend left=10] node[above] {} (D);
 		\path (C) edge [bend right=10] node[below] {} (D);
@@ -124,3 +124,29 @@ This gives us a new way to measure the complexity of polynomials (or problems)
 }
 \section{Arithmetic Complexity Classes}
 Arithmetic Complexity Classes were first defined by Valiant (1979). In particular, the arithmetic analogues of $P$ and $NP$
+\dfn{$VP$ (Valiant's $P$)}{$VP$ consists of polynomial families say $\{f_n\}_n$  [$f_n$ is a $n$ variate polynomial] that can be solved or computed by Arithmetic Circuits of size-poly($n$) and degree-poly($n$)}
+
+\qs{}{Why degree-poly($n$) condition?}
+\solve{You want it to be practically implementable i.e. every aspect of the computation you would ideal want to be efficiently implementable on a turing machine. One necessary condition is degree should not blow p. We don't want circuit at a point to become too large. 
+
+The family $\{x^{2^n}\}_n \notin VP$. Though it is computable by $O(n)$ size arithmetic circuits, its degree is not poly($n$)}
+
+We keep some field $\bbF$ in mind while defining $VP$. 
+\nt{Constants don't contribute to size or degree}
+
+An interesting polynomial (family) in $VP$ is the \textbf{Determinant}. $$\det_n(X_{n\times n})\dnt \sum_{\pi\in Sym(n)}sign(\pi)  \overset{\substack{n^{\frac{n}2}\approx n! \\ \text{such monomials} \\ \uparrow}}{\underset{\substack{\downarrow \\ \text{Don't have same}\\\text{row or column} }}{\boxed{\prod_{i=1}^nx_{i,\pi(i)}}}}$$
+\thm{}{Given a specialized $X$ we can compute $\det_n(X)$ in $P$ (nearly quadratic time!).}
+\begin{proof}
+	Use Gaussian Elimination
+\end{proof}
+\nt{This does not give $\{\det_n\}_n\in VP$ because, the above algorithm uses division, if-then-else, permutation etc.
+}
+What is the analogue of $NP$ (non-determinism)? Do a large sum
+\dfn{$VNP$ (Valiant's $NP$)}{Polynomial family $\{f_n\}_n\in VNP$ of $$f_n(\overline{x})=\sum_{\underset{\substack{\downarrow\\ \text{witness}}}{\overline{w}\in \{0,1\}^{t(n)}}} \underset{\substack{\downarrow \\ \text{verifier}}}{g(\overline{x},\overline{w})}$$where $$t(n)=poly(n),\qquad \{g_n\}_n\in VP$$}
+So a polynomial family $\{f_n\}\in VNP$ if $f_n$ can be written as a sum over witnesses with verifier evaluated. Replace $\sum$ with $\vee$ (in the boolean world) the you can recover definition of $NP$ right in the boolean case because $g=$ verifier algorithm, poly-time algorithm and it is just going over all possible certificates.
+
+A standard problem in $VNP$ is \textbf{Permanent}$$\per_n(X_{n\times n})=\sum_{\pi\in Sym(n)} \prod_{i=1}^nx_{i,\pi(i)}$$
+\qs{}{Why Gaussian Elimination would fail on this?}
+
+\solve{Adding 2 rows or columns that does not change $\det$ but you don't know for $\per$. In general it change.}
+\nt{So $\per$ is the hardest problem, even harder than $SAT$ in a way}
