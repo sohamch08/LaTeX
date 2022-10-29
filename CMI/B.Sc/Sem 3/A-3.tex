@@ -9,7 +9,7 @@
 
 \begin{document}
 	
-	\title{\textbf{Fulton chapter 5}\\ Linear System of Curves and B\'{e}zout's Theorem}
+	\title{\textbf{Fulton Chapter 5}\\ Linear System of Curves and B\'{e}zout's Theorem}
 	\date{}
 	\author{}
 	\maketitle
@@ -17,220 +17,212 @@
 		\textbf{Email}: \href{aritra@cmi.ac.in}{aritra@cmi.ac.in} \hfill \textbf{Topic}: Algebraic Geometry\\
 		\noindent\rule{\textwidth}{2.8pt}}
 	
-problem 5.19\\
-$A=\{(a,b,1)|\forall a,b\in \{0,1,2\}\}$\\
-show that there is infinitely many cubics passing through the 9 points in A\\
-solution:\\
-let $F$ be a cubic passing through the 9 points in $A$\\
-so, $F_*$ will pass through $B=\{(a,b)|\forall a,b\in \{0,1,2\}\}[*$ taking w.r.t $Z$]\\
-now $F_*=g(X)+Y(H(X,Y))$\\
-as $F_*(a,0)=0\forall a\in\{0,1,2\}\implies g(x)=\lambda (X-2)(X-1)X$ [as $F$ is cubic $\implies g$ is a deg $3$ polynomial]\\
-similarly $F_*=g_1(Y)+XH(X,Y)\implies g_1(Y)=\mu (Y-2)(Y-1)Y$\\
-so, $F_*=\lambda (X-2)(X-1)X+\mu (Y-2)(Y-1)Y+XY(aX+bY+c)$\\
-but $F_*(1,2)=0=F_*(2,1)=F_*(1,1)\implies a+2b+c=0=2a+b+c=a+b+c\implies a=b=c=0$\\
-so, any polynomial passing through $B$ must be of the form $\lambda (X-2)(X-1)X+\mu (Y-2)(Y-1)Y$ where $\lambda,\mu\in k$\\
-so,  any $F$ passing through the points in $A$ will be of the form $\lambda (X-2Z)(X-Z)X+\mu (Y-2Z)(Y-Z)Y$\\
-so there are infinitely curves passing through 9 points in $A$\\\\
-problem 5.23\\
-$F$ is a projective plane curve of degree n ,it contains no lines and char($k$)=0 then\\
-(a)if $P\in H\cap F$ then either it is a multiple point or a flex.\\
-(b)$I(P,H\cap F)=1\iff P$ is an ordinary flex.\\
-solution:\\
-claim 1 :T be a projective change of co-ordinates then hessian of $F^{T}=det(A)^2 H^T $ \\
-let $T=(T_1,T_2,T_3);T_i=a_iX+b_iY+c_iZ$\\
-so the matrix of $T$ is $A=\begin{bmatrix}
+\begin{problem}{Linear System of Curves: 5.19}{p1}
+	$A=\{(a,b,1)\mid\forall\ a,b\in \{0,1,2\}\}$. Show that there is infinitely many cubics passing through the 9 points in $A$
+\end{problem}
+\solve{Let $F$ be a cubic passing through the 9 points in $A$. So, $F_*$ will pass through $$B=\{(a,b)|\forall a,b\in \{0,1,2\}\}\quad  [*\text{ taking w.r.t }Z]$$
+
+Now $F_*=g(X)+Y(H(X,Y))$ as \begin{multline*}
+	F_*(a,0)=0\ \forall\ a\in\{0,1,2\}\implies g(x)=\lambda (X-2)(X-1)X \\
+	[\text{as }F\text{ is cubic }\implies g\text{ is a deg 3 polynomial}]
+\end{multline*}. 
+
+Similarly $$F_*=g_1(Y)+XH(X,Y)\implies g_1(Y)=\mu (Y-2)(Y-1)Y$$So, $$F_*=\lambda (X-2)(X-1)X+\mu (Y-2)(Y-1)Y+XY(aX+bY+c)$$But $$F_*(1,2)=0=F_*(2,1)=F_*(1,1)\implies a+2b+c=0=2a+b+c=a+b+c\implies a=b=c=0$$So, any polynomial passing through $B$ must be of the form $$\lambda (X-2)(X-1)X+\mu (Y-2)(Y-1)Y$$ where $\lambda,\mu\in k$. So,  any $F$ passing through the points in $A$ will be of the form $$\lambda (X-2Z)(X-Z)X+\mu (Y-2Z)(Y-Z)Y$$
+so there are infinitely curves passing through 9 points in $A$}
+
+
+\begin{problem}{B\'{e}zout's Theorem: 5.23}{p2}
+	$F$ is a projective plane curve of degree n ,it contains no lines and char($k$)=0 then
+\begin{enumerate}[label=(\alph*)]
+	\item if $P\in H\cap F$ then either it is a multiple point or a flex.
+	\item $I(P,H\cap F)=1\iff P$ is an ordinary flex.
+\end{enumerate}
+\end{problem}
+
+\solve{\parinf
+	
+\textbf{\textit{Claim 1 }}: $T$ be a projective change of co-ordinates then hessian of $$F^{T}=det(A)^2 H^T $$
+
+\textbf{\textit{Proof: }}Let $T=(T_1,T_2,T_3);T_i=a_iX+b_iY+c_iZ$. So the matrix of $T$ is $A=\begin{bmatrix}
 a_1 & b_1 & c_1\\
 a_2 & b_2 & c_2\\
 a_3 & b_3 & c_3
-\end{bmatrix}$\\
-$(F(T_1,T_2,T_3))_{x}=a_1F_{T_1}(T_1,T_2,T_3)+a_2F_{T_2}(T_1,T_2,T_3)+a_3F_{T_3}(T_1,T_2,T_3)=\begin{bmatrix}
- F_{T_1} & F_{T_2} & F_{T_3}\\
 \end{bmatrix}$
-$\begin{bmatrix}
+
+\begin{multline*}
+	(F(T_1,T_2,T_3))_{x}=a_1F_{T_1}(T_1,T_2,T_3)+a_2F_{T_2}(T_1,T_2,T_3)+a_3F_{T_3}(T_1,T_2,T_3)\\
+	=\begin{bmatrix}
+ F_{T_1} & F_{T_2} & F_{T_3}\\
+\end{bmatrix} \begin{bmatrix}
 a_1 \\
 a_2 \\
 a_3
-\end{bmatrix} $[by chain rule]\\
-$(F(T_1,T_2,T_3))_{xx}=\sum_{i=1}^3\sum_{j=1}^3a_i(a_j F_{T_iT_j})$\\
-so, $F_{xx}(T_1,T_2,T_3)$ is the (1,1) position of \\
-$\begin{bmatrix}
+\end{bmatrix}\quad [\text{by chain rule}]
+\end{multline*} 
+
+$$(F(T_1,T_2,T_3))_{xx}=\sum_{i=1}^3\sum_{j=1}^3a_i(a_j F_{T_iT_j})$$
+So, $F_{xx}(T_1,T_2,T_3)$ is the (1,1) position of $\begin{bmatrix}
 a_1 & a_2 & a_3\\
 b_1 & b_2 & b_3\\
 c_1 & c_2 & c_3
-\end{bmatrix}$
-$\begin{bmatrix}
+\end{bmatrix}\begin{bmatrix}
 F_{T_1T_1} & F_{T_1T_2} & F_{T_1T_3}\\
 F_{T_2T_1} & F_{T_2T_2} & F_{T_2T_3}\\
 F_{T_3T_1} & F_{T_3T_2} & F_{T_3T_3}
-\end{bmatrix}$
-$\begin{bmatrix}
+\end{bmatrix}\begin{bmatrix}
 a_1 & b_1 & c_1\\
 a_2 & b_2 & c_2\\
 a_3 & b_3 & c_3
-\end{bmatrix}$\\
-so, $\begin{bmatrix}
+\end{bmatrix}$. So, $$\begin{bmatrix}
 a_1 & a_2 & a_3\\
 b_1 & b_2 & b_3\\
 c_1 & c_2 & c_3
-\end{bmatrix}$
-$\begin{bmatrix}
+\end{bmatrix}\begin{bmatrix}
 F_{T_1T_1} & F_{T_1T_2} & F_{T_1T_3}\\
 F_{T_2T_1} & F_{T_2T_2} & F_{T_2T_3}\\
 F_{T_3T_1} & F_{T_3T_2} & F_{T_3T_3}
-\end{bmatrix}$
-$\begin{bmatrix}
+\end{bmatrix}\begin{bmatrix}
 a_1 & b_1 & c_1\\
 a_2 & b_2 & c_2\\
 a_3 & b_3 & c_3
-\end{bmatrix}$\\=$\begin{bmatrix}
+\end{bmatrix}=\begin{bmatrix}
 (F^T)_{xx} & (F^T)_{xy} & (F^T)_{xz}\\
 (F^T)_{yx} & (F^T)_{yy} & (F^T)_{yz}\\
 (F^T)_{zx} & (F^T)_{zy} & (F^T)_{zz}
-\end{bmatrix}$\\
-so, $R=$ hessian of $F^{T}=det(A)^2 H^T $ \\
-so, $P\in H\cap F \iff T(P)\in R\cap F^T\iff T(P) \in H^T\cap F^T$\\
-and $I(P,F\cap H)=1\iff I(T(P),F^T\cap H^T)=1\iff I(T(P),F^T\cap R)=1$\\
-so we can assume $P=(0,0,1)$\\
+\end{bmatrix}$$
+So, $R=$ hessian of $F^{T}=det(A)^2 H^T $. So, $$P\in H\cap F \iff T(P)\in R\cap F^T\iff T(P) \in H^T\cap F^T$$and $$I(P,F\cap H)=1\iff I(T(P),F^T\cap H^T)=1\iff I(T(P),F^T\cap R)=1$$so we can assume $P=(0,0,1)$\Qed
 
-claim 2:(n-1)$F_j=\sum_{i}X_i F_{ij}$\\
-let $F=\sum_{k=0}^r X_j^k F_k$[where $degF_k=n-k$] \\
-$\implies F_j=\sum_{k=1}^r kX_j^{k-1}F_k \implies deg(F_j)=n-1$[as char$K$=0]\\
-applying Euler's theorem on $F_j$ we get the relation.\\
-$(n-1)F_j=\sum_iX_iF_{ji}=\sum_iX_iF_{ij}$[as $F_{ij}=F_{ji}$]\\
+\textbf{\textit{Claim 2: }}$(n-1)F_j=\sum_{i}X_i F_{ij}$
 
-claim 3:$I(P,f\cap h)=I(P,f\cap g)$ where $g=f_y^2f_{xx}+f_x^2f_{yy}-2f_xf_yf_{xy}$]\\
-let $F(X,Y,Z)=\sum_{k=0}^r X^kF_k(Y,Z)\implies F_X(X,Y,1)=\sum_{k=1}^{r} k X^{k-1}F_k(Y,1)=f_x(X,y,1) $\\
-$F(X,Y,Z)=\sum_{k=0}^r X^kF_k(Y,Z)\implies F_Y(X,Y,1)=\sum_{k=1}^{r} k X^{k-1}F_k(Y,1)=f_y(X,y,1)$\\
-so, $F_{XY}(X,Y,1)=f_{XY}(X,Y);F_{XX}(X,Y,1)=f_{XX}(X,Y,1)$\\
+\textbf{\textit{Proof: }}Let \begin{multline*}
+	F=\sum_{k=0}^r X_j^k F_k\quad[\text{where }\deg F_k=n-k]\implies F_j=\sum_{k=1}^r kX_j^{k-1}F_k \\
+	\implies deg(F_j)=n-1\quad [\text{as char }K=0]
+\end{multline*}
+Applying Euler's theorem on $F_j$ we get the relation $$(n-1)F_j=\sum_iX_iF_{ji}=\sum_iX_iF_{ij}\quad [\text{as }F_{ij}=F_{ji}]$$\Qed
 
-$H(X,Y,Z)=$ $\begin{vmatrix}
-F_{xx} & F_{xy} & F_{xz}\\
-F_{yx} & F_{yy} & F_{yz}\\
-F_{zx} & F_{zy} & F_{zz}
-\end{vmatrix}$
-$=\begin{vmatrix}
-F_{xx} & F_{xy} & F_{xz}\\
-F_{yx} & F_{yy} & F_{yz}\\
-xF_{xx}+yF_{yx}+zF_{zx} &xF_{xy}+yF_{yy}+zF_{zy} & xF_{xz}+yF_{zy}+zF_{zz}
-\end{vmatrix}$
-$=\begin{vmatrix}
-F_{xx} & F_{xy} & F_{xz}\\
-F_{yx} & F_{yy} & F_{yz}\\
-(n-1)F_x & (n-1)F_y & (n-1)F_z
-\end{vmatrix}$
-$=\begin{vmatrix}
-F_{xx} & F_{xy} & zF_{xz}+yF_{xy}+xF_{xx}\\
-F_{yx} & F_{yy} & zF_{yz}+yF_{yy}+xF_{yx}\\
-(n-1)F_x & (n-1)F_y & (n-1)(zF_z+yF_y+xF_x)
-\end{vmatrix}$
-$=\begin{vmatrix}
-F_{xx} & F_{xy} & (n-1)F_x\\
-F_{yx} & F_{yy} & (n-1)F_y\\
-(n-1)F_x & (n-1)F_y & (n-1)nF
-\end{vmatrix}$\\
-so, $h(x,y)=H(x,y,1)=\begin{vmatrix}
+\textbf{\textit{Claim 3: }}$I(P,f\cap h)=I(P,f\cap g)$ where $g=f_y^2f_{xx}+f_x^2f_{yy}-2f_xf_yf_{xy}$
+
+
+\textbf{\textit{Proof: }}Let $$F(X,Y,Z)=\sum_{k=0}^r X^kF_k(Y,Z)\implies F_X(X,Y,1)=\sum_{k=1}^{r} k X^{k-1}F_k(Y,1)=f_x(X,y,1) $$
+so, $F_{XY}(X,Y,1)=f_{XY}(X,Y);F_{XX}(X,Y,1)=f_{XX}(X,Y,1)$
+\begin{align*}
+	H(X,Y,Z) & = \begin{vmatrix}
+		F_{xx} & F_{xy} & F_{xz}\\
+		F_{yx} & F_{yy} & F_{yz}\\
+		F_{zx} & F_{zy} & F_{zz}
+	\end{vmatrix}=\begin{vmatrix}
+		F_{xx} & F_{xy} & F_{xz}\\
+		F_{yx} & F_{yy} & F_{yz}\\
+		xF_{xx}+yF_{yx}+zF_{zx} &xF_{xy}+yF_{yy}+zF_{zy} & xF_{xz}+yF_{zy}+zF_{zz}
+	\end{vmatrix}\\[2mm]
+	&=\begin{vmatrix}
+		F_{xx} & F_{xy} & F_{xz}\\
+		F_{yx} & F_{yy} & F_{yz}\\
+		(n-1)F_x & (n-1)F_y & (n-1)F_z
+	\end{vmatrix}=\begin{vmatrix}
+		F_{xx} & F_{xy} & zF_{xz}+yF_{xy}+xF_{xx}\\
+		F_{yx} & F_{yy} & zF_{yz}+yF_{yy}+xF_{yx}\\
+		(n-1)F_x & (n-1)F_y & (n-1)(zF_z+yF_y+xF_x)
+	\end{vmatrix}\\[2mm]
+	&=\begin{vmatrix}
+		F_{xx} & F_{xy} & (n-1)F_x\\
+		F_{yx} & F_{yy} & (n-1)F_y\\
+		(n-1)F_x & (n-1)F_y & (n-1)nF
+	\end{vmatrix}
+\end{align*}
+
+So, \begin{align*}
+	h(x,y)&=H(x,y,1)=\begin{vmatrix}
 f_{xx} & f_{xy} & (n-1)f_x\\
 f_{yx} & f_{yy} & (n-1)f_y\\
 (n-1)f_x & (n-1)f_y & (n-1)nf
-\end{vmatrix}\\
-=(n-1)nf[f_{yy}f_{xx}-f_{yx}f_{xy}]-(n-1)^2f_y[f_{xx}f_y-f_xf_{xy}]+(n-1)^2f_x[f_yf_{yx}-f_{yy}f_{x}]$\\
-$=(n-1)nf[f_{yy}f_{xx}-f_{yx}f_{xy}]-(n-1)^2[f_y^2f_{xx}+f_x^2f_{yy}-2f_xf_yf_{xy}]$[as $f_{xy}=f_{yx}$]\\
-so, $I(P,f\cap g)=I(P,f\cap h)$
+\end{vmatrix}\\[2mm]
+&=(n-1)nf[f_{yy}f_{xx}-f_{yx}f_{xy}]-(n-1)^2f_y[f_{xx}f_y-f_xf_{xy}]+(n-1)^2f_x[f_yf_{yx}-f_{yy}f_{x}]\\
+&=(n-1)nf[f_{yy}f_{xx}-f_{yx}f_{xy}]-(n-1)^2[f_y^2f_{xx}+f_x^2f_{yy}-2f_xf_yf_{xy}]\quad[\text{as }f_{xy}=f_{yx}]\\
+\end{align*}
+So, $I(P,f\cap g)=I(P,f\cap h)$\Qed
 
-claim 4:If $P$ is a multiple point then $I(P,f\cap g)\geq 2$\\
-$P\in F\cap H$ $P$ is a multiple point of $F\implies I(P,F\cap H)=I(P,f\cap h)\geq 2$[as $m_P(f)\geq 2$]\\
-so, $I(P,f\cap g)\geq 2$\\
+\textbf{\textit{Claim 4: }}If $P$ is a multiple point then $I(P,f\cap g)\geq 2$
 
-claim 5:$P=(0,0)$ be a simple point of  $f=y+ax^2+bxy+cy^2+dx^3+$ higher terms $y=0$ be the tangent at $P$\\
-$P$ is a flex iff $a=0$; $P$ is an ordinary flex iff $a=0;d\neq 0$\\
+\textbf{\textit{Proof: }}$P\in F\cap H$ $P$ is a multiple point of $F\implies I(P,F\cap H)=I(P,f\cap h)\geq 2$ [as $m_P(f)\geq 2$]. So, $I(P,f\cap g)\geq 2$\Qed
 
-As $P$ is a simple point $O_P(f)$ is a d.v.r and the maximal ideal is generated by $x$\\
-$P$ is a flex iff $ord(y)\geq 3$\\
-so, $y(1+bx+cy+higher terms)=x^2(a+dx+higher terms)$\\
-so $ord(y)\geq 3\iff a=0$\\
-$P$ is an ordinary flex iff $ord(y)= 3$\\
-so, $y(1+bx+cy+higher terms)=x^2(a+dx+higher terms)$\\
-so $ord(y)= 3\iff a=0;d\neq 0$\\
+\textbf{\textit{Claim 5: }}$P=(0,0)$ be a simple point of  $f=y+ax^2+bxy+cy^2+dx^3+$ higher terms $y=0$ be the tangent at $P$. $P$ is a flex iff $a=0$; $P$ is an ordinary flex iff $a=0;d\neq 0$
 
-now $f_x=2ax+by+3dx^2+$ other terms\\
-$f_y=1+bx+2cy+$ other terms\\ 
-$f_{xx}=2a+6dx+$ other terms\\
-$f_{yy}=2c+$other terms\\
-$f_{xy}=b+$other terms\\
-now $f_xf_yf_{xy}=(2ax+by)b+$higher terms\\
-$f_y^2f_{xx}=2a+6dx$+higher terms\\
-$f_x^2f_{yy}$ has no 1 degree terms\\
-$g=2a+(6d-4ab)x-2b^2 y+$higher terms\\
-now $P=(0,0)\in f\cap g \iff a=0 \iff P$ is a flex\\
-$I(P,g\cap f)=1\iff $ they do not share tangent at $P\iff d\neq 0\iff P$ is an ordinary flex.\\
-corollary :\\
-A non singular cubic has 9 flexes all are ordinary\\
-let $F$ be a cubic non singular curve $H$ be its hessian .\\
-so $H$ is also cubic \\
-$\sum_P(I(P,F\cap H)=9$\\
-now let for some $P,I(p.F\cap H)\neq 0$\\
-as $P$ is non singular so $P$ is simple so by the previous theorem $P$ is a flex.\\
-it must be ordinary as $F$ is cubic.\\
-so, $I(P,H\cap F)=1$\\
-so, there are 9 flexes of $F$\\
+\textbf{\textit{Proof: }}As $P$ is a simple point $O_P(f)$ is a d.v.r and the maximal ideal is generated by $x$. $P$ is a flex iff $ord(y)\geq 3$. So, $$y(1+bx+cy+higher terms)=x^2(a+dx+higher terms)$$so $ord(y)\geq 3\iff a=0$
 
-problem 5.24\\
-a) let (0,1.0) be a flex and $Z=0$ be the tangent at that point . char$k$=0.
-show that $F=ZY^2+bYZ^2+cYXZ+$ terms in $X,Z$\\
-find a projective change of co-ordinates  s.t $F$ reduced to a form $Y^2Z=$ cubic in $X,Z$\\
-solution:\\
-$P=(0,0)$\\
-so, $O_P(F_*)$ is a d.v.r. and generated by $X$\\
-so, $Z(1+bZ+cX+dXZ+eX^2+fZ^2)=X^3k$[as $F$ is a cubic]\\
-so, $F_*(X,Z)=Z+bZ^2+cXZ+dXZ^2+eX^2Z+fZ^3-kX^3\implies F=ZY^2+bZ^2Y+cXYZ+dXZ^2+X^2Z+fZ^3-kX^3$\\
-now,  using $Y\to (Y-b/2Z-c/2X)$  and keeping others same\\
-$ ZY^2+bZ^2Y+cXYZ$ becomes $ZY^2-\frac{b^2Z^3}{4}-\frac{c^2X^2Z}{4}-\frac{bcXZ^2}{4}$ \\
-so, we get $F$ to the form $ZY^2=$cubic in $X,Z$\\
+\parinn
+$P$ is an ordinary flex iff $ord(y)= 3$. So, $$y(1+bx+cy+higher terms)=x^2(a+dx+higher terms)$$so $ord(y)= 3\iff a=0;d\neq 0$. Now 
+\begin{center}
+	\begin{tabular}{ccl}
+$f_x$&$=$&$2ax+by+3dx^2+$ other terms\\[1mm]
+$f_y$&$=$&$1+bx+2cy+$ other terms\\ [1mm]
+$f_{xx}$&$=$&$2a+6dx+$ other terms\\[1mm]
+$f_{yy}$&$=$&$2c+$ other terms\\[1mm]
+$f_{xy}$&$=$&$b+$ other terms
+\end{tabular}
+\end{center}
+Now 
 
-b) show that any irreducible cubic is projectively equivalent to one of the following  $G_1=Y^2Z-X^3$ , $G_2=Y^2Z-X^2(X+1)$ , $G_3=Y^2Z=X(X-Z)(X-\lambda Z)$ where $\lambda\neq 0, 1$\\
-solution:\\
-assume char$F$=0\\ 
-let $F$ be an irreducible curve .\\
-so, it has at most finitely many singular point\\
-let $Q_1=(a,b,c)\in H\cap F$ be a simple point of $F$ and $L$ be its tangent [as $H\cap F$ is infinite] \\
-let $Q_2=(d,e,f)$ be another point on $L$\\
-so, $\exists$ a projective change of co-ordinates $T$ s.t. $T(Q_1)=(0,1,0),T(Q_2)=(1,0,0)$\\
-so, (0,1,0) a simple point  of $F^T$ and its tangent is $Z=0$\\
-by problem 5.23 it is a flex.\\
-so, by problem (a)\\
-$F^T$ is projectively equivalent to $Y^2Z-$cubic in $X,Z$\\
-let $G=Y^2Z-(X-\lambda_1Z)(X-\lambda_2 Z)(X-\lambda_3 Z)$\\
-case 1.\\
-if all $\lambda_i's$ are equal then using $X\to (X+\lambda Z)$ and keeping others unchanged we get $X^3=Y^2Z$\\
-case 2.\\
-if $\lambda=\lambda_1=\lambda_2\neq \lambda_3$\\
-then using $X\to (X+\lambda Z)$ and keeping others unchanged we get\\
-$Y^2Z=X^2(X+(\lambda-\lambda_3)Z)$\\
-using $Z\to \frac{Z}{\lambda-\lambda_3}$ , $Y\to\sqrt{\lambda-\lambda_3}Y$ keeping $X$ unchanged we get\\
-$Y^2Z=X^2(X+1)$[as $\lambda-\lambda_3\neq 0$]\\
-case 3.\\
-all $\lambda_i$'s are distinct\\
-then using $X\to (X+\lambda_1 Z)$ and keeping others unchanged we get\\
-$Y^2Z=X(X-(\lambda_2-\lambda_1)Z)(X-(\lambda_3-\lambda_1)Z)$\\
-again  using $Z\to \frac{Z}{\lambda_2-\lambda_1}$ , $Y\to\sqrt{\lambda_2-\lambda_1}Y$ keeping $X$ unchanged we get\\
-$Y^2Z=X(X-Z)(X-\frac{\lambda_3-\lambda_1}{\lambda_2-\lambda_1}Z)$\\
-and also $\frac{\lambda_3-\lambda_1}{\lambda_2-\lambda_1}\neq 0,1$\\
-so, it is projectively equivalent to $Y^2Z=X(X-Z)(X-\lambda Z)$ where $\lambda\neq 0, 1$\\
-so, $F$ is projectively equivalent to $G_1=Y^2Z-X^3$ or $G_2=Y^2Z-X^2(X+1)$ or $G_3=Y^2Z=X(X-Z)(X-\lambda Z)$ where $\lambda\neq 0, 1$\\
-remark:\\
-claim 1:$G_1$ has a cusp at $(0,0,1)$\\
-${G_1}_*(X,Z)=Y^2-X^3$ which has a cusp at $(0,0)$ and the tangent is $Y=0$\\
-claim 2:$G_2$ has a node at $(0,0,1)$\\
-${G_2}_*(X,Z)=Y^2-X^2-X^3$ which has a node at $(0,0)$ and the tangents are $X+Y=0,X-Y=0$\\
-claim 3: if $F$ is an irreducible conic then $\forall P\in F$ $m_P(F)\leq 2$\\
-if $\exists P\in V(F)$ s.t. $m_P(F)>2$\\
-$\exists$   a projective change of co-ordinates $T$ s.t.$T(P)=(0,1,0)$ \\
-$G=F^T$ $G_*=L_1L_2L_3\implies G$ is reducible\\
-which is not possible\\
-so, if $F$ is an irreducible conic then either is non singular or it has cusp or it has a node.\\
-now both claim 1 and problem 5.10 implies that if $F$ has a cusp then it is projectively equivalent to $G_1$\\
-both claim 2 and problem 5.11 implies that if $F$ has a node then it is projectively equivalent to $G_2$\\
-so, if $F$ is non singular then it is projectively equivalent to $G_3$\\
+\begin{center}
+	\begin{tabular}{ccl}
+$f_xf_yf_{xy}$&$=$&$(2ax+by)b+$ higher terms\\[1mm]
+$f_y^2f_{xx}$&$=$&$2a+6dx$+ higher terms\\[1mm]
+$f_x^2f_{yy}$ && has no 1 degree terms\\[1mm]
+$g$&$=$&$2a+(6d-4ab)x-2b^2 y+$ higher terms
+\end{tabular}
+\end{center}
+Now $$P=(0,0)\in f\cap g \iff a=0 \iff P\text{ is a flex}$$ $I(P,g\cap f)=1\iff $ they do not share tangent at $P\iff d\neq 0\iff P$ is an ordinary flex.
+\parinf
+
+\textbf{\textit{Corollary: }}A non singular cubic has 9 flexes all are ordinary. 
+
+\textbf{\textit{Proof: }}Let $F$ be a cubic non singular curve $H$ be its hessian. So $H$ is also cubic. $\sum\limits_P(I(P,F\cap H)=9$
+
+
+Now let for some $P,I(p.F\cap H)\neq 0$. As $P$ is non singular so $P$ is simple so by the previous theorem $P$ is a flex. It must be ordinary as $F$ is cubic. So, $I(P,H\cap F)=1$. So, there are 9 flexes of $F$
+}
+\newpage
+\begin{problem}{B\'{e}zout's Theorem: 5.24}{p3}
+\begin{enumerate}[label=(\alph*)]
+	\item \label{p3a} Let (0,1.0) be a flex and $Z=0$ be the tangent at that point. char $k$=0. Show that $F=ZY^2+bYZ^2+cYXZ+$ terms in $X,Z$ find a projective change of co-ordinates  s.t $F$ reduced to a form $Y^2Z=$ cubic in $X,Z$
+	\item Show that any irreducible cubic is projectively equivalent to one of the following  $G_1=Y^2Z-X^3$ , $G_2=Y^2Z-X^2(X+1)$ , $G_3=Y^2Z=X(X-Z)(X-\lambda Z)$ where $\lambda\neq 0, 1$
+\end{enumerate}
+\end{problem}
+\solve{\begin{enumerate}[label=(\alph*)]
+\item $P=(0,0)$. So, $O_P(F_*)$ is a d.v.r. and generated by $X$. So, $$Z(1+bZ+cX+dXZ+eX^2+fZ^2)=X^3k\quad [\text{as }F\text{ is a cubic}]$$so, \begin{multline*}
+	F_*(X,Z)=Z+bZ^2+cXZ+dXZ^2+eX^2Z+fZ^3-kX^3\\ 
+	\implies F=ZY^2+bZ^2Y+cXYZ+dXZ^2+X^2Z+fZ^3-kX^3
+\end{multline*}Now,  using $Y\to (Y-b/2Z-c/2X)$  and keeping others same. $ ZY^2+bZ^2Y+cXYZ$ becomes $$ZY^2-\frac{b^2Z^3}{4}-\frac{c^2X^2Z}{4}-\frac{bcXZ^2}{4}$$so, we get $F$ to the form $ZY^2=$cubic in $X,Z$\Qed
+\parinn
+
+\item Assume char $F$=0. Let $F$ be an irreducible curve. So, it has at most finitely many singular point. 
+
+
+Let $Q_1=(a,b,c)\in H\cap F$ be a simple point of $F$ and $L$ be its tangent [as $H\cap F$ is infinite]. Let $Q_2=(d,e,f)$ be another point on $L$. So, $\exists$ a projective change of co-ordinates $T$ s.t. $T(Q_1)=(0,1,0),T(Q_2)=(1,0,0)$. So, (0,1,0) a simple point  of $F^T$ and its tangent is $Z=0$. By \hyperref[p:p2]{problem 5.23} it is a flex. So, by \hyperref[p3a]{problem (a)} $F^T$ is projectively equivalent to $Y^2Z-$cubic in $X,Z$. Let $$G=Y^2Z-(X-\lambda_1Z)(X-\lambda_2 Z)(X-\lambda_3 Z)$$
+\textbf{\underline{Case 1:}} \ If all $\lambda_i's$ are equal then using $X\to (X+\lambda Z)$ and keeping others unchanged we get $X^3=Y^2Z$
+\parinf
+
+\textbf{\underline{Case 2.}} \ If $\lambda=\lambda_1=\lambda_2\neq \lambda_3$. Then using $X\to (X+\lambda Z)$ and keeping others unchanged we get$$Y^2Z=X^2(X+(\lambda-\lambda_3)Z)$$using $Z\to \frac{Z}{\lambda-\lambda_3}$ , $Y\to\sqrt{\lambda-\lambda_3}Y$ keeping $X$ unchanged we get$$Y^2Z=X^2(X+1)\quad [\text{as }\lambda-\lambda_3\neq 0]$$
+
+\textbf{\underline{Case 3.}} \  All $\lambda_i$'s are distinct. Then using $X\to (X+\lambda_1 Z)$ and keeping others unchanged we get $$Y^2Z=X(X-(\lambda_2-\lambda_1)Z)(X-(\lambda_3-\lambda_1)Z)$$again  using $$Z\to \frac{Z}{\lambda_2-\lambda_1},\ Y\to\sqrt{\lambda_2-\lambda_1}Y$$ keeping $X$ unchanged we get $$Y^2Z=X(X-Z)(X-\frac{\lambda_3-\lambda_1}{\lambda_2-\lambda_1}Z)$$and also$$\frac{\lambda_3-\lambda_1}{\lambda_2-\lambda_1}\neq 0,1$$so, it is projectively equivalent to $Y^2Z=X(X-Z)(X-\lambda Z)$ where $\lambda\neq 0, 1$. 
+\parinn
+
+So, $F$ is projectively equivalent to $G_1=Y^2Z-X^3$ or $G_2=Y^2Z-X^2(X+1)$ or $G_3=Y^2Z=X(X-Z)(X-\lambda Z)$ where $\lambda\neq 0, 1$
+\parinf
+
+\boxed{\textbf{\textit{Remark:}}}
+
+
+\textbf{\textit{Claim 1: }}$G_1$ has a cusp at $(0,0,1)$. ${G_1}_*(X,Z)=Y^2-X^3$ which has a cusp at $(0,0)$ and the tangent is $Y=0$
+
+\textbf{\textit{Claim 2: }}$G_2$ has a node at $(0,0,1)$. ${G_2}_*(X,Z)=Y^2-X^2-X^3$ which has a node at $(0,0)$ and the tangents are $X+Y=0,X-Y=0$
+
+\textbf{\textit{Claim 3: }}If $F$ is an irreducible conic then $\forall P\in F$ $m_P(F)\leq 2$. If $\exists P\in V(F)$ s.t. $m_P(F)>2$ $\exists$   a projective change of co-ordinates $T$ s.t.$T(P)=(0,1,0)$ $G=F^T$ $G_*=L_1L_2L_3\implies G$ is reducible which is not possible. 
+\parinn
+
+So, if $F$ is an irreducible conic then either is non singular or it has cusp or it has a node. Now both claim 1 and problem 5.10 implies that if $F$ has a cusp then it is projectively equivalent to $G_1$. Both claim 2 and problem 5.11 implies that if $F$ has a node then it is projectively equivalent to $G_2$. So, if $F$ is non singular then it is projectively equivalent to $G_3$.
+\end{enumerate}
+}
 
 
 
