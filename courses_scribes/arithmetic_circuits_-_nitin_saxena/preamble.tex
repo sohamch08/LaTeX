@@ -41,6 +41,7 @@
 \definecolor{myg}{RGB}{56, 140, 70}
 \definecolor{myb}{RGB}{45, 111, 177}
 \definecolor{myr}{RGB}{199, 68, 64}
+\definecolor{mym}{RGB}{0, 93, 93}
 \definecolor{mytheorembg}{HTML}{F2F2F9}
 \definecolor{mytheoremfr}{HTML}{00007B}
 \definecolor{myexamplebg}{HTML}{F2FBF8}
@@ -187,7 +188,29 @@
 {th}
 
 
+%================================
+% CONJECTURE
+%================================
 
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem[number within=section]{conjecture}{Conjecture}
+{%
+	enhanced
+	,breakable
+	,colback = mym!10
+	,frame hidden
+	,boxrule = 0sp
+	,borderline west = {2pt}{0pt}{mym}
+	,sharp corners
+	,detach title
+	,before upper = \tcbtitle\par\smallskip
+	,coltitle = mym!85!black
+	,fonttitle = \bfseries\sffamily
+	,description font = \mdseries
+	,separator sign none
+	,segmentation style={solid, mym!85!black}
+}
+{th}
 
 %================================
 % EXAMPLE BOX

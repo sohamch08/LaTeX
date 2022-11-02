@@ -1,320 +1,52 @@
-\documentclass[11pt]{amsart}
-
-
-\usepackage[all]{xy}
-\usepackage{graphics}
-\usepackage{enumitem}
-\usepackage{epsfig}
-\usepackage{amsmath}
-\usepackage{amscd}
-\usepackage{tikz-cd}
-\usepackage{verbatim}
-\usepackage{pdfpages}
-\usepackage{showkeys}
-\usepackage{amsfonts,latexsym,amssymb}
-\usepackage{parskip}
-\usepackage{MnSymbol}
-\usepackage{hyperref}
-
-\usepackage{mdwlist}
-\usepackage{tgbonum}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+\documentclass[11pt]{article}
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\newcommand{\cA}{{\mathcal{A}}}   \newcommand{\cB}{{\mathcal{B}}}
-\newcommand{\cC}{{\mathcal{C}}}   \newcommand{\cD}{{\mathcal{D}}}
-\newcommand{\cE}{{\mathcal{E}}}   \newcommand{\cF}{{\mathcal{F}}}
-\newcommand{\cG}{{\mathcal{G}}}   \newcommand{\cH}{{\mathcal{H}}}
-\newcommand{\cI}{{\mathcal{I}}}   \newcommand{\cJ}{{\mathcal{J}}}
-\newcommand{\cK}{{\mathcal{K}}}   \newcommand{\cL}{{\mathcal{L}}}
-\newcommand{\cM}{{\mathcal{M}}}   \newcommand{\cN}{{\mathcal{N}}}
-\newcommand{\cO}{{\mathcal{O}}}   \newcommand{\cP}{{\mathcal{P}}}
-\newcommand{\cQ}{{\mathcal{Q}}}   \newcommand{\cR}{{\mathcal{R}}}
-\newcommand{\cS}{{\mathcal{S}}}   \newcommand{\cT}{{\mathcal{T}}}
-\newcommand{\cU}{{\mathcal{U}}}   \newcommand{\cV}{{\mathcal{V}}}
-\newcommand{\cW}{{\mathcal{W}}}   \newcommand{\cX}{{\mathcal{X}}}
-\newcommand{\cY}{{\mathcal{Y}}}   \newcommand{\cZ}{{\mathcal{Z}}}
-
-\newcommand{\hcP}{\hat{\mathcal{P}}}
-\newcommand{\hcQ}{\hat{\mathcal{Q}}}
-\newcommand{\hcR}{\hat{\mathcal{R}}}
-\newcommand{\hcL}{\hat{\mathcal{L}}}
-\newcommand{\hcM}{\hat{\mathcal{M}}} \newcommand{\hphi}{\hat{\phi}}
-\newcommand{\bbk}{\mathbb{k}}   \newcommand{\bfv}{\mathbf{v}}
-\newcommand{\bfnu}{\mathbf{nu}}  \newcommand{\hXX}{\hat{\mathbb{X}}}
-\newcommand{\bJ}{\mathbf{J}}
-
-\newcommand{\hD}{{\hat{D}}}   \newcommand{\hE}{{\hat{E}}}
-\newcommand{\hF}{{\hat{F}}}   \newcommand{\hH}{{\hat{H}}}
-\newcommand{\hY}{{\hat{Y}}}   \newcommand{\hP}{{\hat{P}}}
-\newcommand{\hT}{{\hat{T}}}   \newcommand{\hQ}{{\hat{Q}}}
-\newcommand{\hq}{{\hat{q}}}
-\newcommand{\hr}{{\hat{r}}}
-\newcommand{\hu}{{\hat{u}}}
-\newcommand{\hv}{{\hat{v}}}
-\newcommand{\hf}{{\hat{f}}}
-\newcommand{\hg}{{\hat{g}}}
-\newcommand{\hw}{{\hat{w}}}
-\newcommand{\hS}{{\hat{S}}}
-\newcommand{\hV}{{\hat{V}}}
-\newcommand{\hG}{{\hat{G}}}
-\newcommand{\hmu}{{\hat{\mu}}}
-\newcommand {\y}{\V{y}}
-\newcommand {\V}[1]{\mbox{\boldmath$#1$}}
-\newcommand{\iExp}{{\mathrm{iExp\,}}}
-
-\newcommand{\htheta}{{\hat{\theta}}}
-
-
-
-\newcommand{\htu}{{\hat{\tilde{u}}}}
-
-
-\newcommand{\hTR}{{\widehat{TR}}}
-\newcommand{\tsigma}{{\tilde{\sigma}}}
-\newcommand{\tphi}{{\tilde{\phi}}}
-\newcommand{\tpsi}{{\tilde{\psi}}}
-\newcommand{\tzeta}{{\tilde{\zeta}}}
-\newcommand{\tdelta}{{\tilde{\delta}}}
-\newcommand{\tgamma}{{\tilde{\gamma}}}
-\newcommand{\tGamma}{{\tilde{\Gamma}}}
-\newcommand{\tlog}{{\widetilde{\log}}}
-
-
-\newcommand{\txi}{{\tilde{\xi}}}
-\newcommand{\tomega}{{\tilde{\omega}}}
-\newcommand{\tH}{{\tilde{H}}}
-\newcommand{\tI}{{\tilde{I}}}
-
-\newcommand{\tX}{{\tilde{X}}}
-\newcommand{\tV}{{\tilde{V}}}
-\newcommand{\tz}{{\tilde{z}}}
-\newcommand{\ty}{{\tilde{y}}}
-\newcommand{\tx}{{\tilde{x}}}
-\newcommand{\te}{{\tilde{e}}}
-\newcommand{\tf}{{\tilde{f}}}
-\newcommand{\tg}{{\tilde{g}}}
-\newcommand{\tu}{{\tilde{u}}}
-\newcommand{\tm}{{\tilde{m}}}
-\newcommand{\tn}{{\tilde{n}}}
-\newcommand{\tilt}{{\tilde{t}}}
-\newcommand{\tT}{{\tilde{T}}}
-\newcommand{\tL}{{\tilde{L}}}
-\newcommand{\tQ}{{\tilde{Q}}}
-\newcommand{\tB}{{\tilde{B}}}
-\newcommand{\tC}{{\tilde{C}}}
-\newcommand{\tD}{{\tilde{D}}}
-\newcommand{\tU}{{\tilde{U}}}
-\newcommand{\utL}{{\underline{\tilde{L}}}}
-\newcommand{\tF}{{\tilde{F}}}\newcommand{\tilh}{{\tilde{h}}}
-\newcommand{\tk}{{\tilde{k}}}
-\newcommand{\tv}{{\tilde{v}}}
-\newcommand{\tw}{{\tilde{w}}}
-\newcommand{\bx}{\mathbf x}
-\newcommand{\bz}{\mathbf z}
-\newcommand{\bu}{\mathbf u}
-\newcommand{\bv}{\mathbf v}
-\newcommand{\bt}{\mathbf t}
-\newcommand{\bi}{\mathbf i}
-\newcommand{\bj}{\mathbf j}
-\newcommand{\bL}{\mathbf L}
-\newcommand{\bN}{\mathbf N}
-\newcommand{\bM}{\mathbf M}
-\newcommand{\bB}{\mathbf B}
-\newcommand{\bA}{\mathbf A}
-\newcommand{\tbz}{{\tilde{\mathbf z}}}
-\newcommand{\hbx}{\hat{\mathbf x}}
-\newcommand{\tcO}{{\tilde{\mathcal{O}}}}
-\newcommand{\tcC}{{\tilde{\mathcal{C}}}}
-\newcommand{\ocC}{{\overline{\mathcal{C}}}}
-\newcommand{\tcR}{{\tilde{\mathcal{R}}}}
-\newcommand{\tcA}{{\tilde{\mathcal{A}}}}
-
-
-
-
-
-
-
-
-\newcommand{\uL}{\underline L}
-\newcommand{\uM}{\underline M}
-\newcommand{\uE}{\underline E}
-
-\newcommand{\chA}{\check A}
-\newcommand{\chE}{\check E}
-\newcommand{\chL}{\check L}
-\newcommand{\chV}{\check V}
-\newcommand{\chv}{\check v}
-\newcommand{\chw}{\check w}
-\newcommand{\chW}{\check W}
-\newcommand{\chM}{\check M}
-\newcommand{\chQ}{\check Q}
-\newcommand{\chsigma}{\check\sigma}
-
-
-
-\newcommand{\uchL}{\underline{\check L}}
-
-
-
-
-
-
-\newcommand{\BA}{\mathbb{A}}  \newcommand{\BB}{\mathbb{B}}
-\newcommand{\CC}{\mathbb{C}}  \newcommand{\EE}{\mathbb{E}}
-\newcommand{\FF}{\mathbb{F}}  \newcommand{\HH}{\mathbb{H}}
-\newcommand{\JJ}{\mathbb{J}}  \newcommand{\LL}{\mathbb{L}}
-\newcommand{\NN}{\mathbb{N}}  \newcommand{\PP}{\mathbb{P}}
-\newcommand{\QQ}{\mathbb{Q}}  \newcommand{\RR}{\mathbb{R}}
-\newcommand{\TT}{\mathbb{T}}  \newcommand{\VV}{\mathbb{V}}
-\newcommand{\XX}{\mathbb{X}}  \newcommand{\WW}{\mathbb{W}}
-\newcommand{\ZZ}{\mathbb{Z}}
-
-\newcommand{\FM}{\mathfrak{M}}
-\newcommand{\fm}{\mathfrak{m}}
-
-
-\newcommand{\isom}{\cong}
-\newcommand{\Ext}{\operatorname{Ext}}
-\newcommand{\Grass}{\operatorname{Grass}}
-\newcommand{\coker}{\operatorname{coker}}
-\newcommand{\Hilb}{\operatorname{Hilb}}
-\newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\Quot}{\operatorname{Quot}}
-\newcommand{\Pic}{\operatorname{Pic}}
-\newcommand{\NS}{\operatorname{NS}}
-\newcommand{\Sym}{\operatorname{Sym}}
-\newcommand{\id}{\operatorname{I}}
-\newcommand{\im}{\operatorname{im}}
-\newcommand{\surj}{\twoheadrightarrow}
-\newcommand{\inj}{\hookrightarrow}
-\newcommand{\gr}{\operatorname{gr}}
-\newcommand{\rk}{\operatorname{rk}}
-\newcommand{\reg}{\operatorname{reg}}
-\newcommand{\wt}{\widetilde}
-\newcommand{\del}{{\partial}}
-\newcommand{\delb}{{\overline\partial}}
-
-\newcommand{\oX}{{\overline X}}
-\newcommand{\oD}{{\overline D}}
-\newcommand{\ox}{{\overline x}}
-\newcommand{\ow}{{\overline w}}
-\newcommand{\oz}{{\overline z}}
-\newcommand{\oh}{{\overline{h}}}
-\newcommand{\oalpha}{{\overline \alpha}}
-\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
-
-
-
-
-\newcommand{\Res}{\operatorname{Res}}
-\newcommand{\ch}{\operatorname{ch}}
-\newcommand{\tr}{\operatorname{tr}}
-\newcommand{\pardeg}{\operatorname{par-deg}}
-\newcommand{\ad}{{ad\,}}
-\newcommand{\diag}{\operatorname{diag}}
-\newcommand{\codim}{\operatorname{codim}}
-
-\hyphenation{pa-ra-bo-lic}
-\newcommand{\bbQ}{\mathbb{Q}}
-\newcommand{\bbR}{\mathbb{R}}
-\newcommand{\bbP}{\mathbb{P}}
-\newcommand{\bbC}{\mathbb{C}}
-\newcommand{\bbT}{\mathbb{T}}
-\newcommand{\bbU}{\mathbb{U}}
-\newcommand{\bbZ}{\mathbb{Z}}
-\newcommand{\bbN}{\mathbb{N}}
-\newcommand{\bbF}{\mathbb{F}}
-
-
-
-
-
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{theorem}[proposition]{Theorem}
-\newtheorem{lemma}[proposition]{Lemma}
-\newtheorem{conjecture}[proposition]{Conjecture}
-\newtheorem{corollary}[proposition]{Corollary}
-
-
-\theoremstyle{definition}
-\newtheorem{definition}[proposition]{Definition}
-\newtheorem{remark}[proposition]{Remark}
-\newtheorem{notation}[proposition]{Notation}
-\newtheorem{example}[proposition]{Example}
-\newtheorem{ex}{Exercise}[section]
- 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{newmacros}
 
 \begin{document}
-
-\title{\textbf{problems from 6.1,6.2}\\ Algebraic Curves}
+	
+\title{\textbf{Fulton Chapter 6: Varieties, Morphisms, and
+		Rational Maps}\\ The Zariski Topology and Varieties}
+\date{}
+\author{}
 \maketitle
-problem 6.8\\
-Let $U$ be an open subset of a variety $V,z\in k(V)$ suppose $z\in O_P(V)\forall P\in U.$ Show that $U_z=\{P\in U|z(P)\neq 0\}$ is open , and that the function from $U\longrightarrow k=A^1$ defined by $P\longrightarrow z(P)$ is continuous.\\
-solution:\\
-let $f\in \tau(V) ; S_f=\{p\in V|f(P)=0\}=V\cap V(f)$ which is a closed set .\\
-now  $P\in U_z\implies\exists f,g\in \tau V s.t.z=f/g,g(P)\neq 0 $\\
-$P\in V\cap V \setminus S_f\cap V \setminus S_g \subset U_z$[as $\forall P'\in V\cap V\setminus S_f\cap V\setminus S_g$ $z=f/g$ and $z(P)\neq 0$]\\
-so there is an open nbd of $P$ in $U_z\implies U_z$ is open.\\
-let $r\in k$\\
-$U'_z=\{P\in U|z(P)\neq r\}$\\
-similarly $\forall P\in U'_z P\in V\cap V\ S_{(f-rg)}\cap V\ S_g\implies U'_z$ is open $\implies z^{-1}(P)$ is closed.\\
-now in $k$ any closed set $S$ is finite .\\
-so, $z^{-1}(S)=\cup_{p\in S}z^{-1}(p)\implies z^{-1}(S)$ is closed\\
-so, $P\longleftarrow z(P)$ is a continuous function.\\
-problem 6.9\\
-let $X=A^2-\{(0,0)\},$ an open subvariety of $A^2$. Show that $\tau(X)=\tau(A^2)=k[X,Y]$\\
-solution:\\
-clearly, $\tau(A^2)\subseteq \tau(X)$\\
-let $z\in \tau(X)=\cap_{P\in X}O_P(A^2)  ,P\neq (0,0)$\\
-so, $z(P)$ defined at $0\implies \exists f,g\in \tau(A^2)=k[x,y] s.t. z=f/g,g(P)\neq 0$\\
-let $f/g=f_1/g_1$(where g.c.d. of $f_1,g_1=1$\\
-so, $g_1(a,b)\neq 0\forall (a,b)\neq (0,0)$\\
-so, if deg$g_1$in k[X][Y] is non zero then it has infinitely many roots which is not possible.\\
-so, $g_1$ is a constant polynomial.\\
-so, $z\in k[x,y]$\\
-remark:\\
-$A^2-\{(0,0)\}$ is not an affine variety.\\
-lets assume $X=A^2-\{(0,0)\}$ be an affine variety and $I(X)=I$\\
-so, $\tau(X)=k[x,y]/I=k[x,y]\implies I=(0)\implies X=V(I)=A^2$ which is not true.\\
-so, $X$ is not an affine variety.\\
-problem 6.12\\
-let $X$ be a variety, $z\in k(X).$ show that the pole set of $z$ is closed. If $z\in O_P(X),$ there is a neighborhood $U_P$ of $P$ s.t. $z\in \tau(U_P);$ so, $O_P(X)$ is the union of all $\tau (U_P)$\\
-solution:\\
-$J=\{G|zG\in \tau(X)\}$\\
-clearly pole set of $z=X\cap V(J)$\\
-so, pole set is a closed set.\\
-now $z\in O_P(X)\implies P\in X\setminus V(J)\implies P\in U_P\subset X\setminus V(J)$\\
-so, $z\in O_S(X)\forall S\in U_P\implies z\in \tau(U_P)$\\
-$P\in U_P\implies \tau(U_P)\subseteq O_P(X)$\\
-so, $O_P(X)=\cup_{P}\tau(U_P)$\\
+\textsf{\noindent \large\textbf{Aritra Kundu} \hfill \textbf{Problem Set - 5}\\
+	\textbf{Email}: \href{aritra@cmi.ac.in}{aritra@cmi.ac.in} \hfill \textbf{Topic}: Algebraic Geometry\\
+	\noindent\rule{\textwidth}{2.8pt}}
 
 
 
+\begin{problem}{The Zariski Topology: 6.8}{}
+	Let $U$ be an open subset of a variety $V,z\in k(V)$. Suppose $z\in O_P(V)\ \forall\ P\in U.$ Show that $U_z=\{P\in U\mid z(P)\neq 0\}$ is open , and that the function from $U\to k=A^1$ defined by $P\mapsto z(P)$ is continuous.
+\end{problem}
+
+\solve{Let $f\in \tau(V)$; $ S_f=\{p\in V|f(P)=0\}=V\cap V(f)$ which is a closed set. Now  $P\in U_z\implies\exists\ f,g\in \tau (V)$ s.t. $z=f/g,g(P)\neq 0 $. $$P\in V\cap V \setminus S_f\cap V \setminus S_g \subset U_z\quad[\text{as }\forall\ P'\in V\cap V\setminus S_f\cap V\setminus S_g,\ z=f/g\text{ and }z(P)\neq 0]$$So there is an open neighborhood of $P$ in $U_z\implies U_z$ is open. 
+	
+	Let $r\in k$. $U'_z=\{P\in U|z(P)\neq r\}$. Similarly $$\forall\ P\in U'_z P\in V\cap V\ S_{(f-rg)}\cap V\ S_g\implies U'_z\text{ is open }\implies z^{-1}(P)\text{ is closed}$$
+Now in $k$ any closed set $S$ is finite. So, $$z^{-1}(S)=\bigcup\limits_{p\in S}z^{-1}(p)\implies z^{-1}(S)\text{ is closed}$$So, $P\mapsto z(P)$ is a continuous function.}
 
 
 
+\begin{problem}{Varieties: 6.9}{}
+	Let $X=A^2-\{(0,0)\},$ an open subvariety of $A^2$. Show that $\tau(X)=\tau(A^2)=k[X,Y]$
+\end{problem}
+
+\solve{Clearly, $\tau(A^2)\subseteq \tau(X)$. Let $z\in \tau(X)=\bigcap\limits_{P\in X}O_P(A^2)  ,P\neq (0,0)$. So, $z(P)$ defined at $0\implies \exists\ f,g\in \tau(A^2)=k[x,y]$ s.t. $z=f/g,g(P)\neq 0$. Let $f/g=f_1/g_1$ (where g.c.d. of $f_1,g_1=1$). So, $$g_1(a,b)\neq  0\ \forall\ (a,b)\neq (0,0)$$So, if $\deg (g_1)$ in $k[X][Y]$ is non zero then it has infinitely many roots which is not possible. So, $g_1$ is a constant polynomial. So, $z\in k[x,y]$
+	\parinf
+
+\boxed{\textit{\textbf{Remark:}}}
+
+$A^2-\{(0,0)\}$ is not an affine variety. Lets assume $X=A^2-\{(0,0)\}$ be an affine variety and $I(X)=I$. So, $$\tau(X)=k[x,y]/I=k[x,y]\implies I=(0)\implies X=V(I)=A^2$$ which is not true. So, $X$ is not an affine variety.
+}
+
+\begin{problem}{Varieties: 6.12}{}
+Let $X$ be a variety, $z\in k(X).$ show that the pole set of $z$ is closed. If $z\in O_P(X),$ there is a neighborhood $U_P$ of $P$ s.t. $z\in \tau(U_P);$ so, $O_P(X)$ is the union of all $\tau (U_P)$
+\end{problem}
 
 
-
-
-
-
-
-
-
-
-
-
+\solve{$J=\{G|zG\in \tau(X)\}$. Clearly pole set of $z=X\cap V(J)$. So, pole set is a closed set. Now $$z\in O_P(X)\implies P\in X\setminus V(J)\implies P\in U_P\subset X\setminus V(J)$$So, $$z\in O_S(X)\forall S\in U_P\implies z\in \tau(U_P) $$ $$P\in U_P\implies \tau(U_P)\subseteq O_P(X)$$So, $O_P(X)=\cup_{P}\tau(U_P)$
+}
 
 
 \end{document}

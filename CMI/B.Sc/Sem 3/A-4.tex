@@ -1,285 +1,51 @@
-\documentclass[11pt]{amsart}
-
-
-\usepackage[all]{xy}
-\usepackage{graphics}
-\usepackage{enumitem}
-\usepackage{epsfig}
-\usepackage{amsmath}
-\usepackage{amscd}
-\usepackage{tikz-cd}
-\usepackage{verbatim}
-\usepackage{pdfpages}
-\usepackage{showkeys}
-\usepackage{amsfonts,latexsym,amssymb}
-\usepackage{parskip}
-\usepackage{MnSymbol}
-\usepackage{hyperref}
-
-\usepackage{mdwlist}
-\usepackage{tgbonum}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+\documentclass[11pt]{article}
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\newcommand{\cA}{{\mathcal{A}}}   \newcommand{\cB}{{\mathcal{B}}}
-\newcommand{\cC}{{\mathcal{C}}}   \newcommand{\cD}{{\mathcal{D}}}
-\newcommand{\cE}{{\mathcal{E}}}   \newcommand{\cF}{{\mathcal{F}}}
-\newcommand{\cG}{{\mathcal{G}}}   \newcommand{\cH}{{\mathcal{H}}}
-\newcommand{\cI}{{\mathcal{I}}}   \newcommand{\cJ}{{\mathcal{J}}}
-\newcommand{\cK}{{\mathcal{K}}}   \newcommand{\cL}{{\mathcal{L}}}
-\newcommand{\cM}{{\mathcal{M}}}   \newcommand{\cN}{{\mathcal{N}}}
-\newcommand{\cO}{{\mathcal{O}}}   \newcommand{\cP}{{\mathcal{P}}}
-\newcommand{\cQ}{{\mathcal{Q}}}   \newcommand{\cR}{{\mathcal{R}}}
-\newcommand{\cS}{{\mathcal{S}}}   \newcommand{\cT}{{\mathcal{T}}}
-\newcommand{\cU}{{\mathcal{U}}}   \newcommand{\cV}{{\mathcal{V}}}
-\newcommand{\cW}{{\mathcal{W}}}   \newcommand{\cX}{{\mathcal{X}}}
-\newcommand{\cY}{{\mathcal{Y}}}   \newcommand{\cZ}{{\mathcal{Z}}}
-
-\newcommand{\hcP}{\hat{\mathcal{P}}}
-\newcommand{\hcQ}{\hat{\mathcal{Q}}}
-\newcommand{\hcR}{\hat{\mathcal{R}}}
-\newcommand{\hcL}{\hat{\mathcal{L}}}
-\newcommand{\hcM}{\hat{\mathcal{M}}} \newcommand{\hphi}{\hat{\phi}}
-\newcommand{\bbk}{\mathbb{k}}   \newcommand{\bfv}{\mathbf{v}}
-\newcommand{\bfnu}{\mathbf{nu}}  \newcommand{\hXX}{\hat{\mathbb{X}}}
-\newcommand{\bJ}{\mathbf{J}}
-
-\newcommand{\hD}{{\hat{D}}}   \newcommand{\hE}{{\hat{E}}}
-\newcommand{\hF}{{\hat{F}}}   \newcommand{\hH}{{\hat{H}}}
-\newcommand{\hY}{{\hat{Y}}}   \newcommand{\hP}{{\hat{P}}}
-\newcommand{\hT}{{\hat{T}}}   \newcommand{\hQ}{{\hat{Q}}}
-\newcommand{\hq}{{\hat{q}}}
-\newcommand{\hr}{{\hat{r}}}
-\newcommand{\hu}{{\hat{u}}}
-\newcommand{\hv}{{\hat{v}}}
-\newcommand{\hf}{{\hat{f}}}
-\newcommand{\hg}{{\hat{g}}}
-\newcommand{\hw}{{\hat{w}}}
-\newcommand{\hS}{{\hat{S}}}
-\newcommand{\hV}{{\hat{V}}}
-\newcommand{\hG}{{\hat{G}}}
-\newcommand{\hmu}{{\hat{\mu}}}
-\newcommand {\y}{\V{y}}
-\newcommand {\V}[1]{\mbox{\boldmath$#1$}}
-\newcommand{\iExp}{{\mathrm{iExp\,}}}
-
-\newcommand{\htheta}{{\hat{\theta}}}
-
-
-
-\newcommand{\htu}{{\hat{\tilde{u}}}}
-
-
-\newcommand{\hTR}{{\widehat{TR}}}
-\newcommand{\tsigma}{{\tilde{\sigma}}}
-\newcommand{\tphi}{{\tilde{\phi}}}
-\newcommand{\tpsi}{{\tilde{\psi}}}
-\newcommand{\tzeta}{{\tilde{\zeta}}}
-\newcommand{\tdelta}{{\tilde{\delta}}}
-\newcommand{\tgamma}{{\tilde{\gamma}}}
-\newcommand{\tGamma}{{\tilde{\Gamma}}}
-\newcommand{\tlog}{{\widetilde{\log}}}
-
-
-\newcommand{\txi}{{\tilde{\xi}}}
-\newcommand{\tomega}{{\tilde{\omega}}}
-\newcommand{\tH}{{\tilde{H}}}
-\newcommand{\tI}{{\tilde{I}}}
-
-\newcommand{\tX}{{\tilde{X}}}
-\newcommand{\tV}{{\tilde{V}}}
-\newcommand{\tz}{{\tilde{z}}}
-\newcommand{\ty}{{\tilde{y}}}
-\newcommand{\tx}{{\tilde{x}}}
-\newcommand{\te}{{\tilde{e}}}
-\newcommand{\tf}{{\tilde{f}}}
-\newcommand{\tg}{{\tilde{g}}}
-\newcommand{\tu}{{\tilde{u}}}
-\newcommand{\tm}{{\tilde{m}}}
-\newcommand{\tn}{{\tilde{n}}}
-\newcommand{\tilt}{{\tilde{t}}}
-\newcommand{\tT}{{\tilde{T}}}
-\newcommand{\tL}{{\tilde{L}}}
-\newcommand{\tQ}{{\tilde{Q}}}
-\newcommand{\tB}{{\tilde{B}}}
-\newcommand{\tC}{{\tilde{C}}}
-\newcommand{\tD}{{\tilde{D}}}
-\newcommand{\tU}{{\tilde{U}}}
-\newcommand{\utL}{{\underline{\tilde{L}}}}
-\newcommand{\tF}{{\tilde{F}}}\newcommand{\tilh}{{\tilde{h}}}
-\newcommand{\tk}{{\tilde{k}}}
-\newcommand{\tv}{{\tilde{v}}}
-\newcommand{\tw}{{\tilde{w}}}
-\newcommand{\bx}{\mathbf x}
-\newcommand{\bz}{\mathbf z}
-\newcommand{\bu}{\mathbf u}
-\newcommand{\bv}{\mathbf v}
-\newcommand{\bt}{\mathbf t}
-\newcommand{\bi}{\mathbf i}
-\newcommand{\bj}{\mathbf j}
-\newcommand{\bL}{\mathbf L}
-\newcommand{\bN}{\mathbf N}
-\newcommand{\bM}{\mathbf M}
-\newcommand{\bB}{\mathbf B}
-\newcommand{\bA}{\mathbf A}
-\newcommand{\tbz}{{\tilde{\mathbf z}}}
-\newcommand{\hbx}{\hat{\mathbf x}}
-\newcommand{\tcO}{{\tilde{\mathcal{O}}}}
-\newcommand{\tcC}{{\tilde{\mathcal{C}}}}
-\newcommand{\ocC}{{\overline{\mathcal{C}}}}
-\newcommand{\tcR}{{\tilde{\mathcal{R}}}}
-\newcommand{\tcA}{{\tilde{\mathcal{A}}}}
-
-
-
-
-
-
-
-
-\newcommand{\uL}{\underline L}
-\newcommand{\uM}{\underline M}
-\newcommand{\uE}{\underline E}
-
-\newcommand{\chA}{\check A}
-\newcommand{\chE}{\check E}
-\newcommand{\chL}{\check L}
-\newcommand{\chV}{\check V}
-\newcommand{\chv}{\check v}
-\newcommand{\chw}{\check w}
-\newcommand{\chW}{\check W}
-\newcommand{\chM}{\check M}
-\newcommand{\chQ}{\check Q}
-\newcommand{\chsigma}{\check\sigma}
-
-
-
-\newcommand{\uchL}{\underline{\check L}}
-
-
-
-
-
-
-\newcommand{\BA}{\mathbb{A}}  \newcommand{\BB}{\mathbb{B}}
-\newcommand{\CC}{\mathbb{C}}  \newcommand{\EE}{\mathbb{E}}
-\newcommand{\FF}{\mathbb{F}}  \newcommand{\HH}{\mathbb{H}}
-\newcommand{\JJ}{\mathbb{J}}  \newcommand{\LL}{\mathbb{L}}
-\newcommand{\NN}{\mathbb{N}}  \newcommand{\PP}{\mathbb{P}}
-\newcommand{\QQ}{\mathbb{Q}}  \newcommand{\RR}{\mathbb{R}}
-\newcommand{\TT}{\mathbb{T}}  \newcommand{\VV}{\mathbb{V}}
-\newcommand{\XX}{\mathbb{X}}  \newcommand{\WW}{\mathbb{W}}
-\newcommand{\ZZ}{\mathbb{Z}}
-
-\newcommand{\FM}{\mathfrak{M}}
-\newcommand{\fm}{\mathfrak{m}}
-
-
-\newcommand{\isom}{\cong}
-\newcommand{\Ext}{\operatorname{Ext}}
-\newcommand{\Grass}{\operatorname{Grass}}
-\newcommand{\coker}{\operatorname{coker}}
-\newcommand{\Hilb}{\operatorname{Hilb}}
-\newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\Quot}{\operatorname{Quot}}
-\newcommand{\Pic}{\operatorname{Pic}}
-\newcommand{\NS}{\operatorname{NS}}
-\newcommand{\Sym}{\operatorname{Sym}}
-\newcommand{\id}{\operatorname{I}}
-\newcommand{\im}{\operatorname{im}}
-\newcommand{\surj}{\twoheadrightarrow}
-\newcommand{\inj}{\hookrightarrow}
-\newcommand{\gr}{\operatorname{gr}}
-\newcommand{\rk}{\operatorname{rk}}
-\newcommand{\reg}{\operatorname{reg}}
-\newcommand{\wt}{\widetilde}
-\newcommand{\del}{{\partial}}
-\newcommand{\delb}{{\overline\partial}}
-
-\newcommand{\oX}{{\overline X}}
-\newcommand{\oD}{{\overline D}}
-\newcommand{\ox}{{\overline x}}
-\newcommand{\ow}{{\overline w}}
-\newcommand{\oz}{{\overline z}}
-\newcommand{\oh}{{\overline{h}}}
-\newcommand{\oalpha}{{\overline \alpha}}
-\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
-
-
-
-
-\newcommand{\Res}{\operatorname{Res}}
-\newcommand{\ch}{\operatorname{ch}}
-\newcommand{\tr}{\operatorname{tr}}
-\newcommand{\pardeg}{\operatorname{par-deg}}
-\newcommand{\ad}{{ad\,}}
-\newcommand{\diag}{\operatorname{diag}}
-\newcommand{\codim}{\operatorname{codim}}
-
-\hyphenation{pa-ra-bo-lic}
-\newcommand{\bbQ}{\mathbb{Q}}
-\newcommand{\bbR}{\mathbb{R}}
-\newcommand{\bbP}{\mathbb{P}}
-\newcommand{\bbC}{\mathbb{C}}
-\newcommand{\bbT}{\mathbb{T}}
-\newcommand{\bbU}{\mathbb{U}}
-\newcommand{\bbZ}{\mathbb{Z}}
-\newcommand{\bbN}{\mathbb{N}}
-\newcommand{\bbF}{\mathbb{F}}
-
-
-
-
-
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{theorem}[proposition]{Theorem}
-\newtheorem{lemma}[proposition]{Lemma}
-\newtheorem{conjecture}[proposition]{Conjecture}
-\newtheorem{corollary}[proposition]{Corollary}
-
-
-\theoremstyle{definition}
-\newtheorem{definition}[proposition]{Definition}
-\newtheorem{remark}[proposition]{Remark}
-\newtheorem{notation}[proposition]{Notation}
-\newtheorem{example}[proposition]{Example}
-\newtheorem{ex}{Exercise}[section]
- 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{newmacros}
 
 \begin{document}
-
-\title{\textbf{problem 5.37(d)}\\ Projective Plane Curves}
+\title{\textbf{Fulton Chapter 5: Projective Plane Curves}\\ Applications of Noether’s Theorem}
+\date{}
+\author{}
 \maketitle
-let $P$ be a point   of order 2.\\
-let $P\in U_2\implies P=(a,1,c)$\\
-if $c=0\implies a=0$ so, $c\neq 0$\\
-let $L$ be the tangent of $(a,c)$ at $C_*$\\
-as $P$ is order $2\implies L$ passes through $(0,0)$\\
-let $X=mZ$ be the equation of $L$\\
-now $M\neq \infty$ (then  $Z=0$ be the equation of $L$ which is the tangent at $(0,1,0)$\\
-so, $a=mc$\\
-now, $c=a(a-c)(a-\lambda c)\implies c=mc(mc-c)(mc-\lambda c)$\\
-$\implies c^2m(m-1)(m-\lambda)=1$.....(1)\\
-so, $c^2=1/(m(m-1)(m-\lambda)$[as $(m(m-1)(m-\lambda)\neq 0$] (by equation 1)\\
-so, $c$ has two distinct values  which implies $L$ intersect $C_*$ in three distinct points which is not possible.\\
-so, $P\notin U_2$\\
-so, $P=(a,0,c)=(m,0,1)\implies m=0,1,\lambda $\\
-tangent at $(m,0,1)$ is $X=mZ \forall m\in \{0,1,\lambda\}$\\
-and the tangent passes through $(0,1,0)$\\
-so there are 3 points of order 2.\\
-$(e)$\\
-so, any non-singular irreducible curve  is projectively equivalent to the equation given in $(c)$\\
-so, the group has 4 point .\\
-so, it is isomorphic to $\mathbb{Z}/(2)\times\mathbb{Z}/(2)$\\
+\textsf{\noindent \large\textbf{Aritra Kundu} \hfill \textbf{Problem Set - 4}\\
+	\textbf{Email}: \href{aritra@cmi.ac.in}{aritra@cmi.ac.in} \hfill \textbf{Topic}: Algebraic Geometry\\
+	\noindent\rule{\textwidth}{2.8pt}}
 
+
+\begin{problem}{Applications of Noether’s Theorem: 5.37}{}
+
+	$C$ , with the operation $\oplus$, forms an abelian group, with the point $O$
+	being the identity.
+		\parinn
+		
+	Suppose $O$ is a flex on $C$ in the above proposition.  
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item Show that the flexes form a subgroup of $C$; as an abelian group, this subgroup is isomorphic to $\mathbb{Z} /(3) \times \mathbb{Z} /(3)$.
+		\item  Show that the flexes are exactly the elements of order three in the group. (i.e., exactly those elements $P$ such that $P \oplus P \oplus P=O$ ). 
+		\item Show that a point $P$ is of order two in the group if and only if the tangent to $C$ at $P$ passes through $O$. 
+		\item Let
+	$C=Y^2Z-X(X-Z)(X-\lambda Z)$, $\lambda \neq  0, 1$, $O=[0:1:0]$. Find the points of order two. 
+		\item Show that the points of order two on a nonsingular cubic form a group isomorphic
+		to $\bbZ /(2)\times \bbZ/(2)$
+		\item Let $C$ be a nonsingular cubic, $P \in C$. How many lines through $P$ are tangent to $C$ at some point $Q \neq P$ ? (The answer depends on whether $P$ is a flex.)
+	\end{enumerate}
+\end{problem}
+
+\solve{\begin{enumerate}
+		\item[(d)] Let $P$ be a point   of order 2. Let $P\in U_2\implies P=(a,1,c)$. If $c=0\implies a=0$ so, $c\neq 0$. Let $L$ be the tangent of $(a,c)$ at $C_*$. As $P$ is order $2\implies L$ passes through $(0,0)$. Let $X=mZ$ be the equation of $L$.
+
+Now $M\neq \infty$ (then  $Z=0$ be the equation of $L$ which is the tangent at $(0,1,0)$. So, $a=mc$. Now, \begin{equation}
+	c=a(a-c)(a-\lambda c)\implies c=mc(mc-c)(mc-\lambda c) \implies c^2m(m-1)(m-\lambda)=1
+	\label{eq1}
+\end{equation}
+So, $$c^2=\frac1{(m(m-1)(m-\lambda)}\quad [\text{as }(m(m-1)(m-\lambda)\neq 0] \dots(\text{by }\ref{eq1})$$ So, $c$ has two distinct values  which implies $L$ intersect $C_*$ in three distinct points which is not possible. So, $P\notin U_2$. So, $P=(a,0,c)=(m,0,1)\implies m=0,1,\lambda $ tangent at $(m,0,1)$ is $X=mZ\  \forall\ m\in \{0,1,\lambda\}$ and the tangent passes through $(0,1,0)$. So there are 3 points of order 2.\Qed
+
+\item[(e)] So, any non-singular irreducible curve  is projectively equivalent to the equation given in $(c)$. So, the group has 4 point. So, it is isomorphic to $\mathbb{Z}/(2)\times\mathbb{Z}/(2)$\\
+	\end{enumerate}
+}
 
 
 

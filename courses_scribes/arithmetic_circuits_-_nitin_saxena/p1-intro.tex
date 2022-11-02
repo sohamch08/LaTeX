@@ -115,7 +115,7 @@ An arithmetic circuit $C$, over a field $\coef$, is a rooted $DAG$ as follows\be
 \end{itemize}}
 \dfn{Family of Circuits}{Suppose $\mcF\dnt\{f_1(x_1,\dots,x_i)\mid n\geq1\}$ is a family of polynomials (call it a problem). A family of circuits $\mcC\dnt \{C_i(x_1,\dots, x_n)\mid i\geq 1\}$ solves $\mcF$ $\forall\ i$, $C_i=f_i$}
 
-In this case, we say that $\mcF$ can be solved in size bounded by $size(C_n)$ and depth bounded by $depth(C_n)$. THis two functions basically tell you the circuit complexity of the set of polynomials $\mcF$
+In this case, we say that $\mcF$ can be solved in size bounded by $size(C_n)$ and depth bounded by $depth(C_n)$. This two functions basically tell you the circuit complexity of the set of polynomials $\mcF$
 
 \nt{
 Depth can be thought of as time (In parallel algorithm). Size can be though of as space.
@@ -150,3 +150,63 @@ A standard problem in $VNP$ is \textbf{Permanent}$$\per_n(X_{n\times n})=\sum_{\
 
 \solve{Adding 2 rows or columns that does not change $\det$ but you don't know for $\per$. In general it change.}
 \nt{So $\per$ is the hardest problem, even harder than $SAT$ in a way}
+
+\thm{}{$\per\in VNP$}
+
+	$$\per(X_{n\times n})=\sum_{\pi\in Sym(n)}\ \prod_{i=1}^nx_{i,\pi(i)}$$ $ \prod\limits_{i=1}^nx_{i,\pi(i)}$ is computable in $VP$ as this is a simple multiplication gate.
+	
+	So we can use this as a verifier. But problem is as you look at different summands for different permutations, from the permutation your verifier has to compute this which is not clear.
+
+	
+	\begin{center}
+		\begin{tikzcd}[column sep={7.5em,between origins}]
+			\per(X_{n\times n})=  \sum\limits_{\pi\in Sym(n)} &  \boxed{\prod\limits_{i=1}^nx_{i,\pi(i)} } \arrow[rrr, "\substack{\text{Think of }g\\ \text{that can compute this,}\\ \text{connect these two}}"', bend right=30] & 	&	f_n = \sum\limits_{\overline{w}\in \{0,1\}^{t(n)}} &\boxed{g_{n+t}(\overline{x},\overline{w})}
+		\end{tikzcd}
+	\end{center}
+
+$\overline{w}$ is a just a string. So you have to make your permutation as a string. From that just using polynomial arithmetic it is not clear how to get to this $x_{i,\pi(i)}$
+\parinf
+
+\textbf{Observation: }\begin{enumerate}[label=(\roman*)]
+	\item It is not direct. Does not follow from the definition
+	\item Look for a more complicated $g$ instead of this monomial.
+\end{enumerate}
+
+\begin{proof}\parinn
+	Let $g$ be the polynomial that takes $X_{n\times n}$matrix and $\overline{v}\in \{0,1\}^n$ and compute $$ g_{n^2+n} (X,\overline{v}) \dnt \underset{\substack{ \downarrow \\ \text{Produces}\\ \text{monomials} }}{\boxed{\prod_{i=1}^n\lt( \sum_{j=1}^nv_jX_{i,i} \rt) }  } \ \ \underset{\substack{ \downarrow \\ \text{Sign }=\\ \text{depending on}\\ \text{how many 1's in} \\ \overline{v},\text{ the weight of}  \\ \overline{v}\text{ will be sign}}}{  \boxed{\prod_{i=1}^n (2v_i-1)}  } $$
+	
+	\begin{claim}{Ryser's Formula \cite{ryser1963combinatorial}}{}
+		$$\sum\limits_{\overline{v}\in \{0,1\}^n} g(X,\overline{v})=\per_n(X)$$
+	\end{claim}
+\begin{proof}
+	Rewrite $LHS$ as $$\sum_{T\subseteq [n]}\ \  \prod_{i=1}^n\lt(  \sum_{j\in T }x_{ij}(-1)^{n-|T|} \rt)$$
+	You are selecting some elements of the row and adding them, that is the $\sum x_{ij}$ for $j\in T$. And then you are going over all the rows $i=1$ to $n$ with a sign and then you are taking the big sum over all subsets. Since this is straddling over all the rows, it is basically multiplying the variables that appear in distinct rows.
+	
+	So it is supported on monomials $x_{1,i_1}\cdots x_{n,i_n}=m$, $r\dnt $ \# distinct $\{i_1,i_2,\dots, i_n\}$. We want to analyze the situation when this monomial does not correspond to a permutation which means $i_1,\dots,i_n$ are not distinct. We want to show this particular monomial will get ultimately canceled in the big sum. In how many $T$'s will this monomial  be produced ? $2^{n-r}$ many subsets of $T$. The monomial $m$ can be associated to $2^{n-r}$ many subsets $T$ with sign $=\sum\limits_{S\subseteq [n-r]} (-1)^{|S|}=0$ as $r<n$. For $\pi\in sym(n)$, $\prod\limits_{i=1}^n x_{i,\pi(i)}$ survives in $LHS$ with sign 1.
+\end{proof}
+
+Now $g\in VP$ because it is just a simple product. You compute these inner products by addition gates then you multiply by a single multiplication gate. So it is clearly depth 2 arithmetic circuit.
+
+So $g$ is verifier and $\overline{v}$ is witness. So $\per_n\in VNP$
+\end{proof}
+
+\begin{conjecture}{Valiant's Conjecture}{}
+	$VP\neq VNP$
+\end{conjecture}
+Then in that case $PER$ is $VNP-complete.$ $PER\notin VP$
+\parinn
+
+$PER$ of a boolean $(0/1)$ matrix, that represents a graph, is simply the number of perfect matching. To check if perfect matching exists has an algorithm. But to count them is harder than $NP-hard$ problems. This is equivalent to functional problem of $\#SAT$. (Valiant's $\#P-completeness$ of $PER$)
+
+\dfn{$\#SAT$}{The problem of counting version of $SAT$. Formula satisfiability, boolean formula satisfiability. Given a boolean function how many satisfying assignments are true. For $n$ variables it can be 0 to $2^n$. Testing whether it is positive $NP-complete$ problem.}
+ 
+This is called the Valiant’s $\# P$ completeness of permanent which is Boolean permanent. So Valiant showed that permanent, the Boolean permanent or computing the permanent of a Boolean matrix which corresponds to a graph. This is equivalent to a $\# SAT$. And $\# SAT$ defines as a class which is called $\# P$.
+\begin{Theorem}{[B\"{u}rgisser, 2000]}{}
+	$VP=VNP\implies P/poly=NP/poly$. [This is much stronger than saying $P=NP$]
+\end{Theorem}
+From this you can not really deduce whether $P=NP$ or $P$ is different from $NP$. Because when you talk about $P$, $NP$ classes you talk about turing machines. You are not talking about Boolean Circuits. $P/poly$ is actually the problems that solve using Boolean Circuits and $NP/poly$ is also defined in the similar way using Boolean Circuits. SO the meaning of efficiency in Boolean Circuits and meaning of non-determinism in Boolean Circuits --- these two things are same ---  this is what the equality is saying.
+\dfn{$NC^3$}{These are Boolean Circuits where depth is only $\log^3$}
+\nt{B\"{u}rgisser also shows that $P/poly=NC^3/Poly$. So this exactly models very fast parallel algorithm. So on an input size of $n$ the parallel time complexity is only $\log^3$}
+So if you show $VP=VNP$ then B\"{u}rgisser's proof actually tells you that $NP/poly=P/poly=NC^3$. So non-determinism is the same as efficient parallel algorithms. SO its is saying you can solve $SAT$ in fast parallel time.
+
+When you are working over characteristic zero then B\"{u}rgisser's proof requires the assumption of \textit{GRH = Generalized Reimann Hypothesis}.
