@@ -201,7 +201,7 @@ $PER$ of a boolean $(0/1)$ matrix, that represents a graph, is simply the number
 \dfn{$\#SAT$}{The problem of counting version of $SAT$. Formula satisfiability, boolean formula satisfiability. Given a boolean function how many satisfying assignments are true. For $n$ variables it can be 0 to $2^n$. Testing whether it is positive $NP-complete$ problem.}
  
 This is called the Valiant’s $\# P$ completeness of permanent which is Boolean permanent. So Valiant showed that permanent, the Boolean permanent or computing the permanent of a Boolean matrix which corresponds to a graph. This is equivalent to a $\# SAT$. And $\# SAT$ defines as a class which is called $\# P$.
-\begin{Theorem}{[B\"{u}rgisser, 2000]}{}
+\begin{Theorem}{\cite{burgissercompred}}{}
 	$VP=VNP\implies P/poly=NP/poly$. [This is much stronger than saying $P=NP$]
 \end{Theorem}
 From this you can not really deduce whether $P=NP$ or $P$ is different from $NP$. Because when you talk about $P$, $NP$ classes you talk about turing machines. You are not talking about Boolean Circuits. $P/poly$ is actually the problems that solve using Boolean Circuits and $NP/poly$ is also defined in the similar way using Boolean Circuits. SO the meaning of efficiency in Boolean Circuits and meaning of non-determinism in Boolean Circuits --- these two things are same ---  this is what the equality is saying.
