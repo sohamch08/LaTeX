@@ -78,13 +78,13 @@ We want to consider $C^1(U)$ functions which are all functions that are differen
 	\begin{center}
 		\begin{tikzpicture}
 			\draw (0,0) -- (3,0) -- (4.5,1) -- (4.5,3);
-			\draw[fill=black] (0,0) node[yshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
-			\draw[fill=black] (2,0) node[yshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
-			\draw[fill=black] (3,0) node[yshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
-			\draw[fill=black] (3.6,0.4) node[xshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
-			\draw[fill=black] (4.5,1) node[xshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
-			\draw[fill=black] (4.5,2.2) node[xshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
-			\draw[fill=black] (4.5,3) node[xshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (0,0) node[xshift=-6mm,yshift=-3mm]{$(a_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (2,0) node[xshift=-3mm,yshift=-3mm]{$(a_1+v_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (3,0) node[xshift=15mm,yshift=-0mm]{$(a_1+h_1,a_2,a_3)$} circle (1pt);
+			\draw[fill=black] (3.6,0.4) node[xshift=-15mm,yshift=3mm]{$(a_1+h_1,a_2+v_2,a_3)$} circle (1pt);
+			\draw[fill=black] (4.5,1) node[xshift=17mm]{$(a_1+h_1,a_2+h_2,a_3)$} circle (1pt);
+			\draw[fill=black] (4.5,2.2) node[xshift=21mm]{$(a_1+h_1,a_2+h_2,a_3+v_3)$} circle (1pt);
+			\draw[fill=black] (4.5,3) node[xshift=21mm]{$(a_1+h_1,a_2+h_2,a_3+h_3)$} circle (1pt);
 		\end{tikzpicture}
 	\end{center}
 
@@ -155,3 +155,33 @@ Component functions of $f':U\to \mcL(\bbR^m,\bbR^n)$ are precisely $\del{f_i}{x_
 \end{center}
 
 $f''$ is $C^2(U) \overset{\text{definition}}{\iff} f''$ is continuous on $U\iff \deld{}{x_k}\deld{}{x_j}f_i$ are continuous  functions $U\to \bbR$
+\begin{Theorem}{}{secdev}
+	Let $U$ be open in $\bbR^2$ and $f:U\to \bbR$. $(a,b)\in \bbR$ and $U\supset Q(h,k)=[a,a+h]\times [b,b+k]$. Define \begin{align*}
+		\Delta(h,k) & =f(a+h,b+k)-f(a,b+k)-f(a+h,b)+f(a,b)     \\
+		            & =[f(a+h,b+k)-f(a+h,b)]-[f(a,b+k)-f(a,b)]
+	\end{align*}Then $\exs$ $(s,t)\in $ interior of the rectangle $Q(h,k)$ such that $$\Delta(f,Q)=hk\lt( \del{}{y}\del{}{x}\rt)f(s,t)\coloneqq D_{21}f(s,t)$$
+\end{Theorem}
+\begin{proof}
+	$U(x)=f(x,b+k)-f(x,b)$. Hence $$\Delta(f,Q)=U(a+h)-U(a)$$By $MVT$ we have  $s\in (a,a+h)$ such that \begin{align*}
+		\Delta(f,Q) & =hU'(s)=h\lt[ \del{f}{x}(s,b+k)-\del{f}{x}(s,b) \rt]
+	\end{align*}Apply $MVT$ again and we get $t\in (b,b+k)$ such that $$\del{f}{x}(s,b+k)-\del{f}{x}(s,b)=k\lt(\del{}{y}\del{}{x}\rt)f(s,t)$$And hence $$\Delta(f,Q)=hk\lt(\del{}{y}\del{}{x}\rt)f(s,t)$$
+\end{proof}
+\begin{Theorem}{}{}
+	Suppose for $f$, $\del{f}{x}$, $\del{f}{y}$, $\del{}{y}\del{}{x}f$ exist everywhere and  $D_{21}f=\del{}{y}\del{}{x}f$ is  continuous  at $(a,b)$. Then $D_{12}f(a,b)=\lt.\del{}{x}\del{}{y}f\rt|_{a,b}$ exists and $$D_{21}f(a,b)=D_{12} f(a,b)$$
+\end{Theorem}
+\begin{proof}
+	Let $\eps>0$ then  continuity of $D_{21}$ means that $\exs$ $\delta>0$  such that  $\forall\ h,k$ with $\max(|h|,|k|)<\delta$ $$\lt| D_{21}f(x,y)-D_{21}f(a,b)\rt|<\eps$$ $\forall\ x,y\in Q(h,k)$
+	
+	Take $h,k$ as above  and use the  \hyperref[th:secdev]{Theorem \ref{th:secdev}} to find $(s,t)$  such that $\Delta (f,Q)=hkD_{21}f(s,t)$. So $$\lt| \frac{\Delta(f,Q)}{hk}-D_{21}f(a,b) \rt|<\eps \text{ i.e. }
+\Bigg| \frac{1}{h}\lt( \frac{f(a+h,b+k)-f(a+h,b)}{k}-\frac{f(a,b+k)-f(a,b)}{k} \rt) -D_{21}f(a,b)\Bigg| <\eps$$
+Take limits as $k\to 0$ $$\lt|\frac1h \lt( \del{f}{y}f(a+h,b)-\del{f}{y}f(a,b) \rt)  -D_{21}f(a,b)\rt|<\eps$$As we take limit $h\to 0$ the quantity $\frac1h \lt( \del{f}{y}f(a+h,b)-\del{f}{y}f(a,b) \rt)$ actually exists  and is equal to $D_{21}f(a,b)$ i.e. $\del{}{x}\lt(\del{}{y}f(a,b)\rt)=D_{12}f(a,b)$ exists and is equal to $D_{21}f(a,b)$
+\end{proof}
+\begin{corolary}{}{}
+	If $f$ is  $C^2(U)$ then $D_{21}f=D_{12}f$ at each point of $U$
+\end{corolary}
+\begin{Theorem}{}{}
+	Let $U\subset \bbR^m$ and $f:U\to \bbR^n$ a $C^k$ map  i.e. $k-$th total derivative  $f^{(k)}$ exists and is continuous on $U$  then $$D_{i_1i_2\cdots i_k}f=D_{i_{\sigma(1)}i_{\sigma(2)}\cdots i_{\sigma(k)}}f$$e.g $D_{24714}f=D_{42417}(f)$
+\end{Theorem}
+\begin{proof}
+	May take $m=1$ and work with component real valued functions for $k>2$ keep all but two variables fixed and use earlier result for requisite partial derivative of $f$. Any permutation can be realized as a sequence of transpositions
+\end{proof}

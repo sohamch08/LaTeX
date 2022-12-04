@@ -1,0 +1,73 @@
+\chapter{Multivariable Taylor Theorem}
+
+
+In one variable $$f(a+h)=f(a)+f'(a)\frac{h}{1!}+f''(a)\frac{h^2}{2!}+\cdots+f^{(n-1)}(a)\frac{h^{n-1}}{(n-1)!}+f^{(n)}(c)\frac{h^n}{n!}$$ for a $c$ between $a,a+h$. 
+\begin{theorem}{Multivariable Taylor Theorem}{taylor}	
+	Let $U\subset \bbR^n$  open and $f:U\to \bbR^m$ a $C^m$ map ($m\geq 1$). Given $a\in U$, for any $h$ in some neighborhood  $W$ of origin, $O$ we have $W+a\subset U$ $$f(a+h)=f(a)+\EqM{c1}{f'(a)\frac{h}{1!}}+\EqM{c2}{f''(a)\frac{h^2}{2!}}+\cdots+f^{(m-1)}(a)\frac{h^{m-1}}{(m-1)!}+f^{(m)}(c)\frac{h^m}{m!}$$
+	\begin{tikzpicture}[remember picture, 
+		overlay
+		]
+		
+		\draw[<-] ++(c1.south) -- ++(0,-2em)  node[xshift=-1.6cm,yshift=-.6cm] {$\lt[ \begin{matrix} D_1f(a) & D_2f(a)& \cdots & D_nf(a)  \end{matrix} \rt]\lt[ \begin{matrix}
+				h_1\\ h_2\\ \vdots\\ h_n
+			\end{matrix} \rt]$}; 
+		\draw[<-] ++(c2.south) -- ++(0.7,-2em)  node[xshift=2cm,yshift=-0.35cm] {$\dfrac{\Sigma \text{ terms like } D_{ij}f(a)h_ih_j}{2!}$}; 
+	\end{tikzpicture}
+	\vspace{2cm}
+	
+	Hence $$f(a+h)=\sum_{k=0}^{m-1}\quad \sum_{s_1+s_2+\cdots+s_n=k} \frac{(D_1^{s_1}\cdots D_n^{s_n}f)(a)}{s_1!s_2!\cdots s_n!}h_1^{s_1}h_2^{s_2}\cdots h_n^{s_n}+\EqM{r}{r(h)}$$
+	\begin{tikzpicture}[remember picture, 
+		overlay
+		]
+		\draw[<-] ++(r.south) -- ++(0,-1em) node[yshift=-2mm] {remainder term};
+	\end{tikzpicture}
+	\vspace{1cm}
+	
+	where $r(h)$ is of the form $$\sum_{s_1+s_2+\cdots+s_n=m} \frac{(D_1^{s_1}\cdots D_n^{s_n}f)(a+\theta h)}{s_1!s_2!\cdots s_n!}h_1^{s_1}h_2^{s_2}\cdots h_n^{s_n}$$ where $\theta\in (0,1)$
+\end{theorem}
+\nt{$\frac{r(h)}{\|h\|^{m-1}}\to 0$ as $h\to 0$}
+In one-variable $f:[a,b]\to \bbR$. Then $f^{(0)},f^{(1)},\dots, f^{(m-1)}$ exists in $[a,b]$ and $f^(n)
+$ exists in $(a,b)$. Suppose $s,t\in [a,b]$. Then there exists $\theta$ exactly between $s$ and  $t$ such that $$f(t)=\underbrace{f(s)+f'(s)(t-s)+\cdots+\frac{f^{(m-1)}(s)}{(m-1)!}(t-s)^{m-1}}_{p(t)}+\frac{f^{(m)}(\theta)}{(m)!}(t-s)^{m-1}$$. Then  $$p(s)=f(s), p'(s)=f'(s),p''(s)=f''(s),\dots, p^{(m-1)}(s)=f^{(m-1)}(s)\text{ and }p^{(m)}(x)=0\text{ identically}$$So for $g(x)=f(x)-p(x)$ $$g(s)=g'(s)=\cdots =g^{(m-1)}(s)=0$$.\parinf
+
+\textbf{\textit{Idea: }}Use $MVT$ on $g,g',\dots,g^{(m-1)}$ on $[s,t]$\parinn
+
+\textbf{If} $g(t)=0$ then with $g(s)=0$ we get (by Rolle's theorem) $\theta_1$ between $s$ and $t$ such that $g'(\theta_1)=0$. Now $g'(\theta_1)=0$ and $g'(s)=0 \implies$ we get $\theta_2$ between $\theta_1$ and $s$ such that $g''(\theta_2)=0$.   Now $g''(\theta_2)=0$ and $g''(s)=0 \implies$ we get $\theta_3$ between $\theta_2$ and $s$ such that $g'''(\theta_3)=0$ and so on.. till we get $\theta_m$  with $g^{(m)}(\theta_m)=0$. Take $\theta=\theta_m$.
+
+But is $g(t)=0$ ? $g(t)=f(t)-p(t)$ need not be zero.\parinf
+
+\textbf{\textit{Idea:}} We can adjust $g$ by  constant  $M(x-s)^m$ without affecting $g(s)=g'(s)=\cdots =g^{(m-1)}(s)=0$ and we also want  to apply  the Rolle's theorem. Adjust constant $M$ to make $g(t)=0$\parinn
+
+New $g(x)=f(x)-p(x)-M(x-s)^m$ such that $g(t)=f(t)-p(t)-M(t-s)^m=0$. Hence $$M=\frac{f(t)-p(t)}{(t-s)^m}$$We get $g^{(m)}(\theta)=f^{(m)}(\theta)-0-m!M=0$. S $$M=\frac{f^{(m)}(\theta)}{m!}$$Equate these two expressions  for $M$ and solve for $f(\theta)$ to get the result.
+
+\qs{}{Carry out  proof of  multivariable taylor' theorem following the strategy  sketched  in the class, specially  using the chain  rule  to calculate $\frac{d^n}{dt^n}f(a+th)$}
+
+\qs{}{In `some sense', the one-variable  Taylor's Theorem for $f(a+th)$ stays valid in multivariable  case.}
+
+It is enough to proof for $m=1$. We have $a\in U\subseteq \bbR^n\xrightarrow{f}\bbR$, $f$ is $C^m$. Then there is a neighborhood $W$ of origin in $\bbR^n$  such that for any $h\in W$  we have $a+h\in U$ and  $$f(a+h)=f(a)+\EqM{c1}{f'(a)\frac{h}{1!}}+\EqM{c2}{f''(a)\frac{h^2}{2!}}+\cdots+f^{(m-1)}(a)\frac{h^{m-1}}{(m-1)!}+r(h)$$ where $r(h)=\frac{f^{(m)}(a+\theta h)}{m!}h^m$ for some $\theta\in (0,1)$ but need to make sense of this.
+
+\begin{proof}
+	Use one-variable taylor's theorem for the composite 
+	
+	\begin{center}
+		\begin{tikzcd}
+		{[0,1]} \arrow[r] & a+W\subset U\arrow[r, "f"] & \mathbb{R} \\
+		t\arrow[r, maps to] & a+th\arrow[r, maps to] & f(a+th)=g(t)
+	\end{tikzcd}
+	\end{center}$g$ is $C^m$ because the map $t\mapsto a+th$ is $C^{\infty}$Hence $$f(a+h)=g(1)=\sum_{k=0}^{m-1}\frac{g^{(k)}(0)}{k!}+\frac{g^{(m)}(\theta)}{m!}$$for some $\theta\in (0,1)$. Thus we will be done by showing \begin{align*}
+	g^{(k)}(t) &=\sum_{s_1+s_2+\cdots+s_n=k} \frac{k!}{s_1!s_2!\cdots s_n!}D_1^{s_1}\cdots D_n^{s_n}f(a+th)h_1^{s_1}h_2^{s_2}\cdots h_n^{s_n}\\
+	&=\sum_{1\leq i_1,\dots,i_k\leq n}D_{i_1}\cdots D_{i_k}f(a+th)h_{i_1}h_{i_2}\cdots h_{i_n}
+\end{align*}
+Using chain rule for $k=1$ \begin{align*}
+	g'(t) & =\frac{d}{dt}f(a+th)\\
+	 &= f'(a+th)\frac{d}{dt}(a+th)\\
+	 &=f'(a+th)h\\
+	 &=\sum_{i=1}^nD_if(a+th)h_i
+\end{align*}For $k=2$ \begin{multline*}
+g''(t)+\frac{d}{dt}g'(t)=\frac{d}{dt}\sum_{i=1}^nD_if(a+th)h_i=\sum_{i=1}^n\frac{d}{dt}D_if(a+th)h_i\\
+=\sum_{i=1}^n\sum_{j=1}^nD_jD_if(a+th)h_ih_j=\sum_{1\leq i,j\leq n}D_jD_if(a+th)h_i
+\end{multline*}Continue like this
+\end{proof}
+\section*{Addendum to Taylor's Formula: Bounding the error term}
+For $a\in U\subseteq \bbR^n$ and $f$ of class $C^m$ from $U$ to $\bbR$ we know that  for $h\in $ some ball $B$ around origin, we have $a+B\subset U$ and $$f(a+h)=\sum_{k=0}^{m-1}\quad \sum_{s_1+s_2+\cdots+s_n=k} \frac{(D_1^{s_1}\cdots D_n^{s_n}f)(a)}{s_1!s_2!\cdots s_n!}h_1^{s_1}h_2^{s_2}\cdots h_n^{s_n}+\EqM{r}{r(h)}$$where $r(h)$ is of the form $$\sum_{s_1+s_2+\cdots+s_n=m} \frac{(D_1^{s_1}\cdots D_n^{s_n}f)(a+\theta h)}{s_1!s_2!\cdots s_n!}h_1^{s_1}h_2^{s_2}\cdots h_n^{s_n}$$ where $\theta\in (0,1)$
+
+Now because $a+\overline{B}$ is compact and $D_1^{s_1}\cdots D_n^{s_n}f$ is continuous  on $U$, we can find a constant $c$ such that for any $s_1,\dots,s_n$ with $\sum\limits_{i=)}^n =m$ $$\lt| \frac{D_1^{s_1}\cdots D_n^{s_n}f(a+x)}{s_1!s_2!\cdots s_n!}\rt|<c$$for each $x\in \overline{B}$ Also $|h_i|\leq \|h\|$. Therefore $$|r(h)|<\sum_{s_1+\cdots+s_n=m}c\|h\|^m=k\|h\|^m$$and therefore $\frac{r(h)}{\|h\|^{m-1}}\to 0$ as $h\to 0$

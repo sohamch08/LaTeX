@@ -1,0 +1,56 @@
+\chapter{Examples on Multivariable Differentiation}
+\begin{example}{Example where all partial derivatives exist and function is continuous but $f'$ does not exists.}{}
+		$f(x,y)=\begin{cases}
+		\frac{xy}{\sqrt{x^2+y^2}}& (x,y)\neq (0,0)\\
+		0 & (x,y)=(0,0)
+	\end{cases}$
+\begin{enumerate}[label=(\roman*)]
+	\item Is $f$ continuous at origin ?
+	\item Do $\deld{f}{x}, \deld{f}{y}$ exist at origin ? elsewhere ?
+\end{enumerate}
+\end{example}
+\sol{
+\begin{enumerate}[label=(\roman*)]
+	\item Want $|f(x,y)-f(0,0)|\to 0$ as $(x,y)\to (0,0)$ $$\lt| \frac{xy}{\sqrt{x^2+y^2}}\rt|\leq \sqrt{\frac{x^2+y^2}{2}}\to 0$$as $(x,y)\to (0,0)$
+	\item $$\del{f}{x}=\frac{y^3}{(x^2+y^2)^{\frac{3}{2}}}\qquad \del{f}{y}=\frac{x^3}{(x^2+y^2)^{\frac{3}{2}}}$$Now $$\lt.\del{f}{x}\rt|_{(0,0)}=\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}=\lim_{h\to 0}\frac{0-0}{h}=0$$Similarly $\lt.\del{f}{y}\rt|_{(0,0)}=0$. SO if $f'(0)$ exists then  it will be the matrix $\lt[\begin{matrix}0 & 0\end{matrix} \rt]$. So it will be the zero operator $\implies D_vf(\text{origin})=0$ for any direction  for any vector $v$. Let's test for $v=\lt[\begin{matrix}1 \\ 1\end{matrix} \rt]$ $$D_vf(\text{origin})=\lim_{t\to 0}\frac{f(0+tv)-f(0,0)}{t}=\lim_{t\to 0}\frac{f(t,t)}{t}=\lim_{t\to 0}\frac{t^2}{t\sqrt{2t^2}}\neq 0$$Thus $f$ is not differentiable at origin. Therefore at least one of the partial derivatives must be discontinuous at origin (here by symmetry both are discontinuous). $\del{f}{x}=0$ at origin but $=1$ at $y-$axis.
+\end{enumerate}
+}
+\begin{example}{Example where $f'$ exists but not continuous}{}
+	Recall one-variable example $g(x)=\begin{cases}
+		x^2\sin \frac1x & x\neq 0\\ 0 & x=0
+	\end{cases}$. Define $f(x,y)=g(\sqrt{x^2+y^2})$
+\begin{enumerate}[label=(\roman*)]
+	\item Is $f$ continuous ?
+	\item Is $f$ differentiable ?
+	\item Is $f'$ continuous at origin ?
+\end{enumerate}
+\end{example}
+\sol{
+\begin{enumerate}[label=(\roman*)]
+	\item Because $f$ is composition of two continuous functions. $f$ is continuous.
+	\item Need to check at origin only
+\end{enumerate}
+}
+\begin{example}{}{}
+	$f(x,y)=\begin{cases}
+		\frac{x^2y}{x^6+y^2}& (x,y)\neq (0,0)\\
+		0 & (x,y)=(0,0)
+	\end{cases}$
+\begin{enumerate}[label=(\roman*)]
+	\item Is $f$ continuous at origin ?
+	\item Calculate the directional derivatives for unit vectors $u=(\cos\theta,\sin\theta)$
+	\item Is $f$ differentiable at origin ?
+\end{enumerate}
+\end{example}
+\sol{
+	\begin{enumerate}[label=(\roman*)]
+		\item $$f(x,x^3)=\frac{x^5}{2x^6}=\frac{1}{2x}$$It has no limit  as $x\to 0$. Hence $f$ is not continuous at origin. 
+		\item \begin{align*}
+			D_uf(0) & =\lim_{h\to 0}\frac{f(0+hu)-f(0)}{h}\\
+			& =\lim_{h\to 0} \frac{f(h\cos\theta,h\sin\theta)}{h}\\
+			&=\lim_{h\to 0} \frac1h \frac{h^3\cos^2\theta \sin\theta}{h^6\cos^6\theta+h^2\sin^2\theta}\\
+			&=\lim_{h\to 0} \frac{\cos^4\theta\sin\theta}{h^4\cos^6\theta+\sin^2\sin\theta}=\frac{\cos^2\theta}{\sin\theta}\qquad\text{when }\sin\theta\neq 0
+		\end{align*}When $\sin\theta=0$, $f=0$ on $x-$axis. So $D_uf(0)=0$ for $\theta=0,\pi,\dots$. SO $D_uf()$ exists for all $u$
+	\item If $f'(0)$ exists then it's matrix would be $\lt[ \begin{matrix} & 0\end{matrix} \rt]$. But then all directional  derivatives would have to be zero because $D_uf(a)=f'(a)v$ which is not possible 
+	\end{enumerate}
+}

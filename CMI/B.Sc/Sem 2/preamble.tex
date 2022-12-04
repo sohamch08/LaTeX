@@ -23,7 +23,6 @@
 \usepackage{nameref}
 \usepackage{multicol,array}
 \usepackage{tikz-cd}
-
 %\usepackage{import}
 %\usepackage{xifthen}
 %\usepackage{pdfpages}
@@ -426,6 +425,12 @@
 % SELF MADE COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\NewDocumentCommand{\EqM}{ m O{black} m}{%
+	\tikz[remember picture, baseline, anchor=base] 
+	\node[inner sep=0pt, outer sep=3pt, text=#2] (#1) {%
+		\ensuremath{#3}%
+	};    
+}
 
 \newcommand{\thm}[2]{\begin{Theorem}{#1}{}#2\end{Theorem}}
 \newcommand{\cor}[2]{\begin{corolary}{#1}{}#2\end{corolary}}
@@ -513,8 +518,8 @@
 \titlecontents{chapter}[3.7pc]
 {\addvspace{30pt}%
 	\begin{tikzpicture}[remember picture, overlay]%
-		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (-0.9,.5);%
-		\pgftext[left,x=-3.5cm,y=0.2cm]{\color{white}\Large\sc\bfseries Chapter\ \thecontentslabel};%
+		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (-0.7,.5);%
+		\pgftext[left,x=-3.6cm,y=0.2cm]{\color{white}\Large\sc\bfseries Chapter\ \thecontentslabel};%
 	\end{tikzpicture}\color{doc!60}\large\sc\bfseries}%
 {}
 {}

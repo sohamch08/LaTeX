@@ -128,18 +128,6 @@ $X$ is called compact if each open cover of $X$ has a finite subcover i.e.	$\{V_
 	\end{center}
 	Now $\bigcup\limits_{z\in K}V_z\supset K$. So $\{V_z\}$ is an open cover of $K$.
 	By compactness we have $V_{z_1}\cup V_{z_2}\cup \cdots\cup V_{z_n}\supset K$.
-
-	\begin{center}
-		\begin{tikzpicture}
-			\draw[red] (1,0)node[xshift=-1.3cm]{$V_{z_1}$} circle (1cm);
-			\draw[red] (4,0)node[xshift=1.4cm,yshift=-5mm]{$W_{z_1}$} circle (1cm);
-			\draw[blue] (1.5,1)node[xshift=-9mm,yshift=1cm]{$W_{z_2}$} circle (1cm);
-			\draw[blue] (3.5,-1)node[xshift=1.3cm,yshift=-5mm]{$V_{z_1}$} circle (1cm);
-			\draw[myg] (3.7,1)node[xshift=1.6cm,yshift=1.1cm]{$V_{z_3}$} circle (1.6cm);
-			\draw[myg] (1.5,-2)node[xshift=-2cm]{$W_{z_3}$} circle (1.6cm);
-
-		\end{tikzpicture}
-	\end{center}
 	As $W_z\cap V_z=\phi$ $\forall z\in K$.  We have $\underbrace{\left( W_{z_1}\cup
 			W_{z_2}\cup \cdots \cup W_{z_n}\right) }_{\substack{\text{Finite intersection
 				of}\\ \text{open neighborhoods of } x,\\ \text{so call this }U_x}}\cap K=\phi$
@@ -152,11 +140,11 @@ What we proved is the following
 	For a Housdorff Topological space $X$ any compact subset $K$ is closed and bounded
 \end{Theorem}
 
-\begin{Theorem}{}{hnb:s3}
+\begin{Theorem}{\hyperref[th:hnb]{Haine Borel Theorem} - If Part: \hyperref[hnb:st3]{Step \ref{hnb:st3}}}{hnb:s3}
 	$C$ is a closed subset of compact set $X$ $\implies $ $C$ is compact.
 \end{Theorem}
 \begin{myproof}
-	Take any open cover $\{V_{\alpha}\}_{\alpha\in I}$ of $C$by open sets in $X$ i.e $\bigcup\limits_{\alpha}V_{\alpha}\supset C$. Now $\opensets \cup \{X\setminus C\}$ is an open cover of $x$. We have a finite subcover by compactness of $X$. The same subcover (after dropping $X\setminus C$ if necessary) works for $C$.
+	Take any open cover $\{V_{\alpha}\}_{\alpha\in I}$ of $C$ by open sets in $X$ i.e $\bigcup\limits_{\alpha}V_{\alpha}\supset C$. Now $\opensets \cup \{X\setminus C\}$ is an open cover of $x$. We have a finite subcover by compactness of $X$. The same subcover (after dropping $X\setminus C$ if necessary) works for $C$.
 \end{myproof}
 \wc{Closed interval $\bs{[a,b]}$ is compact in $\bs{\bbR}$}{Suppose $\opensets$ is an open cover of $[a,b]$ by open sets in $\bbR$.
 
