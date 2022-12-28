@@ -26,7 +26,7 @@ h_1& \cdots & h_n
 \end{matrix}\rt][D_iD_jf(a)] \lt[ \begin{matrix}
 h_1\\ \vdots\\ h_n
 \end{matrix} \rt]+r(h)\\
-&=f(a)+\nabla f(a)\cdot h+\frac12 h^t \underbrace{[D_iD_jf(a)]}_{\substack{\text{Hessian Matrix}\\ \text{of }f\text{ at }a}}+r(h)
+&=f(a)+\nabla f(a)\cdot h+\frac12 h^t \underbrace{[D_iD_jf(a)]}_{\substack{\text{Hessian Matrix}\\ \text{of }f\text{ at }a}}h+r(h)
 \end{align*}
 \dfnc{Hessian Matrix of $f$}{
 	Let $f:(\text{open }U\text{ in }\bbR^n )\to \bbR$ such that $\begin{cases}
@@ -43,9 +43,9 @@ If $f$ has local maximum  at $a$, then along any line through $a$ the same must 
 \dfnc{Non-degenerate Point}{If $f$ is $C^2$  then a critical point $a$  is called non-degenerate if the Hessian, $Hf(a)$ is non-singular i.e. $\det(Hf(a))\neq 0$
 }
 
-\begin{claim}{}{}
+\begin{Claim}{}{}
 	Symmetric Matrix  $A$ is positive (semi)definite $\iff $ $\forall$ nonzero vector $x\in \bbR^n$, $x^tAx>0$ (resp. $\geq 0$)
-\end{claim}
+\end{Claim}
 \begin{proof}
 	\subsubsection*{If Part:}
 	$x=\sum\limits_{i}c_iv_i$. Where $v_i$ is the eigen-basis. Then \begin{align*}
@@ -110,5 +110,44 @@ If $f:(\text{open }U\text{ in }\bbR^n )\to \bbR$ is a $C^3$  function  and $a$ i
 	We already proved the if direction in \hyperref[th:maxminif]{Theorem \ref{th:maxminif}}
 	
 	\subsubsection*{Only If Part:}
-	%lecture 28 notes
+	By Taylor's theorem $$f(a+x)-f(a)=\cancelto{0}{f’(a)}x+\frac12x^THx+r(x)$$with as $\|x\|\to 0$, $\frac{r(x)}{\|x\|^2}\to 0$. Let's assume that $H$ is positive definite. So far $x\neq 0$ and $x^THx>0$. 
+	The function $x\to x^THx$ is continuous, so on the compact set $\{u\mid \|u\|=1\}$ it is bounded and achieves its infimum $\mu$. So $\mu>0$ So $$\frac{x^THx}{\|x\|^2}\geq \mu\ \forall \ x\neq 0\implies \lt(\frac{x}{\|x\|}\rt)^TH\lt( \frac{x}{\|x\|} \rt)$$ Since $\frac{r(x)}{\|x\|^2}\to 0$ as $\|x\|\to 0$, we can find $\delta>0$ such that $\frac{|r(x)|}{\|x\|^2}<\frac{\mu}{2}$ when $\|x\|<\delta$. Thus for $\|x\|<\delta$ we have $f(a+x)-f(a)\geq 0$ i.e. $f$ has a local minimum at $a$
 \end{proof}
+
+\dfnc{Saddle Point}{At  a nondegenrate critical point $a$, $H$ has both \begin{center}
+		\begin{tabular}{c}
+		$a$ positive eigenvalue, say $\lm_1$ with eigen vector $u_1$\\
+		$a$ negative eigenvalue, say $\lm_2$ with eigen vector $u_2$
+\end{tabular}
+	\end{center}This means $D^2_{u_1}f(a)>0$, so in the $u_1$ direction $f$ has local minimum and $D^2_{u_2}f(a)<0$, so in the $u_2$ direction $f$ has local maximum
+
+\begin{center}
+	\includegraphics[width=6cm]{images/saddle.pdf}
+\end{center}
+}
+\exc{}{Many times functions are $C^{\infty}$ whenever defined so all of the above applies.\begin{itemize}
+		\item $f(x,y)=c,$ constant. All derivatives are zero, $H$ is zero.
+		\item $f(x,y)=ax+by+c$ linear, $(a,b)\neq (0,0).$ No critical points.
+		\item $f(x,y)=$ quadratic.
+		
+		General case $(x_1,x_2,\dots,x_n)=x\in\bbR^n$ \begin{align*}
+			\Phi(x) &  =\sum_{i=1}^na_{ii}x_i^2+\sum_{1\leq i<j\leq n}2a_{ij}x_ix_j+\sum_{i=1}^np_ix_i+r\\
+			& = x^TAx+px+r\\
+			& =\lt[ \begin{matrix}
+				x_1 & \cdots & x_n
+			\end{matrix} \rt]\lt[ \begin{matrix}
+			a_{11} & \cdots & a_{1n}\\ \vdots & \ddots & \vdots\\ a_{n1} & \cdots & a_{nn}
+		\end{matrix} \rt]\lt[ \begin{matrix}
+		x_1 \\ \vdots \\ x_n
+	\end{matrix} \rt]+\lt[ \begin{matrix}
+	p_1 &\cdots & p_n
+\end{matrix} \rt]\lt[ \begin{matrix}
+x_1 \\ \vdots \\ x_n
+\end{matrix} \rt]+r \quad [\text{where }a_{ij}=a_{ji}]
+		\end{align*}
+	Hence $D_i\Phi(x)=\sum_{j=1}^n a_{ij}x_j+p_i$, $D\Phi(x)=2Ax+p$.	Critical points: $x$ such that $2Ax_p=0$
+	
+	If $2A=H$ is nonsingular then there is an unique critical point, namely $x=-H^{-1}p$. Then this point is local minimum is $H$ is positive definite, local maximum id $H$ is negative definite and saddle point otherwise
+	\end{itemize}
+
+}

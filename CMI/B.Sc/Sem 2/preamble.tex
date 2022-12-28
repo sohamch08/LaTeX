@@ -16,6 +16,8 @@
 }
 \usepackage[most,many,breakable]{tcolorbox}
 \usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 \usepackage{varwidth}
 \usepackage{varwidth}
 \usepackage{etoolbox}
@@ -23,6 +25,12 @@
 \usepackage{nameref}
 \usepackage{multicol,array}
 \usepackage{tikz-cd}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{patchplots}
+\usepackage{anyfontsize}
+\usepackage{sectsty}
 %\usepackage{import}
 %\usepackage{xifthen}
 %\usepackage{pdfpages}
@@ -33,7 +41,9 @@
 % SELF MADE COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\usetikzlibrary{ shapes.geometric }
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
 
 \definecolor{myg}{RGB}{56, 140, 70}
 \definecolor{myb}{RGB}{45, 111, 177}
@@ -50,6 +60,11 @@
 \definecolor{mygr}{HTML}{2C3338}
 \definecolor{myred}{RGB}{127,0,0}
 \definecolor{myyellow}{RGB}{169,121,69}
+\definecolor{OrangeRed}{HTML}{ED135A}
+\definecolor{Dandelion}{HTML}{FDBC42}
+\definecolor{light-gray}{gray}{0.95}
+\definecolor{Emerald}{HTML}{00A99D}
+\definecolor{RoyalBlue}{HTML}{0071BC}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -184,7 +199,24 @@
 {th}
 
 
-
+\newtcbtheorem[number within=chapter]{Claim}{Claim}
+{%
+	enhanced
+	,breakable
+	,colback = myg!10
+	,frame hidden
+	,boxrule = 0sp
+	,borderline west = {2pt}{0pt}{myg}
+	,sharp corners
+	,detach title
+	,before upper = \tcbtitle\par\smallskip
+	,coltitle = myg!85!black
+	,fonttitle = \bfseries\sffamily
+	,description font = \mdseries
+	,separator sign none
+	,segmentation style={solid, myg!85!black}
+}
+{th}
 
 %================================
 % EXAMPLE BOX
@@ -266,6 +298,52 @@
 					[sharp corners]-- cycle;
 				},interior engine=empty,
 		},
+	fonttitle=\bfseries,
+	title={#2},#1}{def}
+
+
+%================================
+% OPEN QUESTION BOX
+%================================
+
+\newtcbtheorem[number within=section]{open}{Open Question}{enhanced,
+	before skip=2mm,after skip=2mm, colback=myp!5,colframe=myp!80!black,boxrule=0.5mm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+	boxed title style={frame code={
+			\path[fill=tcbcolback]
+			([yshift=-1mm,xshift=-1mm]frame.north west)
+			arc[start angle=0,end angle=180,radius=1mm]
+			([yshift=-1mm,xshift=1mm]frame.north east)
+			arc[start angle=180,end angle=0,radius=1mm];
+			\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+			middle color=tcbcolback!80!black]
+			([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+			[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+			-- (frame.south east) -- (frame.south west)
+			-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+			[sharp corners]-- cycle;
+		},interior engine=empty,
+	},
+	fonttitle=\bfseries,
+	title={#2},#1}{def}
+\newtcbtheorem[number within=chapter]{Open}{Open Question}{enhanced,
+	before skip=2mm,after skip=2mm, colback=myp!5,colframe=myp!80!black,boxrule=0.5mm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
+	boxed title style={frame code={
+			\path[fill=tcbcolback]
+			([yshift=-1mm,xshift=-1mm]frame.north west)
+			arc[start angle=0,end angle=180,radius=1mm]
+			([yshift=-1mm,xshift=1mm]frame.north east)
+			arc[start angle=180,end angle=0,radius=1mm];
+			\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+			middle color=tcbcolback!80!black]
+			([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+			[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+			-- (frame.south east) -- (frame.south west)
+			-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+			[sharp corners]-- cycle;
+		},interior engine=empty,
+	},
 	fonttitle=\bfseries,
 	title={#2},#1}{def}
 
@@ -433,13 +511,18 @@
 }
 
 \newcommand{\thm}[2]{\begin{Theorem}{#1}{}#2\end{Theorem}}
+\newcommand{\thmc}[2]{\begin{theorem}{#1}{}#2\end{theorem}}
 \newcommand{\cor}[2]{\begin{corolary}{#1}{}#2\end{corolary}}
+\newcommand{\corc}[2]{\begin{corollary}{#1}{}#2\end{corollary}}
 \newcommand{\clm}[3]{\begin{claim}{#1}{#2}#3\end{claim}}
 \newcommand{\wc}[2]{\begin{wconc}{#1}{}\setlength{\parindent}{1cm}#2\end{wconc}}
 \newcommand{\thmcon}[1]{\begin{Theoremcon}{#1}\end{Theoremcon}}
 \newcommand{\ex}[2]{\begin{Example}{#1}{}#2\end{Example}}
+\newcommand{\exc}[2]{\begin{example}{#1}{}#2\end{example}}
 \newcommand{\dfn}[2]{\begin{Definition}[colbacktitle=red!75!black]{#1}{}#2\end{Definition}}
 \newcommand{\dfnc}[2]{\begin{definition}[colbacktitle=red!75!black]{#1}{}#2\end{definition}}
+\newcommand{\opn}[2]{\begin{open}[colbacktitle=myp!75!black]{#1}{}#2\end{open}}
+\newcommand{\opnc}[2]{\begin{Open}[colbacktitle=myp!75!black]{#1}{}#2\end{Open}}
 \newcommand{\qs}[2]{\begin{question}{#1}{}#2\end{question}}
 \newcommand{\pf}[2]{\begin{myproof}[#1]#2\end{myproof}}
 \newcommand{\nt}[1]{\begin{note}#1\end{note}}
@@ -553,4 +636,161 @@
 	\@starttoc{toc}}
 \makeatother
 
-
+\newcommand{\mytitlea}[4]{
+	\begin{tikzpicture}[remember picture,overlay]
+		%%%%%%%%%%%%%%%%%%%% Background %%%%%%%%%%%%%%%%%%%%%%%%
+		\fill[orange] (current page.south west) rectangle (current page.north east);
+		
+		
+		
+		
+		%%%%%%%%%%%%%%%%%%%% Background Polygon %%%%%%%%%%%%%%%%%%%%
+		
+		\foreach \i in {2.5,...,22}
+		{
+			\node[rounded corners,orange!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.west)+(2.5,-5)$) {} ;
+		}
+		
+		\foreach \i in {0.5,...,22}
+		{
+			\node[rounded corners,orange!60,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;
+		}
+		
+		\foreach \i in {0.5,...,22}
+		{
+			\node[rounded corners,orange!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;
+		}
+		
+		
+		\foreach \i in {21,...,6}
+		{
+			\node[orange!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
+		}
+		
+		
+		%%%%%%%%%%%%%%%%%%%% Title of the Report %%%%%%%%%%%%%%%%%%%% 
+		\node[left,black,minimum width=0.625*\paperwidth,minimum height=3cm, rounded corners] at ($(current page.north east)+(0,-9.5)$)
+		{
+			{\fontsize{25}{30} \selectfont \bfseries #1}
+		};
+		
+		%%%%%%%%%%%%%%%%%%%% Subtitle %%%%%%%%%%%%%%%%%%%% 
+		\node[left,black,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-11)$)
+		{
+			{\huge \textit{#2}}
+		};
+		
+		%%%%%%%%%%%%%%%%%%%% Author Name %%%%%%%%%%%%%%%%%%%% 
+		\node[left,black,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$)
+		{
+			{\Large \textsc{#3}}
+		};
+		
+		%%%%%%%%%%%%%%%%%%%% Year %%%%%%%%%%%%%%%%%%%% 
+		\node[rounded corners,fill=orange!70,text =black,regular polygon,regular polygon sides=6, minimum size=2.5 cm,inner sep=0,ultra thick] at ($(current page.west)+(2.5,-5)$) {\LARGE \bfseries #4};
+		
+	\end{tikzpicture}
+}
+\newcommand{\mytitleb}[4]{\begin{tikzpicture}[overlay,remember picture]
+		
+		% Background color
+		\fill[
+		black!2]
+		(current page.south west) rectangle (current page.north east);
+		
+		% Rectangles
+		\shade[
+		left color=Dandelion, 
+		right color=Dandelion!40,
+		transform canvas ={rotate around ={45:($(current page.north west)+(0,-6)$)}}] 
+		($(current page.north west)+(0,-6)$) rectangle ++(9,1.5);
+		
+		\shade[
+		left color=lightgray,
+		right color=lightgray!50,
+		rounded corners=0.75cm,
+		transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}]
+		($(current page.north west)+(0.5,-10)$) rectangle ++(15,1.5);
+		
+		\shade[
+		left color=lightgray,
+		rounded corners=0.3cm,
+		transform canvas ={rotate around ={45:($(current page.north west)+(.5,-10)$)}}] ($(current page.north west)+(1.5,-9.55)$) rectangle ++(7,.6);
+		
+		\shade[
+		left color=orange!80,
+		right color=orange!60,
+		rounded corners=0.4cm,
+		transform canvas ={rotate around ={45:($(current page.north)+(-1.5,-3)$)}}]
+		($(current page.north)+(-1.5,-3)$) rectangle ++(9,0.8);
+		
+		\shade[
+		left color=red!80,
+		right color=red!80,
+		rounded corners=0.9cm,
+		transform canvas ={rotate around ={45:($(current page.north)+(-3,-8)$)}}] ($(current page.north)+(-3,-8)$) rectangle ++(15,1.8);
+		
+		\shade[
+		left color=orange,
+		right color=Dandelion,
+		rounded corners=0.9cm,
+		transform canvas ={rotate around ={45:($(current page.north west)+(4,-15.5)$)}}]
+		($(current page.north west)+(4,-15.5)$) rectangle ++(30,1.8);
+		
+		\shade[
+		left color=RoyalBlue,
+		right color=Emerald,
+		rounded corners=0.75cm,
+		transform canvas ={rotate around ={45:($(current page.north west)+(13,-10)$)}}]
+		($(current page.north west)+(13,-10)$) rectangle ++(15,1.5);
+		
+		\shade[
+		left color=lightgray,
+		rounded corners=0.3cm,
+		transform canvas ={rotate around ={45:($(current page.north west)+(18,-8)$)}}]
+		($(current page.north west)+(18,-8)$) rectangle ++(15,0.6);
+		
+		\shade[
+		left color=lightgray,
+		rounded corners=0.4cm,
+		transform canvas ={rotate around ={45:($(current page.north west)+(19,-5.65)$)}}]
+		($(current page.north west)+(19,-5.65)$) rectangle ++(15,0.8);
+		
+		\shade[
+		left color=OrangeRed,
+		right color=red!80,
+		rounded corners=0.6cm,
+		transform canvas ={rotate around ={45:($(current page.north west)+(20,-9)$)}}] 
+		($(current page.north west)+(20,-9)$) rectangle ++(14,1.2);
+		
+		% Year
+		\draw[ultra thick,gray]
+		($(current page.center)+(5,2)$) -- ++(0,-3cm) 
+		node[
+		midway,
+		left=0.25cm,
+		text width=5cm,
+		align=right,
+		black!75
+		]
+		{
+			{\fontsize{25}{30} \selectfont \bf  Lecture\\[10pt] Notes}
+		} 
+		node[
+		midway,
+		right=0.25cm,
+		text width=6cm,
+		align=left,
+		orange]
+		{
+			{\fontsize{72}{86.4} \selectfont #4}
+		};
+		
+		% Title
+		\node[align=center] at ($(current page.center)+(0,-5)$) 
+		{
+			{\fontsize{60}{72} \selectfont {{#1}}} \\[1cm]
+			{\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \bf #2}}\\[3pt]
+			#3};
+\end{tikzpicture}
+}

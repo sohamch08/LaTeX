@@ -1,0 +1,30 @@
+\chapter{Constrained Optimizations and Lagrange Multipliers}
+\parinf
+
+\textbf{\textit{Example: }}Optimize $f(x,y)y^2-x^2$ subject to the constraint $h(x,y)=x^2+y^2=1$
+\parinn
+
+\begin{center}
+	\begin{tikzpicture}
+		
+		\begin{axis}[xmin=-2,xmax=2, ymin=-2, ymax=2,
+			restrict x to domain=-10:10, hide axis]% remove crossing lines at t=90 and t=270
+			\addplot[red, variable=t,domain=0:360,samples=200] ({sec(t)}, {tan(t)});
+			\addplot[blue,variable=t,domain=0:360,samples=200] ({tan(t)}, {sec(t)});
+			\addplot[dashed]{x};
+			\addplot[dashed]{-x};
+			\addplot[variable=t,domain=0:360]  ({cos(t)}, {sin(t)}) ;
+		\end{axis}
+	\node[text width=7cm, xshift=12cm,yshift=3cm]{\parindent=1cm In other words we want to find extrema of $f|_M$ where $M$ is the level curve for $h$ at level 1 i.e. $M=h^{-1}(1)$
+	
+Form the way level sets of $f$ interact with $M$, here we see that we have maximum at $(0,\pm 1)$ and minimum at $(\pm 1,0)$
+
+It also appears that the constrained graph and the level curve of the objective function $f$ are $\underset{ \substack{ \downarrow \\ \text{What it means} } }{\text{tangential}}$ to each other
+
+We will define Tangent Space to a level set of a $C^1$ function at a point $p$ on $M$
+};
+	\end{tikzpicture}
+\end{center}
+
+
+
