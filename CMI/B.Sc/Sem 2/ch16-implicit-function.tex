@@ -1,1 +1,90 @@
 \chapter{Implicit Function Theorem}
+\textbf{Notation: }For $n>m$ let $n=m+d$. Write points of $\bbR^n=\bbR^d\times \bbR^m$ as $(x,y)$ where $x\in \bbR^d,$ $y\in \bbR^m$
+\thmc[implicit]{Implicit Function Theorem}{
+Let $U$ open in $\bbR^{d+m}$. $\Phi:U\to \bbR^m$ is a $C^1$ map such that $\Phi'(p)$ is surjective (which means columns of the $m\times (d+m)$ matrix of $\Phi'(p)$ span $\bbR^m$). WLOG suppose the last $m$ columns of $\Phi'(p) $ are linearly independent and hence span $\bbR^m$ i.e. the $m\times m$ matrix ``$\lt.\deld{\Phi}{y}\rt|_p=\mat{D_{d+1}\Phi(p) & \cdots & D_{d+m}\Phi(p)} $" is invertible. Then \begin{enumerate}
+	\item $\exs$ a neighorhood $W$ of $a$ in $\bbR^d$ and a unique $C^1$ map $W\xrightarrow{f}\bbR^m$ such that $\begin{rcases}
+		f(a)=b, (x,f(x))\in U\ \forall \ x\in W\text{ and}\\
+		\Phi(x,f(x))=c\ \forall \ x\in W
+	\end{rcases}$ i.e. $f$ is an implicit solution to the equation $\Phi(x,y)=c$
+\item One can calculate $f'(x)$ by ``Implicit Differentiation"
+\end{enumerate}
+}
+To understand this, first examine two cases:
+\begin{itemize}
+	\item When $\Phi$ is a linear map given by a matrix $A$. Here we are solving the equation $A\mat{x\\ y}=c$
+	\item $d=m=1$ i.e. $n=2$ $\Phi(x,y)=x^2+y^2-1$, solving $\Phi(x,y)=0=c$. When $\lt.\deld{|phi}{y}\rt|_{p=(a,b)}\neq 0$ we can locally solve for $y$ in terms of $x$ near $p$. $$D\Phi=\lt.\mat{\del{\Phi}{x} & \del{\Phi}{y}}\rt|_{(a,b)}=\mat{2a & 2b}$$ $2b=0$ at $(\pm 1,0)$
+\end{itemize}
+\begin{proof}
+	We will choose $W$ later. Define \begin{center}
+		\begin{tikzcd}
+			U \arrow[r, "\psi"] & \bbR^{d+m}\\
+			(x,y)\arrow[r, maps to] & (x, \Phi(x,y))
+		\end{tikzcd}
+	\end{center}
+Note $\psi'$ has the matrix $\mat{I & O\\ \del{\Phi}{x} & \del{\Phi}{y}}$. This is nonsingular in a neighborhood of $p$. So by \hyperref[th:invthm]{Inverse Function Theorem} $\psi$ is invertible with $C^1$ inverse in a neighborhood $V$ of $p$
+\begin{center}
+	\begin{tikzcd}
+		V \arrow[r] & \psi(V) \arrow[l]\\[-8mm]
+		(a,b)\arrow[r, maps to] & (a,c)\\[-8mm]
+		(x,y)\arrow[r, maps to] & (x,\Phi(x,y))\\[-8mm]
+		(u,\alpha(u,v)) & (u,v) \arrow[l, maps to]
+	\end{tikzcd}
+\end{center}Definition of $\alpha(u,v)$ defined on $\psi(V)$. This tells us $\alpha(a,c)=b$. Whenever $\Phi(x,y)=c$ i.e. $$(x,y)\xrightarrow{\Phi}(x,c)\xrightarrow{\psi^{-1}}(x,\alpha(x,c))=(x,y)$$ i.e. $y=\alpha(x,c)$ and $\Phi(x,\alpha(x,c))=c$
+
+So we are forced to define $f(x)=\alpha(x,c)$. But what should be the domain of this function $f$ i.e. what should we take $W$ to be. 
+
+\begin{center}
+	$(a,c)\in \psi(V)$ is open $\supset$ $\lt( \text{\begin{tabular}{c}
+		open ball $W$ \\ around $a$ in $\bbR^d$
+	\end{tabular}} \rt)\times \{c\} $
+\end{center}
+
+Now for any $x\in W$ we know $(x,c)\in \psi(V)$ i.e. $(x,\alpha(x,c))\in V$ so we define $f:W\to \bbR^m$ where $f(x)=\alpha(x,c)$ and we have derived the function. Now $\phi^{-1}$ is $C^1$ and $\alpha$ is component of $\phi^{-1}$ so all components of $\phi^{-1}$ is also $C^1$. hence $f$ is $C^1$
+
+Uniqueness of $f$ is not true in general for arbitrary $W$. $\Phi(x,y)=x^2+y^2,\ c=1$. In $W=W_1\sqcup W_2$ $$f(x)=\begin{cases}
+	\sqrt{1-x^2} & x\in W_1 \qquad[\text{is forced}]\\
+	\sqrt{1-x^2} \text{ or }-\sqrt{1-x^2} & x\in W_2
+\end{cases}$$. We have choice for $f$ on $W_2$. 
+
+\textbf{If $W$ is connected, $f$ will be unique}. Eg. take $W$ to be a ball.  Suppose $g$ is another solution to $\Phi(x,y)=c$ i.e. $\Phi(x,g(x))=c$ for $x\in W$ and $g(a)=b$. Then consider the set $S=\{x\in W\mid f(x)=g(x)\}$. Show that this set is both closed (easy $S=(f-g)^{-1}(0)$) and open. 
+
+
+Calculate derivative of $f$ using the fact that $\psi\circ \psi^{-1}=$ Identity and Chain Rule.
+\end{proof}
+\ex{Application of Implicit Function Theorem}{
+\begin{enumerate}[label=(\roman*)]
+	\item Linear map $\Phi:\bbR^{d+m}\to \bbR^m$ given by matrix $A$. Given $A\mat{a\\ b}=c$. Want to solve $A\mat{x\\ y}=c$
+	
+	$A=[P \mid Q]$ where $P$ is $m\times d$ and $Q$ is $m\times m$ and $Q$ is invertible. i.e. \begin{multline*}
+		[P\mid Q]\mat{x\\ y}=c\iff [Q^{-1}P\mid I]\mat{x\\ y}=Q^{-1}c\iff Q^{-1}Px+y=Q^{-1}c\\
+		\iff y=Q^{-1}c-Q^{-1}Px
+	\end{multline*}
+\item We can solve for $y$ in terms of $x$ near any $(a,b)$ on the unit circle when $\lt.\deld{\Phi}{y}\rt|_{(a,b)}\neq 0$. [This is mate when $b\neq 0$ i.e. at all points except $(\pm 1,0)$]. $$\lt.D\Phi\rt|_{(a,b)}=\mat{2a& 2b}$$ We can see directly 
+
+\begin{center}
+	$\begin{rcases}
+		\text{when }b>0 & y=\sqrt{1-x^2}\\
+		\text{when }b<0 & y=-\sqrt{1-x^2}
+	\end{rcases}$ near (a,b) in fact $\forall\ x\in (-1,1)$
+\end{center}
+Similarly we can solve for $x$ in terms of $y$ when $\lt.\deld{\Phi}{x}\rt|_{(a,b)}=2a\neq 0$ This is true when $a\neq 0$
+\end{enumerate}
+
+}
+\pagebreak
+\textbf{\textit{Remark: }} Implicit Function Theorem gives a sufficient condition to be able to locally solve a system of linear equations \begin{center}
+	$\begin{rcases}
+		\Phi_1(x_1,\dots,x_d,y_1,\dots,y_m)=c_1\\
+		\Phi_2(x_1,\dots,x_d,y_1,\dots,y_m)=c_1\\
+		\qquad\vdots \qquad\qquad \vdots \qquad\qquad \vdots\\
+		\Phi_m(x_1,\dots,x_d,y_1,\dots,y_m)=c_1
+	\end{rcases}$\begin{tabular}{l}
+	for $y_i$'s in terms of $x_i$'s \\
+	locally near a given solution\\
+	$y=b$ and $x=a$
+\end{tabular}
+\end{center}
+
+\nt{
+The condition of invertibility of submatrix of $\Phi$ is not necessary. Eg. $\Phi(x,y)=y-x^3$ near $(0,0)$ $$\lt.D\Phi\rt|_{(0,0)}=\lt. \mat{-3x^2 & 1}\rt|_{(0,0)}=\mat{0,1} \qquad \lt.\deld{\Phi}{x}\rt|{(0,0)}=0$$ but still we can solve for $x$ in terms of $y$: $x=\sqrt[3]{y}$ 
+}

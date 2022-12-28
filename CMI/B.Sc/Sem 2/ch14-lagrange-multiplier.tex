@@ -25,6 +25,101 @@ We will define Tangent Space to a level set of a $C^1$ function at a point $p$ o
 };
 	\end{tikzpicture}
 \end{center}
+\section{Tangent Space}
+\dfn{Tangent Space}{Tangent Space to a hypersurface $M=f^{-1}(c)$ in $\bbR^n$ where $f:(\text{Open }U\subset \bbR^n)\to \bbR$ is a $C^1$ function and $c\in \bbR$ at a point $p\in M$ is a subspace of $\bbR^n$ defined to be $$T_pM=\ker (f'(p))=\{v\in\bbR^n\mid f'(p)(v)=0\}=\{v\in \bbR^n\mid \nabla f(p)\cdot v=0\}$$}
+Geometric tangent space considering to our mental image = $T_pM+p=$ Shift $T_pM$ by vector $p$. Likewise define Normal Space to be the set of vectors orthogonal to $T_pM$ i.e. $T_pM^{\perp}$
 
+\begin{center}
+	\begin{tikzpicture}
+		\draw[domain=-2:2, smooth, variable=\x] plot ({\x}, {\x*\x});
+		\draw (-2,0) -- (2,0);
+		\draw (0,4) -- (0,-1);
+		\draw[red,dashed] (-0.5,-1) -- (1.5,3);
+		\draw[blue,dashed] (1,-0.5) -- (-1,0.5);
+		\draw[red] (0,-1) -- (2,3);
+		\draw[blue] (2,0.5) -- (-1,2);
+		\filldraw[red] (1,1) circle (1pt);
+		\node[text width=8cm, xshift=8cm,yshift=2cm]{\parindent=1cm 
+		Eg. $f(x,y)=y-x^2$, $M=f^{-1}(0)$. $p=(3,9)\in M$. 
+		
+		Here $f'(p)=\mat{-2x & 1}_{(3,9)}=\mat{-6& 1}$ $$\mat{x \\ y} \mapsto -6x+y$$ $T_pM=\ker(f'(p))=\{ (x,y)\mid y=6x\}=$ \textcolor{red}{red line}. $N_pM= $ line $y=-\frac16 x =$ \textcolor{blue}{blue line}
+		
+		Geometric tangent space $=T_pM+p$ and geometric normal space $=N_pM+p$
+	};
+	\end{tikzpicture}
+\end{center}
+\section{Lagrange Multiplier}
+Let $U$ be open in $\bbR^n$. $f:U\to \bbR$ objective function and $h:U\to \bbR$ constraint function. Want to find extrema of $f$ restricted to the level set $M=\{x\in U\mid h(x)=c\}=h^{-1}(c)$ for $c\in\bbR$
 
+$f|_M$ has local maxima at $p\in M$ means for some $W\subset  U$,  $f(p)\geq f(x)\ \forall \ x\in W\cap M$
+\dfn{$C^1$ Path and Velocity Vector}{A $C^1$ path centered at $p\in U$ in $U\subset \bbR^n$ is a $C^1$ map $\gm:(-\veps,\veps)\to U$ where $0\mapsto p$. We call $\gm'(0)=$ velocity of $\gm$ at 0}
+\thm[lagmult]{Lagrange Multiplier}{
+Let $U$ be open in $\bbR^n$. $f:U\to \bbR$, $h:U\to \bbR$. Let $f,h$ are $C^1$ functions. Let $M=h^{-1}(c)$. If $h'(p)\neq 0$ and $f|_M$ has  a local extrema  at $p\in M$  then  $\exs!\lm\in \bbR$ such that $$\nabla f(p)=\lm \nabla h(p)$$
+}
+\begin{proof}
+Consider paths on level set $M=h^{-1}(c)$ i.e. \begin{center}
+	\begin{tikzcd}[column sep={3em},/tikz/column 1/.style={column sep=0},/tikz/column 3/.style={column sep=0em}]
+	\gm: &  (-\veps,\veps) \arrow[r] \arrow[rdd]&  M &=h^{-1}(c)\\[-8mm]
+	 &  & \cap & \\[-8mm]
+	 && U \arrow[r, "h"] & \bbR
+\end{tikzcd}
+\end{center}
+Then $h=\gm(t)=c$ $\forall\ t\in (-\veps,\veps)$. Hence by Chain Rule $$h'(p)\gm'(0)=\nabla h(p)\cdot \gm'(0)=0$$ i.e. $\{\text{velocity vectors of all paths }\gm\text{ on }M\text{ centered at }p\}\subset T_pM$\parinf
 
+\textbf{\textit{Key Fact: }}When $h'(p)\neq 0$ we have equality! Proof of this fact uses \hyperref[th:implicit]{Implicit Function Theorem}\parinn
+
+Now let's recall the objective function $f$ and recall that $p$ s assured to be a local max/min. If $gm$ is a $C^1$ curve on $M$ then in particular $f|_{\text{image}(\gm)}$ also has a max/min at $p$. Therefore $$0=(f\circ \gm)'(o)=\nabla f(p)\cdot \gm'(0)$$i.e. $\nabla f$ is orthogonal to velocity vectors to all curves centered at $p$. 
+
+By claim $\nabla f(p)\perp T_pM$, we already  say $\nabla h(p)\perp T_pM$. We know $\nabla h(p)\neq 0$ by assumption. Hence $\exs! \lm$ such that $\nabla f(p)=\lm \nabla h(p)$
+\end{proof}
+
+\section{Some Examples for Applications}
+\begin{enumerate}[label=(\roman*)]
+	\item $f(x,y)=y^2-h^2$ and $h(x,y)=x^2+y^2$, $c=1$. Therefore $M=h^{-1}(1)=$ Unit Circle
+	
+	Suppose $p=\mat{a\\ b}$ is an extremum of $f|_M$ $$\nabla f(p)=\mat{-2x\\ 2y}_{(a,b)} = \mat{-2a\\ 2b}\qquad \nabla h(p)=\mat{2x\\ 2y}_{(a,b)} = \mat{2a\\ 2b}$$ We know that $\exs ! \lm \in \bbR$ such that $$\mat{-2a\\ 2b}=\lm \mat{2a\\ 2b}$$ This is not possible unless one of $a,b$ os 0. Therefore \begin{center}
+		\begin{tabular}{lcl}
+			$a=0$ & $\implies $ &$b=\pm 1$ and $\lm=1$\\
+			$b=0$ & $\implies$ & $a=\pm 1$ and $\lm=-1$
+		\end{tabular}
+	\end{center}
+\item $f(x,y)=y$ is subject to constraint $h(x,y)=y-g(x)=0$ where $g:\bbR\to \bbR$ is some $C^1$ function. This is equivalent to finding extrema of $y=g(x)$ as in school
+
+Suppose  $p=\mat{a\\ b}$ gives an extremum $$\nabla f(p)=\mat{0\\ 1}= \lm \nabla h(p)=\lm \mat{-g'(a)\\ 1}$$i.e. $1=\lm\implies 0=-\lm g'(a)\implies g'(a)=0$ as expected
+\item $f(x,y)=x^2$ subject to $h(x,y)=y=0$ $$\nabla f=\mat{2x\\ 0}=\lm\nabla h=\mat{0\\ 1}\implies \lm =0, x=0$$
+\nt{If we instead take $h(x,)=y^2$, then we get $(,xy)=(0,0)$ but $\lm$ arbitrary}
+\item $f(x,y)=xy$ subject to $h(x,y)=\frac{x^2}{9}+\frac{y^2}{4}=1$
+
+$$\nabla f=\mat{y\\ x} = \lm \nabla h=\lm \mat{\frac{2x}{9}\\ \frac{y}{2}}$$ Therefore $$y=\frac{2x}{9}\lm, \quad x=\frac{y}{2}\lm, \quad \frac{x^2}{9}+\frac{y^2}{4}=1$$ 
+
+$\lm=\pm 3$. Find extrema. As constraint = ellipse, a compact set, evaluating $f$ as candidates is enough to find max and min.
+\item Find the points on the sphere $x^2+y^2+z^2=9$ closest/furthest from $(a,b,c)\to$ arbitrary point in $\bbR^3$
+
+$f(x,y,z)=(x-a)^2+(y-b)^2+(z-c)^2$ and $h(x,y,z)=x^2+y^2+z^2=9$. Complete this and see that geometrically obvious solution emerge 
+\end{enumerate}
+
+Next we will prove \hyperref[th:invthm]{Inverse Function Theorem} and \hyperref[th:implicit]{Implicit Function Theorem} and come back to justify the claim. In fact we will then be able to prove the general version of Lagrange Multiplier Method i.e. with multiple constraints
+
+\section{Generalized Lagrange Multiplier}
+\thm[genlagmult]{Generalized Lagrange Multiplier}{$U$ open $\subset \bbR^n=\bbR^{d+m}$ want to find extrema of objective function $f:U\to \bbR$ subject to constraint $h=c$ for a $C^1$ function: $U\to \bbR^m$ where $c\in \bbR^m$  i.e. we want to find extreme of $f|_{M=h^{1}(c)}$
+}\parinf
+
+\textbf{\textit{Key Assumption: }}$\forall\ x\in M$, $h'(x)$ is surjective i.e. $h'(x):\bbR^{d+m}\to \bbR^m$. (So $\ker(h'(x))$ has $\dim d$. Recall we called $\ker(h'(x))=T_xM$)
+
+Suppose $f|_M$ has a local extremum at $p\in M$ Then $\exs!$ real numbers $\lm_1,\lm_2,\dots,\lm_m$ such that $$\nabla f(p)=\lm_1\nabla h_1(p)+\cdots+\lm_n\nabla h_n(p)$$where $h(p)=\mat{h_1(p) & \cdots & h_m(p)}^T\in \bbR^m$
+
+\parinn
+\begin{proof}
+	we will show that \begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
+		\item  $\nabla f(p)\perp T_pM$
+		\item Any vector $\perp T_pM$ is a linear combination of $\nabla h_i(p)$
+	\end{enumerate}
+These are the steps. 
+\begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
+	\item Let $v\in T_pM=\ker (f'(p))$. By \href{https://drive.google.com/file/d/11OCy_upvhLy8mH0jCKwFbXqzEX3FBT8Z/view?usp=share_link}{HW4 Problem} $v$ can be represented by some curve based at $p$ni.e. we can find a $C^1$ curve $\gm:(-\veps,\veps)\to M\subset U$ where $0\mapsto p$ such that $\gm'(0)=v$. 
+	
+	As we have an extremum of $f|M$ at $p$ it is also an extreme point for $(-\veps,\veps)\xrightarrow{\gm}M\xrightarrow{f}\bbR$. So by 1-Variable Calculus $(f\circ\gm)'(0)=0$ i.e. $f'(p)\gm'(0)=0$ i.e. $\nabla f(p)\cdot v=0$
+	
+	\item For every curve $\gm$ as above $h\circ \gm=$ constant. Therefore $h'(p)\gm'(0)=0$ i.e. $\nabla h'(p)\cdot v=0$ $$h'(p)=\mat{ \del{h_1}{x_1}(p)   & \cdots & \del{h_1}{x_n}(p) \\ \vdots & \ddots & \vdots \\ \del{h_m}{x_1}(p)   & \cdots & \del{h_m}{x_n}(p)  }=\mat{\nabla h_1(p)^T \\ \vdots \\ \nabla h_m(p)^T}=\mat{\nabla h_1(p) & \cdots & \nabla h_m(p)}^T$$ So $$\nabla h_1(p)\cdot v=0,\dots , \nabla h_m(p)\cdot v=0$$Therefore $\underset{\substack{ m\text{ linearly} \\ \text{independent} \\ \text{vectors}  }}{\underbrace{\nabla h_i(p)}}\perp \underset{\substack{ \dim n-m \\ =d }}{\underbrace{T_pM}}$. Everything is in $\bbR^n=\bbR{m+d}$. $\therefore (T_pM)^{\perp}$ has $\nabla h_1(p),\dots, \nabla h_m(p)$ as a basis. i.e. \circled{2} is proved
+\end{enumerate}
+\end{proof}

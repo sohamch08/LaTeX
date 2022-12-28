@@ -1,0 +1,32 @@
+\chapter{Complex Differentiation}
+Suppose $U$ open in $\bbC=\bbR^2$, $U\xrightarrow{f}\bbC$ a differentiable map i.e. $Df$ as an $\bbR$ linear operator $\bbR^2\to \bbR^2$ is defined. 
+
+\nt{There is one thing that makes $\bbC$ differ from $\bbR^2$ i.e. $\bbC$ forms a field.}
+\dfnc{Complex Differentiation}{
+$f:U\to \bbC$ is called complex differentiable at $z_0\in U$ if $$\lim_{h\to 0} \frac{f(z_0+h)-f(z_0)}{h}\qquad \text{exists}$$ Thus the limit equals to $f'(z_0)$. $h$ is a complex number and this is a division in the field $\bbC$. `$h\to 0$' means $\|h\|\to 0$
+}
+\dfnc{Holomorphic Function}{We say that $f$ is holomorphic on $U$ if $f'(z)$ exists $\forall\ z\in U$. Then $f':U\to \bbC$ is the derivative of $f$ where $z\mapsto f'(z)$}
+
+\thmc{}{$f$ is holomorphic $\iff$ so is $f'$}
+
+\section*{Cauchy Riemann Conditions}
+Suppose $f'(z_0) $ exists where $z_0=a+ib\in $ open $U\subset \bbC$. $f(z)=u+iv$ where $u:U\to \bbR$ and $v:u\to \bbR$. First take $h=t\in \bbR$. \begin{align*}
+	f'(z_0) & = \lim_{t\to 0}\frac{f(a+t+ib)-f(a+ib)}{t}\\
+	& = \lim_{t\to 0} \frac{u(a+t,b)-u(a,b)}{t}+i\lim_{t\to 0}\frac{v(a+t,b)-v(a,b)}{t}\\
+	& = \lt.\del{u}{x}\rt|_{z_0}+i\lt. \del{v}{x}\rt|_{z_0} \numberthis\label{cd1}
+\end{align*}
+Now take $h=it$, $t\in \bbR$
+\begin{align*}
+	f'(z_0) & = \lim+{t\to 0}\frac{f(a+ib+it)-f(a+ib)}{it}\\
+	& = \lim_{t\to 0} \frac{u(a,b+t)-u(a,b)}{it}+i\lim_{t\to 0}]frac{v(a,b+t)-v(a,b)}{it}\\
+	& = \frac1i \lt[ \lt.\del{u}{y}\rt|_{z_0} + i \lt. \del{v}{y}\rt|_{z_0} \rt]\\
+	& = \lt. \del{v}{y}\rt|_{z_0} -i\lt. \del{u}{y}\rt|_{z_0}\numberthis\label{cd2}
+\end{align*}
+Equating \eqref{cd1}  and \eqref{cd2} $f$ is complex differentiable at $z_0$ and $$\boxed{\lt.\del{u}{x}\rt|_{z_0}=\lt.\del{v}{y}\rt|_{z_0}\qquad \lt.\del{v}{x}\rt|_{z_0}=-\lt.\del{u}{y}\rt|_{z_0}}$$
+
+
+In fact more is true.
+\begin{Claim}{}{}
+	For open $U\subset \bbC$ if $U\xrightarrow{f}\bbC$ is complex differentiable at $z_0\in U$ then $f$ is also real differentiable as a function $U\to \bbR^2$ and its Jacobin is (letting $f=(u,v)$, $u,v:U\to \bbR$)
+	$$Jf(z_0)=\lt. \mat{\del{u}{x} & \del{u}{y}\\ \del{v}{x} & \del{v}{y}} \rt|_{z_0} =\lt. \mat{\del{u}{x} & \del{u}{y}\\ -\del{u}{y} & \del{u}{x}} \rt|_{z_0} = \lt. \mat{\del{v}{y} & -\del{v}{x}\\ \del{v}{x} & \del{v}{y}} \rt|_{z_0}$$
+\end{Claim}
