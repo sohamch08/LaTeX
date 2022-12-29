@@ -49,7 +49,7 @@ If $V=\bbR^m$ and $\bbR^n$, $\dim (\bbR^m,\bbR^n)=mn$. We can identity $\mcL(\bb
 	\subsubsection{Multi Variable Case}
 	Note that $\bbR^m\xrightarrow{f'(a)}\bbR^n\xrightarrow{g'(f(a))}\bbR^k$
 
-	If $T=f'(a)$ then $$\lim_{h\to 0}\frac{\|f(a+h)-f(a)-T(h)\|}{\|h\|}=0$$and $S=g'(f(a))=g'(b)$ then $$ \lim_{h\to 0}7\frac{\|fg(b+k)-g(b)-S(k)\|}{\|k\|}=0$$Let \begin{align*}
+	If $T=f'(a)$ then $$\lim_{h\to 0}\frac{\|f(a+h)-f(a)-T(h)\|}{\|h\|}=0$$and $S=g'(f(a))=g'(b)$ then $$ \lim_{h\to 0}\frac{\|g(b+k)-g(b)-S(k)\|}{\|k\|}=0$$Let \begin{align*}
 		\alpha(h) & = f(a+h)-f(a)-T(h) & \eps(h) & = \frac{\|\alpha(h)\|}{\|h\|}\to 0\text{ as }h\to 0  \\[3mm]
 		\beta(k)  & = g(b+k)-g(b)-S(k) & \eta(k) & = \begin{cases*}
 			                                             \dfrac{\|\beta(k)\|}{\|k\|}\to0  \text{ as }k\to 0 \\
@@ -93,7 +93,7 @@ Now $g'(y)=\begin{bmatrix}
 
 Call $\begin{bmatrix}
 		\lt.\del{g}{x_1}\rt|_y \\ \vdots \\ \lt.\del{g}{x_n}\rt|_y
-	\end{bmatrix}$ $\nabla g(\gamma(t))=$ Gradient of $g$ at the point $\gamma(t)$. Hence $(g\circ\gamma)'(t)=\nabla g(\gamma(t))\cdot\gamma'(t)$
+	\end{bmatrix}$ = $\nabla g(\gamma(t))=$ Gradient of $g$ at the point $\gamma(t)$. Hence $(g\circ\gamma)'(t)=\nabla g(\gamma(t))\cdot\gamma'(t)$
 \qs{}{Fix $u,v\in \bbR^n$ and take parametrized curve $\gamma(t)=u+tv$. What does the above equation give at $t=0$ (for a given function $g$)}
 
 

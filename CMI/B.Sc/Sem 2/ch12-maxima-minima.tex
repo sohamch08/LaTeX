@@ -26,7 +26,7 @@ h_1& \cdots & h_n
 \end{matrix}\rt][D_iD_jf(a)] \lt[ \begin{matrix}
 h_1\\ \vdots\\ h_n
 \end{matrix} \rt]+r(h)\\
-&=f(a)+\nabla f(a)\cdot h+\frac12 h^t \underbrace{[D_iD_jf(a)]}_{\substack{\text{Hessian Matrix}\\ \text{of }f\text{ at }a}}h+r(h)
+&=f(a)+\nabla f(a)\cdot h+\frac12 h^T \underbrace{[D_iD_jf(a)]}_{\substack{\text{Hessian Matrix}\\ \text{of }f\text{ at }a}}h+r(h)
 \end{align*}
 \dfnc{Hessian Matrix of $f$}{
 	Let $f:(\text{open }U\text{ in }\bbR^n )\to \bbR$ such that $\begin{cases}
@@ -44,15 +44,15 @@ If $f$ has local maximum  at $a$, then along any line through $a$ the same must 
 }
 
 \begin{Claim}{}{}
-	Symmetric Matrix  $A$ is positive (semi)definite $\iff $ $\forall$ nonzero vector $x\in \bbR^n$, $x^tAx>0$ (resp. $\geq 0$)
+	Symmetric Matrix  $A$ is positive (semi)definite $\iff $ $\forall$ nonzero vector $x\in \bbR^n$, $x^TAx>0$ (resp. $\geq 0$)
 \end{Claim}
 \begin{proof}
 	\subsubsection*{If Part:}
 	$x=\sum\limits_{i}c_iv_i$. Where $v_i$ is the eigen-basis. Then \begin{align*}
-		x^tAx & = \lt(\sum\limits_{i}c_iv_i\rt)^tA\lt(\sum\limits_{j}c_jv_j\rt) = \lt(\sum\limits_{i}c_iv_i\rt)^t\lt( \sum_j\lm_jc_jv_j \rt) = \sum_i\lm_ic_i^2>0 \qquad [v_i^tv_j=\delta_{ij}]
+		x^TAx & = \lt(\sum\limits_{i}c_iv_i\rt)^TA\lt(\sum\limits_{j}c_jv_j\rt) = \lt(\sum\limits_{i}c_iv_i\rt)^T\lt( \sum_j\lm_jc_jv_j \rt) = \sum_i\lm_ic_i^2>0 \qquad [v_i^Tv_j=\delta_{ij}]
 	\end{align*}
 \subsubsection*{Only If Part:}
-Use $x^tAx>0$  for $x=v_i$ eigenvector $<0v_i^tAv_i=v_i\lm_iv_i=\lm_i$
+Use $x^TAx>0$  for $x=v_i$ eigenvector $<0,$ $v_i^TAv_i=v_i\lm_iv_i=\lm_i$
 \end{proof}
 \nt{Determinant of positive definite matrix $>0$ and Determinant of negative definite matrix has sign $(-1)^n$}
 
@@ -72,7 +72,7 @@ Let $f:(\text{open }U\text{ in }\bbR^n )\to \bbR$. Suppose $f $ has a local maxi
 			 $\begin{rcases}
 			 	\frac{f(a+h)-f(a)}{h}\geq 0 & \text{ for }h>0 \\
 			 	\frac{f(a+h)-f(a)}{h}\leq 0 & \text{ for }h<0
-			 \end{rcases}$Thus imply respectively that 1$f'(a)$  must be $\geq 0$ and $\leq 0$
+			 \end{rcases}$Thus imply respectively that $f'(a)$  must be $\geq 0$ and $\leq 0$
 		\end{center}
 	For $n>1$  use $n=1$ in every direction i.e. for function $\lt. f\rt|_{a+tv}$ for $t\in $ open interval  to conclude $D_vf(a)=0$ $\forall$ directions. So $f'(a)=0$\Qed
 	\item For $n=1$ $$f''(a)=\lim\limits_{h\to 0}\frac{f'(a+h)-f'(a)}{h}=\lim\limits_{h\to 0}\frac{f'(a+h)}{h}$$ 

@@ -60,7 +60,7 @@ Graph of $\Phi(x)=\Phi(x_1,\dots, x_n)$ is in $\bbR^{n+1}$. We can visualize it 
 		
 		\addplot3 [
 		domain=-5:5,
-		domain y = -3:1,
+		domain y = -3:3,
 		samples = 20,
 		samples y = 8,
 		surf,
@@ -68,9 +68,11 @@ Graph of $\Phi(x)=\Phi(x_1,\dots, x_n)$ is in $\bbR^{n+1}$. We can visualize it 
 		faceted color = teal] {x^2-y^2};
 		
 	\end{axis}
-	\begin{axis}[scale=0.95,name=Ax2,at={($(Ax1.north east)+(2cm,0)$)},anchor=north west,hide axis,xmin=-2,xmax=2,ymin=-2,ymax=2,]
-		\addplot [blue,domain=0:360,samples=200]({sec(x)},{tan(x)})node[xshift=1.3cm, yshift=1.3cm] {$c=1$};
-		\addplot [blue,domain=0:360,samples=200]({tan(x)},{sec(x)}) node[xshift=1.8cm, yshift=1.2cm] {$c=-1$};
+	\begin{axis}[scale=0.95,name=Ax2,at={($(Ax1.north east)+(2cm,0)$)},anchor=north west,hide axis,xmin=-2,xmax=2,ymin=-2,ymax=2,restrict x to domain=-10:10]
+		\addplot[blue, variable=t,domain=0:360,samples=200] ({sec(t)}, {tan(t)}) node[xshift=1cm, yshift=1cm]{$c=1$} node[xshift=0cm, yshift=2.5cm]{$c=-1$};
+		\addplot[blue,variable=t,domain=0:360,samples=200] ({tan(t)}, {sec(t)});
+		\addplot[blue]{x};
+		\addplot[blue]{-x};
 	\end{axis}
 \end{tikzpicture}
 \end{center}
@@ -243,7 +245,7 @@ $$f'(x,y)=\mat{3x^2-3 & 3y^2-3}, \qquad \nabla f=\mat{3x^2-3\\ 3y^2-3}$$Critical
 	3x^2-3=0\\ 3y^2-3=0
 \end{cases}$. There are 4 critical points $=(\pm 1, \pm 1)$ $$\text{Hessian }H=\mat{6x & 0\\ 0 & 6x}$$ \begin{center}
 \begin{tabular}{l}
-	$(1,1,)\to$ local min, 	$(-1,-1)\to$ local max, $(\pm 1,\mp 1)\to$ ssaddle points
+	$(1,1,)\to$ local min, 	$(-1,-1)\to$ local max, $(\pm 1,\mp 1)\to$ saddle points
 \end{tabular}
 \end{center}
  \end{enumerate}

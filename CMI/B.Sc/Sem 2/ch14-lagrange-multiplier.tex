@@ -13,7 +13,7 @@
 			\addplot[blue,variable=t,domain=0:360,samples=200] ({tan(t)}, {sec(t)});
 			\addplot[dashed]{x};
 			\addplot[dashed]{-x};
-			\addplot[variable=t,domain=0:360]  ({cos(t)}, {sin(t)}) ;
+			\addplot[variable=t,domain=0:360,samples=200]  ({cos(t)}, {sin(t)}) ;
 		\end{axis}
 	\node[text width=7cm, xshift=12cm,yshift=3cm]{\parindent=1cm In other words we want to find extrema of $f|_M$ where $M$ is the level curve for $h$ at level 1 i.e. $M=h^{-1}(1)$
 	
@@ -68,7 +68,7 @@ Then $h=\gm(t)=c$ $\forall\ t\in (-\veps,\veps)$. Hence by Chain Rule $$h'(p)\gm
 
 \textbf{\textit{Key Fact: }}When $h'(p)\neq 0$ we have equality! Proof of this fact uses \hyperref[th:implicit]{Implicit Function Theorem}\parinn
 
-Now let's recall the objective function $f$ and recall that $p$ s assured to be a local max/min. If $gm$ is a $C^1$ curve on $M$ then in particular $f|_{\text{image}(\gm)}$ also has a max/min at $p$. Therefore $$0=(f\circ \gm)'(o)=\nabla f(p)\cdot \gm'(0)$$i.e. $\nabla f$ is orthogonal to velocity vectors to all curves centered at $p$. 
+Now let's recall the objective function $f$ and recall that $p$ is assured to be a local max/min. If $\gm$ is a $C^1$ curve on $M$ then in particular $f|_{\text{image}(\gm)}$ also has a max/min at $p$. Therefore $$0=(f\circ \gm)'(o)=\nabla f(p)\cdot \gm'(0)$$i.e. $\nabla f$ is orthogonal to velocity vectors to all curves centered at $p$. 
 
 By claim $\nabla f(p)\perp T_pM$, we already  say $\nabla h(p)\perp T_pM$. We know $\nabla h(p)\neq 0$ by assumption. Hence $\exs! \lm$ such that $\nabla f(p)=\lm \nabla h(p)$
 \end{proof}
@@ -87,7 +87,7 @@ By claim $\nabla f(p)\perp T_pM$, we already  say $\nabla h(p)\perp T_pM$. We kn
 
 Suppose  $p=\mat{a\\ b}$ gives an extremum $$\nabla f(p)=\mat{0\\ 1}= \lm \nabla h(p)=\lm \mat{-g'(a)\\ 1}$$i.e. $1=\lm\implies 0=-\lm g'(a)\implies g'(a)=0$ as expected
 \item $f(x,y)=x^2$ subject to $h(x,y)=y=0$ $$\nabla f=\mat{2x\\ 0}=\lm\nabla h=\mat{0\\ 1}\implies \lm =0, x=0$$
-\nt{If we instead take $h(x,)=y^2$, then we get $(,xy)=(0,0)$ but $\lm$ arbitrary}
+\nt{If we instead take $h(x,y)=y^2$, then we get $(,xy)=(0,0)$ but $\lm$ arbitrary}
 \item $f(x,y)=xy$ subject to $h(x,y)=\frac{x^2}{9}+\frac{y^2}{4}=1$
 
 $$\nabla f=\mat{y\\ x} = \lm \nabla h=\lm \mat{\frac{2x}{9}\\ \frac{y}{2}}$$ Therefore $$y=\frac{2x}{9}\lm, \quad x=\frac{y}{2}\lm, \quad \frac{x^2}{9}+\frac{y^2}{4}=1$$ 
@@ -116,10 +116,10 @@ Suppose $f|_M$ has a local extremum at $p\in M$ Then $\exs!$ real numbers $\lm_1
 	\end{enumerate}
 These are the steps. 
 \begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
-	\item Let $v\in T_pM=\ker (f'(p))$. By \href{https://drive.google.com/file/d/11OCy_upvhLy8mH0jCKwFbXqzEX3FBT8Z/view?usp=share_link}{HW4 Problem} $v$ can be represented by some curve based at $p$ni.e. we can find a $C^1$ curve $\gm:(-\veps,\veps)\to M\subset U$ where $0\mapsto p$ such that $\gm'(0)=v$. 
+	\item Let $v\in T_pM=\ker (f'(p))$. By \href{https://drive.google.com/file/d/11OCy_upvhLy8mH0jCKwFbXqzEX3FBT8Z/view?usp=share_link}{HW4 Problem} $v$ can be represented by some curve based at $p$ i.e. we can find a $C^1$ curve $\gm:(-\veps,\veps)\to M\subset U$ where $0\mapsto p$ such that $\gm'(0)=v$. 
 	
 	As we have an extremum of $f|M$ at $p$ it is also an extreme point for $(-\veps,\veps)\xrightarrow{\gm}M\xrightarrow{f}\bbR$. So by 1-Variable Calculus $(f\circ\gm)'(0)=0$ i.e. $f'(p)\gm'(0)=0$ i.e. $\nabla f(p)\cdot v=0$
 	
-	\item For every curve $\gm$ as above $h\circ \gm=$ constant. Therefore $h'(p)\gm'(0)=0$ i.e. $\nabla h'(p)\cdot v=0$ $$h'(p)=\mat{ \del{h_1}{x_1}(p)   & \cdots & \del{h_1}{x_n}(p) \\ \vdots & \ddots & \vdots \\ \del{h_m}{x_1}(p)   & \cdots & \del{h_m}{x_n}(p)  }=\mat{\nabla h_1(p)^T \\ \vdots \\ \nabla h_m(p)^T}=\mat{\nabla h_1(p) & \cdots & \nabla h_m(p)}^T$$ So $$\nabla h_1(p)\cdot v=0,\dots , \nabla h_m(p)\cdot v=0$$Therefore $\underset{\substack{ m\text{ linearly} \\ \text{independent} \\ \text{vectors}  }}{\underbrace{\nabla h_i(p)}}\perp \underset{\substack{ \dim n-m \\ =d }}{\underbrace{T_pM}}$. Everything is in $\bbR^n=\bbR{m+d}$. $\therefore (T_pM)^{\perp}$ has $\nabla h_1(p),\dots, \nabla h_m(p)$ as a basis. i.e. \circled{2} is proved
+	\item For every curve $\gm$ as above $h\circ \gm=$ constant. Therefore $h'(p)\gm'(0)=0$ i.e. $\nabla h'(p)\cdot v=0$ $$h'(p)=\mat{ \del{h_1}{x_1}(p)   & \cdots & \del{h_1}{x_n}(p) \\ \vdots & \ddots & \vdots \\ \del{h_m}{x_1}(p)   & \cdots & \del{h_m}{x_n}(p)  }=\mat{\nabla h_1(p)^T \\ \vdots \\ \nabla h_m(p)^T}=\mat{\nabla h_1(p) & \cdots & \nabla h_m(p)}^T$$ So $$\nabla h_1(p)\cdot v=0,\dots , \nabla h_m(p)\cdot v=0$$Therefore $\underset{\substack{ m\text{ linearly} \\ \text{independent} \\ \text{vectors}  }}{\underbrace{\nabla h_i(p)}}\perp \underset{\substack{ \dim n-m \\ =d }}{\underbrace{T_pM}}$. Everything is in $\bbR^n=\bbR^{m+d}$. $\therefore (T_pM)^{\perp}$ has $\nabla h_1(p),\dots, \nabla h_m(p)$ as a basis. i.e. \circled{2} is proved
 \end{enumerate}
 \end{proof}

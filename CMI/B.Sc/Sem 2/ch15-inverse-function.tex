@@ -30,8 +30,8 @@
 \begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
 	\item Injectivity of $f$ on a ball $B$ around $a$ of small radius $\veps$. We will choose $\veps$ later.
 	
-	Best linear approximation for $f(x)$ near $a$ is $f(a)+f'(a)(x-a)$. If $f$ were = this function, the theorem is easy so let's examine the remainder \begin{align*}
-		r(x) & = f(x)-f(a)-f'(a)(xa)\\
+	Best linear approximation for $f(x)$ near $a$ is $f(x)+f'(a)(x-a)$. If $f$ were = this function, the theorem is easy so let's examine the remainder \begin{align*}
+		r(x) & = f(x)-f(a)-f'(a)(x-a)\\
 		r'(x) & = f'(x)-f'(a)
 	\end{align*}
 We can make $f'(x)-f'(a)$ small in some ball $B$ around $a$ by continuity of $f'$ at  $a$. $$r(x_1)-r(x_2)=f(x_1)-f(x_2)-f'(a)(x_1-x_2)$$
@@ -59,17 +59,17 @@ Choose a good open ball $B$ centered at $a$ with all of the following properties
 $\forall\ x\in B$ , $f'(x)$ is invertible. $\|r'(x)\|=\|f'(x)-f'(a)\|<\veps$. By $MVT$ applied on $r(x)$ on the convex set $B$, we get for any $x_1,x_2\in B$ $$\|f(x_1)-f(x_2)-f'(a)(x_1-x_2)\|=\|r(x_1)-r(x_2)\|\leq \veps \|x_1-x_2\|$$Now recall $\|p-q\|\geq \|p\|-\|q\|$. Hence $$\|f(x_1)-f(x_2)-f'(a)(x_1-x_2)\|\geq \|f'(a)(x_1-x_2)\|-\|f(x_1)-f(x_2)\|$$\textbf{Upshot: }$\|f(x_1)-f(x_2)\|\geq \|f'(a)(x_1-x_2)\|-\veps\|x_1-x_2\|\geq \overset{\substack{\text{Needed} \\ \downarrow}}{\cdots}$
 \nt{At this point if we had normalized $f'(a)=$ Identity then we would have gotten $$\|f(x_1)-f(x_2)\|\geq (1-\veps)\|x_1-x_2\|$$ Taking $\veps<1$ fives the injectivity of $f$}\parinn
 
-In our case we need to find lower bound on $\|f'(a)(x_1-x_2)\|$. Minimize $\{\|f'(a)u\|\mid \|u\|=1\}$. $f'(a)$ is continuous and the set of all unit vectors is compact. This set has a minimum, minimum=$m$>0 as it is invertible so $f'(\text{non zero vector})\neq 0$. 
+In our case we need to find lower bound on $\|f'(a)(x_1-x_2)\|$. Minimize $\{\|f'(a)u\|\mid \|u\|=1\}$. $f'(a)$ is continuous and the set of all unit vectors is compact. This set has a minimum, minimum=$m>0$ as it is invertible so $f'(\text{non zero vector})\neq 0$. 
 
 Now take $\veps<m$ and then in the resulting ball $B$ we have \begin{equation}
-	\|f(x)1)-f(x_2)\|\geq (m-\veps)\|x_1-x_2\|\label{eq1}
+	\|f(x_1)-f(x_2)\|\geq (m-\veps)\|x_1-x_2\|\label{eq1}
 \end{equation}This gives the injectivity of $f$ on $B$. So we have the bijection $B\mathrel{\raisebox{2pt}{$\xrightarrow{\ \ \  f\ \ \ }$}
 \llap{\raisebox{-2pt}{$\xleftarrow[f^{-1}=g]{}$}}}f(B)$. \eqref{eq1} is saying that any $y_1=f(x_1), y_2=f(x_2)$ in $f(B)$, i.e. $g(y_1)=x_1,g(y_2)=x_2$ $$\|g(y_1)-g(y_2)\|\leq \frac{1}{m-\veps}\|y_1-y_2\|$$ i.e. $g$ is uniformly continuous.
 
 \item We have bijection of $f$ between $B$ and $f(B)$, $V$ is supposed to be open but we have taken open ball, so its open. Inverse of $f$ ($g$) is continuous so what left is $f(B)$ open\parinn
 
 To show that $f$ is a local Homeomorphism it is enough to find an open ball $W$ around $f(a)$ with $W\subset f(B)$. Then we simply take $V=f^{-1}(W)$ which is open by continuity of $f$ and clearly $V\mathrel{\raisebox{2pt}{$\xrightarrow{f}$}
-	\llap{\raisebox{-2pt}{$\xleftarrow[g]{}$}}}W$ are bijections just restric $f,g$ from $B,f(B)$ respectively.
+	\llap{\raisebox{-2pt}{$\xleftarrow[g]{}$}}}W$ are bijections just restrict $f,g$ from $B,f(B)$ respectively.
 
 How to construct $W$? What radius to take around $W$? Stay away from $f(\partial B)$. $\delta=\min\{ \|f(x)-f(a)\| \mid x\in \partial B  \}>0$. Choose radius of $W$ to be $\frac12\delta$. We will be done if we show $W\subset f(B)$ i.e. given any $c\in W$ $\exs\ x^*\in B$ such that $f(x^*)=c$ ($x^*$ is necessarily unique, by injectivity).\parinf
 
@@ -95,7 +95,7 @@ Hence $$\EqM{c1}{\underbrace{\mu'(f(x^*))}}\circ f'(x^*)=0$$
 
 \vspace{1.5cm}
 
-Therefore $\mat{2(f_1(x^*)-c_1) & \cdots & 2(f_n(x^*)-c_n)}$ must be 0 i.e. $f_i(x^*)=c_i$ i.e. $f(x^*)=c$. So we showd that each $c\in W$ is in the image of $f$. Now take $V=f^{-1}(W)$ and we have the Homeomorphism.
+Therefore $\mat{2(f_1(x^*)-c_1) & \cdots & 2(f_n(x^*)-c_n)}$ must be 0 i.e. $f_i(x^*)=c_i$ i.e. $f(x^*)=c$. So we showed that each $c\in W$ is in the image of $f$. Now take $V=f^{-1}(W)$ and we have the Homeomorphism.
 
 
 \item Differentiability of $f^{-1}=g$ at any point $y\in W$.
@@ -107,7 +107,7 @@ Therefore $\mat{2(f_1(x^*)-c_1) & \cdots & 2(f_n(x^*)-c_n)}$ must be 0 i.e. $f_i
 	\end{tikzcd}
 \end{center}
 
-Take small $k\in\bbR^n$ and let $h=g(y_k)-g(y)$ and $k=f(x+h)-f(x)$. Each of $h$ and $k$ determines the other uniquely. In particular $h\neq 0\iff k\neq 0$ (by bijectivity). $h\to 0 \iff k\to 0$ (by continuity of $f$ and $g$). $\alpha(h)=f(x+h)-f(x)-Th=k-Th$ where $T=f'(x)$. Then we have $\frac{\|\alpha(h)\|}{\|h\|}\to 0$ as $\|h\|\to 0$. We want to show $g'(y)=T^{-1}$
+Take small $k\in\bbR^n$ and let $h=g(y+k)-g(y)$ and $k=f(x+h)-f(x)$. Each of $h$ and $k$ determines the other uniquely. In particular $h\neq 0\iff k\neq 0$ (by bijectivity). $h\to 0 \iff k\to 0$ (by continuity of $f$ and $g$). $\alpha(h)=f(x+h)-f(x)-Th=k-Th$ where $T=f'(x)$. Then we have $\frac{\|\alpha(h)\|}{\|h\|}\to 0$ as $\|h\|\to 0$. We want to show $g'(y)=T^{-1}$
 
 Let $\beta(k)=g(y+k)-g(y)-T^{-1}k=h-T^{-1}k$. We will show that as $k\to 0$, $\frac{\|\beta(k)\|}{\|k\|}\to 0$\begin{align*}
 	\frac{\|\beta(k)\|}{\|k\|} = \frac{\|h-T^{-1}k\|}{\|k\|}= \frac{\|T^{-1}(Th-k)\|}{\|k\|} & \leq \frac{\|T^{-1}\|}{\|k\|}\|Th-k\|\\
@@ -126,7 +126,7 @@ We know by $\frac{\|h\|}{\|k\|} <\frac{1}{m-\veps}$ by  \eqref{eq1}. $\frac{\|\a
 		Example = See Problem 17 from Rudin
 		
 		$f(x,y)=(e^x\cos y,e^x\sin y)$. Then $$f'(x,y)=\mat{e^x\cos y & -e^x\sin y\\ e^x\sin y & e^x\cos y}\xrightarrow{\det}(e^x)^2(\cos^2x+\sin^2y)=e^{2x}>0$$Thus $f$ is locally invertible everywhere with $C^{1}$ inverse.
-		\item $f$ is not globally one-one $f(x,y)=f(x,y+2\pi)$. DO the rest.
+		\item $f$ is not globally one-one $f(x,y)=f(x,y+2\pi)$. Do the rest.
 \end{itemize}}
 \corc{}{If $f$ is a $C^1$ map from open $U$ in $\bbR^n$ to $\bbR^n$ and $f'(x)$ is invertible $\forall\ x\in U$ then\begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
 		\item $f$ is an open map 

@@ -10,15 +10,15 @@ $f:U\to \bbC$ is called complex differentiable at $z_0\in U$ if $$\lim_{h\to 0} 
 \thmc{}{$f$ is holomorphic $\iff$ so is $f'$}
 
 \section*{Cauchy Riemann Conditions}
-Suppose $f'(z_0) $ exists where $z_0=a+ib\in $ open $U\subset \bbC$. $f(z)=u+iv$ where $u:U\to \bbR$ and $v:u\to \bbR$. First take $h=t\in \bbR$. \begin{align*}
+Suppose $f'(z_0) $ exists where $z_0=a+ib\in $ open $U\subset \bbC$. $f(z)=u+iv$ where $u:U\to \bbR$ and $v:U\to \bbR$. First take $h=t\in \bbR$. \begin{align*}
 	f'(z_0) & = \lim_{t\to 0}\frac{f(a+t+ib)-f(a+ib)}{t}\\
 	& = \lim_{t\to 0} \frac{u(a+t,b)-u(a,b)}{t}+i\lim_{t\to 0}\frac{v(a+t,b)-v(a,b)}{t}\\
 	& = \lt.\del{u}{x}\rt|_{z_0}+i\lt. \del{v}{x}\rt|_{z_0} \numberthis\label{cd1}
 \end{align*}
 Now take $h=it$, $t\in \bbR$
 \begin{align*}
-	f'(z_0) & = \lim+{t\to 0}\frac{f(a+ib+it)-f(a+ib)}{it}\\
-	& = \lim_{t\to 0} \frac{u(a,b+t)-u(a,b)}{it}+i\lim_{t\to 0}]frac{v(a,b+t)-v(a,b)}{it}\\
+	f'(z_0) & = \lim_{t\to 0}\frac{f(a+ib+it)-f(a+ib)}{it}\\
+	& = \lim_{t\to 0} \frac{u(a,b+t)-u(a,b)}{it}+i\lim_{t\to 0}\frac{v(a,b+t)-v(a,b)}{it}\\
 	& = \frac1i \lt[ \lt.\del{u}{y}\rt|_{z_0} + i \lt. \del{v}{y}\rt|_{z_0} \rt]\\
 	& = \lt. \del{v}{y}\rt|_{z_0} -i\lt. \del{u}{y}\rt|_{z_0}\numberthis\label{cd2}
 \end{align*}

@@ -26,7 +26,7 @@ In one variable $$f(a+h)=f(a)+f'(a)\frac{h}{1!}+f''(a)\frac{h^2}{2!}+\cdots+f^{(
 	where $r(h)$ is of the form $$\sum_{s_1+s_2+\cdots+s_n=m} \frac{(D_1^{s_1}\cdots D_n^{s_n}f)(a+\theta h)}{s_1!s_2!\cdots s_n!}h_1^{s_1}h_2^{s_2}\cdots h_n^{s_n}$$ where $\theta\in (0,1)$
 \end{theorem}
 \nt{$\frac{r(h)}{\|h\|^{m-1}}\to 0$ as $h\to 0$}
-In one-variable $f:[a,b]\to \bbR$. Then $f^{(0)},f^{(1)},\dots, f^{(m-1)}$ exists in $[a,b]$ and $f^(n)
+In one-variable $f:[a,b]\to \bbR$. Then $f^{(0)},f^{(1)},\dots, f^{(m-1)}$ exists in $[a,b]$ and $f^{(m)}
 $ exists in $(a,b)$. Suppose $s,t\in [a,b]$. Then there exists $\theta$ exactly between $s$ and  $t$ such that $$f(t)=\underbrace{f(s)+f'(s)(t-s)+\cdots+\frac{f^{(m-1)}(s)}{(m-1)!}(t-s)^{m-1}}_{p(t)}+\frac{f^{(m)}(\theta)}{(m)!}(t-s)^{m-1}$$. Then  $$p(s)=f(s), p'(s)=f'(s),p''(s)=f''(s),\dots, p^{(m-1)}(s)=f^{(m-1)}(s)\text{ and }p^{(m)}(x)=0\text{ identically}$$So for $g(x)=f(x)-p(x)$ $$g(s)=g'(s)=\cdots =g^{(m-1)}(s)=0$$.\parinf
 
 \textbf{\textit{Idea: }}Use $MVT$ on $g,g',\dots,g^{(m-1)}$ on $[s,t]$\parinn
@@ -70,4 +70,4 @@ g''(t)+\frac{d}{dt}g'(t)=\frac{d}{dt}\sum_{i=1}^nD_if(a+th)h_i=\sum_{i=1}^n\frac
 \section*{Addendum to Taylor's Formula: Bounding the error term}
 For $a\in U\subseteq \bbR^n$ and $f$ of class $C^m$ from $U$ to $\bbR$ we know that  for $h\in $ some ball $B$ around origin, we have $a+B\subset U$ and $$f(a+h)=\sum_{k=0}^{m-1}\quad \sum_{s_1+s_2+\cdots+s_n=k} \frac{(D_1^{s_1}\cdots D_n^{s_n}f)(a)}{s_1!s_2!\cdots s_n!}h_1^{s_1}h_2^{s_2}\cdots h_n^{s_n}+\EqM{r}{r(h)}$$where $r(h)$ is of the form $$\sum_{s_1+s_2+\cdots+s_n=m} \frac{(D_1^{s_1}\cdots D_n^{s_n}f)(a+\theta h)}{s_1!s_2!\cdots s_n!}h_1^{s_1}h_2^{s_2}\cdots h_n^{s_n}$$ where $\theta\in (0,1)$
 
-Now because $a+\overline{B}$ is compact and $D_1^{s_1}\cdots D_n^{s_n}f$ is continuous  on $U$, we can find a constant $c$ such that for any $s_1,\dots,s_n$ with $\sum\limits_{i=)}^n =m$ $$\lt| \frac{D_1^{s_1}\cdots D_n^{s_n}f(a+x)}{s_1!s_2!\cdots s_n!}\rt|<c$$for each $x\in \overline{B}$ Also $|h_i|\leq \|h\|$. Therefore $$|r(h)|<\sum_{s_1+\cdots+s_n=m}c\|h\|^m=k\|h\|^m$$and therefore $\frac{r(h)}{\|h\|^{m-1}}\to 0$ as $h\to 0$
+Now because $a+\overline{B}$ is compact and $D_1^{s_1}\cdots D_n^{s_n}f$ is continuous  on $U$, we can find a constant $c$ such that for any $s_1,\dots,s_n$ with $\sum\limits_{i=)}^n =m$ $$\lt| \frac{D_1^{s_1}\cdots D_n^{s_n}f(a+x)}{s_1!s_2!\cdots s_n!}\rt|<c$$for each $h\in \overline{B}$ Also $|h_i|\leq \|h\|$. Therefore $$|r(h)|<\sum_{s_1+\cdots+s_n=m}c\|h\|^m=k\|h\|^m$$and therefore $\frac{r(h)}{\|h\|^{m-1}}\to 0$ as $h\to 0$
