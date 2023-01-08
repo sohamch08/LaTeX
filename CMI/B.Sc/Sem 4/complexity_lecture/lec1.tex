@@ -1,0 +1,39 @@
+\documentclass{article}
+\input{preamble}
+\input{../letterfonts}
+\input{../macros}
+
+\begin{document}
+\lecture{1: Introduction}{Partha Mukhopadhyay}{Soham Chatterjee}
+
+\section{Reference}
+\textbf{Books:-}
+\begin{itemize}
+	\item  Introduction to the Theory of Computation by Michael Sipser \cite{sipser13}
+	\item Computational Complexity: A Modern Approach by Sanjeev Arora and Boaz Barak \cite{arora}
+	\item Computational Complexity: A Conceptual Perspective by Oded Goldreich  \cite{oded}
+	\item Mathematics and Computation: A Theory Revolutionizing Technology and Science by Avi Wigderson \cite{avi}
+\end{itemize}
+\textbf{Lecture Notes:-}
+\begin{itemize}
+	\item \href{https://madhu.seas.harvard.edu/}{Madhu Sudan}: \href{http://madhu.seas.harvard.edu/courses/Spring2018}{2018} and \href{http://madhu.seas.harvard.edu/courses/Spring2021}{2021}
+	\item \href{https://people.eecs.berkeley.edu/~venkatg/}{Venkat Guruswamy}: \href{https://cmucomplexitytheory.wordpress.com/}{2011} and \href{https://www.cs.cmu.edu/~odonnell/complexity/}{2009}
+	\item \href{https://lucatrevisan.github.io/}{Luca Trevisan}: \href{https://lucatrevisan.github.io/teaching/cs172-15/index.html}{2015}, \href{https://lucatrevisan.github.io/teaching/cs254/index.html}{2014}, \href{https://lucatrevisan.github.io/teaching/cs254-12/index.html}{2012}, \href{http://www.cs.stanford.edu/~trevisan/cs254-10/}{2010}
+	\item \href{https://salil.seas.harvard.edu/}{Salil Vedhan}: \href{http://people.seas.harvard.edu/~salil/cs221/}{Notes}
+	\item \href{https://www.tifr.res.in/~prahladh/}{Prahlad Harsha}: \href{https://www.tifr.res.in/~prahladh/teaching/2020-21/complexity/}{2021}, \href{https://www.tifr.res.in/~prahladh/teaching/2019-20/complexity/}{2020}, \href{https://www.tifr.res.in/~prahladh/teaching/2017-18/complexity/}{2018}, \href{https://www.tifr.res.in/~prahladh/teaching/2013-14/complexity/}{2014}, \href{https://www.tifr.res.in/~prahladh/teaching/2012-13/complexity/}{2013}, \href{https://www.tifr.res.in/~prahladh/teaching/2011-12/complexity/}{2012}, \href{https://www.tifr.res.in/~prahladh/teaching/2010-11/complexity/}{2011}
+	\item \href{https://www.tcs.tifr.res.in/~jaikumar/}{Jay Kumar Radhakrishnan}: \href{https://www.tcs.tifr.res.in/~jaikumar/Courses/Complexity/}{2004}
+\end{itemize}
+
+\section{Basic Classes}
+\nt{All the classes in this course are subsets of decidable problems }
+We know for any problem $P$ a language $L_P$ is associated.
+\parinf
+
+$\bmP \coloneqq$ Class of problems that can be decided in deterministic polynomial time
+
+$\bmN \bmP \coloneqq$ Class of problems for which witness can be verified in deterministic polynomial time. Now it is obvious that $P$ is contained in $N P$ . But we don’t know if $P = N P$ or not.
+
+
+\bibliographystyle{alpha}
+\bibliography{refs}
+\end{document}

@@ -1,0 +1,241 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 1}\\
+		Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+		\normalsize Course: Complex Analysis \hfill Date: January 13, 2023}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p1% problem reference text
+		}
+				Find the general analytic function $f=u+iv$, such that $u=x^2-y^2$.
+	
+		%Problem		
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Given that $u=x^2-y^2$. Then $\del{u}{x}=2x$ and $\del{u}{y}=-2y$. Since the function is analytic $u,v$ follows the Cauchy Riemann Equations. Hence $$\del{u}{x}=\del{v}{y}\qquad \del{u}{y}=-\del{v}{x}$$Hence $\del{v}{x}=2x$ and $\del{v}{y}=2y$. Now since $\del{v}{x}=2y$ we can assume $v=2xy+g(y)$ where $g$ is some real valued function. But then $\del{v}{y}=2x$ implies that $g'(y)=0$ hence $g$ is some constant function. Hence $v=2xy+c$ where $c\in \bbR$ some constant. Hence $$f(x,y)=x^2-y^2+i(2xy+c)==x^2-y^2+2ixy+ic=(x+iy)^2+ic\iff f(z)=z^2+ic$$
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p2% problem reference text
+		}
+		%Problem		
+	\end{problem}
+	
+	\solve{
+		%Solution
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 3
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p3% problem reference text
+		}
+		%Problem
+					Prove Cauchy's inequality: Let $a=(a_1,...,a_n)$, $b=(b_1,...,b_n)$ be two complex vectors, then $$( a\cdot b)^2 \leq \|a\|^2  \|b\|^2$$ where $(a\cdot b)$ is the scalar product of vectors.
+				
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Consider the vector $a+\lm b$. Now since for any vector $v$, $\sqrt{(v\cdot v)}=\|v\|\geq 0$ we have $\sqrt{((a+\lm b)\cdot (a+\lm b))}\geq 0$. Now \begin{align*}
+			((a+\lm b)\cdot (a+\lm b))  & = (a\cdot (a+\lm b))+\lm (b\cdot (a+\lm b))\\
+			& = (a\cdot a)+\lm (a\cdot b)+\lm (b\cdot a)+\lm^2(b\cdot b)\\
+			& \|a\|^2+2 \lm (a\cdot b) + \lm^2\|b\|^2
+		\end{align*}
+	Since $	((a+\lm b)\cdot (a+\lm b))  \geq 0$ the discriminant of the polynomial, $p(\lm)=\|a\|^2+2 \lm (a\cdot b) + \lm^2\|b\|^2$ is non-positive. Hence $$ 4(a\cdot b) ^2\leq 4\|a\|^2\|b\|^2\iff (a\cdot b) ^2\leq \|a\|^2\|b\|^2$$
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 4
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Exercise 2.1 Problem 1
+		}{p4% problem reference text
+		}
+		%Problem		
+		If $g(w)$ and $f(z)$ are analytic functions, show that $g(f(z))$ is also analytic.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Let $g(w)=u_g(x,y)+iv_g(x,y)$ and $f(z)=u_f(x,y)+iv_f(x,y)$. Then $u_g,u_f,v_g,v_f$ have continuous partial derivatives and satisfy Cauchy Riemann Equations.\begin{align*}
+			\frac{\partial u_g}{\partial x}=\frac{\partial v_g}{\partial y}\qquad\frac{\partial u_g}{\partial y}=-\frac{\partial v_g}{\partial x} \\
+			\frac{\partial u_f}{\partial x}=\frac{\partial v_f}{\partial y} \qquad \frac{\partial u_f}{\partial y}=-\frac{\partial v_f}{\partial x}
+		\end{align*} Then $$h(z)=u_h(x,y)+iv_h(x,y)=u_g(u_f(x,y),v_f(x,y))+iv_g(u_f(x,y),v_f(x,y))$$Therefore\begin{align*}
+			 \del{u_h}{x}  = \del{u_g}{u_f}\del{u_f}{x}+\del{u_g}{v_f}\del{v_f}{x}&& \del{u_h}{y}  = \del{u_g}{u_f}\del{u_f}{y}+\del{u_g}{v_f}\del{v_f}{y}\\
+			 \del{v_h}{x}  = \del{v_g}{u_f}\del{u_f}{x}+\del{v_g}{v_f}\del{v_f}{x} && \del{v_h}{y}  = \del{v_g}{u_f}\del{v_f}{y}+\del{v_g}{v_f}\del{v_f}{y}
+		\end{align*}
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Exercise 2.1 Problem 2
+		}{p5% problem reference text
+		}
+		%Problem		
+		Verify Cauchy-Riemann’s equations for the functions $z^2$ and $z^3$
+	\end{problem}
+	
+	\solve{
+		%Solution
+		\begin{align*}
+			 z^2&=(x+i y)^2=\underbrace{x^2-y^2}_{u_1}+\underbrace{2 x y }_{v_1}i \\
+			 z^3&=(x+i y)^3=\left(x^2-y^2+2 x y i\right)(x+y i)=\left[\underbrace{x^3-3 x y^2}_{u_2}\right]+\left[\underbrace{3 x^2 y-y^3}_{v_2}\right] i
+		\end{align*}For $z^2$
+	$$\del{u_1}{x}=2x=\del{v_1}{y}\qquad \del{u_1}{y}=-2y=-\del{v_1}{y}$$and for $z^3$ $$\del{u_2}{x}=3x^2-3y^2=\del{v_2}{Y}\qquad \del{u_2}{y}=-6xy=-\del{v_2}{x}$$Hence both the functions follow the Cauchy-Riemann's Equations
+	}
+	
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 6
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Exercise 2.1 Problem 3
+		}{p5% problem reference text
+		}
+		%Problem		
+Find the most general harmonic polynomial of the form $ax^3+bx^2y+cxy^2+dy^3$. Determine the conjugate harmonic function and the corresponding analytic function by integration and by the formal method.
+	\end{problem}
+	
+	\solve{
+		%Solution
+	}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 7
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Exercise 2.1 Problem 4
+		}{p5% problem reference text
+		}
+		%Problem		
+Show that an analytic function cannot have a constant absolute value without reducing to a constant.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		If $|f(z)|=0$ $\forall\ z\in\bbC$ then we have $f(z)=0$. Now let $|f(z)|=c>0$ $\forall \ z\in \bbC$. Let $f=u+iv$ then $|f(z)|=\sqrt{u^2(x,y)+v^2(x,y)}=c$. Therefore \begin{align*}
+			\del{}{x}(u^2+v^2)=2u\del{u}{x}+2v\del{v}{x}=u\del{u}{x}-v\del{u}{y}=0\\
+			\del{}{y}(u^2+v^2)=2u\del{u}{y}+2v\del{v}{y}=u\del{u}{y}+v\del{u}{x}=0
+		\end{align*}We can write this in matrix form that $$\mat{u & -v\\ v & u}\mat{\del{u}{x} \\ \del{u}{y}}=\mat{0\\ 0}$$Now if $\mat{u & -v\\ v & u}$ is not invertible then determinant=$u^2+v^2=0$ which is not possible then $\mat{\del{u}{x} \\ \del{u}{y}}=\mat{0\\ 0}$Hence all the partial derivatives of $f$ is 0. So $f'(z)=0$ or $f(z)=c$
+	}
+	
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 8
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Exercise 2.1 Problem 5
+		}{p5% problem reference text
+		}
+		%Problem		
+		Prove rigorously that the functions $f(z)$ and $\overline{f(z)}$ are simultaneously analytic.
+	\end{problem}
+	
+	\solve{
+		%Solution
+	}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 9
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Exercise 2.1 Problem 6
+		}{p5% problem reference text
+		}
+		%Problem		
+Prove that the functions $u(z)$ and $u(\overline{z})$ are simultaneously harmonic.
+	\end{problem}
+	
+	\solve{
+		%Solution
+	}
+	
+
+	
+\end{document}
