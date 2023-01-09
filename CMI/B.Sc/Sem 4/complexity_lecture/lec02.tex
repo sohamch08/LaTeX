@@ -1,0 +1,106 @@
+\documentclass{article}
+\input{preamble}
+\input{../letterfonts}
+\input{../macros}
+
+
+
+\begin{document}
+	\lecture{2-3: Cook-Levin Theorem}{Partha Mukhopadhyay}{Soham Chatterjee}
+	
+	A turing machine  is a $5-$tuple $(Q,\Gm, \delta, q_0, q_{accept})$ where $\Gm=\Sigma\cup \{\#\}$ and $\delta:Q\times \Gm\to Q\times \Gm\times \{L,R\}$
+	
+	For a Nondeterministic Turing Machine ($NTM$)  $\delta :Q\times \Gm\to P(Q\times \Gm\times \{L,R\})$
+	\nt{For all these turing machines the machine halts on every path}. 
+	\begin{center}
+		\begin{tikzpicture}
+			\filldraw (0,0) circle (1pt) node[xshift=8cm,yshift=-1cm, text width=6cm]{The all possible paths of a \ntm is showed like a directed tree where each edge is directed from parent node to its childs.};
+			\filldraw (-1,-1) circle (1pt);
+			\filldraw (1,-1) circle (1pt);
+			\filldraw (-1.5,-2) circle (1pt);
+			\filldraw (-0.5,-2) circle (1pt);
+			\filldraw (1.5,-2) circle (1pt);
+			\filldraw (0.5,-2) circle (1pt);
+			\draw [-latex] (0,0) -- (-1,-1) ;
+			\draw [-latex] (0,0) -- (1,-1);
+			\draw [-latex] (-1,-1) -- (-1.5,-2);
+			\draw [-latex] (-1,-1) -- (-0.5,-2);
+			\draw [-latex] (1,-1) -- (1.5,-2);
+			\draw [-latex] (1,-1) -- (0.5,-2);
+		\end{tikzpicture}
+	\end{center}
+	
+	Let $f:\bbN\to \bbN$ is a function. A \dtm with runtime $f(n)$ means for input $x$, $|x|=n$, machine halts in time $O(f(n))$. A \ntm  with runtime $f(n)$ means for every path the machine halts within $O(f(n))$ time
+\parinf
+
+$\boldsymbol{DTIME(n^c)}\coloneqq$ \{$L\mid$ Such $L$ can be decided by a \dtm with runtime $O(n^c)$\} $c=$constant
+
+$\bmP\coloneqq DTIME(n^c)$\hfill $\bmN\bmP\coloneqq NTIME(n^c)$\hfill $\bmE\bmX\bmP\coloneqq DTIME(2^{n^c})$
+
+\section{Logical Characterization of $NP$}
+$NP:$ Class of problems that have a deterministic poly time verifier. $L\in NP$ then there is a polynomial $p$ and polynomial time computable algorithm $v(\cdot,\cdot)$ such that $x\in L\iff \exs \ y$, $|y|\leq p(|x|)$ such that $v(x,y)$ accepts.\parinn
+
+But not all problems have a easy way to get short verifier. There are problems for which it is hard to get a certificate. EG: Show that two finite groups are non-isomorphic, Show that a boolean formula is not satisfiable.
+
+\clm{}{Efficient verifier $\iff $ $NP-$machine}
+\begin{proof}
+\subsubsection*{$\Longrightarrow$}
+On input $x$ the $NP-$ machine gives $y$, $|y|\leq p(|x|)$ for some polynomial function and run the verifier $v(x,y)$
+\subsubsection*{$\Longleftarrow$}
+On input $x$ if $\exs$ a correct path of the $NP-$machine then we can encode the path in a bit string and it will be a poly($|x|$) and give that as a verifier.
+\end{proof}
+\section{Reduction}
+
+\dfn{Polynomial Time Reduction}{$f:\Sigma^*\to \Sigma^*$ is a polynomial time computable function $$A\leq_{\st{\EqM{c1}{P}}}B$$\vspace*{1cm}\parinf
+	
+	If there is a polynomial time computable $f:\Sigma^*\to \Sigma^*$ such that $$x\in A\iff f(x)\in B$$\parinn
+	
+	\begin{tikzpicture}[remember picture, 
+		overlay
+		]
+		\draw[<-] ++(c1.south) -- ++(1,-2em)  node[xshift=0cm,yshift=-.3cm] {Polynomial Time Reducible};
+	\end{tikzpicture}}
+\dfn{$NP-Hard$ and $NP-complete$}{
+$L$ is $NP-hard$ if $\forall\ A\in NP$ $A\leq_P L$. If $L\in NP$ then $L$ is $NP-complete$}
+If $L_1$ and $L_2$ both are $NP-complete$ then \begin{center}
+$	\begin{rcases}
+		L_1\leq_P L_2\\
+		L_2\leq_P L_1
+	\end{rcases}\implies L_1 \equiv_P L_2$
+\end{center}
+	\qs{}{Prove $A$ is $NP-complete$}\solve{Let $L$ be a known $NP-complete $ problem then show that $L\leq_P A$}
+	
+	\section{Cook-Levin Theorem}
+	Before we can even show that a problem is $NP-complete$ we have to first show existence of a $NP-complete $ problem. Cook and Levin they independently showed that $SAT$ is an $NP-complete $ problem.
+	\thm{Cook-Levin Theorem \cite{cook} and \cite{levin}}{$SAT$ is $NP-complete$}
+	The nodes showed in the tree-diagram of a \ntm are called configurations at different point of time of the \ntm.
+	
+	\dfn{Configuration of a Turing Machine}{A configuration of a Turing Machine at any point of time \(t\) is basically the snapshot of the turning machine at that time. It is an ordered pair of the head position, current state, and tape content. Any configuration is initialized and ended with a special symbol, let \(\#\) mark its ending. Then the contents of the tape at the left of the head, then the current state then the content of the cell where the head is pointed and the content of the tape at the right of the head. So if any configuration is like \((\#, w_1,w_2,q,w_3,w_4,w_5,w_6,\#)\) then the head is pointed at 3rd letter in state \(q\) and the content of the tape is \(w_1w_2w_3w_4w_5w_6\)}
+	In the proof of the theorem we use a concept called Computation Tableau 
+	
+	\dfn{Computation Tableau of a Turing Machine}{It is a table of configurations where form \(i-\)the row to \(i+1-\)the row it follows the turning machine's transition function at time \(i\) on any input \(x\) and the first row is the starting configuration. A tableau is accepting if any in the tableau is an accepting configuration.}
+	
+	
+	
+	Now comes to the proof of the theorem.
+	
+\begin{proof}
+		Let \(L\) be any language in \(NP\). Then there exists a nondeterministic turning machine \(M\) with runtime \(n^k\) and \(L=\mathcal{L}(M)\).
+	
+	Idea: The idea is to encode the computation tableau of \(M\) on input \(x\), \(|x|=n\) to a boolean formula \(\varphi\) such that there is an accepting configuration iff \(\varphi \in SAT\)
+	
+	
+	
+	Let \(x=w_1w_2\dots w_n\). Let \(C=Q\cup \Gamma\cup \{\#\}\) where \(Q\) is the set of states if \(M\) and \(\Gamma\) is set of alphabets of \(M\). Since the turning machine runs for time \(n^k\) it can at most access \(n^k\) space, So the computation tableau will have \(n^k \) rows and \(n^k\) columns. Now the initial configuration is \[(\#,q_0,w_1,w_2,\dots,w_n,\sqcup,\dots,\sqcup,\#)\]Now any cell in the tableau contains a symbol from \(C\). So for each \((i,j)-\)the cell and \(s\in C\) introduce a variable \(x_{i,j,s}\). \(x_{i,j,s}=1\) iff the \((i,j)-\)the cell in the tableau has the symbol \(s\), otherwise \(x_{i,j,s}=0\).
+	
+	
+	
+	Therefore we can encode the starting configuration as \[\varphi_{start}=x_{1,1,\#}\wedge \left( \bigwedge_{j=2}^{n+1} x_{1,j,w_{j-1}} \right) \wedge \left( \bigwedge_{j=n+2}^{n^k-1} x_{1, j,\sqcup} \right)\wedge x_{1,n^k,\#}\]Now setting \(x_{i,j,s} =1\) corresponds to placing \(s\) in \((i,j)-\)the cell. To obtain a correspondence between an assignment and a tableau, we must ensure that the assignment sets to 1 exactly one variable for each cell. First, we need to ensure each cell has at least one symbol placed in it. We do it by \(\bigvee\limits_{s\in C} x_{i,j,s}\). Now we have to ensure that the cell does not have more than two symbols placed in it. We do it by \(\bigvee\limits_{s,t\in C, s\neq t} (\overline{x_{i,j,s}}\wedge\overline{x_{i,j,t}})\). Hence for each cell, these two conditions both should follow, therefore \[\left(\bigvee\limits_{s\in C} x_{i,j,s}\right) \wedge \left( \bigvee\limits_{s,t\in C, s\neq t} (\overline{x_{i,j,s}}\wedge\overline{x_{i,j,t}})\right)\]There condition should follow for every cell, therefore, we get the second part for our desired boolean function \[ \varphi_{cell}=\bigwedge_{1\leq i,j\leq n^k}\left[ \left(\bigvee\limits_{s\in C} x_{i,j,s}\right) \wedge \left( \bigvee\limits_{s,t\in C, s\neq t} (\overline{x_{i,j,s}}\wedge\overline{x_{i,j,t}})\right)\right]\]
+	
+	Formula \(\varphi_{accept}\) guarantees that an accepting configuration occurs in the tableau. The formula ensures that \(\varphi_{accept}\), the symbol for the accept state, occurs in one of the cells of the tableau by stipulating that one of the corresponding variables is set to 1. Hence the formula for it is \[\varphi_{accept}=\bigwedge_{1\leq i,j\leq n^k} x_{i,j,q_{accept}}\]
+\end{proof}
+\pagebreak
+
+\bibliographystyle{alpha}
+\bibliography{refs}
+\end{document}

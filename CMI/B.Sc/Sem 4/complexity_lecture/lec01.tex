@@ -1,0 +1,119 @@
+\documentclass{article}
+\input{preamble}
+\input{../letterfonts}
+\input{../macros}
+
+\begin{document}
+\lecture{1: Introduction}{Partha Mukhopadhyay}{Soham Chatterjee}
+
+\section{Reference}
+\textbf{Books:-}
+\begin{itemize}
+	\item  Introduction to the Theory of Computation by Michael Sipser \cite{sipser13}
+	\item Computational Complexity: A Modern Approach by Sanjeev Arora and Boaz Barak \cite{arora}
+	\item Computational Complexity: A Conceptual Perspective by Oded Goldreich  \cite{oded}
+	\item Mathematics and Computation: A Theory Revolutionizing Technology and Science by Avi Wigderson \cite{avi}
+\end{itemize}
+\textbf{Lecture Notes:-}
+\begin{itemize}
+	\item \href{https://madhu.seas.harvard.edu/}{Madhu Sudan}: \href{http://madhu.seas.harvard.edu/courses/Spring2018}{2018} and \href{http://madhu.seas.harvard.edu/courses/Spring2021}{2021}
+	\item \href{https://people.eecs.berkeley.edu/~venkatg/}{Venkat Guruswamy}: \href{https://cmucomplexitytheory.wordpress.com/}{2011} and \href{https://www.cs.cmu.edu/~odonnell/complexity/}{2009}
+	\item \href{https://lucatrevisan.github.io/}{Luca Trevisan}: \href{https://lucatrevisan.github.io/teaching/cs172-15/index.html}{2015}, \href{https://lucatrevisan.github.io/teaching/cs254/index.html}{2014}, \href{https://lucatrevisan.github.io/teaching/cs254-12/index.html}{2012}, \href{http://www.cs.stanford.edu/~trevisan/cs254-10/}{2010}
+	\item \href{https://salil.seas.harvard.edu/}{Salil Vedhan}: \href{http://people.seas.harvard.edu/~salil/cs221/}{Notes}
+	\item \href{https://www.tifr.res.in/~prahladh/}{Prahlad Harsha}: \href{https://www.tifr.res.in/~prahladh/teaching/2020-21/complexity/}{2021}, \href{https://www.tifr.res.in/~prahladh/teaching/2019-20/complexity/}{2020}, \href{https://www.tifr.res.in/~prahladh/teaching/2017-18/complexity/}{2018}, \href{https://www.tifr.res.in/~prahladh/teaching/2013-14/complexity/}{2014}, \href{https://www.tifr.res.in/~prahladh/teaching/2012-13/complexity/}{2013}, \href{https://www.tifr.res.in/~prahladh/teaching/2011-12/complexity/}{2012}, \href{https://www.tifr.res.in/~prahladh/teaching/2010-11/complexity/}{2011}
+	\item \href{https://www.tcs.tifr.res.in/~jaikumar/}{Jay Kumar Radhakrishnan}: \href{https://www.tcs.tifr.res.in/~jaikumar/Courses/Complexity/}{2004}
+\end{itemize}
+
+\section{Basic Classes}
+\nt{All the classes in this course are subsets of decidable problems }
+We know for any problem $P$ a language $L_P$ is associated.
+\parinf
+
+$\bmP \coloneqq$ Class of problems that can be decided in deterministic polynomial time
+
+$\bmN \bmP \coloneqq$ Class of problems for which witness can be verified in deterministic polynomial time. Now it is obvious that $P$ is contained in $N P$. \parinn
+
+But we don’t know if $P = N P$ or not.
+\opn{}{$$P\subsetneq NP$$}
+But it is believed that $P\neq NP$
+\begin{center}
+	\begin{tikzpicture}
+		\draw (0,0) circle [x radius=2cm, y radius=3cm] node[yshift=1cm]{$NP$};
+		\draw (0,-1) circle (1cm) node{$P$} node[xshift=7cm, yshift=2cm, text width=5cm]{This is called the Complexity Zoo. As the course will further progress more and more things will be added};
+	\end{tikzpicture}
+\end{center}
+\ex{$NP-complete\ (NPC)$}{$SAT,3COL,VC,HAM,\dots$
+	
+	
+$3COL \coloneqq$Given a graph $G$, check whether the graph is 3-colorable
+
+\cite{garey} a has a lot of examples of $NP-complete$ problems}
+Now there was question that what is the set $N P \setminus P$ if $N P \neq  P$. Which one of the following true
+\begin{center}
+	\begin{tikzpicture}
+		\draw (-4,0) circle [x radius=1cm, y radius=2cm] node[xshift=1.5cm, yshift=1cm]{$NP$} node[yshift=1cm]{$NPC$};
+		\draw (4,0) circle [x radius=1cm, y radius=2cm] node[xshift=1.5cm, yshift=1cm]{$NP$};
+		\draw (-4,-0.8) circle [x radius=0.5cm, y radius=0.8cm] node{$P$};
+		\draw (4,-0.8) circle [x radius=0.5cm, y radius=0.8cm] node{$P$};
+		\draw (4.8,1.2) .. controls (4,0.8) .. (3.2,1.2) node[xshift=0.8cm]{$NPC$};
+	\end{tikzpicture}
+\end{center}
+
+Ladner proved in \cite{ladner} that there exists an infinite hierarchy of problems sitting from $P$ to $N P -complete$, $L \in N P \setminus (P \cup N P C)$.
+
+But we know very less natural problems in $N P \setminus (P \cup N P C)$. Eg: Factoring (it is believed), Graph
+Isomorphism or $GIso$ (It was believed that $GIso$ is in $N P \setminus (P \cup N P C)$ but Laci Babai in \cite{babai} brought it to very closed to $P$). 
+
+Primality was used to be believed in $N P \setminus (P \cup N P C)$ but later it was discovered that it is in $P$ in \cite{aks}\parinf
+
+\textbf{Graph Isomorphism} $(\boldsymbol{GIso})\coloneqq$ $G_1=(V_1,E_1)$, $G_2=(v-2,E_2)$. The question is if there exists $\phi:V_1\to V_2$ such that $(u,v)\in E_1\iff (\phi(u),\phi(v))\in E_2$\parinn
+
+Now the picture is 
+\begin{center}
+	\begin{tikzpicture}
+		\draw (4,0) circle [x radius=1cm, y radius=2cm] node[xshift=1.5cm, yshift=1cm]{$NP$} ;
+		\draw (4,-0.8) circle [x radius=0.5cm, y radius=0.8cm] node{$P$} node[xshift=5mm, yshift=1cm]{$GIso$} node[xshift=-0.3cm, yshift=1.5cm]{$FACT$};
+		\draw (4.8,1.2) .. controls (4,0.8) .. (3.2,1.2) node[xshift=0.8cm]{$NPC$};
+	\end{tikzpicture}
+\end{center}
+\section{Space/Memory}
+Now comes another question. Are the problems in P ``memory" efficient?.
+
+$(G, E)$ is an undirected graph. If $u, v \in V$ then is $u \to v$ reachable? Any search algorithm like $DF S$, $BF S$ works$\approx\xrightarrow{2004-Reingold \cite{reingold}}O(\log n)-$memory
+
+\section{Randomness}
+Now we allow the Turing Machine to toss a coin to take decisions and then walk accordingly. It contains $P$ as
+we can say stop tossing. Hence $P \subseteq BP P$
+
+Here randomized algorithms are used to solve problems. Eg. \href{https://en.wikipedia.org/wiki/Miller–Rabin_primality_test}{Miller Robin Ptimality Test}.
+
+Now the picture is 
+\begin{center}
+	\begin{tikzpicture}
+		\draw (4,0) circle [x radius=1cm, y radius=2cm] node[xshift=1.5cm, yshift=1cm]{$NP$} ;
+		\draw (4,-0.8) circle [x radius=0.5cm, y radius=0.8cm] node{$P$} ;
+		\draw (4.8,1.2) .. controls (4,0.8) .. (3.2,1.2) node[xshift=0.8cm]{$NPC$};
+		\draw (4,-0.7) circle [x radius=2cm, y radius=1.3cm] node[yshift=1cm]{$BPP$};
+	\end{tikzpicture}
+\end{center}
+
+$\boldsymbol{BP P \coloneqq}$ Class of problems which can be solved in polynomial time with the power of randomness
+\opn{}{$$P=BPP$$}
+But it is believed that $P = BP P$ . This gives a philosophical question that can every randomized polynomial time algorithm be converted to a polynomial time deterministic algorithm with comparable time?
+\nt{$BP P$ has no such comlete problems like $N P -complete$ problems in $N P$ class. We have to use pseudorandom generator. So the task is to build a powerfull pseudoranddom generator}
+\section{Lower Bounds}
+One such question on lower bound to show $P\neq NP$ is
+\qs{}{Let $\psi $ be a boolean formula and $|\psi| = n$. Prove that if $\psi \in SAT$ it requires at least super linear time ($n^{1.1}$)}
+We don’t even know that
+
+We can put some constraints or cut down some power of turing machine to show some lower bounds. 
+\section{Diagonalization}
+\thm{}{$$DTIME(n^2)\subsetneq DTIME(n^3)$$}
+People used to believe that these kind of ideas can be used to prove $P \neq  N P$. But Natural Proofs \cite{natproof} crushed this idea.
+
+
+\pagebreak
+
+\bibliographystyle{alpha}
+\bibliography{refs}
+\end{document}
