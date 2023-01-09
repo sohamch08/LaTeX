@@ -6,7 +6,7 @@
 
 
 \begin{document}
-	\lecture{2-3: Cook-Levin Theorem}{Partha Mukhopadhyay}{Soham Chatterjee}
+	\lecture{2: Cook-Levin Theorem}{Partha Mukhopadhyay}{Soham Chatterjee}
 	
 	A turing machine  is a $5-$tuple $(Q,\Gm, \delta, q_0, q_{accept})$ where $\Gm=\Sigma\cup \{\#\}$ and $\delta:Q\times \Gm\to Q\times \Gm\times \{L,R\}$
 	
@@ -80,7 +80,7 @@ $	\begin{rcases}
 	
 	\dfn{Computation Tableau of a Turing Machine}{It is a table of configurations where form \(i-\)the row to \(i+1-\)the row it follows the turning machine's transition function at time \(i\) on any input \(x\) and the first row is the starting configuration. A tableau is accepting if any in the tableau is an accepting configuration.}
 	
-	
+
 	
 	Now comes to the proof of the theorem.
 	
@@ -98,6 +98,67 @@ $	\begin{rcases}
 	Therefore we can encode the starting configuration as \[\varphi_{start}=x_{1,1,\#}\wedge \left( \bigwedge_{j=2}^{n+1} x_{1,j,w_{j-1}} \right) \wedge \left( \bigwedge_{j=n+2}^{n^k-1} x_{1, j,\sqcup} \right)\wedge x_{1,n^k,\#}\]Now setting \(x_{i,j,s} =1\) corresponds to placing \(s\) in \((i,j)-\)the cell. To obtain a correspondence between an assignment and a tableau, we must ensure that the assignment sets to 1 exactly one variable for each cell. First, we need to ensure each cell has at least one symbol placed in it. We do it by \(\bigvee\limits_{s\in C} x_{i,j,s}\). Now we have to ensure that the cell does not have more than two symbols placed in it. We do it by \(\bigvee\limits_{s,t\in C, s\neq t} (\overline{x_{i,j,s}}\wedge\overline{x_{i,j,t}})\). Hence for each cell, these two conditions both should follow, therefore \[\left(\bigvee\limits_{s\in C} x_{i,j,s}\right) \wedge \left( \bigvee\limits_{s,t\in C, s\neq t} (\overline{x_{i,j,s}}\wedge\overline{x_{i,j,t}})\right)\]There condition should follow for every cell, therefore, we get the second part for our desired boolean function \[ \varphi_{cell}=\bigwedge_{1\leq i,j\leq n^k}\left[ \left(\bigvee\limits_{s\in C} x_{i,j,s}\right) \wedge \left( \bigvee\limits_{s,t\in C, s\neq t} (\overline{x_{i,j,s}}\wedge\overline{x_{i,j,t}})\right)\right]\]
 	
 	Formula \(\varphi_{accept}\) guarantees that an accepting configuration occurs in the tableau. The formula ensures that \(\varphi_{accept}\), the symbol for the accept state, occurs in one of the cells of the tableau by stipulating that one of the corresponding variables is set to 1. Hence the formula for it is \[\varphi_{accept}=\bigwedge_{1\leq i,j\leq n^k} x_{i,j,q_{accept}}\]
+	
+	The last part of the formula has to do with the transitions of the turing machine. Here we use the concept of window in the computation tableau
+	
+		\dfn{$\bs{(i,j)-6}$ window in a Computation Tableau}{A window in the tableau is a $2\times 3$ piece with adjacent rows and and columns.}
+\begin{center}
+	\begin{tikzpicture}
+		    [%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		box/.style={rectangle,draw=black,thick, minimum size=1cm},
+		]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\foreach \x in {0,1,...,6}{
+			\foreach \y in {0,1,...,8}
+			\node[box] at (\x,\y){};
+		}
+	\draw [line width=0.8mm] (1.5,3.5) -- (4.5,3.5) -- (4.5, 5.5) -- (1.5,5.5) -- (1.5, 3.5);
+	\draw [-latex, line width=0.3mm] (3,4.5) .. controls (5.5,5) .. (8,4.5) node[text width=4cm, xshift=2.2cm]{	
+		$(i,j)-6$ window
+		\vspace*{2mm}
+		
+		\ \begin{tabular}{|c|c|c|}
+			\hline 
+			$a_1$ & $a_2$ & $a_3$\\ \hline
+			$a_4$ & $a_5$ & $a_6$\\ \hline
+\end{tabular}};
+	\draw (2,9) node{$j-1$};
+	\draw (3,9) node{$j$};
+	\draw (4,9) node{$j+1$} ;
+	\draw (-1,4) node{$i+1$};
+	\draw (-1,5) node{$i$};
+	\end{tikzpicture}
+\end{center}
+A window is legal if it does not violate transition function of the turing machine. Determining which windows are legal can be done by case analysis.
+\ex{Legal and Illegal 6-window}{
+\begin{tabular}{rclccrcl}
+	\begin{tabular}{|c|c|c|}
+		\hline
+	$a$ &	$q_1$ & $b$ \\ \hline
+	$q_2$ &	 $a$  & $c$ \\ \hline
+	\end{tabular} & $\longrightarrow$ & Legal &\hspace{6cm} & \begin{tabular}{|c|c|c|}
+	\hline 
+	$a$ & $q_1$ & $b$\\ \hline
+	$q$ & $a$ & $a$\\ \hline
+\end{tabular}& $\longrightarrow$ & Illegal & \\[5mm]
+\begin{tabular}{|c|c|c|}
+\hline
+$a$ &	$q_1$ & $b$ \\ \hline
+$a$ &	$a$  & $q_2$ \\ \hline
+\end{tabular} & $\longrightarrow$ & Legal &\hspace{6cm} & \begin{tabular}{|c|c|c|}
+\hline 
+$\#$ & $b$ & $a$\\ \hline
+$\#$ & $b$ & $a$\\ \hline
+\end{tabular}& $\longrightarrow$ & Illegal & \\[5mm]
+\begin{tabular}{|c|c|c|}
+\hline
+$a$ &	$b$ & $a$ \\ \hline
+$a$ &	$b$  & $q_2$ \\ \hline
+\end{tabular} & $\longrightarrow$ & Legal &\hspace{6cm} & &  & &
+\end{tabular}
+}
+Hence $$\varphi_{move}=\bigwedge_{1\leq i,j\leq n^k} ((i,j)-6\text{ window is legal})$$
+
+Therefore the final boolean circuit is $$\varphi=\varphi_{start} \wedge \varphi_{cell} \wedge \varphi_{move} \wedge \varphi_{accept}$$
 \end{proof}
 \pagebreak
 
