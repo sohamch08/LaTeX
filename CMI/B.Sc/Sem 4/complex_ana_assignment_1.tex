@@ -95,11 +95,18 @@
 		}{p2% problem reference text
 		}
 		%Problem		
+		Let $f(x,y)=(u(x,y),v(x,y)) $be a function defined on an open set $U$ of the plane, and taking values in the plane. We may think of $f$ as a complex valued function defined on the open subset $U$ of the complex numbers in the obvious way. Show that $f$ is differentiable as a complex valued function at a point $p$ of $U$ if and only if the total derivative of $f$ commutes with multiplication by complex numbers $i$. $T(ab)=bT(a)$
 	\end{problem}
 	
 	\solve{
 		%Solution
-	}
+	Total derivative of $f$ at $p$ will be the matrix $$T=\mat{\del{u}{x} & \del{u}{y}\\ \del{v}{x} & \del{v}{y}}$$ Let $M=\mat{0 & -1\\ 1 & 0}$. Since $M^2=T_2$ one can treat this matrix $M$ as the $\sqrt{-1}=i$. Now we define a ring homomorphism $\varphi : \bbC\to M_2(\bbR)$ where $$\varphi (a)=aI_2 \ \forall\ a\in \bbR \qquad \varphi  (i)=M$$Therefore for any $a+ib\in \bbC$ $$\varphi (a+ib)=\varphi(a)+\varphi(ib)=aI_2+\varphi(i)\varphi(b)=aI_2+MbI_2=aI_2+bM=\mat{a & -b\\ b & a}$$Now if $a+ib\in \ker(\varphi)$ then $$\varphi(a+ib)=0\implies \mat{a & -b\\ b & a}=0\implies a=b=0$$Hence $\ker{\varphi}=\{0\}$. By First Isomorphism Theorem $\bbC\cong \Im (\varphi)$		
+	
+	Let $f$ is differentiable at $p$. Hence $f$ follows the Cauchy Riemann Equations $$\del{u}{x}=\del{v}{y}\qquad \del{u}{y}=-\del{v}{x}$$. Hence 
+	Hence total derivative of $f$ commutes with complex multiplication is equivalent to showing $T$ commutes with $M$. $$TM=\mat{\del{u}{x} & \del{u}{y}\\ \del{v}{x} & \del{v}{y}}\mat{0 & -1\\ 1 & 0}=\mat{\del{u}{y} & -\del{u}{x}\\ \del{v}{y} & -\del{v}{x}}$$ and $$MT=\mat{0 & -1\\ 1 & 0}\mat{\del{u}{x} & \del{u}{y}\\ \del{v}{x} & \del{v}{y}}= \mat{-\del{v}{x} & -\del{v}{y} \\ \del{u}{x} & \del{u}{y}  }$$ Therefore $TM=MT$. 
+	
+	Let total derivative of $f$ commutes with complex multiplication. Hence $TM=MT$. Therefore $$\del{u}{x}=\del{v}{y}\qquad \del{u}{y}=-\del{v}{x}$$Hence $f$ is differentiable at $p$ and it follows the Cauchy Riemann Equations. Hence $f$ is complex differentiable at $p$.
+mat	}
 	
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,13 +146,24 @@
 	
 	\solve{
 		%Solution
-		Let $g(w)=u_g(x,y)+iv_g(x,y)$ and $f(z)=u_f(x,y)+iv_f(x,y)$. Then $u_g,u_f,v_g,v_f$ have continuous partial derivatives and satisfy Cauchy Riemann Equations.\begin{align*}
-			\frac{\partial u_g}{\partial x}=\frac{\partial v_g}{\partial y}\qquad\frac{\partial u_g}{\partial y}=-\frac{\partial v_g}{\partial x} \\
-			\frac{\partial u_f}{\partial x}=\frac{\partial v_f}{\partial y} \qquad \frac{\partial u_f}{\partial y}=-\frac{\partial v_f}{\partial x}
-		\end{align*} Then $$h(z)=u_h(x,y)+iv_h(x,y)=u_g(u_f(x,y),v_f(x,y))+iv_g(u_f(x,y),v_f(x,y))$$Therefore\begin{align*}
-			 \del{u_h}{x}  = \del{u_g}{u_f}\del{u_f}{x}+\del{u_g}{v_f}\del{v_f}{x}&& \del{u_h}{y}  = \del{u_g}{u_f}\del{u_f}{y}+\del{u_g}{v_f}\del{v_f}{y}\\
-			 \del{v_h}{x}  = \del{v_g}{u_f}\del{u_f}{x}+\del{v_g}{v_f}\del{v_f}{x} && \del{v_h}{y}  = \del{v_g}{u_f}\del{v_f}{y}+\del{v_g}{v_f}\del{v_f}{y}
-		\end{align*}
+		Since $f$ is analytic $$\lim_{h\to 0}\frac{|f(z+h)-f(z)-f'(z)h|}{|h|}=0$$and Let $f(z)=b$ then $g'(f(z))=g'(b)$ then $$ \lim_{h\to 0}\frac{|g(b+k)-g(b)-g'(b)k|}{|k|}=0$$Let \begin{align*}
+		\alpha(h) & = f(z+h)-f(a)-f'(z)h & \eps(h) & = \frac{|\alpha(h)|}{|h|}\to 0\text{ as }h\to 0  \\[3mm]
+		\beta(k)  & = g(b+k)-g(b)-g'(b)k & \eta(k) & = \begin{cases*}
+			\dfrac{|\beta(k)|}{|k|}\to0  \text{ as }k\to 0 \\
+			0      \text{ when }                         k=0
+		\end{cases*}
+	\end{align*}
+	$\eta$ is continuous at $k=0$. We want to show that \[\lim_{h\to 0}\frac{|g(f(z+h))-g(f(z))-g'(b)f'(z)h|}{|h|}=0\iff \lim_{k\to 0}\frac{|g(b+k)-g(b)-g'(b)f'(z)h|}{|h|}=0\]where $f(z+h)=b+k\iff k=f(z+h)-f(z)$. We have taken a specific value of $k$ depending on $h$. g'(b)o now $k$ is a function of $h$. Hence $f'(z)h=f(z+h)-f(z)-\alpha(h)=k-\alpha(h)$
+	\begin{align*}
+		& g(b+k) -g(b) -g'(b)f'(z)h           \\
+		= & g(b+k) -g(b) -g'(b)(k-\alpha(h))  \\
+		= & g(b+k)-g(b)-g'(b)k+g'(b)\alpha(h)
+	\end{align*}Therefore\[ \frac{|g(b+k)-g(b)-g'(b)f'(z)h|}{|h|}\leq \overbrace{\frac{|g(b+k)-g(b)-g'(b)k|}{|h|}}^{\substack{\beta(k)\\ \parallel}}+\frac{|g'(b)\alpha(h)|}{|h|}\] want to bound each of these separately
+	\[\frac{|g'(b)\alpha(h)|}{|h|}= |g'(b)|\frac{|\alpha(h)|}{|h|}\to 0\]Now how to bound the first term. In the first term $\frac{|\beta(k)|}{|h|}=|\eta(k)|\frac{|k|}{|h|}$. Now \begin{align*}
+		& k=f'(z)h+\alpha(h)                                                                                                                                                        \\
+		\implies & |k|= |f'(z)h|+|\alpha(h)|                                                                                                                                        \\
+		\implies & \frac{|k|}{|h|}\leq \frac{|f'(z)h|}{|h|}+\frac{|\alpha(h)|}{|h|}= \frac{|f'(z)||h|}{|h|}+\frac{|\alpha(h)|}{|h|} = |f'(z)|+\frac{|\alpha(h)|}{|h|}
+	\end{align*}Hence $$\frac{|\beta(k)|}{|k|}=|\eta(k)|\frac{|k|}{|h|}\leq \eta(k)\lt[|f'(z)|+\frac{|\alpha(h)|}{|h|}\rt]$$As $h\to 0$ $|f'(z)|+\frac{|\alpha(h)|}{|h|}\to |f'(z)|+0$ which is finite. And as $h\to 0$, $k\to 0\implies |\eta(k)|\to 0$ because $\eta$ is continuous at 0. Hence $g\circ f$ is differentiable at $z$ $\forall \ z\in \bbC$. Therefore $g\circ f$ is  analytic.
 	}
 	
 	
@@ -184,6 +202,43 @@ Find the most general harmonic polynomial of the form $ax^3+bx^2y+cxy^2+dy^3$. D
 	
 	\solve{
 		%Solution
+		Solution: Let $u(x, y)=a x^3+b x^2 y+c x y^2+d y^3$. Then,
+		$$
+		\begin{aligned}
+			\frac{\partial u}{\partial x} & =3 a x^2+2 b x y+c y^2 & \frac{\partial u}{\partial y} & =b x^2+2 c x y+3 d y^2 \\
+			\frac{\partial^2 u}{\partial x^2} & =6 a x+2 b y & \frac{\partial^2 u}{\partial y^2} & =2 c x+6 d y
+		\end{aligned}
+		$$
+		So, for $u$ to be harmonic, it must be that
+		$$
+		\frac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}=2(3 a+c) x+2(b+3 d) y=0
+		$$
+		evidently, this occurs if and only if $c=-3 a$ and $b=-3 d$. Hence $$u(x,y)=ax^3-3dx^y-3axy^2+dy^3$$Now, to find the conjugate harmonic polynomial $v$ it must be that $\deld{v}{x}=-\deld{u}{y}$ and $\deld{v}{y}=\deld{u}{x}$. Using the first relation, we find that
+		$$
+		v=-\int b x^2+2 c x y+3 d y^2 d x=\int 3 d x^2+6 a x y-3 d y^2 d x=d x^3+3 a x^2 y-3 d x y^2+\varphi(y)
+		$$
+		where we have substituted the values of $c$ and $b$ found, and $\varphi(y)$ is some function of $y$. Differentiating this with respect to $y$ gives
+		$$
+		3 a x^2-6 d x y+\varphi^{\prime}(y)=\dfrac{\partial v}{\partial y}=\dfrac{\partial u}{\partial x}=3 a x^2+2 b x y+c y^2=3 a x^2-6d x y-3 a y^2 .
+		$$
+		It follows that $\varphi^{\prime}(y)=-3 a y^2$ so that $\varphi(y)=-a y^3+C$. In total,
+		$$
+		v=d x^3+3 a x^2 y-3 d x y^2-a y^3+C
+		$$
+		for a real constant $C$. The corresponding analytic function is
+		$$
+		f(z)=\left[a x^3-3 d x^2 y-3 a x y^2+d y^2\right]+i\left[d x^3+3 a x^2 y-3 d x y^2-a y^3+C\right]
+		$$
+		The formal method states that we can construct $f(z)$ by
+		$$
+				f(z)=2 u\lt(\frac{z}{2},\frac{z}{2i}\rt)-\overline{f}(0,0)=2 u\lt(\frac{z}{2},\frac{z}{2i}\rt)-u(0,0)+C i
+		$$where C is a real constant. Reducing this gives
+		\begin{align*}
+			f(z) & =2\left(a\left(\frac{z}{2}\right)^3-3 d\left(\frac{z}{2}\right)^2\left(\frac{z}{2 i}\right)-3 a\left(\frac{z}{2}\right)\left(\frac{z}{2 i}\right)^2+d\left(\frac{z}{2 i}\right)^3\right)+C i \\
+			& =\frac{1}{4}\left(a z^3-3 d z^2\left(\frac{z}{i}\right)-3 a z\left(\frac{z}{i}\right)^2+d\left(\frac{z}{i}\right)^3\right)+C i \\
+			& =(a+d i) z^3+C i .
+		\end{align*}
+	Expanding out the last expression recovers our formula for $f(z)$ deduced from integration
 	}
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Problem 7
@@ -219,11 +274,28 @@ Show that an analytic function cannot have a constant absolute value without red
 	
 	\solve{
 		%Solution
+		Suppose first that $f(z)$ is analytic. Let $g(z)=\overline{f(\bar{z})}$. Let $u_f, v_f$ and $u_g, v_g$ denote the real and imaginary parts of $f$ and $g$ respectively. Then, these are related by
+		$$
+		u_g(x, y)=u_f(x,-y) \quad v_g(x, y)=-v_f(x,-y) .
+		$$
+		Since $f$ is analytic, $u_f$ and $v_f$ have continuous partial derivatives - so does $u_g, v_g$ have.  Next we verify the Cauchy-Riemann equations:
+		\begin{align*}
+			&\frac{\partial u_g}{\partial x}=\frac{\partial u_f}{\partial x} & & \frac{\partial v_g}{\partial x}=-\frac{\partial v_f}{\partial x} \\
+			& \frac{\partial u_g}{\partial y}=-\frac{\partial u_f}{\partial y}  &&  \frac{\partial v_g}{\partial y}=\frac{\partial v_f}{\partial y}
+		\end{align*}
+		Since $f$ is analytic, $u_f$ and $v_f$ satisfy the Cauchy-Riemann equations. Thus,
+		$$
+		\begin{aligned}
+			& \frac{\partial u_g}{\partial x}=\frac{\partial u_f}{\partial x}=\frac{\partial v_f}{\partial y}=\frac{\partial v_g}{\partial y} \\
+			& \frac{\partial u_g}{\partial y}=-\frac{\partial u_f}{\partial y}=\frac{\partial v_f}{\partial x}=-\frac{\partial v_g}{\partial y}
+		\end{aligned}
+		$$
+		Thus, $u_g$ and $v_g$ satisfy the Cauchy-Riemann equations. It follows that $g(z)=\overline{f(\bar{z})}$ is analytic. Finally, observe that $\overline{g(\bar{z})}=f(z)$ so that the above proof works to show the converse, with the roles of $f$ and $g$ reversed.
 	}
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Problem 9
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+	\pagebreak
 	\begin{problem}{%problem statement
 			Ahlfors Exercise 2.1 Problem 6
 		}{p5% problem reference text
@@ -234,6 +306,15 @@ Prove that the functions $u(z)$ and $u(\overline{z})$ are simultaneously harmoni
 	
 	\solve{
 		%Solution
+		Since $u$ is the real part of $f(z), u(z)=u(x, y)$ where $z=x+i y$. Suppose $u(z)$ is harmonic. Then $u(z)$ satisfies Laplace equation.
+		$$
+		\Delta u(z)=\del{^2u}{x^2}+\del{^2u}{y^2}=0
+		$$
+		Now, $u(\bar{z})=u(x,-y)$ where $\dfrac{\partial^2}{\partial x^2} u(\bar{z})=\deld{^2u}{x^2}$ and $\dfrac{\partial^2}{\partial y^2} u(\overline{z})=\deld{^2u}{y^2}$ so
+		$$
+		\Delta u(\overline{z})=\del{^2u}{x^2}+\del{^2u}{y^2}=0
+		$$
+		Since $u(z)$ is harmonic, $\Delta u(\overline{z})=0$ so it follows that $u(\overline{z})$ is harmonic as well. Now observe that $u(z)=u(\overline{\overline{z}})$. Hence above proof works to show the converse. 
 	}
 	
 

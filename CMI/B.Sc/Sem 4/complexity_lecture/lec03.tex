@@ -1,0 +1,88 @@
+\documentclass{article}
+\input{preamble}
+\input{../letterfonts}
+\input{../macros}
+
+
+
+\begin{document}
+\lecture{3: Time Hierarchy Theorem}{Partha Mukhopadhyay}{Soham Chatterjee}
+
+\section{Diagonalization}
+
+$TM$s can be encoded efficiently
+
+\thm{Cantor's Idea}{
+Reals in $(0,1)$ are uncountable
+}
+\begin{proof}
+	Otherwise let $r_1,r_2,r_3,\dots$ be an enumeration of the reals in $(0,1)$.
+	$$r_i=\sum_{j\geq 1} r_i[j]2^{-j}$$ where $r_i[j]\in \{0,1\}$.  
+	
+	Define $r$ such that $r[j]=1-r_j[j]$. So, $$r=\sum_{j\geq 1} r[j]2^{-j}$$ $r$ is not in the enumeration list. Otherwise let $r=r_k$ for some $k\in \bbN$. But by construction $r[k]=1-r_k[k]$. 
+\end{proof}
+
+
+\section{Time Hierarchy Theorem}
+\parinf
+
+$\bs{TIME(n^3)}\coloneqq$ Set of problems which can be solved by a \Dtm in time $O(n^3)$ where the input length $=n$.\parinn
+
+Time Hierarchy Theorem says that $$TIME(n^2)\subsetneq TIME(n^3)$$ $$TIME(g(n))\subsetneq TIME(f(n))$$ where $g(n)\approx o(f(n))$
+
+\dfn{Time Constructible Function}{
+Let $t:\bbN\to \bbN$ and $\exs $ $n_0$ such that $t(n)\geq n\log n$   for $n\geq n_0$. Then we say that $t$ is time constructible if on input $1^n$ the binary value of $t(n)$ can be computed in $O(t(n))$ time using a \Dtm 
+
+Example: $n\log n$, $n^2$, $n^3$, $n\sqrt{n}$, $2^n$
+}
+T\ex{Non-Time Constructible Function}{
+$f:\bbN\to \bbN$. $$f(n)=\begin{cases}
+	n^2 & \text{if }n\text{ encoded in binary a }  $TM$ $M$\text{ which halts on all inputs}\\
+	n^2+1 & \text{otherwise} 
+\end{cases}$$
+}
+\thm{Time Hierarchy Theorem \cite{sipser13}}{
+Let $t:\bbN\to \bbN$ be a time constructible function. Then there exists a language $L\in TIME(t(n))$ such that $L\notin TIME\lt( o\lt( \frac{t(n)}{\log (t(n))} \rt) \rt)$ 
+}
+	\parinf
+	
+	\textbf{\textit{Idea:}} We construct a TM $D$ that decides a language $A$ in time $O(t(n))$, whereby $A$ cannot be decided in $o(t(n) / \log t(n))$ time. Here, $D$ takes an input $w$ of the form $\langle M\rangle 10^*$ and simulates $M$ on input $w$, making sure not to use more than $t(n)$ time. If $M$ halts within that much time, $D$ gives the opposite output.\parinn
+	
+	The important difference in the proof concerns the cost of simulating $M$ while, at the same time, counting the number of steps that the simulation is using. Machine $D$ must perform this timed simulation efficiently so that $D$ runs in $O(t(n))$ time while accomplishing the goal of avoiding all languages decidable in $o(t(n) / \log t(n))$ time. For space complexity, the simulation introduced a constant factor overhead, as we observed in the proof of Theorem 9.3. For time complexity, the simulation introduces a logarithmic factor overhead. The larger overhead for time is the reason for the appearance of the $1 / \log t(n)$ factor in the statement of this theorem. If we had a way of simulating a single-tape TM by another single-tape TM for a prespecified number of steps, using only a constant factor overhead in time, we would be able to strengthen this theorem by changing $o(t(n) / \log t(n))$ to $o(t(n))$. No such efficient simulation is known. 
+	
+	\begin{proof}
+		The following $O(t(n))$ time algorithm $D$ decides a language $A$ that is not decidable in $o(t(n) / \log t(n))$ time.\subsubsection*{Turing Machine $B$}
+		\begin{enumerate}
+			\item Input $w$ of length $|w|=n$
+			\item Compute $\frac{t(n)}{\log n}$ and make a counter for $\frac{t(n)}{\log n}$ using $\log \lt(\frac{t(n)}{\log n}\rt)\approx \log (t(n))$ bits.
+			\parinn
+			
+			Decrement the clock in every step
+			
+			\item Check if $w=\langle M\rangle 10^*$ where $M$ is an encoding of  a Turing Machine, else reject.
+			
+			\item Simulate $M$ on $w$. If $M$ halts within the clock, $B$ does opposite to $M$
+			\item Halts and reject.
+		\end{enumerate}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (8,0) -- (0,0) -- (0,1) -- (8,1);
+			\draw (8, 0.5) node {$M$'s tape content};
+			\draw (8, -1.5) node[xshift=2.15cm] {Propagates along with the head, saving time};
+			\draw (1, -1.5) node[xshift=1.5cm] {Current state and transitions};
+			\draw (-0.8, -1.5) node[rotate=90] {\LARGE{3 Track Tape}};
+			\draw (8, -3.5) node[xshift=0.8cm] {It also moves with the head};
+			\draw (1, -3.5) node[xshift=0.4cm] {Cunter/Clock} node[xshift=1cm,yshift=-1cm] {$O(\log(t(n)))$};
+			\draw (2,0) -- (2,1);
+			\draw (3,0) -- (3,1);
+			\draw [-latex] (2.5,1.5) -- (2.5,1);
+			\draw (8,-1) -- (0,-1) -- (0,-2) -- (8,-2);
+			\draw (8,-3) -- (0,-3) -- (0,-4) -- (8,-4);
+		\end{tikzpicture}
+	\end{center}
+	\end{proof}
+\pagebreak
+
+\bibliographystyle{alpha}
+\bibliography{refs}
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\color{white}
+\begin{document}
+	
+\begin{tabular}{rclccrcl}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$a$ &	$q_1$ & $b$ \\ \hline
+		$q_2$ &	 $a$  & $c$ \\ \hline
+	\end{tabular} & $\longrightarrow$ & Legal &\hspace{6cm} & \begin{tabular}{|c|c|c|}
+		\hline 
+		$a$ & $q_1$ & $b$\\ \hline
+		$q$ & $a$ & $a$\\ \hline
+	\end{tabular}& $\longrightarrow$ & Illegal & \\[5mm]
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$a$ &	$q_1$ & $b$ \\ \hline
+		$a$ &	$a$  & $q_2$ \\ \hline
+	\end{tabular} & $\longrightarrow$ & Legal &\hspace{6cm} & \begin{tabular}{|c|c|c|}
+		\hline 
+		$\#$ & $b$ & $a$\\ \hline
+		$\#$ & $b$ & $a$\\ \hline
+	\end{tabular}& $\longrightarrow$ & Illegal & \\[5mm]
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$a$ &	$b$ & $a$ \\ \hline
+		$a$ &	$b$  & $q_2$ \\ \hline
+	\end{tabular} & $\longrightarrow$ & Legal &\hspace{6cm} & &  & &
+\end{tabular}
+
+
+\end{document}
