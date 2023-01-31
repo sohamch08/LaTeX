@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{authblk}
+\usepackage{titling}
+\usepackage{tikz}
+
+\title{\huge{CMI ALGEBRA 1 (2021) ASSIGNMENT 1\\\hspace{7cm}- T. R. Ramadas}
+}
+\author{Soham Chatterjee\\Roll: BMC202175}
+\date{}
+
+\newcommand{\mJ}{\mathcal{J}}
+\newcommand{\mS}{\mathcal{S}}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\setlength{\parindent}{1cm}
+\begin{document}
+\maketitle\pagebreak
+\begin{enumerate}
+	\item Let $P:V\to V$ be a map such that $$P=\frac{1}{2}(I_V-i\mJ)$$Now if $v_1,v_2\in V$ then $$P(v_1+v_2)=\frac{1}{2}((v_1+v+2)-i\mJ(v_1+v_2))=\frac{1}{2}(v_1-i\mJ(v_1))+\frac{1}{2}(v_2-i\mJ(v_2))=P(v_1)+P(v_2)$$and $$P(\lambda\cdot v_1)=\frac{1}{2}(\lambda\cdot v_1-i\mJ(\lambda\cdot v_1))=\frac{1}{2}(\lambda\cdot v_1-i\lambda\cdot \mJ(v_1))=\lambda\cdot \frac{1}{2}(v_1-i\mJ(v_1))=\lambda\cdot P(v_1)$$Hence $P$ is a linear map. Now \begin{align*}
+		      P(P(v))\  & =P\bigg(\frac{1}{2}(v-i\mJ(v))\bigg)                                                        \\
+		                & =\frac{1}{2}\Bigg(\frac{1}{2}(v-i\mJ(v))-iJ\bigg(\frac{1}{2}(v-i\mJ(v))\bigg)\Bigg)         \\
+		                & =\frac{1}{2}\Bigg(\frac{1}{2}(v-i\mJ(v))-\bigg(\frac{1}{2}(i\mJ(v)+\mJ(\mJ(v)))\bigg)\Bigg) \\
+		                & =\frac{1}{2}\Bigg(\frac{1}{2}(v-i\mJ(v))-\bigg(\frac{1}{2}(i\mJ(v)-v)\bigg)\Bigg)           \\
+		                & =\frac{1}{2}(v-i\mJ(v))                                                                     \\
+		                & =P(v)
+	      \end{align*}Hence for a vector $v\in image(P),$ $P(v)=v$
+
+	      \hspace*{1cm}Now, if $v\in V_{-i}$ then \begin{align*}
+		               & \mJ(v)=-iv                 \\
+		      \implies & i\mJ(v)=v                  \\
+		      \implies & v-i\mJ(v)=0_V              \\
+		      \implies & \frac{1}{2}(v-i\mJ(v))=0_V \\
+		      \implies & P(v)=0_V
+	      \end{align*}Hence if $v\in V_{-i}$ then $v\in ker(P)$ therefore $$V_{-i}\subseteq ker(P)$$Now let $v\in ker(P)$ then \begin{align*}
+		               & P(v)=0_V                   \\
+		      \implies & \frac{1}{2}(v-i\mJ(v))=0_V \\
+		      \implies & v-i\mJ(v)=0_V              \\
+		      \implies & v=i\mJ(v)                  \\
+		      \implies & iv=-\mJ(v)                 \\
+		      \implies & \mJ(v) =-iv
+	      \end{align*}Hence if $v\in ker(P)$ then $v\in V_{-i}$ therefore $$ker(P)\subseteq V_{-i}$$Hence$$V_{-i}=ker(P)$$
+	      \hspace*{1cm}Now if $v\in V_{i}$ then$$\mJ(v)=iv$$\begin{align*}
+		      P(v)\  & =\frac{1}{2}(v-i\mJ(v)) \\
+		             & =\frac{1}{2}(v-i(iv))   \\
+		             & =\frac{1}{2}(v+v)       \\
+		             & =v
+	      \end{align*}Hence if $v\in V_{i}$ then $v\in image(P)$ therefore $$V_{i}\subseteq image(P)$$Now let $v\in image(P)$ then $\exists$ $u\in V$ such that $P(u)=v=\frac{1}{2}(u-i\mJ(u))$. Therefore\begin{align*}
+		      \mJ(v)\  & =\mJ(P(u))                             \\
+		               & =\mJ\bigg(\frac{1}{2}(u-i\mJ(u))\bigg) \\
+		               & =\frac{1}{2}(\mJ(u)-\mJ(i\mJ(u)))      \\
+		               & =\frac{1}{2}(\mJ(u))-i\mJ(\mJ(u))      \\
+		               & =\frac{1}{2}(\mJ(u))+iu)               \\
+		               & =i\frac{1}{2}(-i\mJ(u)+u)              \\
+		               & =iP(u)=iv
+	      \end{align*}Hence if $v\in image(P)$ then $v\in V_{i}$ therefore $$image(P)\subseteq V_{i}$$Hence$$V_{i}=image(P)$$Hence we need to prove that $$V=ker(P)\oplus image(P)$$
+
+	      \hspace{1cm} Let $v\in V$. we can write $v=v-P(v)+P(v)$. Then $$P(v)=P(v-P(v)+p(v))=P(vP(v))+P(P(v))$$Here \begin{align*}
+		      P(v-P(v))\  & =P(v)-P(P(v)) \\
+		                  & =P(v)-P(v)    \\
+		                  & =0_V
+	      \end{align*}Hence $v-P(v)\in ker(P)$ and $P(v)\in image(P)$. Hence any vector $v\in V$ it can be written as a sum of a vector from $ker(P)$ and a vector from $image(P)$. Hence $$V\subseteq ker(P)\oplus image(P)$$
+
+	      \hspace{1cm}Now let $v\in ker(P)\oplus image(P)$. Then $\exists v_1\in ker(P)$ and $v_2\in image(P)$ such that $$v=v_1+v_2$$As $v_1\in ker(P)$, $v_1\in V$. As the linear map $P$ is $V\to V$, $image(P)\subseteq V$. Hence $v_2\in V$ also. Therefore $v_1+v_2\in V$. Therefore$$ker(P)\oplus image(P)\subseteq V$$. Hence $V=ker(P)\oplus image(P)=V_i\oplus V_{-i}\ [\text{Proved}]$
+
+
+
+	\item \begin{enumerate}
+		      \item The sets that span (=generate) $\mathbb{R}^3$ are $\underline{\mS_2},\underline{\mS_3},\underline{\mS_4}$.
+		      \item The linearly independent sets are $\underline{\mS_1},\underline{\mS_2}$.
+		      \item The bases are $\underline{\mS_2}$.
+	      \end{enumerate}
+	\item The set $\{(1,0,0),(x,y,0),(x',y',z')\}$ is a basis of $\mathbb{R}^3$ iff $\underline{y\neq0, z'\neq 0}$
+	\item $V$ is a one dimensional vector space. Therefor any non zero vector of $V$ is a basis of $V$.
+\end{enumerate}
+\end{document}
