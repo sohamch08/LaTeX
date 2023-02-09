@@ -123,8 +123,8 @@
 	\end{align*}Hence $$	\int_{2n\pi}^{2(n+1)\pi} (y-t)^k\sin t\,dt>0$$This is true for all $n\in \{0,1,\dots,p\}$. Therefore $$\int_0^{2p\pi} (y-t)^k \sin t\, dt > 0$$Now if $2p\pi\leq y\leq (2p+1)\pi$ then $$\int_{2p\pi}^y (y-t)^k\sin t\,dt\geq 0$$If $(2p+1)\pi\leq y\leq 2(p+1)\pi$
 	
 	\begin{align*}
-		\int_{2p\pi}^y (y-t)^k\sin t\,dt &= \int_{2p\pi}^{(2p+1)\pi}(y-t)^k\sin t\,dt + \int_{(2p+1)\pi}^y(y-t)^k\lvert\sin t\rvert\,dt\\
-		&= \int_{2p\pi}^{(2p+1)\pi}(y-t)^k\sin t\,dt + \int_{(2p+1)\pi}^{2(p+1)\pi}(y-t)^k\lvert\sin t\rvert\,dt\\
+		\int_{2p\pi}^y (y-t)^k\sin t\,dt &= \int_{2p\pi}^{(2p+1)\pi}(y-t)^k\sin t\,dt + \int_{(2p+1)\pi}^y(y-t)^k\sin t\,dt\\
+		&= \int_{2p\pi}^{(2p+1)\pi}(y-t)^k\sin t\,dt + \int_{(2p+1)\pi}^{2(p+1)\pi}(y-t)^k\sin t\,dt\\
 		&> (y-(2p+1)\pi)^k \int_0^\pi\sin t\,dt - (y-(2p+1)\pi)^k\int_{(2p+1)\pi}^{2(p+1)\pi}\sin t\,dt\\
 		&> 0
 	\end{align*}
@@ -311,7 +311,7 @@ Show how to define the ``angles: in a triangle, bearing in mind they should lie 
 	
 	\solve{
 		%Solution
-		Suppose $\Re f(z) = 0$ at a point $z \in \Omega$. Then $f(z) = iy^2$ for some $y \in \bbR$, and thus
+		Suppose $\Re f(z) = 0$ at a point $z \in \Omega$. Then $f(z) = iy$ for some $y \in \bbR$, and thus
 		$f(z)^2 = -y^2$. By the condition $|f(z)^2 -1| < 1$ we have $| -y^2 -1| < 1$ and thus $|y^2 + 1| < 1$.
 		This is clearly impossible, so that $\Re f(z) \neq  0$ throughout $\Omega$. But, $\Re f(z)$ is continuous and $\Omega$ is connected, so either $\Re f(z) > 0$ or $\Re f(z) <0$.
 	
@@ -380,29 +380,32 @@ Show how to define the ``angles: in a triangle, bearing in mind they should lie 
 		}{p5% problem reference text
 		}
 		%Problem		
-		Prove that the most general transformation which leaves the origin fixed and preserves all distances is either a rotation or a rotation followed by reflexion in the real axis.
+		Prove that the most general transformation which leaves the origin fixed and preserves all distances is either a rotation or a rotation followed by reflection in the real axis.
 		
 	\end{problem}
 	
 	\solve{
 		%Solution
-		Let $\varphi$ be a fractional linear transformation as given. Then, we have that $\varphi(0)=0$ and for any pair $(z, w) \in \mathbb{C} \times \mathbb{C}$ :
+		Let $\varphi$ be a general transformation as given. Then, we have that $\varphi(0)=0$ and for any pair $(z, w) \in \mathbb{C} \times \mathbb{C}$ :
 		$$
 		|z-w|=|\varphi(z)-\varphi(w)|
-		$$
-		since we assume that $\varphi$ preserved distance under transformation. Since $\varphi$ is fractional linear transformation we have $$\varphi(z)=\frac{a z+b}{c z+d}$$ where $a, b, c, d\in \bbC$. The assumption that $0 \mapsto 0$ yields immediately
-		$$
-		0=\varphi(0)=\frac{b}{d}
-		$$
-		and thus we have $b=0$. Now, as $\varphi(0)=0$ we see
-		$$
-		|z|=|\varphi(z)-\varphi(0)|=|\varphi(z)-0|=\left|\frac{a z}{c z+d}\right|=|a| \cdot \frac{|z|}{|c z+d|}, \quad \forall z \in \mathbb{C}
-		$$
-		If $|a|=0$ i.e. $a=0$ then $\varphi(z)=0$. Otherwise $|a|>0$. then for all $z \in \mathbb{C}$ we must have
-		$$
-		\frac{|a|}{|c z+d|} =1 \text { in } \mathbb{C}
-		$$
-		This can only happen if the denominator is also constant and hence we conclude that we require additionally that $c=0$. We are left with $\frac{|a|}{|d|}=1$, or $|a|=|d|$. Hence $$\varphi(z)=\frac{az}{d}$$ where $\lt|\frac{a}{d}\rt|=1$. Let $k=\frac{a}{d}$. Then $$\varphi(z)=kz\qquad \text{where }|k|=1$$Clearly $\varphi$ is a rotation.
+		$$Thus $$|\vph(1)|=|\vph(1)-\vph(0)|=1=|\vph(i)|=|\vph(i)-\vph(0)|$$and $$|\vph(1)-\vph(i)|=\sqrt{2}$$
+		Thus $\vph(0)$, $\vph(1)$, $\vph(i)$,must form a right-angled triangle where the angle $\vph(1)$ and $\vph(i)$ makes at origin is $90^{\circ}$. Let $\vph(1)=e^{i\theta}$. Hence $\vph(i)=ie^{i\theta}$ or $-ie^{i\theta}$. For any $z\in \bbC$ $|z|=\vph(z)$. Hence  \begin{equation}
+			|z|=|z-0|=|\vph(z)|\qquad |z-1|=|\vph(z)-\vph(1)|\qquad |z-i|=|\vph(z)-\vph(i)|\label{eq1}
+		\end{equation}Since $0,1,i$ are not co-linear then the circles can intersect can intersect at only one point at-most. Thus $\vph(z)$ lies on that intersection
+		\subsection*{Case 1: $\bs{\vph(i)=ie^{i\theta}}$} 
+		Then we claim that $\vph(z)=ze^{i\theta}$.  We just need to check the equalities in \eqref{eq1}\begin{align*}
+			|\vph(z)-\vph(0)|&=|ze^{i\theta}|=|z|\\
+			|\vph(z)-\vph(1)|&= |ze^{i\theta}-e^{i\theta}|=|(z-1)e^{i\theta}|=|z-1|\\
+			|\vph(z)-\vph(i)|&=|ze^{i\theta}-ie^{i\theta}|=|(z-i)e^{i\theta}|=|z-i|
+		\end{align*}Thus $\vph$ rotates every complex number by a fixed number
+		\subsection*{Case 2: $\bs{\vph(i)=-ie^{i\theta}}$} 
+		We claim that $\vph(z)=\barz e^{i\theta}=\overline{ze^{i\theta}}$. We just need to check the equalities in \eqref{eq1}\begin{align*}
+			|\vph(z)-\vph(0)|&=|\barz e^{i\theta}|=|\barz |=|z|\\
+			|\vph(z)-\vph(1)|&= |\bar ze^{i\theta}-e^{i\theta}|=|(\bar z-1)e^{i\theta}|=|\bar z-1|=|z-1|\\
+			|\vph(z)-\vph(i)|&=|\barz e^{i\theta}+ i e^{i\theta}|=|(\barz+i)e^{i\theta}|=|\barz+ i|=|\barz-\bari|=|z-i|
+		\end{align*}Thus $\vph$ first rotates every complex number by a fixed number then takes the conjugate of the number i.e. $\vph$ is a rotation followed by a reflection in the real axis
+	
 		
 	}
 		
@@ -426,6 +429,9 @@ Show how to define the ``angles: in a triangle, bearing in mind they should lie 
 		\varphi(z)=\frac{a z+b}{c z+d}
 		$$
 		for $a, b, c, d \in \mathbb{C}$. We will now find $\alpha, \beta, \gamma, \delta \in \mathbb{R}$ so that $\varphi(z)=\frac{\alpha z+\beta}{\gamma z+\delta}$. We need to distinguish separate cases:
+		\section*{If $\bs{ad-bc=0}$ :}
+		$$\vph(z)= \frac{\alpha z+\beta}{\gamma z+\delta}=\frac{bc-ad}{c^2\lt(z+\frac{d}{c}\rt)}+\frac{a}{c}=\frac{a}{c}$$Now $\vph(0)=\frac{a}{c}\in \bbR\implies\frac{a}{c}\in\bbR$
+		\section*{If $\bs{ad-bc\neq 0}$ :}
 		\subsection*{If $\boldsymbol{a \neq 0}$ :}
 		$$
 		\varphi(z)=\frac{a z+b}{c z+d} \cdot \frac{\overline{a}}{\overline{a}}=\frac{a^{\prime} z+b^{\prime}}{c^{\prime} z+d^{\prime}}, \quad a^{\prime} \in \mathbb{R}
