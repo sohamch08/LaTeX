@@ -393,17 +393,17 @@ Show how to define the ``angles: in a triangle, bearing in mind they should lie 
 		Thus $\vph(0)$, $\vph(1)$, $\vph(i)$,must form a right-angled triangle where the angle $\vph(1)$ and $\vph(i)$ makes at origin is $90^{\circ}$. Let $\vph(1)=e^{i\theta}$. Hence $\vph(i)=ie^{i\theta}$ or $-ie^{i\theta}$. For any $z\in \bbC$ $|z|=\vph(z)$. Hence  \begin{equation}
 			|z|=|z-0|=|\vph(z)|\qquad |z-1|=|\vph(z)-\vph(1)|\qquad |z-i|=|\vph(z)-\vph(i)|\label{eq1}
 		\end{equation}Since $0,1,i$ are not co-linear then the circles can intersect can intersect at only one point at-most. Thus $\vph(z)$ lies on that intersection
-		\subsection*{Case 1: $\bs{\vph(i)=ie^{i\theta}}$} 
+		\subsection*{Case 1: $\bds{\vph(i)=ie^{i\theta}}$} 
 		Then we claim that $\vph(z)=ze^{i\theta}$.  We just need to check the equalities in \eqref{eq1}\begin{align*}
 			|\vph(z)-\vph(0)|&=|ze^{i\theta}|=|z|\\
 			|\vph(z)-\vph(1)|&= |ze^{i\theta}-e^{i\theta}|=|(z-1)e^{i\theta}|=|z-1|\\
 			|\vph(z)-\vph(i)|&=|ze^{i\theta}-ie^{i\theta}|=|(z-i)e^{i\theta}|=|z-i|
 		\end{align*}Thus $\vph$ rotates every complex number by a fixed number
-		\subsection*{Case 2: $\bs{\vph(i)=-ie^{i\theta}}$} 
-		We claim that $\vph(z)=\barz e^{i\theta}=\overline{ze^{i\theta}}$. We just need to check the equalities in \eqref{eq1}\begin{align*}
-			|\vph(z)-\vph(0)|&=|\barz e^{i\theta}|=|\barz |=|z|\\
-			|\vph(z)-\vph(1)|&= |\bar ze^{i\theta}-e^{i\theta}|=|(\bar z-1)e^{i\theta}|=|\bar z-1|=|z-1|\\
-			|\vph(z)-\vph(i)|&=|\barz e^{i\theta}+ i e^{i\theta}|=|(\barz+i)e^{i\theta}|=|\barz+ i|=|\barz-\bari|=|z-i|
+		\subsection*{Case 2: $\bds{\vph(i)=-ie^{i\theta}}$} 
+		We claim that $\vph(z)=\ovz e^{i\theta}=\overline{ze^{i\theta}}$. We just need to check the equalities in \eqref{eq1}\begin{align*}
+			|\vph(z)-\vph(0)|&=|\ovz e^{i\theta}|=|\ovz |=|z|\\
+			|\vph(z)-\vph(1)|&= |\ovz e^{i\theta}-e^{i\theta}|=|(\ovz-1)e^{i\theta}|=|\ovz-1|=|z-1|\\
+			|\vph(z)-\vph(i)|&=|\ovz e^{i\theta}+ i e^{i\theta}|=|(\ovz+i)e^{i\theta}|=|\ovz+ i|=|\ovz-\ovi|=|z-i|
 		\end{align*}Thus $\vph$ first rotates every complex number by a fixed number then takes the conjugate of the number i.e. $\vph$ is a rotation followed by a reflection in the real axis
 	
 		
@@ -429,9 +429,9 @@ Show how to define the ``angles: in a triangle, bearing in mind they should lie 
 		\varphi(z)=\frac{a z+b}{c z+d}
 		$$
 		for $a, b, c, d \in \mathbb{C}$. We will now find $\alpha, \beta, \gamma, \delta \in \mathbb{R}$ so that $\varphi(z)=\frac{\alpha z+\beta}{\gamma z+\delta}$. We need to distinguish separate cases:
-		\section*{If $\bs{ad-bc=0}$ :}
+		\section*{If $\bds{ad-bc=0}$ :}
 		$$\vph(z)= \frac{\alpha z+\beta}{\gamma z+\delta}=\frac{bc-ad}{c^2\lt(z+\frac{d}{c}\rt)}+\frac{a}{c}=\frac{a}{c}$$Now $\vph(0)=\frac{a}{c}\in \bbR\implies\frac{a}{c}\in\bbR$
-		\section*{If $\bs{ad-bc\neq 0}$ :}
+		\section*{If $\bds{ad-bc\neq 0}$ :}
 		\subsection*{If $\boldsymbol{a \neq 0}$ :}
 		$$
 		\varphi(z)=\frac{a z+b}{c z+d} \cdot \frac{\overline{a}}{\overline{a}}=\frac{a^{\prime} z+b^{\prime}}{c^{\prime} z+d^{\prime}}, \quad a^{\prime} \in \mathbb{R}
