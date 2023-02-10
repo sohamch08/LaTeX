@@ -1,7 +1,7 @@
 \newcommand{\Qed}{\begin{flushright}\qed\end{flushright}}
 \newcommand{\parinn}{\setlength{\parindent}{1cm}}
 \newcommand{\parinf}{\setlength{\parindent}{0cm}}
-\newcommand{\norm}{\|\cdot\|}
+\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
 \newcommand{\inorm}{\norm_{\infty}}
 \newcommand{\opensets}{\{V_{\alpha}\}_{\alpha\in I}}
 \newcommand{\oset}{V_{\alpha}}
@@ -21,8 +21,15 @@
 \newcommand{\dps}[1]{\displaystyle{#1}}
 
 
-
-\newcommand{\sol}{\setlength{\parindent}{0cm}\textbf{\textit{Solution:}}\setlength{\parindent}{1cm} }
+\newenvironment{solution}
+{\textit{\textbf{Solution:}} 
+}
+{ 
+	\hfill $\blacksquare$
+	
+	\vspace{1cm}
+}
+\newcommand{\sol}[1]{\begin{solution}#1\end{solution}}
 \newcommand{\solve}[1]{\setlength{\parindent}{0cm}\textbf{\textit{Solution: }}\setlength{\parindent}{1cm}#1 \Qed}
 \newcommand{\mat}[1]{\left[\begin{matrix}#1\end{matrix}\right]}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}

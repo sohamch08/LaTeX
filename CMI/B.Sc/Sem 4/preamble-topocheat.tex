@@ -1,0 +1,94 @@
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage[a4paper, total={7in, 9.5in}]{geometry}
+
+\usepackage{hyperref}
+\hypersetup{
+	pdftitle={Analysis 3 Cheat Sheet},
+	colorlinks=true, linkcolor=doc!90,
+	citecolor=doc!90,
+	bookmarksnumbered=true,
+	bookmarksopen=true
+}
+\urlstyle{same}
+%extra
+
+
+%\usepackage{textcomp}
+% \usepackage{shortlabels}{enumitem}
+%\usepackage{mathrsfs}
+%\usepackage{ragged2e}
+%\usepackage{blindtext}
+%\usepackage{graphicx}
+%\usepackage[english]{babel}
+%\usepackage{wrapfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{simplebox}{\begin{tcolorbox}[colback=white,colframe=DarkBlue,sharp corners]\vspace{0.3cm}}{\vspace{0.3cm }
+\end{tcolorbox}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%Calligraphy 
+\usepackage{wedn}%to use write \wedn{}
+\usepackage{wela}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\definecolor{mycolor2}{rgb}{0.188, 0.478,0.700}
+\definecolor{mycolor3}{rgb}{0.32, 0.34, 0.119}
+\definecolor{mycolor4}{rgb}{.501,0.028,0.050}
+\definecolor{mycolor5}{rgb}{.84,.11,.12}
+\definecolor{InvisibleRed}{rgb}{0.97, 0.92, 0.92}
+\definecolor{InvisibleGreen}{rgb}{0.92, 0.97, 0.92}
+\definecolor{InvisibleBlue}{rgb}{0.92, 0.92, 0.97}
+\definecolor{MediumRed}{rgb}{0.925, 0.345, 0.345}
+\definecolor{MediumGreen}{rgb}{0.37, 0.7, 0.66}
+\definecolor{MediumBlue}{rgb}{0.015, 0.315, 0.45}
+\definecolor{DarkBlue}{rgb}{0.05, 0.15, 0.35} 
+\definecolor{doc}{RGB}{0,60,110}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{gensymb}
+
+\newcommand{\cbox}[3]{\begin{tcolorbox}[colback=#1!5!white,colframe=#1!75!black,title={#2}] #3 \end{tcolorbox}}
+\newcommand{\prob}[2]{\begin{tcolorbox}[colback=blue!1!white,colupper=DarkBlue!75!blue,colframe=mycolor2!75!black,sharpish corners]
+		\section*{Problem-#1}
+		\tcblower
+		#2
+\end{tcolorbox}}
+% \newcommand{\bb}[1]{$\mathbb{#1}$}
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\vc}[1]{$\vec{#1}$}
+\newcommand{\ccv}[1]{#1_{x}\hat{i}+#1_{y}\hat{j}+#1_{z}\hat{k}}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+\usetikzlibrary{calc}
+\newcommand{\oldfactorial}[1]{%
+	\tikz[baseline]{\node[anchor=base,inner sep=0.3ex](mynode){\ensuremath{#1}};\draw(mynode.north west)--(mynode.south west)--(mynode.south east);\path[use as bounding box]($(mynode.south west)+(-0.3ex,-0.3ex)$)rectangle($(mynode.north east)+(0.3ex,0.3ex)$);}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\note}[2]{\cbox{gray}{#1}{#2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ \textsc{Soham-Sougata}}
+\lhead{}
+\rfoot{\textit{Page \thepage}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
