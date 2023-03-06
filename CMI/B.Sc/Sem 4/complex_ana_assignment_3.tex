@@ -1,0 +1,456 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 3}\\
+		Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+		\normalsize Course: Complex Analysis \hfill Date: March 8, 2023}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 96: Problem 1
+		}{p1% problem reference text
+		}
+		Map the common part of the disks $|z|<1$ and $|z-1|<1$ on the inside of the unit circle. Choose the mapping so that the two symmetries are preserved.
+		%Problem		
+	\end{problem}
+	
+	\solve{
+		%Solution
+		\begin{center}
+			\begin{tikzpicture}
+				\filldraw[red!30!white,opacity=0.6,draw=red] (0,0) circle (1cm);
+				\filldraw[blue!30!white,opacity=0.6,draw=blue] (1,0) circle (1cm);
+				\draw[<->,very thin] (-1.5,0) -- (4,0);
+				\draw[<->,very thin] (0,-1.2) -- (0,2);
+			\end{tikzpicture}
+		\end{center}
+		
+		
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 96: Problem 2
+		}{p2% problem reference text
+		}
+		%Problem		
+			Map the region between $|z|=1$ and $\left|z-\frac{1}{2}\right|=\frac{1}{2}$ on a half plane.
+		
+	\end{problem}                               
+	
+	\solve{
+		%Solution
+	
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 3
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 97: Problem 3
+		}{p3% problem reference text
+		}
+		%Problem
+		Map the complement of the arc $|z|=1$, $y\geq 0$ on the outside of the unit circle so that the points at  $\infty$ correspond to each other
+	\end{problem}
+	
+	\solve{
+		%Solution
+
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 4
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 108: Problem 1
+		}{p4% problem reference text
+		}
+		%Problem		
+Compute
+$$
+\int_\gamma x d z
+$$
+where $\gamma$ is the directed line segment from 0 to $1+i$.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		
+		$\gm$ is the directed line segment from $0$ to $1+i$. Hence  $z=t(1+i)$ where $t\in[0,1]$. Then we have $$dz=(1+i)dt$$then \begin{align*}
+			\int_{\gm} xdz & = \int_0^1\Re(t(1+i))(1+i)dt      \\
+			               & = \int_0^1 t(1+i)dt               \\
+			               & = (1+i)\int_0^1tdt                \\
+			               & = (1+i)\lt[ \frac{t^2}{2}\rt]_0^1 \\
+			               & = \frac{1+i}{2}
+		\end{align*}
+	}
+	
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+Ahlfors Page 108: Problem 2
+		}{p5% problem reference text
+		}
+		%Problem		
+	Compute
+	$$
+	\int_{|z|=r} x d z
+	$$
+	for the positive sense of the circle, in two ways: first, by use of a parameter, and second, by observing that $x=\frac{1}{2}(z+\bar{z})=\frac{1}{2}\left(z+\frac{r^2}{z}\right)$ on the circle.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		\begin{itemize}
+			\item Given that $|z|=r$. Therefore $z=re^{i\theta}$ where $\theta\in [0,2\pi]$. Hence $$dz=ire^{i\theta}d\theta$$\begin{align*}
+				\int_{|z|=r} x d z & = \int_0^{2\pi} \Re(re^{i\theta})\lt(ire^{i\theta}d\theta\rt)\\
+				& =\int_0^{2\pi} \Re(r\lt(\cos\theta +i\sin\theta\rt))\lt(ir\lt(\cos\theta+i\sin\theta\rt)\rt)d\theta\\
+				&= ir^2\int_0^{2\pi} \cos\theta \lt(\cos\theta+i\sin\theta\rt)d\theta\\
+				&=ir^2\lt[\int_0^{2\pi}\cos^2\theta d\theta +i\int_0^{2\pi}\cos\theta\sin\theta d\theta \rt]\\
+				&=ir^2\lt[\frac12\int_0^{2\pi}(\cos2\theta+1)d\theta+\frac{i}2\int_0^{2\pi}\sin2\theta d\theta \rt]\\
+				&=ir^2\lt[\frac12 \int_0^{2\pi}d\theta\rt]\\
+				&=ir^2\frac12(2\pi-0)\\
+				&=i\pi r^2
+			\end{align*}
+		\item \begin{align*}
+				\int_{|z|=r} x d z & = 	\int_{|z|=r}\frac{1}{2}(z+\bar{z})dz=	\int_{|z|=r}\frac{1}{2}\left(z+\frac{r^2}{z}\right)dz\\
+				& = 	\underbrace{\frac12\int_{|z|=r}zdz}_{\substack{=0\\ \text{As }f\text{ is analytic}}}	+\frac{r^2}2\int_{|z|=r}\frac1zdz\\
+				& = \frac{r^2}{2}2\pi i=i\pi r^2
+		\end{align*}
+		\end{itemize}
+		}
+	
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 6
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 108: Problem 3
+		}{p5% problem reference text
+		}
+		%Problem		
+Compute
+$$
+\int_{|z|=2} \frac{d z}{z^2-1}
+$$
+for the positive sense of the circle.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Given that $|z|=2$. \begin{align*}
+			\int_{|z|=2}\frac{dz}{z^2-1} & =\frac12\int_{|z|=2}\frac{(z+1)-(z-1)}{z^2-1}dz\\
+			& = \frac12\int_{|z|=2} \lt[ \frac1{z-1}-\frac1{z+1}\rt]dz\\
+			& =\frac12\lt[ \int_{|z|=2}\frac{dz}{z-1}-\int_{|z|=2}\frac{dz}{z+1}\rt]\\
+			&=\frac12[2\pi i-2\pi i]=0
+		\end{align*}
+		
+	}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 7
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 118: Problem 3
+		}{p5% problem reference text
+		}
+		%Problem
+	\parinn The \textit{Jordan curve theorem} asserts that every Jordan curve in the plane determines exactly two regions. The notion of winding number leads to a quick proof of one part of the theorem, namely that the complement of a Jordan curve $\gamma$ has at least two components. This will be so if there exists a point $a$ with $n(\gamma, a) \neq 0$.
+	
+	We may assume that $\Re (z)>0$ on $\gamma$, and that there are points $z_1$, $z_2 \in \gamma$ with $\Im (z_1)<0, \Im (z)_2>0$. These points may be chosen so that there are no other points of $\gamma$ on the line segments from 0 to $z_1$ and from 0 to $z_2$. Let $\gamma_1$ and $\gamma_2$ be the ares of $\gamma$ from $z_1$ to $z_2$ (excluding the end points).
+	
+	Let $\sigma_1$ be the closed curve that consists of the line segment from 0 to $z_1$ followed by $\gamma_1$ and the segment from $z_2$ to 0 , and let $\sigma_2$ be constructed in the same way with $\gamma_2$ in the place of $\gamma_1$. Then $\sigma_1-\sigma_2=\gamma$ or $-\gamma$. 
+	
+	The positive real axis intersects both $\gamma_1$ and $\gamma_2$ (why?). Choose the notation so that the intersection $x_2$ farthest to the right is with $\gamma_2$ (Figure). Prove the following:
+	\begin{enumerate}[label=(\alph*)]
+		\item $n\left(\sigma_1, x_2\right)=0$, hence $n\left(\sigma_1, z\right)=0$ for $z \epsilon \gamma_2$;
+		\item $n\left(\sigma_1, x\right)=n\left(\sigma_2, x\right)=1$ for small $x>0$ (Lemma 2);
+		\item the first intersection $x_1$ of the positive real axis with $\gamma$ lies on $\gamma_1$;
+		\item $n\left(\sigma_2, x_1\right)=1$, hence $n\left(\sigma_2, z\right)=1$ for $z \epsilon \gamma_1$;
+		\item there exists a segment of the positive real axis with one end point on $\gamma_1$, the other on $\gamma_2$, and no other points on $\gamma$. The points $x$ between the end points satisfy $n(\gamma, x)=1$ or -1 .
+		
+	\end{enumerate}
+\begin{center}
+	\begin{minipage}[t]{0.5\linewidth}
+		\centering
+		\includegraphics[width=8cm]{jct.png}
+	\end{minipage}
+\end{center}
+	\end{problem}
+	
+	\solve{
+		%Solution
+	
+	}
+
+	
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 8
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 120: Problem 1
+		}{p5% problem reference text
+		}
+		%Problem		
+	Compute
+	$$
+	\int_{|z|=1} \frac{e^z}{z} d z
+	$$
+	\end{problem}
+	
+	\solve{
+		%Solution
+	$f(z)=e^z$ is analytic on $\bbC$. By Cauchy's Integral Formula we have $$f(z)=\frac{1}{2\pi i}\int_{|\zeta|=1}\frac{f(\zeta)d\zeta}{\zeta-z}=\frac{1}{2\pi i}\int_{|\zeta|=1}\frac{e^{\zeta}d\zeta}{\zeta-z}$$Hence $$1=e^0=f(0)=\frac1{2\pi i}\int_{|\zeta|=1}\frac{e^{\zeta}}{\zeta}d\zeta \iff \int_{|z|=1}\frac{e^z}{z}dz=2\pi i$$
+	}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 9
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{problem}{%problem statement
+			Ahlfors Page 120: Problem 2
+		}{p5% problem reference text
+		}
+		%Problem		
+		Compute
+		$$
+		\int_{|z|=2} \frac{d z}{z^2+1}
+		$$
+		by decomposition of the integrand in partial fractions.
+
+	\end{problem}
+	
+	\solve{
+		%Solution
+		\begin{align*}
+			\int_{|z|=2} \frac{d z}{z^2+1} & =\frac1{2i}	\int_{|z|=2}\frac{(z+i)-(z-i)}{(z+i)(z-i)}dz\\
+			&= \frac1{2i}	\int_{|z|=2}\lt[ \frac{1}{z-i}-\frac1{z+i}\rt]dz\\
+			& = \frac1{2i}\lt[ 	\int_{|z|=2}\frac1{z-i}dz-	\int_{|z|=2}\frac{1}{z+i}dz \rt]\\
+			& = \frac1{2i}[2\pi i-2\pi i]=0
+		\end{align*}
+	 	}
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 10
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 120: Problem 3
+				}{p5% problem reference text
+		}
+		%Problem		
+	Compute
+	$$
+	\int_{|z|=\rho} \frac{|d z|}{|z-a|^2}
+	$$
+	under the condition $|a| \neq \rho$. Hint: make use of the equations $z \bar{z}=\rho^2$ and
+	$$
+	|d z|=-i \rho \frac{d z}{z} .
+	$$
+		
+	\end{problem}
+	
+	\solve{
+		%Solution
+		We have $|dz|=-i\rho \frac{dz}{z}$. Therefore \begin{align*}
+			\int_{|z|=\rho}\frac{|dz|}{|z-a|^2} & = -i\rho \int_{|z|=\rho}\frac{dz}{z|z-a|^2}= -i\rho \int_{|z|=\rho}\frac{dz}{z(z-a)(\ovz-\ova)}\\
+			& = -i\rho \int_{|z|=\rho}\frac{dz}{(z-a)\lt(z\ovz-\ova z  \rt)}\\
+			& = -i\rho \int_{|z|=\rho}\frac{dz}{(z-a)\lt(\frac{\rho^2}{z}z-\ova z\rt)}\\
+			& = -i\rho \int_{|z|=\rho}\frac{dz}{(z-a)\lt(\rho^2-\ova z\rt)}
+		\end{align*}
+	
+	Now if $\rho < |a|$, then $|z-a|^2>0$. Hence the function $\frac1{(z-a)\lt(\rho^2-\ova z\rt)}$ is analytic and its integral  along $|z|=\rho$ is 0
+	
+	If $\rho > |a|$ then if $\rho^2\neq \ova z$ because if it is then \begin{align*}
+		\rho^2\neq \ova z \iff |z| =\frac{\rho^2}{|a|} \iff \rho = \frac{\rho^2}{|a|} \iff |a|=\rho
+	\end{align*} which is not possible. Hence $f(z)=\frac{1}{\rho^2-\ova z}$ is analytic in the $\rho$-disk. Hence $$\int_{|z|=\rho}\frac{dz}{\rho^2-\ova z}=0$$. Then by Cauchy's Integral Formula we have $$f(a)=\frac1{2\pi i}\int_{|z|=\rho}\frac{f(z)dz}{z-a}=\frac{1}{2\pi i}\int_{|z|=\rho}\frac{dz}{(z-a)\lt(\rho^2-\ova z\rt)} \iff $$ Therefore we have $$\int_{|z|=\rho}\frac{|dz|}{|z-a|^2} =-i\rho f(a)2\pi i=-i\rho \frac{2\pi i}{\rho^2-a\ova}=\frac{2\pi \rho}{\rho^2-a\ova}$$
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 11
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 123: Problem 1
+		}{p5% problem reference text
+		}
+		%Problem		
+		Compute
+		$$
+		\int_{|z|=1} e^z z^{-n} d z, \quad \int_{|z|=2} z^n(1-z)^m d z, \quad \int_{|z|=\rho}|z-a|^{-4}|d z|(|a| \neq \rho) .
+		$$		
+	\end{problem}
+	
+	\solve{
+		%Solution
+	\begin{itemize}
+		\item Let $f(z)e^z$ Then we have $$e^z=f^{((n-1))}(z)=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{f(\zeta)d\zeta}{(\zeta-z)^{n}}=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{e^{\zeta}d\zeta}{(\zeta-z)^{n}}$$Therefore 
+			$$f(0)=e^0=1=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{e^z}{z^{n}}dz\iff \int_{|\zeta|=1}\frac{e^z}{z^{n}}dz=\frac{2\pi i}{(n-1)!}$$
+		\item 
+		\item 
+	\end{itemize}
+	}
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 12
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 123: Problem 2
+		}{p5% problem reference text
+		}
+		%Problem		
+		Prove that a function which is analytic in the whole plane and satisfies an inequality $|f(z)|<|z|^n$ for some $n$ and all sufficiently large $|z|$ reduces to a polynomial.
+		
+	\end{problem}
+	
+	\solve{
+		%Solution
+		
+}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 13
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Ahlfors Page 123: Problem 3
+	}{p5% problem reference text
+	}
+	%Problem		
+If $f(z)$ is analytic and $|f(z)| \leqq M$ for $|z| \leqq R$, find an upper bound for $\left|f^{(n)}(z)\right|$ in $|z| \leqq \rho<R$.
+	
+\end{problem}
+
+\solve{
+	%Solution
+	
+}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 14
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Ahlfors Page 123: Problem 4
+	}{p5% problem reference text
+	}
+	%Problem		
+		If $f(z)$ is analytic for $|z|<1$ and $|f(z)| \leqq 1 /(1-|z|)$, find the best estimate of $\left|f^{(n)}(0)\right|$ that Cauchy's inequality will yield.
+	
+\end{problem}
+
+\solve{
+	%Solution
+		We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$
+	\parinf
+	\textbf{\textit{Claim: }}$\lt|f^{(n)}(z)\rt|\leq (n+1)!e$
+	
+	\textbf{\textit{Proof: }}Let for any $k\in \bbN$, $|z|= 1-\frac1k=r_k$. Then $$|f(z)|\leq \frac{1}{1-|z|}=\frac1{1-\frac1k}=k$$Then we have $$\lt|f^{(n)}(0)\rt|=\lt|\frac{n!}{2\pi }\int_{|z|=r_k}\frac{f(z)dz}{z^{n+1}}  \rt|\leq \frac{n!}{2\pi }\int_{|z|=r_k}\frac{|f(z)|}{|z|^{n+1}}|dz|\leq\frac{n!}{2\pi }\, \frac{k}{r_k^{n+1}}2\pi r_k=\frac{kn!}{\lt(1-\frac1k\rt)^{n+1}}=\frac{n!k^{n+2}}{(k-1)^{n+1}}$$Now taking $k=n+1$ we have $$\lt|f^{(n)}(0)\rt|\leq \frac{n!(n+1)^{n+2}}{n^{n+1}} =(n+1)!\frac{(n+1)^{n+1}}{n^{n+1}}=(n+1)!\lt(1+\frac1n\rt)^{n+1}\leq (n+1)!e$$
+	
+	\parinn
+	
+	Hence we have the best estimate of $\lt|f^{(n)}(0)\rt|$ which is $\lt|f^{(n)}(0)\rt|\leq (n+1)!e$
+	
+}
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 15
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Ahlfors Page 123: Problem 5
+	}{p5% problem reference text
+	}
+	%Problem		
+		Show that the successive derivatives of an analytic function at a point can never satisfy $\left|f^{(n)}(z)\right|>n ! n^n$. Formulate a sharper theorem of the same kind.
+	
+\end{problem}
+
+\solve{
+	%Solution
+	We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$Hence $$\lt|f^{(n)}(z)\rt|=\lt|\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}  \rt|\leq \frac{n!}{2\pi}\int_{|s|=\rho}\lt|\frac{f(s)ds}{(s-z)^{n+1}}\rt|=\frac{n!}{2\pi}\int_{|s|=\rho}\frac{|f(s)|}{|s-z|^{n+1}}|ds|$$Since $f$ is continuous in the $\rho$-disk it is bounded by some value $M$. Therefore$$\lt|f^{(n)}(z)\rt|\leq \frac{n!}{2\pi}\int_{|s|=\rho}\frac{|f(s)|}{|s-z|^{n+1}}|ds|\leq \frac{n!}{2\pi}\int_{|s|=\rho}\frac{M}{|s-z|^{n+1}}|ds|\leq \frac{Mn!}{2\pi}\frac{1}{|\rho-z|^{n+1}}2\pi\rho=Mn!\frac{\rho}{|\rho-z|^{n+1}}$$Since $\rho>|z|$ we have $$\lt|f^{(n)}(z)\rt|\leq Mn!\frac{\rho}{|\rho-z|^{n+1}}\leq Mn!\frac{\rho}{(|\rho|-|z|)^{n+1}}\leq Mn!\frac{\rho}{(|\rho|)^{n+1}}=\frac{Mn!}{\rho^n}$$ Using the given inequality we have $$n!n^n<\lt|f^{(n)}(z)\rt|\leq \frac{Mn!}{\rho^n} \iff n!n^n<\frac{Mn!}{\rho^n}\iff (n\rho )^n<M$$ which is not possible as $n\to \infty$. Hence $f$ doesn't satisfy $\left|f^{(n)}(z)\right|>n ! n^n$
+}
+
+	
+\end{document}
