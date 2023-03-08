@@ -85,16 +85,68 @@
 	
 	\solve{
 		%Solution
+		Let $C_1:|z|=1$ and $C_2:|z-1|=1$. Let the common region between them is $\Om$
 		\begin{center}
 			\begin{tikzpicture}
-				\filldraw[red!30!white,opacity=0.6,draw=red] (0,0) circle (1cm);
-				\filldraw[blue!30!white,opacity=0.6,draw=blue] (1,0) circle (1cm);
+				\filldraw[red!30!white,opacity=0.6,draw=red] (0,0) circle (1cm) node[xshift=-1.2cm,yshift=4mm,color=red!80!black]{$\bmC_1$};
+				\filldraw[blue!30!white,opacity=0.6,draw=blue] (1,0) circle (1cm) node[xshift=1.2cm,yshift=4mm,color=blue!80!black]{$\bmC_2$};
 				\draw[<->,very thin] (-1.5,0) -- (4,0);
 				\draw[<->,very thin] (0,-1.2) -- (0,2);
+				\draw (0.5,0) node[yshift=2mm,black]{$\Om$};
 			\end{tikzpicture}
 		\end{center}
+		The circles intersect when $$|z|=|z-1|\iff z\ovz=(z-1)(\ovz-1)\iff 1=z+\ovz$$Hence $ \Re(z)=\frac12$. Therefore $\Im(z)=\pm\frac{\sqrt{3}}{2}$ since $|z|=1$. Therefore $C_1$ and $C_2$ intersects at $-\om$ and $-\om^2$.
 		
+		Now we send $-\om^2\to \infty$ and $-\om\to 0$ by the conformal map $f_1(z)=\frac{z+\om}{z+\om^2}$. Then $$f_1(1)=\frac{1+\om}{1+\om^2}=\frac{-\om^2}{-\om}=\om\qquad f_1(0)=\frac{\om}{\om^2}=\frac1{\om}=\bar{\om}=\om^2$$ Hence $f_1(C_1)=$ line joining $0$ and $\om$ and $f_1(C_2)=$ line joining $0$ and $\om^2$
+		\begin{center}
+			\begin{tikzpicture}
+				\filldraw[red!30!white,opacity=0.6] (-1,1.732) -- (-1,-1.732) -- (1,-1.732); 
+				\filldraw[blue!30!white,opacity=0.6] ((1,1.732) -- (-1,1.732) -- (-1,-1.732); 
+				\draw[blue!80!black] ((1,1.732) node[xshift=4mm,color=blue!80!black]{$\bmC_2$} -- (-1,-1.732);
+				\draw[red!80!black] (-1,1.732) -- (1,-1.732) node[xshift=4mm,color=red!80!black]{$\bmC_1$};
+				\draw[<->,very thin] (-1.5,0) -- (4,0);
+				\draw[<->,very thin] (0,-2) -- (0,2);
+				\draw (0,0) node[xshift=-5mm,yshift=2mm,black]{$\Om$};
+			\end{tikzpicture}
+		\end{center}
+	
+	Now we rotate the region $\Om$ by $\frac{2\pi}{3}$ clockwise by the conformal map $f_2(z)=e^{-i\frac{2\pi}{3}}z=\om z$
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[<->,very thin] (-1,0) -- (1,0);
+			
+			\filldraw[red!30!white,opacity=0.6] (1,0) -- (1,1.732) -- (-1,1.732) -- (-1,0);
+			\filldraw[blue!30!white,opacity=0.6] (-1,1.732) -- (1,1.732) -- (1,-1.732); 
+			\draw[blue!80!black] (-1,1.732) -- (1,-1.732) node[xshift=4mm,color=blue!80!black]{$\bmC_2$};			
+			\draw[red!80!black] (-1,0) -- (1,0) node[xshift=-2.3cm,color=red!80!black]{$\bmC_1$};
+			\draw (0.5,0) node[yshift=2mm,black]{$\Om$};
+			\draw[<->,very thin] (0,-2) -- (0,2);
+		\end{tikzpicture}
+	\end{center}
+Now we map the common region $\Om$ to the upper half of the plane by the conformal map $f_3(z)=z^{\frac32}$
+\begin{center}
+\begin{tikzpicture}
+	\filldraw[red!30!white,opacity=0.6] (1,0) -- (1,1.732) -- (-1,1.732) -- (-1,0);
+	\filldraw[blue!30!white,opacity=0.6] (1,0) -- (1,1.732) -- (-1,1.732) -- (-1,0); 
+	\draw (0.5,0) node[yshift=2mm,black]{$\Om$};
+	\draw[<->,very thin] (0,2) -- (0,-0.5);
+	\draw[<->,very thin] (-1,0) -- (1,0);
+\end{tikzpicture}
+\end{center}
+Now we want to map the upper half plane to inside of the unit circle. We do it with the conformal map $f_4(z)=\frac{z-\om}{z-\om^2}$
+\begin{center}
+	\begin{tikzpicture}
 		
+		\filldraw[red!30!white,opacity=0.6] (0,0) circle (1cm) ;
+		\filldraw[blue!30!white,opacity=0.6] (0,0) circle (1cm);
+		\draw (0.5,0) node[yshift=2mm,black]{$\Om$};
+		\draw[<->,very thin] (0,1.5) -- (0,-1.5);
+		\draw[<->,very thin] (-1.5,0) -- (1.5,0);
+	\end{tikzpicture}
+\end{center}Hence the final conformal map which maps the region $\Om$ to the inside of unit disk is \begin{multline*}
+f_4\circ f_3\circ f_2\circ f_1(z)=f_4\circ f_3\circ f_2\lt(\frac{z+\om}{z+\om^2}  \rt)=f_4\circ f_3\lt( \om\frac{z+\om}{z+\om^2}\rt)=f_4\circ f_3\lt( \frac{\om^2z+1}{\om z+1}\rt)\\
+=f_4\lt( \lt[ \frac{\om^2z+1}{\om z+1} \rt]^{\frac32} \rt)=\frac{ \lt[ \frac{\om^2z+1}{\om z+1} \rt]^{\frac32}-\om}{ \lt[ \frac{\om^2z+1}{\om z+1} \rt]^{\frac32}-\om^2}
+\end{multline*}
 	}
 	
 	
@@ -113,7 +165,52 @@
 	
 	\solve{
 		%Solution
-	
+				Let $C_1:|z|=1$ and $C_2:\lt|z-\frac12\rt|=\frac12$. Let the common region between them is $\Om$
+	\begin{center}
+		\begin{tikzpicture}
+			\filldraw[red!30!white,opacity=0.6,draw=red] (0,0) circle (2cm) node[xshift=-2.4cm,yshift=4mm,color=red!80!black]{$\bmC_1$};
+			\filldraw[blue!30!white,opacity=0.6,draw=blue] (1,0) circle (1cm) node[xshift=1.4cm,yshift=4mm,color=blue!80!black]{$\bmC_2$};
+			\draw[<->,very thin] (-2.5,0) -- (2.5,0);
+			\draw[<->,very thin] (0,-2.5) -- (0,2.5);
+			\draw (-0.5,0) node[yshift=2mm,black]{$\Om$};
+		\end{tikzpicture}
+	\end{center}
+The two circles touch each other at $1$. 
+
+Now we send $1\to \infty$ and $0\to 0$ with the conformal map $f_1(z)=\frac{z}{z-1}$. Hence $$f_1(-1)=\frac{-1}{-1-1}=\frac12\qquad f_1\lt(\frac12\rt)=\frac{\frac12}{\frac12-1}=-1$$ $$f(i)=\frac{i}{i-1}=\frac{i(-i-1)}{2}=\frac12-\frac{i}2 \qquad f(-i)=\frac{-i}{-i-1}=\frac{i(1-i)}{2}=+\frac12+\frac{i}2$$Hence $f(C_1)=$ is the line parallel to imaginary axis passing through $\frac12$. $f(C_2)=$ imaginary axis. Hence the region $\Om$ is mapped to the $\frac12$ width strip parallel to imaginary axis enclosed between imaginary axis and $\Re(z)=\frac12$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\filldraw[red!30!white,opacity=0.6] (1,2) -- (1,-2) -- (-2,-2) -- (-2,2);
+		\filldraw[blue!30!white] (0,2) -- (0,-2) -- (-2,-2) -- (-2,2); %node[xshift=1.4cm,yshift=4mm,color=blue!80!black]{$\bmC_2$};
+		\draw[<->,very thin] (-2,0) -- (2,0);
+		\draw[red] (1,2) -- (1,-2) node[xshift=4mm,yshift=1cm]{$\bmC_1$};
+		\draw[<->,very thin] (0,-2) -- (0,2);
+		\draw[blue] (0,2) -- (0,-2) node[xshift=-4mm,yshift=1cm]{$\bmC_2$};
+		\draw (-0.5,0) node[xshift=1cm,yshift=2mm,black]{$\Om$};
+	\end{tikzpicture}
+\end{center}
+Now we rotate the region $\Om$ by $90^{\circ}$ counter clockwise with the conformal map $f_2(z)=iz$
+\begin{center}
+	\begin{tikzpicture}
+		\filldraw[red!30!white,opacity=0.6] (2,1) -- (-2,1) -- (-2,-2) -- (2,-2);
+		\filldraw[blue!30!white] (2,0) -- (-2,0) -- (-2,-2) -- (2,-2); %node[xshift=1.4cm,yshift=4mm,color=blue!80!black]{$\bmC_2$};
+		\draw[<->,very thin] (-2,0) -- (2,0);
+		\draw[red] (2,1) -- (-2,1) node[xshift=1cm,yshift=4mm]{$\bmC_1$};
+		\draw[<->,very thin] (0,-2) -- (0,2);
+		\draw[blue] (2,0) -- (-2,0) node[xshift=1cm,yshift=-0.4cm]{$\bmC_2$};
+		\draw (-0.5,0) node[xshift=1cm,yshift=4mm,black]{$\Om$};
+	\end{tikzpicture}
+\end{center}Since the strip width is $\frac12$ we take the conformal map $f_3(z)=\lt(e^z\rt)^{\frac{\pi}{\frac12}}=\lt(e^z\rt)^{2\pi}=e^{2\pi z}$ which maps the strip of width $\frac12$ to the upper half plane.
+\begin{center}
+	\begin{tikzpicture}
+		\filldraw[red!30!white,opacity=0.6] (2,0) -- (-2,0) -- (-2,2) -- (2,2);
+		\draw (0.5,0) node[yshift=4mm,black]{$\Om$};
+		\draw[<->,very thin] (0,2) -- (0,-0.5);
+		\draw[<->,very thin] (-2,0) -- (2,0);
+	\end{tikzpicture}
+\end{center}
+Hence the final conformal map which maps the region between the two circles $C_1$ and $C_2$ to the upper half plane is $$f_3\circ f_2\circ f_1(z)=f_3\circ f_2\lt( \frac{z}{z-1} \rt)=f_3\lt( i\frac{z}{z-1} \rt)=e^{\frac{2\pi iz}{z-1}}$$
 	}
 	
 	
@@ -131,6 +228,68 @@
 	
 	\solve{
 		%Solution
+		Let $C:|z|=1$. 
+\begin{center}
+	\begin{tikzpicture}
+		%\filldraw[red!30!white] (-2,-1.5) -- (2,-1.5) -- (2,1.5) -- (-2,1.5);
+		\filldraw[white,opacity=1,draw=red] (0,0) circle (1cm) node[xshift=-1.2cm,yshift=2mm,color=red!80!black]{$\bmC$};
+		\draw[<->,very thin] (-1.5,0) -- (1.5,0);
+		\draw[<->,very thin] (0,-1.2) -- (0,1.2);
+	\end{tikzpicture}
+\end{center}
+
+We map the semi arc containg $i$ to  the negative real axis  then ultimately to the right half plane. 
+
+We first map $1\to \infty$ and $-1\to 0$ with the conformal map $f_1(z)=\frac{z+1}{z-1}$. Then $$f(\infty)=1\quad f(i)=\frac{i+1}{i-1}=\frac{(i+1)(-1-i)}{2}=-i\quad f(-i)=\frac{-i+1}{-i-1}=\frac{(-i+1)(-1+i)}{2}=i$$Hence $f_1(C)=$ Imaginary axis
+\begin{center}
+	\begin{tikzpicture}
+		%\filldraw[red!30!white] (-2,-1.5) -- (2,-1.5) -- (2,1.5) -- (-2,1.5)
+		\filldraw[white,opacity=1,draw=red] (0,0) circle (1cm) node[xshift=-1.2cm,yshift=2mm,color=red!80!black]{$\bmC$};
+		\draw[<->,very thin] (-1.5,0) -- (1.5,0);
+		\draw[<->,very thin] (0,-1.2) -- (0,1.2);
+		
+		\draw[<->,very thin] (2.5,0) -- (5.5,0);
+		\draw[<->,very thin,red] (4,-1.2) -- (4,1.2) node[xshift=4mm,yshift=-2mm]{$\bmC$};
+		\draw[-latex] (0.7,0.866) .. controls (2,0)  .. (3.7,-0.7);
+		\draw[-latex] (0.7,-0.866) .. controls (2,0)  .. (3.7,0.7);
+		\filldraw[red] (4,0) circle (2pt);
+	\end{tikzpicture}
+\end{center}
+
+
+Now we will only concentrate on the lower ray i.e. $\{z\mid \Re(z)=0,\Im(z)\leq 0\}$. Now we want to  rotate this by $90^{\circ}$ clockwise to map it to the real axis by the conformal map $f_2(z)=-iz$. Hence $f_2(1)=-i$.
+
+\begin{center}
+	\begin{tikzpicture}
+		%\filldraw[red!30!white] (-2,-1.5) -- (2,-1.5) -- (2,1.5) -- (-2,1.5)
+		\draw[<->,very thin] (-1.5,0) -- (1.5,0);
+		\draw[<-,very thin,red] (-1.5,0) -- (0,0) ;
+		\draw[<->,very thin] (0,-1.2) -- (0,1.2) ;
+	\end{tikzpicture}
+\end{center}
+Now we know $f_3(z)=\sqrt{z}$ maps the $\bbC\setminus$negative real axis to right half plane.
+\begin{center}
+	\begin{tikzpicture}
+		\filldraw[red!30!white,opacity=0.6] (0,2) -- (0,-2) -- (2,-2) -- (2,2);
+		\draw (0.5,0) node[yshift=4mm,black]{$\Om$};
+		\draw[<->,very thin] (0,2) -- (0,-2);
+		\draw[<->,very thin] (-2,0) -- (2,0);
+	\end{tikzpicture}
+\end{center}
+Hence $f_3(-i)=e^{-i\frac{\pi}{4}}$. Hence at this stage $\infty $ is mapped to $e^{-i\frac{\pi}{4}}$. Now we have to map $e^{-i\frac{\pi}{4}}$ to $1$. This is achieved by conformal map of the form $f_4(z)=az+b$ where $a\in\bbR,b\in\bbC$, $b=b_1+ib_2$. Therefore $$f_4\lt(e^{-i\frac{\pi}{4}}\rt)=1\iff ae^{-i\frac{\pi}{4}}+b=1\iff \frac{a}{\sqrt{2}}(1-i)+b=\iff b_2=\frac{a}{\sqrt{2}},\ b_1=\frac{a}{\sqrt{2}}-1$$
+We can take $a=\sqrt{2}$, $b_1=0$ and $b_2=1$. then we have $f_4(z)=\sqrt{2}z+i$. Hence now $\infty$ is mapped to $1$
+
+Now we will rotate the right half plane by $\frac{\pi}{2}$ counter clockwise to map it to upper half plane by the conformal map $f_5(z)=iz$
+\begin{center}
+	\begin{tikzpicture}
+		\filldraw[red!30!white,opacity=0.6] (2,0) -- (-2,0) -- (-2,2) -- (2,2);
+		\draw (0.5,0) node[yshift=4mm,black]{$\Om$};
+		\draw[<->,very thin] (0,2) -- (0,-0.5);
+		\draw[<->,very thin] (-2,0) -- (2,0);
+	\end{tikzpicture}
+\end{center}
+
+Finally we use the map $f_6(z)=\frac{z-i}{z+i}$ which maps the upper half plane to the inside of unit disk. And also we have $f_6(i)=\infty$. Hence the final map $$f_6\circ f_5\circ f_4\circ f_3\circ f_2\circ f_1(z)$$ maps $\infty\to\infty$. and this map, maps the arc $|z|=1$, $y\geq 0$ on the outside of the unit circle so that the points at  $\infty$ correspond to each other
 
 	}
 	
@@ -365,8 +524,58 @@ for the positive sense of the circle.
 	\begin{itemize}
 		\item Let $f(z)e^z$ Then we have $$e^z=f^{((n-1))}(z)=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{f(\zeta)d\zeta}{(\zeta-z)^{n}}=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{e^{\zeta}d\zeta}{(\zeta-z)^{n}}$$Therefore 
 			$$f(0)=e^0=1=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{e^z}{z^{n}}dz\iff \int_{|\zeta|=1}\frac{e^z}{z^{n}}dz=\frac{2\pi i}{(n-1)!}$$
-		\item 
-		\item 
+		\item We have $$f(z)=\frac{1}{2\pi i}\int_{|\zeta|=1}\frac{f(\zeta)d\zeta}{\zeta-z}$$4 cases possible\parinn
+		\subsubsection*{Case 1: $m\geq 0$, $n\geq 0$}
+		Then $z^n(1-z)^m$ is analytic on $\bbC$. Hence $$\int_{|z|=2} z^n(1-z)^m d z=0$$
+		\subsection*{Case 2: $m< 0$, $n\geq 0$}
+		\begin{multline*}
+					\int_{|z|=2} z^n(1-z)^m d z  =\int_{|z|=2} \frac{z^n}{(1-z)^{|m|}} d z=(-1)^m \int_{|z|=2} \frac{z^n}{(z-1)^{|m|}} d z\\ =\left.\frac{2 \pi i(-1)^m}{(|m|-1) !} \frac{d^{|m|-1}}{d z^{|m|-1}} z^n\right|_{z=1} 
+				=\frac{2 \pi i n !(-1)^m}{(|m|-1) !(n-(|m|-1)) !}=2 \pi i(-1)^m{{n}\choose{|m|-1}}
+		\end{multline*}
+	If $|m|-1>n$ then the above is zero
+		\subsection*{Case 3: $m<\geq0$, $n< 0$}
+		\begin{multline*}
+			\int_{|z|=2} z^n(1-z)^m d z=\int_{|z|=2} \frac{(1-z)^m}{z^{|n|}} d z=\left.\frac{2 \pi i}{(|n|-1) !} \frac{d^{|n|-1}}{d z^{|n|-1}}(1-z)^m\right|_{z=0} \\ =\frac{2 \pi i m !(-1)^{|n|-1}}{(|n|-1) !(m-(|n|-1)) !} =2 \pi i(-1)^{|n|-1}{{m}\choose{|n|-1}}
+		\end{multline*}
+		If $|n| - 1 > m$, we interpret the above to be zero.
+		\subsection*{Case 4: $m<0$, $n<0$}
+		$$	\int_{|z|=2} z^n(1-z)^m d z=\int_{|z|=2} \frac{1}{(1-z)^{|m|}z^{|n|}} d z$$
+		In this case we divide the closed curve $|z|=2$ into addition of two paths $\Gm_1$ and $\Gm_2$ where when $\Re(z)=\frac12$ $\Gm_1$ goes from lower half plane to upper half plane along the line $\Re(z)=\frac12$ and $\Gm_2$ does the opposite after that both paths follows the circle perimeter like in the figure
+		\begin{center}
+			\begin{tikzpicture}
+				\draw[<->] (-2.5,0) -- (2.5,0);
+				\draw[<->] (0,-2.5) -- (0,2.5);
+				\draw (0,0) circle (2cm);
+				\filldraw (0,0) node[xshift=-2mm,yshift=-2mm]{$0$} circle (2pt);
+				\filldraw (1,0) node[xshift=2mm,yshift=-2mm]{$1$} circle (2pt);
+				\draw[red,very thick] (0.47,-1.936) -- (0.47,1.936);
+				\draw[blue!80!white,very thick] (0.52,-1.936) -- (0.52,1.936);
+				\draw[red,very thick] (0.5,1.936) arc  [start angle=75.5,end angle=284.5,radius=2cm];
+				\draw[blue,very thick] (2,0) arc  [start angle=0,end angle=75.5,radius=2cm];
+				\draw[blue,very thick] (2,0) arc  [start angle=0,end angle=-75.5,radius=2cm];
+				\draw (2,0) node[yshift=-1cm,xshift=2mm]{$\Gm_2$} node[rotate=90,color=blue,thick,xshift=-1mm]{$\boldsymbol{>}$};
+				\draw (-2,0) node[yshift=1cm,xshift=-2mm]{$\Gm_1$} node[rotate=-90,color=red,thick,xshift=-1mm]{$\boldsymbol{>}$};
+				\draw[dashed,thick] (0.5,-2.5) -- (0.5,2.5) node[xshift=8mm]{$\Re(z)=\frac12$};
+			\end{tikzpicture}
+		\end{center}
+		Now $(1-z)^{-|m|}$ is analytic on $\Gm_1$. Hence $$\frac{2 \pi i}{(|n|-1) !}\frac{d^{|n|-1}}{dz^{|n|-1}}\lt.\frac{1}{(1-z)^{|m|}}  \rt|_{z=0}=\int_{\Gm_1}\frac1{(1-z)^{|m|}z^{|n|}}dz=\frac{(|m|+|n|-2)!}{(m|-1)!(|n|-1)!}2\pi i$$
+		$z^{-|n|}$ is analytic on $\Gm_2$. Hence $$\frac{2 \pi i}{(|m|-1) !}(-1)^{|m|}\frac{d^{|m|-1}}{dz^{|m|-1}}\lt.\frac{1}{z^{|m|}}  \rt|_{z=1}=\int_{\Gm_2}\frac1{(1-z)^{|m|}z^{|n|}}dz=-\frac{(|m|+|n|-2)!}{(m|-1)!(|n|-1)!}2\pi i$$Hence$$\int_{|z|=2} z^n(1-z)^m d z=\int_{|z|=2} \frac{1}{(1-z)^{|m|}z^{|n|}} d z=0$$ 
+		\item from Problem 10 we have $|dz|=-i\rho \frac{dz}{z}$. Therefore \begin{align*}
+			\int_{|z|=\rho}\frac{|dz|}{|z-a|^4} & = -i\rho \int_{|z|=\rho}\frac{dz}{z|z-a|^4}= -i\rho \int_{|z|=\rho}\frac{dz}{z(z-a)^2(\ovz-\ova)^2}\\
+			& = -i\rho \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(z\ovz-\ova z  \rt)^2}\\
+			& = -i\rho \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(\frac{\rho^2}{z}z-\ova z\rt)^2}\\
+			& = -i\rho \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(\rho^2-\ova z\rt)^2}
+		\end{align*}\parinn
+	
+	Now if $\rho < |a|$, then $|z-a|^4>0$. Hence the function $\frac1{(z-a)^2\lt(\rho^2-\ova z\rt)^2}$ is analytic and its integral  along $|z|=\rho$ is 0\parinn
+	
+	If $\rho > |a|$ then if $\rho^2\neq \ova z$ because if it is then \begin{align*}
+		\rho^2\neq \ova z \iff |z| =\frac{\rho^2}{|a|} \iff \rho = \frac{\rho^2}{|a|} \iff |a|=\rho
+	\end{align*} which is not possible. Hence $f(z)=\frac{z}{(\rho^2-\ova z)^2}$ is analytic in the $\rho$-disk. Then by Cauchy's Integral Formula we have\begin{align*}
+	\int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(\rho^2-\ova z\rt)^2} & =\frac{d}{dz}\lt. \frac{z}{(\rho^2-\ova z)^2}\rt|_{z=a} \frac{2\pi i}{1!}\\
+	& = \left(\frac{1}{\left(\rho^2-\bar{a} a\right)^2}+\frac{2 \bar{a} a}{\left(\rho^2-\bar{a} a\right)^3}\right)  2 \pi i\\
+	& = 2\pi i \, \frac{\rho^2-|a|^2+2|a|^2}{(\rho^2-|a|^2)^3}=2\pi i \, \frac{\rho^2+|a|^2}{(\rho^2-|a|^2)^3}
+\end{align*}Hence $$	\int_{|z|=\rho}\frac{|dz|}{|z-a|^4}=-i\rho \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(\rho^2-\ova z\rt)^2}=-i\rho \lt[ 2\pi i \, \frac{\rho^2+|a|^2}{(\rho^2-|a|^2)^3} \rt]=2\pi\rho\, \frac{\rho^2+|a|^2}{(\rho^2-|a|^2)^3}$$
 	\end{itemize}
 	}
 		
@@ -385,6 +594,14 @@ for the positive sense of the circle.
 	
 	\solve{
 		%Solution
+		Given $|f(z)|<|z|^n$. ITo show $f$ is a polynomial it is enough to show $\exs\ n\in\bbN$ such that $f^{(n)}(z)=0$. We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$Now if $|z|>\rho$ then
+		\begin{align*}
+			\lt|f^{(n+1)}(z)\rt| & \leq \frac{(n+1)!}{2\pi}\lt|\int_{|t|= \rho} \frac{f(t)}{(t-z)^{n+2}}dt   \rt|\\
+			& \leq \frac{(n+1)!}{2\pi}\int_{|t|=\rho} \frac{|f(t)|}{|t-z|^{n+2}}|dt|   \\
+			& \leq \frac{(n+1)!}{2\pi}\int_{|t|=\rho}\frac{|t|^n}{(|t|-|z|)^{n+2}}|dt|\\
+			& \leq \frac{(n+1)!}{2\pi}\frac{\rho^n}{(\rho-|z|)^{n+2}}2\pi \rho =\frac{\rho^{n+1}(n+1)!}{(\rho-|z|)^{n+2}}
+		\end{align*}Hence as $|z|\to \infty$ and $\rho\to \infty$ we have $\frac{\rho^{n+1}(n+1)!}{(\rho-|z|)^{n+2}}\to 0$. Hence $$	\lt|f^{(n+1)}(z)\rt|\leq 0\iff f^{(n+1)}(z)=0$$Now if $|z|\leq \rho$ then $f$ has a maximum $M$  in that closed $\rho-$disk. Hence $$\lt|f^{(n+1)}(z)\rt| \leq \frac{M(n+1)!}{\rho^{n+1}}$$Now as $\rho\to \infty$, $\frac{(n+1)!}{\rho^{n+1}}\to 0$. Hence $$\lt|f^{(n+1)}(z)\rt|\leq 0\iff f^{(n+1)}(z)=0$$2
+		
 		
 }
 	
@@ -403,6 +620,14 @@ If $f(z)$ is analytic and $|f(z)| \leqq M$ for $|z| \leqq R$, find an upper boun
 
 \solve{
 	%Solution
+	We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$Let 
+	\begin{align*}
+		\lt|f^{(n)}(z)\rt| & \leq \frac{n!}{2\pi}\lt|\int_{|t|= R} \frac{f(t)}{(t-z)^{n+1}}dt   \rt|\\
+		 & \leq \frac{n!}{2\pi}\int_{|t|= R} \frac{|f(t)|}{|t-z|^{n+1}}|dt|   \\
+		 & \leq \frac{n!}{2\pi}\int_{|t|= R}\frac{M}{(|t|-|z|)^{n+1}}|dt|\\
+		 & \leq \frac{n!}{2\pi}\frac{M}{(R-|z|)^{n+1}}2\pi R\\
+		 & =\frac{Mn!R}{(R-|z|)^{n+1}}\leq \frac{Mn!R}{(R-\rho)^{n+1}}
+	\end{align*}
 	
 }
 
