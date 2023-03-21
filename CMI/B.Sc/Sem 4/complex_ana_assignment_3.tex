@@ -297,6 +297,7 @@ Finally we use the map $f_6(z)=\frac{z-i}{z+i}$ which maps the upper half plane 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Problem 4
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
 	
 	\begin{problem}{%problem statement
 			Ahlfors Page 108: Problem 1
@@ -420,6 +421,16 @@ for the positive sense of the circle.
 	
 	\solve{
 		%Solution
+		\begin{enumerate}[label=(\alph*)]
+			\item We claim that $x_2$ lies outside the curve $\sigma_1$. Indeed, consider the ray joining 0 and $x_2$. This ray can not intersect $\gamma$ beyond the point $x_2$ because $x_2$ is the farthest point. Thus the whole ray $\left(x_2, \infty\right)$ is contained in one region defined by the curve, but $\gamma$ must be bounded. Thus $x_2$ must lie in the unbounded region defined by $\sigma_1$.\parinn
+			
+			Now pick $z \in \gamma_2$. Then $x_2, z$ are path connected, hence they must lie in the same connected region of $\sigma_1$. Hence $n\left(\sigma_1, z\right)=n\left(\sigma_1, x_2\right)=0$
+			
+			\item Let $S:=\{z \mid z \in \gamma, z \in \mathbb{R}\}$. Since $S$ is compact we can pick the smallest element of $S$, considered as a subset of $\mathbb{R}$, let's call it $x_1$. We claim that $n\left(\sigma_1, x\right)=n\left(\sigma_2, x\right)=0$ for $x \in\left(0, x_1\right)$. By Lemma 2 , it suffices to prove that $\gamma_1, \gamma_2$ doesn't pass through any point to the left of $x_1$, which is obvious by the construction of $x$. Also, the path $z_1 \rightarrow 0 \rightarrow z_2$ intersects the $X$-axis only at 0 .
+			\item Suppose the first intersection $x_1$ of the positive real axis with $\gamma$ does not lie on $\gamma_1$; then it must lie on $\gamma_2$. In part (b) we proved that $n\left(\sigma_1, x\right)=0$ for $x \in\left(0, x_1\right)$. But now we can consider the path from $x$ to $x_1$ along the positive $X$-axis and then use the path along $\gamma_2$ from $x_1$ to $x_2$. Thus $x$ and $x_2$ are path-connected and both are in the same region of $\sigma_1$. But then $1=n\left(\sigma_1, x\right)=n\left(\sigma_1, x_2\right)=0$, where the first equality is from part (a) and the last equality is from part (b).
+			\item Because $x_1$ lies on $\gamma_1$, again by applying Lemma 2, we get $n\left(\sigma_2, x_1\right)=1$. Again, because any $z \in \gamma_2$ is path-connected along $\gamma_2$, we must have $n\left(\sigma_2, z\right)=1$
+			\item Consider the sets $S_1:=\left\{z \in \mathbb{R} \mid z \in \gamma_1\right\}$ and $S_2:=\left\{z \in \mathbb{R} \mid z \in \gamma_2\right\}$. Since $S_1$ and $S_2$ are compact we can find two points $a \in S_1, b \in S_2$ such that there is no point of $\gamma$ between $a$ and $b$, otherwise we can construct a sequence of points in $S_1$ or $S_2$ such that it converges to a point in another set. contradicting the fact that $S_1, S_2$ are closed and disjoint. Now pick point $x$ between $a$ and $b$. Let us assume $\gamma=\sigma_1-\sigma_2$. Then $n(\gamma, x)=n\left(\sigma_1, x\right)-n\left(\sigma_2, x\right)$. But $n\left(\sigma_1, x\right)=n\left(\sigma_1, b\right)=0$ by part (a) and $n\left(\sigma_2, x\right)=n\left(\sigma_1, a\right)=1$ by part (d).
+		\end{enumerate}
 	
 	}
 
@@ -472,6 +483,7 @@ for the positive sense of the circle.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Problem 10
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagebreak 
 	
 	\begin{problem}{%problem statement
 			Ahlfors Page 120: Problem 3
@@ -533,7 +545,7 @@ for the positive sense of the circle.
 				=\frac{2 \pi i n !(-1)^m}{(|m|-1) !(n-(|m|-1)) !}=2 \pi i(-1)^m{{n}\choose{|m|-1}}
 		\end{multline*}
 	If $|m|-1>n$ then the above is zero
-		\subsection*{Case 3: $m<\geq0$, $n< 0$}
+		\subsection*{Case 3: $m\geq0$, $n< 0$}
 		\begin{multline*}
 			\int_{|z|=2} z^n(1-z)^m d z=\int_{|z|=2} \frac{(1-z)^m}{z^{|n|}} d z=\left.\frac{2 \pi i}{(|n|-1) !} \frac{d^{|n|-1}}{d z^{|n|-1}}(1-z)^m\right|_{z=0} \\ =\frac{2 \pi i m !(-1)^{|n|-1}}{(|n|-1) !(m-(|n|-1)) !} =2 \pi i(-1)^{|n|-1}{{m}\choose{|n|-1}}
 		\end{multline*}
@@ -582,7 +594,7 @@ for the positive sense of the circle.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Problem 12
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+\pagebreak	
 	\begin{problem}{%problem statement
 			Ahlfors Page 123: Problem 2
 		}{p5% problem reference text
@@ -594,7 +606,7 @@ for the positive sense of the circle.
 	
 	\solve{
 		%Solution
-		Given $|f(z)|<|z|^n$. ITo show $f$ is a polynomial it is enough to show $\exs\ n\in\bbN$ such that $f^{(n)}(z)=0$. We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$Now if $|z|>\rho$ then
+		Given $|f(z)|<|z|^n$. To show $f$ is a polynomial it is enough to show $\exs\ n\in\bbN$ such that $f^{(n)}(z)=0$. We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$Now if $|z|>\rho$ then
 		\begin{align*}
 			\lt|f^{(n+1)}(z)\rt| & \leq \frac{(n+1)!}{2\pi}\lt|\int_{|t|= \rho} \frac{f(t)}{(t-z)^{n+2}}dt   \rt|\\
 			& \leq \frac{(n+1)!}{2\pi}\int_{|t|=\rho} \frac{|f(t)|}{|t-z|^{n+2}}|dt|   \\
