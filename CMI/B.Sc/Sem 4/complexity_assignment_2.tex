@@ -1,0 +1,277 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Complexity Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\textsf{\noindent \large\textbf{Soham Chatterjee} \& \textbf{Rishav Gupta} \hfill \textbf{Assignment - 2}\\
+    Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \& \href{rishavg@cmi.ac.in}{rishavg@cmi.ac.in}\hfill Roll: BMC202175 \& BMC202145\\
+		\normalsize Course: Complexity Theory \hfill Date: March 25, 2023}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p1% problem reference text
+		}
+		Give a full proof that $AM\subseteq \Pi_2$		
+	\end{problem}
+	
+	\solve{
+		%Solution\\
+		We will use the following steps to prove -:
+		\begin{itemize}
+		\item Let $L  \in AM$.
+		\item To show that $AM\subseteq \Pi_2$ we will use a similar idea as $BPP \subseteq \Pi_2 \cap \Sigma_2$.
+		\item So if $L \in AM $	then we know that $\exists $ $p(n),q(n)$ polynomials in $n$ and a $DTIME $ machine $R$ such that $x \in L \iff$ For a random choice of $y_1\in \{0,1\}^{p(n)}$ $\exists $ $y_2\in \{0,1\}^{q(n)}$ such that $R(x,y_1,y_2)=1$ with probability $\geq \frac{3}{4}$ over random  $y_1$.  	
+		\item	Now with  a similar approach as we used in the error reduction of $BPP$ we will reduce the error of our $AM$ protocol (by parallely giving multiple instances and accepting the majority) from $\frac{1}{4}$ to $\frac{1}{2^{n}}$.
+		\item Let $S_{x}$ be the set of all random strings $y_1\in\{0,1\}^{p'(n)}$ such that  $\forall$ $y_2 \in \{0,1\}^{(q'(n))} $ for  which $R(x,y_1,y_2)=0$ .(We are doing this after the error reductions.)
+		\item Now we will shift $S_{x}$ using some $k$ vectors $u_{1},u_{2} \cdots u_{k}$ then we will show for some $k$, $x\in L $ then  $\bigcup\limits_{i=1}^{k} (S_{x}+u_{i})$ covers the entire $\{0,1\}^{p'(n)}$  otherwise it wont cover it .
+		\item Let $A_{x}=\bigcup\limits_{i=1}^{k} (S_{x}+u_{i})$
+		\item We claim if $|S_{x}|\leq 2^{(p'(n)-n)}$ then there is no set of $k$ vectors such that $A_{x}=\{0,1\}^{p'(n)}$ if $k<2^{n}$
+		\item Because $|\bigcup\limits_{i=1}^{k} (S_{x}+u_{i})|\leq$ $k \cdot |S|\leq$ $2^{(p'(n)-n)}\cdot k <$ $2^{m}$.
+		\item $\therefore $ $A_{x} \neq \{0,1\}^{p'(n)}$ 
+		\item If $|S|\geq(1-2^{-n})\cdot2^{(p'(n))}$ then $\exists$ vectors $u_{1},u_{2} \cdots u_{k}$ such that $A_{x} = \{0,1\}^{p'(n)}$ for $k> \frac{2^{(p'(n))}}{n}$.
+		\item For $r \in {0,1}^{p'(n)}$ ,we need to find the probability $r \notin A_{x} $.
+		\item $r \notin S_{x}+u_{i} \iff r+u_{i} \notin S_{x} $ , so let $r_{i}= r+u_{i}$ , so $r\notin A_{x} \iff$ $\forall i ,r_{i} \notin S_{x}$ .
+		\item So now we have that $Pr(r\notin A_{x})=(1-\frac{|S_{x}|}{2^{(p'(n))}})^{k}\leq \frac{1}{2^{nk}}.$
+		\item Now $Pr(A_{x} \neq \{0,1\}^{(p'(n))})\leq $ $\sum\limits_{j=1}^{2^{(p'(n))}} Pr(w_{j} \notin A_{x}) \leq \frac{2^{(p'(n))}}{2^{nk}}$ , where the words in $\{0,1\}^{(p'(n))}$ are indexed using the $w_{j}'s$ (follows from the union bound).
+		\item Now if $k>\frac{2^{(p'(n))}}{n} $ then the above probability over random $\{u_{1},u_{2}\cdots u_{k}\}$ $<1$. So we get that for this $k, \exists $ such $k$ vectors for which $A_{x}$ cover the set .
+		\item So choose a $k$ such that $\frac{2^{(p'(n))}}{n}<k<2^{n}$ .
+		\item Now look at the following instance of $\Sigma_2$ .$x \in L'$ $\iff$ $\exists \{u_1,u_2\cdots u_k\}$ such that $\forall $ $r\in \{0,1\}^{(p'(n))}$, $\forall$ $y_2 \in \{0,1\}^{(q'(n))}$ 
+		$$\bigvee_{i=1}^{k} R(x,r+u_i,y_2)=0$$
+		Equivalently
+			$$ \bigvee_{i=1}^{k} ((r+u_i) \in S_x)$$
+		\item Now we claim $x\in L' \iff$ $x\notin L$ this is because if $x \notin L $ then  $|S_{x}| \geq (1-2^{-n})\cdot2^{(p'(n))}  $ and if $x \in L$ then $|S_x|\leq 2^{(p'(n)-n)}$ , so by above argument $L' = L^c$.
+		\item Since we found a $\Sigma_2 $ formula for $L^c \implies $  $L \in \Pi_2$.
+		\end{itemize}
+		Hence we proved $AM \subseteq \Pi_2$.
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p2% problem reference text
+		}
+		%Problem		
+		Prove that $MA\subseteq \Pi_2\cap \Sigma_2$
+	\end{problem}
+	
+	\solve{
+		%Solution
+		We will use the following steps and motivation and results from \textbf{Problem 1} : We know that $MA \subseteq AM$ and from \textbf{Problem 1} we know $AM \subseteq \Pi_2 $ $\implies $ $MA \subseteq \Pi_2$.
+		
+		Now we only need to show $MA \subseteq \Sigma_2 $.
+		\begin{itemize}
+		\item For this let $L \in MA $ then we know that $\exists, p(n),q(n) $ polynomials in $n$ and $\exists$ a $DTIME $ machine $R$, such that $x\in L \iff$
+		$\exists$ $y_1\in \{0,1\}^{(p(n))}$ such that for a random selection of $y_2\in \{0,1\}^{(q(n))}$   $R(x,y_1,y_2)=1$ with probability $\geq \frac{3}{4}$.
+		\item Now we will derive an instance of $BPP $ from $L$.
+		\item Now consider the language $\{L':<x,y_1>$ such that $R(x,y_1,y_2)=1$ with probability $\geq \frac{3}{4} $ over random $y_2$.$\}$.
+		\item It is easy to see that $L' \in BPP$.
+		\item By \textit{Sipser Gaccs Theorem} we know that $BPP \subseteq \Sigma_2$.
+		 \item Hence we know that $L' \subseteq \Sigma_2$ .
+		\item Now $x \in L$ , $n=|x|$  $\iff$ , $\exists , y_1 $ such that $<x,y_1> \in L'$ .
+		\item Now let the $\Sigma_2$ form of  $L'$ be $<x,y_1>$ such that $\exists$ $u \in \{0,1\}^{(a(n))}$ such that $\forall$ $v \in \{0,1\}^{(b(n))} $ , $D(x,y_1,u,v)=1$.
+		\item Now it is easy to see that $L \in \Sigma_2$ , as we will just the club the there exist quantifiers into one there exist quantifier.
+		 \item Now the $\Sigma_2$ form of L is $x$ such that $\exists$ $(y_1,u) \in \{0,1\}^{(a(n)+p(n))}$ such that $\forall$ $v \in \{0,1\}^{(b(n))} $ , $D(x,y_1,u,v)=1$.
+		\end{itemize}
+		Hence we proved that $MA \subseteq \Sigma_2$ .	Hence we proved $MA \subseteq \Pi_2 \cap \Sigma_2$.
+
+	}
+
+	\pagebreak
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 3
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p3% problem reference text
+		}
+		Let $k \leq n$. Prove that the following family $\mathcal{H}_{n, k}$ is a collection of pairwise independent function from $\{0,1\}^n \rightarrow\{0,1\}^k$ : For each $k \times n$ matrix $A$ with entries in $G F(2)$, and $b \in(G F(2))^k$, the family $\mathcal{H}_{n, k}$ contains functions $h_{A, b}(x)=A x+b$
+				
+	\end{problem}
+	
+	\solve{
+		%Solution
+		The proof is as follows -:
+		 \begin{itemize}
+			\item  A pair-wise disjoint hash family is a set of functions $H=\{h : P \to Q\}$ such that $\forall$ $u,v \in P$ and $\forall $ $x,y \in Q$ , we have $Pr_h[(h(u)=x) \wedge (h(v)=y)] = \frac{1}{|Q|^{2}}$ where the probability is taken uniformly over $h \in H$.
+		 \item  $h_{(A,b)(x)}=Ax+b$. Now fix $u,v,x,y$ for the proof .
+		 \item  We need to calculate $Pr_{(A,b)}[Au+b=x \wedge Av+b=y]$.
+		  \item  Notice that for each row the calculation is independent as we take the dot product of the vector with $i th $  row of $A$ and then add the $ith $ element of the vector $b$ to get the $ith $ row element in the vector $Ax+b$.
+		   \item  So we will prove for one row the rest will follow .
+		  \item  Hence we will prove that $Pr_{(a_i \in \{0,1\}^n , b_i \in \{0,1\})}[(<a_i,u> + b_i=x_i) \wedge (<a_i,v>+b_i=y_i)]=\frac{1}{4}$ .
+		   \item  Lets convert the probability into $Pr_{(a_i \in \{0,1\}^n , b_i \in \{0,1\})}[(<a_i,u+v>=x_i+y_i) \wedge (<a_i,v>+b_i=y_i)]$ .
+		   \item  For proving this we will first prove $Pr_a[<x,a>=1]=\frac{1}{2}$  where $x \neq 0$ .
+		   \item  Now for a given $x$ we have that if suppose $x$ has $k$ ones then number of strings for which it gives dot product as one is $\sum_{i=1}^{\lceil \frac{k}{2} \rceil}\binom{k}{2i-1}$ $ \cdot2^{(n-k)}=2^{(n-k)}\cdot 
+		   \frac{(2^k)}{2}= 2^{(n-1)}$. (This sum arises because we can have anything in the $(n-k)$ places where the bit is $0$ and $1's$ in odd number of places from the remaining $k$ places).
+		   \item  Now size of sample space will be  $2^n\cdot 2=2^{(n+1)} $ . 
+		   \item Now for the event $E=[(<a_i,u+v>=x_i+y_i) \wedge (<a_i,v>+b_i=y_i)]$ where $(a_i \in \{0,1\}^n , b_i \in \{0,1\})$ to occur we will have to satisfy the first condition before $\wedge$ we get that $a_i$ should come from a certain  set of size $2^{(n-1)}$ as we proved in the last point because $(u,v,x_i,y_i)$ are fixed ,and for the second clause to satisfy for a choice of $a_i$ only one of $b _i$ $0$ or $1 $ will satisfy th second condition  hence the probability of event $E$ happening  is   $\frac{2^{(n-1)}}{2^{(n+1)}}=\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$.
+		   \item  Since each row is independent the probability $Pr_{(A,b)}[Au+b=x \wedge Av+b=y]=\frac{1}{4^k}=\frac{1}{2^{2k}}=\frac{1}{|Q|^2}$.
+		\end{itemize}
+		    Hence proved.
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 4
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%place%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p4% problem reference text
+		}
+		Prove that if $P=NP$ then $EXP=NEXP$
+	\end{problem}
+	
+	\solve{
+		%Solution
+		We know $EXP\subseteq NEXP$. Let $P=NP$. Hence it is enough to show for any $L\in NEXP$, $L\in EXP$. Suppose $L\in NTIME\lt(2^{n^c}\rt)$ and $L$ is accepted by a nondeterministic turing machine $\mcN$. Then the language $$L_{pad}=\lt\{\la x,1^{2^{|x|^c}}\ra  \mid x\in L\rt\} $$is in $NP$ because we construct a nondeterministic turing machine $M$ which for any input string $y$  first checks if there is a string $z$ such that $y=\la z,1^{2^{|z|^c}}\ra$. If not then $M$ rejects $y$ otherwise $M$ simulates $\mcN$ on $z$ for $2^{|z|^c}$ steps non-deterministically  and accepts if $\mcN$ accepts otherwise reject. Hence $\mcL(M)=L_{pad}$. 
+		
+		Now $P=NP$ and $L_{pad}\in P$. Hence there exists a deterministic turing machine $\mcM$ for which $L_{pad}\in DTIME(n^c)$. Therefore $\mcM$ take $ |y|^c $ time for any input $y$. Since $y=\la x,1^{2^{|x|^c}}\ra $ $\mcM$ takes $O\lt(2^{|x|^c}  \rt) $ time to accepts or reject $y$ which means $\mcM$ accepts or rejects $x$ in $O\lt(2^{|x|^c}  \rt) $ time. Hence $L$ is in $EXP$. Therefore $NEXP=EXP$
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p5% problem reference text
+		}
+		Show that if $NP\subseteq BPP$ then $NP=RP$		
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Assume $NP \subseteq BPP$. Note that $RP \subseteq NP$ unconditionally, hence we just need to show that $NP \subseteq RP$. Since $SAT$ is $NP-complete$ it is enough to show that $SAT$ is in $RP$. By assumption $SAT$ is in $BPP$. Let $M$ be a probabilistic Turing machine running in polynomial time and accepting $SAT$ with error at most $1/2^n$. 
+		
+		Now we will give an algorithm $\mcA$ using $M$ for $SAT$
+		
+		\begin{algorithm}
+		\textbf{Input:} $\varphi$ 
+		\caption{$RP$ Algorithm for $SAT$}
+		\begin{algorithmic}
+		\State $\varphi' \gets \varphi$
+		\For{$k=1,\dots,n$}
+			\State $x_k\gets 0$
+			\State $\varphi'\gets \varphi'$
+			\If {$M(\varphi')==0$}
+				\State $x_k\gets 1$
+			\EndIf
+		\EndFor
+		\If {$M$ accepts $\varphi$ with the setting of $n$ variables}
+			\State Accept 
+		\Else 
+			\State Reject  
+		\EndIf
+		\end{algorithmic}
+	\end{algorithm}
+If $\varphi$ is not satisfiable then no assignment of the variables satisfies $\varphi$. Hence the algorithm rejects $\vph$ with probability 1 i.e. $$\vph\notin SAT\implies Pr[\mcA(\vph)=1]=0$$. If $\vph$ is satisfiable. Let $\mcA$ rejects $\vph$. Then in the $n$ iterations $M$ at least gave one wrong answer at some point. Now probability of $M$ at least gives one wrong answer in $n$ iterations is $\frac{n}{2^{n}}<\frac12$. Hence $$\vph\in SAT\implies Pr[\mcA(\vph)=1]> 1-\frac12=\frac12$$Hence $SAT\in RP$. Therefore $NP=RP$
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 7
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p5% problem reference text
+		}
+		%Problem	
+		If $PSPACE$ has polynomial size circuits then, show that $PSPACE=MA$
+	\end{problem}
+	
+	\solve{
+		%Solution
+		We will follow the given steps to prove this -:
+		\begin{itemize}
+			\item First we will prove that $MA \subseteq PSPACE$.
+		\item Let $L\in MA$.
+		\item We need to describe a $PSPACE$ algorithm for $L$.
+		\item For doing this we will use the fact that $L \in MA $ then  $\exists, p(n),q(n) $ polynomials in $n$ and $\exists$ a $DTIME $ machine $R$, such that $x\in L \iff$
+		$\exists$ $y_1\in \{0,1\}^{(p(n))}$ such that for a random selection of $y_2\in \{0,1\}^{(q(n))}$   $R(x,y_1,y_2)=1$ with probability $\geq \frac{3}{4}$.
+		\item Now what we will do is look over all $y_1\in\{0,1\}^{p(n)}$ and then calculate probability of success over $y_2$ by keeping a counter, if it is high enough we will accept $x$ otherwise we will keep searching for such an  $y_1$ until we exhaust the set$\{0,1\}^{(p(n))}$ if we are not able to find such $y_1$ then we will reject and for each branch described by $y_1 $ and $y_2$ we will reuse the space while doing so also we will clean the counter space after evaluating all possible $y_2$'s for a given $y_1$.
+		 \item Now the calculation of the work space will take polynomial space and the counters will also take at most $q(n)$(since we clean the counter after every $y_1$'s all branches computation )  bits so the total space would b polynomial in $n$. 
+		\item Hence we proved that $MA \subseteq PSPACE$.
+		\item Now if $MA \in P/poly$ we need to show that $PSPACE \in MA$.
+		\item For this we will use the fact that $PSPACE=IP$, we will in fact use a more stronger result that a problem in $PSPACE$  can be simulated using an $IP-protocol$ where whatever computation the prover does is in $PSPACE$ , that is the prover can be replaced by an $PSPACE $ machine. 
+		\item The stronger result follows from $IP=PSPACE$ as the prover always outputs a polynomially bounded  output in every round and at every step the prover can go over all possibilities in $PSPACE$ and check if there is a string which will make the protocol accept with high probability.
+		\item Now what we will do is in the first round $Merlin$ will send a polysized circuit family $\{C_i\}_{i=1}^{p(|x|)}$ upto some polynomially bounded length (snce in the IP-protocol the length of the messages will be bounded by some polynomial $p(|x|)$ ) for $Arthur $ to simulate this circuit family as the prover in the $IP-protocol$ whose prover is a $PSPACE$ machine and will accept iff at last the $IP-protocol$ simulation will accept it.
+		\item Notice that the simulation will be polytime as the $IP-protocol $ has polynomially many rounds and we are substituting the prover by a poly sized circuit so  prover's computation can be done in polytime and the verifier is running in polytime by the definition of $IP-protocol$.(The overall computation is polytime as we are doing polytime computations for polynomially many rounds .)
+		\item Now the circuit will be polysized in length of input , now if $x \in L$ then $\exists $ a  prover for which the $IP-protocol$ accepts with a high probability then $Merlin$ will send the circuit of this prover which is honest to $Arthur $ , now $Arthur$ will run the $IP-protocol $ with assuming this circuit as the prover , now $Arthur$ accepts iff this $IP-protocol$ accepts. Now by the completeness of the $IP$ protocol it will accept with a probability $\geq$ $\frac{3}{4}$).
+		 \item If $x \notin L$ then we get that by the soundness of the $IP-protocol$ that for any prover the acceptance probability is $\leq \frac{1}{4}$ , hence it will accept with a probability $\leq \frac{1}{4 }$.
+		\end{itemize}
+	}
+	
+	
+
+	
+
+	
+\end{document}
