@@ -1,0 +1,124 @@
+%
+%Hello Madhu,
+%
+%For my lecture notes, I used file preamble.tex, plagiarized from Dan
+%Spielman. It creates the nice box with all the names in the beginning of
+%the file. I am inclosing this file below. In the next two emails I will
+%send you .tex file and .ps file of lecture 2.
+%
+%Sofya
+%--------------
+%% preamble.tex
+%% this should be included with a command like
+%% \input{preamble.tex}
+%% \lecture{1}{September 4, 1996 }{Daniel A. Spielman}{name
+%%  of poor scribe}
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.4in}
+\setlength{\textheight}{8.5in}
+
+\newcommand{\handout}[5]{
+   \renewcommand{\thepage}{#1-\arabic{page}}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf 6.966 Algebra and Computation}
+     	 \hfill #2 }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+       \vspace{2mm}
+       \hbox to 5.78in { {\it #3 \hfill #4} }
+      }
+   }
+   \end{center}
+   \vspace*{4mm}
+}
+
+\newcommand{\lecture}[4]{\handout{#1}{#2}{Lecturer:
+#3}{Scribe: #4}{Lecture #1}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\newcommand{\qed}{\rule{7pt}{7pt}}
+\newcommand{\dis}{\mathop{\mbox{\rm d}}\nolimits}
+\newcommand{\per}{\mathop{\mbox{\rm per}}\nolimits}
+\newcommand{\area}{\mathop{\mbox{\rm area}}\nolimits}
+\newcommand{\cw}{\mathop{\rm cw}\nolimits}
+\newcommand{\ccw}{\mathop{\rm ccw}\nolimits}
+\newcommand{\DIST}{\mathop{\mbox{\rm DIST}}\nolimits}
+\newcommand{\OP}{\mathop{\mbox{\it OP}}\nolimits}
+\newcommand{\OPprime}{\mathop{\mbox{\it OP}^{\,\prime}}\nolimits}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\abs}[1]{\mathify{\left| #1 \right|}}
+
+\newenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proof-sketch}{\noindent{\bf Sketch of Proof}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proof-idea}{\noindent{\bf Proof Idea}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proof-of-lemma}[1]{\noindent{\bf Proof of Lemma #1}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proof-attempt}{\noindent{\bf Proof Attempt}\hspace*{1em}}{\qed\bigskip}
+\newenvironment{proofof}[1]{\noindent{\bf Proof}
+of #1:\hspace*{1em}}{\qed\bigskip}
+\newenvironment{remark}{\noindent{\bf Remark}\hspace*{1em}}{\bigskip}
+
+% \makeatletter
+% \@addtoreset{figure}{section}
+% \@addtoreset{table}{section}
+% \@addtoreset{equation}{section}
+% \makeatother
+
+\newcommand{\FOR}{{\bf for}}
+\newcommand{\TO}{{\bf to}}
+\newcommand{\DO}{{\bf do}}
+\newcommand{\WHILE}{{\bf while}}
+\newcommand{\AND}{{\bf and}}
+\newcommand{\IF}{{\bf if}}
+\newcommand{\THEN}{{\bf then}}
+\newcommand{\ELSE}{{\bf else}}
+
+% \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+% \renewcommand{\thetable}{\thesection.\arabic{table}}
+% \renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\makeatletter
+\def\fnum@figure{{\bf Figure \thefigure}}
+\def\fnum@table{{\bf Table \thetable}}
+\long\def\@mycaption#1[#2]#3{\addcontentsline{\csname
+  ext@#1\endcsname}{#1}{\protect\numberline{\csname 
+  the#1\endcsname}{\ignorespaces #2}}\par
+  \begingroup
+    \@parboxrestore
+    \small
+    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+  \endgroup}
+\def\mycaption{\refstepcounter\@captype \@dblarg{\@mycaption\@captype}}
+\makeatother
+
+\newcommand{\figcaption}[1]{\mycaption[]{#1}}
+\newcommand{\tabcaption}[1]{\mycaption[]{#1}}
+\newcommand{\head}[1]{\chapter[Lecture \##1]{}}
+\newcommand{\mathify}[1]{\ifmmode{#1}\else\mbox{$#1$}\fi}
+\renewcommand{\Pr}[1]{\mathify{\mbox{Pr}\left[#1\right]}}
+\newcommand{\Exp}[1]{\mathify{\mbox{Exp}\left[#1\right]}}
+\newcommand{\bigO}O
+\newcommand{\set}[1]{\mathify{\left\{ #1 \right\}}}
+\def\half{\frac{1}{2}}
+
+
+
+
+
+
+
