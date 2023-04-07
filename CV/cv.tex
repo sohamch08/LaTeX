@@ -6,12 +6,15 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[10pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt,a4paper,sans,colorlinks]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % modern themes
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{blue}
                                 % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\AtBeginDocument{
+	\hypersetup{colorlinks,urlcolor=purple!80!black}
+}                                                            
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
@@ -24,7 +27,7 @@
 
 % adjust the page margins
 %\usepackage[scale=0.8]{geometry}
-\usepackage[left=2cm, right=2cm, top=0.5cm]{geometry}
+\usepackage[left=2cm, right=2cm, top=1cm]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvheadnamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
@@ -40,8 +43,8 @@
 \email{sohamc@cmi.ac.in / sohamchatterjee999@gmail.com}                               % optional, remove / comment the line if not wanted
 \homepage{sohamalephnull.blogspot.com}                         % optional, remove / comment the line if not wanted
 
-\extrainfo{Date of Birth: 8th September, 2002}                % optional, remove / comment the line if not wanted
-%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\extrainfo{Date of Birth: 8th September, 2002}                % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{me.png}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
 % to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
@@ -72,7 +75,7 @@
 		\item{\cventry{2021 -- Ongoing}{B. Sc - Mathematics and Computer Science}{Chennai Mathematical Institute}{Chennai, Tamilnadu, India}{}{
 		}}
 		\vspace{4pt}
-		\item{\cventry{2020}{B. Tech 1st Year - Electronics and Communication Engineering}{University of Calcutta}{Kolkata, West Bengal, India}{}{
+		\item{\cventry{2020 -- 2021}{B. Tech 1st Year - Electronics and Communication Engineering}{University of Calcutta}{Kolkata, West Bengal, India}{}{
 		}}
 		
 		\vspace{4pt}
@@ -154,13 +157,13 @@
 				\item \textbf{Theoretical Computer Science Topics:} \begin{itemize}
 					\item Design and Analysis of Algorithms
 					\item Theory of Computation
-					\item Complexity Theory - Partha Mukhopadhyay 
-					\item Arithmetic Circuits - Nitin Saxena
-					\item Computational Algebra and Number Theory - Nitin Saxena
+					\item Complexity Theory - \href{https://www.cmi.ac.in/~partham/}{Partha Mukhopadhyay}
+					\item Arithmetic Circuits - \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}
+					\item Computational Algebra and Number Theory - \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}
 				\end{itemize}
 				\vspace*{5mm}
 				\item \textbf{Other CS Topics:} \begin{itemize}
-					\item Discrete Mathematics - C Ramya \& Partha Mukhopadhyay
+					\item Discrete Mathematics - \href{https://sites.google.com/cse.iitm.ac.in/c-ramya}{C Ramya} \& \href{https://www.cmi.ac.in/~partham/}{Partha Mukhopadhyay}
 					\item Introduction to Functional Programming (Haskell)
 					\item Advanced Programming with Python
 					\item Programming Language Concepts (Java, Concurrent Programming, Lambda Calculus)
@@ -185,9 +188,9 @@
 	
 	\begin{itemize}
 		
-		\item \textbf{Programming Languages:} Python, Haskell, Unix/Linux Shell Scripting
+		\item \textbf{Programming Languages:} Python (Basic), Haskell (Basic), Java (Basic), Unix/Linux Shell Scripting
 		
-		\item \textbf{Technical Skills:} \LaTeX, Git, Github, Basic works in terminal, VIM
+		\item \textbf{Technical Skills:} \LaTeX, Git, Basic works in terminal, VIM
 		
 		
 	\end{itemize}
