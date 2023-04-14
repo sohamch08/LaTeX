@@ -1,0 +1,321 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 4}\\
+		Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+		\normalsize Course: Complex Analysis \hfill Date: April 14, 2023}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 130: Problem 5
+		}{p1% problem reference text
+		}
+Prove that an isolated singularity of $f(z)$ is removable as soon as either $\Re (f(z))$ or $\Im (f(z))$ is bounded above or below. \textit{Hint:} Apply a fractional linear transformation.
+		%Problem		
+	\end{problem}
+	
+	\solve{
+		%Solution
+\begin{align*}
+	\Re>c& & \Im>c\\ 
+	\Re<c && \Im<c
+\end{align*}
+ Note that the fractional linear transformation $T(z) = \frac{z - 1}{z + 1}$ maps right half plane ($\Re > 0$)
+to the unit disc. Consequently, the map $T_c(z)=\frac{z-1-c}{z+1-c}$ maps the region $\Re>c$ onto the unit disc. 
+
+If $\Im>c, \Re<c, \Im<c$, we can always rotate these domains onto $\Re>c$. Hence we can map these regions to the unit disc via
+$$
+T_{c, n}(z)=\frac{i^n z-1-c}{i^n z+1-c}
+$$
+for $n=0,1,2,3$ (corresponding to the four cases, in order). 
+
+Hence, without loss of generality we may assume $\Re>0$. Consider now the composite map
+$$
+g(z)=\frac{f(z)-1}{f(z)+1}
+$$
+If $g$ has a removable singularity at zero, then
+$$
+\lim_{z \rightarrow 0} z g(z)=0
+$$
+and consequently,
+$$
+\lim _{z \rightarrow 0} z[f(z)-1]=\lim_{z \rightarrow 0} z f(z)=0
+$$}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 2
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 130: Problem 6
+		}{p2% problem reference text
+		}
+		%Problem		
+Show that an isolated singularity of $f(z)$ cannot be a pole of $\exp f(z)$. \textit{Hint:} $f$ and $e^f$ cannot have a common pole (why?). Now apply Theorem 9.		
+	\end{problem}                               
+	
+	\solve{
+		%Solution
+		Let $z_0$ is an isolated singularity of $f$. Now if $z_0$ is a pole of $f$ then $h(z)=f^{-1}(z)$ can be made analytic in some open disk $D$  around $z_0$ with $h(z_0)=0$. 
+		
+		Now $h(z)$ maps the open desk $D$ to some open neighborhood $U$ of $0$. Hence there is an open disk $D_1$ containing 0 inside $U$. Now let $G_1=h^{-1}(D_1)$. $G_1$ is open and contains $z_0$. So take a open disk $D'$ inside $G_1$ and again continue like we did for $D$ and repeat again and again to get $G_n$ and $D_n$. Thus we get a chain of open sets each contained in the previous one $$G_1\supseteq G_2\supseteq G_3\supseteq \cdots \supseteq G_n\supseteq \cdots$$where $h(G_k)=D_k$. Let $r_{d-k}$ denote the radius of $D_k$. Hence $f(G_k)=\{z\mid |z|\geq r_{D_k}\}$. Therefore $f(G_k)\subseteq f(G_{k+1})$. 
+		
+		Now if we take $D_k$'s in such way that $r_{D_k}>2R_{D_{k+1}}$ and take the sequence $x_k\in G_k\setminus  G_{k+1}$. Since each $D_k$ contains 0 we take $x_i$ such that $\Re(f(x_i))=0$ then $$\lim_{n\to \infty}x_n=z_0$$Therefore $$\lim_{n\to \infty}|e^{f(x_n)}|=\lim_{n\to \infty}|e^{\Re(f(x_n))}|=\lim_{n\to \infty}|e^{0}|=1$$Hence $z_0$ is not a pole of $e^{f(z)}$
+		
+		Now if $z_0$ is an removable singularity it is also a removable singularity for $e^{f(z)}$
+		
+		If $z_0$ is an essential singularity then  consider any non-zero $c \in \mathbb{C}$. By the Theorem 9, there is a sequence $z_n \rightarrow z_0$ such that $f\left(z_n\right) \rightarrow \log (c)$. So $\exp \left(f\left(z_n\right)\right) \rightarrow c$. Since this is true for all non-zero $c$, $\exp (f(z))$ must have an essential singularity at $z_0$.
+		
+		Hence $z_0$ is not a pole of $e^{f(z)}$.
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 3
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 133: Problem 3
+		}{p3% problem reference text
+		}
+		%Problem
+	Apply the representation $f(z) = w_o+\zeta(z)^n$ to $\cos z$ with $z_o = 0$.	Determine $\zeta(z)$ explicitly.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Take $g(z)=\cos z-1$. Now $g'(z)=-\sin z$, $g''(z)=-\cos z$ and $g(0)=0=g'(0)$, $g''(0)=-1$. Therefore $n=2$. Now $$\cos z-1=-2\sin^2\lt(\frac{z}2\rt)\iff \cos z=1-2\sin^2\lt(\frac{z}2\rt)\quad \forall\ z\in\bbC$$Hence $$\cos z-1=\lt(\pm \sqrt{2}i\sin\frac{z}{2}  \rt)^2$$Hence $\zeta(z)=\sqrt{2}i\sin\frac{z}{2}$ (we are taking the positive branch)
+	}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 4
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 133: Problem 4
+		}{p4% problem reference text
+		}
+		%Problem		
+ If $f(z)$ is analytic at the origin and $f'(0) \neq 0$, prove the existence of an analytic $g(z)$ such that $f(z^n) = f(0)+g(z)^n$ in a neighborhood of 0.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Take $h(z)=f(z^n)$. Then \begin{align*}
+			h'(z)&=nz^{n-1}f'(z^n)\\
+			h''(z)&=n(n-1)z^{n-2}f'(z^n)+n^2z^{2(n-1)}f''(z^n)=n(n-1)z^{n-2}f'(z^n)+\tdg_2(z) \\
+			h^{(3)}(z)& = n(n-1)n(2)z^{n-3}f'(z^n)+\tdg_3(z)\\
+			\vdots\quad & \qquad\qquad\qquad\vdots\\
+			h^{(n)}(z)& = n!f'(z^n)+\tdg_n(z)
+		\end{align*}Now forall $k\in \{1,2,\dots,n\}$ $\tdg_k(0)=0$ and forall $k\in \{1,2,\dots,n-1\}$, $h^{(k)}(0)=0$ and $g^{(n)}(0)=n!f'(0)$. Since given that $f'(0)\neq 0$ we have $g^{(n)}(0)\neq 0$. Hence there exists a function $h(z)$ such that $h(0)\neq 0$ and $$g(z)-f(0)=(z-0)^nh(z)$$Now since $H()z)$ is continuous for $\eps=|h(z_0)|$ there exists $\delta$  such that $$\forall\ |z-z_0|<\delta\implies |h(z)-h(z_0)|<|h(z_0)$$Hence we have a single valued branch of $\sqrt[n]{h(z)}$, $\zeta(z)=(z-z_0)\sqrt[n]{h(a)}$. Then we have $$h(z)-f(0)=\zeta^n(z)\iff f(z^n)=f(0)+\zeta^n(z)$$
+	}
+	
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 5
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+Ahlfors Page 136: Problem 1
+		}{p5% problem reference text
+		}
+		%Problem		
+	Show by use of (36), or directly, that $|f(z)| \leq 1$ for $|z| \leq 1$ implies
+	$$
+	\frac{\left|f^{\prime}(z)\right|}{\left(1-|f(z)|^2\right)} \leq \frac{1}{1-|z|^2}
+	$$
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Here the given function $f$, $|f(z)|\leq 1$ for $|z||\leq 1$. Then choose any $z_0\in \overline{B(0,1)}$ and let $w_0=f(z_0)$. Hence we have 
+		\begin{align*}
+			& \lt|\frac{f(z)-w_0}{1-\overline{w_0}f(z)}  \rt| \leq \lt|\frac{z-z_0}{1-\overline{z_0}z} \rt|                   &                        \\
+			\implies & \frac{\lt|\frac{f(z)-f(z_0)}{z-z_0}\rt|}{\lt|1-\overline{w_0}f(z) \rt|}\leq \lt|\frac{1}{1-\overline{z_0}z}\rt| &                        \\
+			\implies & \frac{\lt| f'(z_0)\rt|}{\lt|1-\overline{f(z_0)}f(z_0)\rt|}\leq \frac{1}{\lt| 1-\overline{z_0}z_0\rt|}           & [\text{As $z\to z_0$}] \\
+			\implies & \frac{|f'(z_0)|}{1-|f(z_0)|^2}\leq \frac1{|1-|z_0|^2}                                                           &
+		\end{align*}Since $z_0$ is arbitrary we have 
+	$$
+	\frac{\left|f^{\prime}(z)\right|}{\left(1-|f(z)|^2\right)} \leq \frac{1}{1-|z|^2}
+	$$
+	}
+	
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 6
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 136: Problem 2
+		}{p6% problem reference text
+		}
+		%Problem		
+If $f(z)$ is analytic and $\Im f(z) \geq 0$ for $\Im z>0$, show that
+$$
+\frac{\left|f(z)-f\left(z_0\right)\right|}{\left|f(z)-\overline{f\left(z_0\right)}\right|} \leq \frac{\left|z-z_0\right|}{\left|z-\bar{z}_0\right|}
+$$
+and
+$$
+\frac{\left|f^{\prime}(z)\right|}{\Im f(z)} \leq \frac{1}{y} \quad(z=x+i y)
+$$
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Let $z_0$ be any complex number and $w_0=f(z_0)$. Take $F(\zeta)=Sf(T^{-1}\zeta)$ like in the proof of the inequality in $(36)$ in Ahlfors for some linear transformation $T,S$. Now define $$Tz=\frac{z-z_0}{z-\overline{z_0}}\quad \text{and}\quad Sz=\frac{z-w_0}{z-\overline{w_0}}$$Now if we can show that $F(\zeta)$ satisfies the conditions of Schwarz Lemma then we have $|F(\zeta)|\leq |\zeta|$ by setting $Tz=\zeta$. 
+	
+	First we have to show $F(0)=0$. Now $Tz_0=0$ hence $T^{-1}0=z_0$. Similarly $Sw_0=0$. Since $f(z_0)=w_0$ we have $F(0)=0$
+	
+	Now we have to show $|F(\zeta)|\leq 1$. Now $Tz$ maps the upper half plane to inside of the unit disk. Hence im $\Im z\geq 0 $ then $|\zeta|<1$. Similarly $S$ also maps the upper half plane to inside of the unit disk. Therefore $T^{-1}(\zeta)$ maps the inside of the unit disk to upper half plane. And given that if $\Im z\geq 0$ then $\Im f(z)\geq 0$. Hence $|F(\zeta)|\leq 1$ for $|\zeta|<1$. 
+	
+	Since $F$ satisfies the conditions of Schwarz Lemma we have \begin{multline*}
+		 |F(\zeta)|\leq |\zeta|\implies  |Sf(T^{-1}\zeta)|\leq |\zeta|	 	\implies  |Sf(z)|\leq |Tz|\implies\\
+		  \lt|\frac{f(z)-w_0}{f(z)-\overline{w_0}}\rt|\leq \lt|\frac{z-z_0}{z-\overline{z_0}}\rt|	\implies \lt|\frac{f(z)-f(z_0)}{f(z)-\overline{f(z_0)}}\rt|\leq \lt|\frac{z-z_0}{z-\overline{z_0}}\rt|
+	\end{multline*}		
+Now $$\lt|\frac{f(z)-f(z_0)}{f(z)-\overline{f(z_0)}}\rt|\leq \lt|\frac{z-z_0}{z-\overline{z_0}}\rt|\implies \lt|\frac{f(z)-f(z_0)}{z-z_0}\rt|\leq \lt|\frac{f(z)-\overline{f(z_0)}}{z-\overline{z_0}}\rt|$$By taking $z\downarrow z_0$ we have $$\lim_{z\downarrow z_0}\lt|\frac{f(z)-f(z_0)}{z-z_0}\rt|\leq\lim_{z\downarrow z_0} \lt|\frac{f(z)-\overline{f(z_0)}}{z-\overline{z_0}}\rt|\implies |f'(z_0)|\leq  \frac{2(\Im f(z_0))}{2(\Im z_0)}\implies \frac{|f'(z_0)|}{\Im f(z_0)}\leq \frac1{\Im z_0}\text{ for $\Im z_0\geq 0$}$$ Since $z_0$ is arbitrary in the upper half plane, hence for any $z=x+iy$, with $y\geq 0$ we have $$\frac{\left|f^{\prime}(z)\right|}{\Im f(z)} \leq \frac{1}{y} $$
+		
+	}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 7
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 136: Problem 3
+		}{p7% problem reference text
+		}
+		%Problem
+In \hyperref[p:p5]{Problem 5} and \hyperref[p:p6]{Problem 6}, prove that equality implies that $f(z)$ is a linear transformation.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Take $F(\zeta)=Sf(T^{-1}\zeta)$ like in the proof of the inequality in $(36)$ in Ahlfors for some linear transformation $T,S$. Now $|F(\zeta)|\leq 1$ and $F(0)=0$. Hence if $|F(\zeta)|=|\zeta|$ then $F(z)=cz$ for some constant $c\in \bbC$ by Schwarz Lemma. Hence $$Sf(T^{-1}\zeta)=cs\iff f(z)=S^{-1}(cT(z))\quad [\text{take $z=T^{-1}(\zeta)$}]$$Therefore $f(z)$ is a linear combination
+	}
+
+	
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 8
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+			Ahlfors Page 148: Problem 2
+		}{p8% problem reference text
+		}
+		%Problem		
+		Prove that the region obtained from a simply connected region by removing $m$ points has the connectivity $m+1$, and find a homology basis.
+	\end{problem}
+	
+	\solve{
+		%Solution
+		\begin{itemize}
+			\item Let the region $\Om$ is obtained from the simply connected region $S$ by removing $m$ points. Let the points are $x_1,\dots, x_m$. Hence $\bbC-\Om=(\bbC-S)\cup \{x_1,\dots,x_m\}$. 
+		
+		$\bbC-S$ is connected in the extended plane by definition. Hence $\bbC-S$ is counted as one connected component. Since the $m$ points are chosen from the region $S$, the singleton sets $\{x_i\}$ form connected components for all $i\in\{1,2,\dots,m\}$. Hence there are $m+1$ connected components in $\bbC-\Om$ which are $\bbC-S$ and $\{x_i\}$ $\forall\ i\in \{1,2,\dots,m\}$
+			\item Since the points are distinct and finite we can take the circles as the curves around each  point choose their radius in such a way that no two curves intersect each other and no curv pass through any of those $m$ points. These $m$ many circles will be the homology basis.
+		\end{itemize}
+	}
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 9
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagebreak
+	\begin{problem}{%problem statement
+			Ahlfors Page 48: Problem 5
+		}{p9% problem reference text
+		}
+		%Problem		
+ Show that a single-valued analytic branch of $\sqrt{1-z^2}$ can be defined in any region such that the points $\pm 1$ are in the same component of the complement. What are the possible values of $$\int\frac{dz}{\sqrt{1-z^2}}$$ over a  closed  curve in the region?
+	\end{problem}
+	
+	\solve{
+		%Solution
+	\begin{itemize}
+		\item \parinn	Let $\Omega$ be any region. Now given that in $\bbC-\Om$, 1 and $-1$ lie in same component.  Now we have to define a single valued analytic branch of $\sqrt{1-z^2}$.
+		
+		First we will define an single valued analytic branch of $\log \lt( \frac{1-z}{1+z} \rt)$ in $\Om$. Let $\gm$ be any closed curve in $\Om$. Then $$\int_{\gm}\lt( \frac1{z-1}-\frac1{z+1}\rt)dz=n(\gm;1)-n(\gm;-1)=0$$ since 1, $-1$ lie in same component. Hence it has an anti-derivative function $f(z)$ which is analytic defined in the region $\Om$. Now we have $$\frac{d}{dz}\lt(\frac{z+1}{z-1}\rt)e^f(z)=e^z\lt(\frac{(z-1)-(z+1)}{(z-1)^2}+\frac{z+1}{z-1}\lt(\frac1{z-1}-\frac1{z+1}  \rt)  \rt)=0$$Hence $\frac{z+1}{z-1}e^f(z)$ is a constant function. Hence $\frac{z+1}{z-1}e^{f(z)}=cz$ for some $c\in \bbC$. Let $e^a=c$ then let $g(z)=f(z)-a$ then $$\frac{z+1}{z-1}e^{f(z)}=cz\implies e^{-a}e^{f(z)}=\frac{z-1}{z+1}\implies e^{f(z)-a}=\frac{z-1}{z+1}\implies e^{g(z)}=\frac{z-1}{z+1}$$ Hence we can define $\log \lt(\frac{z-1}{z+1}\rt)=g(z)=f(z)-a$. Hence now we have an analytic function $g(z)$ defined in $\Om$. 
+		
+		Now \begin{align*}
+			& e^{g(z)}=\frac{z-1}{z+1}=-\frac{1-z^2}{(1+z)^2} \implies -(z+1)^2e^{g(z)}=1-z^2 \implies \Big(i(z+1)e^{\frac{g(z)}{2} } \Big)=1-z^2
+		\end{align*}
+	Let $h(z)=i(z+1)e^{\frac{g(z)}{2}}$ then $h(z)$ defines an analytic branch or $\sqrt{1-z^2}$. 
+	
+	$\sqrt{1-z^2}$ vanishes at both 1 and $-1$. If $\gm$ doesn't pass through $[-1,1]$ interval, removing the branch cut, we can pick an analytic branch of $\sqrt{1-z^2}$ in $\bbC-[-1,1]$. For our region we can extend  the branch of $\sqrt{1-z^2}$ to $\bbC-[-1,1]$ in this case. So we can replace the integrand function with the extended branch and assume that it is analytic in $\bbC-[-1,1]$ and $\Om=\bbC-[-1,1]$. And WLOG we can also assume that the component in which 1,$-1$ lies, is the line segment $[-1,1]$. Now we can take any circle of radius $r$ where $r>1$ to be the homology basis  for the component of the line segment $[-1,1]$.
+	
+	Now suppose $\gm$ passes through $[-1,1]$. Now there exists another path $p$ which is not cut by $\gm$. Now we extend the branch to $\bbC-p$  and take circle of radius $r$  such that path $p$ lies in side the disk of radius $r$. This circle will form a homology basis  corresponding to $p$.
+	\item Since $\lim\limits_{z\to \infty}\frac{1-z^2}{z^2}=-1$ we have $\lim\limits_{z\to \infty}\frac{\sqrt{1-z^2}}{z}=i\text{ or }-i$ Hence for the first case $$\frac{1}{\sqrt{1-z^2}}-\frac{1}{iz}=\frac{iz-\sqrt{1-z^2}}{iz\sqrt{1-z^2}}=O(z^{-3})$$Similarly in the second case $$\frac{1}{\sqrt{1-z^2}}+\frac{1}{iz}=\frac{iz+\sqrt{1-z^2}}{iz\sqrt{1-z^2}}=O(z^{-3})$$ Hence we have $\frac1{\sqrt{1-z^2}}=\pm\frac1{iz}+O(z^{-3})$. Hence $$\int_{\gm}\frac{dz}{\sqrt{1-z^2}}=n(\gm;0)\int_{|z|=R}\frac{dz}{\sqrt{1-z^2}}=n(\gm;0)\lim_{R\to \infty}\int_{|z|=R}\lt( \pm\frac1{iz}+O(z^3) \rt)dz=n(\gm;0)\lt(\underbrace{\pm\int_{|z|=R}\frac{dz}{iz}}_{\pm 2\pi}\rt)$$Hence $\int\limits_{\gm}\frac{dz}{\sqrt{1-z^2}}$ is integral multiple of $2\pi$
+	
+	\end{itemize}
+}
+		
+
+	
+\end{document}
