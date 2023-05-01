@@ -1,0 +1,30 @@
+\section{Class Relations}
+\begin{prop}{}{}
+$BP\cdot NP\subseteq NP/poly$
+\end{prop}
+
+\begin{prop}{}{}
+    If $\overline{3SAT}\in BP\cdot NP$ then $PH=\Sg_3$
+\end{prop}
+
+\begin{prop}{}{}
+If $P S P A C E \subseteq P /$ poly then $P S P A C E=\sum_2^p \cap \prod_2^p$. 
+\end{prop}
+
+\textbf{\textit{Proof: }}Since $\Sigma_2^p \cap \Pi_2^p \subseteq P S P A C E$, it suffices to prove
+$$
+P S P A C E \subseteq P / \text { poly } \Rightarrow P S P A C E \subseteq \sum_2^p \cap \prod_2^p \text {. }
+$$
+For this it is sufficient to show
+$$
+\mathrm{G} \in P / \text { poly } \Rightarrow \mathrm{G} \in \sum_2^p \cap \prod_2^p
+$$
+where $\mathrm{G}$ is the PSPACE-complete set described in Fact 2. Suppose $\mathrm{G} \in P /$ poly. Then there is a set $\mathrm{S} \in P$, a positive constant $k$, and a function $h: N \rightarrow\{0,1\}^*$ such that $|h(n)| \leqslant k+n^k$, so that $\mathrm{G}=\mathrm{S}: h$. By lemma 4.1,
+$$
+x \in G \Leftrightarrow \exists w \forall w^{\prime} \text { Win }\left(w, w^{\prime}, x\right) .
+$$
+Here each of $w$ and $w^{\prime}$ ranges over all strings of length $\leqslant k+|x|^k$. Since $F_0$ and $F_1$ are polynomial-time computable, W is polynomial-time recognizable and play from $x$ terminates within $p(|x|)$ moves, the predicate Win $\left(w, w^{\prime}, x\right)$ is computable in polynomial-time. Thus $\mathrm{G} \in \sum_2^p$. Similarly, since
+$$
+x \in \mathrm{G} \Leftrightarrow \forall w^{\prime} \exists w \operatorname{Win}\left(w, w^{\prime}, x\right) .
+$$
+it follows that $\mathrm{G} \in \prod_2^p$.
