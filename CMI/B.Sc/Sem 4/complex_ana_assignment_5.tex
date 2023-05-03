@@ -275,6 +275,20 @@ Let $\Omega$ be a doubly connected region whose complement consists of the compo
 	
 	\solve{
 		%Solution
+		Let $\Om$ be the given doubly connected region. At least one of the regions $E_1$ and $E_2$ is bounded. WLOG suppose $E_1$ is bounded. Hence boundary of $E_1$, $\partial E_1$ is compact. Hence $\partial E_2$ is closed and disjoint. Let distance between $\partial E_1$ and $\partial E_2$ is $d>0$
+		
+		Now we cover the entire plane with the grid of squares of length $\eps$. We will choose the $\eps>0$ later. Let $S$ be the set of squares which intersects $E_1$ Since $E_1$ is bounded $S$ is a finite set. Let $S'$ be the set of squares which are not in $S$ but intersects any square in $S$. Take the set $T=S\cup S'$. If we take $\eps$ sufficiently small then we can make $T\subset \Om$, take $\eps < \frac{\delta}{8}$
+		
+		Now we will define a cycle. $$\gm =\sum_{R\in S'}\partial R$$Now we cancel out the opposite directions of same sides. Now each side of $\gm$ have two cases\begin{enumerate}[label=(\arabic*)]
+			\item An edge shared between a square in $S$ and an square in $S'$. 
+			\item An outer edge of a square in $S'$.
+		\end{enumerate}
+Let $\gm_1$ be the part of $\gm$ which are of type $(1)$. And $\gm_2$ be the part of $\gm $ which are of type $(2)$. Hence they are disjoint and  $\gm_1$ is negatively oriented, $\gm_2$ is positively oriented.$$\gm_1+\gm_2=\gm$$Therefore $$\forall \ z\in E_1,\ n(\gm,z)=n(\gm_1,z)+n(\gm_2,z)=-1+1=0$$Similarly since $E_2$ is unbounded  we have $$\forall \ z\in E_2,\ n(\gm,a)=0$$since we can make $\eps$ small enough so that $E_2$ lies outside the region enclosed by $\gm_2$.  Hence $\gm\sim 0\pmod \Om$. 
+
+Hence by Generalized Cauchy Theorem $$f_k(z)=\frac{1}{2\pi i}\int_{\gm_k}\frac{f(\zeta)}{\zeta-z}d\zeta, \ k\in \{1,2\}$$and we get $f(z)=f_1(z)+f_2(z)$. $f_2$ is analytic outside the union of square in $S$ and $f_1$ is analytic outside the union of squares of $T$
+
+Hence we take $\eps$ small enough so that it approached to $\partial E_1$ and so we can extend $f_2$ all over outside $E_1$. Similarly we can extend $f_1$ outside $E_2$.
+
 	}
 	
 \end{document}
