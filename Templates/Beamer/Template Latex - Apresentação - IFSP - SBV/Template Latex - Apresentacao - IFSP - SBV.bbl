@@ -1,0 +1,38 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Abedi et al. 2014]{Abedi2014}
+\abntrefinfo{Abedi et al.}{ABEDI et al.}{2014}
+{ABEDI, Z. et al. {A}cute, sublethal, and combination effects of azadirachtin
+  and {B}acillus thuringiensis on the cotton bollworm, {H}elicoverpa armigera.
+\textbf{J. Insect Sci.}, v.~14, p. 30--37, 2014.}
+
+\bibitem[Agaisse e Lereclus 1995]{Agaisse1995}
+\abntrefinfo{Agaisse e Lereclus}{AGAISSE; LERECLUS}{1995}
+{AGAISSE, H.; LERECLUS, D. {H}ow does {B}acillus thuringiensis produce so much
+  insecticidal crystal protein?
+\textbf{J. Bacteriol.}, v.~177, n.~21, p. 6027--6032, 1995.}
+
+\bibitem[Agapito-Tenfen et al. 2014]{AgapitoTenfen2014}
+\abntrefinfo{Agapito-Tenfen et al.}{AGAPITO-TENFEN et al.}{2014}
+{AGAPITO-TENFEN, S.~Z. et al. {E}ffect of stacking insecticidal cry and
+  herbicide tolerance epsps transgenes on transgenic maize proteome.
+\textbf{BMC Plant Biol}, v.~14, p.~346, 2014.}
+
+\bibitem[Crickmore et al. 2016]{BtNomenclature2016}
+\abntrefinfo{Crickmore et al.}{CRICKMORE et al.}{2016}
+{CRICKMORE, N. et al. \textbf{{B}acillus thuringiensis toxin nomenclature}.
+  2016.
+Dispon{\'\i}vel em: \url{http://www.btnomenclature.info}. Acesso em: 04 de out.
+  de 2016.}
+
+\bibitem[Nelson e Cox 2014]{Nelson2014}
+\abntrefinfo{Nelson e Cox}{NELSON; COX}{2014}
+{NELSON, D.~L.; COX, M.~M. \textbf{{P}rincípios de {B}ioquímica de
+  {L}ehninger}. 6. ed. Porto Alegre: Artmed, 2014. 1328~p.}
+
+\end{thebibliography}

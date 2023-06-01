@@ -1,0 +1,304 @@
+\section{Exemplos}
+
+
+\begin{frame}
+
+    \frametitle{Título do Slide}
+
+    Texto corrido normal .
+    
+    \begin{huge}
+        Texto com fonte gigante.
+    \end{huge}
+    
+    \begin{LARGE}
+        Texto com fonte GRANDE.
+    \end{LARGE}
+        
+    \begin{Large}
+        Texto com fonte Grande.
+    \end{Large}
+    
+    \begin{large}
+        Texto com fonte grande.
+    \end{large}
+    
+    \begin{normalsize}
+        Texto com fonte normal.
+    \end{normalsize}
+        
+    \begin{small}
+        Texto com fonte pequena.
+    \end{small}
+        
+    \begin{footnotesize}
+        Texto com fonte do tamanho de nota de rosapé.
+    \end{footnotesize}
+    
+    \begin{scriptsize}
+        Texto com fonte do tamanho de letra manuscrita.
+    \end{scriptsize}
+        
+    \begin{tiny}
+        Texto com fonte minúscula.
+    \end{tiny}        
+
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Duas Colunas}
+    
+    \begin{columns}[t]
+    
+        \begin{column}{7cm}
+
+            Conteúdo da coluna 1.
+
+        \end{column}
+
+        \begin{column}{7cm}
+
+            Conteúdo da coluna 2.
+
+        \end{column}
+
+    \end{columns}
+        
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Blocos}
+    
+    Exemplos de blocos de texto. Cuidado para não abusar no uso, evitando que os slides fiquem muito ``carregados''.
+    
+    \begin{block}{Observação}
+        Caixa de texto padrão.
+    \end{block}
+    
+    \begin{exampleblock}{Exemplo}
+        Caixa de texto de exemplo.
+    \end{exampleblock}
+        
+    \begin{alertblock}{Importante}
+        Caixa de texto de alerta.
+    \end{alertblock}
+    
+    \definecolor{corFundoTitulo}{RGB}{95, 40, 113}
+    \definecolor{corTextoTitulo}{RGB}{255, 255, 255}
+    \definecolor{corFundoConteudo}{RGB}{114, 140, 166}
+    \definecolor{corTextoConteudo}{RGB}{0, 0, 0}
+    \begin{bloco}{Bloco com cores customizadas}{bg=corFundoConteudo,fg=corTextoConteudo}{bg=corFundoTitulo,fg=corTextoTitulo}
+        Conteúdo
+    \end{bloco}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Desenhos Usando Tikz}
+    
+    Desenhando formas...
+    
+    \begin{center}
+        \begin{tikzpicture}[scale=1.0]
+            \draw[blue, very thick] (0,0) rectangle (3,2);
+            \draw[orange, ultra thick] (4,0) -- (6,0) -- (5.7,2) -- cycle;
+        \end{tikzpicture}
+    \end{center}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Desenhos Usando Tikz}
+    
+    Uma Máquina de Turing que realiza a operação subtração própria.
+    
+    \begin{center}
+        \begin{tikzpicture} [scale=0.75, every node/.style={transform shape}, node distance = 3cm, on grid]
+
+            \node (q0) [state,
+                initial,
+                initial text=Início
+            ] {$q_0$};
+            \node (q1) [state, right = of q0] {$q_1$};
+            \node (q2) [state, right = of q1] {$q_2$};
+            \node (q3) [state, right = of q2] {$q_3$};
+            \node (q5) [state, below = of q0] {$q_5$};
+            \node (q6) [state, below = of q1] {$q_6$};
+            \node (q4) [state, below = of q2] {$q_4$};
+                        
+            \path [-stealth]
+                (q0) edge node[above] {$0/B\rightarrow$} (q1)
+                (q1) edge [loop below] node {$0/0\rightarrow$} ()
+                (q1) edge node[above] {$1/1\rightarrow$} (q2)
+                (q2) edge [loop below] node[right] {$1/1\rightarrow$} ()
+                (q2) edge node[above] {$0/1\leftarrow$} (q3)
+                
+                (q3) edge [loop below] node {$
+                    \begin{aligned}
+                      0 &/ 0\leftarrow\\[-0.7ex]
+                      1 &/ 1\leftarrow
+                    \end{aligned}$} ()
+                
+                (q3) edge [bend right] node[above] {$B/B\rightarrow$} (q0)
+                
+                (q0) edge [bend right] node[left] {$1/B\rightarrow$} (q5)
+                (q2) edge [bend right] node[left] {$B/B\leftarrow$} (q4)
+                
+                (q5) edge [loop below] node {$
+                    \begin{aligned}
+                      0 &/ B\rightarrow\\[-0.7ex]
+                      1 &/ B\rightarrow
+                    \end{aligned}$} ()
+                                    
+                (q5) edge node[above] {$B/B\rightarrow$} (q6)
+                
+                (q4) edge [loop below] node {$
+                    \begin{aligned}
+                      0 &/ 0\leftarrow\\[-0.7ex]
+                      1 &/ B\leftarrow
+                    \end{aligned}$} ()
+                                    
+                (q4) edge node[above] {$B/0\rightarrow$} (q6);
+        
+        \end{tikzpicture}
+    \end{center}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Figura}
+    
+    \begin{figure}[!htbp]
+       	\centering
+       	\caption{Exemplo de figura (caption é opcional)}
+       	\includegraphics[scale=0.75]{imagens/exemploFigura}
+        \\\small{\textbf{Fonte:} Elaborada pelo autor (fonte é opcional)}%
+     \end{figure}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Tabela}
+    
+    \begin{table}[!htbp]
+       	\centering
+       	\caption{Exemplo de tabela de 2 colunas (caption é opcional)}
+       	\begin{tabular}{ c | c }
+       		\hline
+       		\textbf{Coluna 1} & \textbf{Coluna 2} \\ \hline
+       		Dado 1a           & Dado 2a           \\ \hline
+       		Dado 1b           & Dado 2b           \\ \hline
+       		Dado 1c           & Dado 2c           \\ \hline
+       		Dado 1d           & Dado 2d           \\ \hline
+       	\end{tabular}
+       	\\ \vspace{0.2cm}
+       	\small{\textbf{Fonte:} Elaborada pelo autor (fonte é opcional)}%
+     \end{table}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Quadro}
+    
+    \begin{quadro}[!htbp]
+       	\centering
+       	\caption{Exemplo de quadro (caption é opcional)}
+       	\includegraphics[scale=.3]{imagens/exemploQuadro}
+        \\ \vspace{0.2cm}
+       	\small{\textbf{Fonte:} Elaborada pelo autor (fonte é opcional)}%
+    \end{quadro}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Equação}
+    
+    \begin{equation}
+        \sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+        \label{eq:exemplo}
+    \end{equation}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Código Fonte}
+    
+    \centering
+    \resizebox{10cm}{!}{%
+        \lstinputlisting[language=Java]{fontes/ClasseExemplo.java} 
+    }
+    
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Lista de Itens}
+    
+    \begin{itemize}
+       	\item \textbf{Item 1:} texto...;
+       	\item \textbf{Item 2:} texto...;
+       	\begin{itemize}
+       		\item \textbf{Subitem:} texto...;
+       		\item \textbf{Subitem:} texto...;
+       		\item \textbf{Subitem:} texto...;
+       	\end{itemize}
+       	\item \textbf{Item 3:} texto...;
+       	\item \textbf{Item n:} texto....
+    \end{itemize}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Slide com Lista Numerada}
+    
+    \begin{enumerate}
+       	\item \textbf{Item:} texto...;
+       	\item \textbf{Item:} texto...;
+       	\begin{enumerate}
+       		\item \textbf{Subitem:} texto...;
+       		\item \textbf{Subitem:} texto...;
+       		\item \textbf{Subitem:} texto...;
+       	\end{enumerate}
+       	\item \textbf{Item:} texto...;
+       	\item \textbf{Item:} texto....
+    \end{enumerate}
+         
+\end{frame}
+
+
+\begin{frame}
+
+    \frametitle{Formatação de Texto e Referências}
+    
+    Todas as macros que você utilizou na elaboração do seu documento podem ser usadas nas apresentações, com exceção do ambiente verbatim. Você poderá criar citações formatadas também, mas as referências não serão geradas em um slide, apenas serão exibidas no texto. Por exemplo:
+    
+    \begin{itemize}
+        \item \cite{Abedi2014, Agaisse1995};
+        \item \cite{AgapitoTenfen2014, BtNomenclature2016, Nelson2014};
+        \item \citeauthorandyear{Agaisse1995};
+        \item \citeauthorandyear{Abedi2014};
+        \item \citeauthorandyear{BtNomenclature2016};
+    \end{itemize}
+         
+\end{frame}

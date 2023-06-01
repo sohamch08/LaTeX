@@ -72,18 +72,18 @@ An arithmetic circuit $C$, over a field $\coef$, is a rooted $DAG$ as follows\be
 \qs{}{How many monomials are there in $n$ variable $d$ degree polynomial ?}
 \solve{${{n+d}\choose{d}}\approx \lt( \frac{n}{d}\rt)^d,\lt( \frac{d}{n}\rt)^n$}
 
-\ex{}{\circuitdraw{
+\circuitdraw{
 		\node[state] (C)
-		{$+$};
+		{$\vee$};
 		\node[state] (A) [below left=of C] {$x_1$};
 		\node[state] (B) [below right =of C] {$x_2$};
 		\path (A) edge node[left] {} (C);
 		\path (B) edge node[right] {} (C);
-		\node[state] (D) [above right=1 cm and 1 cm of C] {$\times$};
-		\node[state] (E) [above left=1 cm and 2 cm of D] {$\times$};
-		\node[state] (F) [above right=1 cm and 2 cm of E] {$\times$};
-		\node[state] (G) [above left=1 cm and 1 cm of F] {$+$};
-		\node (H) [right=2cm of G] {\LARGE{$f$}};
+		\node[state] (D) [above right=1 cm and 1 cm of C] {$\wedge$};
+		\node[state] (E) [above left=1 cm and 2 cm of D] {$\wedge$};
+		\node[state] (F) [above right=1 cm and 2 cm of E] {$\wedge$};
+		\node[state] (G) [above left=1 cm and 1 cm of F] {$\vee$};
+		\node (H) [right=2cm of G] {\LARGE{$\phi$}};
 		\path node[below=0.5cm] {} (C) edge [bend left=10] node[above] {} (D);
 		\path (C) edge [bend right=10] node[below] {} (D);
 		\path (D) edge [bend left=10] node[above] {} (E);
@@ -91,7 +91,7 @@ An arithmetic circuit $C$, over a field $\coef$, is a rooted $DAG$ as follows\be
 		\path (E) edge [bend left=10] node[above] {}  (F);
 		\path (E) edge [bend right=10] node[below] {} (F);
 		\path (F) edge [bend right=10] node[above] {}  (G);
-		\path (E) edge [bend left=10] node[above=2mm, left=1mm] {-1} (G);
+		\path (E) edge [bend left=10] node[above=2mm, left=1mm] {$\neg$} (G);
 		\node[text width=10cm, left=5cm of E] {$f(x_1,x_2)=(x_1+x_2)^8-(x_1+x_2)^4$.
 			\vspace{1cm}
 			
@@ -106,7 +106,7 @@ An arithmetic circuit $C$, over a field $\coef$, is a rooted $DAG$ as follows\be
 %\path (B) edge [bend left =15] node[below =0.15 cm] {$1/2$} (A);
 %\path (C) edge [bend left =15] node[below =0.15 cm] {$1/2$} (B);
 %\path (B) edge [bend right = -25] node[below =0.15 cm] {$1/2$} (C);
-}
+
 \qs{Foundational Question in this area}{When a polynomial is not possible to compress by circuit representation and only way is depth-2 (worst possible way)}
 \dfn{Fanin, Fanout, Formula, Family of Circuits}{\begin{itemize}
 		\item \textbf{Fanin: }Maximum in-degree

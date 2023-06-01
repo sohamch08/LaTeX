@@ -1,0 +1,197 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{estruturaApresentacao}[2023/01/31 Modelo para Apresentações]
+
+\RequirePackage{lmodern}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[portuges,brazil]{babel}
+\RequirePackage{xcolor,colortbl}
+\RequirePackage{graphicx}
+\RequirePackage{microtype}
+\RequirePackage{hyperref}
+\RequirePackage{subfig}
+\RequirePackage{url}
+\RequirePackage{placeins}
+\RequirePackage{multirow}
+\RequirePackage[figuresright]{rotating}
+\RequirePackage{chemfig}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+\RequirePackage{bigints}
+\RequirePackage{listingsutf8}
+\RequirePackage{etoolbox}
+\RequirePackage[final]{pdfpages}
+\RequirePackage{bigstrut}
+\RequirePackage{beamerthemesplit}
+\RequirePackage{pgfpages}
+\RequirePackage[brazilian,hyperpageref]{backref}
+\RequirePackage{tikz}
+\RequirePackage{tkz-euclide}
+\RequirePackage{caladea,carlito}
+\RequirePackage{caption}
+\RequirePackage{newfloat}
+
+\usetikzlibrary{automata, arrows.meta, positioning, shapes}
+
+\DeclareOption{hideSubsectionTitle}{
+    \ifdefined\esconder
+    \else
+        \newcommand{\esconder}{}
+    \fi
+}
+
+\ProcessOptions\relax
+
+\ifdefined\esconder
+    \usetheme{Frankfurt}
+\else
+    \usetheme{Darmstadt}
+\fi
+
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\definecolor{corComentario}{RGB}{150,150,150}
+\definecolor{corString}{RGB}{206,123,0}
+\definecolor{corPalavraChave}{RGB}{0,0,230}
+
+\lstset{
+    inputencoding=utf8/latin1,
+	numbers=left,
+	stepnumber=1,
+	firstnumber=1,
+	numberstyle=\footnotesize,
+	extendedchars=true,
+	breaklines=true,
+	lineskip=0pt,
+	frame=tb,
+	basicstyle=\ttfamily\footnotesize,
+	showstringspaces=false,
+	stringstyle=\color{corString},
+	commentstyle=\color{corComentario},
+	keywordstyle=\color{corPalavraChave}
+}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\newcommand{\titulo}[1]{\def\@tituloLabel{#1}}
+\newcommand{\subtitulo}[1]{\def\@subtituloLabel{#1}}
+\newcommand{\nome}[1]{\def\@nomeLabel{#1}}
+\newcommand{\autor}[1]{\def\@autorLabel{#1}}
+\newcommand{\orientador}[1]{\def\@orientadorLabel{#1}}
+\newcommand{\coorientador}[1]{\def\@coorientadorLabel{#1}}
+\newcommand{\curso}[1]{\def\@cursoLabel{#1}}
+\newcommand{\local}[1]{\def\@localLabel{#1}}
+\newcommand{\dia}[1]{\def\@diaLabel{#1}}
+\newcommand{\mes}[1]{\def\@mesLabel{#1}}
+\newcommand{\ano}[1]{\def\@anoLabel{#1}}
+
+% configurações do beamer para o template
+\logo{%
+    \begin{tikzpicture}[overlay,remember picture]%
+    \node[left=0cm] at (current page.-27){%
+        \includegraphics[scale=0.2]{imagens/logo}%
+    };
+    \end{tikzpicture}%
+}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamerfont{page number in head/foot}{size=\normalsize}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{IFSPEscuro}{RGB}{18, 47, 17}
+\definecolor{IFSPPrimario}{RGB}{36, 93, 33}
+\definecolor{IFSPSecundario}{RGB}{63, 112, 60}
+\definecolor{IFSPTerciario}{RGB}{90, 140, 87}
+\definecolor{IFSPQuaternario}{RGB}{125, 169, 123}
+
+\definecolor{IFSPImportante}{RGB}{244, 57, 11}
+\definecolor{IFSPExemplos}{RGB}{22, 122, 233}
+
+\setbeamercolor*{palette primary}{bg=IFSPPrimario,fg=white}
+\setbeamercolor*{palette secondary}{bg=IFSPSecundario,fg=white}
+\setbeamercolor*{palette tertiary}{bg=IFSPTerciario,fg=white}
+\setbeamercolor*{palette quaternary}{bg=IFSPQuaternario,fg=IFSPPrimario}
+\setbeamercolor{palette sidebar primary}{bg=IFSPPrimario,fg=white}
+\setbeamercolor{palette sidebar secondary}{bg=IFSPSecundario,fg=white}
+\setbeamercolor{palette sidebar tertiary}{bg=IFSPTerciario,fg=white}
+\setbeamercolor{palette sidebar quaternary}{bg=IFSPQuaternario,fg=white}
+\setbeamercolor{structure}{fg=IFSPPrimario}
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=IFSPPrimario}
+\setbeamercolor{section in head/foot}{bg=IFSPEscuro,fg=white}
+\setbeamercolor{subsection in head/foot}{bg=IFSPSecundario,fg=white}
+
+\newcommand{\footlinepayoff}[1]{\renewcommand{\@footlinepayoff}{#1}}
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth,ht=5mm,dp=3mm,rightskip=1cm,leftskip=1cm]{footline}
+  \insertframenumber/\inserttotalframenumber
+  \ifstrempty{\@footlinepayoff}{}{%
+    \usebeamerfont{footline}\hfill
+  }
+  \end{beamercolorbox}
+}
+
+\setbeamercolor{title}{fg=IFSPPrimario,bg=white}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{date}{fg=black}
+
+\setbeamerfont{author}{size=\scriptsize}
+\setbeamerfont{date}{size=\tiny}
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{subtitle}{series=\mdseries,size=\footnotesize}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{framesubtitle}{series=\mdseries}
+\setbeamerfont{footline}{size=\scriptsize}
+%\setbeamerfont{block title}{series=\centering\bfseries}
+
+\setbeamertemplate{blocks}[rounded]
+
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{\textemdash}
+\setbeamertemplate{itemize subsubitem}{\ensuremath{\circ}}
+
+\setbeamertemplate{title page}{%
+  \vskip0pt plus 1filll%
+  \hspace{-12mm}
+  \vspace{20mm}
+  \begin{beamercolorbox}[wd=0.6\textwidth,sep=10pt,leftskip=8mm]{title}%
+    {\ifdef{\@tituloLabel}{{\usebeamerfont{title}\@tituloLabel}{\ifdef{\@subtituloLabel}{{\usebeamerfont{title}:}}{}}}{}}
+  
+    {\ifdef{\@subtituloLabel}{{\usebeamerfont{subtitle}\@subtituloLabel}}{}}
+    
+    {\ifdef{\@cursoLabel}{{\usebeamerfont{author}\usebeamercolor[fg]{author}\textbf{Curso: }\@cursoLabel}}{}}
+    
+    {\ifdef{\@nomeLabel}{{\usebeamerfont{author}\usebeamercolor[fg]{author}\@nomeLabel}}{}}
+    
+    {\ifdef{\@autorLabel}{{\usebeamerfont{author}\usebeamercolor[fg]{author}\textbf{Aluno(a): }\@autorLabel}}{}}
+    
+    {\ifdef{\@orientadorLabel}{{\usebeamerfont{author}\usebeamercolor[fg]{author}\textbf{Orientador(a): }\@orientadorLabel}}{}}
+    
+    {\ifdef{\@coorientadorLabel}{\usebeamerfont{author}\usebeamercolor[fg]{author}\textbf{Coorientador(a): }\@coorientadorLabel}{}}
+  
+    {\ifdef{\@localLabel}{{\usebeamerfont{date}\usebeamercolor[fg]{date}\@localLabel,{ }\@diaLabel{ }de \@mesLabel{ }de \@anoLabel}}{}}
+  \end{beamercolorbox}
+}
+
+\setbeamercolor{alerted text}{fg=IFSPImportante}
+\setbeamercolor{example text}{fg=IFSPExemplos}
+\setbeamercolor{block title}{bg=IFSPSecundario}
+
+\newenvironment{bloco}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+
+\DeclareFloatingEnvironment[
+  fileext = qos ,
+  listname = {Lista de Quadros} ,
+  name = Quadro
+]{quadro}
+
+\newcommand{\citeauthorandyear}[1]{\citeauthoronline{#1} (\citeyear{#1})}
+
+\endinput

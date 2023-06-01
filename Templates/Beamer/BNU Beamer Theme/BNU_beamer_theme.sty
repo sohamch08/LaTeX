@@ -1,0 +1,89 @@
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+%\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ProcessOptionsBeamer
+
+% 背景
+\pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{pic/BNU_background.png}
+\setbeamertemplate{background}{\pgfuseimage{bg}}
+
+%外部主题设置
+\useoutertheme[footline=authorinstitutetitle,subsection=false]{miniframes} 
+% 底部导航区显示作者机构和标题，顶部导航区不显示小节标题，换用smoothbars主题可实现帧标题间的颜色过渡
+\makeatletter % [add curpage/total page at the bottom](http://tex.stackexchange.com/questions/100838/beamer-dresden-theme-miniframes-appeareance-and-frame-number-insertion)
+\newcommand{\frameofframes}{/}
+\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+
+%底部设置
+\setbeamertemplate{footline} 
+  {%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot} 
+    \end{beamercolorbox}
+	% 当背景为彩色时，为底部分隔线的最上面的盒子设置分色间距
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex, % 设置（基线上）高度与（基线下）深度
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot} % 设置左右间距
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor} % 添加作者
+      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%添加机构
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+      {\usebeamerfont{title in head/foot}\insertshorttitle} % 添加标题
+      \hfill%
+      {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}		
+ 		\insertframenumber~\frameofframes~\inserttotalframenumber}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatother
+
+%内部主题设置
+\useinnertheme{circles} % 目录、列表的条目标记是小圆
+%\useinnertheme{default} % 目录、列表的条目标记是默认的数字+圆点
+%\useinnertheme[shadow=true]{rounded} % 目录、列表的条目标记是带阴影的小球
+%\useinnertheme{rectangles} % 目录、列表的条目标记是带阴影的小矩形
+
+\xdefinecolor{bnub}{cmyk}{100,30,0,0}  % 师大浅蓝 C100 M30 Y0 K0
+\xdefinecolor{bnu}{cmyk}{100,70,0,0}  % 师大深蓝 C100 M70 Y0 K0
+\setbeamercolor{footline}{bg=bnub} % 底部背景色
+\setbeamercolor{frametitle}{bg=bnub,fg=white} % 幻灯片标题栏背景色（色块）为师大浅蓝，前景色（文字）为白色
+\setbeamercolor{title}{bg=bnub} % 演示文档标题栏背景色
+\setbeamerfont{frametitle}{size=\large} % 幻灯片标题字号
+%\setbeamertemplate{navigation symbols}{} % 不需要导航栏时删除此行最前面的%
+\setbeamertemplate{bibliography item}[text] 
+% 使用参考文献文本作为条目，也可将text替换为default/article/book/online/triangle
+\setbeamertemplate{caption}[numbered] % 为图表添加编号
+
+%导航栏颜色设置
+\setbeamercolor{palette primary}{fg=white,bg=bnub!80}
+\setbeamercolor{palette secondary}{fg=white,bg=bnub!90}
+\setbeamercolor{palette tertiary}{fg=white,bg=bnub}
+\setbeamercolor{palette quaternary}{fg=white,bg=bnu!50!black}
+%\setbeamercolor*{sidebar}{use=structure,bg=structure.fg} % 侧栏
+\setbeamercolor{titlelike}{parent=palette primary}
+
+%% try
+\setbeamercolor{block title}{bg=bnub,fg=white}
+\setbeamercolor*{block title example}{use={normal text,example text},bg=white,fg=bnu}
+\setbeamercolor{fine separation line}{}
+\setbeamercolor{item projected}{fg=white}
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{fg=white}
+\setbeamercolor{section in sidebar}{fg=brown}
+\setbeamercolor{section in sidebar shaded}{fg=grey}
+\setbeamercolor{separation line}{}
+\setbeamercolor{sidebar}{bg=bnub}
+\setbeamercolor{sidebar}{parent=palette primary}
+\setbeamercolor{structure}{fg=bnu}
+\setbeamercolor{subsection in sidebar}{fg=brown}
+\setbeamercolor{subsection in sidebar shaded}{fg=grey}
+
+\mode
+<all>

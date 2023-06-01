@@ -1,0 +1,428 @@
+\documentclass[article]{beamer}% para se tiver muitas sections
+%\documentclass[11pt,compress,xcolor=dvipsnames]{beamer}
+%---------------------------------------------------------------------
+% Color and themes
+%---------------------------------------------------------------------
+\definecolor{ipb}{rgb}{0.36, 0.54,0.66}
+%\definecolor{royalazure}{rgb}{0.07, 0.04, 0.56}
+\definecolor{royalazure}{RGB}{8,71,155}
+\setbeamercolor{footline}{bg=ipb}
+\setbeamercolor{frametitle}{bg=ipb,fg=white}
+\setbeamercolor{title}{bg=ipb}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{blocks}[rounded][shadow]
+\setbeamercolor{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor{palette secondary}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
+\setbeamercolor{palette quaternary}{fg=white,bg=structure.fg!50!black}
+\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+\setbeamercolor{titlelike}{parent=palette primary}
+\setbeamercolor{block title}{bg=ipb,fg=white}
+\setbeamercolor*{block title example}{use={normal text,example text},bg=white,fg=ipb}
+\setbeamercolor{fine separation line}{}
+\setbeamercolor{item projected}{fg=black}
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{fg=ipb}
+%\setbeamercolor{section in sidebar}{fg=brown}
+%\setbeamercolor{section in sidebar shaded}{fg=grey}
+\setbeamercolor{sidebar}{bg=ipb}
+\setbeamercolor{sidebar}{parent=palette primary}
+\setbeamercolor{structure}{fg=ipb}
+%\setbeamercolor{subsection in sidebar}{fg=brown}
+%\setbeamercolor{subsection in sidebar shaded}{fg=grey}
+\setbeamercolor{section in head/foot}{fg=white,bg=royalazure}
+%\setbeamercolor{subsection in head/foot}{fg=white,bg=royalazure}
+\usetheme{Warsaw}
+%---------------------------------------------------------------------
+% Footline
+%---------------------------------------------------------------------
+\setbeamertemplate{footline}
+ {\leavevmode
+\hbox{
+   \begin{beamercolorbox}[wd=0.49\paperwidth,ht=2.25ex,dp=1ex,leftskip=0.3cm]{author in head/foot}%
+     \usebeamerfont{author in head/foot}\textcolor{white}{\insertshortauthor}
+   \end{beamercolorbox}%
+   \begin{beamercolorbox}[wd=0.34\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}
+     \usebeamerfont{title in head/foot}\textcolor{white}{\insertshorttitle}
+   \end{beamercolorbox}%
+   \begin{beamercolorbox}[wd=0.17\paperwidth,ht=2.25ex,dp=1ex,leftskip=0.3cm,rightskip=0.3cm]{title in head/foot}%
+   \hfill\usebeamerfont{page number in head/foot}
+   \insertframenumber{} / \textcolor{white}{\inserttotalframenumber}
+   \end{beamercolorbox}}
+}
+%---------------------------------------------------------------------
+% Packages
+%---------------------------------------------------------------------
+\usefonttheme[]{serif}
+\usepackage{amsmath, latexsym, color, graphicx, amssymb, bm, here}
+\usepackage{epsf, epsfig, pifont,tikz,subfigure}
+\usepackage{graphics, calrsfs}
+\usepackage{times}
+\usepackage{fancybox,calc}
+\usepackage{palatino,mathpazo}
+\usepackage{amsfonts}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{sidecap}
+\usepackage{academicons}
+%\usepackage{pdfauthor}
+%\usepackage{pdfcreator}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage[portuguese]{babel}
+\usepackage[]{hyperref}
+%---------------------------------------------------------------------
+% Definir
+%---------------------------------------------------------------------
+\def\inst#1{\unskip$^{#1}$}
+\def\orcidID#1{\unskip$^{[#1]}$}
+\def\fnmsep{\unskip$^,$}
+\def\email#1{{\tt#1}}
+
+%---------------------------------------------------------------------
+% Dados
+%---------------------------------------------------------------------
+\title{Apresentação IPB através em \LaTeX{} \emph{Beamer}}
+%opçao para 1 autor
+%\author{Primeiro Autor~\orcidID{a12345}}
+%opçao para 2 autor
+\author{Primeiro Autor~\orcidID{a12345} \and Segundo Autor~\orcidID{a12345}}
+%opcao para 3 autor
+%\author{Primeiro Autor~\orcidID{a12345}\\
+%        Segundo Autor~\orcidID{a12345}\\
+ %       Terceiro Autor~\orcidID{a12345}
+  %      }
+%\institute{Instituto Politécnico de Bragança- Escola Superior de Tecnologia e Gestão\\
+            %\vspace{0.3cm}
+            %Licenciatura em Curso}
+\institute{Instituto Politécnico de Bragança - Escola Superior de Tecnologia e Gestão\\
+            \vspace{0.3cm}
+            Mestrado em Curso
+            }
+\date{\vfill\scriptsize{\today}\\\vspace{0.4cm}\includegraphics[scale=0.3]{Imagens/logo.png}}
+%---------------------------------------------------------------------
+% Index
+%---------------------------------------------------------------------
+\AtBeginSection[]
+{
+  \begin{frame}{Conteúdo}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+\definecolor{azuel}{rgb}{0.07, 0.04, 0.56}
+	\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+	\definecolor{codegreen}{rgb}{0,0.6,0}
+	\definecolor{mygreen}{RGB}{28,172,0}
+	\definecolor{mylilas}{RGB}{170,55,241}
+	\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+	\definecolor{codepurple}{rgb}{0.58,0,0.82}
+	\lstdefinestyle{list2}{language=Matlab,% lst
+		basicstyle=\color{black},
+		backgroundcolor=\color{white},
+		breaklines=true,
+		breakatwhitespace=false,
+		keepspaces=true,
+		morekeywords={matlab2tikz},
+		showspaces=false, 
+		showtabs=false,
+		tabsize=2,
+		rulecolor=\color{black},
+		frame=single,
+		keywordstyle={\scriptsize\color{blue}},
+		morekeywords=[2]{1}, 
+		keywordstyle=[2]{\scriptsize\color{black}},
+		identifierstyle={\scriptsize\color{black}},%
+		stringstyle={\scriptsize\color{mylilas}},
+		commentstyle={\scriptsize\color{mygreen}},
+		showstringspaces=false,
+		numbers=left,%
+		numberstyle={\scriptsize\color{black}},
+		numbersep=10pt, 
+		emph=[1]{for,end,break},emphstyle=[1]\scriptsize\color{blue}, 
+	}
+	%\renewcommand{\lstlistingname}{Alg.}
+
+\begin{document}
+
+
+\maketitle
+
+
+\begin{frame}
+    \frametitle{Conteúdo}
+    \tableofcontents
+\end{frame}
+
+\section{Introdução}
+
+
+\begin{frame}
+    \frametitle{Sobre \emph{Beamer}}
+\begin{itemize}
+    \item Em $LaTex$, o $Beamer$ serve para fazer apresentações;
+    \item  Diferente de programas $WYSWYG$;
+    \item  Uma apresentação $Beamer$ é como qualquer outro documento LaTeX, contém:
+    \begin{itemize}
+        \item Preâmbulo e um corpo;
+        \item O preâmbulo pode-se dizer que é o ``índice'', tipo do documento e pacotes;
+        \item O corpo contém $sections$ e $subsections$;
+        \item Os dispositivos deverão ser estruturados utilizando ambientes de $item$ e $enumerate$, ou texto simples (curto).
+\end{itemize} 
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 4
+\section{Estrutura do Documento}
+\subsection{Exemplos}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 5
+
+\begin{frame}
+\frametitle{Simples Exemplo}
+\scriptsize{
+\textbackslash documentclass\{beamer\}\\ \vspace{0.1cm}
+
+\textbackslash title\{\textbackslash Apresentação IPB através em \LaTeX\{\} \emph{Beamer}\} \\
+\textbackslash author\{Primeiro Autor\}\\
+\textbackslash institute\{Licentura em Curso \textbackslash\textbackslash Instituto Politécnico de Bragança\}\\
+\textbackslash date\{\textbackslash scriptsize\{\textbackslash today\}\}
+ \\ \vspace{0.3cm}
+
+\textbackslash begin\{document\} \\ \vspace{0.1cm}
+
+\hspace{0.5cm}\textbackslash maketitle\\ \vspace{0.1cm}
+
+\hspace{0.5cm}\textbackslash section\{Nome da $Section$\}\\
+\hspace{0.5cm}\textbackslash begin\{frame\}\\
+\hspace{1cm}\textbackslash frametitle\{Nome da $Frame$\}\\
+\hspace{1cm}\textbackslash Here is one slide.\\
+\hspace{0.5cm}\textbackslash end\{frame\}\\ \vspace{0.1cm}
+
+\textbackslash end\{document\}\\
+}
+
+\end{frame}
+
+
+\subsection{Corpo}
+
+\begin{frame}
+\frametitle{Título da \emph{frame}}
+Usar os seguintes comandos no preâmbulo:
+\begin{block}{Comando para o título da $frame$}
+\scriptsize{\tt{
+\textbackslash title\{Título\} \\
+\textbackslash subtitle\{Sub Título\} \\
+\textbackslash author\{Nome\}\\
+\textbackslash institute\{Nome do Curso\}\\
+\textbackslash date\{Data\} \\
+}}
+\end{block}
+e o comando \textbackslash \tt{maketitle}, 
+\begin{block}{Gerar a $frame$ no corpo do documento}
+\scriptsize{\tt{
+\textbackslash begin\{document\} \\ 
+\textbackslash maketitle\\ 
+\vdots
+\textbackslash end\{document\}\\
+}}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Criar \emph{frame}}
+Para criar $frames$ utiliza-se os seguintes comandos:
+\begin{block}{}
+\scriptsize{\tt{
+\textbackslash begin\{frame\} \\
+\textbackslash frametitle\{...\} \\
+\textbackslash framesubtitle\{...\} \\
+...\\
+\textbackslash end\{frame\}
+}}
+\end{block}
+Ou, 
+\begin{block}{}
+\scriptsize{\tt{
+\textbackslash frame\{ \\
+\textbackslash frametitle\{...\}\\
+\textbackslash framesubtitle\{...\}\\
+...\\
+\}
+}}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{\emph{section} e \emph{subsections}}
+\vspace{1cm}
+\scriptsize{\tt{
+...\\
+\textbackslash end\{frame\}\\
+\vspace{0.5cm}
+\alert{
+\textbackslash section\{section name\}\\
+\textbackslash subsection\{subsection name\}\\
+\textbackslash subsubsection\{subsubsection name\}}\\
+\vspace{0.5cm}
+\textbackslash begin\{frame\}\\
+...\\
+}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conteúdo} 
+
+\begin{block}{Manual}
+\scriptsize{\tt{
+...\\
+\textbackslash end\{frame\}\\
+\vspace{0.1cm}
+\textbackslash begin\{frame\}\\
+\textbackslash frametitle\{Lista de Conteúdo\}\\
+\textbackslash tableofcontents[currentsection]\\
+\textbackslash end\{frame\}\\
+\vspace{0.2cm}
+\textbackslash begin\{frame\}\\
+...\\
+}}
+\end{block}
+
+\begin{block}{Automático}
+\scriptsize{\tt{
+...\\
+\textbackslash AtBeginSection[]\{\\
+\textbackslash begin\{frame\}\{Outline\}\\
+\textbackslash tableofcontents[currentsection]\\
+\textbackslash end\{frame\}\}\\
+...\\
+}}
+\end{block}
+\end{frame}
+
+\section{Estratura da \emph{frame}}
+\subsection{Criar colunas}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 15
+\begin{frame}
+\frametitle{Duas $colums$}
+\begin{block}{Exemplo de duas $colums$}\scriptsize{
+\textbackslash begin\{columns\}\\
+\textbackslash column\{.4\textbackslash textwidth\}\\
+Left column\\
+\textbackslash column\{.4\textbackslash textwidth\}\\
+Right column\\
+\textbackslash end\{columns\}\\
+}
+\end{block}
+\vspace{1cm}
+%\onslide<2>{
+\begin{columns}
+\column{.4\textwidth}
+Left column\\
+\column{.4\textwidth}
+Right column\\
+\end{columns}
+%}
+\end{frame}
+
+\subsection{Criar \emph{Block's}}
+\begin{frame}
+\frametitle{Block}
+
+\begin{block}{Beamer Introduction}
+Beamer is a { \LaTeX} class.
+\end{block}
+
+\end{frame}
+
+\subsection{Criar listas}
+\begin{frame}[fragile]
+\frametitle{\emph{itemize}}
+
+\begin{columns}
+\column{.5\textwidth}
+\begin{block}
+\scriptsize{
+\begin{verbatim}
+\begin{itemize}
+\item The first one.
+\item The second one.
+\begin{itemize}
+\item The larger one.
+\item The smaller one.
+\end{itemize}
+\item The third one.
+\end{itemize}
+\end{verbatim}
+}
+\end{block}
+\column{.5\textwidth}
+
+\begin{itemize}
+\item The first one.
+\item The second one.
+\begin{itemize}
+\item The larger one.
+\item The smaller one.
+\end{itemize}
+\item The third one.
+\end{itemize}
+\end{columns}
+\vspace{1.5cm}
+\href{https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{Clique aqui para mais informações.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\emph{enumerate}}
+
+\begin{columns}
+\column{.5\textwidth}
+\begin{block}
+\scriptsize{
+\begin{verbatim}
+\begin{enumerate}
+\item The first one.
+\item The second one.
+\begin{enumerate}
+\item The large one.
+\item The small one.
+\end{enumerate}
+\item The third one.
+\end{enumerate}
+\end{verbatim}
+}
+\end{block}
+\column{.5\textwidth}
+
+\begin{enumerate}
+\item The first one.
+\item The second one.
+\begin{enumerate}
+\item The large one.
+\item The small one.
+\end{enumerate}
+\item The third one.
+\end{enumerate}
+\end{columns}
+\vspace{1.5cm}
+\href{https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{Clique aqui para mais informações.}
+
+\end{frame}
+%\section{Referências}
+%\begin{frame}[allowframebreaks]
+ %   \bibliography{bibliography}
+    %\bibliographystyle{ieeetr}
+  %  \nocite{*} % used here because no citation happens in slides
+    % if there are too many try use：
+   %  \tiny\bibliographystyle{ieeetr}
+%\end{frame}
+
+\end{document}
