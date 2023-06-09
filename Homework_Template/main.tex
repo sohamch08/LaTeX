@@ -1,0 +1,693 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 3}\\
+    Email: \href{sohamc@cmi.ac.in}{sohamc@email.com} \hfill Roll: ABCXYZ123\\
+    \normalsize Course: Complex Analysis \hfill Date: March 8, 2023}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 96: Problem 1
+}{p1
+% problem reference text
+}
+Map the common part of the disks $|z|<1$ and $|z-1|<1$ on the inside of the unit circle. Choose the mapping so that the two symmetries are preserved.
+%Problem		
+\end{problem}
+
+\solve{
+%Solution
+Let $C_1:|z|=1$ and $C_2:|z-1|=1$. Let the common region between them is $\Om$
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6,draw=red] (0,0) circle (1cm) node[xshift=-1.2cm,yshift=4mm,color=red!80!black]{$\bmC_1$};
+        \filldraw[blue!30!white,opacity=0.6,draw=blue] (1,0) circle (1cm) node[xshift=1.2cm,yshift=4mm,color=blue!80!black]{$\bmC_2$};
+        \draw[<->,very thin] (-1.5,0) -- (4,0);
+        \draw[<->,very thin] (0,-1.2) -- (0,2);
+        \draw (0.5,0) node[yshift=2mm,black]{$\Om$};
+    \end{tikzpicture}
+\end{center}
+The circles intersect when $$|z|=|z-1|\iff z\ovz=(z-1)(\ovz-1)\iff 1=z+\ovz$$Hence $ \Re(z)=\frac12$. Therefore $\Im(z)=\pm\frac{\sqrt{3}}{2}$ since $|z|=1$. Therefore $C_1$ and $C_2$ intersects at $-\om$ and $-\om^2$.
+
+Now we send $-\om^2\to \infty$ and $-\om\to 0$ by the conformal map $f_1(z)=\frac{z+\om}{z+\om^2}$. Then $$f_1(1)=\frac{1+\om}{1+\om^2}=\frac{-\om^2}{-\om}=\om\qquad f_1(0)=\frac{\om}{\om^2}=\frac1{\om}=\bar{\om}=\om^2$$ Hence $f_1(C_1)=$ line joining $0$ and $\om$ and $f_1(C_2)=$ line joining $0$ and $\om^2$
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6] (-1,1.732) -- (-1,-1.732) -- (1,-1.732);
+        \filldraw[blue!30!white,opacity=0.6] ((1,1.732) -- (-1,1.732) -- (-1,-1.732);
+        \draw[blue!80!black] ((1,1.732) node[xshift=4mm,color=blue!80!black]{$\bmC_2$} -- (-1,-1.732);
+        \draw[red!80!black] (-1,1.732) -- (1,-1.732) node[xshift=4mm,color=red!80!black]{$\bmC_1$};
+        \draw[<->,very thin] (-1.5,0) -- (4,0);
+        \draw[<->,very thin] (0,-2) -- (0,2);
+        \draw (0,0) node[xshift=-5mm,yshift=2mm,black]{$\Om$};
+    \end{tikzpicture}
+\end{center}
+
+Now we rotate the region $\Om$ by $\frac{2\pi}{3}$ clockwise by the conformal map $f_2(z)=e^{-i\frac{2\pi}{3}}z=\om z$
+\begin{center}
+    \begin{tikzpicture}
+        \draw[<->,very thin] (-1,0) -- (1,0);
+
+        \filldraw[red!30!white,opacity=0.6] (1,0) -- (1,1.732) -- (-1,1.732) -- (-1,0);
+        \filldraw[blue!30!white,opacity=0.6] (-1,1.732) -- (1,1.732) -- (1,-1.732);
+        \draw[blue!80!black] (-1,1.732) -- (1,-1.732) node[xshift=4mm,color=blue!80!black]{$\bmC_2$};
+        \draw[red!80!black] (-1,0) -- (1,0) node[xshift=-2.3cm,color=red!80!black]{$\bmC_1$};
+        \draw (0.5,0) node[yshift=2mm,black]{$\Om$};
+        \draw[<->,very thin] (0,-2) -- (0,2);
+    \end{tikzpicture}
+\end{center}
+Now we map the common region $\Om$ to the upper half of the plane by the conformal map $f_3(z)=z^{\frac32}$
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6] (1,0) -- (1,1.732) -- (-1,1.732) -- (-1,0);
+        \filldraw[blue!30!white,opacity=0.6] (1,0) -- (1,1.732) -- (-1,1.732) -- (-1,0);
+        \draw (0.5,0) node[yshift=2mm,black]{$\Om$};
+        \draw[<->,very thin] (0,2) -- (0,-0.5);
+        \draw[<->,very thin] (-1,0) -- (1,0);
+    \end{tikzpicture}
+\end{center}
+Now we want to map the upper half plane to inside of the unit circle. We do it with the conformal map $f_4(z)=\frac{z-\om}{z-\om^2}$
+\begin{center}
+    \begin{tikzpicture}
+
+        \filldraw[red!30!white,opacity=0.6] (0,0) circle (1cm) ;
+        \filldraw[blue!30!white,opacity=0.6] (0,0) circle (1cm);
+        \draw (0.5,0) node[yshift=2mm,black]{$\Om$};
+        \draw[<->,very thin] (0,1.5) -- (0,-1.5);
+        \draw[<->,very thin] (-1.5,0) -- (1.5,0);
+    \end{tikzpicture}
+\end{center}Hence the final conformal map which maps the region $\Om$ to the inside of unit disk is \begin{multline*}
+    f_4\circ f_3\circ f_2\circ f_1(z)=f_4\circ f_3\circ f_2\lt(\frac{z+\om}{z+\om^2}  \rt)=f_4\circ f_3\lt( \om\frac{z+\om}{z+\om^2}\rt)=f_4\circ f_3\lt( \frac{\om^2z+1}{\om z+1}\rt)\\
+    =f_4\lt( \lt[ \frac{\om^2z+1}{\om z+1} \rt]^{\frac32} \rt)=\frac{ \lt[ \frac{\om^2z+1}{\om z+1} \rt]^{\frac32}-\om}{ \lt[ \frac{\om^2z+1}{\om z+1} \rt]^{\frac32}-\om^2}
+\end{multline*}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 96: Problem 2
+}{p2% problem reference text
+}
+%Problem		
+Map the region between $|z|=1$ and $\left|z-\frac{1}{2}\right|=\frac{1}{2}$ on a half plane.
+
+\end{problem}
+
+\solve{
+%Solution
+Let $C_1:|z|=1$ and $C_2:\lt|z-\frac12\rt|=\frac12$. Let the common region between them is $\Om$
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6,draw=red] (0,0) circle (2cm) node[xshift=-2.4cm,yshift=4mm,color=red!80!black]{$\bmC_1$};
+        \filldraw[blue!30!white,opacity=0.6,draw=blue] (1,0) circle (1cm) node[xshift=1.4cm,yshift=4mm,color=blue!80!black]{$\bmC_2$};
+        \draw[<->,very thin] (-2.5,0) -- (2.5,0);
+        \draw[<->,very thin] (0,-2.5) -- (0,2.5);
+        \draw (-0.5,0) node[yshift=2mm,black]{$\Om$};
+    \end{tikzpicture}
+\end{center}
+The two circles touch each other at $1$.
+
+Now we send $1\to \infty$ and $0\to 0$ with the conformal map $f_1(z)=\frac{z}{z-1}$. Hence $$f_1(-1)=\frac{-1}{-1-1}=\frac12\qquad f_1\lt(\frac12\rt)=\frac{\frac12}{\frac12-1}=-1$$ $$f(i)=\frac{i}{i-1}=\frac{i(-i-1)}{2}=\frac12-\frac{i}2 \qquad f(-i)=\frac{-i}{-i-1}=\frac{i(1-i)}{2}=+\frac12+\frac{i}2$$Hence $f(C_1)=$ is the line parallel to imaginary axis passing through $\frac12$. $f(C_2)=$ imaginary axis. Hence the region $\Om$ is mapped to the $\frac12$ width strip parallel to imaginary axis enclosed between imaginary axis and $\Re(z)=\frac12$.
+
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6] (1,2) -- (1,-2) -- (-2,-2) -- (-2,2);
+        \filldraw[blue!30!white] (0,2) -- (0,-2) -- (-2,-2) -- (-2,2); %node[xshift=1.4cm,yshift=4mm,color=blue!80!black]{$\bmC_2$};
+        \draw[<->,very thin] (-2,0) -- (2,0);
+        \draw[red] (1,2) -- (1,-2) node[xshift=4mm,yshift=1cm]{$\bmC_1$};
+        \draw[<->,very thin] (0,-2) -- (0,2);
+        \draw[blue] (0,2) -- (0,-2) node[xshift=-4mm,yshift=1cm]{$\bmC_2$};
+        \draw (-0.5,0) node[xshift=1cm,yshift=2mm,black]{$\Om$};
+    \end{tikzpicture}
+\end{center}
+Now we rotate the region $\Om$ by $90^{\circ}$ counter clockwise with the conformal map $f_2(z)=iz$
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6] (2,1) -- (-2,1) -- (-2,-2) -- (2,-2);
+        \filldraw[blue!30!white] (2,0) -- (-2,0) -- (-2,-2) -- (2,-2); %node[xshift=1.4cm,yshift=4mm,color=blue!80!black]{$\bmC_2$};
+        \draw[<->,very thin] (-2,0) -- (2,0);
+        \draw[red] (2,1) -- (-2,1) node[xshift=1cm,yshift=4mm]{$\bmC_1$};
+        \draw[<->,very thin] (0,-2) -- (0,2);
+        \draw[blue] (2,0) -- (-2,0) node[xshift=1cm,yshift=-0.4cm]{$\bmC_2$};
+        \draw (-0.5,0) node[xshift=1cm,yshift=4mm,black]{$\Om$};
+    \end{tikzpicture}
+\end{center}Since the strip width is $\frac12$ we take the conformal map $f_3(z)=\lt(e^z\rt)^{\frac{\pi}{\frac12}}=\lt(e^z\rt)^{2\pi}=e^{2\pi z}$ which maps the strip of width $\frac12$ to the upper half plane.
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6] (2,0) -- (-2,0) -- (-2,2) -- (2,2);
+        \draw (0.5,0) node[yshift=4mm,black]{$\Om$};
+        \draw[<->,very thin] (0,2) -- (0,-0.5);
+        \draw[<->,very thin] (-2,0) -- (2,0);
+    \end{tikzpicture}
+\end{center}
+Hence the final conformal map which maps the region between the two circles $C_1$ and $C_2$ to the upper half plane is $$f_3\circ f_2\circ f_1(z)=f_3\circ f_2\lt( \frac{z}{z-1} \rt)=f_3\lt( i\frac{z}{z-1} \rt)=e^{\frac{2\pi iz}{z-1}}$$
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 97: Problem 3
+}{p3% problem reference text
+}
+%Problem
+Map the complement of the arc $|z|=1$, $y\geq 0$ on the outside of the unit circle so that the points at  $\infty$ correspond to each other
+\end{problem}
+
+\solve{
+%Solution
+Let $C:|z|=1$.
+\begin{center}
+    \begin{tikzpicture}
+        %\filldraw[red!30!white] (-2,-1.5) -- (2,-1.5) -- (2,1.5) -- (-2,1.5);
+        \filldraw[white,opacity=1,draw=red] (0,0) circle (1cm) node[xshift=-1.2cm,yshift=2mm,color=red!80!black]{$\bmC$};
+        \draw[<->,very thin] (-1.5,0) -- (1.5,0);
+        \draw[<->,very thin] (0,-1.2) -- (0,1.2);
+    \end{tikzpicture}
+\end{center}
+
+We map the semi arc containg $i$ to  the negative real axis  then ultimately to the right half plane.
+
+We first map $1\to \infty$ and $-1\to 0$ with the conformal map $f_1(z)=\frac{z+1}{z-1}$. Then $$f(\infty)=1\quad f(i)=\frac{i+1}{i-1}=\frac{(i+1)(-1-i)}{2}=-i\quad f(-i)=\frac{-i+1}{-i-1}=\frac{(-i+1)(-1+i)}{2}=i$$Hence $f_1(C)=$ Imaginary axis
+\begin{center}
+    \begin{tikzpicture}
+        %\filldraw[red!30!white] (-2,-1.5) -- (2,-1.5) -- (2,1.5) -- (-2,1.5)
+        \filldraw[white,opacity=1,draw=red] (0,0) circle (1cm) node[xshift=-1.2cm,yshift=2mm,color=red!80!black]{$\bmC$};
+        \draw[<->,very thin] (-1.5,0) -- (1.5,0);
+        \draw[<->,very thin] (0,-1.2) -- (0,1.2);
+
+        \draw[<->,very thin] (2.5,0) -- (5.5,0);
+        \draw[<->,very thin,red] (4,-1.2) -- (4,1.2) node[xshift=4mm,yshift=-2mm]{$\bmC$};
+        \draw[-latex] (0.7,0.866) .. controls (2,0)  .. (3.7,-0.7);
+        \draw[-latex] (0.7,-0.866) .. controls (2,0)  .. (3.7,0.7);
+        \filldraw[red] (4,0) circle (2pt);
+    \end{tikzpicture}
+\end{center}
+
+
+Now we will only concentrate on the lower ray i.e. $\{z\mid \Re(z)=0,\Im(z)\leq 0\}$. Now we want to  rotate this by $90^{\circ}$ clockwise to map it to the real axis by the conformal map $f_2(z)=-iz$. Hence $f_2(1)=-i$.
+
+\begin{center}
+    \begin{tikzpicture}
+        %\filldraw[red!30!white] (-2,-1.5) -- (2,-1.5) -- (2,1.5) -- (-2,1.5)
+        \draw[<->,very thin] (-1.5,0) -- (1.5,0);
+        \draw[<-,very thin,red] (-1.5,0) -- (0,0) ;
+        \draw[<->,very thin] (0,-1.2) -- (0,1.2) ;
+    \end{tikzpicture}
+\end{center}
+Now we know $f_3(z)=\sqrt{z}$ maps the $\bbC\setminus$negative real axis to right half plane.
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6] (0,2) -- (0,-2) -- (2,-2) -- (2,2);
+        \draw (0.5,0) node[yshift=4mm,black]{$\Om$};
+        \draw[<->,very thin] (0,2) -- (0,-2);
+        \draw[<->,very thin] (-2,0) -- (2,0);
+    \end{tikzpicture}
+\end{center}
+Hence $f_3(-i)=e^{-i\frac{\pi}{4}}$. Hence at this stage $\infty $ is mapped to $e^{-i\frac{\pi}{4}}$. Now we have to map $e^{-i\frac{\pi}{4}}$ to $1$. This is achieved by conformal map of the form $f_4(z)=az+b$ where $a\in\bbR,b\in\bbC$, $b=b_1+ib_2$. Therefore $$f_4\lt(e^{-i\frac{\pi}{4}}\rt)=1\iff ae^{-i\frac{\pi}{4}}+b=1\iff \frac{a}{\sqrt{2}}(1-i)+b=\iff b_2=\frac{a}{\sqrt{2}},\ b_1=\frac{a}{\sqrt{2}}-1$$
+We can take $a=\sqrt{2}$, $b_1=0$ and $b_2=1$. then we have $f_4(z)=\sqrt{2}z+i$. Hence now $\infty$ is mapped to $1$
+
+Now we will rotate the right half plane by $\frac{\pi}{2}$ counter clockwise to map it to upper half plane by the conformal map $f_5(z)=iz$
+\begin{center}
+    \begin{tikzpicture}
+        \filldraw[red!30!white,opacity=0.6] (2,0) -- (-2,0) -- (-2,2) -- (2,2);
+        \draw (0.5,0) node[yshift=4mm,black]{$\Om$};
+        \draw[<->,very thin] (0,2) -- (0,-0.5);
+        \draw[<->,very thin] (-2,0) -- (2,0);
+    \end{tikzpicture}
+\end{center}
+
+Finally we use the map $f_6(z)=\frac{z-i}{z+i}$ which maps the upper half plane to the inside of unit disk. And also we have $f_6(i)=\infty$. Hence the final map $$f_6\circ f_5\circ f_4\circ f_3\circ f_2\circ f_1(z)$$ maps $\infty\to\infty$. and this map, maps the arc $|z|=1$, $y\geq 0$ on the outside of the unit circle so that the points at  $\infty$ correspond to each other
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\begin{problem}{%problem statement
+Ahlfors Page 108: Problem 1
+}{p4% problem reference text
+}
+%Problem		
+Compute
+$$
+    \int_\gamma x d z
+$$
+where $\gamma$ is the directed line segment from 0 to $1+i$.
+\end{problem}
+
+\solve{
+    %Solution
+
+    $\gm$ is the directed line segment from $0$ to $1+i$. Hence  $z=t(1+i)$ where $t\in[0,1]$. Then we have $$dz=(1+i)dt$$then \begin{align*}
+        \int_{\gm} xdz & = \int_0^1\Re(t(1+i))(1+i)dt      \\
+                       & = \int_0^1 t(1+i)dt               \\
+                       & = (1+i)\int_0^1tdt                \\
+                       & = (1+i)\lt[ \frac{t^2}{2}\rt]_0^1 \\
+                       & = \frac{1+i}{2}
+    \end{align*}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 108: Problem 2
+}{p5% problem reference text
+}
+%Problem		
+Compute
+$$
+    \int_{|z|=r} x d z
+$$
+for the positive sense of the circle, in two ways: first, by use of a parameter, and second, by observing that $x=\frac{1}{2}(z+\bar{z})=\frac{1}{2}\left(z+\frac{r^2}{z}\right)$ on the circle.
+\end{problem}
+
+\solve{
+    %Solution
+    \begin{itemize}
+        \item Given that $|z|=r$. Therefore $z=re^{i\theta}$ where $\theta\in [0,2\pi]$. Hence $$dz=ire^{i\theta}d\theta$$\begin{align*}
+                  \int_{|z|=r} x d z & = \int_0^{2\pi} \Re(re^{i\theta})\lt(ire^{i\theta}d\theta\rt)                                       \\
+                                     & =\int_0^{2\pi} \Re(r\lt(\cos\theta +i\sin\theta\rt))\lt(ir\lt(\cos\theta+i\sin\theta\rt)\rt)d\theta \\
+                                     & = ir^2\int_0^{2\pi} \cos\theta \lt(\cos\theta+i\sin\theta\rt)d\theta                                \\
+                                     & =ir^2\lt[\int_0^{2\pi}\cos^2\theta d\theta +i\int_0^{2\pi}\cos\theta\sin\theta d\theta \rt]         \\
+                                     & =ir^2\lt[\frac12\int_0^{2\pi}(\cos2\theta+1)d\theta+\frac{i}2\int_0^{2\pi}\sin2\theta d\theta \rt]  \\
+                                     & =ir^2\lt[\frac12 \int_0^{2\pi}d\theta\rt]                                                           \\
+                                     & =ir^2\frac12(2\pi-0)                                                                                \\
+                                     & =i\pi r^2
+              \end{align*}
+        \item \begin{align*}
+                  \int_{|z|=r} x d z & = 	\int_{|z|=r}\frac{1}{2}(z+\bar{z})dz=	\int_{|z|=r}\frac{1}{2}\left(z+\frac{r^2}{z}\right)dz \\
+                                     & = 	\underbrace{\frac12\int_{|z|=r}zdz}_{\substack{=0                                           \\ \text{As }f\text{ is analytic}}}	+\frac{r^2}2\int_{|z|=r}\frac1zdz\\
+                                     & = \frac{r^2}{2}2\pi i=i\pi r^2
+              \end{align*}
+    \end{itemize}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 108: Problem 3
+}{p6% problem reference text
+}
+%Problem		
+Compute
+$$
+    \int_{|z|=2} \frac{d z}{z^2-1}
+$$
+for the positive sense of the circle.
+\end{problem}
+
+\solve{
+    %Solution
+    Given that $|z|=2$. \begin{align*}
+        \int_{|z|=2}\frac{dz}{z^2-1} & =\frac12\int_{|z|=2}\frac{(z+1)-(z-1)}{z^2-1}dz                        \\
+                                     & = \frac12\int_{|z|=2} \lt[ \frac1{z-1}-\frac1{z+1}\rt]dz               \\
+                                     & =\frac12\lt[ \int_{|z|=2}\frac{dz}{z-1}-\int_{|z|=2}\frac{dz}{z+1}\rt] \\
+                                     & =\frac12[2\pi i-2\pi i]=0
+    \end{align*}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 118: Problem 3
+}{p7% problem reference text
+}
+%Problem
+\parinn The \textit{Jordan curve theorem} asserts that every Jordan curve in the plane determines exactly two regions. The notion of winding number leads to a quick proof of one part of the theorem, namely that the complement of a Jordan curve $\gamma$ has at least two components. This will be so if there exists a point $a$ with $n(\gamma, a) \neq 0$.
+
+We may assume that $\Re (z)>0$ on $\gamma$, and that there are points $z_1$, $z_2 \in \gamma$ with $\Im (z_1)<0, \Im (z)_2>0$. These points may be chosen so that there are no other points of $\gamma$ on the line segments from 0 to $z_1$ and from 0 to $z_2$. Let $\gamma_1$ and $\gamma_2$ be the ares of $\gamma$ from $z_1$ to $z_2$ (excluding the end points).
+
+Let $\sigma_1$ be the closed curve that consists of the line segment from 0 to $z_1$ followed by $\gamma_1$ and the segment from $z_2$ to 0 , and let $\sigma_2$ be constructed in the same way with $\gamma_2$ in the place of $\gamma_1$. Then $\sigma_1-\sigma_2=\gamma$ or $-\gamma$.
+
+The positive real axis intersects both $\gamma_1$ and $\gamma_2$ (why?). Choose the notation so that the intersection $x_2$ farthest to the right is with $\gamma_2$ (Figure). Prove the following:
+\begin{enumerate}[label=(\alph*)]
+    \item $n\left(\sigma_1, x_2\right)=0$, hence $n\left(\sigma_1, z\right)=0$ for $z \epsilon \gamma_2$;
+    \item $n\left(\sigma_1, x\right)=n\left(\sigma_2, x\right)=1$ for small $x>0$ (Lemma 2);
+    \item the first intersection $x_1$ of the positive real axis with $\gamma$ lies on $\gamma_1$;
+    \item $n\left(\sigma_2, x_1\right)=1$, hence $n\left(\sigma_2, z\right)=1$ for $z \epsilon \gamma_1$;
+    \item there exists a segment of the positive real axis with one end point on $\gamma_1$, the other on $\gamma_2$, and no other points on $\gamma$. The points $x$ between the end points satisfy $n(\gamma, x)=1$ or -1 .
+
+\end{enumerate}
+\begin{center}
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \includegraphics[width=8cm]{jct.png}
+    \end{minipage}
+\end{center}
+\end{problem}
+
+\solve{
+    %Solution
+    \begin{enumerate}[label=(\alph*)]
+        \item We claim that $x_2$ lies outside the curve $\sigma_1$. Indeed, consider the ray joining 0 and $x_2$. This ray can not intersect $\gamma$ beyond the point $x_2$ because $x_2$ is the farthest point. Thus the whole ray $\left(x_2, \infty\right)$ is contained in one region defined by the curve, but $\gamma$ must be bounded. Thus $x_2$ must lie in the unbounded region defined by $\sigma_1$.\parinn
+
+              Now pick $z \in \gamma_2$. Then $x_2, z$ are path connected, hence they must lie in the same connected region of $\sigma_1$. Hence $n\left(\sigma_1, z\right)=n\left(\sigma_1, x_2\right)=0$
+
+        \item Let $S:=\{z \mid z \in \gamma, z \in \mathbb{R}\}$. Since $S$ is compact we can pick the smallest element of $S$, considered as a subset of $\mathbb{R}$, let's call it $x_1$. We claim that $n\left(\sigma_1, x\right)=n\left(\sigma_2, x\right)=0$ for $x \in\left(0, x_1\right)$. By Lemma 2 , it suffices to prove that $\gamma_1, \gamma_2$ doesn't pass through any point to the left of $x_1$, which is obvious by the construction of $x$. Also, the path $z_1 \rightarrow 0 \rightarrow z_2$ intersects the $X$-axis only at 0 .
+        \item Suppose the first intersection $x_1$ of the positive real axis with $\gamma$ does not lie on $\gamma_1$; then it must lie on $\gamma_2$. In part (b) we proved that $n\left(\sigma_1, x\right)=0$ for $x \in\left(0, x_1\right)$. But now we can consider the path from $x$ to $x_1$ along the positive $X$-axis and then use the path along $\gamma_2$ from $x_1$ to $x_2$. Thus $x$ and $x_2$ are path-connected and both are in the same region of $\sigma_1$. But then $1=n\left(\sigma_1, x\right)=n\left(\sigma_1, x_2\right)=0$, where the first equality is from part (a) and the last equality is from part (b).
+        \item Because $x_1$ lies on $\gamma_1$, again by applying Lemma 2, we get $n\left(\sigma_2, x_1\right)=1$. Again, because any $z \in \gamma_2$ is path-connected along $\gamma_2$, we must have $n\left(\sigma_2, z\right)=1$
+        \item Consider the sets $S_1:=\left\{z \in \mathbb{R} \mid z \in \gamma_1\right\}$ and $S_2:=\left\{z \in \mathbb{R} \mid z \in \gamma_2\right\}$. Since $S_1$ and $S_2$ are compact we can find two points $a \in S_1, b \in S_2$ such that there is no point of $\gamma$ between $a$ and $b$, otherwise we can construct a sequence of points in $S_1$ or $S_2$ such that it converges to a point in another set. contradicting the fact that $S_1, S_2$ are closed and disjoint. Now pick point $x$ between $a$ and $b$. Let us assume $\gamma=\sigma_1-\sigma_2$. Then $n(\gamma, x)=n\left(\sigma_1, x\right)-n\left(\sigma_2, x\right)$. But $n\left(\sigma_1, x\right)=n\left(\sigma_1, b\right)=0$ by part (a) and $n\left(\sigma_2, x\right)=n\left(\sigma_1, a\right)=1$ by part (d).
+    \end{enumerate}
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 120: Problem 1
+}{p8% problem reference text
+}
+%Problem		
+Compute
+$$
+    \int_{|z|=1} \frac{e^z}{z} d z
+$$
+\end{problem}
+
+\solve{
+    %Solution
+    $f(z)=e^z$ is analytic on $\bbC$. By Cauchy's Integral Formula we have $$f(z)=\frac{1}{2\pi i}\int_{|\zeta|=1}\frac{f(\zeta)d\zeta}{\zeta-z}=\frac{1}{2\pi i}\int_{|\zeta|=1}\frac{e^{\zeta}d\zeta}{\zeta-z}$$Hence $$1=e^0=f(0)=\frac1{2\pi i}\int_{|\zeta|=1}\frac{e^{\zeta}}{\zeta}d\zeta \iff \int_{|z|=1}\frac{e^z}{z}dz=2\pi i$$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}{%problem statement
+Ahlfors Page 120: Problem 2
+}{p9% problem reference text
+}
+%Problem		
+Compute
+$$
+    \int_{|z|=2} \frac{d z}{z^2+1}
+$$
+by decomposition of the integrand in partial fractions.
+
+\end{problem}
+
+\solve{
+    %Solution
+    \begin{align*}
+        \int_{|z|=2} \frac{d z}{z^2+1} & =\frac1{2i}	\int_{|z|=2}\frac{(z+i)-(z-i)}{(z+i)(z-i)}dz                      \\
+                                       & = \frac1{2i}	\int_{|z|=2}\lt[ \frac{1}{z-i}-\frac1{z+i}\rt]dz                 \\
+                                       & = \frac1{2i}\lt[ 	\int_{|z|=2}\frac1{z-i}dz-	\int_{|z|=2}\frac{1}{z+i}dz \rt] \\
+                                       & = \frac1{2i}[2\pi i-2\pi i]=0
+    \end{align*}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 10
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\begin{problem}{%problem statement
+Ahlfors Page 120: Problem 3
+}{p10% problem reference text
+}
+%Problem		
+Compute
+$$
+    \int_{|z|=\rho} \frac{|d z|}{|z-a|^2}
+$$
+under the condition $|a| \neq \rho$. Hint: make use of the equations $z \bar{z}=\rho^2$ and
+$$
+    |d z|=-i \rho \frac{d z}{z} .
+$$
+
+\end{problem}
+
+\solve{
+    %Solution
+    We have $|dz|=-i\rho \frac{dz}{z}$. Therefore \begin{align*}
+        \int_{|z|=\rho}\frac{|dz|}{|z-a|^2} & = -i\rho \int_{|z|=\rho}\frac{dz}{z|z-a|^2}= -i\rho \int_{|z|=\rho}\frac{dz}{z(z-a)(\ovz-\ova)} \\
+                                            & = -i\rho \int_{|z|=\rho}\frac{dz}{(z-a)\lt(z\ovz-\ova z  \rt)}                                  \\
+                                            & = -i\rho \int_{|z|=\rho}\frac{dz}{(z-a)\lt(\frac{\rho^2}{z}z-\ova z\rt)}                        \\
+                                            & = -i\rho \int_{|z|=\rho}\frac{dz}{(z-a)\lt(\rho^2-\ova z\rt)}
+    \end{align*}
+
+    Now if $\rho < |a|$, then $|z-a|^2>0$. Hence the function $\frac1{(z-a)\lt(\rho^2-\ova z\rt)}$ is analytic and its integral  along $|z|=\rho$ is 0
+
+    If $\rho > |a|$ then if $\rho^2\neq \ova z$ because if it is then \begin{align*}
+        \rho^2\neq \ova z \iff |z| =\frac{\rho^2}{|a|} \iff \rho = \frac{\rho^2}{|a|} \iff |a|=\rho
+    \end{align*} which is not possible. Hence $f(z)=\frac{1}{\rho^2-\ova z}$ is analytic in the $\rho$-disk. Hence $$\int_{|z|=\rho}\frac{dz}{\rho^2-\ova z}=0$$. Then by Cauchy's Integral Formula we have $$f(a)=\frac1{2\pi i}\int_{|z|=\rho}\frac{f(z)dz}{z-a}=\frac{1}{2\pi i}\int_{|z|=\rho}\frac{dz}{(z-a)\lt(\rho^2-\ova z\rt)} \iff $$ Therefore we have $$\int_{|z|=\rho}\frac{|dz|}{|z-a|^2} =-i\rho f(a)2\pi i=-i\rho \frac{2\pi i}{\rho^2-a\ova}=\frac{2\pi \rho}{\rho^2-a\ova}$$
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 123: Problem 1
+}{p11% problem reference text
+}
+%Problem		
+Compute
+$$
+    \int_{|z|=1} e^z z^{-n} d z, \quad \int_{|z|=2} z^n(1-z)^m d z, \quad \int_{|z|=\rho}|z-a|^{-4}|d z|(|a| \neq \rho) .
+$$
+\end{problem}
+
+\solve{
+    %Solution
+    \begin{itemize}
+        \item Let $f(z)e^z$ Then we have $$e^z=f^{((n-1))}(z)=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{f(\zeta)d\zeta}{(\zeta-z)^{n}}=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{e^{\zeta}d\zeta}{(\zeta-z)^{n}}$$Therefore
+              $$f(0)=e^0=1=\frac{(n-1)!}{2\pi i}\int_{|\zeta|=1}\frac{e^z}{z^{n}}dz\iff \int_{|\zeta|=1}\frac{e^z}{z^{n}}dz=\frac{2\pi i}{(n-1)!}$$
+        \item We have $$f(z)=\frac{1}{2\pi i}\int_{|\zeta|=1}\frac{f(\zeta)d\zeta}{\zeta-z}$$4 cases possible\parinn
+              \subsubsection*{Case 1: $m\geq 0$, $n\geq 0$}
+              Then $z^n(1-z)^m$ is analytic on $\bbC$. Hence $$\int_{|z|=2} z^n(1-z)^m d z=0$$
+              \subsection*{Case 2: $m< 0$, $n\geq 0$}
+              \begin{multline*}
+                  \int_{|z|=2} z^n(1-z)^m d z  =\int_{|z|=2} \frac{z^n}{(1-z)^{|m|}} d z=(-1)^m \int_{|z|=2} \frac{z^n}{(z-1)^{|m|}} d z\\ =\left.\frac{2 \pi i(-1)^m}{(|m|-1) !} \frac{d^{|m|-1}}{d z^{|m|-1}} z^n\right|_{z=1}
+                  =\frac{2 \pi i n !(-1)^m}{(|m|-1) !(n-(|m|-1)) !}=2 \pi i(-1)^m{{n}\choose{|m|-1}}
+              \end{multline*}
+              If $|m|-1>n$ then the above is zero
+              \subsection*{Case 3: $m\geq0$, $n< 0$}
+              \begin{multline*}
+                  \int_{|z|=2} z^n(1-z)^m d z=\int_{|z|=2} \frac{(1-z)^m}{z^{|n|}} d z=\left.\frac{2 \pi i}{(|n|-1) !} \frac{d^{|n|-1}}{d z^{|n|-1}}(1-z)^m\right|_{z=0} \\ =\frac{2 \pi i m !(-1)^{|n|-1}}{(|n|-1) !(m-(|n|-1)) !} =2 \pi i(-1)^{|n|-1}{{m}\choose{|n|-1}}
+              \end{multline*}
+              If $|n| - 1 > m$, we interpret the above to be zero.
+              \subsection*{Case 4: $m<0$, $n<0$}
+              $$	\int_{|z|=2} z^n(1-z)^m d z=\int_{|z|=2} \frac{1}{(1-z)^{|m|}z^{|n|}} d z$$
+              In this case we divide the closed curve $|z|=2$ into addition of two paths $\Gm_1$ and $\Gm_2$ where when $\Re(z)=\frac12$ $\Gm_1$ goes from lower half plane to upper half plane along the line $\Re(z)=\frac12$ and $\Gm_2$ does the opposite after that both paths follows the circle perimeter like in the figure
+              \begin{center}
+                  \begin{tikzpicture}
+                      \draw[<->] (-2.5,0) -- (2.5,0);
+                      \draw[<->] (0,-2.5) -- (0,2.5);
+                      \draw (0,0) circle (2cm);
+                      \filldraw (0,0) node[xshift=-2mm,yshift=-2mm]{$0$} circle (2pt);
+                      \filldraw (1,0) node[xshift=2mm,yshift=-2mm]{$1$} circle (2pt);
+                      \draw[red,very thick] (0.47,-1.936) -- (0.47,1.936);
+                      \draw[blue!80!white,very thick] (0.52,-1.936) -- (0.52,1.936);
+                      \draw[red,very thick] (0.5,1.936) arc  [start angle=75.5,end angle=284.5,radius=2cm];
+                      \draw[blue,very thick] (2,0) arc  [start angle=0,end angle=75.5,radius=2cm];
+                      \draw[blue,very thick] (2,0) arc  [start angle=0,end angle=-75.5,radius=2cm];
+                      \draw (2,0) node[yshift=-1cm,xshift=2mm]{$\Gm_2$} node[rotate=90,color=blue,thick,xshift=-1mm]{$\boldsymbol{>}$};
+                      \draw (-2,0) node[yshift=1cm,xshift=-2mm]{$\Gm_1$} node[rotate=-90,color=red,thick,xshift=-1mm]{$\boldsymbol{>}$};
+                      \draw[dashed,thick] (0.5,-2.5) -- (0.5,2.5) node[xshift=8mm]{$\Re(z)=\frac12$};
+                  \end{tikzpicture}
+              \end{center}
+              Now $(1-z)^{-|m|}$ is analytic on $\Gm_1$. Hence $$\frac{2 \pi i}{(|n|-1) !}\frac{d^{|n|-1}}{dz^{|n|-1}}\lt.\frac{1}{(1-z)^{|m|}}  \rt|_{z=0}=\int_{\Gm_1}\frac1{(1-z)^{|m|}z^{|n|}}dz=\frac{(|m|+|n|-2)!}{(m|-1)!(|n|-1)!}2\pi i$$
+              $z^{-|n|}$ is analytic on $\Gm_2$. Hence $$\frac{2 \pi i}{(|m|-1) !}(-1)^{|m|}\frac{d^{|m|-1}}{dz^{|m|-1}}\lt.\frac{1}{z^{|m|}}  \rt|_{z=1}=\int_{\Gm_2}\frac1{(1-z)^{|m|}z^{|n|}}dz=-\frac{(|m|+|n|-2)!}{(m|-1)!(|n|-1)!}2\pi i$$Hence$$\int_{|z|=2} z^n(1-z)^m d z=\int_{|z|=2} \frac{1}{(1-z)^{|m|}z^{|n|}} d z=0$$
+        \item from Problem 10 we have $|dz|=-i\rho \frac{dz}{z}$. Therefore \begin{align*}
+                  \int_{|z|=\rho}\frac{|dz|}{|z-a|^4} & = -i\rho \int_{|z|=\rho}\frac{dz}{z|z-a|^4}= -i\rho \int_{|z|=\rho}\frac{dz}{z(z-a)^2(\ovz-\ova)^2} \\
+                                                      & = -i\rho \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(z\ovz-\ova z  \rt)^2}                                 \\
+                                                      & = -i\rho \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(\frac{\rho^2}{z}z-\ova z\rt)^2}                       \\
+                                                      & = -i\rho \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(\rho^2-\ova z\rt)^2}
+              \end{align*}\parinn
+
+              Now if $\rho < |a|$, then $|z-a|^4>0$. Hence the function $\frac1{(z-a)^2\lt(\rho^2-\ova z\rt)^2}$ is analytic and its integral  along $|z|=\rho$ is 0\parinn
+
+              If $\rho > |a|$ then if $\rho^2\neq \ova z$ because if it is then \begin{align*}
+                  \rho^2\neq \ova z \iff |z| =\frac{\rho^2}{|a|} \iff \rho = \frac{\rho^2}{|a|} \iff |a|=\rho
+              \end{align*} which is not possible. Hence $f(z)=\frac{z}{(\rho^2-\ova z)^2}$ is analytic in the $\rho$-disk. Then by Cauchy's Integral Formula we have\begin{align*}
+                  \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(\rho^2-\ova z\rt)^2} & =\frac{d}{dz}\lt. \frac{z}{(\rho^2-\ova z)^2}\rt|_{z=a} \frac{2\pi i}{1!}                                             \\
+                                                                            & = \left(\frac{1}{\left(\rho^2-\bar{a} a\right)^2}+\frac{2 \bar{a} a}{\left(\rho^2-\bar{a} a\right)^3}\right)  2 \pi i \\
+                                                                            & = 2\pi i \, \frac{\rho^2-|a|^2+2|a|^2}{(\rho^2-|a|^2)^3}=2\pi i \, \frac{\rho^2+|a|^2}{(\rho^2-|a|^2)^3}
+              \end{align*}Hence $$	\int_{|z|=\rho}\frac{|dz|}{|z-a|^4}=-i\rho \int_{|z|=\rho}\frac{zdz}{(z-a)^2\lt(\rho^2-\ova z\rt)^2}=-i\rho \lt[ 2\pi i \, \frac{\rho^2+|a|^2}{(\rho^2-|a|^2)^3} \rt]=2\pi\rho\, \frac{\rho^2+|a|^2}{(\rho^2-|a|^2)^3}$$
+    \end{itemize}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\begin{problem}{%problem statement
+Ahlfors Page 123: Problem 2
+}{p12% problem reference text
+}
+%Problem		
+Prove that a function which is analytic in the whole plane and satisfies an inequality $|f(z)|<|z|^n$ for some $n$ and all sufficiently large $|z|$ reduces to a polynomial.
+
+\end{problem}
+
+\solve{
+%Solution
+Given $|f(z)|<|z|^n$. To show $f$ is a polynomial it is enough to show $\exs\ n\in\bbN$ such that $f^{(n)}(z)=0$. We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$Now if $|z|>\rho$ then
+\begin{align*}
+    \lt|f^{(n+1)}(z)\rt| & \leq \frac{(n+1)!}{2\pi}\lt|\int_{|t|= \rho} \frac{f(t)}{(t-z)^{n+2}}dt   \rt|                              \\
+                         & \leq \frac{(n+1)!}{2\pi}\int_{|t|=\rho} \frac{|f(t)|}{|t-z|^{n+2}}|dt|                                      \\
+                         & \leq \frac{(n+1)!}{2\pi}\int_{|t|=\rho}\frac{|t|^n}{(|t|-|z|)^{n+2}}|dt|                                    \\
+                         & \leq \frac{(n+1)!}{2\pi}\frac{\rho^n}{(\rho-|z|)^{n+2}}2\pi \rho =\frac{\rho^{n+1}(n+1)!}{(\rho-|z|)^{n+2}}
+\end{align*}Hence as $|z|\to \infty$ and $\rho\to \infty$ we have $\frac{\rho^{n+1}(n+1)!}{(\rho-|z|)^{n+2}}\to 0$. Hence $$	\lt|f^{(n+1)}(z)\rt|\leq 0\iff f^{(n+1)}(z)=0$$Now if $|z|\leq \rho$ then $f$ has a maximum $M$  in that closed $\rho-$disk. Hence $$\lt|f^{(n+1)}(z)\rt| \leq \frac{M(n+1)!}{\rho^{n+1}}$$Now as $\rho\to \infty$, $\frac{(n+1)!}{\rho^{n+1}}\to 0$. Hence $$\lt|f^{(n+1)}(z)\rt|\leq 0\iff f^{(n+1)}(z)=0$$2
+
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 13
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 123: Problem 3
+}{p13% problem reference text
+}
+%Problem		
+If $f(z)$ is analytic and $|f(z)| \leqq M$ for $|z| \leqq R$, find an upper bound for $\left|f^{(n)}(z)\right|$ in $|z| \leqq \rho<R$.
+
+\end{problem}
+
+\solve{
+    %Solution
+    We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$Let
+    \begin{align*}
+        \lt|f^{(n)}(z)\rt| & \leq \frac{n!}{2\pi}\lt|\int_{|t|= R} \frac{f(t)}{(t-z)^{n+1}}dt   \rt| \\
+                           & \leq \frac{n!}{2\pi}\int_{|t|= R} \frac{|f(t)|}{|t-z|^{n+1}}|dt|        \\
+                           & \leq \frac{n!}{2\pi}\int_{|t|= R}\frac{M}{(|t|-|z|)^{n+1}}|dt|          \\
+                           & \leq \frac{n!}{2\pi}\frac{M}{(R-|z|)^{n+1}}2\pi R                       \\
+                           & =\frac{Mn!R}{(R-|z|)^{n+1}}\leq \frac{Mn!R}{(R-\rho)^{n+1}}
+    \end{align*}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 14
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 123: Problem 4
+}{p14% problem reference text
+}
+%Problem		
+If $f(z)$ is analytic for $|z|<1$ and $|f(z)| \leqq 1 /(1-|z|)$, find the best estimate of $\left|f^{(n)}(0)\right|$ that Cauchy's inequality will yield.
+
+\end{problem}
+
+\solve{
+%Solution
+We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$
+\parinf
+\textbf{\textit{Claim: }}$\lt|f^{(n)}(z)\rt|\leq (n+1)!e$
+
+\textbf{\textit{Proof: }}Let for any $k\in \bbN$, $|z|= 1-\frac1k=r_k$. Then $$|f(z)|\leq \frac{1}{1-|z|}=\frac1{1-\frac1k}=k$$Then we have $$\lt|f^{(n)}(0)\rt|=\lt|\frac{n!}{2\pi }\int_{|z|=r_k}\frac{f(z)dz}{z^{n+1}}  \rt|\leq \frac{n!}{2\pi }\int_{|z|=r_k}\frac{|f(z)|}{|z|^{n+1}}|dz|\leq\frac{n!}{2\pi }\, \frac{k}{r_k^{n+1}}2\pi r_k=\frac{kn!}{\lt(1-\frac1k\rt)^{n+1}}=\frac{n!k^{n+2}}{(k-1)^{n+1}}$$Now taking $k=n+1$ we have $$\lt|f^{(n)}(0)\rt|\leq \frac{n!(n+1)^{n+2}}{n^{n+1}} =(n+1)!\frac{(n+1)^{n+1}}{n^{n+1}}=(n+1)!\lt(1+\frac1n\rt)^{n+1}\leq (n+1)!e$$
+
+\parinn
+
+Hence we have the best estimate of $\lt|f^{(n)}(0)\rt|$ which is $\lt|f^{(n)}(0)\rt|\leq (n+1)!e$
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 15
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+Ahlfors Page 123: Problem 5
+}{p15% problem reference text
+}
+%Problem		
+Show that the successive derivatives of an analytic function at a point can never satisfy $\left|f^{(n)}(z)\right|>n ! n^n$. Formulate a sharper theorem of the same kind.
+
+\end{problem}
+
+\solve{
+%Solution
+We have $$f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}$$Hence $$\lt|f^{(n)}(z)\rt|=\lt|\frac{n!}{2\pi i}\int_{|s|=\rho}\frac{f(s)ds}{(s-z)^{n+1}}  \rt|\leq \frac{n!}{2\pi}\int_{|s|=\rho}\lt|\frac{f(s)ds}{(s-z)^{n+1}}\rt|=\frac{n!}{2\pi}\int_{|s|=\rho}\frac{|f(s)|}{|s-z|^{n+1}}|ds|$$Since $f$ is continuous in the $\rho$-disk it is bounded by some value $M$. Therefore$$\lt|f^{(n)}(z)\rt|\leq \frac{n!}{2\pi}\int_{|s|=\rho}\frac{|f(s)|}{|s-z|^{n+1}}|ds|\leq \frac{n!}{2\pi}\int_{|s|=\rho}\frac{M}{|s-z|^{n+1}}|ds|\leq \frac{Mn!}{2\pi}\frac{1}{|\rho-z|^{n+1}}2\pi\rho=Mn!\frac{\rho}{|\rho-z|^{n+1}}$$Since $\rho>|z|$ we have $$\lt|f^{(n)}(z)\rt|\leq Mn!\frac{\rho}{|\rho-z|^{n+1}}\leq Mn!\frac{\rho}{(|\rho|-|z|)^{n+1}}\leq Mn!\frac{\rho}{(|\rho|)^{n+1}}=\frac{Mn!}{\rho^n}$$ Using the given inequality we have $$n!n^n<\lt|f^{(n)}(z)\rt|\leq \frac{Mn!}{\rho^n} \iff n!n^n<\frac{Mn!}{\rho^n}\iff (n\rho )^n<M$$ which is not possible as $n\to \infty$. Hence $f$ doesn't satisfy $\left|f^{(n)}(z)\right|>n ! n^n$
+}
+
+
+\end{document}
