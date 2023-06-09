@@ -1,0 +1,1205 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{svpnph}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=701f8aef13f98671c1c0ad0fbf75afe6}{%
+           family={Ajtai},
+           familyi={A\bibinitperiod},
+           given={Miklós},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Dallas, Texas, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{701f8aef13f98671c1c0ad0fbf75afe6}
+      \strng{fullhash}{701f8aef13f98671c1c0ad0fbf75afe6}
+      \strng{bibnamehash}{701f8aef13f98671c1c0ad0fbf75afe6}
+      \strng{authorbibnamehash}{701f8aef13f98671c1c0ad0fbf75afe6}
+      \strng{authornamehash}{701f8aef13f98671c1c0ad0fbf75afe6}
+      \strng{authorfullhash}{701f8aef13f98671c1c0ad0fbf75afe6}
+      \field{labelalpha}{Ajt98}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Thirtieth Annual ACM Symposium on Theory of Computing}
+      \field{isbn}{0897919629}
+      \field{series}{STOC '98}
+      \field{title}{The Shortest Vector Problem in L2 is NP-Hard for Randomized Reductions (Extended Abstract)}
+      \field{year}{1998}
+      \field{pages}{10\bibrangedash 19}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/276698.276705
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/276698.276705
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/276698.276705
+      \endverb
+    \endentry
+    \entry{burgalgcomp}{book}{}
+      \name{author}{3}{}{%
+        {{hash=db24e25ecb58722cbf1fcc3eb766e5e1}{%
+           family={Bürgisser},
+           familyi={B\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=3d8dc118d0750d9fb7413ab004f08703}{%
+           family={Clausen},
+           familyi={C\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=524e8b4c0770cdf981e23721ed01bbec}{%
+           family={Shokrollahi},
+           familyi={S\bibinitperiod},
+           given={Amin},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8aca3ce19765bef4d5590e8a35bededd}
+      \strng{fullhash}{8aca3ce19765bef4d5590e8a35bededd}
+      \strng{bibnamehash}{8aca3ce19765bef4d5590e8a35bededd}
+      \strng{authorbibnamehash}{8aca3ce19765bef4d5590e8a35bededd}
+      \strng{authornamehash}{8aca3ce19765bef4d5590e8a35bededd}
+      \strng{authorfullhash}{8aca3ce19765bef4d5590e8a35bededd}
+      \field{labelalpha}{BCS97}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-642-08228-3}
+      \field{month}{01}
+      \field{title}{Algebraic Complexity Theory}
+      \field{volume}{315}
+      \field{year}{1997}
+      \verb{doi}
+      \verb 10.1007/978-3-662-03338-8
+      \endverb
+    \endentry
+    \entry{barlelargefield}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3e56d5e00c75fc64378e83e5a8fd4fdf}{%
+           family={Berlekamp},
+           familyi={B\bibinitperiod},
+           given={E.\bibnamedelimi R.},
+           giveni={E\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{3e56d5e00c75fc64378e83e5a8fd4fdf}
+      \strng{fullhash}{3e56d5e00c75fc64378e83e5a8fd4fdf}
+      \strng{bibnamehash}{3e56d5e00c75fc64378e83e5a8fd4fdf}
+      \strng{authorbibnamehash}{3e56d5e00c75fc64378e83e5a8fd4fdf}
+      \strng{authornamehash}{3e56d5e00c75fc64378e83e5a8fd4fdf}
+      \strng{authorfullhash}{3e56d5e00c75fc64378e83e5a8fd4fdf}
+      \field{labelalpha}{Ber70}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{00255718, 10886842}
+      \field{journaltitle}{Mathematics of Computation}
+      \field{number}{111}
+      \field{title}{Factoring Polynomials Over Large Finite Fields}
+      \field{urlday}{9}
+      \field{urlmonth}{6}
+      \field{urlyear}{2023}
+      \field{volume}{24}
+      \field{year}{1970}
+      \field{urldateera}{ce}
+      \field{pages}{713\bibrangedash 735}
+      \range{pages}{23}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/2004849
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/2004849
+      \endverb
+    \endentry
+    \entry{completeburg}{book}{}
+      \name{author}{1}{}{%
+        {{hash=db24e25ecb58722cbf1fcc3eb766e5e1}{%
+           family={Bürgisser},
+           familyi={B\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{db24e25ecb58722cbf1fcc3eb766e5e1}
+      \strng{fullhash}{db24e25ecb58722cbf1fcc3eb766e5e1}
+      \strng{bibnamehash}{db24e25ecb58722cbf1fcc3eb766e5e1}
+      \strng{authorbibnamehash}{db24e25ecb58722cbf1fcc3eb766e5e1}
+      \strng{authornamehash}{db24e25ecb58722cbf1fcc3eb766e5e1}
+      \strng{authorfullhash}{db24e25ecb58722cbf1fcc3eb766e5e1}
+      \field{labelalpha}{Bür98}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{08}
+      \field{title}{Completeness and Reduction in Algebraic Complexity Theory}
+      \field{volume}{7}
+      \field{year}{1998}
+      \verb{doi}
+      \verb 10.1007/978-3-662-04179-6_1
+      \endverb
+      \keyw{book}
+    \endentry
+    \entry{chou2019closure}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=b45071783c891475b74070305b998071}{%
+           family={Chou},
+           familyi={C\bibinitperiod},
+           given={Chi-Ning},
+           giveni={C\bibinithyphendelim N\bibinitperiod}}}%
+        {{hash=a7814e8822fec9d988507760530332ca}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Mrinal},
+           giveni={M\bibinitperiod}}}%
+        {{hash=10ac32448778ac2aca3ac35d2daa2113}{%
+           family={Solomon},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{0fcf66c4dbac3bfbd7e08bd5e21f549c}
+      \strng{fullhash}{0fcf66c4dbac3bfbd7e08bd5e21f549c}
+      \strng{bibnamehash}{0fcf66c4dbac3bfbd7e08bd5e21f549c}
+      \strng{authorbibnamehash}{0fcf66c4dbac3bfbd7e08bd5e21f549c}
+      \strng{authornamehash}{0fcf66c4dbac3bfbd7e08bd5e21f549c}
+      \strng{authorfullhash}{0fcf66c4dbac3bfbd7e08bd5e21f549c}
+      \field{labelalpha}{CKS19}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CC}
+      \field{eprinttype}{arXiv}
+      \field{title}{Closure of VP under taking factors: a short and simple proof}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1903.02366
+      \endverb
+    \endentry
+    \entry{dutta2017discovering}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=b3652b87e304cb234bde304764438db4}{%
+           family={Dutta},
+           familyi={D\bibinitperiod},
+           given={Pranjal},
+           giveni={P\bibinitperiod}}}%
+        {{hash=72d1eef2e218521619ddc0b9bebf0b3a}{%
+           family={Saxena},
+           familyi={S\bibinitperiod},
+           given={Nitin},
+           giveni={N\bibinitperiod}}}%
+        {{hash=0f0a2ef60656183919c13ca11ab2b95b}{%
+           family={Sinhababu},
+           familyi={S\bibinitperiod},
+           given={Amit},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{80e33a782fb9254469dd62194b4cb70a}
+      \strng{fullhash}{80e33a782fb9254469dd62194b4cb70a}
+      \strng{bibnamehash}{80e33a782fb9254469dd62194b4cb70a}
+      \strng{authorbibnamehash}{80e33a782fb9254469dd62194b4cb70a}
+      \strng{authornamehash}{80e33a782fb9254469dd62194b4cb70a}
+      \strng{authorfullhash}{80e33a782fb9254469dd62194b4cb70a}
+      \field{labelalpha}{DSS17}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CC}
+      \field{eprinttype}{arXiv}
+      \field{title}{Discovering the roots: Uniform closure results for algebraic classes under factoring}
+      \field{year}{2017}
+      \verb{eprint}
+      \verb 1710.03214
+      \endverb
+    \endentry
+    \entry{forbessurvey}{article}{}
+      \name{author}{2}{}{%
+        {{hash=cbf2b5aaa03a90566943482500843166}{%
+           family={Forbes},
+           familyi={F\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=6926c3d236eb16c0bda5cc1284784fac}{%
+           family={Shpilka},
+           familyi={S\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{48c25253a0d21dc7d98ea1df2070976d}
+      \strng{fullhash}{48c25253a0d21dc7d98ea1df2070976d}
+      \strng{bibnamehash}{48c25253a0d21dc7d98ea1df2070976d}
+      \strng{authorbibnamehash}{48c25253a0d21dc7d98ea1df2070976d}
+      \strng{authornamehash}{48c25253a0d21dc7d98ea1df2070976d}
+      \strng{authorfullhash}{48c25253a0d21dc7d98ea1df2070976d}
+      \field{labelalpha}{FS15}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{SIGACT} News}
+      \field{number}{4}
+      \field{title}{Complexity Theory Column 88: Challenges in Polynomial Factorization1}
+      \field{volume}{46}
+      \field{year}{2015}
+      \field{pages}{32\bibrangedash 49}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1145/2852040.2852051
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/2852040.2852051
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/2852040.2852051
+      \endverb
+    \endentry
+    \entry{Gathen1984HenselAN}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2acfb93d3b4a5db57c6dac34d1781800}{%
+           family={Gathen},
+           familyi={G\bibinitperiod},
+           given={Joachim},
+           giveni={J\bibinitperiod},
+           prefix={von\bibnamedelima zur},
+           prefixi={v\bibinitperiod\bibinitdelim z\bibinitperiod}}}%
+      }
+      \strng{namehash}{2acfb93d3b4a5db57c6dac34d1781800}
+      \strng{fullhash}{2acfb93d3b4a5db57c6dac34d1781800}
+      \strng{bibnamehash}{2acfb93d3b4a5db57c6dac34d1781800}
+      \strng{authorbibnamehash}{2acfb93d3b4a5db57c6dac34d1781800}
+      \strng{authornamehash}{2acfb93d3b4a5db57c6dac34d1781800}
+      \strng{authorfullhash}{2acfb93d3b4a5db57c6dac34d1781800}
+      \field{labelalpha}{Gat84}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematics of Computation}
+      \field{title}{Hensel and Newton methods in valuation rings}
+      \field{volume}{42}
+      \field{year}{1984}
+      \field{pages}{637\bibrangedash 661}
+      \range{pages}{25}
+    \endentry
+    \entry{gathenalgebra}{book}{}
+      \name{author}{2}{}{%
+        {{hash=fef4c76ad4f770a5a34dfa905056edf7}{%
+           family={Gathen},
+           familyi={G\bibinitperiod},
+           given={Joachim},
+           giveni={J\bibinitperiod}}}%
+        {{hash=caf13cd928db31eaeece3eb2f46b79ad}{%
+           family={Gerhard},
+           familyi={G\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb2d392f86ad4a8d733daf25cddef730}
+      \strng{fullhash}{cb2d392f86ad4a8d733daf25cddef730}
+      \strng{bibnamehash}{cb2d392f86ad4a8d733daf25cddef730}
+      \strng{authorbibnamehash}{cb2d392f86ad4a8d733daf25cddef730}
+      \strng{authornamehash}{cb2d392f86ad4a8d733daf25cddef730}
+      \strng{authorfullhash}{cb2d392f86ad4a8d733daf25cddef730}
+      \field{labelalpha}{GG03}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-82646-4}
+      \field{month}{01}
+      \field{title}{Modern computer algebra (2. ed.).}
+      \field{year}{2003}
+    \endentry
+    \entry{grobnerbaspolyideL}{article}{}
+      \name{author}{3}{}{%
+        {{hash=278070cb6dd2d13223d46e38349dc2ed}{%
+           family={Gianni},
+           familyi={G\bibinitperiod},
+           given={Patrizia},
+           giveni={P\bibinitperiod}}}%
+        {{hash=0f248d9af81c53b251af3895eba64de9}{%
+           family={Trager},
+           familyi={T\bibinitperiod},
+           given={Barry},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8c3f14ec0fe81dd63a20e89063fe6276}{%
+           family={Zacharias},
+           familyi={Z\bibinitperiod},
+           given={Gail},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {USA}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press, Inc.}%
+      }
+      \strng{namehash}{08c5bfb867781025537efef321158a17}
+      \strng{fullhash}{08c5bfb867781025537efef321158a17}
+      \strng{bibnamehash}{08c5bfb867781025537efef321158a17}
+      \strng{authorbibnamehash}{08c5bfb867781025537efef321158a17}
+      \strng{authornamehash}{08c5bfb867781025537efef321158a17}
+      \strng{authorfullhash}{08c5bfb867781025537efef321158a17}
+      \field{labelalpha}{GTZ88}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0747-7171}
+      \field{journaltitle}{J. Symb. Comput.}
+      \field{month}{12}
+      \field{number}{2–3}
+      \field{title}{GröBner Bases and Primary Decomposition of Polynomial Ideals}
+      \field{volume}{6}
+      \field{year}{1988}
+      \field{pages}{149\bibrangedash 167}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1016/S0747-7171(88)80040-3
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/S0747-7171(88)80040-3
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/S0747-7171(88)80040-3
+      \endverb
+    \endentry
+    \entry{reedsol}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=fb6e0e6ff36a30395ada0c82fe11cc98}{%
+           family={Guruswami},
+           familyi={G\bibinitperiod},
+           given={Venkatesan},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{fb6e0e6ff36a30395ada0c82fe11cc98}
+      \strng{fullhash}{fb6e0e6ff36a30395ada0c82fe11cc98}
+      \strng{bibnamehash}{fb6e0e6ff36a30395ada0c82fe11cc98}
+      \strng{authorbibnamehash}{fb6e0e6ff36a30395ada0c82fe11cc98}
+      \strng{authornamehash}{fb6e0e6ff36a30395ada0c82fe11cc98}
+      \strng{authorfullhash}{fb6e0e6ff36a30395ada0c82fe11cc98}
+      \field{labelalpha}{Gur98}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-8186-9172-7}
+      \field{journaltitle}{IEEE Transactions on Information Theory - TIT}
+      \field{month}{12}
+      \field{title}{Improved decoding of Reed-Solomon and algebraic-geometric codes}
+      \field{volume}{45}
+      \field{year}{1998}
+      \field{pages}{28\bibrangedash 37}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/SFCS.1998.743426
+      \endverb
+    \endentry
+    \entry{grhfactpoly}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e31daaea340a051a3ef111d7e4bf865a}{%
+           family={Ivanyos},
+           familyi={I\bibinitperiod},
+           given={Gábor},
+           giveni={G\bibinitperiod}}}%
+        {{hash=5482fd910692daec95489dd87da34892}{%
+           family={Karpinski},
+           familyi={K\bibinitperiod},
+           given={Marek},
+           giveni={M\bibinitperiod}}}%
+        {{hash=344e6dddd5b41c320d5f38baa661d5fb}{%
+           family={Rónyai},
+           familyi={R\bibinitperiod},
+           given={Lajos},
+           giveni={L\bibinitperiod}}}%
+        {{hash=72d1eef2e218521619ddc0b9bebf0b3a}{%
+           family={Saxena},
+           familyi={S\bibinitperiod},
+           given={Nitin},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{3f44a235261e17b93c650512c883beed}
+      \strng{fullhash}{0c121c7b05ddf3bbbd84412370c6555e}
+      \strng{bibnamehash}{3f44a235261e17b93c650512c883beed}
+      \strng{authorbibnamehash}{3f44a235261e17b93c650512c883beed}
+      \strng{authornamehash}{3f44a235261e17b93c650512c883beed}
+      \strng{authorfullhash}{0c121c7b05ddf3bbbd84412370c6555e}
+      \field{labelalpha}{Iva+08}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{CoRR}
+      \field{title}{Trading {GRH} for algebra: algorithms for factoring polynomials and related structures}
+      \field{volume}{abs/0811.3165}
+      \field{year}{2008}
+      \verb{eprint}
+      \verb 0811.3165
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/0811.3165
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/0811.3165
+      \endverb
+    \endentry
+    \entry{kalsurvey}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=e95533ffcd969ba46387ff49b1c25d8d}{%
+           family={Kaltofen},
+           familyi={K\bibinitperiod},
+           given={Erich},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{fullhash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{bibnamehash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{authorbibnamehash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{authornamehash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{authorfullhash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \field{extraname}{1}
+      \field{labelalpha}{Kal06}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{3-540-55284-7}
+      \field{month}{04}
+      \field{title}{Polynomial factorization 1987–1991}
+      \field{year}{2006}
+      \field{pages}{294\bibrangedash 313}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/BFb0023837
+      \endverb
+    \endentry
+    \entry{Kaltofen2020PolynomialF1}{article}{}
+      \name{author}{1}{}{%
+        {{hash=abef373b68d04ee6fbc07c14cb9183b5}{%
+           family={Kaltofen},
+           familyi={K\bibinitperiod},
+           given={Erich\bibnamedelima L.},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{fullhash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{bibnamehash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{authorbibnamehash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{authornamehash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{authorfullhash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \field{extraname}{2}
+      \field{labelalpha}{Kal20}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers in Mathematics}
+      \field{title}{Polynomial Factorization 1982–1986}
+      \field{year}{2020}
+    \endentry
+    \entry{KALTOFEN1985123}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e95533ffcd969ba46387ff49b1c25d8d}{%
+           family={Kaltofen},
+           familyi={K\bibinitperiod},
+           given={Erich},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{fullhash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{bibnamehash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{authorbibnamehash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{authornamehash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \strng{authorfullhash}{e95533ffcd969ba46387ff49b1c25d8d}
+      \field{extraname}{3}
+      \field{labelalpha}{Kal85}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper we prove by entirely elementary means a very effective version of the Hilbert irreducibility theorem. We then apply our theorem to construct a probabilistic irreducibility test for sparse multivariate polynomials over arbitrary perfect fields. For the usual coefficient fields the test runs in polynomial time in the input size.}
+      \field{issn}{0019-9958}
+      \field{journaltitle}{Information and Control}
+      \field{number}{3}
+      \field{title}{Effective Hilbert irreducibility}
+      \field{volume}{66}
+      \field{year}{1985}
+      \field{pages}{123\bibrangedash 137}
+      \range{pages}{15}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0019-9958(85)80056-5
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0019995885800565
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0019995885800565
+      \endverb
+    \endentry
+    \entry{kalhensel}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=fdb6844daa5983f30d88c8e185b8862a}{%
+           family={Kaltofen},
+           familyi={K\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, New York, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{fdb6844daa5983f30d88c8e185b8862a}
+      \strng{fullhash}{fdb6844daa5983f30d88c8e185b8862a}
+      \strng{bibnamehash}{fdb6844daa5983f30d88c8e185b8862a}
+      \strng{authorbibnamehash}{fdb6844daa5983f30d88c8e185b8862a}
+      \strng{authornamehash}{fdb6844daa5983f30d88c8e185b8862a}
+      \strng{authorfullhash}{fdb6844daa5983f30d88c8e185b8862a}
+      \field{extraname}{4}
+      \field{labelalpha}{Kal87}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Nineteenth Annual ACM Symposium on Theory of Computing}
+      \field{isbn}{0897912217}
+      \field{series}{STOC '87}
+      \field{title}{Single-Factor Hensel Lifting and Its Application to the Straight-Line Complexity of Certain Polynomials}
+      \field{year}{1987}
+      \field{pages}{443\bibrangedash 452}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/28395.28443
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/28395.28443
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/28395.28443
+      \endverb
+    \endentry
+    \entry{Kaltofen1989FactorizationOP}{article}{}
+      \name{author}{1}{}{%
+        {{hash=abef373b68d04ee6fbc07c14cb9183b5}{%
+           family={Kaltofen},
+           familyi={K\bibinitperiod},
+           given={Erich\bibnamedelima L.},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{fullhash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{bibnamehash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{authorbibnamehash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{authornamehash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \strng{authorfullhash}{abef373b68d04ee6fbc07c14cb9183b5}
+      \field{extraname}{5}
+      \field{labelalpha}{Kal89}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Adv. Comput. Res.}
+      \field{title}{Factorization of Polynomials Given by Straight-Line Programs}
+      \field{volume}{5}
+      \field{year}{1989}
+      \field{pages}{375\bibrangedash 412}
+      \range{pages}{38}
+    \endentry
+    \entry{knuthvol2}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ec08e6f01da5f3814f28a70c89c64656}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {USA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley Longman Publishing Co., Inc.}%
+      }
+      \strng{namehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{fullhash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{bibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorbibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authornamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorfullhash}{ec08e6f01da5f3814f28a70c89c64656}
+      \field{labelalpha}{Knu97}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0201896842}
+      \field{title}{The Art of Computer Programming, Volume 2 (3rd Ed.): Seminumerical Algorithms}
+      \field{year}{1997}
+    \endentry
+    \entry{Kayal2006ComplexityOR}{article}{}
+      \name{author}{2}{}{%
+        {{hash=132a91296a099d008b0c152b456ec45a}{%
+           family={Kayal},
+           familyi={K\bibinitperiod},
+           given={Neeraj},
+           giveni={N\bibinitperiod}}}%
+        {{hash=72d1eef2e218521619ddc0b9bebf0b3a}{%
+           family={Saxena},
+           familyi={S\bibinitperiod},
+           given={Nitin},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{18632e9ed41d69ae863fe898eb2eb6c2}
+      \strng{fullhash}{18632e9ed41d69ae863fe898eb2eb6c2}
+      \strng{bibnamehash}{18632e9ed41d69ae863fe898eb2eb6c2}
+      \strng{authorbibnamehash}{18632e9ed41d69ae863fe898eb2eb6c2}
+      \strng{authornamehash}{18632e9ed41d69ae863fe898eb2eb6c2}
+      \strng{authorfullhash}{18632e9ed41d69ae863fe898eb2eb6c2}
+      \field{labelalpha}{KS06}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{computational complexity}
+      \field{title}{Complexity of Ring Morphism Problems}
+      \field{volume}{15}
+      \field{year}{2006}
+      \field{pages}{342\bibrangedash 390}
+      \range{pages}{49}
+    \endentry
+    \entry{KALblackbox}{article}{}
+      \name{author}{2}{}{%
+        {{hash=e95533ffcd969ba46387ff49b1c25d8d}{%
+           family={Kaltofen},
+           familyi={K\bibinitperiod},
+           given={Erich},
+           giveni={E\bibinitperiod}}}%
+        {{hash=f49b1707c7b30f5c3e639892427e6965}{%
+           family={Trager},
+           familyi={T\bibinitperiod},
+           given={Barry\bibnamedelima M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{758f3fe4a97e0550c632dbeb90188546}
+      \strng{fullhash}{758f3fe4a97e0550c632dbeb90188546}
+      \strng{bibnamehash}{758f3fe4a97e0550c632dbeb90188546}
+      \strng{authorbibnamehash}{758f3fe4a97e0550c632dbeb90188546}
+      \strng{authornamehash}{758f3fe4a97e0550c632dbeb90188546}
+      \strng{authorfullhash}{758f3fe4a97e0550c632dbeb90188546}
+      \field{labelalpha}{KT90}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0747-7171}
+      \field{journaltitle}{Journal of Symbolic Computation}
+      \field{note}{Computational algebraic complexity editorial}
+      \field{number}{3}
+      \field{title}{Computing with polynomials given byblack boxes for their evaluations: Greatest common divisors, factorization, separation of numerators and denominators}
+      \field{volume}{9}
+      \field{year}{1990}
+      \field{pages}{301\bibrangedash 320}
+      \range{pages}{20}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0747-7171(08)80015-6
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0747717108800156
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0747717108800156
+      \endverb
+    \endentry
+    \entry{numsieve}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=baab527e6bc7ed299275ca42b182d2bd}{%
+           family={Lenstra},
+           familyi={L\bibinitperiod},
+           given={Arjen},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f2096ee558da3125605ef4ff56106f5f}{%
+           family={Lenstra},
+           familyi={L\bibinitperiod},
+           given={Hendrik},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c866db37170c3d98293fc5aed82277e9}{%
+           family={Manasse},
+           familyi={M\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=41f989bf4afab36d9751eb6a81448db9}{%
+           family={Pollard},
+           familyi={P\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{38e3876c5738e4499caa54ffa129993d}
+      \strng{fullhash}{5027339760cbf4178a53b41e027023c7}
+      \strng{bibnamehash}{38e3876c5738e4499caa54ffa129993d}
+      \strng{authorbibnamehash}{38e3876c5738e4499caa54ffa129993d}
+      \strng{authornamehash}{38e3876c5738e4499caa54ffa129993d}
+      \strng{authorfullhash}{5027339760cbf4178a53b41e027023c7}
+      \field{labelalpha}{Len+90}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{The Number Field Sieve}
+      \field{year}{1990}
+      \field{pages}{564\bibrangedash 572}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1145/100216.100295
+      \endverb
+    \endentry
+    \entry{lllalgo}{article}{}
+      \name{author}{3}{}{%
+        {{hash=baab527e6bc7ed299275ca42b182d2bd}{%
+           family={Lenstra},
+           familyi={L\bibinitperiod},
+           given={Arjen},
+           giveni={A\bibinitperiod}}}%
+        {{hash=35cb9ee00bd7f379c597fdef4a112b14}{%
+           family={Lenstra},
+           familyi={L\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=1c421946c54ddbd7af6fbb65bd6d4295}{%
+           family={László},
+           familyi={L\bibinitperiod},
+           given={Lovász},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{ede8254a7a54040edbda05643c3143c2}
+      \strng{fullhash}{ede8254a7a54040edbda05643c3143c2}
+      \strng{bibnamehash}{ede8254a7a54040edbda05643c3143c2}
+      \strng{authorbibnamehash}{ede8254a7a54040edbda05643c3143c2}
+      \strng{authornamehash}{ede8254a7a54040edbda05643c3143c2}
+      \strng{authorfullhash}{ede8254a7a54040edbda05643c3143c2}
+      \field{labelalpha}{LLL82}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematische Annalen}
+      \field{month}{12}
+      \field{title}{Factoring Polynomials with Rational Coefficients}
+      \field{volume}{261}
+      \field{year}{1982}
+      \verb{doi}
+      \verb 10.1007/BF01457454
+      \endverb
+    \endentry
+    \entry{svpconstap}{article}{}
+      \name{author}{1}{}{%
+        {{hash=109a06d914485e4fb38666f22b9ab8b8}{%
+           family={Micciancio},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{109a06d914485e4fb38666f22b9ab8b8}
+      \strng{fullhash}{109a06d914485e4fb38666f22b9ab8b8}
+      \strng{bibnamehash}{109a06d914485e4fb38666f22b9ab8b8}
+      \strng{authorbibnamehash}{109a06d914485e4fb38666f22b9ab8b8}
+      \strng{authornamehash}{109a06d914485e4fb38666f22b9ab8b8}
+      \strng{authorfullhash}{109a06d914485e4fb38666f22b9ab8b8}
+      \field{labelalpha}{Mic01}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Siam Journal on Computing - SIAMCOMP}
+      \field{month}{01}
+      \field{title}{The shortest vector problem is NP-hard to approximate to within some constant}
+      \field{volume}{30}
+      \field{year}{2001}
+      \verb{doi}
+      \verb 10.1137/S0097539700373039
+      \endverb
+    \endentry
+    \entry{Mignotte1974AnIA}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e401d75a7eba6eb1dd365355fd593788}{%
+           family={Mignotte},
+           familyi={M\bibinitperiod},
+           given={Maurice},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{e401d75a7eba6eb1dd365355fd593788}
+      \strng{fullhash}{e401d75a7eba6eb1dd365355fd593788}
+      \strng{bibnamehash}{e401d75a7eba6eb1dd365355fd593788}
+      \strng{authorbibnamehash}{e401d75a7eba6eb1dd365355fd593788}
+      \strng{authornamehash}{e401d75a7eba6eb1dd365355fd593788}
+      \strng{authorfullhash}{e401d75a7eba6eb1dd365355fd593788}
+      \field{labelalpha}{Mig74}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematics of Computation}
+      \field{title}{An inequality about factors of polynomials}
+      \field{volume}{28}
+      \field{year}{1974}
+      \field{pages}{1153\bibrangedash 1157}
+      \range{pages}{5}
+    \endentry
+    \entry{Mahajan1997ACA}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=e7fe313ac0c465db915055d225d643d5}{%
+           family={Mahajan},
+           familyi={M\bibinitperiod},
+           given={Meena},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7edc9e6ff70e41d0b03087d8bd32933c}{%
+           family={Vinay},
+           familyi={V\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{9805a4eedbd00231667e3aaa76e7b859}
+      \strng{fullhash}{9805a4eedbd00231667e3aaa76e7b859}
+      \strng{bibnamehash}{9805a4eedbd00231667e3aaa76e7b859}
+      \strng{authorbibnamehash}{9805a4eedbd00231667e3aaa76e7b859}
+      \strng{authornamehash}{9805a4eedbd00231667e3aaa76e7b859}
+      \strng{authorfullhash}{9805a4eedbd00231667e3aaa76e7b859}
+      \field{labelalpha}{MV97}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{ACM-SIAM Symposium on Discrete Algorithms}
+      \field{title}{A combinatorial algorithm for the determinant}
+      \field{year}{1997}
+    \endentry
+    \entry{lowdegfact}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=dbc7a0a8a6ee75c009366c06450821d8}{%
+           family={Oliveira},
+           familyi={O\bibinitperiod},
+           given={Rafael},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Portland, Oregon}%
+      }
+      \list{publisher}{1}{%
+        {Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik}%
+      }
+      \strng{namehash}{dbc7a0a8a6ee75c009366c06450821d8}
+      \strng{fullhash}{dbc7a0a8a6ee75c009366c06450821d8}
+      \strng{bibnamehash}{dbc7a0a8a6ee75c009366c06450821d8}
+      \strng{authorbibnamehash}{dbc7a0a8a6ee75c009366c06450821d8}
+      \strng{authornamehash}{dbc7a0a8a6ee75c009366c06450821d8}
+      \strng{authorfullhash}{dbc7a0a8a6ee75c009366c06450821d8}
+      \field{labelalpha}{Oli15}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 30th Conference on Computational Complexity}
+      \field{isbn}{9783939897811}
+      \field{series}{CCC '15}
+      \field{title}{Factors of Low Individual Degree Polynomials}
+      \field{year}{2015}
+      \field{pages}{198\bibrangedash 216}
+      \range{pages}{19}
+      \keyw{algebraic complexity,factoring,arithmetic circuits}
+    \endentry
+    \entry{ramalgcomp2017}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4b1b2fca2e7303dfae4e5c7108a1c1ca}{%
+           family={Saptharishi},
+           familyi={S\bibinitperiod},
+           given={Ramprasad},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{fullhash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{bibnamehash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{authorbibnamehash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{authornamehash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{authorfullhash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \field{extraname}{1}
+      \field{labelalpha}{Sap17}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algebra and Computation Lecture Notes, 2017}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.tifr.res.in/~ramprasad.saptharishi/assets/courses/2017-algComp/algComp_2017.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.tifr.res.in/~ramprasad.saptharishi/assets/courses/2017-algComp/algComp_2017.pdf
+      \endverb
+    \endentry
+    \entry{ramsurvey}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4b1b2fca2e7303dfae4e5c7108a1c1ca}{%
+           family={Saptharishi},
+           familyi={S\bibinitperiod},
+           given={Ramprasad},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{fullhash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{bibnamehash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{authorbibnamehash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{authornamehash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \strng{authorfullhash}{4b1b2fca2e7303dfae4e5c7108a1c1ca}
+      \field{extraname}{2}
+      \field{labelalpha}{Sap21}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A survey of lower bounds in arithmetic circuit complexity}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://github.com/dasarpmar/lowerbounds-survey
+      \endverb
+      \verb{url}
+      \verb https://github.com/dasarpmar/lowerbounds-survey
+      \endverb
+    \endentry
+    \entry{schwarzippel}{article}{}
+      \name{author}{1}{}{%
+        {{hash=decbfb97c97d619d96936c9ce79a98da}{%
+           family={Schwartz},
+           familyi={S\bibinitperiod},
+           given={J.\bibnamedelimi T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{fullhash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{bibnamehash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{authorbibnamehash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{authornamehash}{decbfb97c97d619d96936c9ce79a98da}
+      \strng{authorfullhash}{decbfb97c97d619d96936c9ce79a98da}
+      \field{labelalpha}{Sch80}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0004-5411}
+      \field{journaltitle}{J. ACM}
+      \field{number}{4}
+      \field{title}{Fast Probabilistic Algorithms for Verification of Polynomial Identities}
+      \field{volume}{27}
+      \field{year}{1980}
+      \field{pages}{701\bibrangedash 717}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1145/322217.322225
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/322217.322225
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/322217.322225
+      \endverb
+    \endentry
+    \entry{abpfactor}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0f0a2ef60656183919c13ca11ab2b95b}{%
+           family={Sinhababu},
+           familyi={S\bibinitperiod},
+           given={Amit},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2f5c6ffde356b8e55ef940f9de309751}{%
+           family={Thierauf},
+           familyi={T\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{78c56212607a08932637de4a7ddd543a}
+      \strng{fullhash}{78c56212607a08932637de4a7ddd543a}
+      \strng{bibnamehash}{78c56212607a08932637de4a7ddd543a}
+      \strng{authorbibnamehash}{78c56212607a08932637de4a7ddd543a}
+      \strng{authornamehash}{78c56212607a08932637de4a7ddd543a}
+      \strng{authorfullhash}{78c56212607a08932637de4a7ddd543a}
+      \field{labelalpha}{ST21}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{computational complexity}
+      \field{month}{12}
+      \field{title}{Factorization of Polynomials Given by Arithmetic Branching Programs}
+      \field{volume}{30}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1007/s00037-021-00215-0
+      \endverb
+    \endentry
+    \entry{sudreedsol}{article}{}
+      \name{author}{1}{}{%
+        {{hash=8753fbfaaa4aa8a1195c657edc9daef4}{%
+           family={Sudan},
+           familyi={S\bibinitperiod},
+           given={Madhu},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {USA}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press, Inc.}%
+      }
+      \strng{namehash}{8753fbfaaa4aa8a1195c657edc9daef4}
+      \strng{fullhash}{8753fbfaaa4aa8a1195c657edc9daef4}
+      \strng{bibnamehash}{8753fbfaaa4aa8a1195c657edc9daef4}
+      \strng{authorbibnamehash}{8753fbfaaa4aa8a1195c657edc9daef4}
+      \strng{authornamehash}{8753fbfaaa4aa8a1195c657edc9daef4}
+      \strng{authorfullhash}{8753fbfaaa4aa8a1195c657edc9daef4}
+      \field{labelalpha}{Sud97}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0885-064X}
+      \field{journaltitle}{J. Complex.}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Decoding of Reed Solomon Codes beyond the Error-Correction Bound}
+      \field{volume}{13}
+      \field{year}{1997}
+      \field{pages}{180\bibrangedash 193}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1006/jcom.1997.0439
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1006/jcom.1997.0439
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1006/jcom.1997.0439
+      \endverb
+    \endentry
+    \entry{shpilkasurvey}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6926c3d236eb16c0bda5cc1284784fac}{%
+           family={Shpilka},
+           familyi={S\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8fea19bbf1f84f9f59e959335022dd6f}{%
+           family={Yehudayoff},
+           familyi={Y\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e8ad1e3cdd93f662b5506be8dd61292}
+      \strng{fullhash}{3e8ad1e3cdd93f662b5506be8dd61292}
+      \strng{bibnamehash}{3e8ad1e3cdd93f662b5506be8dd61292}
+      \strng{authorbibnamehash}{3e8ad1e3cdd93f662b5506be8dd61292}
+      \strng{authornamehash}{3e8ad1e3cdd93f662b5506be8dd61292}
+      \strng{authorfullhash}{3e8ad1e3cdd93f662b5506be8dd61292}
+      \field{labelalpha}{SY10}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Foundations and Trends in Theoretical Computer Science}
+      \field{month}{01}
+      \field{title}{Arithmetic Circuits: A survey of recent results and open questions}
+      \field{volume}{5}
+      \field{year}{2010}
+      \field{pages}{207\bibrangedash 388}
+      \range{pages}{182}
+      \verb{doi}
+      \verb 10.1561/0400000039
+      \endverb
+    \endentry
+    \entry{Valiant1979CompletenessCI}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5f6de757ace433a38a527a005db316f1}{%
+           family={Valiant},
+           familyi={V\bibinitperiod},
+           given={Leslie\bibnamedelima G.},
+           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f6de757ace433a38a527a005db316f1}
+      \strng{fullhash}{5f6de757ace433a38a527a005db316f1}
+      \strng{bibnamehash}{5f6de757ace433a38a527a005db316f1}
+      \strng{authorbibnamehash}{5f6de757ace433a38a527a005db316f1}
+      \strng{authornamehash}{5f6de757ace433a38a527a005db316f1}
+      \strng{authorfullhash}{5f6de757ace433a38a527a005db316f1}
+      \field{labelalpha}{Val79}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the eleventh annual ACM symposium on Theory of computing}
+      \field{title}{Completeness classes in algebra}
+      \field{year}{1979}
+    \endentry
+    \entry{Zassenhaus1969OnHF}{article}{}
+      \name{author}{1}{}{%
+        {{hash=cc3f12dcca042448c5adf8c51125377f}{%
+           family={Zassenhaus},
+           familyi={Z\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc3f12dcca042448c5adf8c51125377f}
+      \strng{fullhash}{cc3f12dcca042448c5adf8c51125377f}
+      \strng{bibnamehash}{cc3f12dcca042448c5adf8c51125377f}
+      \strng{authorbibnamehash}{cc3f12dcca042448c5adf8c51125377f}
+      \strng{authornamehash}{cc3f12dcca042448c5adf8c51125377f}
+      \strng{authorfullhash}{cc3f12dcca042448c5adf8c51125377f}
+      \field{labelalpha}{Zas69}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Number Theory}
+      \field{title}{On Hensel factorization, I}
+      \field{volume}{1}
+      \field{year}{1969}
+      \field{pages}{291\bibrangedash 311}
+      \range{pages}{21}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

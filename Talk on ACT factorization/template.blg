@@ -1,0 +1,18 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'template.blg'
+[77] biber:340> INFO - === Fri Jun  9, 2023, 17:45:56
+[92] Biber.pm:419> INFO - Reading 'template.bcf'
+[166] Biber.pm:979> INFO - Found 34 citekeys in bib section 0
+[179] Biber.pm:4419> INFO - Processing section 0
+[190] Biber.pm:4610> INFO - Looking for bibtex file 'ref.bib' for section 0
+[191] bibtex.pm:1713> INFO - LaTeX decoding ...
+[225] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
+[494] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[494] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[494] Biber.pm:4239> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[494] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[531] bbl.pm:660> INFO - Writing 'template.bbl' with encoding 'UTF-8'
+[546] bbl.pm:763> INFO - Output to template.bbl
+[546] Biber.pm:131> WARN - legacy month field 'mar' in entry 'sudreedsol' is not an integer - this will probably not sort properly.
+[546] Biber.pm:131> WARN - legacy month field 'dec' in entry 'grobnerbaspolyideL' is not an integer - this will probably not sort properly.
+[546] Biber.pm:133> INFO - WARNINGS: 2
