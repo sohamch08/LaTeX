@@ -507,14 +507,19 @@ Moreover, there exists a randomized poly $\left(n^{\log n}\right)$-time algorith
 %------------------------------------------------
 
 \section{Black-Box Factorization}
-\begin{frame}
+\begin{frame}[allowframebreaks]
 	\frametitle{Black-Box Multi-variate Polynomial Factorization}
 	
 	\begin{theorem}[Hilbert Irreducibility Theorem \cite{KALTOFEN1985123},\cite{ramalgcomp2017},\cite{KALblackbox}]
-		Let $f\left(x, y_1, \ldots, y_n\right)$ be a degree $d$ polynomial which is monic in $x$. Suppose $S \subseteq \mathbb{F}$ and $$\operatorname{Pr}_{\bar{a}, \bar{b} \in S^n}\left[f\left(x, a_1 t+b_1, \ldots, a_n t+b_n\right) \text { is reducible }\right] \geq \frac{O\left(d^5\right)}{|S|}
-$$
-then $f\left(x, y_1, \ldots, y_n\right)$ is reducible.
+		Let $f\left(x, y_1, \ldots, y_n\right)$ be a degree $d$ polynomial which is monic in $x$. Suppose $S \subseteq \mathbb{F}$ and ${Pr}_{\bar{a}, \bar{b} \in S^n}\left[f\left(x, a_1 t+b_1, \ldots, a_n t+b_n\right) \text { is reducible }\right] \geq \frac{O\left(d^5\right)}{|S|}$ then $f\left(x, y_1, \ldots, y_n\right)$ is reducible.
 	\end{theorem}
+	
+	\begin{itemize}
+		\item  Hilbert’s irreducibility theorem, which in one formulation says that restricting an irreducible polynomial to a random two-dimensional subspace keeps the polynomial irreducible with high probability. 
+		\item They restrict a polynomial $f$ to a random two-dimensional subspace does not change the number of irreducible factors of $f$ . 
+		\item Given this, multivariate factoring algorithms proceed as follows. First, restrict the polynomial to a randomly chosen two-dimensional space. 
+		\item Then, perform bi-variate factorization of the restricted polynomial. Finally, lift each factor to the whole space.
+	\end{itemize}
 	
 	\begin{theorem}[\cite{KALblackbox}]
 	    The Black Box Polynomial Factorization algorithm can  output a factor in polynomially many arithmetic steps as a function of $n$ and $\deg(f)=d$ with the right answer probability at least $\frac{O(d^6)}{|S|}$ 

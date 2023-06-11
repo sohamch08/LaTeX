@@ -1,0 +1,86 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+%%%%%%%%%% Español %%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%% Portada %%%%%%%%%%
+\usepackage[textwidth = 16cm]{geometry}
+\usepackage[x11names]{xcolor}
+\usepackage{adjustbox}
+
+
+\usepackage{geometry}
+
+% command to provide stretchy vertical space in proportion
+\newcommand\nbvspace[1][3]{\vspace*{\stretch{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%% Licencia %%%%%%%
+\usepackage{ccicons}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%% Vínculos %%%%%%%%%%
+\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%% Línea del tiempo %%%%%%
+\usepackage{chronosys}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%% Colofón %%%%%%%%%%
+\usepackage[%
+title={Colofón}, titlestyle=scshape, titlesize=30pt, titlealign=c, parstyle=itshape, parsize=12pt, parlead=15pt, noclrdblpg ]{colophon}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{graphicx}
+
+\definecolor{titlepagecolor}{cmyk}{75,68,67,90}
+\definecolor{titlepagecolor2}{rgb}{1.0, 0.08, 0.58}
+\definecolor{emerald}{rgb}{0.31, 0.78, 0.47}
+\definecolor{deeppink}{HTML}{D14064}
+\definecolor{lowpink}{HTML}{00336c}
+\begin{document}
+\frontmatter
+
+% ---------- Portada ----------
+\begin{titlepage}
+\newgeometry{top=1in,bottom=1in,right=0in,left=0in}
+\thispagestyle{empty}
+
+\begin{center}
+\pagecolor{lowpink}
+\color{white}
+\nbvspace[0.5]
+\noindent
+{\fontsize{40}{0}\selectfont  The Rising Sea\\[5mm] \fontsize{30}{0}\selectfont Foundations of Algebraic Geometry} 
+\nbvspace[2]
+\vskip\baselineskip
+\adjincludegraphics[width=\paperwidth]{cover.png}
+\vskip\baselineskip
+\nbvspace[2]
+\noindent{\fontsize{28}{0}\selectfont Ravi Vakil}
+\nbvspace[0.5]
+\end{center}
+\end{titlepage}
+% --------------------
+
+
+% ---------- Contraportada----------
+\newpage
+\thispagestyle{empty}
+\pagecolor{lowpink}
+\nbvspace[3]
+%\hfill\includegraphics{cover.png}\hfill
+\nbvspace[3]
+
+% --------------------
+
+\end{document}
+
