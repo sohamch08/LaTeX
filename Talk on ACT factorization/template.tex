@@ -392,7 +392,7 @@
 \begin{itemize}
 	\item Assume that $f$ is square free. Find the smallest prime $p$ such that $p\nmid a_n$ and $f\pmod p$ is square free
 	\item Using Barlekamp algorithm compute a factorization of $f\equiv f_0g_0\pmod p$ where $g_0\pmod p$ is monic irreducible and co-prime to $h_0$
-	\item Compute $fcong g_kh_k\pmod {p^{2^k}}$ by Hensel Lifting for $k=\lceil \log 2n^3l\rceil$
+	\item Compute $f\equiv g_kh_k\pmod {p^{2^k}}$ by Hensel Lifting for $k=\lceil \log 2n^3l\rceil$
 	\item Find $(\tilde{g},l_k)$ such that $\tilde{g}\equiv g_kl_k\pmod{p^{2^k}}$ with $\deg \tilde{g}<n$. Coefficients of $\tilde{g}$ have bit-size $\leq n(l+\log n)$
 	\item Output $gcd(f,\tilde{g})$
 	\item \textbf{Time Complexity: }$\tilde{O}(n^{10}+n^8\log^2A)$ 
