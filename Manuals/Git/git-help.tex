@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+
+\usepackage{verbatim,fullpage}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\colorlet{verylightgray}{lightgray!70!}
+\newtcbox{\enterkey}{on line, 
+	boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,coltext=blue,
+	colframe=white,colback=verylightgray,  
+	highlight math style={enhanced},fontupper=\ttfamily
+}
+
+\usepackage{tikz}
+
+\newcommand{\cd}[1]{\enterkey{#1}}
+
+\begin{document}
+	\section{Basic Commands}
+\begin{itemize}
+	\item \cd{git clone <url>} $\to$ Bring a repository that is hosted somewhere like Github into a folder on your local machine
+	
+	\item \cd{git add <file>} $\to$ Track your files and changes in Git
+	
+	\item \cd{git commit -m "<messege>" <file>} $\to$ Save your files in Git. You can commit like this $$\cd{git commit -m "messege" <file> -m "<description>"}$$ which also gives some description
+	
+	\item \cd{git push origin <branch-name>} $\to$ Upload Git commits to a remote repo, like Github
+	
+	\item \cd{git pull} $\to$ Download changes from remote repo to your local machine, the opposite of push
+	\item \cd{git status} $\to$ Shows all the files that are created and commited and haven't been commited
+\end{itemize}
+\section{Initialize a Repo}
+\begin{itemize}
+	\item Create a folder let \cd{repo}
+	\item Create a \cd{README.md} file 
+	\item Run the command \cd{git init}
+	\item Then add the file by \begin{align*}
+		&\cd{git add README.md}\\
+		&\cd{git commit -m "Created readme"}
+	\end{align*}
+	\item Now we can not just \cd{git push origin master} since git does not know where to push this since there is no connection. We have to create this connection
+	\item Go to github and create an empty repository. Copy the given link
+	\item Then run \cd{git remote add origin <copied-url>}
+	\item Then run \cd{git push origin master}
+	\item Later we will use only \cd{git push} but we will use something called upstream meaning this is where i want to push by default by \cd{git push -u origin master}
+\end{itemize}
+\end{document}
