@@ -1,0 +1,131 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools,mathdots}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
+\usepackage{caption}
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 4}\\
+		Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+		\normalsize Course: Parallel Algorithms and Complexity \hfill Date: August 25, 2023}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p1% problem reference text
+		}
+Prove that the $6-Color-Rooted-Tree$ Algorithm produces a valid 6-coloring of a tree.
+		
+		%Problem		
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Let $L_k$ denote the number of bits used to represent vertices at $k$-th iteration. Now for $i=1$ we have $$L_1=\lceil \log n\rceil+1\leq 2\lceil \log n\rceil$$Now let for $i=k-1$ we have $L_{k-1}\leq 2\lceil \log^{(k-1)}n\rceil$ and $\lceil \log^{(k)}n\rceil \geq 2$. Now \begin{align*}
+			L_k&=\lceil \log L_{k-1}\rceil +1\leq \lt\lceil\log 2\lt[\log^{(k-1)}n\rt]\rt\rceil +1\leq 2\lt\lceil\log^{(k)}n\rt\rceil
+		\end{align*}Hence if $\lceil\log^{(k)}n\rceil\geq 2$ we have $L_k\leq 2\lceil \log^{(k)}n\rceil$ Therefore the number of bits to represent the vertices decreases with each iteration and after $O(\log^*n)$ many iteration $L_k$ reaches the value of 3 (The limit $L$ of $\lim\limits_{k\to \infty}L_k=\lim\limits_{k\to \infty}\lceil\log L_{k-1}\rceil +1$ is the solution of $L=\lceil\log L \rceil +1$). In those 3 bits the $i_v$ takes 3 possible values and the $b_v$ takes 2 possible values for each vertex $v$. Hence total number of colors is $3\times 2=6$.
+}
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p2% problem reference text
+		}
+		%Problem	
+		\begin{itemize}
+			\item Prove that every weakly connected component of a pseudoforest contains at most one cycle
+			\item Find a 3 Coloring pseudoforest algorithm in $O(\log^*n)$ time
+		\end{itemize}
+	\end{problem}
+	
+	\solve{
+		%Solution
+		\begin{itemize}
+			\item Suppose there are two cycles $C_1$, $C_2$ in a weakly connected component. Now $C_1$ and $C_2$ has to be disjoint cause other wise there will be a vertex in $CC_!\cap C_2$ from which two edges have gone out side one for the next vertex in $C_1$ and the other one for the next vertex in $C_2$. This is not possible since in a pseudoforest each vertex has out-degree exactly 1. So $C_1$ and $C_2$ are disjoint. Since they remain in same weakly connented component for $u\in C_1$ and $v\in C_2$ there exists a path $u\rightsquigarrow v$ or $v\rightsquigarrow u$. WLOG let the path $u\rightsquigarrow v$ exists. Let the path is $P$. Now there exists an edge $(x,y)=e\in P$ such that $e\notin C_1$ but the tail $x$ of the edge is in $C_1$. Now since $x\in C_1$ there is an edge going outward from $x$ towards the next vertex in $C_1$. And also the edge $(x,y)$ is going outwards along $P$. Hence out-degree of $x$ is at least 2. Which is not possible. Hence every weakly connected component of a pseudoforest has at most one cycle.
+			\item
+		\end{itemize}
+	}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p3% problem reference text
+	}
+	%Problem	
+	Is Maximum Independent Set for bounded degree graph $NP-hard$?
+\end{problem}
+
+\solve{
+	%Solution
+}	
+	
+	
+\end{document}
