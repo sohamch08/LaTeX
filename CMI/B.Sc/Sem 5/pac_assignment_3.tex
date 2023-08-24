@@ -1,0 +1,128 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools,mathdots}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
+\usepackage{caption}
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 3}\\
+		Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+		\normalsize Course: Parallel Algorithms and Complexity \hfill Date: August 24, 2023}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p1% problem reference text
+		}
+	Show that $FracPowering\leq_{cd} Powering$.
+		
+		%Problem		
+	\end{problem}
+	
+	\solve{
+		%Solution
+		Let $0<x<2^n$, $0<y<2^n$ and $k$ are the inputs. We have to calculate $\lt\lfloor \frac{x^k}{y^k}\rt\rfloor$. We first calculate $x^k$ and $y^k$ in parallel.  
+		Let $2^{j-1}\leq y^k<2^j$. Let $u=1-2^{-j}y^k\implies y^{-k}=\dfrac{2^{-j}}{1-u}$. Therefore we also get $|u|\leq \frac12$. Now $$\frac1{1-u}=\sum_{k=0}^{\infty}u^k$$ Since we cannot do infinite sum we will do our best approximation. Take $\widetilde{y^{-1}}=2^{-j}\sum\limits_{k=0}^{n-1}u^k$. Now\begin{align*}
+			\lt|y^{-k}-\widetilde{y^{-k}}  \rt| & \leq  2^{-j}\sum\limits_{k=n}^{\infty}|u|^k \leq 2^{-j}\sum\limits_{k=n}^{\infty}\lt(\frac12\rt)^k =2^{-j} \frac1{2^n}\sum\limits_{k=0}^{\infty}\lt(\frac12\rt)^k=2^{-j}\frac{2}{2^n}\leq 2^n
+		\end{align*}Hence $$\lt|x^ky^{-k}-x^k\widetilde{y^{-k}}\rt|\leq |x|2^{-n}\leq 1$$Hence $x^ky^{-k}$ and $x^k\widetilde{y^{-k}}$ differs at most at the last bit. So we can multiply $y^k$ with  $x^k\widetilde{y^{-k}}$ and check for which one it becomes $x^k$ and output accordingly. Hence $FracPowering\leq Powering$
+		
+		
+		
+		
+	}
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p2% problem reference text
+		}
+		%Problem	
+		In Mahajan Vinay's Paper prove that $$\sum_{p:s\rightsquigarrow t_+}w(p)-\sum_{p:s\rightsquigarrow t_-}w(p)=\sum_{\mcW:\text{ Clow Sequence}} sgn(\mcW)w(\mcW)$$
+	\end{problem}
+	
+	\solve{
+		%Solution
+		We will find a bijection between $s\rightsquigarrow t_+$ paths and the clow sequences of positive sign. And similarly bijection between $s\rightsquigarrow t_-$ paths and the clow sequences of negative sign.
+		
+		The edges of the last level as weight 1 and it takes care of the parity of $n$. Hence it is enough to show that the clow sequences with an even number of components correspond to $s\rightsquigarrow q_+$ paths and similalry clow sequences with an odd number of components correspond to $s\rightsquigarrow q_-$ paths. Let $\mcW=(C_1,C_2,\dots,C_{2k})$ be a clow sequence. Let $h_i$ is the head of $C_i$ and $n_i$ is the number of edges in clows $C_1,\dots,C_{i-1}$. We will show a path from $s$ to $q_+$ in $H_A$. The path will go through $[p,h_i,h_i,n_i,]$ where if $i$ is odd $p=0$ and otherwise $p=1$. 
+		
+		Now from $s$ we can go to $[0,h_1,h_1,0]$. Now let the path has reached $[p,h_i,h_i,n_i]$. Suppose $C_i=(h_i,v_1,\dots,v_{k-1})$ a closed walk of length $k$. From $[p,h_1,h_i,n_i]$ $H_A$ has a path through the verteices $[p,h_i,v_1,n_i+1],\dots, [p,h_i,v_{k-1},n_i+(k-1)]$ and then $[\ovp,h_{i+1},h_{i+1},n_i+k]=[\ovp,h_{i+1},h_{i+1},n_{i+1}]$. 
+		
+		At the last clow, starting from $[1,h_{2k},h_{2k},n_{2k}]$, $H_A$ will have a path tracing out the vertices of clow $C_{2k}$ and in the end a transition to $q_+$. The weight of the path is identical to the weight of the clow sequences.
+		
+		Now $p$ be an $s\rightsquigarrow q_+$ path in $H_A$. In the sequences of vertices visited in the path the second component of the vertex labels is monotonically non-decreasing. Suppose it takes $m$ distinct values $h_1,\dots,h_m$. Also the first component changes exactly when the second component does. It is 0 at $h_1$ and 1 at $h_m$ (to allow an edge to $q_+$). So $m$ must be even. Consider the maximal segment of the path with second component $h_i$. The third components along this segment constitute a clow with leader $h_i$ in $G_A$. When this clow is completely traversed a new clow with a larger head must be started and the parity of number of components must change. But this is precisely modelled by the edges of $H_A$. Therefore $p$ corresponds to a clow sequence with an even number od components in $G_A$.
+		
+		Similarly we get a bijection between the paths from $s\rightsquigarrow q_-$ and clow sequences with an odd number of componentsm, preserving weights. Hence we get $$\sum_{p:s\rightsquigarrow t_+}w(p)-\sum_{p:s\rightsquigarrow t_-}w(p)=\sum_{\mcW:\text{ Clow Sequence}} sgn(\mcW)w(\mcW)$$
+
+}
+	
+	
+	
+	
+\end{document}
