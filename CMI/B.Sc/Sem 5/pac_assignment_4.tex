@@ -21,6 +21,8 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
 \usepackage{caption}
+\usepackage{mathpazo}
+
 
 \definecolor{mytheorembg}{HTML}{F2F2F9}
 \definecolor{mytheoremfr}{HTML}{00007B}
@@ -108,7 +110,7 @@ Prove that the $6-Color-Rooted-Tree$ Algorithm produces a valid 6-coloring of a 
 		%Solution
 		\begin{itemize}
 			\item Suppose there are two cycles $C_1$, $C_2$ in a weakly connected component. Now $C_1$ and $C_2$ has to be disjoint cause other wise there will be a vertex in $CC_!\cap C_2$ from which two edges have gone out side one for the next vertex in $C_1$ and the other one for the next vertex in $C_2$. This is not possible since in a pseudoforest each vertex has out-degree exactly 1. So $C_1$ and $C_2$ are disjoint. Since they remain in same weakly connented component for $u\in C_1$ and $v\in C_2$ there exists a path $u\rightsquigarrow v$ or $v\rightsquigarrow u$. WLOG let the path $u\rightsquigarrow v$ exists. Let the path is $P$. Now there exists an edge $(x,y)=e\in P$ such that $e\notin C_1$ but the tail $x$ of the edge is in $C_1$. Now since $x\in C_1$ there is an edge going outward from $x$ towards the next vertex in $C_1$. And also the edge $(x,y)$ is going outwards along $P$. Hence out-degree of $x$ is at least 2. Which is not possible. Hence every weakly connected component of a pseudoforest has at most one cycle.
-			\item
+			\item After applying $6-Color-Rooted-Tree$ if there are more than 3 colors we shift down every color that is replace every non-root node's color with the color of the parent and color the root nodes with something different from the color before shifting and then for a color $c$ we replace $c$ with the smallest color other than $c$, the color of its child nodes and the color of the parent nodes (we can do this since there are more than 3 colors). In this shifting process total number of color is reduced by 1. Hence after 3 iteration of this shifting process number of colors is reduced to 3. In a shifting process the new coloring can be done for each vertex parallely and removing the color $c$ for each vertex can also be done in parallel. So each shifting process takes constant time. Since we do thisshifting process 3 times it takes constant time to reduce the number of colors to 3. Hence to 3 color a tree it takes $O(\log^*n)$ time.
 		\end{itemize}
 	}
 	

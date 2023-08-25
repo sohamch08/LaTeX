@@ -1,0 +1,226 @@
+%% This is a template for Assignments 
+%% My name is Soham Chatterjee
+%% I have created this theme.
+%% Thanks for using it.
+
+
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{mathpazo}
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 1}\\
+    Email: \href{sohamc@cmi.ac.in}{sohamc@email.com} \hfill Roll: BMC202175\\
+    \normalsize Course: Algorithmic Coding Theory \hfill Date: September 7, 2023}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Chapter 1
+}{p1
+% problem reference text
+}
+%Problem		
+Ex 1.18
+\end{problem}
+
+\solve{
+%Solution
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Chapter 2
+}{p2% problem reference text
+}
+%Problem
+Ex 2.13		
+
+\end{problem}
+
+\solve{
+%Solution
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Chapter 2
+	}{p3% problem reference text
+	}
+	%Problem		
+	Ex 2.16
+\end{problem}
+
+\solve{
+	%Solution
+	\begin{enumerate}[label=(\alph*)]
+		\item Since $G$ has full rank, $rank(G)=k$. Therefore in the reduced column echelon form of $G$ the first $k$ columns forms a identity matrix $I_k$. We denote the matrix formed by the rest $n-k$ columns by $A$. Since the reduced column echelon form of a matrix and the matrix generate the same vector space they are equivalent. And since the reduced column echelon form can be obtained through the Gaussian elimination method we can convert $G$ to a matrix $G'$ of the form $G'=[I_k|A]$ in polynomial time where $G'$ and $G$ are equivalent.
+		\item We should have $GH^T=0$ where $G$ is of the form $G=[I_k|A]$. where $A$ is a $k\times (n-k)$ matrix. Take $H=[-A^T|I_{n-k}]$. Suppose we denote $G=(g_{i,j})_{\substack{1\leq i\leq k\\ 1\leq j\leq n}}$ and $H=(h_{i,j})_{\substack{1\leq i\leq n\\ 1\leq j\leq n-k}}$.  Let $C=GH^T=(c_{i,j})_{\substack{1\leq i\leq k\\ 1\leq j\leq n-k}}$\begin{align*}
+			c_{i,j}&=\sum_{m=1}^ng_{i,m}h_{m,j}=\sum_{m=1}^{k}\delta_{i,m}h_{m,j}+\sum_{m=k+1}^ng_{i,m}\delta_{m-k,j}=h_{i,j}+g_{i,k+j}=-a_{i,j}+a_{i,j}=0
+		\end{align*}So we get every entry of $C$ is 0. Hence $GH^T=0$. Therefore $H$ is the parity check matrix of $G$ and since $H$ is of the form $H=[-A^T|I_{n-k}]$ so it has full rank $n-k$. Hence $H$ is a parity check matrix.
+	\end{enumerate}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Chapter 2
+	}{p4% problem reference text
+	}
+	%Problem		
+	Ex 2.17
+\end{problem}
+
+\solve{
+	%Solution
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Chapter 5
+	}{p1
+		% problem reference text
+	}
+	%Problem
+	Ex 5.8		
+\end{problem}
+
+\solve{
+	%Solution
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Chapter 5
+	}{p2% problem reference text
+	}
+	%Problem		
+	Ex 5.15
+\end{problem}
+
+\solve{
+	%Solution
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Chapter 5
+	}{p3% problem reference text
+	}
+	%Problem		
+	Ex 5.16
+\end{problem}
+
+\solve{
+	%Solution
+	\begin{enumerate}
+		\item We have $f(X+Z)=\sum\limits_{i=0}^{t} r_i(X)Z^i$. Now differentiating $f$ with respect to $Z$ we have $$f'(X+Z)=\sum_{i=0}^{t-1}(i+1)r_{i+1}(X)Z^i$$
+		Let for $n=k-1$ we have $$f^{(k-1)}(X+Z)=\sum_{i=0}^{t-k+1} \frac{(i+k-1)!}{i!} r_{i+k-1}(X)Z^i$$
+		Denote $\dfrac{(i+k-1)!}{i!} r_{i+k-1}(X)=g_{i}(X)$. Then for $n=k$ we have
+		\begin{align*}
+			f^{(k)}(X+Z) & = \sum_{i=0}^{t-k} (i+1)g_{i+1}Z^i=\sum_{i=0}^{t-k} \frac{((i+1)+k-1)!}{i!} r_{(i+1)+k-1}(X)Z^i\\
+			& = \sum_{i=0}^{t-k}\frac{(i+k)!}{i!} r_{i+k}(X)Z^i
+		\end{align*}
+		Hence by mathematical induction we have $$f^{(n)}(X+Z)=\sum_{i=0}^{t-n}\frac{(i+n)!}{i!} r_{i+n}(X)Z^i$$
+		Therefore $$f^{(n)}(X)=f^{(n)}(X+0)=\sum_{i=0}^{t-n}\frac{(i+n)!}{i!} r_{i+n}(X)0^i=\frac{n!}{0!}r_{n}(X)=n!r_n(X)$$
+		\item Let $char(\bbF_q)=m$. So $j\geq m$. Hence $j!=j(j-1)\cdots (m+1)m(m-1)!=mk$ where $k=j(j-1)\cdots (m+1)(m-1)!$. Since $f^{(j)}(X)=j!r_j(X)=m\lt( kr_j(X) \rt)\equiv 0$.
+	\end{enumerate}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		Chapter 5
+	}{p4% problem reference text
+	}
+	%Problem		
+	Ex 5.17
+\end{problem}
+
+\solve{
+	%Solution
+}
+\end{document}
