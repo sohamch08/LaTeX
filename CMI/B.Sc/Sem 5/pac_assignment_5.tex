@@ -1,0 +1,124 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools,mathdots}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
+\usepackage{caption}
+\usepackage{mathpazo}
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 5}\\
+		Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+		\normalsize Course: Parallel Algorithms and Complexity \hfill Date: August 28, 2023}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Problem 1
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{problem}{%problem statement
+		}{p1% problem reference text
+		}
+Prove that $GapNC^1=DiffNC^1$
+		
+		%Problem		
+	\end{problem}
+	
+	\solve{
+		%Solution
+		$GapNC^1$ is in $DiffNC^1$ because if $f-g\in GapNC^1$ then we can compute $f$ and $g$ normally and at the top there is a addition gate where the coefficient of $g$ is $-1$. So $GapNC^1\subseteq DiffNC^1$.
+		
+		Suppose $f\in DiffNC^1$. Now we will try to move the negative coefficients upwards and when it reaches to the children of the topmost gate we will transform it to the form of $g-h$. Since it is $DiffNC^1$ we can assume fanin is 2. If there are no $-1$ coefficients for any child of a gate we will do nothing. Now we can transform the gates like this
+		\begin{align*}
+			 & (-f)\times (-g)  = f\times g  &  & \text{remove the -1's from children}                                            \\
+			 & (-f)\times g  = - (f\times g) &  & \text{remove the -1's from children and add to the edge outgoing from the gate} \\
+			 & (-f)+(-g) = -(f+g)            &  & \text{remove the -1's from children and add to the edge outgoing from the gate}
+		\end{align*}
+	
+	Apart from these cases one case is remaining. The last case is $(-f)+g$ Then suppose from the addition gate it is going to another gate $g$. Then we make two copies of $g$ where one has the child $-f$ and the other one has child $g$ in place of the original $-f+g$ in the single gate $g$. Then we do the process above again. 
+	
+	Now if $-f+g$ is the case where the $+$ is the topmost gate then we replace the $+$ gate with $-$ and the children of that gate will be $g$ and $f$ respectively. If $(-f)+(-g)$ is the case where the additoin gate is the topmost gate then compute it by $$(-f)+(-g)=1-1+(-f)+(-g)=1-(1+f+g)$$ Also if the $(-f)\times g$ is the topmost $\times$ gate then we compute it like $$(-f)\times g= -(f\times g)= 1-(1+f\times  g)$$So we replace the $(-f)\times g$ with $1-(1+fg\times g)$. 
+	
+	In this way the negative coefficients moves upwards and in the end we have a $h-k$ form at the top which satisfies the $GapNC^1$ conditions. Also with this reconstructing at most every gate is duplicated and at the top at most 1 more gate appeared. So  Size blow up is constant. Therefore $DiffNC^1\subseteq GapNC^1$. Hence $GapNC^1=DiffNC^1$.
+}
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\begin{problem}{%problem statement
+	}{p2% problem reference text
+	}
+	%Problem	
+	Formula depth reduction
+\end{problem}
+
+\solve{
+	%Solution
+Suppose $\phi$ is a formula. Lets assume its fanin is 2. Suppose the size of $\phi$ is $s$.  Now starting from the root walk down to the leaves by aleays taking the child with a larger subtree under it. Consider the first node in this path $v$ such that the size of the formula rooted at $v$ is smaller than $\frac{2s}3$. Let $\phi_v$ be the subformula rooted at $v$, By the choice of the path from the root we have $$\frac{s}3 \leq |\phi_v|<\frac{2s}{3}$$Let $\phi'_v$ be the formula if the subformula rooted at $v$ is replaced by a variable $y$. Hence $$\phi'_v(y)=Ay+B\qquad \text{and} \phi=A\phi_v+B$$ for some polynomials $A$ and $B$. But we can compute both $A$ and $B$ from $\phi'_v(y)$ as $$A=\phi'_v(1)-\phi'_v(0)\qquad B=\phi'_v(0)$$Thus $$f=(\phi_v'(1)-\phi'_v(0))\phi_v+\phi_v'(0)$$All the formulas $\phi'_v(1)$, $\phi'_v(0)$, $\phi_v$ have size at most $\frac{2s}{3}$. Thus by recursvely applying the process on each of the subformulas we have $$Depth (s)=Depth\lt(\frac{2s}{3}\rt)+3\implies Depth(s)=O(\log s)$$and $$Size(s)\leq 4Size\lt(\frac{2s}{3}\rt)+O(1)\implies Size(s)=poly(s)$$
+}
+
+	
+	
+\end{document}
