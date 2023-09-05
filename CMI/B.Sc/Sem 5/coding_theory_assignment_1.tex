@@ -130,6 +130,7 @@ Ex 2.13
 		\item We should have $GH^T=0$ where $G$ is of the form $G=[I_k|A]$. where $A$ is a $k\times (n-k)$ matrix. Take $H=[-A^T|I_{n-k}]$. Suppose we denote $G=(g_{i,j})_{\substack{1\leq i\leq k\\ 1\leq j\leq n}}$ and $H=(h_{i,j})_{\substack{1\leq i\leq n\\ 1\leq j\leq n-k}}$.  Let $C=GH^T=(c_{i,j})_{\substack{1\leq i\leq k\\ 1\leq j\leq n-k}}$\begin{align*}
 			c_{i,j}&=\sum_{m=1}^ng_{i,m}h_{m,j}=\sum_{m=1}^{k}\delta_{i,m}h_{m,j}+\sum_{m=k+1}^ng_{i,m}\delta_{m-k,j}=h_{i,j}+g_{i,k+j}=-a_{i,j}+a_{i,j}=0
 		\end{align*}So we get every entry of $C$ is 0. Hence $GH^T=0$. Therefore $H$ is the parity check matrix of $G$ and since $H$ is of the form $H=[-A^T|I_{n-k}]$ so it has full rank $n-k$. Hence $H$ is a parity check matrix.
+	\item The general parity check matrix $H$ of the hamming code $[2^r,2^r-1-r,3]$ is the the $i$th column is the binary representation of $i$. Now by gaussian elimination we can convert it to the form $H'=[A\mid I_{r}]$. So now in $H'$ for the last $r$ many columns the $i$th columns is the binary representation of $2^i$. In $H$ the $i$th column for which $2^k<i<2^{k+1}$ in $H'$ it is the $(i-k)$th column. So then the generator matrix of the hamming code $[2^r-1,2^r-1-r,3]$ is the matrix $G=[I_{2^r-1-r}\mid -A^T]$ by part (b)
 	\end{enumerate}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,6 +147,15 @@ Ex 2.13
 
 \solve{
 	%Solution
+	\begin{enumerate}[label=(\alph*)]
+		\item We encode each alphabet in $(n,k,d)_{2^m}$ in binary $\{0,1\}$. So each alphabet takes $m$ bits to encode. So now in the old code to encode each code in binary we have to encode all the $n$ alphabets in binary which takes total $nm$ bits to encode. So in the new code the code length becomes $nm$. \parinn
+		
+		Initially $|C|=(2^m)^k=@^{mk}$. Hence the new dimention of the code becomes $km$. And the distance becomes at least the same as old one since we are just encoding all the alphabets in binary. So the new distance $d'\geq d$. The new code is $(nm,km,d'\geq d)_2$.
+		\item Like the same logic as for the part (a) we encode all the alphabets in binary which takes $m$ bits. So for each $n$ length old code the new code is of $nm$ length. So the new dimention of the code becomes like before $km$ and the distance is at least $d$. So the new linear code is $[nm,km,d'\geq d]_2$
+		\item 
+		\item For each $c\in C$ where $C$ is the given linear code $[n,k,d]_q$ we form the new code $c^{\otimes m}\coloneqq\underbrace{c\otimes c\otimes \cdots\otimes c}_{m\text{ times}}$. Let the old alphabet set is $\Sigma$. We create the new alphabet set of size $q^m$ which is the set of all possible $m-tuples$ i.e. $\Sigma' =\lt\{ (q_1,\dots,q_m)\mid q_i\in \Sigma\ \forall \ i\in [m] \rt\}$. So the new alphabet size becomes $|\Sigma'|=q^m$. 
+		Now let $c\in C$ is $c=(q_1,\dots,q_n)$. Now if we expand out the $c^{\otimes m}$ each element of it is a $m$-product of the letters from the set $\{q_1,\dots,q_n\}$. So we can represent each element of it as a $m$-tuple. Now each of this tuple is an element of the alphabet set we created just now. So in the new code number of codes remains same but the alphabet size is now $q^m$. Now originally $|C|=q^k=(q^m)^{\frac{k}{m}$ So the dimention is $\frac{k}{m}$. Now for the distance 
+	\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

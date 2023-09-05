@@ -1,0 +1,194 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools,mathdots,amssymb}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
+\usetikzlibrary{decorations.shapes}
+\usepackage{caption}
+\usepackage{mathpazo}
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+\tikzset{decorate sep/.style 2 args=
+	{decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}}
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 6}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Parallel Algorithms and Complexity \hfill Date: September 2, 2023}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+Find Parallel Implementation of Boruvka's Algorithm of Minimum Spanning Tree
+		
+%Problem		
+\end{problem}
+	
+\solve{
+	%Solution
+We will describe a parallel implementation of boruva's algorithm of minimum spanning tree
+\begin{enumerate}[labelindent=1cm,labelwidth=\widthof{\ref{last-item}},label=Step \arabic*:,itemindent=0cm,leftmargin=!]
+	\item From each of the vertex the edge with minimum weight is taken, parallely
+	\item In each of the tree formed the one with the smaller number is designated as the root of the component. The component is the tree. Each vertex finds the root of the tree it belongs, parallely in each component and renames it with the root vertices.
+	\item The edges of all vertices in a component are merged ie each component is now contracted to a vertex.
+	\item The in each component the edges inside the component are removed and new edge list is performed. 
+\end{enumerate}
+This process is recursed again and again until one vertex is remained.
+\begin{center}
+\begin{tikzpicture}[scale=2]
+	\foreach \x in {-1, 0, 3}
+	{
+		\draw[->] (\x,0) -- (\x+1,0) ;
+		\draw[->] (\x+1,0) -- (\x+0.5,0.866);
+		\draw[->] (\x+0.5,0.866) -- (\x,0);
+	}
+	\draw (-0.5,0) node[below]{1};
+	\draw (0.5,0) node[below]{10};
+	\draw (3.5,0) node[below]{$10^k$};
+	
+	\draw (-0.5,0.433) node[xshift=-0.7cm]{2};
+	\draw (1-0.5,0.433) node[xshift=-0.8cm]{20};
+	\draw (3,0.433) node[xshift=-0.2cm]{$2\times 10^k$};
+	\draw (-0.5,0.433) node[xshift=0.7cm]{3};
+	\draw (1-0.5,0.433) node[xshift=0.8cm]{30};
+	\draw (4,0.433) node[xshift=0.2cm]{$3\times 10^k$};
+	\draw[decorate sep={0.5mm}{4mm},fill] (1.2,0) -- (2.8,0);
+\end{tikzpicture}
+\end{center}
+In each iteration of Edmond's algorithm get exactly one cycle which is a triangle. First we will get the left most one. Since at each step we get only one cycle we have no hope for parallely computing for all disjint cycles.
+}
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\begin{problem}{%problem statement
+	}{p2% problem reference text
+	}
+	%Problem	
+	Show a counter example that Edmond's Algorithm is not Parallelizable.
+\end{problem}
+
+\solve{
+	%Solution
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p2% problem reference text
+	}
+	%Problem	
+	In 3-connected planar graphs faces are precisely nonseparating induced cycles of the graph.
+\end{problem}
+
+\solve{
+	%Solution
+	Let $G$ is a 3-connected planar graoh. Let $C\subseteq G$ is a non-separating induced cycle.  Since it is a non separating cycle all the points in $G-C$ appear in the same side of the cycle. Since $C$ is induced cycle it created 2 faces and only one of them contains all the points in $G-C$. Therefore $C$ bounds a face of $G$.
+	
+	\parinf
+			\textbf{\textit{Lemma :}}\label{lem} In a 2-connected planar graph every face is bounded by a cycle.
+			
+			\textbf{\textit{Proof:}} Assume that there is 
+			a face a which is not bounded by a cycle. Choose a vertex $v$ so that the boundary walk of
+			a passes through the vertex $v$ twice. Then we may draw a closed curve starting and ending
+			at $v$ with interior contained in a. This curve separates the plane into two components each
+			of which must contain a vertex of $G$, so we find that $v$ is a cut vertex. Thus, $G$ is not
+			2-connected.
+	
+	\parinn
+
+
+Suppose $C$ is  bounds a face $f$. By the \hyperref[lem]{Lemma} $C$ is a cycle. Let $C$ has a chord $e=(u,v)$. Since $G$ is 3-connected $G-\{x,y\}$ is connected. There exists a $C$-path $P$ between the  components of $C-\{u,v\}$  since $G$ is 3-connected. But this is not possible as both the edge $e$ and the path $P$ runs thriugh the same face created by $C$. Which is not possible because if $P_!,P_2,P_3$ are three arcs between the same endpoints then if $P$ is an arc between a point in $P_1$ and a point in $P_3$ whose interior lies in the region $\bbR^2-(P_1\cup P_3)$ that contains $P_2$ then $P$ contains a interior point of $P_2$. Here $P_1, P_3$ are the path between the components  along the cycle and $P_2$ is the chord. Hence we have that a face in a 3-connected planar graph is induced.
+
+Now wwe have to shoe that face is non separating. Let $x,y\in G-C$. By Menger's Theorem $x$ and $y$ are linked in $G$ by three independent paths since $G$ is 3-connected. Therefore $f$ must completely lie in one of 3 faces described by the paths. $f$ can be bounded by only two paths among them. Therefore the third avoids $f$ and its boundary $C$. 
+
+So every face is is precisely its non separating induced cycles.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p2% problem reference text
+	}
+	%Problem	
+	Prove that Fundamental Cycles form a cycle basis.
+\end{problem}
+
+\solve{
+	%Solution
+	Suppose $\mcC$ denote the cycle space. Let the fundamental cycles, $\mcF$ are obtained from the spanning tree $T$. So for each edge $e\notin E(T)$ the fundamental cycle created by joining $e$ is $C_e$. So the fundamental cycles are linearly independent because for each $C_e$ is the only fundamental cycle obtained from $e$ because $$\underset{C_e\in \mcF}{\bigtriangleup}C_e=\{e\mid e\in E(G)-E(T)\}$$Hence the fundamental cycles are linearly independent. 
+	
+	Now let $H\in \mcC$.Let $e_1,e_2,\dots,e_k$ are the edges in $H$ which are not in $T$. Then let $$H'=H\bigtriangleup \lt(\underset{i\in[k]}{\bigtriangleup}C_{e_i}\rt)$$This $H'$ is a elements in the cycle space. Now each $e_i$ appear one time in $H$ and one time in $C_{e_i}$. Hence in $H'$ none of the $e_i$ edges are remaining. Since apart from the edges $e_i$ all the edges of $H$ and $C_{e_j}$'s are the edges of the tree $T$ we can say $H'$ is a subgraph of $T$. Since $H'$ is a subgraph of $T$ it is not a cycle. But it is also an element of the cycle space. Hence $E(H')=\phi$. Therefore $H=\underset{i\in[k]}{\bigtriangleup}C_{e_i}$. Therefore the fundamental cycles form a cycle basis of the cycle space.
+}
+
+	
+	
+\end{document}
