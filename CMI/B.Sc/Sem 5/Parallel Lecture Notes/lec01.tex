@@ -64,12 +64,13 @@ We know $IterAdd_{n,n}\leq _{cd} IterAdd_{n,1}$ but we dont know anything about 
 \begin{theorem}\label{addnnbcrel}
 	$IterAdd_{n,n}\leq_{cd} IterAdd_{n,1}$
 \end{theorem}
+
 \begin{proof}
-	Let we given $n$ many $n$-bit numbers $a_1,\dots,a_n$, where $bin(a_i)=a_{i,n-1}\dots a_{i,1}a_{i,0}$. First we compute $s_{k}=\sum_{i=1}^n a_{i,k}$ using $BCOUNT_n$ for all $0\leq k\leq n$. Now it becomes addition of $\log n$ many $O(n)$ bit numbers which we already know is in $AC^0$ by \hyperref[addlognac0]{Theorem \ref{addlognac0}}. Hence $IterAdd_{n,n}\leq_{cd} BCOUNT_n$
+Let we given $n$ many $n$-bit numbers $a_1,\dots,a_n$, where $bin(a_i)=a_{i,n-1}\dots a_{i,1}a_{i,0}$. First we compute $s_{k}=\sum_{i=1}^n a_{i,k}$ using $BCOUNT_n$ for all $0\leq k\leq n$. Now it becomes addition of $\log n$ many $O(n)$ bit numbers which we already know is in $AC^0$ by \hyperref[addlognac0]{Theorem \ref{addlognac0}}. Hence $IterAdd_{n,n}\leq_{cd} BCOUNT_n$
 \end{proof}
 
 
-\section{$IterAdd_{n,n}\equiv BCOUNT_n\equiv Threshold_{n,n} \equiv Majority_n\equiv MULT_{n}$}
+\section{$IterAdd_{n,n}\equiv BCOUNT_n\equiv Threshold_{n,m} \equiv Majority_n\equiv MULT_{n}\equiv SORT_{n,n}$}
 \textbf{Problem:} $MULT$\\
 \textbf{Input:} 2 $n$-bit numbers $a=a_0,\dots,a_{n-1}$, $b=b_0,\dots,b_{n-1}$\\
 \textbf{Output:} $c=a\cdot b$\\

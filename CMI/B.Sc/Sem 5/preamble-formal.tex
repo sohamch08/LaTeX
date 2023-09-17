@@ -21,7 +21,11 @@
 \usepackage{stmaryrd}
 \usepackage{mathpple}
 
-
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,8 +63,10 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{claim}{Claim}
+\newtheorem{question}{Question}
 \newtheorem{fact}[observation]{Fact}
 \newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{open}[theorem]{Open Question}
 
 \renewenvironment{proof}{\noindent{\it \textbf{Proof:}}\hspace*{1em}}{\qed\bigskip}
 \newenvironment{proof-sketch}{\noindent{\bf Sketch of Proof}\hspace*{1em}}{\qed\bigskip}
@@ -70,3 +76,6 @@
 \newenvironment{proofof}[1]{\noindent{\bf Proof}
 	of #1:\hspace*{1em}}{\qed\bigskip}
 \newenvironment{remark}{\noindent{\bf Remark:}\hspace*{1em}}{\bigskip}
+\newenvironment{answer}{%
+	\setlength\parindent{0pt}\par\medskip\textbf{Answer:}\quad}{%
+	\par\medskip}
