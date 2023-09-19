@@ -1,0 +1,17 @@
+\section{Iterated Multiplication of $n$ many $n$ Bit Numbers}
+
+\begin{theorem}
+	Let $k\in \bbN$, $P=p_1p_2\cdots p_k$. Let $a_1,\dots, a_k$ be given. Then there is a unique number $a\in \{0,\dots, P-1\}$ such that $a\equiv a_i\mod{p_i}$ for $1\leq i\leq k$. More specifically, we have $$a=\lt[ \sum_{i=1}^k (a_i\pmod{p_i}) \rt]\pmod{P}$$where $r_i=\frac{P}{p_i}$ and $s_i=\lt(\frac{P}{p_i}\rt)^{-1} \pmod{p_i}$ (i.e. $s_i$ is the multiplicative inverse of $r_i\pmod{p_i}$).
+\end{theorem}
+\parinf
+\textbf{Problem:} $ItMult_{,m}$
+
+\textbf{Input:} $m$ many $n$-bit numbers are given
+
+\textbf{Output:} The product of the given numbers
+
+\parinn
+
+\begin{theorem}
+	$ItMult_{n,n}\leq Maj$
+\end{theorem}

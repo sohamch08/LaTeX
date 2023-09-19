@@ -39,6 +39,28 @@ $SORT\leq UCOUNT$: Given $a_i=a_{i,n-1}\cdots, a_{i,1}a_{0,0}$ for all $1\leq i\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parallel Random-Access Machine (PRAM)}
 In \cite{karpramachandran} many Parallel Machine Models are very well written and explained
+\begin{definition}[PRAM]
+	A PRAM consists of an infinite sequence of processors $P_1,P_2,\dots$. Each processor $P_i$ has its local memory realized as an infinite sequence $R_{i,0},R_{i,1},R_{i,2},\dots$ of registers. Additionally there is a common (or global) memory given by the infinite sequence $C_0,C_1,C_2,\dots$ of registers. Each register can hold as value a natural number, stored in binary as a bit string.
+	
+	A particular PRAM $M$ is specified by a program and a processor bound. The program is a sequence of instructions $S_1,S_2,\dots, S_s$ and the processor bound is a function $p:\bbN\to \bbN$
+	
+	\textbf{Workflow:} Initially the input is distributed over the lowest numbered global memory cells. Then all the processors $P_1,\dots,P_{p(n)}$ start the execution of the program with the first instruction $S_1$. Each instruction $S_m$ is one of the following 9 types. 
+	
+	\textbf{Instructions:} Suppose a fixed processor $P_r$, $1\leq r\leq p(n)$. Let $c,i,j,k\in \bbN$ and $1\leq l\leq s$. We describe the instructions and their effect in turn. If $S_m$ is one of the first 7 types then after the execution of $S_m$ processor $P_r$ continues with instruction $S_{m+1}$\begin{enumerate}
+		\item $R_i\leftarrow c$: $R_{r,i}$ gets as value the constant $c$.
+		\item $R_i\leftarrow\#$: $R_{r,i}$ gets as value the number of the processor i.e. $r$
+		\item (Numerical Operations) $R_i\leftarrow R_j+R_k$, $R_i\leftarrow R_j-R_k$: The result of adding the contents of $R_{r,j}$ and $R_{r,k}$ (Subtracting) is stored in $R_{r,i}$. (If subtraction results in a negative number the $R_{r,i}$ gets value 0)
+		\item (Bitwise Operation) $R_i\leftarrow R_j\vee R_k$, $R_i\leftarrow R_j\wedge R_k$, $R_i\leftarrow R_j\oplus R_k$: The result of performing the bitwise $OR$ ($AND$, $PARITY$) of the contens of $R_{r,j}$ and $R_{r,k}$ is stored in $R_{r,i}$.
+	\item (Shift Operation) $R_i\leftarrow \text{shl }R_j$, $R_i\leftarrow \text{shr }R_j$: If the contents of $R_{r,j}$ is $a$ where $bin (a)=a_{l}\cdots a_0$ then register $R_{r,i}$ will get the value $b$ where $bin(b)=a_l\cdots a_00$ (for shl) and $bin(b)=a_l\cdots a_1$ (for shr)
+	\item (Indirect Addressing 1): $R_i\leftarrow (R_j)$: The contents of the global memory register whose number is given by the contents of $R_{r,i}$.
+	\item (Indirect addressing 2): $(R_i)\leftarrow R_j$: The contents of $R_{r,j}$ is copied to that global register whose number is given by the contents of $R_{r,i}$
+	\item (Conditional Jump) $IF\ R_i<R_j\ GOTO\ l$: If the contents of $R_{r,i}$ is smaller in value than the contents of $R_{r,j}$ then processor $P_r$ continues with the execution of instruction $S_l$; otherwise it continues with the next instruction $S_{m+1}$.
+	\item $HALT$: The computation of processor $P_r$ stops.
+	\end{enumerate}
+The computation of $M$ stops when all the processors $R_1,\dots, R_{p(n)}$ have halted
+\end{definition}
+
+Let $f:\bbN^*\to \bbN^*$. We say that a PRAM $M$ computes $f$ if the following holds: Given an input $(x_1,\dots,x_n)\in \bbN^n$ (input length: $n$) the $x_i$ are first distributed in global memory cells $C_1,\dots, C_n$ i.e. $C_i$ is initialized to $x_i$ for $1\leq i\leq n$. Additionally $C_0$ is initialized to $n$. Then the computation of $M$ is started. Let $m$ be the contents of register $C_0$ after the computation stops. Then $f(x_1,\dots, x_n)$ is the vector from $\bbN^m$ whose components are the numbers in the global register $C_1,\dots, C_m$
 \begin{definition}[EREW-PRAM]
 	E$\coloneqq$ Exclusive, $R\coloneqq$ Read, W $\coloneqq $ Write 
 \end{definition}
@@ -92,7 +114,14 @@ In CRCW allows simultaneous read and writes. Hence we have to resolve write conf
 \begin{proof} $AC^1\subseteq CRCW[\log n,poly(n)]$: (COMMON) For any gate all its parents have similarly reading  access of the memory of the gate and all its childs has writing access. But we use COMMON model to resolve write conflicts. For an $OR$ gate if anyone evaluates to be 0 then it ignores and if its 1 then it writes 1. Thus everybody writes 1. Every $OR$ gate by  has 0 previously in the memory. Similarly for $AND$ gate its the opposite. 
 
 
-$AC^1\supseteq CRCW[\log n,poly(n)]$: \cite[Theorem 2.56]{VollmerCh2}, \cite{ac1crcwstockmeyervishkin}
+$AC^1\supseteq CRCW[\log n,poly(n)]$: \thmref{volthm2.56}, \cite{ac1crcwstockmeyervishkin}
+\end{proof}
+
+\begin{theorem}\label{volthm2.56}
+Let $f:\{0,1\}^*\to \{0,1\}^*$ be a length-respecting function computed by the CRCW PRAM $M$ in time $t(n)$. Let the processor bound of $M$ be $p(n)$. The there is a family $\mcC$ of circuits that computes $f$ where the depth of $\mcC$ is $O(t(n))$ and size is polynomial in $n+t(n)+p(n)$.
+\end{theorem}
+\begin{proof}
+See \cite[Theorem 2.56, Page  70]{VollmerCh2}
 \end{proof}
 
 \section{Some Circuit Complexity Class Relations}
