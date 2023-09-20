@@ -1,0 +1,68 @@
+\chapter{$VF$ Factorization}
+
+In Rafael Oliviera's Paper \cite{oliveiraFactorsLowIndividual2016} he showed that if $P(\ovx)$ is a polynomial with individual degrees bounded by $r$ that can be computed by a formula size $s$ and depth $d$, then any factor $f(\ovx)$ of $P(\ovx)$ can be computed bt a formula of size $poly((nr)^s,s)$ and depth $d+5$.
+\section{Factorizaion of Low Individual Degree}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPROXIMATION LEMMA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Approximates the roots of y-g(x) type roots in algebraically closed field.
+\begin{lemma}[Approximation Lemma]\label{apprlem}
+	Let $P(\ovx, y)\in \bbF[\ovx,y]$. $P'(\ovx,y)\equiv \del{P}{y}(\ovx,y)$ and $\mu\in \bbF$ be such that $P(\overline{0},y)=0$ but $P'(\overline{0},y)=\xi\neq 0$. Then for each $t\geq 0$ there exists a unique polynomial $q_t(\ovx)$ s.t. $\deg(q_t)\leq t$, $q_t(\overline{0})=\mu$ and $$H_{\leq t}^{\ovx}[P(\ovx,q_t(\ovx))]\equiv 0$$Moreover if $P$ can be computed by a formula (circuit) $\Gamma$ such that its output gate is an addition gate, there is a formula (circuit) $\Phi_t$ for the polynomial $q_t(\ovx)$ such that the output gate of $\Phi_t$ is an addition gate, $depth(\Phi_t)\leq depth(\Gamma)+2$ and $$|\Phi_t|\leq 200(tr)^2{{t+r+1}\choose{r+1}}|\Gamma|$$If we require the in-degree of the formula (circuit) to be 2, then the size of $\Phi_t$ does not change and $depth(\phi_t)\leq depth(\Gamma)+54\log(t)$.
+\end{lemma}
+\begin{proof}
+	We will prove the uniqueness of $q_t(\ovx)$ and construct the formula of $q_t(\ovx)$ by induction. First we will list our notations:\parinf
+	
+	\textbf{Notations:}	
+		\begin{itemize}
+			\item $P(\ovx,y)=\sum\limits_{i=0}^r C_i(\ovx)y^i$
+			\item $\tilde{C}_i(\ovx)=C_{i}(\ovx)-C_i(\ov{0})$
+			\item $H_{\leq t}^{\ovx}[P(\ovx,q_t(\ovx))]$ is same as saying $P(\ovx,q_t(\ovx))\bmod \la \ovx\ra^{t+1}$
+		\end{itemize}\parinn
+	
+	We have $H_{\leq t}^{\ovx}[P(\ovx,q_t(\ovx))]\equiv 0$. Hence it must satisfy $H_{\leq t-1}^{\ovx}[P(\ovx,q_t(\ovx))]\equiv 0$ and therefore we have $q_t(\ovx g(\ovx)+q_{t-1}(\ovx)$ where $g(\ovx)$ is a homogeneous polynomial of degree $t$. We can write. Therefore we have
+	\begin{align*}
+		0\equiv P(\ovx, q_t(\ovx))\bmod \la \ovx\ra^{t+1}& \equiv P(\ovx , q_{t-1}+g(\ovx))\bmod \la\ovx\ra^{t+1}\\
+		& \equiv \sum_{i=0}^r C_{i}(\ovx)\lt(q_{t-1}(\ovx)+g(\ovx)\rt)^{i}\bmod \la\ovx\ra^{t+1}\\
+		& \equiv \sum_{i=0}^r C_i(\ovx)q_{t-1}^i(\ovx)+\sum_{i=0}^ri\cdot C_i(\ovx)g(\ovx) q_{t-1}^{i-1}(\ovx)\bmod \la\ovx\ra^{t+1}\\
+		&\qquad\qquad [\text{Since for all powers of $g(\ovs)$ more than 1 it has more than $t+1$ degree}\\
+		& \qquad\qquad\qquad\qquad\qquad\text{ $\ovx$ term which will be turned to 0 because of $\bmod \la\ovx\ra^{t+1}$}]\\ 
+		&\equiv \sum_{i=0}^r C_i(\ovx)q_{t-1}^i(\ovx)+\sum_{i=0}^r i\cdot C_i(\ov{0})g(\ovx)q_{t-1}^{i-1}(\ov{0})\bmod \la\ovx\ra^{t+1}\\
+		& \equiv \sum_{i=0}^rC_i(\ovx)q_{t-1}^i(\ovx)+\gm\cdot g(\ovx)\bmod \la\ovx\ra^{t+1}\\
+		&\iff g(\ovx) \equiv -\frac{1}{\gm}\sum_{i=0}^rC_{i}(\ovx)q_{t-1}^i(\ovx)\bmod \la\ovx\ra^{t+1}
+	\end{align*}
+	
+	Since we have $q_{t-1}(\ovx)$ is unique we have $g(\ovx)$ is also unique which implies that $q_t(\ovx)$ is also unique.
+\end{proof}
+
+
+
+\begin{corollary}\label{apprrootfactor}
+	Let $P(\ovx,y)$ and $\mu\in \bbF$ be defined as in \hyperref[apprlem]{Lemma \ref{apprlem}} for each $t\in \bbN_0$ let $q_t(\ovx)$ be the unique polynomial obtained from \hyperref[apprlem]{Lemma \ref{apprlem}}. If $h(\ovx,y)\in \bbF[\ovx,y]$ is such that $h(\overline{0},y)=0$, $\del{h}{y}(\overline{0},\mu)\neq 0$ and there exists $t\in \bbN$ and $Q(\ovx,y)\in \bbF$ such that 
+	\begin{equation}
+		H_{\leq t}^{\ovx}[P(\ovx,y)]\equiv H_{\leq t}^{\ovx}[h(\ovx,y)\cdot Q(\ovx,y)]\label{apprrootfactorEq1}
+	\end{equation}
+	then the polynomial $q_t(\ovx)$ also satisfies 
+	\begin{equation}
+		H_{\leq t}^{\ovx}[h(\ovx,q_t(\ovx))]\equiv 0, \qquad \forall\ t\geq 0\label{apprrootfactorEq2}
+	\end{equation}
+\end{corollary}
+
+\begin{proof}
+	Since $\mu$ is a root of $h(\overline{0},y)$ and $\del{h}{y}(\overline{0},\mu)\neq 0$ by \hyperref[apprlem]{Lemma \ref{apprlem}} we have that there exists a unique $g_t(\ovx)$ such that $H_{\leq t}^{\ovx}[h(\ovx,g_t(\ovx))]\equiv 0$. From \eqref{apprrootfactorEq1} we have 
+	\begin{align*}
+		H_{\leq t}^{\ovx}[P(\ovx,g_t(\ovx))] & \equiv H_{\leq t}^{\ovx}\lt[h\lt(\ovx,g_t\lt(\ovx\rt)\rt)\cdot Q\lt(\ovx,g_t\lt(\ovx\rt)\rt)\rt]                          \\
+		& \equiv H_{\leq t}^{\ovx}\lt[H_{\leq t}^{\ovx}\lt[h\lt(\ovx,g_t\lt(\ovx\rt)\rt)\rt]\cdot Q\lt(\ovx,g_t\lt(\ovx\rt)\rt)\rt] \\
+		& \equiv H_{\leq t}^{\ovx}\lt[0\cdot Q\lt(\ovx,g_t\lt(\ovx\rt)\rt)\rt]\equiv 0
+	\end{align*}
+	Since $q_t(\ovx)$ is unique by \hyperref[apprlem]{Lemma \ref{apprlem}} we have $q_t(\ovx)\equiv g_t(\ovx)$.
+\end{proof}
+
+\section{Reducing the Degree Bound to One Variable}
+\begin{theorem}
+	Let $P(\ovx,y)\in\bbF[\ovx,y]\backslash \{0\}$ where $\ovx=(x_1,x_2,\dots,x_n)$ such that $\deg_y(P)\leq r$ and $f(\ovx,y)$ be a monic factor of $P$ or $g(\ovx)$ be a root of $P$ with respect to $P$ i.e. $P(g(\ovx),y)=0$, where $\bbF$ is a field of characteristic zero. If there exists a formula (circuit) of size $s$ and depth $d$ computing $P$ then there exists a formula (circuit) of depth $d+5$  and size $poly((nr)^r,s)$ computing $f$ or $g$.
+\end{theorem}
+
+\begin{proof}
+	content...
+\end{proof}

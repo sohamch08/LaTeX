@@ -1,0 +1,88 @@
+\section{Maximal Independent Set ($MIS$)}
+\begin{theorem}
+	$MIS\in P$
+\end{theorem}
+
+\subsection{Matching and Independent Set of Line Graph}
+
+\begin{definition}[Line Graph]
+	The line graph of the graph $G$, written $L(G)$  is the graph whose vertices are the edges of $G$, with $(e_1,e_2)\in E(L(G))$ when $e_1\cap e_2\neq \phi$
+\end{definition}
+
+\begin{theorem}
+	Given a graph $G$ a set of edges $S\subseteq E$ is a matching if and only if it is a independent set in the line graph $L(G)$
+\end{theorem}
+\begin{proof}
+	$(\Rightarrow)$: Let $S$ be a matching of $G$. Therefore for all $e_1,e_2\in S$ we have $e_1\cap e_2-\phi$. Hence $e_1,e_2$ are not adjacent in $L(G)$. Hence $S$ is an independent set of $L(G)$.
+	
+	$(\Leftarrow)$: Let $S$ be a independent set in $L(G)$. Then for all $e_1,e_2\in S$, $e_1$ and $e_2$ are not adjacent. Therefore $e_1\cap e_2=\phi$. Hence the set $S$ is a set of edges of $G$ where none of them shares any endpoint. Hence $S$ is a matching in $G$.
+\end{proof}
+
+\begin{fact}
+	Maximal (Maximum) Matching in $G$ is an Maximal (Maximum) Independent Set  in the line graph $L(G)$.
+\end{fact}
+
+\subsection{Luby's Algorithm}
+\begin{definition}[$RNC^{k}$]
+	The class $RNC^{k}$ is the class of problems that can be solved by a randomized algorithm that runs in $O(\log^k n)$ time with a polynomial number of processors. 
+\end{definition}
+\begin{remark}
+	Therefore $RNC$ is the randomized counterpart of NC.\parinn
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Luby's Algorithm
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\parinf Here we denote for any $v\in V$ $d(v)\coloneqq \deg(v)$. Now we will define good and bad vertices for us based on certain properties of vertices like this:\parinn
+
+	A vertex $ v\in V$ is \underline{good} if $$\sum_{u\in N(v)}\frac{1}{2d(u)}\geq \frac16$$A pair of vertices $u,v\in V$ is said to be good if $$good(u,v)\iff \llbracket(u,v)\in E\rrbracket\wedge\llbracket good(u)\vee good(v)\rrbracket$$
+
+Therefore in case of bad vertex $bad(v)=\neg good(v)$ and for a pair of vertices $u,v\in V$ we have $bad(u,v)=\neg good(u,v)$
+
+We 
+
+\begin{lemma}
+	For any $v\in V$	$$bad(v)\implies d^+(v)\geq 2d^-(v)\iff  d^-(v)\leq \frac{d(v)}{3}\iff d^+(v)\geq \frac{2d(v)}{3}$$
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+
+\begin{lemma}
+	At least half of the edges in the graph are good
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+
+\begin{lemma}
+	Let $X$ ve the random variable representing the number of deleted edges. Then $$\bbE[X]\geq \frac{|E|}{72}$$
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+
+\begin{lemma}
+		For any $v\in V$ $$Pr[v\notin I\mid v\in S]\leq \frac12$$
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+
+\begin{lemma}
+		For any $v\in V$ $$Pr[v\in I]\geq \frac{1}{4d(u)}$$
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+
+\begin{lemma}
+	If $v\in V$ is good then $$Pr[v\in N(I)]\geq \frac1{36}$$
+\end{lemma}

@@ -7,7 +7,7 @@
 \usepackage{enumitem}
 \usepackage{hyperref,theoremref}
 \hypersetup{
-	colorlinks=true, linkcolor=doc!90,
+	colorlinks=true, linkcolor=myb, urlcolor=myb, citecolor=myr,
 	bookmarksnumbered=true,
 	bookmarksopen=true
 }
@@ -18,8 +18,14 @@
 \usepackage{nameref}
 \usepackage{multicol,array}
 \usepackage{tikz-cd}
+\usepackage{stmaryrd}
+\usepackage{mathpple}
 
-
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
@@ -54,12 +60,14 @@
 \numberwithin{theorem}{section}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{observation}[theorem]{Observation}
+\newtheorem{observation}{Observation}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{fact}[theorem]{Fact}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{claim}{Claim}
+\newtheorem{question}{Question}
+\newtheorem{fact}[observation]{Fact}
 \newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{open}[theorem]{Open Question}
 
 \renewenvironment{proof}{\noindent{\it \textbf{Proof:}}\hspace*{1em}}{\qed\bigskip}
 \newenvironment{proof-sketch}{\noindent{\bf Sketch of Proof}\hspace*{1em}}{\qed\bigskip}
@@ -68,4 +76,7 @@
 \newenvironment{proof-attempt}{\noindent{\bf Proof Attempt}\hspace*{1em}}{\qed\bigskip}
 \newenvironment{proofof}[1]{\noindent{\bf Proof}
 	of #1:\hspace*{1em}}{\qed\bigskip}
-\newenvironment{remark}{\noindent{\bf Remark}\hspace*{1em}}{\bigskip}
+\newenvironment{remark}{\noindent{\bf Remark:}\hspace*{1em}}{\bigskip}
+\newenvironment{answer}{%
+	\setlength\parindent{0pt}\par\medskip\textbf{Answer:}\quad}{%
+	\par\medskip}
