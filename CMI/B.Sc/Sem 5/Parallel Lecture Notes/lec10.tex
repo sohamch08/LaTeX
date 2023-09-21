@@ -29,24 +29,48 @@
 \begin{remark}
 	Therefore $RNC$ is the randomized counterpart of NC.\parinn
 \end{remark}
-
+Luby's Algorithm puts $MIS$ in $RNC^2$. The main steps or the ideas of the algorithm are:\begin{itemize}
+	\item The algorithm tries to find $I$ in each stage.
+	\item Each stage finds an independent set $I$ in parallel, using calls on a 
+	\item Create a set $S$ of candidates for $I$ as follows: For each vertex $v$ in parallel, include $v\in S$ with probability $\frac1{2d(v)}$
+	\item For each edge in $E$ if both its endpoints are in $S$, discard the one of lower degree, ties are resolved arbitrarily
+	\item The resulting set is $I$
+\end{itemize}
 Here we denote for any $v\in V$ $d(v)\coloneqq \deg(v)$. 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Luby's Algorithm
 %%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
+\begin{algorithm}
+	\DontPrintSemicolon
+	\Begin{
+		$I \longleftarrow \emptyset$\;
+		\While{$G\neq \emptyset$}{
+			$S\longleftarrow \emptyset$\;
+			\For{$v\in V(G)$ in parallel}{add $v$ to $S$ with probability $\frac{1}{2d(v)}$}
+			\For{$\{u,v\}\in E(G)$ in parallel}{
+				\If{$u\in S$ and $v\in S$}{
+					\uIf{$d(u)<d(v)$}{delete $u$ from $S$}
+					\uElseIf{$d(v)<d(u)$}{delete $v$ from $S$}
+					\uElseIf{$u<v$}{delete $u$ from $S$}
+					\Else{delete $v$ from $S$}
+				}
+			}
+			$I\longleftarrow I\cup S$\;
+			$G\longleftarrow G\setminus (I\cup N(I))$\;
+		}
+	$A\longleftarrow I$\;
+	\Return $A$\;		
+	}
+	\caption{Luby's Randomized Algorithm on $MIS$\label{lubymis}}
+\end{algorithm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Analysis of Luby's Algorithm}
 Now we will define certain things which will help us to analyze the algorithm: 
 \begin{itemize}
-	\item A vertex $ v\in V$ is \textit{good} if $$\sum_{u\in N(v)}\frac{1}{2d(u)}\geq \frac16$$A pair of vertices $u,v\in V$ is said to be \textit{good} if $$good(u,v)\iff \llbracket(u,v)\in E\rrbracket\wedge\llbracket good(u)\vee good(v)\rrbracket$$
+	\item A vertex $ v\in V$ is \textit{good} if $$\sum_{u\in N(v)}\frac{1}{2d(u)}\geq \frac16$$A pair of vertices $u,v\in V$ is said to be \textit{good} if $$good(u,v)\iff \llbracket(u,v)\in E\rrbracket\wedge\llbracket good(u)\vee good(v)\rrbracket$$Intuitively a vertex is good if it has lots of neighbors of low degree. This will give it a decent chance of making into $N(I)$. Therefore in case of bad vertex $bad(v)=\neg good(v)$ and for a pair of vertices $u,v\in V$ we have $bad(u,v)=\neg good(u,v)$
 	
-	Therefore in case of bad vertex $bad(v)=\neg good(v)$ and for a pair of vertices $u,v\in V$ we have $bad(u,v)=\neg good(u,v)$
+	
 	\item We also define \begin{align*}
 		N^-(v)=\{u\in N(v)\mid d(u)\leq d(v)\} && d^-(v)=|N^-(v)|\\
 		N^+(v)=\{u\in N(v)\mid d(u)>d(v)\} && d^+(v)=|N^+(v)|
@@ -74,23 +98,53 @@ Therefore we have $d^+(v)+d^-(v)=d(v)$.
 \end{proof}
 
 
-\begin{lemma}
+\begin{lemma}\label{vinSnotinI}
 		For any $v\in V$ $$Pr[v\notin I\mid v\in S]\leq \frac12$$
 \end{lemma}
-\begin{proof}
-	content...
+\begin{proof}If $v\in S$ and $v\notin I$ only if there exists some element of $N^+(v)$ which is also in $S$. Then
+\begin{align*}
+	Pr[v\notin I\mid v\in S] & = Pr[\exs\ u\in N^+(v)\cap S\mid v\in S]                                     &  \\
+	                         & \leq \sum_{u\in N^{+}(v)} Pr[u\in S\mid v\in S]                              &  \\
+	                         & = \sum_{u\in N^{+}(v)} Pr[u\in S]                                            & [\text{Pairwise independence}] \\
+	                         & \leq \sum_{u\in N^+(v)} \frac1{2d(u)}\leq \sum_{u\in N^+(v)} \frac{1}{2d(v)} &  \\
+	                         & \leq \frac{d(v)}{2d(v)}                                                      & [\text{\lmref{badv}}]          \\
+	                         & \leq \frac12                                                                 &
+\end{align*}	
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{vinIprob}
 		For any $v\in V$ $$Pr[v\in I]\geq \frac{1}{4d(u)}$$
 \end{lemma}
 \begin{proof}
-	content...
+	We have \begin{align*}
+		Pr[v\in I] & = Pr[v\in I\mid v\in S]\ Pr[v\in S]                      &                             \\
+		           & \geq \lt(1-Pr[v\notin I\mid v\in S]\rt)\frac{1}{2d(v)}   &                             \\
+		           & =\frac12 \times \frac{1}{2d(v)}           =\frac1{4d(v)} & [\text{\lmref{vinSnotinI}}]
+	\end{align*}
 \end{proof}
 
 \begin{lemma}\label{goodvinnbhd136}
 	If $v\in V$ is good then $$Pr[v\in N(I)]\geq \frac1{36}$$
 \end{lemma}
+\begin{proof}
+	We will consider two cases. \parinf
+	
+	\textbf{Case 1:} $v$ has a neighbor $u$ of degree 2 or less. Then using \lmref{vinIprob}\begin{align*}
+		Pr[v\in N(I)] & \geq Pr[u\in I] \geq \frac{1}{4d(u)}\geq \frac18 & \\
+	\end{align*}
+
+\textbf{Case 2:} $d(u)\geq 3$ for all $u\in N(v)$. Then for all $u\in N(v)$ we have $\frac{1}{2{d(u)}}\leq \frac16$. Now  since $v$ is good we have $\sum\limits_{u\in N(v)}\frac1{2d(u)}\geq \frac16$. Therefore there must exist a subset $M(v)\subseteq N(v)$ such that \begin{equation}
+	\frac16\leq \sum\limits_{u\in M(v)}\frac1{2d(u)}\leq \frac13\label{eqmv}
+\end{equation}Therefore \begin{align*}
+	Pr[v\in N(v)] & \geq Pr[\exs\ u\in M(v)\cap I]\\
+	& \sum_{u\in M(v)}pr[u\in I]-\sum_{\substack{u,w\in M(v)\\ u\neq w}}Pr[u\in I\wedge w\in I] & [\text{Inclusion-Exclusion}]\\
+	& \sum_{u\in M(v)}\frac{1}{4d(u)}  - \sum_{\substack{u,w\in M(v)\\ u\neq w}} pr[u\in S\wedge w\in S] & [\text{\lmref{vinIprob}}]\\
+	& \sum_{u\in M(v)}\frac1{4d(u)} - \sum_{\substack{u,w\in M(v)\\ u\neq w}}Pr[u\in S]Pr[v\in S] & [\text{Pairwise independence}]\\
+	& \sum_{u\in M(v)}\frac1{4d(u)} - \sum_{u\in M(v)}\sum_{w\in M(v)} \frac{1}{2d(u)} \, \frac1{2d(w)} \\
+	& \sum_{u\in M(v)}\frac1{2d(u)} \lt[\frac12- \sum_{w\in M(v)}\frac{1}{2d(w)}  \rt]\\ 
+	& \geq \frac16 \lt(\frac12-\frac13\rt)=\frac1{36}& [\text{By \eqref{eqmv}}]
+\end{align*}
+\end{proof}
 
 \begin{lemma}\label{goodedeleted}
 	If $e\in E$ is good then $$Pr[\text{$e$ is deleted}]\geq \frac1{36}$$
@@ -113,3 +167,7 @@ Therefore we have $d^+(v)+d^-(v)=d(v)$.
 		& \geq \frac{|E|}{2}\times \frac1{36}=\frac{|E|}{72}&\quad [\text{\hyperref[halfgood]{Lemma \ref{halfgood}}}]
 	\end{align*}
 \end{proof}
+
+\begin{theorem}
+	Luby's Algorithm puts $MIS\in RNC^2$
+\end{theorem}

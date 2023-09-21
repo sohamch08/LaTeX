@@ -1,5 +1,12 @@
-\section{Iterated Multiplication of $n$ many $n$ Bit Numbers}
+\section{Iterated Multiplication}
+\parinf
+\textbf{Problem:} $ItMult_{m,n}$
 
+\textbf{Input:} $m$ many $n$-bit numbers are given
+
+\textbf{Output:} The product of the given numbers
+
+\parinn
 \begin{theorem}[Chinese Remainder Theorem]\label{crt}
 	Let $k\in \bbN$, $P=p_1p_2\cdots p_k$. Let $a_1,\dots, a_k$ be given. Then there is a unique number $a\in \{0,\dots, P-1\}$ such that $a\equiv a_i\mod{p_i}$ for $1\leq i\leq k$. More specifically, we have $$a=\lt[ \sum_{i=1}^k (a_i\pmod{p_i}) \rt]\pmod{P}$$where $r_i=\frac{P}{p_i}$ and $s_i=\lt(\frac{P}{p_i}\rt)^{-1} \pmod{p_i}$ (i.e. $s_i$ is the multiplicative inverse of $r_i\pmod{p_i}$).
 \end{theorem}
@@ -12,17 +19,10 @@
 \begin{theorem}
 	Let $p_i$ denote the $i$th prime. Then $$\prod_{i=1}^n p_i\leq 4^{n\log n}$$
 \end{theorem}
-\parinf
-\textbf{Problem:} $ItMult_{,m}$
 
-\textbf{Input:} $m$ many $n$-bit numbers are given
-
-\textbf{Output:} The product of the given numbers
-
-\parinn
 
 \begin{theorem}
-	$ItMult_{n,n}\leq Maj$
+	$ItMult_{n,n}\in TC^0$
 \end{theorem}
 \begin{proof}
 	Let $a_i=a_{i,n-1}\cdots a_{i,1}a_{i,0}$ for $1\leq i\leq n$ be the given numbers which we want to multiply up. Hence $$a=a_1\cdot a_2\cdots a_n<  (2^n)^n=2^{n^2}<p_1\cdot p_2\cdots p_{n^2}$$Then take $p=p_1\cdot p_2\cdots p_{n^2}$. Then our goal is to compute $a\pmod{p}$. Our first goal is to compute $a\pmod{p_i}$ for all $1\leq i\leq n^2$. 

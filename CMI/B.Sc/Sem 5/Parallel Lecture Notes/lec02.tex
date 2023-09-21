@@ -150,7 +150,7 @@ See \cite[Theorem 2.56, Page  70]{VollmerCh2}
 	
 	
 	
-	Now We will show that $MAJORITY\in NC^1$. Let the addition of $n$ bits we got is $a$ and the Redundant Algebra representation of $\lceil\frac{n}2\rceil$ is $b$. Now we can calculate $-b$ with reversing the sign of every digit in $b$ ie if $b=\sum\limits_{i=0}^{m}a_k\times 4^k$ then $-b=\sum\limits_{i=0}^m\overline{a_k}\times 4^k$. Now we add $a$ and $-b$ which can be done in $NC^0$. And now we will look for the left most negative digit. If there is nonw we output 1 i.e. majority of the bits are 1 and if there exists a negative bit then output is 0. Hence we have $MAJORITY\in TC^0$. So $TC^0\subseteq NC^1$.
+	Now We will show that $Majority\in NC^1$. Let the addition of $n$ bits we got is $a$ and the Redundant Algebra representation of $\lceil\frac{n}2\rceil$ is $b$. Now we can calculate $-b$ with reversing the sign of every digit in $b$ ie if $b=\sum\limits_{i=0}^{m}a_k\times 4^k$ then $-b=\sum\limits_{i=0}^m\overline{a_k}\times 4^k$. Now we add $a$ and $-b$ which can be done in $NC^0$. And now we will look for the left most negative digit. If there is nonw we output 1 i.e. majority of the bits are 1 and if there exists a negative bit then output is 0. Hence we have $Majority\in TC^0$. So $TC^0\subseteq NC^1$.
 \end{proof}
 
 \begin{definition}[$SAC^k$]
