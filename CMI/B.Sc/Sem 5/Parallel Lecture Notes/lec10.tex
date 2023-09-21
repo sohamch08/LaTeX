@@ -22,7 +22,7 @@
 	Maximal (Maximum) Matching in $G$ is an Maximal (Maximum) Independent Set  in the line graph $L(G)$.
 \end{fact}
 
-\subsection{Luby's Algorithm}
+\subsection{Luby's Algorithm (Randomized Algorithms)}
 \begin{definition}[$RNC^{k}$]
 	The class $RNC^{k}$ is the class of problems that can be solved by a randomized algorithm that runs in $O(\log^k n)$ time with a polynomial number of processors. 
 \end{definition}
@@ -30,6 +30,7 @@
 	Therefore $RNC$ is the randomized counterpart of NC.\parinn
 \end{remark}
 
+Here we denote for any $v\in V$ $d(v)\coloneqq \deg(v)$. 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Luby's Algorithm
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,34 +41,38 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-\parinf Here we denote for any $v\in V$ $d(v)\coloneqq \deg(v)$. Now we will define good and bad vertices for us based on certain properties of vertices like this:\parinn
+\subsection{Analysis of Luby's Algorithm}
+Now we will define certain things which will help us to analyze the algorithm: 
+\begin{itemize}
+	\item A vertex $ v\in V$ is \textit{good} if $$\sum_{u\in N(v)}\frac{1}{2d(u)}\geq \frac16$$A pair of vertices $u,v\in V$ is said to be \textit{good} if $$good(u,v)\iff \llbracket(u,v)\in E\rrbracket\wedge\llbracket good(u)\vee good(v)\rrbracket$$
+	
+	Therefore in case of bad vertex $bad(v)=\neg good(v)$ and for a pair of vertices $u,v\in V$ we have $bad(u,v)=\neg good(u,v)$
+	\item We also define \begin{align*}
+		N^-(v)=\{u\in N(v)\mid d(u)\leq d(v)\} && d^-(v)=|N^-(v)|\\
+		N^+(v)=\{u\in N(v)\mid d(u)>d(v)\} && d^+(v)=|N^+(v)|
+	\end{align*}
+Therefore we have $d^+(v)+d^-(v)=d(v)$.
+\end{itemize}
 
-	A vertex $ v\in V$ is \underline{good} if $$\sum_{u\in N(v)}\frac{1}{2d(u)}\geq \frac16$$A pair of vertices $u,v\in V$ is said to be good if $$good(u,v)\iff \llbracket(u,v)\in E\rrbracket\wedge\llbracket good(u)\vee good(v)\rrbracket$$
 
-Therefore in case of bad vertex $bad(v)=\neg good(v)$ and for a pair of vertices $u,v\in V$ we have $bad(u,v)=\neg good(u,v)$
-
-We 
-
-\begin{lemma}
+\begin{lemma}\label{badv}
 	For any $v\in V$	$$bad(v)\implies d^+(v)\geq 2d^-(v)\iff  d^-(v)\leq \frac{d(v)}{3}\iff d^+(v)\geq \frac{2d(v)}{3}$$
 \end{lemma}
 \begin{proof}
-	content...
+	We make the graph directed where if $(u,v)\in E$ previously then the direction of this edge will be $$u\to v\iff \llbracket d(u)<d(v)\rrbracket \vee \Big(\llbracket d(u)=d(v)\rrbracket\wedge \llbracket u<v\rrbracket\Big)$$ Then $d^-(v)$ in the original graph indicates the in-degree of $v$ and $d^+(v)$ indicates the out-degree of $v$. Therefore $d^+(v)\geq \frac{2d(v)}{3}$ means out=degree of $v$ is twice more than the in-degree of $v$. Now assume the statement is not true. Let $v$ is \textit{bad}. Then\begin{align*}
+		\frac16 > \sum_{u\in N(v)}\frac{1}{2d(u)}\geq \sum_{u\in N^-(v)}\frac1{2d(u)}\geq \sum_{u\in N^-(v)}\frac1{2d(v)}\geq \frac{d^{-}(v)}{2d(v)}>\frac{d(v)}3\times \frac{1}{2d(v)}\geq \frac16
+	\end{align*}Hence contradiction.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{halfgood}
 	At least half of the edges in the graph are good
 \end{lemma}
 \begin{proof}
-	content...
+	We again construct the same directed graph from $G$ as in the proof of \lmref{badv}. If $(u,v)\in E$ then the direction of this edge will be $$u\to v\iff \llbracket d(u)<d(v)\rrbracket \vee \Big(\llbracket d(u)=d(v)\rrbracket\wedge \llbracket u<v\rrbracket\Big)$$
+	
+	Now for any edge $e=(u,v)\in E$ $$bad(e)\iff bad(u)\wedge bad(v)$$Let the direction of $e$ is $u\to v$. Since $e$ is bad the vertex $v$ is bad. Therefore using \lmref{badv} out-degree of $v$ is twice more than the in-degree of $v$. Hence there is at least two edges out-going from $v$. Let those edges are $e_1=v\to w_1$ and $e_2=v\to w_2$. Hence for every bad vertex there are two edges in $E$. Hence $$2\lt|\{ e\in E\mid bad(e)\}\rt| \leq |E|$$Therefore we have $2 \#bad(e)\leq \#good(e)+\#bad(v)\implies \#good(e)\geq \#bad(e)\implies 2\#good(v)\geq |E|$.
 \end{proof}
 
-\begin{lemma}
-	Let $X$ ve the random variable representing the number of deleted edges. Then $$\bbE[X]\geq \frac{|E|}{72}$$
-\end{lemma}
-\begin{proof}
-	content...
-\end{proof}
 
 \begin{lemma}
 		For any $v\in V$ $$Pr[v\notin I\mid v\in S]\leq \frac12$$
@@ -83,6 +88,28 @@ We
 	content...
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{goodvinnbhd136}
 	If $v\in V$ is good then $$Pr[v\in N(I)]\geq \frac1{36}$$
 \end{lemma}
+
+\begin{lemma}\label{goodedeleted}
+	If $e\in E$ is good then $$Pr[\text{$e$ is deleted}]\geq \frac1{36}$$
+\end{lemma}
+\begin{proof}
+	If the edge $e=(u,v)\in E$ is deleted then either $u$ or $v$ is good vertex. Let $u$ is good. Since $e$ is deleted then $Pr[u\in N(I)]\geq \frac1{36}$ by \lmref{goodvinnbhd136}. Hence $$Pr[\text{$e$ is deleted}]\geq Pr[good(u)\wedge u\in N(I)] + Pr[good(v)\wedge v\in N(I)]\geq \frac1{36}$$
+\end{proof}
+
+\begin{lemma}
+	Let $X$ ve the random variable representing the number of deleted edges. Then $$\bbE[X]\geq \frac{|E|}{72}$$
+\end{lemma}
+\begin{proof}
+	Take the indicator random variable for each edge $e\in E$ $$X_e=\begin{cases}
+		1& \text{if $e$ is deleted}\\ 0 &\text{otherwise}
+	\end{cases}$$
+	Therefore $X=\sum\limits_{e\in E}X_e$. Then we have \begin{align*}
+		\bbE[X] & = \bbE\lt[ \sum_{e\in E}X_e \rt] = \sum_{e\in E}\bbE[X_e]\\[2mm]
+		& \geq \sum_{good(e)}\bbE[X_e]\geq \sum_{good(e)}Pr[\text{$e$ is deleted}]\\ 
+		& \geq \sum_{good(e)}\frac1{36} &\quad [\text{\hyperref[goodedeleted]{Lemma \ref{goodedeleted}}}]\\
+		& \geq \frac{|E|}{2}\times \frac1{36}=\frac{|E|}{72}&\quad [\text{\hyperref[halfgood]{Lemma \ref{halfgood}}}]
+	\end{align*}
+\end{proof}
