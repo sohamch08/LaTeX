@@ -42,9 +42,9 @@ Let $f:\{0,1\}^* \to \{0,1\}^*$ . $f$ is length respecting if for all $x,y\in \{
 	$IterADD_{\log n,n}\leq_{cd} IterADD_{\log\log n,O(n)}$
 \end{theorem}
 \begin{proof}
-	We will denote $\log n=l$. We are given $l$ many $n$-bit numbers $a_1,\dots,a_l$, where $bin(a_i)=a_{i,n-1}\dots a_{i,1}a_{i,0}$. We add all the $l$ many bits at $i$th position of all numbers. we know if we add $m$ bits then we have at most $\log m$ many bits. So adding the $l$ many bits will take $\log l=\log\log n$ many bits. $s_{k}=\sum_{i=1}^l a_{i,k}$. Hence $bin(s_k)= s_{k,\log l-1}\dots s_{k,1}s_{k,0}$. Hence $\sum_{i=1}^{l}a_{i,k}=\sum_{j=0}^{\log l-1}s_{k,j}2^j$
+	We will denote $\log n=l$. We are given $l$ many $n$-bit numbers $a_1,\dots,a_l$, where $bin(a_i)=a_{i,n-1}\dots a_{i,1}a_{i,0}$. We add all the $l$ many bits at $i$th position of all numbers. we know if we add $m$ bits then we have at most $\log m$ many bits. So adding the $l$ many bits will take $\log l=\log\log n$ many bits. $s_{k}=\sum\limits_{i=1}^l a_{i,k}$. Hence $bin(s_k)= s_{k,\log l-1}\dots s_{k,1}s_{k,0}$. Hence $\sum\limits_{i=1}^{l}a_{i,k}=\sum\limits_{j=0}^{\log l-1}s_{k,j}2^j$
 \begin{align*}
-	\sum_{i=1}^{l}a_{i}&=\sum_{i=1}^{l}\sum_{k=0}^{n-1}a_{i,k}2^k=\sum_{k=0}^{n-1}\sum_{i=1}^{l}a_{k,k}2^k= \sum_{k=0}^{n-1} \sum_{j=0}^{\log\log n-1}s_{k,j}2^j\cdot 2^k= \sum_{j=0}^{\log\log n-1}\sum_{k=0}^{n-1}s_{k,j}2^{j+k}
+	\sum\limits_{i=1}^{l}a_{i}&=\sum\limits_{i=1}^{l}\sum\limits_{k=0}^{n-1}a_{i,k}2^k=\sum\limits_{k=0}^{n-1}\sum\limits_{i=1}^{l}a_{k,k}2^k= \sum\limits_{k=0}^{n-1} \sum\limits_{j=0}^{\log\log n-1}s_{k,j}2^j\cdot 2^k= \sum\limits_{j=0}^{\log\log n-1}\sum\limits_{k=0}^{n-1}s_{k,j}2^{j+k}
 \end{align*}So this is converted to addition of $\log\log n$ many numbers of at most $n+\log\log n=O(n)$ many bits. 
 \end{proof}
 Recursing like this we have $IterADD_{\log\log n,n}\leq _{cd} IterAdd_{2,O(n)}$. Hence
@@ -66,7 +66,7 @@ We know $IterAdd_{n,n}\leq _{cd} IterAdd_{n,1}$ but we dont know anything about 
 \end{theorem}
 
 \begin{proof}
-Let we given $n$ many $n$-bit numbers $a_1,\dots,a_n$, where $bin(a_i)=a_{i,n-1}\dots a_{i,1}a_{i,0}$. First we compute $s_{k}=\sum_{i=1}^n a_{i,k}$ using $BCOUNT_n$ for all $0\leq k\leq n$. Now it becomes addition of $\log n$ many $O(n)$ bit numbers which we already know is in $AC^0$ by \hyperref[addlognac0]{Theorem \ref{addlognac0}}. Hence $IterAdd_{n,n}\leq_{cd} BCOUNT_n$
+Let we given $n$ many $n$-bit numbers $a_1,\dots,a_n$, where $bin(a_i)=a_{i,n-1}\dots a_{i,1}a_{i,0}$. First we compute $s_{k}=\sum\limits_{i=1}^n a_{i,k}$ using $BCOUNT_n$ for all $0\leq k\leq n$. Now it becomes addition of $\log n$ many $O(n)$ bit numbers which we already know is in $AC^0$ by \hyperref[addlognac0]{Theorem \ref{addlognac0}}. Hence $IterAdd_{n,n}\leq_{cd} BCOUNT_n$
 \end{proof}
 
 
@@ -78,10 +78,10 @@ Let we given $n$ many $n$-bit numbers $a_1,\dots,a_n$, where $bin(a_i)=a_{i,n-1}
 	$MULT_{n,n}\leq IterAdd_{n,n}$
 \end{theorem}
 \begin{proof}
-	Given $a,b$ where $bin(a)=a_{n-1}\cdots a_1a_0$ and $bin(b)=b_{n-1}\cdots b_1b_0$ then obviously $$a\cdot b=\sum_{i=0}^{n-1}a\cdot b_i\cdot 2^i$$Define for all $0\leq i\leq n-1$ $$c_i=\begin{cases}
+	Given $a,b$ where $bin(a)=a_{n-1}\cdots a_1a_0$ and $bin(b)=b_{n-1}\cdots b_1b_0$ then obviously $$a\cdot b=\sum\limits_{i=0}^{n-1}a\cdot b_i\cdot 2^i$$Define for all $0\leq i\leq n-1$ $$c_i=\begin{cases}
 		0^{n-i-1}a_{n-1}\cdots a_1a_0 0^u & \text{when $b_i=1$}\\
 		0^{2n-1} & \text{otherwise}
-	\end{cases}$$i.e. $c_i=a\cdot 2^i$ if $b_i=1$. Each $c_i$ is of $2n-1=O(n) $ many bits long. Hence we have $a\cdot b=\sum_{i=0}^{n-1} c_i$. Hence now we can use the $IterAdd_{n,n}$ gate to add the $n$ many $O(n)$ many bits to find the multiplication of $a$ and $b$. Therefore $MULT_n\leq IterAdd_{n,n}$.
+	\end{cases}$$i.e. $c_i=a\cdot 2^i$ if $b_i=1$. Each $c_i$ is of $2n-1=O(n) $ many bits long. Hence we have $a\cdot b=\sum\limits_{i=0}^{n-1} c_i$. Hence now we can use the $IterAdd_{n,n}$ gate to add the $n$ many $O(n)$ many bits to find the multiplication of $a$ and $b$. Therefore $MULT_n\leq IterAdd_{n,n}$.
 \end{proof}\\
 \textbf{Problem:} $Majority_n$\\
 \textbf{Input:} $n$ bits $a_{n-1},\dots, a_0$\\
@@ -90,28 +90,28 @@ Let we given $n$ many $n$-bit numbers $a_1,\dots,a_n$, where $bin(a_i)=a_{i,n-1}
 	$Majority\leq MULT$
 \end{theorem}
 \begin{proof}
-	Given $a_0,\dots,a_{n-1}$. Take the number $a$ such that $bin(a)=a_{n-1}\cdots a_1a_0$. Denote $l\coloneqq \log n$. Define $$A=\sum_{i=0}^{n-1}a_i\cdot 2^{li}\text{ and }B=\sum_{i=0}^{n-1}2^{li}$$where both $A$ and $B$ consists of $n$ blocks of length $l$. We took $l$ length block because summation of $n$ bits takes at most $l$ bits. Let $C=A\cdot B$ We represent $C$ in binary as $l$ length blocks where  $C=\sum_{i=0}^{2n-1}c_i\cdot 2^{li}$. Each $c_i$ is a $l$ length block. Then the middle block $c_{n-1}$ have exactly the computation of the sum of the $a_i$. Therefore $c_{n-1}=\sum_{i=0}^{n-1}a_i$.
+	Given $a_0,\dots,a_{n-1}$. Take the number $a$ such that $bin(a)=a_{n-1}\cdots a_1a_0$. Denote $l\coloneqq \log n$. Define $$A=\sum\limits_{i=0}^{n-1}a_i\cdot 2^{li}\text{ and }B=\sum\limits_{i=0}^{n-1}2^{li}$$where both $A$ and $B$ consists of $n$ blocks of length $l$. We took $l$ length block because summation of $n$ bits takes at most $l$ bits. Let $C=A\cdot B$ We represent $C$ in binary as $l$ length blocks where  $C=\sum\limits_{i=0}^{2n-1}c_i\cdot 2^{li}$. Each $c_i$ is a $l$ length block. Then the middle block $c_{n-1}$ have exactly the computation of the sum of the $a_i$. Therefore $c_{n-1}=\sum\limits_{i=0}^{n-1}a_i$.
 	
 	$A$ and $B$ are constructed in constant depth and fed into $MULT$ gates yielding $C$. Now we have to compare $c_{n-1}$ with $\frac{n}{2}$ which can be done in constant depth.
 \end{proof}\\
 \textbf{Problem:} $ExactThreshold_{n,m}$\\
 \textbf{Input:} $n$ bits $a_{n-1},\dots, a_0$\\
-\textbf{Output:} Find if $\sum_{i=0}^{n-1}= m$\\[2mm]
+\textbf{Output:} Find if $\sum\limits_{i=0}^{n-1}= m$\\[2mm]
 We have another similar problem but we have greater than instead of equality.\\[2mm]
 \textbf{Problem:} $Threshold_{n,m}$\\
 \textbf{Input:} $n$ bits $a_{n-1},\dots, a_0$\\
-\textbf{Output:} Find if $\sum_{i=0}^{n-1}\geq m$\\
+\textbf{Output:} Find if $\sum\limits_{i=0}^{n-1}\geq m$\\
 
 \begin{theorem}\label{bcthmajrel}
 	$BCOUNT\leq ExactThreshold\leq Threshold\leq Majority$
 \end{theorem}
 
 \begin{proof}
-	\underline{$BCOUNT\leq ExactThreshold$}: Let $\sum_{i=0}^{n-1}a_i=\sum_{i=0}^{l=\log n}s_i\cdot 2^i$. Let for all $0\leq j\leq l$, $R_j$ denote the set of all numbers $r\in \{0,\dots,n\}$ whose $j$-th bit is 1 in its binary representation . Then we can say $$s_j=\bigvee_{r\in R_j}\lt\llbracket \sum_{i=0}^{n-1}a_i=r\rt\rrbracket$$Now $R_j$ don't depend on the input but only on the input $n$ so it can be hardwired this into the circuit. Thus we have a circuit for $BCOUNT$ which uses $ExactThreshold$.
+	{$BCOUNT\leq ExactThreshold$}: Let $\sum\limits_{i=0}^{n-1}a_i=\sum\limits_{i=0}^{l=\log n}s_i\cdot 2^i$. Let for all $0\leq j\leq l$, $R_j$ denote the set of all numbers $r\in \{0,\dots,n\}$ whose $j$-th bit is 1 in its binary representation . Then we can say $$s_j=\bigvee_{r\in R_j}\lt\llbracket \sum\limits_{i=0}^{n-1}a_i=r\rt\rrbracket$$Now $R_j$ don't depend on the input but only on the input $n$ so it can be hardwired this into the circuit. Thus we have a circuit for $BCOUNT$ which uses $ExactThreshold$.
 	
-	\underline{$ExactThreshold\leq Threshold$}: We know for any $r$ and a variable $x$ certainly $$\llbracket x=r\rrbracket= \llbracket x\geq r\rrbracket \wedge  \llbracket x< r+1\rrbracket$$With this we have a constant depth circuit for $ExactThreshold$ using the $Threshold$ gates.
+	{$ExactThreshold\leq Threshold$}: We know for any $r$ and a variable $x$ certainly $$\llbracket x=r\rrbracket= \llbracket x\geq r\rrbracket \wedge  \llbracket x< r+1\rrbracket$$With this we have a constant depth circuit for $ExactThreshold$ using the $Threshold$ gates.
 	
-	\underline{$Threshold\leq Majority$}: We are given $a_0,\dots,a_{n-1}$. Let we want to find $\sum_{i=0}^{n-1}\geq m$ then we have this following relations $$\sum_{i=0}^{n-1}a_i\geq m\iff \begin{cases}
+	{$Threshold\leq Majority$}: We are given $a_0,\dots,a_{n-1}$. Let we want to find $\sum\limits_{i=0}^{n-1}\geq m$ then we have this following relations $$\sum\limits_{i=0}^{n-1}a_i\geq m\iff \begin{cases}
 		Maj_{2n-2m}\lt(a_0,\dots, a_n,\underbrace{1,\dots,1}_{n-2m}\rt) & \text{wher $m<\frac{n}{2}$}\\
 		Maj_{2m}\lt(a_0,\dots, a_n,\underbrace{0,\dots,0}_{n-2m}\rt) & \text{wher $m\geq\frac{n}{2}$}
 	\end{cases}$$
