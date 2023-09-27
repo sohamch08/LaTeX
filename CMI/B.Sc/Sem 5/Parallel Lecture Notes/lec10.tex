@@ -43,9 +43,10 @@ Here we denote for any $v\in V$ $d(v)\coloneqq \deg(v)$.
 \begin{algorithm}
 	\DontPrintSemicolon
 	\Begin{
-		$I \longleftarrow \emptyset$\;
+		$A\longleftarrow \emptyset$\;
 		\While{$G\neq \emptyset$}{
 			$S\longleftarrow \emptyset$\;
+			$I \longleftarrow \emptyset$\;
 			\For{$v\in V(G)$ in parallel}{add $v$ to $S$ with probability $\frac{1}{2d(v)}$}
 			\For{$\{u,v\}\in E(G)$ in parallel}{
 				\If{$u\in S$ and $v\in S$}{
@@ -55,10 +56,10 @@ Here we denote for any $v\in V$ $d(v)\coloneqq \deg(v)$.
 					\Else{delete $v$ from $S$}
 				}
 			}
-			$I\longleftarrow I\cup S$\;
+			Call the resulting  set after deletions $I$\;
+			$A\longleftarrow A\cup I$\;
 			$G\longleftarrow G\setminus (I\cup N(I))$\;
 		}
-	$A\longleftarrow I$\;
 	\Return $A$\;		
 	}
 	\caption{Luby's Randomized Algorithm on $MIS$\label{lubymis}}
@@ -153,7 +154,7 @@ Therefore we have $d^+(v)+d^-(v)=d(v)$.
 	If the edge $e=(u,v)\in E$ is deleted then either $u$ or $v$ is good vertex. Let $u$ is good. Since $e$ is deleted then $Pr[u\in N(I)]\geq \frac1{36}$ by \lmref{goodvinnbhd136}. Hence $$Pr[\text{$e$ is deleted}]\geq Pr[good(u)\wedge u\in N(I)] + Pr[good(v)\wedge v\in N(I)]\geq \frac1{36}$$
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{edgedeleted}
 	Let $X$ ve the random variable representing the number of deleted edges. Then $$\bbE[X]\geq \frac{|E|}{72}$$
 \end{lemma}
 \begin{proof}

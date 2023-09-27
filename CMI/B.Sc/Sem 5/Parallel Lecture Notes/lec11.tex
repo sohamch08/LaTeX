@@ -1,0 +1,19 @@
+\subsection{Derandomization}
+\begin{theorem}{Bertrand's Postulate}\label{bertrand}
+	For any integer $n>1$ there always exists at least one prime $p$ with $$n<p<2n$$
+\end{theorem}
+
+From the proof of \lmref{vinSnotinI} and \lmref{goodvinnbhd136} we can see that we dont need the vertices to be independent. Pariwise independent is enough for the analysis. We construct pairwise independent family of functions by taking a prime $p$ in the range $n$ to $2n$ (such prime exists because of \thref{bertrand}) and then we can assume the vertices of the graph are the elements of the finite field $\bbZ_p$. Now for each vertex $u$ we take $a(u)$ be an integer in $\bbZ_p$ such that  $\frac1{2d(u)}\approx  \frac{a(u)}{p}$ that is $\frac{a(u)}{p}$ is as close as possible to $\frac1{2d(u)}$. Then we denote $A_u\coloneqq \{0,1\dots, a(u)-1\}$. We can take $A_u$ as any subset of $\bbZ_p$ of size $a(u)$.  Hence probability of landing in this set is $\frac{a(u)}{p}\approx \frac1{2d(u)}$.
+
+Now we choose $x$ and $y$ uniformly at random $\bbZ_p$ and define the function $$f_{x,y}:v\mapsto x+vy\pmod{p}$$Now for any $u,v,\alpha,\beta\in \bbZ_p$ where $u\neq v$ then there exists exactly one solution to the linear system $$x+uy=\alpha \qquad x+vy=\beta$$ since the matrix $\mat{1& u\\ 1& v}$ is invertible and $$\mat{x\\ y} =\mat{1&u\\ 1&v}^{-1}\mat{\alpha\\ \beta}$$Therefore\begin{align*}
+	\underset{x,y\in \bbZ_p}{Pr}\lt[f_{x,y}(u)\in A_u\wedge f_{x,y}(v)\in A_v\rt] & = \underset{\substack{\alpha\in A_u\\ \beta\in A_v}}{Pr}[x+uy=\alpha \wedge x+vy=\beta]\\[2mm]
+	& = \frac1{p^2} \lt| \{(x,y)\mid x+uy\in A_u\wedge x+vy\in A_v \} \rt|\\
+	& = \frac1{p^2} \sum_{\alpha\in A_u}\sum_{\beta\in A_v} |\{(x,y)\mid x+uy=\alpha \wedge x+vy=\beta\}|\\
+	& = \frac1{p^2} \sum_{\alpha\in A_u}\sum_{\beta\in A_v}1\\
+	& = \frac1{p^2}a(u)a(v)=\frac{a(u)}{p}\, \frac{a(v)}{p}\approx \frac1{2d(u)}\frac1{2d(v)}
+\end{align*}
+So we take the family of pairwise independent functions $\mcH=\{ f_{x,y}\mid x,y\in \bbZ_p\}$. We can construct this family with only $2\log p=O(\log n)$ random bits (while choosing $x,y$). Hence there are total $2^{O(\log n)}=n^{O(1)}$ many functions. So $|\mcH|=n^{O(1)}$. 
+
+So we in parallel  consider all possible strings of $O(\log n)$ length representing all possible outcomes of the $O(\log n)$ random bits. From each of this string we construct the function in $\mcH$ and carry on the algorithm deterministically. Since we expect to delete at least a constant fraction of the edges (\thref{edgedeleted}) one of the functions must delete at least that many edges. So we pick the function which deletes the most edges and throw the other parallel computation away and then repeat the whole process. Everything is deterministic and at least a constant fraction of the edges are removed at each stage. 
+
+For each stage we choose different the prime $p$ and then do the process as discussed above.

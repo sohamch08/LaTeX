@@ -29,7 +29,32 @@
 	
 	Now take $r_i=\frac{p}{p_i}$ and $s_i=\lt(\frac{p}{p_i}\rt)^{-1}\pmod{p_i}$. Then by \hyperref[crt]{Chinese Remainder Theorem} we have $$a=\sum_{i=1}^{n^2}(a\pmod{p_j}) \cdot r_i\cdot s_i$$ Now we have $$a\pmod{p_j}=\prod_{i=1}^na_i\pmod{p_j}=\prod_{i=1}^n (a_i\pmod{p_j})$$Take $$a'_{i,j}\coloneqq a_i\pmod{p_j}=\lt(\sum_{k=0}^{n-1}a_{i,k}\cdot  2^k\rt)\pmod{p_j}= \sum_{k=0}^{n-1}a_{i,k}\cdot  (2^k\pmod{p_j})\quad\text{for }1\leq i\leq n,\ 1\leq j\leq n^2$$This gives $n^3$ many numbers all of which can be computed in constant depth. The values $2^k\pmod{p_j}$ can be hardwired into the circuit since they do not depend on the input but only the input length. So we can compute $a'_{i,j}$ using $ItAdd$ and $MULT$ gates (since we know they are already in $TC^0$) in constant depth. Using the \hyperref[approxpn]{Corollary \ref{approxpn}} we have $p_j=O(n^2\log n)$ for all $1\leq j\leq n^2$. Therefore all the $a'_{i,j}$ consists of $O(\log n)$ bits only.
 	
-	For $1\leq j\leq n^2$ let $g_j$ be the generator of the multiplicative group $\bbZ^*_{p_j}$ group of the finite field $\bbZ_{p_j}$. Let for $k\in \{1,\dots, p_j-1\}$ take $g^{m_j(k)}=k$ where $m_j(k)\in \{0,\dots, p_j-2\}$. And we set $m_j(0)\coloneqq p_j-1$. So now we will compute $m_j\lt(a'_{i,j}\rt)$. Since the numbers $a'_{i,j}$ contains $O(\log n)$ many bits, these computations can be done in constant depth. Therefore $$m_j\lt( \prod_{i=1}^{n}a_i \pmod{p_j} \rt)=m_j\lt( \prod_{i=1}^{n}(a_i \pmod{p_j}) \rt)=\lt( \sum_{i=1}^n m_j\lt(a'_{i,j}\rt) \rt)\pmod{p_j-1}$$ for $1\leq j\leq n^2$. This can be computed in constant depth using $ItAdd$ gates. The case when $a'_{i,j}=0$ can be taken care of. These $n^2$ numbers have logarithmically many bits. Thus we can compute the value $\prod\limits_{i=1}^n a_i\pmod{p_j}$ for $1\leq j\leq n^2$ in constant depth. Finally we compute $$a'\coloneqq \sum_{i=1}^{n^2}\lt( \prod\limits_{i=1}^n a_i\pmod{p_j} \rt)\cdot r_j\cdot s_j$$ in constant depth with $ItAdd$ and $MULT$ gates. The values $r_j$ and $s_j$ can be hardwired into the circuit since they dont depend on the input instead the length of the input.
+	For $1\leq j\leq n^2$ let $g_j$ be the generator of the multiplicative group $\bbZ^*_{p_j}$ group of the finite field $\bbZ_{p_j}$. Let for $k\in \{1,\dots, p_j-1\}$ take $g^{m_j(k)}=k$ where $m_j(k)\in \{0,\dots, p_j-2\}$. And we set $m_j(0)\coloneqq p_j-1$. So now we will compute $m_j\lt(a'_{i,j}\rt)$. Since the numbers $a'_{i,j}$ contains $O(\log n)$ many bits, these computations can be done in constant depth. Therefore $$m_j\lt( \prod_{i=1}^{n}a_i \pmod{p_j} \rt)=m_j\lt( \prod_{i=1}^{n}(a_i \pmod{p_j}) \rt)=\lt( \sum_{i=1}^n m_j\lt(a'_{i,j}\rt) \rt)\pmod{p_j-1}$$ for $1\leq j\leq n^2$. This can be computed in constant depth using $ItAdd$ gates. The case when $a'_{i,j}=0$ can be taken care of. These $n^2$ numbers have logarithmically many bits. Thus we can compute the value $\prod\limits_{i=1}^n a_i\pmod{p_j}$ for $1\leq j\leq n^2$ in constant depth. Finally we compute $$a'\coloneqq \sum_{i=1}^{n^2}\lt( \prod\limits_{i=1}^n a_i\pmod{p_j} \rt)\cdot r_j\cdot s_j$$ in constant depth with $ItAdd$ and $MULT$ gates. The values $r_j$ and $s_j$ can be hardwired into the circuit since they don't depend on the input instead the length of the input.
 	
 	By \hyperref[crt]{Chinese Remainder Theorem} we have $a=a'\pmod{a'}$ that is $q\coloneqq \lt\lfloor \frac{a'}{p}\rt\rfloor$ we have $a=a'-q\cdot p$. Since $r_j=\frac{p}{p_j}$ and $s_j\leq p_j$ we have $r_j\cdot s_j\leq p$. Therefore $$a'= \sum_{i=1}^{n^2}\lt( \prod\limits_{i=1}^n a_i\pmod{p_j} \rt)\cdot r_j\cdot s_j\leq  \sum_{i=1}^{n^2}\lt( \prod\limits_{i=1}^n a_i\pmod{p_j} \rt)p\leq  \sum_{i=1}^{n^2}p_{n^2}p=n^2\cdot p_{n^2}\cdot p\implies q\leq n^2\cdot p_{n^2}$$ This the value of $q$ is  polynomial in $n$ and can be determined by parallely testing for all $i\leq n^2\cdot p_{n^2}$ if $i\cdot p\leq a'\leq (i+1)p$ which can be done in constant depth and $q$ is the one value of $i$ for which the answer of this is yes. Then the result of the iterated multiplication is $a=a'-q\cdot p$.
 \end{proof}
+\section{Some Special Problems}
+\begin{definition}[$Approximate Majority$ or $AM$]
+	For $x\in \{0,1\}^n$ let $wt(x)$ be the number of ones in $x$.  Then $$AM(x)=\begin{cases}
+		0                 & \text{if } wt(x)\leq \frac{n}{4} \\
+		1                 & \text{if } wt(x)\geq \frac{3n}4  \\
+		\text{don't care} & \text{otherwise}
+	\end{cases}$$
+\end{definition}
+\begin{theorem}{\cite[Section 4]{AJTAIapproximatemaj}}
+	$Approximate\ Majority\in AC^0$
+\end{theorem}
+
+\begin{theorem}{\cite[Theorem 2.1, Corollary 2.2]{barringtoncorebettdyckk}}
+	$Dyck_k\in DLogTime-Uniform\ TC^0$
+\end{theorem}
+
+\begin{theorem}{\cite{formulavalprob}}
+	Boolean Formula Value Problem $\in ALogTime$
+\end{theorem}
+\begin{corollary}
+	$NC^1=ALogTime$
+\end{corollary}
+\begin{theorem}{\cite{ganradilohrey}}
+	Tree Balancing $\in DLogTime-uniform\ TC^0$
+\end{theorem}
