@@ -19,7 +19,7 @@
 \usepackage{multicol,array}
 \usepackage{tikz-cd}
 \usepackage{stmaryrd}
-\usepackage{eulervm}
+\usepackage{mathpazo}
 \usepackage{libertine}
 %\usepackage{libertinust1math}
 \usepackage[T1]{fontenc}
@@ -29,6 +29,10 @@ backend=biber,
 style=alphabetic,
 sorting=ynt
 ]{biblatex}
+\usepackage{marvosym}
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,14 +75,15 @@ sorting=ynt
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{open}[theorem]{Open Question}
 
-\renewenvironment{proof}{\noindent{\it \textbf{Proof:}}\hspace*{1em}}{\qed\bigskip}
-\newenvironment{proof-sketch}{\noindent{\bf Sketch of Proof}\hspace*{1em}}{\qed\bigskip}
-\newenvironment{proof-idea}{\noindent{\bf Proof Idea}\hspace*{1em}}{\qed\bigskip}
-\newenvironment{proof-of-lemma}[1]{\noindent{\bf Proof of Lemma #1}\hspace*{1em}}{\qed\bigskip}
-\newenvironment{proof-attempt}{\noindent{\bf Proof Attempt}\hspace*{1em}}{\qed\bigskip}
-\newenvironment{proofof}[1]{\noindent{\bf Proof}
-	of #1:\hspace*{1em}}{\qed\bigskip}
-\newenvironment{remark}{\noindent{\bf Remark:}\hspace*{1em}}{\bigskip}
+\renewenvironment{proof}{\noindent{\it \textbf{Proof:}}\hspace*{1em}}{\qed\bigskip\\}
+\newenvironment{proof-sketch}{\noindent{\bf Sketch of Proof:}\hspace*{1em}}{\qed\bigskip\\}
+\newenvironment{proof-idea}{\noindent{\bf Proof Idea:}\hspace*{1em}}{\qed\bigskip\\}
+\newenvironment{proof-of-lemma}[1]{\noindent{\bf Proof of Lemma #1:}\hspace*{1em}}{\qed\bigskip\\}
+\newenvironment{proof-of-claim}[1]{\noindent{\bf Proof of Claim #1:}\hspace*{1em}}{\qed\bigskip\\}
+\newenvironment{proof-attempt}{\noindent{\bf Proof Attempt:}\hspace*{1em}}{\qed\bigskip\\}
+\newenvironment{proofof}[1]{\noindent{\bf Proof:}
+	of #1:\hspace*{1em}}{\qed\bigskip\\}
+\newenvironment{remark}{\noindent{\bf Remark:}\hspace*{1em}}{\bigskip\\}
 \newenvironment{answer}{%
 	\setlength\parindent{0pt}\par\medskip\textbf{Answer:}\quad}{%
 	\par\medskip}

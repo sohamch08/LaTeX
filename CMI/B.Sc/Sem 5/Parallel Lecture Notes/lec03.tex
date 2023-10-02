@@ -1,3 +1,15 @@
+\begin{theorem}[Formula Depth Reduction]
+	If $f$ has a formula $F$ of size $s$ then there exists an equivalent formula $F'$ of depth $d= O(\log s)$
+\end{theorem}
+\begin{proof}
+	We will prove this by induction on $s$. When $s=1 $ or 2 this is trivially true. 
+	
+	For the induction step, assume that the inequality holds for all formulas of size strictly 	less than $s$. Given a formula $F$ of size $s$, we find a node $g$ in the formula such that the 	number of leaves in the subformula below $g$ is at least $\frac{s}{2}$ but individually the left and right subformula below $g$ have strictly less than $\frac{s}2$ leaves. Such a node can easily be found by 	starting at the root and checking if the current node satisfies the properties required. If so 	we have found $g$, else there exists a child of $g$ such that number of leaves below it is at least $\frac{s}2$. We move to this child and check if this node satisfies the properties needed. Continuing 	in this way we find the node $g$. We use the following equivalence $$F\equiv (g\wedge F|_{g=1})\vee (g\wedge F|_{g=0})$$
+	
+	Let $g=g_LBg_R$ where $B\in \{\wedge,\vee\}$. By the choice of $g$, we have that the size of each subformula $g_L$, $g_R$, $F|_{g=0}$, and $F|+{g=1}$ is at most $\frac{s}{2}$. Inductively we balance these subformulas to obtain the formula $F'$. Hence the depth of the formula thus constructed is given by the following recurrence $$d(s)=d\lt(\frac{s}{2}\rt)+O(1)\implies d(s)=O(\log s)$$
+	%For size now we have two gates $g_L$ and $g_R$ both with sizes at most $\frac{s}{2}$. Hence $$size(s)=2size\lt(\frac{s}{2}+O(1)\implies size(s)=2^{O(\log s)}=s^{O(1)}  \rt)$$
+	Therefore $depth(F')=O(\log s)$.% and $size(F')=O(s^{O(1)})$.
+\end{proof}
 \section{Iterated Multiplication}
 \parinf
 \textbf{Problem:} $ItMult_{m,n}$
@@ -33,6 +45,9 @@
 	
 	By \hyperref[crt]{Chinese Remainder Theorem} we have $a=a'\pmod{a'}$ that is $q\coloneqq \lt\lfloor \frac{a'}{p}\rt\rfloor$ we have $a=a'-q\cdot p$. Since $r_j=\frac{p}{p_j}$ and $s_j\leq p_j$ we have $r_j\cdot s_j\leq p$. Therefore $$a'= \sum_{i=1}^{n^2}\lt( \prod\limits_{i=1}^n a_i\pmod{p_j} \rt)\cdot r_j\cdot s_j\leq  \sum_{i=1}^{n^2}\lt( \prod\limits_{i=1}^n a_i\pmod{p_j} \rt)p\leq  \sum_{i=1}^{n^2}p_{n^2}p=n^2\cdot p_{n^2}\cdot p\implies q\leq n^2\cdot p_{n^2}$$ This the value of $q$ is  polynomial in $n$ and can be determined by parallely testing for all $i\leq n^2\cdot p_{n^2}$ if $i\cdot p\leq a'\leq (i+1)p$ which can be done in constant depth and $q$ is the one value of $i$ for which the answer of this is yes. Then the result of the iterated multiplication is $a=a'-q\cdot p$.
 \end{proof}
+\begin{theorem}
+	$ItMult\in FO[Maj]$
+\end{theorem}
 \section{Some Special Problems}
 \begin{definition}[$Approximate Majority$ or $AM$]
 	For $x\in \{0,1\}^n$ let $wt(x)$ be the number of ones in $x$.  Then $$AM(x)=\begin{cases}
@@ -41,20 +56,20 @@
 		\text{don't care} & \text{otherwise}
 	\end{cases}$$
 \end{definition}
-\begin{theorem}{\cite[Section 4]{AJTAIapproximatemaj}}
+\begin{theorem}[{\cite[Section 4]{AJTAIapproximatemaj}}]
 	$Approximate\ Majority\in AC^0$
 \end{theorem}
 
-\begin{theorem}{\cite[Theorem 2.1, Corollary 2.2]{barringtoncorebettdyckk}}
+\begin{theorem}[{\cite[Theorem 2.1, Corollary 2.2]{barringtoncorebettdyckk}}]
 	$Dyck_k\in DLogTime-Uniform\ TC^0$
 \end{theorem}
 
-\begin{theorem}{\cite{formulavalprob}}
+\begin{theorem}[{\cite{formulavalprob}}]
 	Boolean Formula Value Problem $\in ALogTime$
 \end{theorem}
 \begin{corollary}
 	$NC^1=ALogTime$
 \end{corollary}
-\begin{theorem}{\cite{ganradilohrey}}
+\begin{theorem}[{\cite{ganradilohrey}}]
 	Tree Balancing $\in DLogTime-uniform\ TC^0$
 \end{theorem}

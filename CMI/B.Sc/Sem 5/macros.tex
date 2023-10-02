@@ -25,6 +25,7 @@
 \newcommand{\sol}[1]{\begin{solution}#1\end{solution}}
 \newcommand{\solve}[1]{\setlength{\parindent}{0cm}\textbf{\textit{Solution: }}\setlength{\parindent}{1cm}#1 \Qed}
 \newcommand{\mat}[1]{\left[\begin{matrix}#1\end{matrix}\right]}
+\newcommand{\matp}[1]{\lt(\begin{matrix}#1\end{matrix}\rt)}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \newcommand{\handout}[3]{
 	\noindent
@@ -43,7 +44,9 @@
 }
 
 \newcommand{\lecture}[3]{\handout{Lecture #1}{Lecturer: #2}{Scribe:	#3}}
-	
+
+\let\marvosymLightning\Lightning
+\newcommand{\ctr}{\text{\marvosymLightning}\hspace{0.5ex}} % Requires marvosym package
 
 \newcommand{\ov}[1]{\overline{#1}}
 \newcommand{\thmref}[1]{\hyperref[#1]{Theorem \ref{#1}}}
