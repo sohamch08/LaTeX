@@ -95,29 +95,7 @@ We will describe a parallel implementation of boruva's algorithm of minimum span
 	\item The edges of all vertices in a component are merged ie each component is now contracted to a vertex.
 	\item The in each component the edges inside the component are removed and new edge list is performed. 
 \end{enumerate}
-This process is recursed again and again until one vertex is remained.
-\begin{center}
-\begin{tikzpicture}[scale=2]
-	\foreach \x in {-1, 0, 3}
-	{
-		\draw[->] (\x,0) -- (\x+1,0) ;
-		\draw[->] (\x+1,0) -- (\x+0.5,0.866);
-		\draw[->] (\x+0.5,0.866) -- (\x,0);
-	}
-	\draw (-0.5,0) node[below]{1};
-	\draw (0.5,0) node[below]{10};
-	\draw (3.5,0) node[below]{$10^k$};
-	
-	\draw (-0.5,0.433) node[xshift=-0.7cm]{2};
-	\draw (1-0.5,0.433) node[xshift=-0.8cm]{20};
-	\draw (3,0.433) node[xshift=-0.2cm]{$2\times 10^k$};
-	\draw (-0.5,0.433) node[xshift=0.7cm]{3};
-	\draw (1-0.5,0.433) node[xshift=0.8cm]{30};
-	\draw (4,0.433) node[xshift=0.2cm]{$3\times 10^k$};
-	\draw[decorate sep={0.5mm}{4mm},fill] (1.2,0) -- (2.8,0);
-\end{tikzpicture}
-\end{center}
-In each iteration of Edmond's algorithm get exactly one cycle which is a triangle. First we will get the left most one. Since at each step we get only one cycle we have no hope for parallely computing for all disjint cycles.
+
 }
 	
 	
@@ -134,6 +112,29 @@ In each iteration of Edmond's algorithm get exactly one cycle which is a triangl
 
 \solve{
 	%Solution
+	This process is recursed again and again until one vertex is remained.
+	\begin{center}
+		\begin{tikzpicture}[scale=2]
+			\foreach \x in {-1, 0, 3}
+			{
+				\draw[->] (\x,0) -- (\x+1,0) ;
+				\draw[->] (\x+1,0) -- (\x+0.5,0.866);
+				\draw[->] (\x+0.5,0.866) -- (\x,0);
+			}
+			\draw (-0.5,0) node[below]{1};
+			\draw (0.5,0) node[below]{10};
+			\draw (3.5,0) node[below]{$10^k$};
+			
+			\draw (-0.5,0.433) node[xshift=-0.7cm]{2};
+			\draw (1-0.5,0.433) node[xshift=-0.8cm]{20};
+			\draw (3,0.433) node[xshift=-0.2cm]{$2\times 10^k$};
+			\draw (-0.5,0.433) node[xshift=0.7cm]{3};
+			\draw (1-0.5,0.433) node[xshift=0.8cm]{30};
+			\draw (4,0.433) node[xshift=0.2cm]{$3\times 10^k$};
+			\draw[decorate sep={0.5mm}{4mm},fill] (1.2,0) -- (2.8,0);
+		\end{tikzpicture}
+	\end{center}
+	In each iteration of Edmond's algorithm get exactly one cycle which is a triangle. First we will get the left most one. Since at each step we get only one cycle we have no hope for parallely computing for all disjint cycles.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

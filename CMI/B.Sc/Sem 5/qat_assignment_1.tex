@@ -1,0 +1,234 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools,mathdots,amssymb}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
+\usetikzlibrary{decorations.shapes}
+\usepackage{caption}
+%\usepackage{mathpazo}
+\usepackage{mathpazo}
+\usepackage{libertine}
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{physics}
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+\tikzset{decorate sep/.style 2 args=
+	{decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}}
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 1}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Quantum Algorithmic Thinking \hfill Date: October 20, 2023}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices.		
+%Problem		
+\end{problem}
+	
+\solve{
+	%Solution
+	Pauli matrices are $$I=\mat{1&0\\ 0&1}\quad \sg_x=\mat{0&1\\ 1&0}\quad \sg_y=\mat{0& i \\ -i& 0}\quad \sg_z=\mat{1&0\\ 0&-1}$$ For $I$ for all vectors $v$ $Iv=v$. S0 every vector is an eigenvector and its eigenvalue is 1. Since $I$ is already in its diagonal representation $I$'s diagonal representation is $I$ itself.
+	
+	Since $\sg_x\mat{1\\0}=\mat{0\\1}$ and $\sg_x\mat{0\\1}=\mat{1\\ 0}$ we have 
+	$$\sg_x\lt(\mat{1\\ 0}+\mat{0\\ 1}\rt)=\mat{0\\ 1}+\mat{1\\ 0}\quad \sg_x\lt(\mat{1\\ 0} -\mat{0\\ 1}\rt)=\mat{0\\ 1}-\mat{1\\ 0}=-\lt(\mat{1\\ 0}-\mat{0\\ 1}\rt)$$So the for the eignevalue $1$ the corresponding eignevector is $\mat{1\\ 0}+\mat{0\\ 1}$ and for the eigenvalue $-1$ the corresponding eigenvalue is $\mat{1\\ 0}-\mat{0\\ 1}$.
+	
+	Since $\sg_y\mat{1\\ 0}=\mat{0\\ -i}$ and $\sg_y\mat{0\\ 1}=\mat{i\\ 0}$ we have 
+	$$\sg_y\lt(\mat{1\\ 0}+i\mat{0\\ 1}\rt)=\mat{0\\ -i}+i\mat{i\\ 0} = -1\lt(i\mat{0\\ 1}+\mat{1\\ 0}\rt)\quad \sg_y\lt(\mat{1\\ 0} -i\mat{0\\ 1}\rt)=\mat{0\\ -i}-i\mat{i\\ 0}=-i\mat{0\\ 1}+\mat{1\\ 0}$$So the for the eignevalue $1$ the corresponding eignevector is $\mat{1\\ 0} -i\mat{0\\ 1}$ and for the eigenvalue $-1$ the corresponding eigenvalue is $\mat{1\\ 0}+i\mat{0\\ 1}$.
+	
+	Since $\sg_z\mat{1\\ 0}=\mat{1\\ 0}$ and $\sg_y\mat{0\\ 1}=-\mat{0\\ 1}$. So the for the eignevalue $1$ the corresponding eignevector is $\mat{1\\ 0}$ and for the eigenvalue $-1$ the corresponding eigenvalue is $\mat{0\\ 1}$.
+	
+	Now $\sg_x,\sg_y,\sg_z$ has eigenvalues 1 and -1. So if we write in their corresponding eigenbasis then we will obtain the same diagonalized matrices where all the eigenvalues are in the diagonal positions i.e. $\mat{1 &0\\ 0& -1}$
+}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p2% problem reference text
+	}
+	Show that a normal matrix is Hermitian if and only if it has real eigenvalues. Show that a positive operator is necessarily Hermitian.
+	%Problem		
+\end{problem}
+
+\solve{
+	%Solution
+	Let $A$ is normal and it is hermitian. Then $A=A^{\dagger}$. Let $v$ be an eigenvector of $A$ with eigenvalue $\lm$.  Then $v^{\dagger}Av=v^{\dagger}\lm v=\lm |v|^2$. Also $v^{\dagger}Av=v^{\dagger}A^{\dagger}v=(Av)^{\dagger} v=\lm^{\dagger}v^{\dagger}v=\lm^{\dagger} |v|^2$. So we have $\lm=\lm^{\dagger}$. Which implies $\lm$ is real. Hence all eigenvalues of $A$ are real.
+	
+	For the opposite direction we need some lemmas.
+	\parinf
+	
+	\textbf{\textit{Lemma 1:}} The product of two unitary matrices is unitary
+	
+	\textbf{\textit{Proof:}} Let $U,V$ are two unitary matrices then $(UV)^{\dagger}=V^{\dagger} U^{\dagger}$. Now $(UV)(UV)^{\dagger}=U(VV^{\dagger}U^{\dagger})=UIU^{\dagger}=I$. 
+	
+	\textbf{\textit{Lemma 2:}} If $A$ is any square complex matrix then there is an upper triangular complex matrix $T$ and a unitary matrix $U$ so that $A=UTU^{\dagger}$
+	
+	\textbf{\textit{Proof:}} Let $A$ is a $n\times n$ matrix. Let $v_1$ be a eigenvector of $A$ with the corresponding eigenvalue $\lm_1$. We can take $x_1$ to be of unit length. Now by Gram-Schmidt process  we can extend $x_1$ to an orthonormal basis $\{x_1,v_2,\dots,v_n\}$; Let $S_0=\mat{x_1 & v_2 & \cdots & v_n}$  then $S_0$ is unitary and $$S_0^{\dagger}AS_0=\mat{\lm_1 & * \\ 0 & A_1}$$ where $A_1$ is an $(n-1)\times (n-1)$ matrix.  Again suppose $x_2$ is an eigenvector of $A_1$ and the corresponding eigenvalue is $\lm_2$. Then again for $A_1$ we extend $x_2$ to an orthonormal basis $\{x_2,\tdv_2,\dots, \tdv_{n-1}\}$ and take $\hat{S}_1=\mat{x_2,\tdv_2,\cdots, \tdv_{n-1}}$ then $S_1$ is also unitary and we have $\hat{S}_1^{\dagger}A_1\hat{S}_1=\mat{\lm_2 & * \\ 0 & A_2}$ where $A_2$ is a $(n-2)\times (n-2)$ matrix.  So we take $S_1=S_0\mat{1 & 0\\ 0 & \hat{S}_1}$. Then $$S_1^{\dagger} AS_1=\mat{\lm_1 & * & *\\ 0 & \lm_2 & *\\ 0 & 0& A_2}$$We continue like this  letting $S_k=S_{k-1}\mat{I_k & 0 \\ 0 & \hat{S}_{k}}$ thus at the end we obtain $U\coloneqq S_n$ such that $U^{\dagger}AU=T$ which is an upper triangular matrix. Hence we have $A=UTU^{\dagger}$
+	
+	\textbf{\textit{Lemma 3:}} A matrix $A$ is diagonalizable with a unitary matrix if and only if $A$ is normal
+	
+	\textbf{\textit{Proof:}} Let $A$ is normal. Then by Lemma 2 there  is a unitary matrix $U$ and a upper traingular matrix $T$ such that $A=UTU^{\dagger}$. Then \begin{multline*}
+		TT^{\dagger}=U^{\dagger}AU(U^{\dagger}AU)^{\dagger}=U^{\dagger}AUU^{\dagger} A^{\dagger} U	=U^{\dagger}A A^{\dagger} U\\
+	=U^{\dagger} A^{\dagger}A U=U^{\dagger} A^{\dagger}UU^{\dagger}A U=(U^{\dagger}AU)^{\dagger}U^{\dagger}AU=T^{\dagger}T
+	\end{multline*}Now let $T+(t_{i,j})_{1\leq i,j\leq n}$. Then the first diagonal entry of $TT^{\dagger}$ is $$\sum_{i=1}^n  t_{1,i} \overline{t_{1,i}}=\sum_{i=1}^n |t_{1,i}|^2$$ Now the first diagonal entry of $T^{\dagger}T$ is $t_{1,1}\ov{t_{1,1}}=|t_{1,1}|^2$. These two are equal. Hence for all $2\leq i\leq n$ we have $t_{1,i}=0$. Similarly comparing the second diagonal entry of $TT^{\dagger} $ and $T^{\dagger}T$ we have that all the nondiagonal entries of second row of $T$ is 0.  Continuing like this we have that $T$ is diagonal. 
+	
+	Now suppose that $A$ is any matrix such that there exists an unitary matrix $U$ such that  $U^{\dagger}AU=D$ where $D$ is diagonal. Then \begin{multline*}
+		AA^{\dagger}=UDU^{\dagger}(UDU^{\dagger})^{\dagger}=UDU^{\dagger}UD^{\dagger}U^{\dagger}=UDD^{\dagger}U^{\dagger}\\
+		=UD^{\dagger}DU^{\dagger}=UD^{\dagger}U^{\dagger}UDU^{\dagger}=(UDU^{\dagger})^{\dagger}UDU^{\dagger}=A^{\dagger}A
+	\end{multline*}So $A$ is normal.
+	
+	
+	\parinn
+	
+	Now coming back to the original question we have that the eigenvalues of $A$ are real. $A$ is normal. Then  there exists an unitary matrix $U$ such that  $U^{\dagger}AU=D$ where $D$ is diagonal. Since all eigenvalues of $A$ are real $D^{\dagger}=D$. Then we have $$A^{\dagger}=(U^{\dagger}DU)^{\dagger}=U^{\dagger}D^{\dagger}U=U^{\dagger}DU=A$$So $A$ is hermitian
+	
+	\vspace{5mm}
+	
+	Now suppose $A$ is positive operator. Then for all $v\in V$ we have $$v^{\dagger}Av\geq 0\implies v^{\dagger}Av= (v^{\dagger}Av)^{\dagger}=v^{\dagger}A^{\dagger}v\geq 0\implies v^{\dagger}(A-A^{\dagger})v=0$$Now also we have \begin{multline*}
+		(A-A^{\dagger})(A-A^{\dagger})^{\dagger}=(A-A^{\dagger})(A^{\dagger}-A)=AA^{\dagger}-A^{\dagger}A^{\dagger}-AA+A^{\dagger}A\\
+		=(A^{\dagger}-A)(A-A^{\dagger})=(A-A^{\dagger})^{\dagger}(A-A^{\dagger})
+	\end{multline*}So $A-A^{\dagger}$ is a normal operator. Hence by Lemma 3 there exists an unitary matrix $U$ such that $U^{\dagger}(A-A^{\dagger})U=D$ where $D$ is a diagonal matrix. Now for standard basis for any $e_i$ $$e_i^{\dagger}De_i=e^{\dagger}U^{\dagger}(A-A^{\dagger})Ue_i=(Ue_i)^{\dagger}(A-A^{\dagger})(Ue_i)= 0$$ Now $e_i^{\dagger}De_i$ is the $i$-th diagonal element of $D$ which we got is 0. Since this is true for all $i\in [n]$ we have $D$ is a null matrix. So $$U^{\dagger}(A-A^{\dagger})U=0\iff A-A^{\dagger}=U0U^{\dagger}=0\iff A=A^{\dagger}$$Hence $A$ is hermitian.
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+	Suppose that $A$ and $B$ are Hermitian operators. Then show that the commutator $[A, B] = 0$ if and only if there exists an orthonormal basis such that both $A$ and $B$ are diagonal with respect to that basis. 
+	%Problem		
+\end{problem}
+
+\solve{
+	%Solution
+	If there exists an orthonormal basis such that both $A$ and $B$ are diagonal with respect to that basis then let we have $P^{\dagger}AP=D_A$ and $P^{\dagger}P-D_B$. Then $$AB-BA=PD_AP^{\dagger}PD_BP^{\dagger}-PD_BP^{\dagger}PD_AP^{\dagger}=PD_AD_BP^{\dagger}-PD_BD_AP^{\dagger}=P(D_AD_B-S_BD_A)P^{\dagger}=0$$The last equality comes because $D_A$ and $D_B$ are diagonal matrices so $D_AD_B=D_BD_A$. 
+	
+	For the opposite direction suppose $v$ be an eigenvector with corresponding eigenvector $\lm$ of $A$ then $Av=\lm v$. Now $$A(Bv)=BAv=B\lm v=\lm Bv$$Hence for any eigenvector $v$ of $A$ $Bv$ is also an eigenvector and if $Bv$ is zero then still it is an eigenvector of $A$ for same eigenvalue. 
+	
+	Let $\lm_1,\dots,\lm_k$ be the eigenvalues of $A$. Then the corresponding eigenspaces of $A$ are $V_{\lm_i}$ for $i\in [k]$. Then we have $B(V_{\lm_i})\subseteq V_{\lm_i}$ for all $i\in [k]$. Now let $\beta$ be an eigenvalue of $B$ with corresponding eigenvector is $y$. Then for any $i\in [k]$ we can think $y=y_1+y_2$ where $y_1\in V_{\lm_i}$ and and $y_2\in \bigoplus_{j\neq i}V_{\lm_j}$. Then $By=\beta y=\beta y_1+\beta y_2$. also we have $By=By_2+By_2$. Since $B(V_{\lm_i})\subseteq V_{\lm_i}$ and $B\lt( \bigoplus_{j\neq i}V_{\lm_j} \rt)\subseteq \bigoplus_{j\neq i}V_{\lm_j}$ we can say $By_1=\beta y_1$ and $By_2=\beta y_2$. Now if the $V_{\beta}$ is the corresponding eigenspace fo the eigenvalue $\beta$ then $$V_{\beta}=\lt[ V_{\beta}\cap V_{\lm_i}\rt]\oplus \lt[V_{\beta}\cap \bigoplus_{j\neq i}V_{\lm_j} \rt]=\bigoplus_{i=1}^kV_{\lm_i}\cap V_{\beta}$$Now if $\beta_1,\dots, \beta_l$ are the eigenvalues of $B$ then we have $$\bigoplus_{i=1}^lV_{\beta_i}=\bigoplus_{i=1}^l\lt(\bigoplus_{j=1}^k V_{\lm_j}\cap V_{\beta_i}\rt)=\bigoplus_{\substack{1\leq i\leq l\\ 1\leq j\leq k}}V_{\beta_i}\cap V_{\lm_j}$$Let us denote $V_{i,j}=V_{\beta_i}\cap V_{\lm_j}$ then for each $V_{i,j}$ we take an orthogonal basis for all $i,j$. Then taking union of all of them we have an orthogoanl basis for both $A$ and $B$ such that both $A$ and $B$ are diagonal. Now for each vector in the basis after normalizing we get an orthonormal basis  such that both $A$ and $B$ are diagonal with respect to that basis. 
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+	Prove that a state $\ket{\psi}$ of a composite system $AB$ is a product state if and only if it has Schmidt number 1. Prove that $\ket{\psi}$ is a product state if and only if the reduced density matrices $\rho_A$ and $\rho_B$ are pure states. 
+	%Problem		
+\end{problem}
+
+\solve{
+	%Solution
+	\begin{itemize}
+		\item Let the $\ket{\psi}$ is a product state. Then $\exs\ \ket{\psi_1}\in A, \ket{\psi_2}\in B$ such that $\ket{\psi}=\ket{\psi_1}\ket{\psi_2}$. Now by Schmidt Decomposition there exists an orthonormal basis $\{\ket{i_A}\}$ for system $A$ and orthonormal basis $\{\ket{i_B}\}$ for system $B$ such that $$\ket{\psi}=\sum_{i=1}^n\lm_i\ket{i_A}\ket{i_B}$$ where $\lm_i\in \bbR$ such that $\sum_{i=1}^n\lm_i^2=1$. We have there exists at least one $\lm_i\neq 0$. WLOG $\lm_1\neq 0$  Now we also have $$\ket{\psi_1}=\sum_{i=1}^n \lm_{i,A}\ket{i_A}\qquad \ket{\psi_2}=\sum_{i=1}^n\lm_{i,B}\ket{i_B}$$then we have $$\sum_{i=1}^n\lm_i\ket{i_A}\ket{i_B}=\ket{\psi}=\lt(\sum_{i=1}^n\lm_{i,A}\ket{i_A}\rt)\lt(\sum_{i=1}^n\lm_{i,B}\ket{i_B}\rt)=\sum_{1\leq i,j\leq n}\lm_{i,A}\lm_{j,B}\ket{i_A}\ket{j_B}$$Comparing the coefficients we have $\lm_i=\lm_{i,A}\lm_{i,B}$ and for all $\lm_{i,A}\lm_{j,B}=0$ where $i\neq j$. Since $\lm_1\neq 0$ we have $\lm_{1,A},\lm_{1,B}\neq 0$. Since for all $j\neq 1$, $\lm_{1,A}\lm_{j,B}=0$ we have $\lm_{j,B}=0$ for all $2\leq j\leq n$. Similarly since for all $i\neq 1$, $\lm_{i,A}\lm_{1,B}=0$ we have $\lm_{i,A}=0$ for all $2\leq i\leq n$. So we have $\lm_i=0$ for all $2\leq i\leq n$. So $\ket{\psi}=\lm_1\ket{i_A}\ket{i_B}$. Hence $\ket{\psi}$ has Schmidt Number 1.
+		\parinn
+		
+		For the opposite direction $\ket{\psi}$ has Schmidt Number 1. So $\ket{\psi}=\ket{i_A}\ket{i_B}$ Here are $\ket{i_A}$ is a state of system $A$ and $\ket{i_B}$ is a state of system $B$. Hence $\ket{\psi}$ is already in a product state. Hence $\ket{\psi}$ is a product state of the composite system $AB$.
+		
+		\item 
+	\end{itemize}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+	Write a self-contained proof that single qubit gates and $CNOT$ gates are universal.
+	%Problem		
+\end{problem}
+
+\solve{
+	%Solution
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+	Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices.		
+	%Problem		
+\end{problem}
+
+\solve{
+	%Solution
+}
+
+	
+\end{document}

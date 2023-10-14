@@ -1,0 +1,137 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools,mathdots,amssymb}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
+\usetikzlibrary{decorations.shapes}
+\usepackage{caption}
+\usepackage{mathpazo}
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+\tikzset{decorate sep/.style 2 args=
+	{decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}}
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 7}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Parallel Algorithms and Complexity \hfill Date: October 3, 2023}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+Analysis Of Luby's Algorithm
+		
+%Problem		
+\end{problem}
+	
+\solve{
+	%Solution
+	
+	\begin{algorithm}
+		\DontPrintSemicolon
+		\Begin{
+			$A\longleftarrow \emptyset$\;
+			\While{$G\neq \emptyset$}{
+				$S\longleftarrow \emptyset$\;
+				$I \longleftarrow \emptyset$\;
+				\For{$v\in V(G)$ in parallel}{add $v$ to $S$ with probability $\frac{1}{2d(v)}$}
+				\For{$\{u,v\}\in E(G)$ in parallel}{
+					\If{$u\in S$ and $v\in S$}{
+						\uIf{$d(u)<d(v)$}{delete $u$ from $S$}
+						\uElseIf{$d(v)<d(u)$}{delete $v$ from $S$}
+						\uElseIf{$u<v$}{delete $u$ from $S$}
+						\Else{delete $v$ from $S$}
+					}
+				}
+				Call the resulting  set after deletions $I$\;
+				$A\longleftarrow A\cup I$\;
+				$G\longleftarrow G\setminus (I\cup N(I))$\;
+			}
+			\Return $A$\;		
+		}
+		\caption{Luby's Randomized Algorithm on $MIS$\label{lubymis}}
+	\end{algorithm}
+
+\section{Analysis of Randomized Algorithm:} The while loop in line 3 will be executed at most $9\log(n)$ many time since in  each iteration we get that  the number of edges is expected to get reduced to  $\frac{71}{72}$ of edges at the start of iteration. So the outer loop only runs for $\log(n)$ many iterations. The for loop on line 5 takes $O(1)$ parallel time and $O(n)$ processors, as we can use different processor for each vertex simultaneously. The for loop on line 8 takes $O(1)$ time and $O(n^2)$ many processors in $CRCW-PRAM$ model. Since $CRCW(O(1),poly(n))\subseteq AC^0\subseteq NC^1$ so it takes parallel depth of $O(\log n)$ to implement this loop. So overall algorithm can be implemented in $RNC^2$.
+
+\section{Analysis of Derandomized Algorithm:} We don't need the vertices to be independent. Pairwise independent is enough for the analysis. We construct pairwise independent family of functions by taking a prime $p$ in the range $n$ to $2n$ (such prime exists because of Bartrand's Postulate) and then we can assume the vertices of the graph are the elements of the finite field $\bbZ_p$. Now for each vertex $u$ we take $a(u)$ be an integer in $\bbZ_p$ such that  $\frac1{2d(u)}\approx  \frac{a(u)}{p}$ that is $\frac{a(u)}{p}$ is as close as possible to $\frac1{2d(u)}$. Then we denote $A_u\coloneqq \{0,1\dots, a(u)-1\}$. We can take $A_u$ as any subset of $\bbZ_p$ of size $a(u)$.  Hence probability of landing in this set is $\frac{a(u)}{p}\approx \frac1{2d(u)}$.
+
+Now we choose $x$ and $y$ uniformly at random $\bbZ_p$ and define the function $$f_{x,y}:v\mapsto x+vy\pmod{p}$$Now for any $u,v,\alpha,\beta\in \bbZ_p$ where $u\neq v$ then there exists exactly one solution to the linear system $$x+uy=\alpha \qquad x+vy=\beta$$ since the matrix $\mat{1& u\\ 1& v}$ is invertible and $$\mat{x\\ y} =\mat{1&u\\ 1&v}^{-1}\mat{\alpha\\ \beta}$$Therefore\begin{align*}
+	\underset{x,y\in \bbZ_p}{Pr}\lt[f_{x,y}(u)\in A_u\wedge f_{x,y}(v)\in A_v\rt] & = \underset{\substack{\alpha\in A_u\\ \beta\in A_v}}{Pr}[x+uy=\alpha \wedge x+vy=\beta]\\[2mm]
+	& = \frac1{p^2} \lt| \{(x,y)\mid x+uy\in A_u\wedge x+vy\in A_v \} \rt|\\
+	& = \frac1{p^2} \sum_{\alpha\in A_u}\sum_{\beta\in A_v} |\{(x,y)\mid x+uy=\alpha \wedge x+vy=\beta\}|\\
+	& = \frac1{p^2} \sum_{\alpha\in A_u}\sum_{\beta\in A_v}1\\
+	& = \frac1{p^2}a(u)a(v)=\frac{a(u)}{p}\, \frac{a(v)}{p}\approx \frac1{2d(u)}\frac1{2d(v)}
+\end{align*}
+So we take the family of pairwise independent functions $\mcH=\{ f_{x,y}\mid x,y\in \bbZ_p\}$. We can construct this family with only $2\log p=O(\log n)$ random bits (while choosing $x,y$). Hence there are total $2^{O(\log n)}=n^{O(1)}$ many functions. So $|\mcH|=n^{O(1)}$. 
+
+So we in parallel  consider all possible strings of $O(\log n)$ length representing all possible outcomes of the $O(\log n)$ random bits. From each of this string we construct the function in $\mcH$ and carry on the algorithm deterministically which takes constant depth. Since we expect to delete at least a constant fraction of the edges  one of the functions must delete at least that many edges. So we pick the function which deletes the most edges and throw the other parallel computation away and then repeat the whole process. Everything is deterministic and at least a constant fraction of the edges are removed at each stage. 
+
+Since constructing the pairwise independent functions takes constant depth and then we can do our algorithm as before for each function in parallel and then take the only necessary function in consideration. So we can get that the derandomized algorithm is in $NC^2$.
+}
+
+	
+	
+\end{document}
