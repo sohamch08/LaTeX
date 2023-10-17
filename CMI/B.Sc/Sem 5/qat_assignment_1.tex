@@ -240,6 +240,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 		
 		Now suppose this statement is true for $d-1$. For $d$ like the above process we need $d-1$ unitary matrices to make the first entry of the first column 1 and the rest entries of the first column to be 0. Let the unitary matrices are $U_1,\dots, U_{d-1}$. So $U_{d-1}\cdots U_1U=\mat{1 & 0 \\ 0 & U'}$ where $U'$ is a $(d-1)\times (d-1)$ matrix. Since $U$ is unitary we have $U'$ is unitary. By induction hypothesis there exists $k\leq \frac{(d-1)(d-2)}2$ matrices $U_1',\dots, U_k'$ such that $U_k'\cdots U_1'U'=I_{d-1}$. Now $\forall \ i\in [k]$ we take the matrices $$\tdU_i=\mat{1& 0\\ 0 & U_i'}$$Then we have $$\lt( \tdU_k\cdots \tdU_1\rt)\lt( U_{d-1}\cdots U_1\rt)U=I_{d}$$ Now $$k+d-1\leq \frac{(d-1)(d-2)}2+d-1=\frac{d-1}2(d-2+2)=\frac{d(d-1)}2$$Hence there exists $N\leq \frac{d(d-1)}2$ unitary matrices $U_1,\dots , U_N$ such that $_N\cdots U_1U=I$.
 	\end{proof}
+	
 	Now if $U$ is an unitary matrix acting on a $n-$qubit system then we can decompose $U$ into product of $2$-level unitary matrices using the previous lemma. So it is enought to see 2-level unitary matrices. Now denote $U$ to be a 2-level matrix on an $n$-qubit system. Suppose $U$ acts non-trivially on the space spanned by the computational basis $\{\ket{x},\ket{y}\}$. where $bin(x)=x_{n-1}\cdots x_0$ and $bin(y)=y_{n-1}\cdots y_0$ are the binar expressions for $x,y$ where $\forall\ i,j\in [n]$ we have $x_i, y_j\in \{0,1\}$. Let $U\ket{x}=a\ket{x}+b\ket{y}$ and $U\ket{y}=c\ket{x}+d\ket{y}$. Therefore $U$ is an $2^n\times 2^n$ matrix where $U$ has 1 in all diagonal positions and 0 in all off diagonal positions except $U_{xx}=a, U_{xy}=c, U_{yx}=b, U_{yy}=d$. Take $\tdU=\mat{a & c\\ b & d}$. Now we will try to reduce $U$ to $\tdU$ using single qubit gates and $CNOT$ gate. $\tdU$ can be thought of as a unitary matrix acting on a single qubit. 
 	
 	To reduce $U$ to $\tdU$ we first take s sequence of binary numbers $\{ a_1,\dots , a_m\}$ such that $a_1=x$ and $a_m=y$ and for any $i\in [m-1]$, $a_i, a_{i+1}$ differ in exactly one bit. Clearly $m\leq n+1$ since there are $n$ bits. Our main strategy is to find gates providing the sequence of state changes $$\ket{x}=\ket{x_1}\to \ket{x_2}\to \cdots \to \ket{x_{m-1}}$$ then $\ket{x_{m-1}}$ and $\ket{x_m}=\ket{y}$ differs in only one position and then apply $\tdU$ on that specific bit position and then undo the sequence so that $$\ket{x}=\ket{x_1}\leftarrow \ket{x_2}\leftarrow \cdots \leftarrow \ket{x_{m-1}}$$ Now to change the state $\ket{x_i}\to \ket{x_{i+1}}$ let $x_i=x_{i,n-1}\cdots x_{i,0}$ and the difference of $x_i$ and $x_{i+1}$ is at $j$th position. Then $$x_{i+1}=x_{i,n-1}\cdots x_{i,j+1}\ov{x_{i,j}}x_{i,j-1}\cdots x_{i,0}$$ Then we apply $C^{n-1}(X)$ on $j$th bit along  with sandwitching by $X$ gate at $l$th bit, $l\neq j$ if $x_{i,l}=0$. Thus $j$th bit is changed only if the other bits are equal to $\ket{x_i}$ state's bits in their respective positions. Lets denote the gate $C_i^n(X)$ for the change of state   $\ket{x_i}\to \ket{x_{i+1}}$. We apply this this for all $i\in [m-2]$ to finaly get $\ket{x_{m-1}}$
@@ -282,6 +283,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 	\end{enumerate}
 	We will implement the same for any $n$. Here we are using 2 $C^{n-1}(X)$ gate one $C^{n-1}(\sqrt{U})$ gate and one $C(\sqrt{U})$ and one $C(\sqrt{U}^{\dagger})$ gate. So the lemma is true.
 	\end{proof}
+	
 	With this lemma we can constuct a $C^n(U)$ gate using 2 $C^{n-1}(X)$ gate one $C^{n-1}(\sqrt{U})$ gate and one $C(\sqrt{U})$ and one $C(\sqrt{U}^{\dagger})$ gate. So applying this procedure again and again we can finally reach where we are using only $C(V)$ gates where $V$ is an unitary gate acting on a single qubit.
 	
 	Let $SU(n)$ define the set of all $n\times n$ unitary matrices with determinant 1. 
@@ -291,6 +293,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 	\begin{proof}
 		Let $U=\mat{a & b\\ c & d}$. We know $U^{\dagger}=U^{-1}$. Now $$U^{-1}=\frac1{\det U}\mat{d & -b\\ -c & a} \qquad U^{\dagger}=\mat{a^* & c^*\\ b^* & d^*}$$So we have $$d=a^*\det U, a=d^*\det U, \text{ and } -b=c^*\det U$$So we have $d=d(\det U)^*\det U=d|\det U|$. So if $d\neq 0$ we have $|\det U|=1=(\det{U})^*\det U=\det U^{\dagger}\det U=\det (UU^{\dagger})$. So we can think $\det U=e^{i\theta}$ So we have $$d=a^* e^{i\theta}\qquad c=-b^*e^{i\theta}$$Hence $U=\mat{a & b\\ -b^*e^{i\theta} & a^*e^{i\theta}}$. Now $$\det U=aa^*e^{i\theta} +bb^*e^{i\theta}=e^{i\theta}(|a|^2+|b|^2)\implies |\det U|=1=|e^{i\theta}| (|a|^2+|b|^2)=|a|^2+|b|^2$$
 	\end{proof}
+	
 	Now since $|a|^2+|b|^2=1$ so we can think $|a|=\sin \theta$ and $|b|=\cos \theta $. So $a=e^{i\lm}\sin \theta$ and $b=e^{i\mu}\cos \theta$. So $$U=\mat{e^{i\lm}\sin \theta & e^{i\mu}\cos\theta\\ -e^{i(\theta-\mu)}\cos\theta & e^{i(\theta-\lm)}}=e^{i\frac{\theta}2}\mat{e^{i(\lm-\frac{\theta}2)}\sin \theta & e^{i(\mu-\frac{\theta}2)}\cos\theta\\ -e^{-i(\mu-\frac{\theta}2)}\cos\theta & e^{-i(\lm-\frac{\theta}2)}\sin\theta}$$So we take $\alpha=\lm-\frac{\theta}2$ and $\beta=\mu-\frac{\theta}2$. Now introduce $\alpha=\phi+\psi$ and $\beta=\phi-\psi$. Then we have $$U=e^{i\frac{\theta}{2}} \mat{e^{i\phi} & 0 \\ 0 & e^{-i\phi}}\mat{\sin\theta & \cos\theta\\ -\cos\theta & \sin\theta}\mat{e^{i\psi} & 0 \\ 0 & e^{-i\psi}}$$Now for any $2\times 2$ matrix $A$ and for any element $x$ we have $xA=(xI)A$. So here we can take the multiplication of $e^{i\frac{\theta}{2}}$ as multiplication of the matrix $e^{i\frac{\theta}{2}}I=\Phi(\frac{\theta}2)$. To write in short we will take $\frac{\theta}2=\om$. So $\Phi(\frac{\theta}2)=\Phi(\om)$. Now for any angle $\gm$ we know $$R_z(\gm)=\mat{e^{i\frac{\gm}2} & 0 \\ 0 & e^{i\frac{\gm}{2}}}\qquad R_y(\gm)=\mat{ \cos \frac{\gm}2 & \sin\frac{\gm}2\\ -\sin \frac{\gm}2 & \cos \frac{\gm}2 }$$ Since $\cos\gm=\sin(\frac{\pi}2-\gm)$ we have $$R_z(2\phi)=\mat{e^{i\phi} & 0 \\ 0 & e^{-i\phi}}\quad R_y(\pi-2\theta)=\mat{ \cos \frac{\pi-2\theta}2 & \sin\frac{\pi-2\theta}2\\ -\sin \frac{\pi-2\theta}2 & \cos \frac{\pi-2\theta}2 }=\mat{\sin\theta & \cos\theta\\ -\cos\theta & \sin\theta} \quad R_z(2\psi)=\mat{e^{i\psi} & 0 \\ 0 & e^{-i\psi}}$$Hence $U=\Phi(\om)R_z(2\phi)R_y(\pi-2\theta)R_z(2\psi)$. Now we need to break $C(U)$ into single qubit gates and $CNOT$ gate. 
 	\begin{lemma}
 		Let $U\in SU(2)$ then there exists $A,B,C\in SU(2)$ such that $U=\Phi(\delta)AXBXC$ where $ABC=I$ and $X=\sg_x$ for some $\delta\in \bbR$
@@ -304,6 +307,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 			      & = R_z(\alpha)R_y(\beta)R_z(\gm)
 		\end{align*}We also need to verify that $ABC=I$. For that $$ABC=R_z(\alpha)R_y\lt(\frac{\beta}2\rt)R_y\lt(-\frac{\beta}{2}\rt)R_z\lt(-\frac{\alpha+\gm}2\rt)R_z\lt(-\frac{\alpha-\gm}2\rt)=R_z(\alpha)R_y(0)R_z(-\alpha)=R_z(\alpha)R_z(-\alpha)=I$$
 	\end{proof}
+	
 	We know if $U_1 $ and $U_2$ are two unitary gates acting on a single qubit  then $C(U_1U_2)=C(U_1)C(U_2)$. Hence $C(U)=C(\Phi(\delta))C(AXBXC)$. Now we can impliment $C(AXBXC)$ where $ABC=I$ like this 
 	\begin{center}
 		\begin{minipage}{0.2\textwidth}
@@ -329,9 +333,8 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 	\begin{proof}
 		First simplify $D$. $$D=R_z(-\delta)\Phi\lt(\frac{\delta}2\rt)=\mat{e^{-i\frac{\delta}2} & 0 \\ 0 & e^{i\frac{\delta}2}}\mat{e^{i\frac{\delta}2} & 0 \\ 0 & e^{i\frac{\delta}2}}=\mat{1 & 0 \\ 0 & e^{i\delta}}$$Now we know $$C(U)=\ket{0}\bra{0}\otimes I + \ket{1}\bra{1}\otimes \Phi(\delta) =\ket{0}\bra{0}\otimes I+\ket{1}\bra{1}\otimes e^{i\delta}I=\ket{0}\bra{0}\otimes I+e^{i\delta}\ket{1}\bra{1}\otimes I$$Also $$D\otimes  I=\mat{1 & 0\\ 0 & e^{i\delta}}\otimes I=\lt[\ket{0}\bra{0}+e^{i\delta}\ket{1}\bra{1}\rt]\otimes I=\ket{0}\bra{0}\otimes I+e^{i\delta}\ket{1}\bra{1}\otimes I$$Hence we have $C(\delta)=D\otimes I$. 
 	\end{proof}
-	Therefore for $C(\Phi(\delta))$ it is enought to apply the $D$ gate to the control state. 
 	
-	Hence for any $C(U)$ where $U\in SU(2)$ there exists $\delta\in \bbR$ and $A,B,C\in SU(2)$ such that $U=\Phi(\delta)AXBXC$ where $ABC=I$. Then let $D$ be the gate $D=R_z(-\delta)\Phi\lt(\frac{\delta}2\rt)$. Then we impliment $C(U)$ like this:
+	Therefore for $C(\Phi(\delta))$ it is enought to apply the $D$ gate to the control state. 	Hence for any $C(U)$ where $U\in SU(2)$ there exists $\delta\in \bbR$ and $A,B,C\in SU(2)$ such that $U=\Phi(\delta)AXBXC$ where $ABC=I$. Then let $D$ be the gate $D=R_z(-\delta)\Phi\lt(\frac{\delta}2\rt)$. Then we impliment $C(U)$ like this:
 	\begin{center}
 	\begin{minipage}{0.14\textwidth}
 		\begin{quantikz}
@@ -349,7 +352,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 		\end{quantikz}
 	\end{minipage}
 	\end{center}
-	Now we have broken down $C(U)$ into single qubit gates and $CNOT$ gates. Therefore any unitary gate operating on $n$ qubits can be broken down into single qubit gates and $CNOT$ gates. Hence single qubit gates and $CNOT$ gates are universal.
+	Now we have broken down $C(U)$ into single qubit gates and $CNOT$ gates. Therefore combining this full process we finally obtained that for any unitary gate operating on $n$ qubits can be broken down into single qubit gates and $CNOT$ gates. Hence single qubit gates and $CNOT$ gates are universal.
 }
 
 
@@ -378,8 +381,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 	Now let $y\in \bbZ_2^n$. Then $\ket{S+y}=\frac1{\sqrt{|S|}}\sum_{x\in S}\ket{x+y}$. So now
 	\begin{align*}
 		H^{\otimes n}\ket{S+y} & =\frac1{\sqrt{|S|}}\sum_{x\in S}H^{\otimes n}\ket{x+y}  =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la x+y,i\ra}\ket{i}  \rt]                                                                              \\
-		                       & =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}(-1)^{\la x,i\ra}\ket{i}  \rt]                                                                                                                       \\
-		                       & =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra} (-1)^{\sum\limits_{j=1}^ka_j^x\la x_j,i\ra}\ket{i} \rt]                                                                        \\
+		                       & =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}(-1)^{\la x,i\ra}\ket{i}  \rt]   =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra} (-1)^{\sum\limits_{j=1}^ka_j^x\la x_j,i\ra}\ket{i} \rt]                                                                        \\
 		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}\lt[ \sum_{x\in S}\prod_{j=1}^k(-1)^{a_j^x\la x_j,i\ra} \rt]\ket{i}                                                                                                \\
 		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}\lt[ \sum_{a_1=0}^1 \sum_{a_2=0}^1\cdots \sum_{a_k=0}^1 \lt(\prod_{j=1}^k(-1)^{a_j\la x_j,i\ra} \rt)\rt]\ket{i}                                                    \\
 		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} (-1)^{\la y,i\ra}\lt[\prod_{j=1}^k \lt((-1)^{0\times \la x_j,i\ra}+(-1)^{1\times \la x_j,i\ra}\rt)  \rt]\ket{i}                                                                    \\
