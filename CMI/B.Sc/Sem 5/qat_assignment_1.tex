@@ -119,27 +119,40 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 
 \solve{
 	%Solution
-	Let $A$ is normal and it is hermitian. Then $A=A^{\dagger}$. Let $v$ be an eigenvector of $A$ with eigenvalue $\lm$.  Then $v^{\dagger}Av=v^{\dagger}\lm v=\lm |v|^2$. Also $v^{\dagger}Av=v^{\dagger}A^{\dagger}v=(Av)^{\dagger} v=\lm^{\dagger}v^{\dagger}v=\lm^{\dagger} |v|^2$. So we have $\lm=\lm^{\dagger}$. Which implies $\lm$ is real. Hence all eigenvalues of $A$ are real.
+	\begin{itemize}
+		\item Let $A$ is normal and it is hermitian. Then $A=A^{\dagger}$. Let $v$ be an eigenvector of $A$ with eigenvalue $\lm$.  Then $v^{\dagger}Av=v^{\dagger}\lm v=\lm |v|^2$. Also $v^{\dagger}Av=v^{\dagger}A^{\dagger}v=(Av)^{\dagger} v=\lm^{\dagger}v^{\dagger}v=\lm^{\dagger} |v|^2$. So we have $\lm=\lm^{\dagger}$. Which implies $\lm$ is real. Hence all eigenvalues of $A$ are real. \parinn
 	
 	For the opposite direction we need some lemmas.
 	\parinf
 	
-	\textbf{\textit{Lemma 1:}} The product of two unitary matrices is unitary
+	\begin{lemma}
+		The product of two unitary matrices is unitary
+	\end{lemma}
 	
-	\textbf{\textit{Proof:}} Let $U,V$ are two unitary matrices then $(UV)^{\dagger}=V^{\dagger} U^{\dagger}$. Now $(UV)(UV)^{\dagger}=U(VV^{\dagger}U^{\dagger})=UIU^{\dagger}=I$. 
+	\begin{proof}
+		 Let $U,V$ are two unitary matrices then $(UV)^{\dagger}=V^{\dagger} U^{\dagger}$. Now $(UV)(UV)^{\dagger}=U(VV^{\dagger}U^{\dagger})=UIU^{\dagger}=I$. 
+	\end{proof}
 	
-	\textbf{\textit{Lemma 2:}} If $A$ is any square complex matrix then there is an upper triangular complex matrix $T$ and a unitary matrix $U$ so that $A=UTU^{\dagger}$
+	\begin{lemma}
+		If $A$ is any square complex matrix then there is an upper triangular complex matrix $T$ and a unitary matrix $U$ so that $A=UTU^{\dagger}$
+	\end{lemma}
 	
-	\textbf{\textit{Proof:}} Let $A$ is a $n\times n$ matrix. Let $v_1$ be a eigenvector of $A$ with the corresponding eigenvalue $\lm_1$. We can take $x_1$ to be of unit length. Now by Gram-Schmidt process  we can extend $x_1$ to an orthonormal basis $\{x_1,v_2,\dots,v_n\}$; Let $S_0=\mat{x_1 & v_2 & \cdots & v_n}$  then $S_0$ is unitary and $$S_0^{\dagger}AS_0=\mat{\lm_1 & * \\ 0 & A_1}$$ where $A_1$ is an $(n-1)\times (n-1)$ matrix.  Again suppose $x_2$ is an eigenvector of $A_1$ and the corresponding eigenvalue is $\lm_2$. Then again for $A_1$ we extend $x_2$ to an orthonormal basis $\{x_2,\tdv_2,\dots, \tdv_{n-1}\}$ and take $\hat{S}_1=\mat{x_2,\tdv_2,\cdots, \tdv_{n-1}}$ then $S_1$ is also unitary and we have $\hat{S}_1^{\dagger}A_1\hat{S}_1=\mat{\lm_2 & * \\ 0 & A_2}$ where $A_2$ is a $(n-2)\times (n-2)$ matrix.  So we take $S_1=S_0\mat{1 & 0\\ 0 & \hat{S}_1}$. Then $$S_1^{\dagger} AS_1=\mat{\lm_1 & * & *\\ 0 & \lm_2 & *\\ 0 & 0& A_2}$$We continue like this  letting $S_k=S_{k-1}\mat{I_k & 0 \\ 0 & \hat{S}_{k}}$ thus at the end we obtain $U\coloneqq S_n$ such that $U^{\dagger}AU=T$ which is an upper triangular matrix. Hence we have $A=UTU^{\dagger}$
+	 \begin{proof}
+	 	Let $A$ is a $n\times n$ matrix. Let $v_1$ be a eigenvector of $A$ with the corresponding eigenvalue $\lm_1$. We can take $x_1$ to be of unit length. Now by Gram-Schmidt process  we can extend $x_1$ to an orthonormal basis $\{x_1,v_2,\dots,v_n\}$; Let $S_0=\mat{x_1 & v_2 & \cdots & v_n}$  then $S_0$ is unitary and $$S_0^{\dagger}AS_0=\mat{\lm_1 & * \\ 0 & A_1}$$ where $A_1$ is an $(n-1)\times (n-1)$ matrix.  Again suppose $x_2$ is an eigenvector of $A_1$ and the corresponding eigenvalue is $\lm_2$. Then again for $A_1$ we extend $x_2$ to an orthonormal basis $\{x_2,\tdv_2,\dots, \tdv_{n-1}\}$ and take $\hat{S}_1=\mat{x_2,\tdv_2,\cdots, \tdv_{n-1}}$ then $S_1$ is also unitary and we have $\hat{S}_1^{\dagger}A_1\hat{S}_1=\mat{\lm_2 & * \\ 0 & A_2}$ where $A_2$ is a $(n-2)\times (n-2)$ matrix.  So we take $S_1=S_0\mat{1 & 0\\ 0 & \hat{S}_1}$. Then $$S_1^{\dagger} AS_1=\mat{\lm_1 & * & *\\ 0 & \lm_2 & *\\ 0 & 0& A_2}$$We continue like this  letting $S_k=S_{k-1}\mat{I_k & 0 \\ 0 & \hat{S}_{k}}$ thus at the end we obtain $U\coloneqq S_n$ such that $U^{\dagger}AU=T$ which is an upper triangular matrix. Hence we have $A=UTU^{\dagger}$
+	 \end{proof}
 	
-	\textbf{\textit{Lemma 3:}} A matrix $A$ is diagonalizable with a unitary matrix if and only if $A$ is normal
+\begin{lemma}
+	 A matrix $A$ is diagonalizable with a unitary matrix if and only if $A$ is normal
+\end{lemma}
 	
-	\textbf{\textit{Proof:}} Let $A$ is normal. Then by Lemma 2 there  is a unitary matrix $U$ and a upper traingular matrix $T$ such that $A=UTU^{\dagger}$. Then \begin{multline*}
+	\begin{proof}
+		 Let $A$ is normal. Then by Lemma 2 there  is a unitary matrix $U$ and a upper traingular matrix $T$ such that $A=UTU^{\dagger}$. Then \begin{multline*}
 		TT^{\dagger}=U^{\dagger}AU(U^{\dagger}AU)^{\dagger}=U^{\dagger}AUU^{\dagger} A^{\dagger} U	=U^{\dagger}A A^{\dagger} U\\
 	=U^{\dagger} A^{\dagger}A U=U^{\dagger} A^{\dagger}UU^{\dagger}A U=(U^{\dagger}AU)^{\dagger}U^{\dagger}AU=T^{\dagger}T
 	\end{multline*}Now let $T+(t_{i,j})_{1\leq i,j\leq n}$. Then the first diagonal entry of $TT^{\dagger}$ is $$\sum_{i=1}^n  t_{1,i} \overline{t_{1,i}}=\sum_{i=1}^n |t_{1,i}|^2$$ Now the first diagonal entry of $T^{\dagger}T$ is $t_{1,1}\ov{t_{1,1}}=|t_{1,1}|^2$. These two are equal. Hence for all $2\leq i\leq n$ we have $t_{1,i}=0$. Similarly comparing the second diagonal entry of $TT^{\dagger} $ and $T^{\dagger}T$ we have that all the nondiagonal entries of second row of $T$ is 0.  Continuing like this we have that $T$ is diagonal. 
+	\end{proof}
 	
-	Now suppose that $A$ is any matrix such that there exists an unitary matrix $U$ such that  $U^{\dagger}AU=D$ where $D$ is diagonal. Then \begin{multline*}
+\item Suppose that $A$ is any matrix such that there exists an unitary matrix $U$ such that  $U^{\dagger}AU=D$ where $D$ is diagonal. Then \begin{multline*}
 		AA^{\dagger}=UDU^{\dagger}(UDU^{\dagger})^{\dagger}=UDU^{\dagger}UD^{\dagger}U^{\dagger}=UDD^{\dagger}U^{\dagger}\\
 		=UD^{\dagger}DU^{\dagger}=UD^{\dagger}U^{\dagger}UDU^{\dagger}=(UDU^{\dagger})^{\dagger}UDU^{\dagger}=A^{\dagger}A
 	\end{multline*}So $A$ is normal.
@@ -155,6 +168,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 		(A-A^{\dagger})(A-A^{\dagger})^{\dagger}=(A-A^{\dagger})(A^{\dagger}-A)=AA^{\dagger}-A^{\dagger}A^{\dagger}-AA+A^{\dagger}A\\
 		=(A^{\dagger}-A)(A-A^{\dagger})=(A-A^{\dagger})^{\dagger}(A-A^{\dagger})
 	\end{multline*}So $A-A^{\dagger}$ is a normal operator. Hence by Lemma 3 there exists an unitary matrix $U$ such that $U^{\dagger}(A-A^{\dagger})U=D$ where $D$ is a diagonal matrix. Now for standard basis for any $e_i$ $$e_i^{\dagger}De_i=e^{\dagger}U^{\dagger}(A-A^{\dagger})Ue_i=(Ue_i)^{\dagger}(A-A^{\dagger})(Ue_i)= 0$$ Now $e_i^{\dagger}De_i$ is the $i$-th diagonal element of $D$ which we got is 0. Since this is true for all $i\in [n]$ we have $D$ is a null matrix. So $$U^{\dagger}(A-A^{\dagger})U=0\iff A-A^{\dagger}=U0U^{\dagger}=0\iff A=A^{\dagger}$$Hence $A$ is hermitian.
+	\end{itemize}
 }
 
 
@@ -260,12 +274,12 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 		\end{quantikz}
 	\end{minipage}
 	\end{center}
-	There are 4 cases arise: \begin{itemize}
+	There are 4 cases arise: \begin{enumerate}
 		\item \textbf{OFF, OFF}: If any of the first 2 states is  $\ket{0}$ and the 3rd state is $\ket{0}$ then no gate is applied on the 4th state. 
 		\item \textbf{ON, OFF}: If first 2 states are $\ket{1}$ and the 3rd state is $\ket{0}$ then after the first $C^2(X)$ gate the 3rd state becomes $\ket{1}$ so the $\sqrt{U}^{\dagger}$ is applied  on 4th state and after the second $C^2(X)$ the 3rd state becomes $\ket{0}$ so only the last $\sqrt{U}$ is applied on 4th state. But we know $\sqrt{U}^{\dagger}\sqrt{U}=I$ so in the end nothing changes
 		\item \textbf{ON, ON}: If first 2 states are $\ket{1}$ and 3rd state is $\ket{1}$ then after the first $C^2(X)$ gate the 3rd state becomes $\ket{0}$ so the $\sqrt{U}^{\dagger}$ is not applied  on 4th state and after the second $C^2(X)$ the 3rd state becomes $\ket{1}$ so both  the last two $\sqrt{U}$ gate are applied on 4th state. Since $\sqrt{U}\sqrt{U}=U$ we can say when all the first 3 states are $\ket{1}$ $U$ is applied to the 4th state.
 		\item \textbf{OFF, ON}: If any of the first 2 states is $\ket{0}$ and the 3rd state is $\ket{1}$ then after the first $C^2(X)$ gate the 3rd state doesn't change so it remains $\ket{1}$ so the $\sqrt{U}^{\dagger}$ is  applied  on 4th state and after the second $C^2(X)$ the 3rd state still remains  $\ket{1}$ so the first $\sqrt{U}$ gate is applied but the last $\sqrt{U}$ iis not applied since at least one of the first 2 states is $\ket{0}$
-	\end{itemize}
+	\end{enumerate}
 	We will implement the same for any $n$. Here we are using 2 $C^{n-1}(X)$ gate one $C^{n-1}(\sqrt{U})$ gate and one $C(\sqrt{U})$ and one $C(\sqrt{U}^{\dagger})$ gate. So the lemma is true.
 	\end{proof}
 	With this lemma we can constuct a $C^n(U)$ gate using 2 $C^{n-1}(X)$ gate one $C^{n-1}(\sqrt{U})$ gate and one $C(\sqrt{U})$ and one $C(\sqrt{U}^{\dagger})$ gate. So applying this procedure again and again we can finally reach where we are using only $C(V)$ gates where $V$ is an unitary gate acting on a single qubit.
@@ -352,6 +366,27 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 
 \solve{
 	%Solution
+	We have $\ket{S}=\frac{1}{\sqrt{|S|}}\sum\limits_{x\in S}\ket{x}$. Now since $S$ is a subspace of $\bbZ_2^n$ it has a basis. Let $\{x_1,\dots, x_k\}$ is a basis of $S$. Then $\forall\ x\in S$ $\exs\ a_i^x\in \{0,1\}$.for all $i\in [k]$ such that $\sum\limits_{i=1}^ka_i^xx_i=x$. So $|S|=2^k$. Now \begin{align*}
+		H^{\otimes n}\ket{S} & =\frac1{\sqrt{|S|}}\sum_{x\in S}H^{\otimes n}\ket{x}  =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la x,i\ra}\ket{i}  \rt]                                                                                                      \\
+		                     & =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1}(-1)^{\sum\limits_{j=1}^ka_j^x\la x_j,i\ra}\ket{i} \rt]=\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}\lt[ \sum_{x\in S}\prod_{j=1}^k(-1)^{a_j^x\la x_j,i\ra} \rt]\ket{i}   \\
+		                     & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}\lt[ \sum_{a_1=0}^1 \sum_{a_2=0}^1\cdots \sum_{a_k=0}^1 \lt(\prod_{j=1}^k(-1)^{a_j\la x_j,i\ra} \rt)\rt]\ket{i}                                                                                         \\
+		                     & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} \lt[\prod_{j=1}^k \lt((-1)^{0\times \la x_j,i\ra}+(-1)^{1\times \la x_j,i\ra}\rt)  \rt]\ket{i}  =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} \lt[\prod_{j=1}^k \lt(1+(-1)^{ \la x_j,i\ra}\rt)  \rt]\ket{i} \\
+		                     & =\frac1{\sqrt{2^n|S|}}\sum_{y\in S^{\perp}} \lt[ \prod_{j=1}^k (1+(-1)^0) \rt]\ket{y}                                                                                                                                                           \\
+		                     & =\frac1{\sqrt{2^n|S|}}\sum_{y\in S^{\perp}}2^k\ket{y}=\frac{2^k}{\sqrt{2^n\times 2^k}}\sum_{y\in S^{\perp}}\ket{y}=\frac1{\sqrt{2^{n-k}}}\sum_{y\in S^{\perp}}\ket{y}=\ket{S^{\perp}}
+	\end{align*}
+	
+	Now let $y\in \bbZ_2^n$. Then $\ket{S+y}=\frac1{\sqrt{|S|}}\sum_{x\in S}\ket{x+y}$. So now
+	\begin{align*}
+		H^{\otimes n}\ket{S+y} & =\frac1{\sqrt{|S|}}\sum_{x\in S}H^{\otimes n}\ket{x+y}  =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la x+y,i\ra}\ket{i}  \rt]                                                                              \\
+		                       & =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}(-1)^{\la x,i\ra}\ket{i}  \rt]                                                                                                                       \\
+		                       & =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra} (-1)^{\sum\limits_{j=1}^ka_j^x\la x_j,i\ra}\ket{i} \rt]                                                                        \\
+		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}\lt[ \sum_{x\in S}\prod_{j=1}^k(-1)^{a_j^x\la x_j,i\ra} \rt]\ket{i}                                                                                                \\
+		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}\lt[ \sum_{a_1=0}^1 \sum_{a_2=0}^1\cdots \sum_{a_k=0}^1 \lt(\prod_{j=1}^k(-1)^{a_j\la x_j,i\ra} \rt)\rt]\ket{i}                                                    \\
+		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} (-1)^{\la y,i\ra}\lt[\prod_{j=1}^k \lt((-1)^{0\times \la x_j,i\ra}+(-1)^{1\times \la x_j,i\ra}\rt)  \rt]\ket{i}                                                                    \\
+		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} (-1)^{\la y,i\ra}\lt[\prod_{j=1}^k \lt(1+(-1)^{ \la x_j,i\ra}\rt)  \rt]\ket{i}                                                                                                     \\
+		                       & =\frac1{\sqrt{2^n|S|}}\sum_{x\in S^{\perp}}(-1)^{\la y,i\ra} \lt[ \prod_{j=1}^k (1+(-1)^0) \rt]\ket{x}                                                                                                                      \\
+		                       & =\frac1{\sqrt{2^n|S|}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}2^k\ket{x}   =\frac{2^k}{\sqrt{2^n\times 2^k}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}\ket{x}=\frac1{\sqrt{2^{n-k}}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}\ket{x}
+	\end{align*}
 }
 
 	
