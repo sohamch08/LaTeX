@@ -141,7 +141,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 	 	Let $A$ is a $n\times n$ matrix. Let $v_1$ be a eigenvector of $A$ with the corresponding eigenvalue $\lm_1$. We can take $x_1$ to be of unit length. Now by Gram-Schmidt process  we can extend $x_1$ to an orthonormal basis $\{x_1,v_2,\dots,v_n\}$; Let $S_0=\mat{x_1 & v_2 & \cdots & v_n}$  then $S_0$ is unitary and $$S_0^{\dagger}AS_0=\mat{\lm_1 & * \\ 0 & A_1}$$ where $A_1$ is an $(n-1)\times (n-1)$ matrix.  Again suppose $x_2$ is an eigenvector of $A_1$ and the corresponding eigenvalue is $\lm_2$. Then again for $A_1$ we extend $x_2$ to an orthonormal basis $\{x_2,\tdv_2,\dots, \tdv_{n-1}\}$ and take $\hat{S}_1=\mat{x_2,\tdv_2,\cdots, \tdv_{n-1}}$ then $S_1$ is also unitary and we have $\hat{S}_1^{\dagger}A_1\hat{S}_1=\mat{\lm_2 & * \\ 0 & A_2}$ where $A_2$ is a $(n-2)\times (n-2)$ matrix.  So we take $S_1=S_0\mat{1 & 0\\ 0 & \hat{S}_1}$. Then $$S_1^{\dagger} AS_1=\mat{\lm_1 & * & *\\ 0 & \lm_2 & *\\ 0 & 0& A_2}$$We continue like this  letting $S_k=S_{k-1}\mat{I_k & 0 \\ 0 & \hat{S}_{k}}$ thus at the end we obtain $U\coloneqq S_n$ such that $U^{\dagger}AU=T$ which is an upper triangular matrix. Hence we have $A=UTU^{\dagger}$
 	 \end{proof}
 	
-\begin{lemma}
+\begin{lemma}\label{normdiag}
 	 A matrix $A$ is diagonalizable with a unitary matrix if and only if $A$ is normal
 \end{lemma}
 	
@@ -149,7 +149,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 		 Let $A$ is normal. Then by Lemma 2 there  is a unitary matrix $U$ and a upper traingular matrix $T$ such that $A=UTU^{\dagger}$. Then \begin{multline*}
 		TT^{\dagger}=U^{\dagger}AU(U^{\dagger}AU)^{\dagger}=U^{\dagger}AUU^{\dagger} A^{\dagger} U	=U^{\dagger}A A^{\dagger} U\\
 	=U^{\dagger} A^{\dagger}A U=U^{\dagger} A^{\dagger}UU^{\dagger}A U=(U^{\dagger}AU)^{\dagger}U^{\dagger}AU=T^{\dagger}T
-	\end{multline*}Now let $T+(t_{i,j})_{1\leq i,j\leq n}$. Then the first diagonal entry of $TT^{\dagger}$ is $$\sum_{i=1}^n  t_{1,i} \overline{t_{1,i}}=\sum_{i=1}^n |t_{1,i}|^2$$ Now the first diagonal entry of $T^{\dagger}T$ is $t_{1,1}\ov{t_{1,1}}=|t_{1,1}|^2$. These two are equal. Hence for all $2\leq i\leq n$ we have $t_{1,i}=0$. Similarly comparing the second diagonal entry of $TT^{\dagger} $ and $T^{\dagger}T$ we have that all the nondiagonal entries of second row of $T$ is 0.  Continuing like this we have that $T$ is diagonal. 
+	\end{multline*}Now let $T=(t_{i,j})_{1\leq i,j\leq n}$. Then the first diagonal entry of $TT^{\dagger}$ is $$\sum_{i=1}^n  t_{1,i} \overline{t_{1,i}}=\sum_{i=1}^n |t_{1,i}|^2$$ Now the first diagonal entry of $T^{\dagger}T$ is $t_{1,1}\ov{t_{1,1}}=|t_{1,1}|^2$. These two are equal. Hence for all $2\leq i\leq n$ we have $t_{1,i}=0$. Similarly comparing the second diagonal entry of $TT^{\dagger} $ and $T^{\dagger}T$ we have that all the nondiagonal entries of second row of $T$ is 0.  Continuing like this we have that $T$ is diagonal. 
 	\end{proof}
 	
 \item Suppose that $A$ is any matrix such that there exists an unitary matrix $U$ such that  $U^{\dagger}AU=D$ where $D$ is diagonal. Then \begin{multline*}
@@ -185,7 +185,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 
 \solve{
 	%Solution
-	If there exists an orthonormal basis such that both $A$ and $B$ are diagonal with respect to that basis then let we have $P^{\dagger}AP=D_A$ and $P^{\dagger}P-D_B$. Then $$AB-BA=PD_AP^{\dagger}PD_BP^{\dagger}-PD_BP^{\dagger}PD_AP^{\dagger}=PD_AD_BP^{\dagger}-PD_BD_AP^{\dagger}=P(D_AD_B-S_BD_A)P^{\dagger}=0$$The last equality comes because $D_A$ and $D_B$ are diagonal matrices so $D_AD_B=D_BD_A$. 
+	If there exists an orthonormal basis such that both $A$ and $B$ are diagonal with respect to that basis then let we have $P^{\dagger}AP=D_A$ and $P^{\dagger}P-D_B$. Then $$AB-BA=PD_AP^{\dagger}PD_BP^{\dagger}-PD_BP^{\dagger}PD_AP^{\dagger}=PD_AD_BP^{\dagger}-PD_BD_AP^{\dagger}=P(D_AD_B-D_BD_A)P^{\dagger}=0$$The last equality comes because $D_A$ and $D_B$ are diagonal matrices so $D_AD_B=D_BD_A$. 
 	
 	For the opposite direction suppose $v$ be an eigenvector with corresponding eigenvector $\lm$ of $A$ then $Av=\lm v$. Now $$A(Bv)=BAv=B\lm v=\lm Bv$$Hence for any eigenvector $v$ of $A$ $Bv$ is also an eigenvector and if $Bv$ is zero then still it is an eigenvector of $A$ for same eigenvalue. 
 	
@@ -236,7 +236,7 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 		Let $U$ be an unitary matrix acting on $\bbC^d$. Then there are $N\leq \frac{d(d-1)}2$,  2-level unitary matrices i.e. unitary matrices which act on 2 or less dimensional subspaces $U_1,\dots, U_n$ such that $$U_NU_{N-1}\cdots U_2U_1U=I$$.
 	\end{lemma}
 	\begin{proof}
-		We will prove this by induction. Let $d=3$. Then suppose $U=\mat{a & d & g\\ b & e & h\\ c & f & i}$. Then first take $$U_1=\mat{\frac{a^{\dagger}}{|a|^2+|b|^2} & \frac{b^{\dagger}}{|a|^2+|b|^2} & 0\\ \frac{b}{|a|^2+|b|^2} & \frac{-a}{|a|^2+|b|^2} & 0\\ 0 & 0 & 1}\implies U_1U=\mat{1 & d' & g'\\ 0 & e' & h'\\ c' & f' & i'}=\mat{a' & d' & g'\\ 0 & e' & h'\\ c' & f' & i'}$$Now we take $$U_2=\mat{\frac{a'^{\dagger}}{|a'|^2+|c'|^2} & 0 & \frac{c'^{\dagger}}{|a'|^2+|c'|^2} \\ 0 & 1 & 0\\ \frac{c'}{|a'|^2+|c'|^2} & 0 &  \frac{-a'}{|a'|^2+|c'|^2}}\implies U_2U_1U=\mat{1 & d'' & g''\\ 0 & e'' & h''\\ 0 & f'' & i''}$$Clearly $U_1$ and $U_2$ are unitary matrix. Hence $U_2U_1U$ is unitary matrix. Since $U_2U_1U$ is a unitary matrix and $(U_2U_1U)^{\dagger}=U_2U_1U$ we have $d''=g''=0$. Hence $$U_2U_1U=\mat{1 & 0 & 0\\ 0 & e'' & h''\\ 0 & f'' & i''}$$So we will take $$U_3=(U_2U_1U)^{\dagger}=\mat{1 & 0 & 0\\ 0 & e''^{\dagger} & h''^{\dagger}\\ 0 & f''^{\dagger} & i''^{\dagger}}$$Hence $U_3U_2U_1U=I\implies U=U_1^{\dagger}U_2^{\dagger}U_3^{\dagger}$. 
+		We will prove this by induction. Let $d=3$. Then suppose $U=\mat{a & d & g\\ b & e & h\\ c & f & i}$. Then first take $$U_1=\mat{\frac{a^*}{|a|^2+|b|^2} & \frac{b^*}{|a|^2+|b|^2} & 0\\ \frac{b}{|a|^2+|b|^2} & \frac{-a}{|a|^2+|b|^2} & 0\\ 0 & 0 & 1}\implies U_1U=\mat{1 & d' & g'\\ 0 & e' & h'\\ c' & f' & i'}=\mat{a' & d' & g'\\ 0 & e' & h'\\ c' & f' & i'}$$Now we take $$U_2=\mat{\frac{a'^*}{|a'|^2+|c'|^2} & 0 & \frac{c'^*}{|a'|^2+|c'|^2} \\ 0 & 1 & 0\\ \frac{c'}{|a'|^2+|c'|^2} & 0 &  \frac{-a'}{|a'|^2+|c'|^2}}\implies U_2U_1U=\mat{1 & d'' & g''\\ 0 & e'' & h''\\ 0 & f'' & i''}$$Clearly $U_1$ and $U_2$ are unitary matrix. Hence $U_2U_1U$ is unitary matrix. Since $U_2U_1U$ is a unitary matrix and $(U_2U_1U)^{\dagger}=U_2U_1U$ we have $d''=g''=0$. Hence $$U_2U_1U=\mat{1 & 0 & 0\\ 0 & e'' & h''\\ 0 & f'' & i''}$$So we will take $$U_3=(U_2U_1U)^{\dagger}=\mat{1 & 0 & 0\\ 0 & e''^* & h''^*\\ 0 & f''^* & i''^*}$$Hence $U_3U_2U_1U=I\implies U=U_1^{\dagger}U_2^{\dagger}U_3^{\dagger}$. 
 		
 		Now suppose this statement is true for $d-1$. For $d$ like the above process we need $d-1$ unitary matrices to make the first entry of the first column 1 and the rest entries of the first column to be 0. Let the unitary matrices are $U_1,\dots, U_{d-1}$. So $U_{d-1}\cdots U_1U=\mat{1 & 0 \\ 0 & U'}$ where $U'$ is a $(d-1)\times (d-1)$ matrix. Since $U$ is unitary we have $U'$ is unitary. By induction hypothesis there exists $k\leq \frac{(d-1)(d-2)}2$ matrices $U_1',\dots, U_k'$ such that $U_k'\cdots U_1'U'=I_{d-1}$. Now $\forall \ i\in [k]$ we take the matrices $$\tdU_i=\mat{1& 0\\ 0 & U_i'}$$Then we have $$\lt( \tdU_k\cdots \tdU_1\rt)\lt( U_{d-1}\cdots U_1\rt)U=I_{d}$$ Now $$k+d-1\leq \frac{(d-1)(d-2)}2+d-1=\frac{d-1}2(d-2+2)=\frac{d(d-1)}2$$Hence there exists $N\leq \frac{d(d-1)}2$ unitary matrices $U_1,\dots , U_N$ such that $_N\cdots U_1U=I$.
 	\end{proof}
@@ -247,7 +247,12 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 	
 	Now let $x_{m-1}$ and $x_m=y$ differs in $k$th position. Let $x_{m-1}=x_{m-1,n-1}\cdots x_{m-1,0}$ then {$$x_m=x_{m-1,n-1}\cdots x_{m-1,k+1}\ov{x_{m-1,k}}x_{m-1,k-1}\cdots x_{m-1,0}$$} Then we apply $C^{n-1}(\tdU)$ where $\tdU$ is applied in $k$-th position along with sandwitching by $X$ gates if at $l$th bit, $l\neq k$ if $x_{m-1,l}=0$. Thus $\tdU$ is applied to $k$th bit only if the rest of the bits are equal to $x_{m-1,n-1},$ $\dots,$ $x_{m-1,k+1},$ $x_{m-1,k-1},$ $\dots,$ $x_{m-1,0}$ respectively. 
 	
-	
+	\begin{lemma}
+		For any unitary matrix $U$ there is an unitary matrix $V$ such that $V^2=U$.
+	\end{lemma}
+	\begin{proof}
+		Since $UU^{\dagger}=I$ we also have $U^{\dagger}U=(UU^{\dagger})^{\dagger}=I^{\dagger}=I$. Hence unitary matrix is normal. Now by \lmref{normdiag} we know normal matrices are diagonalizable. So there is a unitary matrix $V$ such that $V^{\dagger}UV=D$ where $D$ is diagonal. Since all elements of $D$ are complex number for all diagonal element of $D$ there is a square root of that element. Hence we construct a new diagonal matrix $\tdD$ such that square of any diagonal element of $\tdD$ is the same element of $D$ of smae diagonal position. SO $\tdD\tdD=D$. Hence we take $\sqrt{U}=V\tdD V^{\dagger}$. Then $\sqrt{U}\sqrt{U}=V\tdD V^{\dagger}V\tdD V^{\dagger}=V\tdD\tdD V^{\dagger}=VDV^{\dagger}=U$. Hence such matrix exists
+	\end{proof}
 	
 	\begin{lemma}
 		For any unitary gate $U$ acting on a single qubit system $C^n(U)$ gate on a $n$ qubit system can be constructed by 3 $C^{n-1}(V)$ and 3 $C(W)$ gates where $V,W$ are unitary matrices. [I took this idea from \href{https://algassert.com/circuits/2015/06/22/Using-Quantum-Gates-instead-of-Ancilla-Bits.html}{algoassert.com}]
@@ -369,26 +374,19 @@ Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli ma
 
 \solve{
 	%Solution
-	We have $\ket{S}=\frac{1}{\sqrt{|S|}}\sum\limits_{x\in S}\ket{x}$. Now since $S$ is a subspace of $\bbZ_2^n$ it has a basis. Let $\{x_1,\dots, x_k\}$ is a basis of $S$. Then $\forall\ x\in S$ $\exs\ a_i^x\in \{0,1\}$.for all $i\in [k]$ such that $\sum\limits_{i=1}^ka_i^xx_i=x$. So $|S|=2^k$. Now \begin{align*}
-		H^{\otimes n}\ket{S} & =\frac1{\sqrt{|S|}}\sum_{x\in S}H^{\otimes n}\ket{x}  =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la x,i\ra}\ket{i}  \rt]                                                                                                      \\
-		                     & =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1}(-1)^{\sum\limits_{j=1}^ka_j^x\la x_j,i\ra}\ket{i} \rt]=\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}\lt[ \sum_{x\in S}\prod_{j=1}^k(-1)^{a_j^x\la x_j,i\ra} \rt]\ket{i}   \\
-		                     & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}\lt[ \sum_{a_1=0}^1 \sum_{a_2=0}^1\cdots \sum_{a_k=0}^1 \lt(\prod_{j=1}^k(-1)^{a_j\la x_j,i\ra} \rt)\rt]\ket{i}                                                                                         \\
-		                     & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} \lt[\prod_{j=1}^k \lt((-1)^{0\times \la x_j,i\ra}+(-1)^{1\times \la x_j,i\ra}\rt)  \rt]\ket{i}  =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} \lt[\prod_{j=1}^k \lt(1+(-1)^{ \la x_j,i\ra}\rt)  \rt]\ket{i} \\
-		                     & =\frac1{\sqrt{2^n|S|}}\sum_{y\in S^{\perp}} \lt[ \prod_{j=1}^k (1+(-1)^0) \rt]\ket{y}                                                                                                                                                           \\
-		                     & =\frac1{\sqrt{2^n|S|}}\sum_{y\in S^{\perp}}2^k\ket{y}=\frac{2^k}{\sqrt{2^n\times 2^k}}\sum_{y\in S^{\perp}}\ket{y}=\frac1{\sqrt{2^{n-k}}}\sum_{y\in S^{\perp}}\ket{y}=\ket{S^{\perp}}
-	\end{align*}
-	
-	Now let $y\in \bbZ_2^n$. Then $\ket{S+y}=\frac1{\sqrt{|S|}}\sum_{x\in S}\ket{x+y}$. So now
-	\begin{align*}
+	We have $\ket{S}=\frac{1}{\sqrt{|S|}}\sum\limits_{x\in S}\ket{x}$. Now since $S$ is a subspace of $\bbZ_2^n$ it has a basis. Let $\{x_1,\dots, x_k\}$ is a basis of $S$. Then $\forall\ x\in S$ $\exs\ a_i^x\in \{0,1\}$.for all $i\in [k]$ such that $\sum\limits_{i=1}^ka_i^xx_i=x$. So $|S|=2^k$. Now let $y\in \bbZ_2^n$. Then $\ket{S+y}=\frac1{\sqrt{|S|}}\sum\limits_{x\in S}\ket{x+y}$. So now\begin{align*}
 		H^{\otimes n}\ket{S+y} & =\frac1{\sqrt{|S|}}\sum_{x\in S}H^{\otimes n}\ket{x+y}  =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la x+y,i\ra}\ket{i}  \rt]                                                                              \\
-		                       & =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}(-1)^{\la x,i\ra}\ket{i}  \rt]   =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra} (-1)^{\sum\limits_{j=1}^ka_j^x\la x_j,i\ra}\ket{i} \rt]                                                                        \\
-		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}\lt[ \sum_{x\in S}\prod_{j=1}^k(-1)^{a_j^x\la x_j,i\ra} \rt]\ket{i}                                                                                                \\
-		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}\lt[ \sum_{a_1=0}^1 \sum_{a_2=0}^1\cdots \sum_{a_k=0}^1 \lt(\prod_{j=1}^k(-1)^{a_j\la x_j,i\ra} \rt)\rt]\ket{i}                                                    \\
-		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} (-1)^{\la y,i\ra}\lt[\prod_{j=1}^k \lt((-1)^{0\times \la x_j,i\ra}+(-1)^{1\times \la x_j,i\ra}\rt)  \rt]\ket{i}                                                                    \\
-		                       & =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} (-1)^{\la y,i\ra}\lt[\prod_{j=1}^k \lt(1+(-1)^{ \la x_j,i\ra}\rt)  \rt]\ket{i}                                                                                                     \\
-		                       & =\frac1{\sqrt{2^n|S|}}\sum_{x\in S^{\perp}}(-1)^{\la y,i\ra} \lt[ \prod_{j=1}^k (1+(-1)^0) \rt]\ket{x}                                                                                                                      \\
-		                       & =\frac1{\sqrt{2^n|S|}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}2^k\ket{x}   =\frac{2^k}{\sqrt{2^n\times 2^k}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}\ket{x}=\frac1{\sqrt{2^{n-k}}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}\ket{x}
+		& =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}(-1)^{\la x,i\ra}\ket{i}  \rt] \\
+		&  =\frac1{\sqrt{|S|}}\sum_{x\in S}\lt[\frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra} (-1)^{\sum\limits_{j=1}^ka_j^x\la x_j,i\ra}\ket{i} \rt]                                                                        \\
+		& =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}\lt[ \sum_{x\in S}\prod_{j=1}^k(-1)^{a_j^x\la x_j,i\ra} \rt]\ket{i}                                                                                                \\
+		& =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1}(-1)^{\la y,i\ra}\lt[ \sum_{a_1=0}^1 \sum_{a_2=0}^1\cdots \sum_{a_k=0}^1 \lt(\prod_{j=1}^k(-1)^{a_j\la x_j,i\ra} \rt)\rt]\ket{i}                                                    \\
+		& =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} (-1)^{\la y,i\ra}\lt[\prod_{j=1}^k \lt((-1)^{0\times \la x_j,i\ra}+(-1)^{1\times \la x_j,i\ra}\rt)  \rt]\ket{i}                                                                    \\
+		& =\frac1{\sqrt{2^n|S|}}\sum_{i=0}^{2^n-1} (-1)^{\la y,i\ra}\lt[\prod_{j=1}^k \lt(1+(-1)^{ \la x_j,i\ra}\rt)  \rt]\ket{i}                                                                                                     \\
+		& =\frac1{\sqrt{2^n|S|}}\sum_{x\in S^{\perp}}(-1)^{\la y,i\ra} \lt[ \prod_{j=1}^k (1+(-1)^0) \rt]\ket{x}                                                                                                                      \\
+		& =\frac1{\sqrt{2^n|S|}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}2^k\ket{x}  =\frac{2^k}{\sqrt{2^n\times 2^k}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}\ket{x}=\frac1{\sqrt{2^{n-k}}}\sum_{x\in S^{\perp}}(-1)^{\la y,x\ra}\ket{x}
 	\end{align*}
+	Since for $H^{\otimes n}\ket{S}$ we have $y=(\underbrace{0,0,\dots, 0}_{n\text{ times}})=\ov{0}$ we have $$H^{\otimes n}\ket{S}=H^{\otimes n}\ket{S+\ov{0}}=\frac1{\sqrt{2^{n-k}}}\sum_{x\in S^{\perp}}(-1)^{\la \ov{0},x\ra}\ket{x}=\frac1{\sqrt{2^{n-k}}}\sum_{x\in S^{\perp}}\ket{x}=\ket{S^{\perp}}$$
+	
 }
 
 	
