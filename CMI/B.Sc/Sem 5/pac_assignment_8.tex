@@ -1,0 +1,141 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools,mathdots,amssymb}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
+\usetikzlibrary{decorations.shapes}
+\usepackage{caption}
+\usepackage{mathpazo}
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+\tikzset{decorate sep/.style 2 args=
+	{decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}}
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 8}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Parallel Algorithms and Complexity \hfill Date: October 26, 2023}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+$Pf'$ orientation of $C_1$ and $Pf'$ orientation of $C_2$ yield a $Pf'$ orientation of $C_1\oplus C_2$
+		
+%Problem		
+\end{problem}
+	
+\solve{
+	%Solution
+	For any simple cycle $C$ let $f$ be the number of edges in forward direction and $k$ be the number of  vertices strictly inside $C$. Then we will show if for $C_1$ and $C_2$ we have $f_1,k_1$ and $f_2,k_2$ respectively and $f_1+k_1\equiv 1\pmod2$ and $f_2+k_2\equiv 1\pmod2$ then so is for the cycle $C\coloneqq C_1\oplus C_2$.
+	
+ Now let the path $P$ shared by $C_1$ and $C_2$ contains $m$ vertices. So the number of vertices of $C$ is $k=k_1+k_2+b$. Since all the edges of $P$ is either in forward direction with respect to $C_1$ or $C_2$ if we take $f_1+f_2$ then this number has all the edges of $P$. So the number of edges in forward direction of $C$ is $f=f_1+f_2-(b+1)$. Hence $$k+f=(k_1+k_2+b)+(f_1+f_2-(b+1))=(k_1+f_1)+(k_2+f_2)-1\equiv 1\pmod2$$So we obtain a $Pf'$ orientation of $C_1\oplus C_2$ 
+}
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+Given any matrix of univariate polynomials of degree $\leq n^{O(1)}$ then prove that the coefficent of $x^i$ in the determinant of the matrix is in $GapL$
+	%Problem		
+\end{problem}
+
+\solve{
+	%Solution
+	Suppose the given matrix is $M$. Now we replace the entries of $M$ with new variables. So the $(i,j)$th entry of $M$ is replaced by the variable $x_{i,j}$. Suppose the new matrix obtained is $M'$. Now using Mahajan-Vinay's method we obtain an arithmetic branching program which computes the determinant of $M'$. Now in the $ABP$ we replace every $x_{i,j}$ with the $(i,j)$th polynomial in $M$. So this new $ABP$ now computed the determinant of $M$. Let the source vertex of this is $s$ and target vertex is $t$. Let $\deg(\det M)=d$.
+	
+	We will do now homogenization of the $ABP$. We will start from right. Apart from the target vertex of $ABP$ we replace each vertex $v$ of the $ABP$ with $d+1$ many vertices $v^{(0)},v^{(1)}, \dots, v^{(d)}$ going from right to left. Where $v^{(i)}$ computes the $\deg i$ term of the polynomial obtained from the $ABP$ by making $v$ the source vertex and the target vertex is same as before. Here by $v^{(i)}$ we mean that polynomial also. Thus the polynomial obtained by making $s^{(i)}$ the source vertex and target vertex $t$ same as before we get the coefficient of $x^i$ in $\det M$. 
+	
+	To homogenize let before there was an edge $(u,v)$ with weight $p(x)=a_dx^d+\cdots +a_1x+a_0$. Since $v$ is on right side of $u$, $v$ is replaced with $v^{(0)},v^{(1)}, \dots, v^{(d)}$. Now we first replace $u$ with $u^{(0)},u^{(1)}, \dots, u^{(d)}$. Now obviously we have $u^{(i)}=\sum\limits_{j=0}^i a_j x^j v^{(i-j)}$. So for $0\leq j\leq i$ we join the edges $(u^{(i)},v^{(i-j)})$ with weight $a_jx^j$. We keep on doing this from right to left. 
+	
+	In the end the source vertex is splited into $d+1$ vertices. Here $s^{(i)}$ computes the coefficient of $x^i$ in $\det M$ multiplied by $x^i$. Now if we replace the variable $x$ in this new homogenized $ABP$ with $1$ then we can say that $s^{(i)}$ computes the coefficient of $x^i$ in $\det M$. So now we reduced that coefficient of $x^i$ is $\det M$ is the value of the $ABP$ whose source vertex is $s^{(i)}$ and target vertex is $t$, same as before. Since $ABP$ is in $GapL$ we have coefficient of $x^i$ in $\det M$ is in $GapL$.
+}
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p3% problem reference text
+	}
+	Give a dicirculation of a bidirected graph $G$ using non-vanishing circulation
+	
+	%Problem		
+\end{problem}
+
+\solve{
+	%Solution
+	Let the bidirected graph is $G=(V,E)$. From $G$ we create a new graph  where for all $(u,v),(v,u)\in E$ we introduce a new vertex $t_{u,v}$ and the edges $\{u,t_{u,v}\}, \{t_{u,v}, v\}$. So this new graph call this $\tdG$. 
+	
+	Now let $\tdG$ has any non vanishing circulation. So for any edge $\{x,y\}\in E(\tdG)$ we denote the weight of the edge as $w(x,y)$. Now we define the weights in $G$ such that $$w'(u,v)=w(u,t_{u,v})-w(t_{u,v},v)$$ where $w'$ is the weight of the edge $(u,v)\in E$. We claim this is a dicirculation of $G$. To prove let $C$ be any cycle in $G$. Let $C=u_0u_1u_2\cdots u_{2k-1}u_1	$. Then $$w(C)=\sum_{e\in C}w(e)=\sum_{i=0}^{2k-1} w'(u_i, u_{i+1})=\sum_{i=0}^{2k-1} w(u_i, t_{u_i,u_{i+1}})-w(t_{u_i,u_{i+1}},v)\neq 0$$Since this is true for any cycle we obtain a dicirculation.
+}
+
+	
+	
+\end{document}
