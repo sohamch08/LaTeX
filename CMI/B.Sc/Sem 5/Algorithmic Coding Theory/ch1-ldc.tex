@@ -1,0 +1,32 @@
+\chapter{Locally Decodable Codes}
+\section{Introduction}
+
+\begin{definition}[Locally Decodable Codes]
+	A $q$-ary code $C:\bbF^k_q\to \bbF_q^N$ is said to be $(r,\delta, \eps)$-locally decodable if there exists a randomized decoding algorithm $\mcA$ such that \begin{enumerate}
+		\item For all $\ovx\in \bbF_q^k$, $i\in [k]$ and all vectors $\ovy\in \bbF_q^N$ such that $\Delta(C(\ovx),\ovy)\leq \delta$: $$Pr[\mcA^{\ovy}(i)=\ovx(i)]\geq 1-\eps$$where the probability is taken over the random coin tosses of the alforithm $\mcA$
+		\item $\mcA$ makes at most $r$ queries to $\bmy$
+	\end{enumerate}
+\end{definition}
+
+We would like to have $LDC$s that for a given message length $k$ and algphabet size $q$ have small values of $r$, $N$ and $\eps$ and a large value of $\delta$. The exact value of $r$ is not very important provided that it is muxh smaller than $k$. Similarly the exact value of $\eps<\frac12$ is not the important since one can easily amplify $\eps$ to be close to 0 by running the decoding procedure few times and taking a majority vote. 
+
+A locally decodable code allows to probabilistically decode any coordinate of a message by probing only few coordinates of its corrupted encoding. A stronger property that is desirable in certain application is that of local correctability allowing to efficiently recover not only coordinates of the message but also arbitrary coordinates of the encoding. 
+
+\begin{definition}[Locally Correctable Codes]
+	A $q$-ary code $C$ in the space $ \bbF_q^N$ is  $(r,\delta, \eps)$-locally decodable if there exists a randomized decoding algorithm $\mcA$ such that \begin{enumerate}
+	\item For all $\ovc\in C$, $i\in [N]$ and all vectors $\ovy\in \bbF_q^N$ such that $\Delta(\ovc,\ovy)\leq \delta$: $$Pr[\mcA^{\ovy}(i)=\ovc(i)]\geq 1-\eps$$where the probability is taken over the random coin tosses of the alforithm $\mcA$
+	\item $\mcA$ makes at most $r$ queries to $\bmy$
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+	Let $q$ be a prime power. Suppose $C\subseteq \bbF_q^N$ is a $(r,\delta, \eps)$-locally correctable code that is a linear subspace; then there exists a $q-$ary $(r,\delta,\eps)$-locally decodable code $C'$ encoding messages of length $\dim C$ to codewords of length $N$
+\end{lemma}
+\begin{proof}
+	Let $I\subseteq [N]$ be a set of $k\coloneqq \dim C$ coordinates of $C$ whose values uniquely determine an element of $C$. For $\bmc\in C$ let $\bmc|_I\in \bbF_q^k$ denote the restriction of $\bmc$ to coordinates of $I$. Given a message $\bmx\in \bbF_q^k$ we define $C'(\bmx)$ to be the unique element $\bmc\in C$ such that $\bmc|_I=\bmx$. Now $C'$ is a $(r,\delta,\eps)$-locally decodable code
+\end{proof}
+
+\section{Reed Muller Locally Decodable Codes}
+The key idea begind early locally decodable codes is that of polynomial interpolation. Local decodability is achived through reliance on the rich structure of short lical dependencies between such evaluations at multiple points. We cibsider three local correctors for $RM$ codes of increasing level of sophistication. 
+\subsection{Basic Decoding on Lines}
+To recover the value of a degree $d$ polynomial $f\in \bbF_q[x_1\dots, x_n]$ at a point $\bmw\in \bbF_q^n$ it shoots a random affine line through $\bmw$ and then relies on the local dependency between the calies of $f$ at some $d+1$ points along the line.
