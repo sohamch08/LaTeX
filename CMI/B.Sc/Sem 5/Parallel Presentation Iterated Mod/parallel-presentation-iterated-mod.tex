@@ -150,7 +150,7 @@ sorting=ynt
 		emph=[1]{for,end,break},emphstyle=[1]\scriptsize\color{blue}, 
 	}
 	%\renewcommand{\lstlistingname}{Alg.}
-
+\newcommand{\bbF}{\mathbb{F}}
 \begin{document}
 
 
@@ -162,7 +162,6 @@ sorting=ynt
     \tableofcontents
 \end{frame}
 
-\section{Introduction}
 
 
 \begin{frame}
@@ -257,32 +256,68 @@ So with previous theorem true after $m_1$ we have $x_1< 2^{1}$ which is the valu
 		Integer Iterated Mod Problem is $P$-complete
 	\end{theorem}
 \end{frame}
-\section{Polynomial Iterated Mod Problem (PIM)}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 15
+\section{Super Increasing 0-1 Knapsack Problem}
+\subsection{Introduction}
 \begin{frame}
-\frametitle{Duas $colums$}
-\begin{block}{Exemplo de duas $colums$}\scriptsize{
-\textbackslash begin\{columns\}\\
-\textbackslash column\{.4\textbackslash textwidth\}\\
-Left column\\
-\textbackslash column\{.4\textbackslash textwidth\}\\
-Right column\\
-\textbackslash end\{columns\}\\
-}
-\end{block}
-\vspace{1cm}
-%\onslide<2>{
-\begin{columns}
-\column{.4\textwidth}
-Left column\\
-\column{.4\textwidth}
-Right column\\
-\end{columns}
-%}
+\frametitle{Super Increasing Knaspsack Problem (SIK)}
+\framesubtitle{Introduction}
+\begin{definition}[0-1 Knapsack Problem]
+	Given an integer $w$ and a sequence of integers $w_1,w_2,\dots, w_n$ is there a sequence of $0-1$ valued variables $x_1,\dots x_n$ such that $w=\sum\limits_{i=1}^n x_iw_i$.
+\end{definition}
+\begin{itemize}
+	\item 0-1 Knapsack Problem is known to be $NP$-complete. \cite{guidetonpc}
+	\item A knapsack instance is called super increasing ($SIK$) if each weight $w_i$ is larger than the sum of the previous weights i.e. for all $2\leq i\leq n$ we have $w_i>\sum\limits_{j=1}^{i-1}w_j$
+\end{itemize}
+\begin{theorem}
+	$SIK\in P$
+\end{theorem}
+Greedy strategy considering the $w_i'$ in decreasing order gives a linear time algorithm for solving super increasing knapsack problem.
 \end{frame}
 
-\subsection{Criar \emph{Block's}}
+\subsection{$SIK$ is $P$-complete}
+\begin{frame}[allowframebreaks]
+\frametitle{$SIK$ is $P$-complete}
+\begin{theorem}
+	Super Increasing Knapsack Problem is $P$-complete
+\end{theorem}
+We will show $NANDCVP\leq SIK$ and the proof is very much like $NANDCVP \leq IIM$. Here we will consturct base 4 numbers instead of binary. The reduction goes like this:\begin{itemize}
+	\item Let $x$ is $n+1=E$-length base 4 number whose $i$th digit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
+	\item For $1\leq g\leq G$ let $$m_{2g}=4^{2g}+4^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}4^j,\ \ m_{2g-0.5}=4^{2g}-4^{2g-1},\ \ m_{2g-1}=4^{2g-1}$$
+\end{itemize}
+Define for all $1\leq G$, $x_g=((\cdots ((x\bmod{m_{2G}})\bmod{m_{2g-1}})\cdots\bmod{m_{2g}})\bmod{m_{2g-1}})=0$ and $x_{G+1}=x$.
+\begin{itemize}
+	\item $x_k\leq 4^{2k-1}$ for all $1\leq g \leq G+1$, $x_k< 4^{2g-1}$
+\end{itemize}
+\framebreak
+
+\begin{itemize}
+	\begin{theorem}
+		For all $1\leq g\leq G+1$, $0\leq j\leq 2g-1$ if the $j$th edge is an outgoing edge from an input node or from a gate $h$ such that $h\geq g$ then $x_g$'s $j$th bit is the value carried by $j$th edge 		otherwise 1
+	\end{theorem}
+	\item Prove by downward induction. Base case $g=G+1$ is true.
+	\item $x_{k+1}$ and $x_k$ differs at the positions corresponding to the edges incident on $k$th vertex.
+	\item $2k$ and $2k-1$th edges are in-edges of vertex $k$ so they are the values carried by $2k$ and $2k-1$th edges
+	\item If both of them 1 then $4m_{2k}>x_{k+1}\geq m_{2k}$ $\implies x_{k+1}\bmod{m_{2k}}$ $=x_{k+1}-m_{2k}$ $<4^{2k-1}$. So $(x_{k+1}-m_{2k}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=x_{k+1}-m_{2k}$. In $x_k$ the positions where $m_{2k}$ has 1 will have 0=$NAND(1,1)$
+	\item If at least one of them 0 then $x_{k+1}\bmod{m_{2k}}=x_{k+1}$. So after that the positions in $x_k$ where $m_{2k}$ has 1 will have 1=$NAND(1,0)=NAND(0,1)=NAND(0,0)$. Now $x_{k+1}=a\times 4^{2k}+b\times 4^{2k-1}+c$ where $a,b\in \{0,1\}$. \begin{itemize}
+		\item $a=1$, $b=0$: $(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=1\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$
+		\item $b=0/1$: $(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=b\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$
+	\end{itemize}
+	\item The theorem is true and with that we get $SIK$ is $P$-complete.
+\end{itemize}
+\end{frame}
+
+\section{Polynomial Iterated Mod Problem (PIM)}
+\subsection{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 15
+\begin{frame}
+\frametitle{Polynomial Iterated Mod Problem}
+\framesubtitle{Introduction}
+\begin{definition}[Polynomial Iterated Mod Problem]
+	Given univariate polynomials $a(x)$, $b_1(x),\dots, b_n(x)$ over a field $\bbF$ compute the residue $((\cdots ((a(x)\bmod{b_1(x)})\bmod{b_2(x)})\cdots\bmod{b_{n-1}(x)})\bmod{b_{n}(x)})$
+\end{definition}
+\end{frame}
+
+
 \begin{frame}
 \frametitle{Block}
 
@@ -328,9 +363,9 @@ Beamer is a { \LaTeX} class.
 \vspace{1.5cm}
 \href{https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{Clique aqui para mais informações.}
 \end{frame}
-
+\section{Open Problem}
 \begin{frame}[fragile]
-\frametitle{\emph{enumerate}}
+\frametitle{Open Problems}
 
 \begin{columns}
 \column{.5\textwidth}
