@@ -1,0 +1,84 @@
+\chapter{Multiplicity Code}
+References for this topic are \cite{highratesublin}, \cite{kopparty2015remarks}
+\parinf
+
+\textbf{Notation:}  \begin{itemize}
+	\item For a vector $\ovi=\la i_1,i_2,\dots, i_m\ra$ of non-negative integers its \textbf{\textit{weight}} denoted $wt(\ovi)\coloneqq \sum\limits_{j=1}^m i_j$
+	\item $\bbF[\ovX]=\bbF[X_1,\dots, X_m]$
+	\item For a vector of non-negative integers $\ovi$, $\ovX^{\ovi}\coloneqq \prod\limits_{j=1}^mX_j^{i_j}$
+\end{itemize}\parinn 
+\section{Hasse Derivative}
+\begin{definition}[(Hasse) Derivative]
+	For $P(\ovX)\in \bbF[\ovX]$ and non-negative vector $\ovi$, the $\ovi$th (Hasse) derivative of $P$ denoted $P^{(\ovi)}(\ovX)$ is the coefficient of $\ovZ^{\ovi}$ in the polynomial $\widetilde{P} (\ovX,\ovZ)\overset{\Delta}{=} P(\ovX+\ovZ) \in \bbF[\ovX,\ovZ]$. Thus $$P(\ovX+\ovZ)= \sum_{\ovi} P^{(\ovi)}(\ovX)\ovZ^{ \ovi}$$
+\end{definition}
+\subsection{Basic Properties of Hasse Derivatives}
+\begin{proposition}[ \cite{HirschfeldKorchmárosTorres+2008},\cite{dvir2009extensions}]\label{hasseprop}
+	Let $P(\ovX), Q(\ovX)\in \bbF[\ovX]$ and let $\ovi, \ovj$ be vectors of nennegative integers. Then:\begin{enumerate}
+		\item $P^{(\ovi)}(\ovX)+Q^{(\ovi)}(\ovX)=(P+Q)^{(\ovi)}(\ovX)$
+		\item $(P\cdot Q)^{(\ovi)}(\ovX)=\sum\limits_{0\leq \ove\leq \ovi}P^{(\ove)}(\ovX)\cdot Q^{(\ovi-\ove)}(\ovX)$
+		\item $\lt(P^{(\ovi)}\rt)^{(\ovj)}(\ovX)=\comb{\ovi+\ovj}{\ovi} P^{(\ovi+\ovj)}(\ovX)$
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\begin{itemize}
+		\item 
+		\item 
+		\item We will expand $P(\ovX+\ovZ+\ovW)$ in two ways. \begin{align*}
+			P(\ovX+(\ovZ+\ovW)) &= \sum_{\ovk} P^{(\ovk)}(\ovX)(\ovZ+\ovW)^{\ovk}  = \sum_{\ovk}P^{(\ovk)}(\ovX)\sum_{\ovi+\ovj=\ovk}\comb{\ovk}{\ovi}\ovZ^{\ovj}\ovW^{\ovi} = \sum_{\ovi,\ovj}P^{(\ovi+\ovj)}(\ovX)\comb{\ovi+\ovj}{\ovi}\ovZ^{\ovj}\ovW^{\ovi}\\
+			P((\ovX+\ovZ)+\ovW) &=\sum_{\ovi}P^{(\ovi)}(\ovX+\ovZ)\ovW^{\ovi}=\sum_{\ovi}\sum_{\ovj}\lt(P^{(\ovi)}\rt)^{(\ovj)}(\ovX)\ovZ^{\ovj}\ovW^{\ovi}
+		\end{align*}
+		Hence  comparing the coefficients of $\ovZ^{\ovj}\ovW^{\ovi}$ we obtain $\lt(P^{(\ovi)}\rt)^{(\ovj)}(\ovX)=\comb{\ovi+\ovj}{\ovi}P^{(\ovi+\ovj)}(\ovX)$
+	\end{itemize}
+\end{proof}
+\section{Multiplicity}
+Now we will define the notion of the multiplicity of a polynomial.
+\begin{definition}[Multiplicity]
+	For $P(\ovX)\in \bbF[\ovX]$ and $\ova\in \bbF^m$ the multiplicity of $P$ at $\ova\in \bbF^m$ denoted $mult(P,\ova)$ id the largest integer $M$ such that for every non-negative vector $\ovi$ with $wt(\ovi)<M$ we have $P^{(\ovi)}(\ova)=0$ (If $M$ may be taken arbitrarily large we set $mult(P,\ova)=\infty$)
+\end{definition}
+Note that $mult(P,\ova)\geq 0$ for all $\ova\in \bbF^m$.
+\subsection{Basic Properties of Multiplicity}
+We now translate some of the properties of the Hasse derivative into properties of the multiplicities. We will discuss the properties of multiplicities from \cite{dvir2009extensions}
+\begin{proposition}
+	If $P(\ovX)\in \bbF[\ovX]$ and $\ova\in \bbF^m$ are such that $mult(O,\ova)=n$ then $mult(P^{(\ovi)},\ova)\geq n-wt(\ovi)$
+\end{proposition}
+\begin{proof}
+	By assumption, for any $\ovk$ with $wt(\ovk)<n$, we have $P^{(\ovk)}(\ova)=0$. Now take any $\ovj$ such that $wt(\ovj)<n-wt(\ovi)$. Using \thmref{hasseprop} (3) we have $$\lt(P^{(\ovi)}\rt)^{(\ovj)}(\ova)=\comb{\ovi+\ovj}{\ovi}P^{(\ovi+\ovj)}(\ova)$$Since $wt(\ovi+\ovj)=wt(\ovi)+wt(\ovj)<m$, hence $\lt(P^{(\ovi)}\rt)^{(\ovj)}(\ova)=0$. Thus $mult(P^{(\ovi)},\ova)\geq n-wt(\ovi)$
+\end{proof}
+We will now discuss the behavior of multiplicites under composition of polynomial tuples. Let $\ovX=(X_1,X_2,\dots, X_m)$ and $\ovY=(Y_1,Y_2,\dots, Y_n)$ be formal variables. Let $P(\ovX)=(P_1(\ovX),\dots, P_k(\ovX))\in \bbF[\ovX]^k$ and also $Q(\ovY)=(Q_1(\ovY), \dots, Q_m(\ovY))\in \bbF[\ovY]^m$. We define the composition polynomial $P\circ Q(\ovY)\in \bbF[\ovY]^k$ to be the polynomial $P(Q_1(\ovY),\dots, Q_m(\ovY))$. In this situation we have the following proposition:
+\begin{proposition}\label{composepolymult}
+	Let $P(\ovX), Q(\ovY)$ be defined as above. Then for any $\ova\in \bbF^n$ $$mult(P\circ Q,\ova)\geq mult(P,Q(\ova))\cdot mult(Q-Q(\ova),\ova)$$In particular, since $mult(Q-Q(\ova),\ova)\geq 1$, we have $mult(P\circ Q,\ova)\geq mult(P,Q(\ova))$
+\end{proposition}
+\begin{proof}
+	Let $m_1=mult(P,Q(\ova))$ and $m_2=(Q-Q(\ova),\ova)$. Clearly $m_2>0$. If $m_1=0$ the result is obvious. Now assume $m_1>0$ (so that $P(Q(\ova))=0$). Now\begin{align*}
+		P(Q(\ova+\ovZ)) & = P\lt(Q(\ova)+\sum_{\ovi\neq 0}Q^{(\ovi)}(\ova)\ovZ^{\ovi}  \rt)\\
+		& = P\lt(Q(\ova)+\sum_{wt(\ovi)\geq m_2}Q^{(\ovi)}(\ova)\ovZ^{\ovi}  \rt)  & [\text{Since $mult(Q-Q(\ova),\ova)=m_2>0$}]\\
+		& = P(Q(\ova)+h(\ovZ)) & \lt[\text{where $h(\ovZ)=\sum\limits_{wt(\ovi)\geq m_2}Q^{(\ovi)}(\ova)\ovZ^{\ovi}$}  \rt]\\
+		& = P(Q(\ova))+\sum_{\ovj\neq 0}P^{(\ovj)}(Q(\ova))h(\ovZ)^{\ovj}\\
+		& = \sum_{wt(\ovj)\geq m_1}P^{(\ovj)}(Q(\ova))h(\ovZ)^{\ovj} & [\text{since $mult(P,Q(\ova))=m_1>0$}]
+	\end{align*}
+	Since each monomial $\ovZ^{\ovi}$ appearing in $h$ has $wt(\ovi)\geq m_2$ and each occurrence of $h(\ovZ)$ in $P(Q(\ova+\ovZ))$ is raised to the power $\ovj$ with $wt(\ovj)\geq m_1$ we conclude that $P(Q(\ova+\ovZ))$ is of the form $\sum\limits_{wt(\ovk)\geq m_1\cdot m_2}c_{\ovk}\ovZ^{\ovk}$. This shows that $(P\circ Q)^{(\ovk)}(\ova)=0$ for each $\ovk$ with $wt(\ovk)<m_1\cdot m_2$. And hence we get the result.
+\end{proof}
+\begin{corollary}
+	Let $P(\ovX)\in \bbF[\ovX]$. Let $\ova,\ovb\in \bbF^m$. Let $P_{\ova,\ovb}(T)$ be the polynomial $P(\ova+T\cdot \ovb)\in \bbF[T]$. Then for any $t\in \bbF$, $$mult(P_{\ova,\ovb},t)\geq mult(P,\ova+t\cdot \ovb)$$
+\end{corollary}
+\begin{proof}
+	Let $Q(T)=\ova+T\cdot \ovb\in \bbF[T]^m$. Applying \propref{composepolymult} and $Q(T)$ we get the desired claim. 
+\end{proof}
+\subsection{Strengthening of the Schwartz-Zippel Lemma}
+\begin{theorem}[Schwartz-Zippel Lemma]\label{schwartzzippel}
+	Let $P(\ovX)\in \bbF[\ovX]$ be a non-zero polynomial with degree $d$. Let $S$ be a finite subset of $\bbF$ with at least $d$ elements in it. If we take $\ova\in S^m$ independently and uniformly at random then $$Pr_{\ova\in S^m}[P(\ova)=0]\leq \frac{d}{|S|}$$
+\end{theorem}
+We will prove the strengthening of this lemma using $mult$.
+\begin{theorem}[\cite{dvir2009extensions}]
+	Let $P(\ovX)\in \bbF[\ovX]$ be a
+\end{theorem}
+
+
+
+Now we need a bound on the number of points that a low-degree polynomial can vanish on with high multiplicity. We state a basic bound on the total number of zeroes (counting multiplicity) that a polynomial can have on a product set $S^m$.
+\begin{theorem}[\cite{dvir2009extensions}]\label{multplicitybound}
+	Let $P(\ovX)\in \bbF[\ovX]$ be a nonzero polynomial of total degree at most $d$. Then for any finite $S\subseteq \bbF$, $$\sum_{\ova\in S^m} mult(P,\ova)\leq d\cdot |S|^{m-1}$$In particular, for any integer $s>0$ $$Pr_{\ova\in S^m}[mult(P,\ova)\geq s]\leq \frac{d}{s|S|}$$
+\end{theorem}
+\begin{proof}
+	
+\end{proof}

@@ -1,6 +1,6 @@
 \chapter{Locally Decodable Codes}
 \section{Introduction}
-
+References for this topic are \cite{ldcsergeysurvey}
 \begin{definition}[Locally Decodable Codes]
 	A $q$-ary code $C:\bbF^k_q\to \bbF_q^N$ is said to be $(r,\delta, \eps)$-locally decodable if there exists a randomized decoding algorithm $\mcA$ such that \begin{enumerate}
 		\item For all $\ovx\in \bbF_q^k$, $i\in [k]$ and all vectors $\ovy\in \bbF_q^N$ such that $\Delta(C(\ovx),\ovy)\leq \delta$: $$Pr[\mcA^{\ovy}(i)=\ovx(i)]\geq 1-\eps$$where the probability is taken over the random coin tosses of the alforithm $\mcA$
