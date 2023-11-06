@@ -8,13 +8,13 @@ References for this topic are \cite{ldcsergeysurvey}
 	\end{enumerate}
 \end{definition}
 
-We would like to have $LDC$s that for a given message length $k$ and algphabet size $q$ have small values of $r$, $N$ and $\eps$ and a large value of $\delta$. The exact value of $r$ is not very important provided that it is muxh smaller than $k$. Similarly the exact value of $\eps<\frac12$ is not the important since one can easily amplify $\eps$ to be close to 0 by running the decoding procedure few times and taking a majority vote. 
+We would like to have $LDC$s that for a given message length $k$ and algphabet size $q$ have small values of $r$, $N$ and $\eps$ and a large value of $\delta$. The exact value of $r$ is not very important provided that it is much smaller than $k$. Similarly the exact value of $\eps<\frac12$ is not the important since one can easily amplify $\eps$ to be close to 0 by running the decoding procedure few times and taking a majority vote. 
 
 A locally decodable code allows to probabilistically decode any coordinate of a message by probing only few coordinates of its corrupted encoding. A stronger property that is desirable in certain application is that of local correctability allowing to efficiently recover not only coordinates of the message but also arbitrary coordinates of the encoding. 
 
 \begin{definition}[Locally Correctable Codes]
 	A $q$-ary code $C$ in the space $ \bbF_q^N$ is  $(r,\delta, \eps)$-locally decodable if there exists a randomized decoding algorithm $\mcA$ such that \begin{enumerate}
-	\item For all $\ovc\in C$, $i\in [N]$ and all vectors $\ovy\in \bbF_q^N$ such that $\Delta(\ovc,\ovy)\leq \delta$: $$Pr[\mcA^{\ovy}(i)=\ovc(i)]\geq 1-\eps$$where the probability is taken over the random coin tosses of the alforithm $\mcA$
+	\item For all $\ovc\in C$, $i\in [N]$ and all vectors $\ovy\in \bbF_q^N$ such that $\Delta(\ovc,\ovy)\leq \delta$: $$Pr[\mcA^{\ovy}(i)=\ovc(i)]\geq 1-\eps$$where the probability is taken over the random coin tosses of the algorithm $\mcA$
 	\item $\mcA$ makes at most $r$ queries to $\bmy$
 \end{enumerate}
 \end{definition}
@@ -27,6 +27,28 @@ A locally decodable code allows to probabilistically decode any coordinate of a 
 \end{proof}
 
 \section{Reed Muller Locally Decodable Codes}
-The key idea begind early locally decodable codes is that of polynomial interpolation. Local decodability is achived through reliance on the rich structure of short lical dependencies between such evaluations at multiple points. We cibsider three local correctors for $RM$ codes of increasing level of sophistication. 
+The key idea behind early locally decodable codes is that of polynomial interpolation. Local decodability is achived through reliance on the rich structure of short local dependencies between such evaluations at multiple points. We consider three local corrector for $RM$ codes of increasing level of sophistication. 
 \subsection{Basic Decoding on Lines}
-To recover the value of a degree $d$ polynomial $f\in \bbF_q[x_1\dots, x_n]$ at a point $\bmw\in \bbF_q^n$ it shoots a random affine line through $\bmw$ and then relies on the local dependency between the calies of $f$ at some $d+1$ points along the line.
+To recover the value of a degree $d$ polynomial $f\in \bbF_q[x_1\dots, x_n]$ at a point $\bmw\in \bbF_q^n$ it shoots a random affine line through $\bmw$ and then relies on the local dependency between the calles of $f$ at some $d+1$ points along the line.
+\subsection{Improved Decoding on Lines}
+\subsection{Decoding On Curves}
+We require $d$ is substantially smaller than $q$. The corrector shoots a random parametric degree 2 curve through $\ovw$ and then relies on the high redundancy among the values of $F$ along the curve to recover the value of a degree $d$ polynomial $F\in \bbF_q[x_1,\dots,x_n]$.
+
+The advantage upon the decoder of (improved decoding) is that points on a random degree 2 curve constitute a two-d=independent sample from the underlying space.
+\begin{theorem}
+	Let $\sg<1$ be a positive real. Let $n$ and $d$ be positive integers. Let $q$ be prime power such that $d\leq \sg(q-1)-1$; then there exists a linear code of dimension $k=\comb{n+d}{d}$ in $\bbF_q^{N}$, $N=q^n$, that for all positive $\delta< \frac12-\sg$ is $\lt( q-1,\delta,O\st_{\sg,\delta}\lt(\frac1q\rt)\rt)$-locally correctable.
+\end{theorem}
+\begin{proof}
+	Given a $\delta$ corrupted evaluation of a degree $d$ polynomial $F$ and a point $\ovw\in \bbF_q^n$ the corrector picks vectors $\ovv_1,\ovv_2\in \bbF_q^n$ uniformly at random and considers a degree two curve $$C=\{\ovw+\lm\ovv_1+\lm^2\ovv_2\mid \lm \in \bbF_q\}$$through $\ovw$. The corrector tries to reconstruct a restriction of $F$ to $C$ which is a polynomial of degree up to $2d$.
+	
+	The corrector queries coordinates of the evaluation vector corresponding to points $C(\lm)=\ovw+\lm\ovv_1+\lm^2\ovv_2$, for all $\lm\in \bbF_q^*$ to obtain values $\{e_{\lm}\}$. It then  recovers the unique univariate polynomial $h=F(\ovw+\lm\ovv_1+\lm^2\ovv_2)$, $\deg h\leq 2d$ such that $h(\lm)=e_{\lm}$ for all but at most $\lt\lfloor \frac{(1-2\sg)(q-1)}2\rt\rfloor$ values of $\lm\in \bbF_q^*$ and outputs $h(0)$ by Barlekamp-Welch Algorithm since $$q-1-\frac{(1-2\sg)(q-1)}2=(q-1)\lt(1-\frac{1-\sg}{2}\rt)=\sg(q-1)>d$$
+	
+	Now we will calculate the probability of number of corrupted queries is at most $\lt\lfloor \frac{(1-2\sg)(q-1)}2\rt\rfloor$. For $\ova\in \bbF_q^n$ and $\lm\in \bbF^*_q$ consider the random variable $x_{\ova}^{\lm}$ which is the indicator variable of the event $C(\lm)=\ova$. Let $E\subseteq \bbF_q^n$ such that $|E|\leq \delta N$ be the set of $\ova\in \bbF_q^n$ such that the values of $F$ at $\ova$ are corrupted. For every $\lm\in \bbF_q^*$ consider a random variable $$x^{\lm}=\sum_{\ova\in E}x^{\lm}_{\ova}$$Note the variables $\{x^{\lm}\}$. for all $\lm\in \bbF_q^*$ are pairwise independent. For every $\lm\in \bbF^*_q$ we have $$\bbE\lt[x^{\lm}\rt]\leq \delta\text{ and }\text{Var}\lt[x^{\lm}\rt]=\bbE\lt[\lt(x^{\lm}\rt)^2\rt]-\bbE\lt[x^{\lm}\rt]^2\leq \delta-\delta^2$$Now consider the random variable $x=\sum\limits_{\lm\in \bbF_q^*}x^{\lm}$. Since $\{x^{\lm}\}$ are pariwise independent we have $$\text{Var}[x]=\text{Var}\lt[\sum_{\lm\in\bbF^*_q}x^{\lm}\rt]=\sum_{\lm\in\bbF_q^*}\text{Var}[x^{\lm}]$$Therefore we have $$\bbE[x]=\sum_{\lm\in\bbF_q^*}\bbE\lt[x^{\lm}\rt]\leq (q-1)\delta\text{ and }Var[x]\leq  (q-1)(\delta-\delta^2)$$Therefore \begin{align*}
+		Pr\lt[  x\geq  \lt\lfloor \frac{(1-2\sg)(q-1)}2\rt\rfloor\rt] & = Pr\lt[ x-\bbE[x]\geq \lt\lfloor \frac{(1-2\sg)(q-1)}2\rt\rfloor - \bbE[x] \rt]\\
+		& \leq Pr\lt[ |x-\bbE[x]|\geq \lt\lfloor \frac{(1-2\sg)(q-1)}2\rt\rfloor-\delta(q-1) \rt]\\
+		& \leq Pr\lt[|x-\bbE[x]|\geq \frac{(q-1)(1-2(\sg+\delta))}2\rt]\\
+		& \leq \frac{(q-1)(\delta-\delta^2)}{\lt[\dfrac{(q-1)(1-2(\sg+\delta))}2\rt]^2} & [\text{By \thmref{chebyshev}}]\\
+		& = \frac{4(\delta-\delta)}{(q-1)(1-2(\sg+\delta))^2}=O\st_{\sg,\delta}\lt(\frac1q\rt)
+	\end{align*}
+	Hence we probability $1-O\st_{\sg,\delta}\lt(\frac1q\rt)$ we can obtain the correct $h$ and decode the value of $F$ at $\ovw$. Therefore it is $\lt( q-1,\delta,O\st_{\sg,\delta}\lt(\frac1q\rt)\rt)$-locally correctable.
+\end{proof}
