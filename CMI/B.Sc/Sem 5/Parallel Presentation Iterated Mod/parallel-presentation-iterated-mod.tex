@@ -1,4 +1,4 @@
-\documentclass[article,8pt]{beamer}% para se tiver muitas sections
+\documentclass[article,10pt]{beamer}% para se tiver muitas sections
 %\documentclass[11pt,compress,xcolor=dvipsnames]{beamer}
 %---------------------------------------------------------------------
 % Color and themes
@@ -52,7 +52,7 @@ sorting=ynt
  {\leavevmode
 \hbox{
    \begin{beamercolorbox}[wd=0.49\paperwidth,ht=2.25ex,dp=1ex,leftskip=0.3cm]{author in head/foot}%
-     \usebeamerfont{author in head/foot}\textcolor{white}{\insertshortauthor}
+     \usebeamerfont{author in head/foot}\textcolor{white}{Soham Chatterjee}
    \end{beamercolorbox}%
    \begin{beamercolorbox}[wd=0.34\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}
      \usebeamerfont{title in head/foot}\textcolor{white}{\insertshorttitle}
@@ -71,7 +71,7 @@ sorting=ynt
 \usepackage{graphics, calrsfs}
 \usepackage{times}
 \usepackage{fancybox,calc}
-\usepackage{palatino,mathpazo}
+\usepackage{palatino,mathpazo,mathtools}
 \usepackage{amsfonts}
 \usepackage{wrapfig}
 \usepackage{multicol}
@@ -98,7 +98,7 @@ sorting=ynt
 %opçao para 1 autor
 %\author{Primeiro Autor~\orcidID{a12345}}
 %opçao para 2 autor
-\author{Soham Chatterjee}
+\author{\LARGE{Soham Chatterjee}}
 %opcao para 3 autor
 %\author{Primeiro Autor~\orcidID{a12345}\\
 %        Segundo Autor~\orcidID{a12345}\\
@@ -107,7 +107,7 @@ sorting=ynt
 %\institute{Instituto Politécnico de Bragança- Escola Superior de Tecnologia e Gestão\\
             %\vspace{0.3cm}
             %Licenciatura em Curso}
-\institute{Chennai Mathematical Institute}
+\institute{\large{Chennai Mathematical Institute}}
 %\date{\vfill\scriptsize{\today}\\\vspace{0cm}\includegraphics[scale=0.4]{Imagens/logo.png}}
 %---------------------------------------------------------------------
 % Index
@@ -182,11 +182,14 @@ sorting=ynt
 \section{Iterated Integer Mod $(IIM)$ Problem}
 \begin{frame}
 	\frametitle{Iterated Integer Mod Problem}
-	\begin{itemize}
-		\item Given positive integers $x, m_n,m_{n-1},\dots, m_1$  find if $$((x\bmod{m_{n}})\bmod{m_{n-1}})\cdots)\bmod{m_{1}})=0$$
-		\item We will show this problem is $P$-complete.
-	\end{itemize}
-	First we have
+%	\begin{itemize}
+	\textbf{Problem:}
+	
+		 Given positive integers $x, m_n,m_{n-1},\dots, m_1$  find if $$((x\bmod{m_{n}})\bmod{m_{n-1}})\cdots)\bmod{m_{1}})=0$$
+%		\item We will show this problem is $P$-complete.
+%	\end{itemize}
+%	First we have
+\vspace{3mm}
 		 \begin{theorem}
 		Iterated Iinteger Mod $\in P$
 	\end{theorem}
@@ -198,19 +201,25 @@ sorting=ynt
 
 \begin{frame}
 \frametitle{Circuit Value Problem}
-To show $IIM$ is $P$-complete. We will use this theorem.
+%To show $IIM$ is $P$-complete. We will use this theorem.
 \begin{theorem}
 	Circuit Value Problem is $P$-complete.
 \end{theorem}
-Since we can replace every $\wedge$, $\vee$, $\neg$ in a circuit with $NAND$ gates and the size of the circuit still remains polynomial we only consider the circuits with $NAND$ and $NOT$ gates.We call this $NANDCVP$.
-
+\vspace{5mm}
 
 
 \begin{itemize}
-	\item A $NANDCVP$ circuit the $r$ nodes $y_1,\dots, y_r$ of indegree 0 are the inputs 
-	\item The $G$ many nodes  with indegree 2 are the gates. The gates are numbers $1,\dots, G$. The gates are numbered in reverse topological order i.e. every edge is directed from a higher numbered gate to a lower numbered gate and the last gate with gate number 1 is the output with the edge going out of it is 0th edge.  
-	\item The edges $E=2G+1$ are numbered so that the two gates into gate $g$ are numbered $2g $ and $2g-1$.
+	\item Enough to take $CVP$ for circuits with only $NAND$ gates, $NANDCVP$
 \end{itemize}
+$$\text{Gates$\in [G]$}$$ $$\text{ Input Variables$\coloneqq y_i,i\in[r]$, Input Bits$\coloneqq Y_i,i\in[r]$} $$ 
+
+
+
+%\begin{itemize}
+%	\item A $NANDCVP$ circuit the $r$ nodes $y_1,\dots, y_r$ of indegree 0 are the inputs 
+%	\item The $G$ many nodes  with indegree 2 are the gates. The gates are numbers $1,\dots, G$. The gates are numbered in reverse topological order i.e. every edge is directed from a higher numbered gate to a lower numbered gate and the last gate with gate number 1 is the output with the edge going out of it is 0th edge.  
+%	\item The edges $E=2G+1$ are numbered so that the two gates into gate $g$ are numbered $2g $ and $2g-1$.
+%\end{itemize}
 \end{frame}
 
 \subsection{$NANDCVP\leq_l IIM$}
@@ -219,15 +228,17 @@ Since we can replace every $\wedge$, $\vee$, $\neg$ in a circuit with $NAND$ gat
 
 \frametitle{$NANDCVP\leq_l IIM$}
 \framesubtitle{Log-Space Reduction}
-Let $n=2G$. The reduction from $NANDCVP$ to the integer iterated mod problem is as follows:\begin{itemize}
-	\item Let $x$ is $n+1=E$-bit integer whose $i$th bit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
-	\item For $1\leq g\leq G$ let $$m_{2g}=2^{2g}+2^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}2^j\text{ and }m_{2g-1}=2^{2g-1}$$
-\end{itemize}
-This reduction is a log-space reduction from $NANDCVP$ to Integer Iterated Mod problem. 
+Let $n=2G$. %The reduction from $NANDCVP$ to the integer iterated mod problem is as follows:
 \begin{itemize}
-	\item Here $m_{2g}$ and $m_{2g-1}$ simulate the gate $g$
+	\item $x$ is $n+1$-bit integer whose $i$th bit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
+	\item $1\leq g\leq G$  $$m_{2g}=2^{2g}+2^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}2^j\text{ and }m_{2g-1}=2^{2g-1}$$
 \end{itemize}
-The next theorem proves that the output gate of the $CVP$ instance is 0 iff $$((\cdots ((x\bmod{m_{2G}})\bmod{m_{2g-1}})\cdots))=0$$
+%This reduction is a log-space reduction from $NANDCVP$ to Integer Iterated Mod problem. 
+%\begin{itemize}
+\vspace{2mm}
+\textbf{Remark:} Here $m_{2g}$ and $m_{2g-1}$ simulate the gate $g$
+%\end{itemize}
+%The next theorem proves that the output gate of the $CVP$ instance is 0 iff $$((\cdots ((x\bmod{m_{2G}})\bmod{m_{2g-1}})\cdots))=0$$
 \end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{$NANDCVP\leq_l IIM$}
@@ -241,15 +252,17 @@ The next theorem proves that the output gate of the $CVP$ instance is 0 iff $$((
 \framebreak
 
 
-Prove by downward induction:
+\textbf{Prove by downward induction:}
+\vspace{3mm}
 
-\hspace{0.5cm} Base Case ($g=G+1$): We have $x< 2^{2(G+1)-1}=2^{2G+1}=2^{n}$. True as $x$ is $n$-bit number. And second condition follows by constuction.
+ Base Case ($g=G+1$): We have $x< 2^{2(G+1)-1}=2^{2G+1}=2^{n}$. True as $x$ is $n$-bit number. And second condition follows by constuction.
 %And by constuction $i$th bit has $Y_j$ if edge $i$ is going out from $y_j$ otherwise 1. So base case follows
-Let the theorem holds for all $g>k$. 
+Let the theorem holds for all $g>k$. \framebreak
 
 \textbf{Part (a)}:
 
 \hspace{0.5cm} $x_k=(x_{k+1}\bmod{m_{2k}})\bmod{m_{2g-1}}$. $m_{2k-1}=2^{2k-1}$. So $x_k$ has $2k-1$ bits so $ x_k<2^{2k-1}$. So Part (a) is proved.
+\framebreak
 
 \textbf{Part (b):}
 \begin{itemize}
@@ -260,18 +273,24 @@ Let the theorem holds for all $g>k$.
 
 \textbf{Both $(2k)$ and $(2k+1)$th bits are 1}: 
 
-$x_{k+1}\geq m_{2k}$ and $x_{k+1}< 2m_{2k}$. So $x_{k+1}\bmod{m_{m_{2k}}}=x_{k+1}-m_{2k}<2^{2k-1}\implies x_{k+1}-m_{2k}\bmod m_{2k-1}=x_{k+1}-m_{2k}$. So $x_k$ obtained is deleting the leading two 1's and replacing the 1 in position $j$ by a 0 where $j$th bit of $m_{2k}$ is 1. So at every edge leaving $k$ has value 0=$NAND(1,1)$\vspace{5mm}
+$m_{2k}\leq x_{k+1}< 2m_{2k}$. So $$(x_{k+1}\bmod{m_{m_{2k}}})\bmod m_{2k-1}=x_{k+1}-m_{2k}$$ 
+So in $x_{2k}$ at output bits position of $m_{2k}$  the 1 in replaced  by  $0$\vspace{2mm}
 
-\textbf{At least one of the bits $2k$, $2k-1$ is 0}: 
+\textbf{At least one of the bits is 0}: 
 
-Then $x_{k+1}<m_{2k}\implies$ $x_{k+1}\bmod{m_{2k}}=x_{k+1}$. So $x_{k}$ has the rightmost $2k-1$ bits of $x_{k+1}$. So the $j$th bit of $x_k$ has 1 where $j$th bit of $m_{2k}$ is 1. So every edge leaving $k$ has value 1=$NAND(1,0)=NAND(0,1)=NAND(0,0)$
-So with previous theorem true after $m_1$ we have $x_1< 2^{1}$ which is the value carried by the $0$th edge which is the value of the $CVP$ instance. Hence $NANDCVP\leq IIM$
+$$x_{k+1}<m_{2k}\implies x_{k+1}\bmod{m_{2k}}=x_{k+1}$$ So in $x_{2k}$ at output bits position of $m_{2k}$  has 1.
+
 \end{frame}
 
 \begin{frame}
 	\frametitle{$IIM$ is $P$-complete}
 
-So with previous theorem true after $m_1$ we have $x_1< 2^{1}$ which is the value carried by the $0$th edge which is the value of the $CVP$ instance. Hence $NANDCVP\leq IIM$
+$x_1< 2^{1}$ is the value carried by the $0$th edge, value of the $CVP$ instance. 
+\begin{theorem}
+%	\begin{center}
+		$NANDCVP\leq_l $ Iterated Integer Mod
+%	\end{center}
+\end{theorem}
 	 	\vspace{5mm}
 	 	
 	\begin{theorem}
@@ -290,34 +309,43 @@ So with previous theorem true after $m_1$ we have $x_1< 2^{1}$ which is the valu
 	\item 0-1 Knapsack Problem is known to be $NP$-complete. \cite{guidetonpc}
 	\item A knapsack instance is called super increasing ($SIK$) if each weight $w_i$ is larger than the sum of the previous weights i.e. for all $2\leq i\leq n$ we have $w_i>\sum\limits_{j=1}^{i-1}w_j$
 \end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Super Increasing Knaspsack Problem (SIK)}
+	\framesubtitle{Introduction}
 \begin{theorem}
 	Super Increasing Knaspsack Problem $\in P$
-\end{theorem}
+\end{theorem}\vspace{5mm}
+
 Greedy strategy considering the $w_i'$ in decreasing order gives a linear time algorithm for solving super increasing knapsack problem.
 \end{frame}
 
 \subsection{Super Increasing Knaspsack Problem is $P$-complete}
 \begin{frame}[allowframebreaks]
 \frametitle{$SIK$ is $P$-complete}
-\begin{theorem}
-	Super Increasing Knapsack Problem is $P$-complete
-\end{theorem}
-We will show $NANDCVP\leq SIK$ and the proof is very much like $NANDCVP \leq IIM$. Here we will consturct base 4 numbers instead of binary. The reduction goes like this:\begin{itemize}
-	\item Let $x$ is $n+1=E$-length base 4 number whose $i$th digit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
-	\item For $1\leq g\leq G$ let $$m_{2g}=4^{2g}+4^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}4^j,\ \ m_{2g-0.5}=4^{2g}-4^{2g-1},\ \ m_{2g-1}=4^{2g-1}$$
+%\begin{theorem}
+%	Super Increasing Knapsack Problem is $P$-complete
+%\end{theorem}
+We will show $NANDCVP\leq SIK$. For that we will reduce $NANDCVP$ to a special instance of $IIM$ which is reducible to $SIK$.\begin{itemize}
+	\item Let $x$ is $n+1$-length base 4 number whose $i$th digit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
+	\item $1\leq g\leq G$  $$m_{2g}=4^{2g}+4^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}4^j$$ $$m_{2g-0.5}=4^{2g}-4^{2g-1},\ \ m_{2g-1}=4^{2g-1}$$
 \end{itemize}
-Define for all $1\leq G$, $x_g=((\cdots ((x\bmod{m_{2G}})\bmod{m_{2g-1}})\cdots\bmod{m_{2g}})\bmod{m_{2g-1}})=0$ and $x_{G+1}=x$.
+\framebreak
+Define for all $1\leq g\leq  G$,\\
+ $x_g=(((\cdots (((x\bmod{m_{2G}})\bmod{m_{2G-0.5}})\bmod{m_{2G-1}})\cdots\bmod{m_{2g}})\bmod{m_{2g-0.5}})\bmod{m_{2g-1}})=0$ and $x_{G+1}=x$.\vspace{5mm}
 \begin{itemize}
-	\item $x_k\leq 4^{2k-1}$ for all $1\leq g \leq G+1$, $x_k< 4^{2g-1}$
+	\item $x_g\leq 4^{2g-1}$ for all $1\leq g \leq G+1$
 \end{itemize}
 \framebreak
 
-\begin{itemize}
+
 	\begin{theorem}
 		For all $1\leq g\leq G+1$, $0\leq j\leq 2g-1$ if the $j$th edge is an outgoing edge from an input node or from a gate $h$ such that $h\geq g$ then $x_g$'s $j$th bit is the value carried by $j$th edge 		otherwise 1
 	\end{theorem}
-	\vspace{5mm}
+	\framebreak
 	
+%	\vspace{5mm}
+\begin{itemize}	
 	\item Prove by downward induction. Base case $g=G+1$ is true.
 	\item $x_{k+1}$ and $x_k$ differs at the positions corresponding to the edges incident on $k$th vertex.
 	\item $2k$ and $2k-1$th edges are in-edges of vertex $k$ so they are the values carried by $2k$ and $2k-1$th edges
@@ -329,38 +357,52 @@ Define for all $1\leq G$, $x_g=((\cdots ((x\bmod{m_{2G}})\bmod{m_{2g-1}})\cdots\
 
  \textbf{If both of them 1}:
  
-  Then $$4m_{2k}>x_{k+1}\geq m_{2k}\implies x_{k+1}\bmod{m_{2k}}=x_{k+1}-m_{2k}<4^{2k-1}$$ So $$(x_{k+1}-m_{2k}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=x_{k+1}-m_{2k}$$ In $x_k$ the positions where $m_{2k}$ has 1 will have 0=$NAND(1,1)$
+  $$4m_{2k}>x_{k+1}\geq m_{2k}\implies x_{k+1}\bmod{m_{2k}}=x_{k+1}-m_{2k}<4^{2k-1}$$  $$(x_{k+1}-m_{2k}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=x_{k+1}-m_{2k}$$ In $x_k$ the positions where $m_{2k}$ has 1 will have 0.
+  \framebreak
   
 \textbf{If at least one of them 0}:
 
- Then $x_{k+1}\bmod{m_{2k}}=x_{k+1}$. So after that the positions in $x_k$ where $m_{2k}$ has 1 will have 1=$NAND(1,0)=NAND(0,1)=NAND(0,0)$. Now $$x_{k+1}=a\times 4^{2k}+b\times 4^{2k-1}+c$$ where $a,b\in \{0,1\}$. \begin{itemize}
+ $x_{k+1}\bmod{m_{2k}}=x_{k+1}$. In $x_k$ positions where $m_{2k}$ has 1 will have 1. $$x_{k+1}=a\times 4^{2k}+b\times 4^{2k-1}+c\text{ where }a,b\in \{0,1\}$$\begin{itemize}
 	\item $a=1$, $b=0$: $$(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=1\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$$
-	\item $b=0/1$: $$(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=b\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$$
+	\item $b=0,1$: $$(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=b\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$$
 \end{itemize}
 \framebreak
 
-Using this theorem like in the Iterated Integer Mod after $m_1$ we have $x_1<2^1$ which is the value carried by the 0th edge which is the value of the $CVP$ instance. 
+After $m_1$, $x_1<2^1$ is the value carried by the 0th edge, the value of the $CVP$.
 
 \begin{itemize}
 	\item  \textbf{Notice}: The modulos  satisfies the super increasing knapsack problem. 
 \end{itemize} 
- Since $$\sum\limits_{g=1}^{k}m_{2g}+m_{2g-0.5}+m_{2g-1}=\sum\limits_{g=1}^{k}m_{2g}+4^{2g}<4^{2k+1}=m_{2(k+1)-1}$$ So:
+ Since $$\sum\limits_{g=1}^{k}m_{2g}+m_{2g-0.5}+m_{2g-1}=\sum\limits_{g=1}^{k}m_{2g}+4^{2g}<4^{2k+1}=m_{2(k+1)-1}$$ 
+ \framebreak
+ 
 	\begin{enumerate}
 		\item \hspace{1ex} Sum of weights till $m_{2k}$ is strictly $<m_{2(k+1)-1}$
-		\item \begin{tabular}[t]{rcl}
-			Sum of weights till $m_{2k-1}$ & $=$ &(sum of weights till $m_{2k})+m_{2(k+1)-1}$\\ & $<$ & $2\times 4^{2(k+1)-1}<3\times 4^{2(k+1)-1}=m_{2(k+1)-0.5}$
+		\item \begin{tabular}[t]{rl}
+			& Sum of weights till $m_{2(k+1)-1}$ \\ 
+			$=$ &(sum of weights till $m_{2k})+m_{2(k+1)-1}$ \\
+		 $<$ & $2\times 4^{2(k+1)-1}<3\times 4^{2(k+1)-1}=m_{2(k+1)-0.5}$
 		\end{tabular}
 		
-		\item \begin{tabular}[t]{rcl}
-			Sum of weights till $m_{2k-0.5}$ & $=$ & (sum of weights till $m_{2k})+m_{2(k+1)-1}+m_{2(k+1)-0.5}$\\ & $<$ & $2\times 4^{2(k+1)-1}+3\times 4^{2(k+1)+1}$\\
-			& $=$ & $ 4^{2(k+1)}+4^{2(k+1)-1}<m_{2(k+1)}$
+		\item \begin{tabular}[t]{rl}
+			& Sum of weights till $m_{2(k+1)-0.5}$ \\
+			$=$ & (sum of weights till $m_{2k})+m_{2(k+1)-1}+m_{2(k+1)-0.5}$\\
+			 $<$ & $2\times 4^{2(k+1)-1}+3\times 4^{2(k+1)+1}$\\
+			 $=$ & $ 4^{2(k+1)}+4^{2(k+1)-1}<m_{2(k+1)}$
 		\end{tabular}
 	\end{enumerate}
 
 \begin{theorem}
 	If $w_1,\dots, w_n$ are such that $\forall \ i\in [n-1]$ $\sum\limits_{k=1}^{i}w_k<w_{i+1}$ then there is a 0-1 sequence of variables $x_1,\dots, x_n$ such that $\sum\limits_{i=1}^nx_iw_i=w$ iff $$((\cdots((w\bmod{w_n})\bmod{w_{n-1}})\cdots )\bmod{w_2})\bmod{w_1}=1$$
 \end{theorem}
-So now we have an reduction of $NANDCVP$ to $SIK$. 
+\framebreak
+
+\begin{theorem}
+	$NANDCVP\leq_l$ Super Increasing Knapsack
+\end{theorem}
+\begin{theorem}
+	Super Increasing Knapsack Problem is $P$-complete.
+\end{theorem}
 \end{frame}
 
 \section{Polynomial Iterated Mod Problem (PIM)}
