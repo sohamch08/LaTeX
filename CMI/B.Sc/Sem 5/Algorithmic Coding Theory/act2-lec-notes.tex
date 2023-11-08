@@ -1,5 +1,7 @@
 \documentclass{book}
 \usepackage[Sonny]{fncychap}
+
+\usepackage[nottoc,numbib]{tocbibind}
 \input{../preamble-formal}
 \input{../letterfonts}
 \input{../macros}
@@ -10,7 +12,7 @@
 \author{ \vspace*{5mm} \LARGE Scribed: Soham Chatterjee\\\large sohamchatterjee999@gmail.com\\ \large Website: \href{https://sohamch08.github.io/}{sohamch08.github.io}}
 \date{\LARGE 2023}
 
-\addbibresource{refs.bib}
+%\addbibresource{refs.bib}
 \begin{document}
 \begin{titlingpage}
 	\maketitle
@@ -25,10 +27,15 @@
 
 \input{ch-multiplicity}
 
+\input{ch-expander}
+
 \input{ch-probref}
+
+
+
 \pagebreak
-\chapter{References}
-\printbibliography[heading=none]
-%\bibliographystyle{alpha}
-%\bibliography{refs}
+%\printbibliography[heading=none]
+%\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{alpha}
+\bibliography{refs}
 \end{document}

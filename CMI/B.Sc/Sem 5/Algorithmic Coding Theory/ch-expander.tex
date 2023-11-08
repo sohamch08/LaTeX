@@ -1,0 +1,53 @@
+\chapter{Expander Codes}
+The main drawback of Reed-Solomon codes is the large algphabet size. Expander codes are codes that do not have this drawback.
+
+It is a sparse graph with the property that the neighborhood of $S$ (small enough set) in the graph is larger than $S$ itself. To build an error-correcting code, it is best to start with a bipartite expamder graph.
+\section{Bipartite Expander Graphs}
+\begin{definition}[$(\alpha,\beta)$-Bipartite Expander Graphs]
+	A bipartite graph $G=(U,V,E)$ with bipartition $U,V$ is called an $(\alpha,\beta)$ expander, if for every set $S\subseteq U$ with $|S|\leq \alpha|U|$, the number of vertices in $V$ that are connected to $S$, i.e. $|N(S)|\geq \beta|S|$
+\end{definition}
+We will take $|U|=n$ and $|V|=m$ and we take the graph $D$-left regular i.e. every vertex in $U$ has degree $D$ where $D>2$. The graph is $(\alpha,\beta)$-expander with $\beta>\frac{3D}{4}$.
+\begin{definition}[Unique Neighbor of $S$]
+	Given $S\subseteq U$, the vertex $v\in V$ is  an unique neighbor of $S$ if $v$ is adjacent to exactly one vertex in $S$.
+\end{definition}
+\begin{theorem}\label{uniqevertexexpander}
+	If $G$ is as defined above, then every $S\subseteq U$ of size $|S|\leq \alpha n$ has more than $\frac{D}2|S|$ unique neibors.
+\end{theorem}
+\begin{proof}
+	Suppose $S$ has $u$ many unique neighbors. Then number of edges adjacent to $S$ is at most $D|S|$. Each of the unique neighbors have only one edge adjacent to them.  Now since $|N(S)|\geq \beta|S|$ and there are at least $\beta|S|-u$ many vertices in $N(S)$ which are adjacent to at least 2 edges. Hence we get $$D|S|\geq u+2(\beta|S|-u)\iff D|S|\geq 2\beta|S|-u\implies u\geq (2\beta-D)|S|>\lt(2\, \frac{3D}4-D\rt)|S|\geq \frac{D}{2}|S|$$So there are more than $\frac{D}2|S|$ unique neighbors of $S$.
+\end{proof}
+\section{Expander Code}
+\begin{definition}
+	The $m\times n$ adjacency matrix $H$ of the $(\alpha,\beta)$-bipartite expander graph. Then $H$ is the parity check matrix of the corresponding expander code $C$.
+\end{definition}
+\begin{remark}
+	These codes are also called as \textit{Low Density Parity Check Codes}, because the parity check code $H$ is a sparse matrix. 
+\end{remark}
+\parinf
+\textbf{Dimenstion:}  Since the parity check matrix is $m\times n$ matrix. The dimenstion of the code is $n-m$.
+
+\textbf{Distance:} The distance of the code is $\geq \alpha n$ (Proved below).\parinn
+
+\begin{theorem}
+	The distance of the code is at least $\alpha n$
+\end{theorem}
+\begin{proof}
+	Since the code is linear, it suffices to show that every codeword has hamming weight at least $\alpha n$. Assume the constrary. There exists $x\in C$ such that $wt(x)<\alpha n$. Let $S\subseteq U$ be the set of vertices in graph that corresponds to the 1's of $x$. Since $wt(x)<\alpha n$ we have $|S|<\alpha n$. Therefore by \thmref{uniqevertexexpander} $S$ has at least $\frac{D}{2}|S|$ many unique neighbors.
+	
+	Hence in all of the rows of the vertices which are unique neighbors of $S$ there is only position where both the row and $x$ has 1 in the $k$th position if the vertex is adjacent to $k$th vertex in $U$ and in all other postions either $x$ has 0 or the row entry has 0. Hence the inner product of the row and $x$ is equal to 1$\neq 0$. Contradiction \ctr. Hence there is no codeword with hamming weight less than $\alpha n$. Therefore the code has distance at least $\alpha n$.
+\end{proof}
+\section{Decoding of Expander Codes}
+\textbf{Algorithm:} To decode a recieved word $y$ to a valid codeword we repeat the following steps until there is nothing left to do: for any vertex in $y$. for all its neighbor vertices in $V$ if majority of the values of $Hy$ in those vertices positions are non-zero then we flip the value of the vertex.\vspace{3mm}
+
+\begin{remark}
+%	\begin{itemize}
+		 The number of erroneous parity check never increases.
+		When the algorithm stops then it returns a correct code word.
+%	\end{itemize}
+\end{remark}
+\begin{theorem}
+	The above decoding algorithm recovers any codeword from up to $\frac{\alpha n}2$ errors.
+\end{theorem}
+\begin{proof}
+	Let the received word is $y$. We start at distance at most $\frac{\alpha n}2$ errors. So the number of error positions is $S$ with $|S|\leq \frac{\alpha n}{2}$. Hence it has at most $\frac{\alpha Dn}2$ many neighbors i.e. $|N(S)|\leq \frac{\alpha Dn}2$. So in all other postions except the positions of vertices in $N(S)$ of $Hy$ parity checks are satisfied because the vertices except the ones in $N(S)$ are not adjacent to $S$ so the corresponding rows have 0's in the positions of vertices of $S$. Hence the only unsatisfied parity checks are from the positions of $Hy$ of the vertices in $N(S)$ which is at most $\frac{\alpha Dn}2$. 
+\end{proof}
