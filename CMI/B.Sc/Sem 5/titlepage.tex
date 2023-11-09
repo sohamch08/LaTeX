@@ -1,9 +1,9 @@
 \newcommand*{\rotrt}[1]{\rotatebox{90}{#1}} % Command to rotate right 90 degrees
 \newcommand*{\rotlft}[1]{\rotatebox{-90}{#1}} % Command to rotate left 90 degrees
-\newcommand*{\titleBC}{\begingroup % Create the command for including the title page in the document
+\newcommand{\titleBC}[1]{\begingroup % Create the command for including the title page in the document
 	\centering % Center all text
 	
-	\def\CP{\textit{\Huge Algorithmic Coding Theory: 2023}} % Title
+	\def\CP{\textit{\Huge #1}} % Title
 	
 	\settowidth{\unitlength}{\CP} % Set the width of the curly brackets to the width of the title
 	{\color{LightGoldenrod}\resizebox*{\unitlength}{\baselineskip}{\rotrt{$\}$}}} \\[\baselineskip] % Print top curly bracket
