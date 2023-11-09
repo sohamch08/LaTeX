@@ -37,13 +37,13 @@
 %\setbeamercolor{subsection in sidebar shaded}{fg=grey}
 \setbeamercolor{section in head/foot}{fg=white,bg=royalazure}
 %\setbeamercolor{subsection in head/foot}{fg=white,bg=royalazure}
-\usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
-]{biblatex}
-\addbibresource{bibliography.bib}
-\renewcommand*{\bibfont}{\normalfont\small}
+%\usepackage[
+%backend=biber,
+%style=alphabetic,
+%sorting=ynt
+%]{biblatex}
+%\addbibresource{bibliography.bib}
+%\renewcommand*{\bibfont}{\normalfont\small}
 \usetheme{Warsaw}
 %---------------------------------------------------------------------
 % Footline
@@ -112,12 +112,12 @@ sorting=ynt
 %---------------------------------------------------------------------
 % Index
 %---------------------------------------------------------------------
-\AtBeginSection[]
-{
-  \begin{frame}{Contents}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
+%\AtBeginSection[]
+%{
+%  \begin{frame}{Contents}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
 \definecolor{azuel}{rgb}{0.07, 0.04, 0.56}
 	\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 	\definecolor{codegreen}{rgb}{0,0.6,0}
@@ -413,24 +413,60 @@ After $m_1$, $x_1<2^1$ is the value carried by the 0th edge, the value of the $C
 \frametitle{Polynomial Iterated Mod Problem}
 \framesubtitle{Introduction}
 \begin{definition}[Polynomial Iterated Mod Problem]
-	Given univariate polynomials $a(x)$, $b_1(x),\dots, b_n(x)$ over a field $\bbF$ compute the residue $((\cdots ((a(x)\bmod{b_1(x)})\bmod{b_2(x)})\cdots\bmod{b_{n-1}(x)})\bmod{b_{n}(x)})$
+	Given univariate polynomials $a(x)$, $b_1(x),\dots, b_n(x)$ over a field $\bbF$ compute the residue $((\cdots ((a(x)\bmod{b_1(x)})\bmod{b_2(x)})\cdots)\bmod{b_{n-1}(x)})\bmod{b_{n}(x)}$
 \end{definition}
+\begin{itemize}
+	\item A polynomial mod can't test for two bits $$(10)_2\bmod{(11)_2}=(10)_2\text{ but }(x^2+0 x)\bmod{(x^2+x)}=0x^2-x$$
+\end{itemize}
+\begin{theorem}
+	Polynomial Iterated Mod Problem is in $P$
+\end{theorem}
 \end{frame}
 
 \subsection{$PIM$ is in $NC$}
 \begin{frame}
-\frametitle{$PIM$ is in $NC$}
+\frametitle{Lower Triangular Matrix Inversion}
 
-\begin{block}{Beamer Introduction}
-Beamer is a { \LaTeX} class.
-\end{block}
+
+
+\begin{theorem}[\cite{hellwematinv},\cite{hellensurvey}]
+	For any field $\bbF$, lower triangular matrix inversion is in $Arithmetic-NC$
+\end{theorem}\vspace{5mm}
+
+\begin{theorem}[\cite{fastparmatricgcd},\cite{paralwellrings}]
+	Lower triangular matrix inversion is in $NC$ over finite fields and $\mathbb{Q}$
+\end{theorem}
 
 \end{frame}
+\begin{frame}[allowframebreaks]
+	\frametitle{Reduction}
+	Given $a(x),b_1(x),\dots, b_n(x)$ over $\bbF$.\\
+	$b_0(x)=r_0(x)=a(x)$ and $d_i=\deg b_i(x)$ for all $0\leq i\leq n$.\\
+	 Assume $d_0\geq d_1> \cdots > d_n$
+	 \begin{align*}
+	 	a(x) & = q_1(x)b_1(x)+r_1(x)\\
+	 	& = q_1(x)b_1(x)+q_2(x)b_2(x)+r_2(x)\\
+	 	& \qquad \vdots\\
+	 	& = q_1(x)b_1(x)+\cdots+q_n(x)b_n(x)+r_n(x)
+	 \end{align*}
+	 $r_{i-1}(x)=q_i(x)\cdot b_i(x)+r_i(x)$ with 	 $	\deg r_i<\deg b_i=d_i$ or $r_i=0$ 
+	\framebreak
+	
+	The coefficient of $x^j$ in $a(x), b_i(x), q_i(x), r_i(x)$ are $a_j$, $b_{i,j}$, $q_{i,j}$, $ r_{i,j}$. 
+	\begin{itemize}
+		\item $\deg q_1=d_0-d_1$, $\deg q_i\leq d_{i-1}-d_{i}-1$
+		\item Compare the coefficients of $x^j$ in both direction.
+		\item $(d_0+1)\times (d_0+1)$ lower triangular matrix
+		\item Matrix is non-singular since the diagonal entries are the leading coefficients of $b_i(x)$ 
+	\end{itemize}
 
+	
+\end{frame}
 
-\begin{frame}%[allowframebreaks]
+\begin{frame}[allowframebreaks]
 \frametitle{References}
-\printbibliography
+\bibliographystyle{alpha}
+\bibliography{bibliography}
 %    \nocite{*} % used here because no citation happens in slides
 \end{frame}
 
