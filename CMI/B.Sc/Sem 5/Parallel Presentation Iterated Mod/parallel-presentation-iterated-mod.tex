@@ -167,15 +167,11 @@
 \begin{frame}
     \frametitle{Introduction}
 \begin{itemize}
-    \item This paper is about the Iterated Mod Problem by Karloff and Ruzzo \cite{iteratedmod}
-    \item  Diferente de programas $WYSWYG$;
-    \item  Uma apresentação $Beamer$ é como qualquer outro documento LaTeX, contém:
-    \begin{itemize}
-        \item Preâmbulo e um corpo;
-        \item O preâmbulo pode-se dizer que é o ``índice'', tipo do documento e pacotes;
-        \item O corpo contém $sections$ e $subsections$;
-        \item Os dispositivos deverão ser estruturados utilizando ambientes de $item$ e $enumerate$, ou texto simples (curto).
-\end{itemize} 
+    \item This paper is  Iterated Mod Problem by Karloff and Ruzzo \cite{iteratedmod}
+    \item  Sequential algorithm for computing $gcd$ is based on Euclidean Algorithm
+    $r_0=a$, $r_1=b$. Then $$r_2=r_0\bmod{r_1},\quad r_{3}=r_{1}\bmod{r_2}, \quad \cdots$$ $gcd$ is the last nonzero $r_i$.
+    \item But parallel complexity of $gcd$ is poorly understood. Fastest parallel  algorithm takes $O\left(\frac{n}{\log n}\right)$ time \cite{gcdfastpar}
+    \item  The problem we will study related to the $gcd$ problem. It is given  integers or polynomials $x, m_n,m_{n-1},\dots, m_1$  find if $$((x\bmod{m_{n}})\bmod{m_{n-1}})\cdots)\bmod{m_{1}})=0$$
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 4
@@ -202,7 +198,7 @@
 \begin{frame}
 \frametitle{Circuit Value Problem}
 %To show $IIM$ is $P$-complete. We will use this theorem.
-\begin{theorem}
+\begin{theorem}[\cite{cvppcomp}]
 	Circuit Value Problem is $P$-complete.
 \end{theorem}
 \vspace{5mm}
@@ -333,7 +329,7 @@ We will show $NANDCVP\leq SIK$. For that we will reduce $NANDCVP$ to a special i
 \end{itemize}
 \framebreak
 Define for all $1\leq g\leq  G$,\\
- $x_g=(((\cdots (((x\bmod{m_{2G}})\bmod{m_{2G-0.5}})\bmod{m_{2G-1}})\cdots\bmod{m_{2g}})\bmod{m_{2g-0.5}})\bmod{m_{2g-1}})=0$ and $x_{G+1}=x$.\vspace{5mm}
+ $x_g=(((\cdots (((x\bmod{m_{2G}})\bmod{m_{2G-0.5}})\bmod{m_{2G-1}})\cdots)\bmod{m_{2g}})\bmod{m_{2g-0.5}})\bmod{m_{2g-1}}=0$ and $x_{G+1}=x$.\vspace{5mm}
 \begin{itemize}
 	\item $x_g\leq 4^{2g-1}$ for all $1\leq g \leq G+1$
 \end{itemize}
@@ -400,7 +396,8 @@ After $m_1$, $x_1<2^1$ is the value carried by the 0th edge, the value of the $C
 
 \begin{theorem}
 	$NANDCVP\leq_l$ Super Increasing Knapsack
-\end{theorem}
+\end{theorem}\vspace{5mm}
+
 \begin{theorem}
 	Super Increasing Knapsack Problem is $P$-complete.
 \end{theorem}
@@ -456,11 +453,33 @@ After $m_1$, $x_1<2^1$ is the value carried by the 0th edge, the value of the $C
 	\begin{itemize}
 		\item $\deg q_1=d_0-d_1$, $\deg q_i\leq d_{i-1}-d_{i}-1$
 		\item Compare the coefficients of $x^j$ in both direction.
-		\item $(d_0+1)\times (d_0+1)$ lower triangular matrix
-		\item Matrix is non-singular since the diagonal entries are the leading coefficients of $b_i(x)$ 
-	\end{itemize}
-
+		\item $(d_0+1)\times (d_0+1)$  matrix $M$. Denote the variable matrix for coefficients of $q_i$ and $r_n$ as $X$
+	\end{itemize}\framebreak
 	
+ $d_0-i$-th entry of $MX$ is coefficient of  degree $i$. $d_{k}\leq i<d_{k-1}$. 
+ 
+ $r_n(x)+\sum\limits_{i=K+1}^nq_i(x)b_i(x)$ doesn't take part in coefficient of $x^i$.
+ 
+ $$i=d_k +  (d_{k-1}-d_{k}-1-(d_{k-1}-1-i))=d_k + (i-d_{k})$$Can't go lower  $(d_{k-1}-d_{k}-1-(d_{k-1}-1-i))$ for coefficient of $q_k$
+ $$d_0-i=(d_0-d_1+1)+(d_1-d_2)+\cdots (d_{k-2}-d_{k-1})+(d_{k-1}-1-i)$$
+ So $M$ has at $(d_0-i,d_0-i)$th entry $b_{k,d_k}$ and after that all entries are 0 in that row. Hence $M$ is lower triangular.\vspace{2mm}
+ 
+Matrix is non-singular since the diagonal entries are the leading coefficients of $b_i(x)$ \framebreak
+
+
+We need to inverse $M$ which is in $Arithmetic-NC$ for general fields and for finite field and $\mathbb{Q}$ in $NC$. So we have 
+\begin{theorem}
+	Iterated Polynomial Mod Problem is in $NC$ for finite field and $\mathbb{Q}$ and in $Arithmetic-NC$ for general field.
+\end{theorem}
+	
+\end{frame}
+\section{Open Problem}
+\begin{frame}
+\frametitle{Open Problem}
+\begin{itemize}
+	\item The $gcd$ problem we still don't know if it is in $NC$. 
+	\item Modular Powering i.e. $a^e\bmod b$ where $a,b,e$ are $n$-bit integers are not knowen to be $P$-complete or in $NC$. 
+\end{itemize}
 \end{frame}
 
 \begin{frame}[allowframebreaks]

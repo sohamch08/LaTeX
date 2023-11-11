@@ -1,4 +1,4 @@
-\documentclass[article,8pt]{beamer}% para se tiver muitas sections
+\documentclass[article,10pt]{beamer}% para se tiver muitas sections
 %\documentclass[11pt,compress,xcolor=dvipsnames]{beamer}
 %---------------------------------------------------------------------
 % Color and themes
@@ -37,13 +37,13 @@
 %\setbeamercolor{subsection in sidebar shaded}{fg=grey}
 \setbeamercolor{section in head/foot}{fg=white,bg=royalazure}
 %\setbeamercolor{subsection in head/foot}{fg=white,bg=royalazure}
-\usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
-]{biblatex}
-\addbibresource{bibliography.bib}
-\renewcommand*{\bibfont}{\normalfont\small}
+%\usepackage[
+%backend=biber,
+%style=alphabetic,
+%sorting=ynt
+%]{biblatex}
+%\addbibresource{bibliography.bib}
+%\renewcommand*{\bibfont}{\normalfont\small}
 \usetheme{Warsaw}
 %---------------------------------------------------------------------
 % Footline
@@ -52,7 +52,7 @@ sorting=ynt
  {\leavevmode
 \hbox{
    \begin{beamercolorbox}[wd=0.49\paperwidth,ht=2.25ex,dp=1ex,leftskip=0.3cm]{author in head/foot}%
-     \usebeamerfont{author in head/foot}\textcolor{white}{\insertshortauthor}
+     \usebeamerfont{author in head/foot}\textcolor{white}{Soham Chatterjee}
    \end{beamercolorbox}%
    \begin{beamercolorbox}[wd=0.34\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}
      \usebeamerfont{title in head/foot}\textcolor{white}{\insertshorttitle}
@@ -71,7 +71,7 @@ sorting=ynt
 \usepackage{graphics, calrsfs}
 \usepackage{times}
 \usepackage{fancybox,calc}
-\usepackage{palatino,mathpazo}
+\usepackage{palatino,mathpazo,mathtools}
 \usepackage{amsfonts}
 \usepackage{wrapfig}
 \usepackage{multicol}
@@ -98,7 +98,7 @@ sorting=ynt
 %opçao para 1 autor
 %\author{Primeiro Autor~\orcidID{a12345}}
 %opçao para 2 autor
-\author{Soham Chatterjee}
+\author{\LARGE{Soham Chatterjee}}
 %opcao para 3 autor
 %\author{Primeiro Autor~\orcidID{a12345}\\
 %        Segundo Autor~\orcidID{a12345}\\
@@ -107,17 +107,17 @@ sorting=ynt
 %\institute{Instituto Politécnico de Bragança- Escola Superior de Tecnologia e Gestão\\
             %\vspace{0.3cm}
             %Licenciatura em Curso}
-\institute{Chennai Mathematical Institute}
+\institute{\large{Chennai Mathematical Institute}}
 %\date{\vfill\scriptsize{\today}\\\vspace{0cm}\includegraphics[scale=0.4]{Imagens/logo.png}}
 %---------------------------------------------------------------------
 % Index
 %---------------------------------------------------------------------
-\AtBeginSection[]
-{
-  \begin{frame}{Contents}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
+%\AtBeginSection[]
+%{
+%  \begin{frame}{Contents}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
 \definecolor{azuel}{rgb}{0.07, 0.04, 0.56}
 	\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 	\definecolor{codegreen}{rgb}{0,0.6,0}
@@ -150,7 +150,7 @@ sorting=ynt
 		emph=[1]{for,end,break},emphstyle=[1]\scriptsize\color{blue}, 
 	}
 	%\renewcommand{\lstlistingname}{Alg.}
-
+\newcommand{\bbF}{\mathbb{F}}
 \begin{document}
 
 
@@ -162,7 +162,6 @@ sorting=ynt
     \tableofcontents
 \end{frame}
 
-\section{Introduction}
 
 
 \begin{frame}
@@ -180,36 +179,47 @@ sorting=ynt
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 4
-\section{Iterated Integer Mod $(IIM)$}
-\subsection{$CVP$ is $P$-complete}
+\section{Iterated Integer Mod $(IIM)$ Problem}
+\begin{frame}
+	\frametitle{Iterated Integer Mod Problem}
+%	\begin{itemize}
+	\textbf{Problem:}
+	
+		 Given positive integers $x, m_n,m_{n-1},\dots, m_1$  find if $$((x\bmod{m_{n}})\bmod{m_{n-1}})\cdots)\bmod{m_{1}})=0$$
+%		\item We will show this problem is $P$-complete.
+%	\end{itemize}
+%	First we have
+\vspace{3mm}
+		 \begin{theorem}
+		Iterated Iinteger Mod $\in P$
+	\end{theorem}
+	For any 2 numbers $a$ and $b$, $a\bmod{b}$ is in $P$. Here we are doing $n$ iterated mods. So it still takes polynomial time. So $IIM\in P$.
+\end{frame}
+\subsection{Circuit Value Problem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 5
 
 \begin{frame}
-\frametitle{$CVP$ is $P$-complete}
+\frametitle{Circuit Value Problem}
+%To show $IIM$ is $P$-complete. We will use this theorem.
+\begin{theorem}
+	Circuit Value Problem is $P$-complete.
+\end{theorem}
+\vspace{5mm}
 
-\scriptsize{
-\textbackslash documentclass\{beamer\}\\ \vspace{0.1cm}
 
-\textbackslash title\{\textbackslash Apresentação IPB através em \LaTeX\{\} \emph{Beamer}\} \\
-\textbackslash author\{Primeiro Autor\}\\
-\textbackslash institute\{Licentura em Curso \textbackslash\textbackslash Instituto Politécnico de Bragança\}\\
-\textbackslash date\{\textbackslash scriptsize\{\textbackslash today\}\}
- \\ \vspace{0.3cm}
+\begin{itemize}
+	\item Enough to take $CVP$ for circuits with only $NAND$ gates, $NANDCVP$
+\end{itemize}
+$$\text{Gates$\in [G]$}$$ $$\text{ Input Variables$\coloneqq y_i,i\in[r]$, Input Bits$\coloneqq Y_i,i\in[r]$} $$ 
 
-\textbackslash begin\{document\} \\ \vspace{0.1cm}
 
-\hspace{0.5cm}\textbackslash maketitle\\ \vspace{0.1cm}
 
-\hspace{0.5cm}\textbackslash section\{Nome da $Section$\}\\
-\hspace{0.5cm}\textbackslash begin\{frame\}\\
-\hspace{1cm}\textbackslash frametitle\{Nome da $Frame$\}\\
-\hspace{1cm}\textbackslash Here is one slide.\\
-\hspace{0.5cm}\textbackslash end\{frame\}\\ \vspace{0.1cm}
-
-\textbackslash end\{document\}\\
-}
-
+%\begin{itemize}
+%	\item A $NANDCVP$ circuit the $r$ nodes $y_1,\dots, y_r$ of indegree 0 are the inputs 
+%	\item The $G$ many nodes  with indegree 2 are the gates. The gates are numbers $1,\dots, G$. The gates are numbered in reverse topological order i.e. every edge is directed from a higher numbered gate to a lower numbered gate and the last gate with gate number 1 is the output with the edge going out of it is 0th edge.  
+%	\item The edges $E=2G+1$ are numbered so that the two gates into gate $g$ are numbered $2g $ and $2g-1$.
+%\end{itemize}
 \end{frame}
 
 \subsection{$NANDCVP\leq_l IIM$}
@@ -218,17 +228,18 @@ sorting=ynt
 
 \frametitle{$NANDCVP\leq_l IIM$}
 \framesubtitle{Log-Space Reduction}
-Let $n=2G$. The reduction from $NANDCVP$ to the integer iterated mod problem is as follows:\begin{itemize}
-	\item Let $x$ is $n$-bit integer whose $i$th bit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
-	\item For $1\leq g\leq G$ let $$m_{2g}=2^{2g}+2^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}2^j\text{ and }m_{2g-1}=2^{2g-1}$$
-\end{itemize}
-This reduction is a log-space reduction from $NANDCVP$ to Integer Iterated Mod problem. 
+Let $n=2G$. %The reduction from $NANDCVP$ to the integer iterated mod problem is as follows:
 \begin{itemize}
-	\item Here $m_{2g}$ and $m_{2g-1}$ simulate the gate $g$
+	\item $x$ is $n+1$-bit integer whose $i$th bit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
+	\item $1\leq g\leq G$  $$m_{2g}=2^{2g}+2^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}2^j\text{ and }m_{2g-1}=2^{2g-1}$$
 \end{itemize}
-The next theorem proves that the output gate of the $CVP$ instance is 0 iff $$((\cdots ((x\bmod{m_{2G}})\bmod{m_{2g-1}})\cdots))=0$$
+%This reduction is a log-space reduction from $NANDCVP$ to Integer Iterated Mod problem. 
+%\begin{itemize}
+\vspace{2mm}
+\textbf{Remark:} Here $m_{2g}$ and $m_{2g-1}$ simulate the gate $g$
+%\end{itemize}
+%The next theorem proves that the output gate of the $CVP$ instance is 0 iff $$((\cdots ((x\bmod{m_{2G}})\bmod{m_{2g-1}})\cdots))=0$$
 \end{frame}
-
 \begin{frame}[allowframebreaks]
 \frametitle{$NANDCVP\leq_l IIM$}
 \framesubtitle{Correctness}
@@ -238,182 +249,231 @@ The next theorem proves that the output gate of the $CVP$ instance is 0 iff $$((
 		\item For all $1\leq g\leq G+1$, $0\leq j\leq 2g-1$ if the $j$th edge is an outgoing edge from an input node or from a gate $h$ such that $h\geq g$ then $x_g$'s $j$th bit is the value carried by $j$th edge 		otherwise 1
 	\end{enumerate}
 \end{theorem}
-Prove by downward induction.
+\framebreak
 
-\hspace{0.5cm} Base Case ($g=G+1$): We have $x\leq 2^{2(G+1)-1}=2^{2G+1}=2^{n+1}$. $x$ is $n$-bit number. Second condition follows by constuction.
+
+\textbf{Prove by downward induction:}
+\vspace{3mm}
+
+ Base Case ($g=G+1$): We have $x< 2^{2(G+1)-1}=2^{2G+1}=2^{n}$. True as $x$ is $n$-bit number. And second condition follows by constuction.
 %And by constuction $i$th bit has $Y_j$ if edge $i$ is going out from $y_j$ otherwise 1. So base case follows
-Let the theorem holds for all $g>k$. 
+Let the theorem holds for all $g>k$. \framebreak
+
+\textbf{Part (a)}:
 
 \hspace{0.5cm} $x_k=(x_{k+1}\bmod{m_{2k}})\bmod{m_{2g-1}}$. $m_{2k-1}=2^{2k-1}$. So $x_k$ has $2k-1$ bits so $ x_k<2^{2k-1}$. So Part (a) is proved.
 \framebreak
 
+\textbf{Part (b):}
 \begin{itemize}
-	\item The only bits differ between $x_{k+1}$ and $x_k$ are the bits corresponding to edges incident on $k$th vertex (in and out). 
+	\item The only bits differ between $x_{k+1}$ and $x_k$ are the bits corresponding to edges incident on $k$th vertex (in and out). In $x_{k+1}$ the $j$th bits are 1 if $j$th edge going out from gate $k$.
 	\item The $2k$ and $2k-1$th edges are in edges of gate $k$. So in $x_{k+1}$ the $(2k)$th and $(2k-1)$th bits are the value carried by the $(2k)$ and $(2k-1)$th edges. Two cases to consider:
-	\item Both $(2k)$ and $(2k+1)$th bits are 1. $x_{k+1}\geq m_{2k}$ and $x_{k+1}< 2m_{2k}$. So $$x_{k+1}\bmod{m_{}}
+\end{itemize}
+\framebreak
+
+\textbf{Both $(2k)$ and $(2k+1)$th bits are 1}: 
+
+$m_{2k}\leq x_{k+1}< 2m_{2k}$. So $$(x_{k+1}\bmod{m_{m_{2k}}})\bmod m_{2k-1}=x_{k+1}-m_{2k}$$ 
+So in $x_{2k}$ at output bits position of $m_{2k}$  the 1 in replaced  by  $0$\vspace{2mm}
+
+\textbf{At least one of the bits is 0}: 
+
+$$x_{k+1}<m_{2k}\implies x_{k+1}\bmod{m_{2k}}=x_{k+1}$$ So in $x_{2k}$ at output bits position of $m_{2k}$  has 1.
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{$IIM$ is $P$-complete}
+
+$x_1< 2^{1}$ is the value carried by the $0$th edge, value of the $CVP$ instance. 
+\begin{theorem}
+%	\begin{center}
+		$NANDCVP\leq_l $ Iterated Integer Mod
+%	\end{center}
+\end{theorem}
+	 	\vspace{5mm}
+	 	
+	\begin{theorem}
+		Integer Iterated Mod Problem is $P$-complete
+	\end{theorem}
+\end{frame}
+
+\section{Super Increasing 0-1 Knapsack Problem}
+\subsection{Introduction}
+\begin{frame}
+\frametitle{Super Increasing Knaspsack Problem (SIK)}
+\framesubtitle{Introduction}
+\begin{definition}[0-1 Knapsack Problem]
+	Given an integer $w$ and a sequence of integers $w_1,w_2,\dots, w_n$ is there a sequence of $0-1$ valued variables $x_1,\dots x_n$ such that $w=\sum\limits_{i=1}^n x_iw_i$.
+\end{definition}
+\begin{itemize}
+	\item 0-1 Knapsack Problem is known to be $NP$-complete. \cite{guidetonpc}
+	\item A knapsack instance is called super increasing ($SIK$) if each weight $w_i$ is larger than the sum of the previous weights i.e. for all $2\leq i\leq n$ we have $w_i>\sum\limits_{j=1}^{i-1}w_j$
 \end{itemize}
 \end{frame}
 \begin{frame}
-\frametitle{\emph{section} e \emph{subsections}}
-\vspace{1cm}
-\scriptsize{\tt{
-...\\
-\textbackslash end\{frame\}\\
-\vspace{0.5cm}
-\alert{
-\textbackslash section\{section name\}\\
-\textbackslash subsection\{subsection name\}\\
-\textbackslash subsubsection\{subsubsection name\}}\\
-\vspace{0.5cm}
-\textbackslash begin\{frame\}\\
-...\\
-}
-}
+	\frametitle{Super Increasing Knaspsack Problem (SIK)}
+	\framesubtitle{Introduction}
+\begin{theorem}
+	Super Increasing Knaspsack Problem $\in P$
+\end{theorem}\vspace{5mm}
+
+Greedy strategy considering the $w_i'$ in decreasing order gives a linear time algorithm for solving super increasing knapsack problem.
 \end{frame}
 
-\begin{frame}
-\frametitle{Conteúdo} 
+\subsection{Super Increasing Knaspsack Problem is $P$-complete}
+\begin{frame}[allowframebreaks]
+\frametitle{$SIK$ is $P$-complete}
+%\begin{theorem}
+%	Super Increasing Knapsack Problem is $P$-complete
+%\end{theorem}
+We will show $NANDCVP\leq SIK$. For that we will reduce $NANDCVP$ to a special instance of $IIM$ which is reducible to $SIK$.\begin{itemize}
+	\item Let $x$ is $n+1$-length base 4 number whose $i$th digit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
+	\item $1\leq g\leq G$  $$m_{2g}=4^{2g}+4^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}4^j$$ $$m_{2g-0.5}=4^{2g}-4^{2g-1},\ \ m_{2g-1}=4^{2g-1}$$
+\end{itemize}
+\framebreak
+Define for all $1\leq g\leq  G$,\\
+ $x_g=(((\cdots (((x\bmod{m_{2G}})\bmod{m_{2G-0.5}})\bmod{m_{2G-1}})\cdots\bmod{m_{2g}})\bmod{m_{2g-0.5}})\bmod{m_{2g-1}})=0$ and $x_{G+1}=x$.\vspace{5mm}
+\begin{itemize}
+	\item $x_g\leq 4^{2g-1}$ for all $1\leq g \leq G+1$
+\end{itemize}
+\framebreak
 
-\begin{block}{Manual}
-\scriptsize{\tt{
-...\\
-\textbackslash end\{frame\}\\
-\vspace{0.1cm}
-\textbackslash begin\{frame\}\\
-\textbackslash frametitle\{Lista de Conteúdo\}\\
-\textbackslash tableofcontents[currentsection]\\
-\textbackslash end\{frame\}\\
-\vspace{0.2cm}
-\textbackslash begin\{frame\}\\
-...\\
-}}
-\end{block}
 
-\begin{block}{Automático}
-\scriptsize{\tt{
-...\\
-\textbackslash AtBeginSection[]\{\\
-\textbackslash begin\{frame\}\{Outline\}\\
-\textbackslash tableofcontents[currentsection]\\
-\textbackslash end\{frame\}\}\\
-...\\
-}}
-\end{block}
+	\begin{theorem}
+		For all $1\leq g\leq G+1$, $0\leq j\leq 2g-1$ if the $j$th edge is an outgoing edge from an input node or from a gate $h$ such that $h\geq g$ then $x_g$'s $j$th bit is the value carried by $j$th edge 		otherwise 1
+	\end{theorem}
+	\framebreak
+	
+%	\vspace{5mm}
+\begin{itemize}	
+	\item Prove by downward induction. Base case $g=G+1$ is true.
+	\item $x_{k+1}$ and $x_k$ differs at the positions corresponding to the edges incident on $k$th vertex.
+	\item $2k$ and $2k-1$th edges are in-edges of vertex $k$ so they are the values carried by $2k$ and $2k-1$th edges
+	
+	\end{itemize}
+%	\item The theorem is true and with that we get $SIK$ is $P$-complete.
+%\end{itemize}
+\framebreak
+
+ \textbf{If both of them 1}:
+ 
+  $$4m_{2k}>x_{k+1}\geq m_{2k}\implies x_{k+1}\bmod{m_{2k}}=x_{k+1}-m_{2k}<4^{2k-1}$$  $$(x_{k+1}-m_{2k}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=x_{k+1}-m_{2k}$$ In $x_k$ the positions where $m_{2k}$ has 1 will have 0.
+  \framebreak
+  
+\textbf{If at least one of them 0}:
+
+ $x_{k+1}\bmod{m_{2k}}=x_{k+1}$. In $x_k$ positions where $m_{2k}$ has 1 will have 1. $$x_{k+1}=a\times 4^{2k}+b\times 4^{2k-1}+c\text{ where }a,b\in \{0,1\}$$\begin{itemize}
+	\item $a=1$, $b=0$: $$(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=1\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$$
+	\item $b=0,1$: $$(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=b\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$$
+\end{itemize}
+\framebreak
+
+After $m_1$, $x_1<2^1$ is the value carried by the 0th edge, the value of the $CVP$.
+
+\begin{itemize}
+	\item  \textbf{Notice}: The modulos  satisfies the super increasing knapsack problem. 
+\end{itemize} 
+ Since $$\sum\limits_{g=1}^{k}m_{2g}+m_{2g-0.5}+m_{2g-1}=\sum\limits_{g=1}^{k}m_{2g}+4^{2g}<4^{2k+1}=m_{2(k+1)-1}$$ 
+ \framebreak
+ 
+	\begin{enumerate}
+		\item \hspace{1ex} Sum of weights till $m_{2k}$ is strictly $<m_{2(k+1)-1}$
+		\item \begin{tabular}[t]{rl}
+			& Sum of weights till $m_{2(k+1)-1}$ \\ 
+			$=$ &(sum of weights till $m_{2k})+m_{2(k+1)-1}$ \\
+		 $<$ & $2\times 4^{2(k+1)-1}<3\times 4^{2(k+1)-1}=m_{2(k+1)-0.5}$
+		\end{tabular}
+		
+		\item \begin{tabular}[t]{rl}
+			& Sum of weights till $m_{2(k+1)-0.5}$ \\
+			$=$ & (sum of weights till $m_{2k})+m_{2(k+1)-1}+m_{2(k+1)-0.5}$\\
+			 $<$ & $2\times 4^{2(k+1)-1}+3\times 4^{2(k+1)+1}$\\
+			 $=$ & $ 4^{2(k+1)}+4^{2(k+1)-1}<m_{2(k+1)}$
+		\end{tabular}
+	\end{enumerate}
+
+\begin{theorem}
+	If $w_1,\dots, w_n$ are such that $\forall \ i\in [n-1]$ $\sum\limits_{k=1}^{i}w_k<w_{i+1}$ then there is a 0-1 sequence of variables $x_1,\dots, x_n$ such that $\sum\limits_{i=1}^nx_iw_i=w$ iff $$((\cdots((w\bmod{w_n})\bmod{w_{n-1}})\cdots )\bmod{w_2})\bmod{w_1}=1$$
+\end{theorem}
+\framebreak
+
+\begin{theorem}
+	$NANDCVP\leq_l$ Super Increasing Knapsack
+\end{theorem}
+\begin{theorem}
+	Super Increasing Knapsack Problem is $P$-complete.
+\end{theorem}
 \end{frame}
 
-\section{Estratura da \emph{frame}}
-\subsection{Criar colunas}
-
-
+\section{Polynomial Iterated Mod Problem (PIM)}
+\subsection{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 15
 \begin{frame}
-\frametitle{Duas $colums$}
-\begin{block}{Exemplo de duas $colums$}\scriptsize{
-\textbackslash begin\{columns\}\\
-\textbackslash column\{.4\textbackslash textwidth\}\\
-Left column\\
-\textbackslash column\{.4\textbackslash textwidth\}\\
-Right column\\
-\textbackslash end\{columns\}\\
-}
-\end{block}
-\vspace{1cm}
-%\onslide<2>{
-\begin{columns}
-\column{.4\textwidth}
-Left column\\
-\column{.4\textwidth}
-Right column\\
-\end{columns}
-%}
+\frametitle{Polynomial Iterated Mod Problem}
+\framesubtitle{Introduction}
+\begin{definition}[Polynomial Iterated Mod Problem]
+	Given univariate polynomials $a(x)$, $b_1(x),\dots, b_n(x)$ over a field $\bbF$ compute the residue $((\cdots ((a(x)\bmod{b_1(x)})\bmod{b_2(x)})\cdots)\bmod{b_{n-1}(x)})\bmod{b_{n}(x)}$
+\end{definition}
+\begin{itemize}
+	\item A polynomial mod can't test for two bits $$(10)_2\bmod{(11)_2}=(10)_2\text{ but }(x^2+0 x)\bmod{(x^2+x)}=0x^2-x$$
+\end{itemize}
+\begin{theorem}
+	Polynomial Iterated Mod Problem is in $P$
+\end{theorem}
 \end{frame}
 
-\subsection{Criar \emph{Block's}}
+\subsection{$PIM$ is in $NC$}
 \begin{frame}
-\frametitle{Block}
+\frametitle{Lower Triangular Matrix Inversion}
 
-\begin{block}{Beamer Introduction}
-Beamer is a { \LaTeX} class.
-\end{block}
 
-\end{frame}
 
-\subsection{Criar listas}
-\begin{frame}[fragile]
-\frametitle{\emph{itemize}}
+\begin{theorem}[\cite{hellwematinv},\cite{hellensurvey}]
+	For any field $\bbF$, lower triangular matrix inversion is in $Arithmetic-NC$
+\end{theorem}\vspace{5mm}
 
-\begin{columns}
-\column{.5\textwidth}
-\begin{block}
-\scriptsize{
-\begin{verbatim}
-\begin{itemize}
-\item The first one.
-\item The second one.
-\begin{itemize}
-\item The larger one.
-\item The smaller one.
-\end{itemize}
-\item The third one.
-\end{itemize}
-\end{verbatim}
-}
-\end{block}
-\column{.5\textwidth}
-
-\begin{itemize}
-\item The first one.
-\item The second one.
-\begin{itemize}
-\item The larger one.
-\item The smaller one.
-\end{itemize}
-\item The third one.
-\end{itemize}
-\end{columns}
-\vspace{1.5cm}
-\href{https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{Clique aqui para mais informações.}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{\emph{enumerate}}
-
-\begin{columns}
-\column{.5\textwidth}
-\begin{block}
-\scriptsize{
-\begin{verbatim}
-\begin{enumerate}
-\item The first one.
-\item The second one.
-\begin{enumerate}
-\item The large one.
-\item The small one.
-\end{enumerate}
-\item The third one.
-\end{enumerate}
-\end{verbatim}
-}
-\end{block}
-\column{.5\textwidth}
-
-\begin{enumerate}
-\item The first one.
-\item The second one.
-\begin{enumerate}
-\item The large one.
-\item The small one.
-\end{enumerate}
-\item The third one.
-\end{enumerate}
-\end{columns}
-\vspace{1.5cm}
-\href{https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{Clique aqui para mais informações.}
+\begin{theorem}[\cite{fastparmatricgcd},\cite{paralwellrings}]
+	Lower triangular matrix inversion is in $NC$ over finite fields and $\mathbb{Q}$
+\end{theorem}
 
 \end{frame}
 \begin{frame}[allowframebreaks]
+	\frametitle{Reduction}
+	Given $a(x),b_1(x),\dots, b_n(x)$ over $\bbF$.\\
+	$b_0(x)=r_0(x)=a(x)$ and $d_i=\deg b_i(x)$ for all $0\leq i\leq n$.\\
+	 Assume $d_0\geq d_1> \cdots > d_n$
+	 \begin{align*}
+	 	a(x) & = q_1(x)b_1(x)+r_1(x)\\
+	 	& = q_1(x)b_1(x)+q_2(x)b_2(x)+r_2(x)\\
+	 	& \qquad \vdots\\
+	 	& = q_1(x)b_1(x)+\cdots+q_n(x)b_n(x)+r_n(x)
+	 \end{align*}
+	 $r_{i-1}(x)=q_i(x)\cdot b_i(x)+r_i(x)$ with 	 $	\deg r_i<\deg b_i=d_i$ or $r_i=0$ 
+	\framebreak
+	
+	The coefficient of $x^j$ in $a(x), b_i(x), q_i(x), r_i(x)$ are $a_j$, $b_{i,j}$, $q_{i,j}$, $ r_{i,j}$. 
+	\begin{itemize}
+		\item $\deg q_1=d_0-d_1$, $\deg q_i\leq d_{i-1}-d_{i}-1$
+		\item Compare the coefficients of $x^j$ in both direction.
+		\item $(d_0+1)\times (d_0+1)$  matrix $M$. Denote the variable matrix for coefficients of $q_i$ and $r_n$ as $X$
+	\end{itemize}\framebreak
+	
+ $d_0-i$-th entry of $MX$ is coefficient of  degree $i$. $d_{k}\leq i<d_{k-1}$. 
+ 
+ $r_n(x)\sum\limits_{i=K+1}^nq_i(x)b_i(x)$ doesn't take part in coefficient of $x^i$.
+ 
+ Then $$i=d_k +  (d_{k-1}-d_{k}-1-(d_{k-1}-1-i))=d_k + (i-d_{k})$$Can't get lower than $(d_{k-1}-d_{k}-1-(d_{k-1}-1-i))$ as coefficient of $q_k$
+ $$d_0-i=(d_0-d_1+1)+(d_1-d_2)+\cdots (d_{k-2}-d_{k-1})+(d_{k-1}-1-i)$$
+ So $M$ has at $(d_0-i),(d_0-i)$th 
+%Matrix is non-singular since the diagonal entries are the leading coefficients of $b_i(x)$ 
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]
 \frametitle{References}
-\printbibliography
+\bibliographystyle{alpha}
+\bibliography{bibliography}
 %    \nocite{*} % used here because no citation happens in slides
 \end{frame}
 
