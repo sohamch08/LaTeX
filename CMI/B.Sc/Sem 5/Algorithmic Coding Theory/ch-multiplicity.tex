@@ -6,6 +6,7 @@ References for this topic are \cite{highratesublin}, \cite{kopparty2015remarks}
 	\item For a vector $\ovi=\la i_1,i_2,\dots, i_m\ra$ of non-negative integers its \textbf{\textit{weight}} denoted $wt(\ovi)\coloneqq \sum\limits_{j=1}^m i_j$
 	\item $\bbF[\ovX]=\bbF[X_1,\dots, X_m]$
 	\item For a vector of non-negative integers $\ovi$, $\ovX^{\ovi}\coloneqq \prod\limits_{j=1}^mX_j^{i_j}$
+	\item $\Delta(x,y)=\underset{i\in [n]}{Pr}[x_i\neq y_i]$
 \end{itemize}\parinn 
 \section{Hasse Derivative}
 \begin{definition}[(Hasse) Derivative]
@@ -38,7 +39,7 @@ Now we will define the notion of the multiplicity of a polynomial.
 Note that $mult(P,\ova)\geq 0$ for all $\ova\in \bbF^m$.
 \subsection{Basic Properties of Multiplicity}
 We now translate some of the properties of the Hasse derivative into properties of the multiplicities. We will discuss the properties of multiplicities from \cite{dvir2009extensions}
-\begin{proposition}
+\begin{proposition}\label{diffmult}
 	If $P(\ovX)\in \bbF[\ovX]$ and $\ova\in \bbF^m$ are such that $mult(O,\ova)=n$ then $mult(P^{(\ovi)},\ova)\geq n-wt(\ovi)$
 \end{proposition}
 \begin{proof}
@@ -58,7 +59,7 @@ We will now discuss the behavior of multiplicites under composition of polynomia
 	\end{align*}
 	Since each monomial $\ovZ^{\ovi}$ appearing in $h$ has $wt(\ovi)\geq m_2$ and each occurrence of $h(\ovZ)$ in $P(Q(\ova+\ovZ))$ is raised to the power $\ovj$ with $wt(\ovj)\geq m_1$ we conclude that $P(Q(\ova+\ovZ))$ is of the form $\sum\limits_{wt(\ovk)\geq m_1\cdot m_2}c_{\ovk}\ovZ^{\ovk}$. This shows that $(P\circ Q)^{(\ovk)}(\ova)=0$ for each $\ovk$ with $wt(\ovk)<m_1\cdot m_2$. And hence we get the result.
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{chvarmult}
 	Let $P(\ovX)\in \bbF[\ovX]$. Let $\ova,\ovb\in \bbF^m$. Let $P_{\ova,\ovb}(T)$ be the polynomial $P(\ova+T\cdot \ovb)\in \bbF[T]$. Then for any $t\in \bbF$, $$mult(P_{\ova,\ovb},t)\geq mult(P,\ova+t\cdot \ovb)$$
 \end{corollary}
 \begin{proof}
@@ -68,22 +69,70 @@ We will now discuss the behavior of multiplicites under composition of polynomia
 \begin{theorem}[Schwartz-Zippel Lemma]\label{schwartzzippel}
 	Let $P(\ovX)\in \bbF[\ovX]$ be a non-zero polynomial with degree $d$. Let $S$ be a finite subset of $\bbF$ with at least $d$ elements in it. If we take $\ova\in S^m$ independently and uniformly at random then $$Pr_{\ova\in S^m}[P(\ova)=0]\leq \frac{d}{|S|}$$
 \end{theorem}
-We will prove the strengthening of this lemma using $mult$.
-\begin{theorem}[\cite{dvir2009extensions}]
-	Let $P(\ovX)\in \bbF[\ovX]$ be a
-\end{theorem}
-
-
-
-Now we need a bound on the number of points that a low-degree polynomial can vanish on with high multiplicity. We state a basic bound on the total number of zeroes (counting multiplicity) that a polynomial can have on a product set $S^m$.
+We will prove the strengthening of this lemma using $mult$. Now we need a bound on the number of points that a low-degree polynomial can vanish on with high multiplicity. We state a basic bound on the total number of zeroes (counting multiplicity) that a polynomial can have on a product set $S^m$.
 \begin{theorem}[\cite{dvir2009extensions}]\label{multplicitybound}
 	Let $P(\ovX)\in \bbF[\ovX]$ be a nonzero polynomial of total degree at most $d$. Then for any finite $S\subseteq \bbF$, $$\sum_{\ova\in S^m} mult(P,\ova)\leq d\cdot |S|^{m-1}$$In particular, for any integer $s>0$ $$Pr_{\ova\in S^m}[mult(P,\ova)\geq s]\leq \frac{d}{s|S|}$$
 \end{theorem}
 \begin{proof}
 	We will prove this by induction on $m$. For the base case when $m=1$ we will first show that if $mult(P,a)=k$ then $(X-a)^k$ divides $P(X)$. To see this, note that by definition of multiplicity, we have that $P(a+Z)=\sum\limits_{i}P^{(i)}(a)Z^{i}$ and $P^{(i)}(a)=0$ for all $i<k$ we conclude that $Z^k$ divides $P(a+Z)$. And thus $(X-a)^k$ divides $P(X)$. It follows that $\sum\limits_{a\in S} mult(P,a)$ is at most the degree of $P$. 
 	
-	Now suppose $m>1$. Let $$P(\ovX)=\sum_{j=0}^t P_j(X_1,\dots, X_{m-1})X^j_m$$where $0\leq t\leq d$, $P_t(X_1,\dots, X_{m-1})\neq 0$ and $\deg(P_j)\leq d-j$. For any $a_1,\dots, a_{n-1}\in S$ let $m_{a_1,\dots, a_{n-1}}=mult(P_t,(a_1,\dots, a_{n-1}))$. We will show that $$\sum_{a_n\in S}mult(P, \ova)\leq m_{a_1,\dots,a_{n-1}}\cdot |S|+t$$
+	Now suppose $m>1$. Let $$P(\ovX)=\sum_{j=0}^t P_j(X_1,\dots, X_{m-1})X^j_m$$where $0\leq t\leq d$. Now we have $P_t(X_1,\dots, X_{m-1})\neq 0$ and $\deg(P_j)\leq d-j$. For any $a_1,\dots, a_{m-1}\in S$ let $m_{a_1,\dots, a_{m-1}}=mult(P_t,(a_1,\dots, a_{m-1}))$. 
+	\begin{claim}
+		For any $a_1,\dots, a_{m-1}\in S$ $$\sum_{a_m\in S}mult(P, \ova)\leq m_{a_1,\dots,a_{m-1}}\cdot |S|+t$$
+	\end{claim}
+	\begin{proof}
+		Fix $a_1,\dots, a_{m-1}\in S$. Let $\ovi=(i_1,\dots, i_{m-1})$ be such that $wt(\ovi)=m_{a_1,\dots,a_{m-1}}$. Since $m_{a_1,\dots, a_{m-1}}=mult(P_t,(a_1,\dots, a_{m-1}))$, for all $\ovj$ such that $wt(\ovj)<m_{a_1,\dots, a_{m-1}}$, $P_t^{(\ovj)}(a_1,\dots, a_{m-1})=0$. Hence there exists an $\ovj$ such that $wt(\ovj)=m_{a_1,\dots, a_{m-1}}$ and $P_t^{(\ovj)}(a_1,\dots, a_{m-1})\neq 0$. Therefore  $P_t^{(\ovi)}(X_1,\dots, X_{m-1})\neq 0$. Letting $(\ovi,0)$ we note that $$P^{(\ovi,0)}(X_1,\dots, X_m)=\sum_{j=0}^tP_j^{(\ovi)}(X_1,\dots, X_{m-1})X_m^j$$and therefore $P^{(\ovi,0)}(X_1,\dots, X_m)$ is a nonzero polynomial. Now
+		\begin{align*}
+			mult(P,\ova) & \leq wt(\ovi,0)+mult(P^{(\ovi,0)}, \ova) & [\text{\propref{diffmult}}]\\
+			& \leq m_{a_1,\dots, a_{m-1}}+mult(P^{(\ovi,0)}(a_1,\dots, a_{m-1},X_m),a_m) & [\text{\cormref{chvarmult}}]
+		\end{align*}
+		Now summing over all $a_n\in S$ and using the $m-1$ case to $P^{(\ovi,0)}(a_1,\dots, a_{m-1},X_m)$ we have $$\sum_{a_m\in S}mult(P, \ova)\leq \sum_{a_m\in S}m_{a_1,\dots, a_{m-1}}+\sum_{a_m\in S}mult(P^{(\ovi,0)}(a_1,\dots, a_{m-1},X_m),a_m)= m_{a_1,\dots,a_{m-1}}\cdot |S|+t$$
+	\end{proof}
+	Using this result we have $$\sum_{a_1,\dots, a_{m}\in S}mult(P,\ova)\leq \sum_{a_1,\dots, a_{m-1}\in S}m_{a_1,\dots, a_{m-1}}+\sum_{a_1,\dots, a_{m}\in S} t=\sum_{a_1,\dots, a_{m-1}\in S}m_{a_1,\dots, a_{m-1}}+|S|^{m-1}t$$Now by induction on $P_t$ $$\sum_{a_1,\dots, a_{m-1}\in S}m_{a_1,\dots, a_{m-1}} \leq \deg P_t \cdot |S|^{m-2}\leq (d-t)|S|^{m-1}$$ Hence we get $$\sum_{a_1,\dots, a_{m}\in  S}mult(P,\ova)\leq \sum_{a_1,\dots, a_{m-1}\in S}m_{a_1,\dots, a_{m-1}}+|S|^{m-1}t\leq (d-t)|S|^{m-1}+t\cdot |S|^{m-1}=d\cdot |S|^{m-1}$$
 \end{proof}
 \begin{corollary}
 	Let $P(\ovX)\in \bbF_q[\ovX]$ be a polynomial of total degree at most $d$. If $$\sum_{\ova\in \bbF_q^m}mult(P,\ova)>d\cdot q^{m-1}$$then $P(\ovX)=0$
 \end{corollary}
+\section{Multiplicity Code}
+\begin{definition}[Order $s$ evaluation of $P$, $P^{(<s)}$]
+	Let $s,d,m$ be nonnegative integers and let $q$ be a prime power. Let $\Sg=\bbF_q\st^{{m+s-1}\choose{m}}=\bbF_q\st^{\{\ovi:wt(\ovi)<s\}}$. For $P\in \bbF_q[\ovX]$ and $\ova\in \bbF_q^m$ we define the order $s$ evaluation of $P$ at $\ova$, denoted $P^{(<s)}(\ova)$, to be the vector $\la P^{(\ovi)}(\ova)\ra_{wt(\ovi)<s}\in \Sg$
+\end{definition}
+\begin{definition}[Multiplicity Code]
+	The multiplicity code of order $s$ evaluations of degree $d$ polynomials in $m$ variables over $\bbF_q$ is the code over alphabet $\Sg$ and has length $q^m$ (All $P^{(<s)}(\ova)$ evaluations at all $\ova\in \bbF_q^m$). For each polynomial $P\in \bbF_q[\ovX]$ with $\deg P\leq d$ there is a codeword $C$ given by $$\enc_{s,d,m,q}(P)=\la P^{(<s)}(\ova)\ra_{\ova\in \bbF_q^m}\in \Sg^{q^m}$$
+\end{definition}
+Now we will calculate the rate and distance of multiplicity codes.
+\begin{theorem}
+	Let $\mcC$ be the multiplicity code of order $s$ evaluations of degree $d$ polynomials in $m$ variables over $\bbF_q$. Then $\mcC$ has relative distance $\delta=1-\frac{d}{sq}$ and rate $\frac{{{d+m}\choose{m}}}{{{m+s-1}\choose{m}}q^m}$
+\end{theorem}
+\begin{proof}
+	The alphabet size equals $q\st^{{m+s-1}\choose{m}}$. The block-length equals $q^m$.
+	
+	To calculate the distance, consider any two codewords $c_1=\enc_{s,d,m,q}(P_1)$ and $c_2=\enc_{s,d,m,q}(P_2)$ where $P_1\neq P_2$. For any coordinate $\ova \in \bbF_q^m$ where the codewords $c_1,c_2$ agree we have $P_1^{(<s)}(\ova)=P_2^{(<s)}(\ova)$. Thud for any such $\ova $, we have $(P_1-P_2)^{(\bmi)}(\bma)=0$ for all $\ovi$ such that $wt(\ovi)<s$. Therefore $mult(P_1-P_2,\ova)\geq s$. Now using \thmref{multplicitybound} the fraction of $\ova\in \bbF_q^m$ for which $mult(P_1-P_2,\ova)\geq s$ is at most $\frac{d}{sq}$. Then the minimum distance of the code is at least $1-\frac{d}{sq}$.
+	
+	A codeword is specified by giving coefficients to each of the monomials of degree at most $d$. Thus the number of codewords equals $q^{{{d+m}\choose{m}}}$. Thus the rate equals $$\frac{{{d+m}\choose{m}}}{{{m+s-1}\choose{m}}q^m}=\frac{\prod\limits_{j=0}^{m-1}(d+m-j)}{\prod\limits_{j=1}^m((s+m-j)q)}\geq \lt( \frac{1}{1+\frac{m}{s}} \rt)^m\lt(\frac{d}{sq}\rt)^m\geq \lt(1-\frac{m^2}{s}\rt)(1-\delta)^m$$
+\end{proof}
+\section{Local Correction of Multiplicity Codes}
+Suppose $P$ is a polynomial over $\bbF_q$ in $m$ variables of degree at most $d$ such that $\Delta(\enc_{s,d,m,q}(P))$ is small. Let $\ova\in \bbF_q^m$ where $r$ is the received word. The key idea is to pick many random limes containing $\ova$ and to consider the restriction of $r$ to those lines. With high probability over  random direction $\ovb\in \bbF_q^m\setminus\{0\}$ by looking at the restriction of $r$ to the line $\ova+T\ovb$ and decoding it we will able to recover the univariate polynomial $P(\ova+T\ovb)$. This univariate polynomial will tell us a certain linear combination of the various derivatives of $P$ at $\ova$, $\la P^{(<s)}(\ova)\ra_{wt(\ovi)<s}$. Combining this for various directions $\ovb$, we will know a system of various linear combinations of the numbers $\la P^{(<s)}(\ova)\ra_{wt(\ovi)<s}$. Solving this system of linear equations we get $P^{(\ovi)}(\ova)$ for each $\ovi$ as desired.
+\subsection{Preliminaries on Restrictions and Derivatives}
+We first consider the relationship between the derivatives of a multivariate polynomial $P$ and its restrictions to a line. Fix $\ova,\ovb\in \bbF_q^m$ and consider the polynomial $Q(T)=P(\ova+T\ovb)$
+\begin{itemize}
+	\item \textbf{The relationship of $Q(T)$ with the derivatives of $P$ at $\ova$:} By the definition of Hasse derivative $$Q(T)=\sum_{\ovi}P^{(\ovi)}(\ova)b^{\ovi}T^{wt(\ovi)}$$Then by grouping terms we obtain: $$\sum_{\ovi:wt(\ovi)=j}P^{(\ovi)}(\ova)b^{\ovi}=\text{Coefficient of $T^j$ in $Q(T)$}$$
+	\item \textbf{The relationship of the derivatives of $Q$ at $t$ with the derivatives of $P$ at $\ova+T\ovb$:} Let $t\in \bbF_q$. BY the definition of Hasse Derivatives, we get: $$P(\ova+\ovb(T+R))=Q(T+R)=\sum_{j}Q^{(j)}(T)R^j\qquad P(\ova+\ovb(T+R))=\sum_{\ovi}P^{(\ovi)}(\ova+T\ovb)(\ovb R)^{\ovi}$$Therefore comparing the coefficients we obtain: $$Q^{(j)}(T)=\sum_{\ovi:wt(\ovi)=j}P^{(\ovi)}(\ova+T\ovb)\ovb^{\ovi}$$
+	\item \textbf{The relationship of $Q_{\ove}(T)\coloneqq P^{(\ove)}(\ova+T\ovb)$ with the derivatives of $P$ at $\ova$:} $$\sum_{\ovi:wt(\ovi)=j} (P^{(\ove)})^{(\ovi)}(\ova)\ovb^{\ovi}=\sum_{\ovi:wt(\ovi)=j}\comb{\ove+\ovi}{\ove}P^{(\ove+\ovi)}(\ova)\ovb^{\ovi}=\text{Coefficient of $T^j$ in $Q_{\ove}(T)$}$$
+	\item \textbf{The relationship of the derivatives of $Q_{\ovw}$ at $T$ with the derivatives of $P$ at $\ova+T\ovb$:} Let $t\in \bbF_q$.$$Q_{\ove}^{(j)}(T)=\sum_{\ovi:wt(\ovi)=j}(P^{(\ove)})^{(\ovi)}(\ova+T\ovb)\ovb^{\ovi}=\sum_{\ovi:wt(\ovi)=j}\comb{\ove+\ovi}{\ove}P^{(\ove+\ovi)}(\ova+T\ovb)\ovb^{\ovi}$$
+\end{itemize}
+
+We are now in a position to describe our decoding algorithm. Before describing the main local self-correction algorithm for correcting from $\Om(\delta)$-fraction errors, we describe a simpler version of the algorithm which corrects from a much smaller fraction of errors.
+\subsection{Simplified Error-Correction from Few Errors}
+\textbf{Input:} Received word $r:\bbF_q^m\to \Sg$, point $\ova\in \bbF_q^m$. \\
+\textbf{Output:} $P^{(<s)}(\ova)$ where $P(\ovX)$ is such that $\Delta(\enc_{s,d,m,q}(P),r)\leq \frac{\delta}{100{{m+s-1}\choose{m}}}$
+
+Abusing notation we will write $r^{(\ovi)}(\ova)$ to mean the $\ovi$th coordinate of $r(\ova)$.\\
+\textbf{Algorithm:}\begin{enumerate}
+	\item \textbf{Pick a set $B$ of directions:} Choose $B\subseteq \bbF_q^m\setminus \{0\}$, a uniformly random subset of size $w\coloneqq \comb{m+s-1}{m}$. 
+	\item \textbf{Recover $P(\ova+T\ovb)$ for directions $\ovb\in B$:} For each $\ovb\in B$, consider the function $l_{\ovb}:\bbF_q\to \bbF_q^s$ given by $$(l_{\ovb})_j=\sum_{\ovi:wt(\ovi)=j}r^{(\ovi)}(\ova+T\ovb)\ovb^{\ovi}$$ where $(l_{\ovb})_j$ is the $j$th coordinate of $l_{\ovb}(t)$. 
+	
+	Now find the polynomial $Q_{\ovb}(T)\in \bbF[T]$ of degree at most $d$ (if any) such that $\Delta\lt(\enc_{s,d,m,q}(Q_{\ovb}),l_{\ovb}\rt)<\frac{\delta}2$
+	\item \textbf{Solve a linear system to recover $P^{(<s)}(\ova)$:} For each $e$ with $0\leq e<s$ consider the following system of equations in the variables $\la u_{\ovi}\ra_{wt(\ovi)=e}$ (with one equation for each $\ovb\in B$): $$\sum_{\ovi:wt(\ovi)=e}\ovb^{\ovi}u_{\ovi}=\text{Coefficient of $T^e$ in $Q_{\ovb}(T)$}$$Find all $\la u_{\ovi}\ra_{wt(\ovi)=e}$ which satisfy at all these equations. If there are 0 or >1 solutions, output FAIL.
+	\item Output the vector $\la u_{\ovi}\ra_{wt(\ovi)=e}$.
+\end{enumerate}
