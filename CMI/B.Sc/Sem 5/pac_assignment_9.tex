@@ -1,0 +1,125 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools,mathdots,amssymb}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes,patterns}
+\usetikzlibrary{decorations.shapes}
+\usepackage{caption}
+\usepackage{mathpazo}
+
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+\tikzset{decorate sep/.style 2 args=
+	{decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}}
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Assignment - 9}\\
+	Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+	\normalsize Course: Parallel Algorithms and Complexity \hfill Date: NOvember 14, 2023}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\begin{problem}{%problem statement
+	}{p1% problem reference text
+	}
+For a real $n\times n$ matrix $M$ define $\|M\|=\sup\limits_{0\neq x\in \bbR^n}\frac{\|xM\|}{\|x\|}$. Then
+\begin{enumerate}
+	\item $\|M+N\|\leq \|M\|+\|N\|$
+	\item $\|MN\|\leq \|M\| \|N\|$
+	\item $\|M\|=\max\limits_i\lt(\sum\limits_j|M[i,j]|\rt)$
+	\item If $M$ is a transition probability matrix i.e. all entries are non negative and the sum of entries in each row is 1, then $\|M\|=1$
+	\item If all entries of $M$ are bounded in absolute value by $\eps$ then $\|M\|\leq n\eps$
+\end{enumerate}
+		
+%Problem		
+\end{problem}
+	
+\solve{
+	%Solution
+	\begin{enumerate}
+		\item For any $x\in \bbR^n$ we have $\|x(M+N)\|=\|xM+xN\|\leq \|xM\|+\|xN\|$. Hence after taking supremum over all nonzero $x\in \bbR^n$ we have $\|M+N\|\leq \|M\|+\|N\|$.
+		\item We have $\|M\|=\sup\limits_{0\neq x\in \bbR^n}\frac{\|xM\|}{\|x\|}$. Hence we have for any $x\in \bbR^n$ $\|xM\|\leq \|M\||x|$. So now \begin{multline*}
+			\|MN\|=\sup\limits_{0\neq x\in \bbR^n}\frac{\|x(MN)\|}{\|x\|}=\sup\limits_{0\neq x\in \bbR^n}\frac{\|(xM)N\|}{\|x\|}\leq \sup\limits_{0\neq x\in \bbR^n}\frac{\|xM\|\|N\|}{\|x\|}\\
+			=\lt(\sup\limits_{0\neq x\in \bbR^n}\frac{\|xM\|}{\|x\|} \rt)\|N\|=\|M\|\|N\|
+		\end{multline*}
+		\item Let's denote the rows of $M$ by $M_1,\, \dotsc,\, M_n$. Then for every $x \in \mathbb{R}^n$, we have
+		
+		\begin{align*}
+			\lVert xM \rVert &= \left\lVert\sum_{j=1}^n x_j\cdot M_j \right\rVert\\
+			&\leqslant \sum_{j=1}^n \lVert x_j\cdot M_j\rVert\\
+			&= \sum_{j=1}^n \lvert x_j\rvert\cdot\lVert M_j\rVert\\
+			&\leqslant \max \left\{\lVert M_j\rVert : 1 \leqslant j \leqslant n\right\} \left(\sum_{j=1}^n \lvert x_j\rvert\right)\\
+			&= \max \left\{\lVert M_j\rVert : 1 \leqslant j \leqslant n\right\}\cdot \lVert x\rVert
+		\end{align*}
+		
+		That shows that
+		
+		$$\lVert M\rVert_1 \leqslant \max \left\{\lVert M_j\rVert : 1 \leqslant \nu \leqslant n\right\},$$
+		
+		Let $k$ is the index for which the column sum of $M$ has maximum. Then choosing $x = e_k$ shows the opposite inequality. Hence we have the equality
+		\item By the previous part $\|M\|=\max\limits_i\lt(\sum\limits_j|M[i,j]|\rt)$. Since for each row of $M$ the row sum is 1 we have the $\|M\|=\max\limits_i\lt(\sum\limits_j|M[i,j]|\rt)=\max\limits_i 1=1$.
+		\item By the part (3) we have $\|M\|=\max\limits_i\lt(\sum\limits_j|M[i,j]|\rt)$. Now all entries of $M$ is bounded by $\eps$ in absolute value. So  each rowsum is bounded by $n\eps$ in absolutevalue.  Hence $\|M\|\leq n\eps$.
+	\end{enumerate}
+}
+
+	
+\end{document}

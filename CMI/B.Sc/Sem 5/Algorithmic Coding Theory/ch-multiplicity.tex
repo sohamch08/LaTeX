@@ -136,3 +136,7 @@ Abusing notation we will write $r^{(\ovi)}(\ova)$ to mean the $\ovi$th coordinat
 	\item \textbf{Solve a linear system to recover $P^{(<s)}(\ova)$:} For each $e$ with $0\leq e<s$ consider the following system of equations in the variables $\la u_{\ovi}\ra_{wt(\ovi)=e}$ (with one equation for each $\ovb\in B$): $$\sum_{\ovi:wt(\ovi)=e}\ovb^{\ovi}u_{\ovi}=\text{Coefficient of $T^e$ in $Q_{\ovb}(T)$}$$Find all $\la u_{\ovi}\ra_{wt(\ovi)=e}$ which satisfy at all these equations. If there are 0 or >1 solutions, output FAIL.
 	\item Output the vector $\la u_{\ovi}\ra_{wt(\ovi)=e}$.
 \end{enumerate}
+\textbf{Analysis:} \begin{enumerate}[label=\bfseries Step \arabic*:,itemindent=0.8cm]
+	\item \textbf{All the $\ovb\in B$ are ``good":} For $|obv\in \bbF_q^m\setminus \{0\}$ we will be interested in the graction of errors on the line $\{\ova+t\ovb\mid t\in \bbF_q\setminus \{0\}\}$ through $\ova $ in direction $\ovb$. Since these lines cover $\bbF_q^m\setminus \ova$ uniformly, we can conclude that at most $\frac1{50{{m+s-1}\choose{m}}}\leq \frac{1}{50}<0.1$ of the lines containing $\ova$ have more than $\frac{\delta}{2}$ fraction of errors on them. Hence the probability that a line has fewer than $\frac{\delta}{2}$ errors is at least $0.9$ over the choice of $B$.
+	\item \textbf{$Q_{\ovb}{T}=P(\ova+T\ovb)$ for each $\ovb\in B$:} Assume that $B$ is such that the above event occurs. In this casem  for each $\ovb\in B$ 
+\end{enumerate}

@@ -1,0 +1,86 @@
+\documentclass{report}
+
+
+\usepackage[nottoc,numbib]{tocbibind}
+\input{../preamble-formal}
+\input{../letterfonts}
+\input{../macros}
+
+\definecolor{mycolor1}{RGB}{110,90,180}
+\definecolor{mycolor2}{RGB}{240,240,240}
+%\usepackage{anysize}
+%\marginsize{1.5in}{1in}{0.5in}{0.5in}
+
+\newcommand*{\titre}[2]{\begingroup
+	\newlength{\drop}
+	\setlength{\drop}{0.1\textheight}
+	\centering
+	\settowidth{\unitlength}{\Huge\scshape La matière et l'espace\hspace{3pt}-temps}
+	\vspace*{\baselineskip}
+	\rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+	\rule{\unitlength}{0.4pt}\\[\baselineskip]
+	{\Huge\scshape\color{white} #1}\\[\baselineskip]
+%	{\large\itshape Instructor: #2}\\[0.2\baselineskip]
+	\rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+	\rule{\unitlength}{1.6pt}\\[4\baselineskip]
+	{\Large \begin{center}
+			\begin{tabular}{ccc}
+				\textsc{Soham Chatterjee} & \ \hspace*{3cm} & \textsc{Shree Ganesh S J}\\
+				sohamc@cmi.ac.in & & shreeganesh@cmi.ac.in\\
+				BMC202175 & & MCS2021
+			\end{tabular}
+	\end{center} }\par
+	\vfill
+	{\large\scshape 2023}\par
+	\endgroup}
+
+
+%\title{\huge Algorithmic Coding Theory - Amit Kumar Sinhababu}
+%\author{ \vspace*{5mm} \LARGE Scribed: Soham Chatterjee\\\large sohamchatterjee999@gmail.com\\ \large Website: \href{https://sohamch08.github.io/}{sohamch08.github.io}}
+%\date{\LARGE 2023}
+
+%\input{../titlepageC}
+
+%\addbibresource{refs.bib}
+\begin{document}
+%\begin{titlingpage}
+%	\maketitle
+%\end{titlingpage}
+	
+%----------------------------------------------------------------------------------------
+%TITLE PAGE
+%----------------------------------------------------------------------------------------
+\thispagestyle{empty}
+%\titleBC{Algorithmic Coding Theory: 2023}
+	
+%{Soham Chatterjee}{\textbf{sohamchatterjee999@gmail.com \\ Website: \href{https://sohamch08.github.io/}{sohamch08.github.io}}
+\begin{titlepage}
+			
+	\begin{tikzpicture}[remember picture,overlay]
+		\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[minimum width=\paperwidth,minimum height=\paperheight,top color=mycolor1,bottom color=mycolor2]{};
+	\end{tikzpicture}\\[3\baselineskip]
+			
+	\titre{Algebraic Geometric Codes}{}
+\end{titlepage}
+		
+\pagebreak
+\tableofcontents 
+\pagebreak
+		
+		
+%		\input{ch-ldc}
+%		
+%		\input{ch-multiplicity}
+%		
+%		\input{ch-expander}
+%		
+%		\input{ch-probref}
+%		
+		
+		
+\pagebreak
+%\printbibliography[heading=none]
+%\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{alpha}
+\bibliography{refs}
+	\end{document}

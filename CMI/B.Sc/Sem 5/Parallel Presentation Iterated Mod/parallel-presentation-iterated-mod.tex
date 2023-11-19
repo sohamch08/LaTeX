@@ -176,8 +176,10 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Frame 4
 \section{Iterated Integer Mod $(IIM)$ Problem}
+\subsection{Introduction}
 \begin{frame}
 	\frametitle{Iterated Integer Mod Problem}
+	\framesubtitle{Introduction}
 %	\begin{itemize}
 	\textbf{Problem:}
 	
@@ -323,7 +325,21 @@ Greedy strategy considering the $w_i'$ in decreasing order gives a linear time a
 %\begin{theorem}
 %	Super Increasing Knapsack Problem is $P$-complete
 %\end{theorem}
-We will show $NANDCVP\leq SIK$. For that we will reduce $NANDCVP$ to a special instance of $IIM$ which is reducible to $SIK$.\begin{itemize}
+\begin{theorem}
+	If $w_1,\dots, w_n$ are such that $\forall \ i\in [n-1]$ $\sum\limits_{k=1}^{i}w_k<w_{i+1}$ then there is a 0-1 sequence of variables $x_1,\dots, x_n$ such that $\sum\limits_{i=1}^nx_iw_i=w$ iff $$((\cdots((w\bmod{w_n})\bmod{w_{n-1}})\cdots )\bmod{w_2})\bmod{w_1}=1$$
+\end{theorem}
+\framebreak
+
+\textbf{Observe:} The previous reduction the modulo numbers doesn't satisfy super increasing knapsack condition.
+\vspace{5mm}
+
+\begin{itemize}
+	\item Need to find another reduction of $NANDCVP$ to $IIM$ where modulo numbers are super increasing to work with above theorem !!
+\end{itemize}
+
+\framebreak
+
+\begin{itemize}
 	\item Let $x$ is $n+1$-length base 4 number whose $i$th digit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
 	\item $1\leq g\leq G$  $$m_{2g}=4^{2g}+4^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}4^j$$ $$m_{2g-0.5}=4^{2g}-4^{2g-1},\ \ m_{2g-1}=4^{2g-1}$$
 \end{itemize}
@@ -389,9 +405,7 @@ After $m_1$, $x_1<2^1$ is the value carried by the 0th edge, the value of the $C
 		\end{tabular}
 	\end{enumerate}
 
-\begin{theorem}
-	If $w_1,\dots, w_n$ are such that $\forall \ i\in [n-1]$ $\sum\limits_{k=1}^{i}w_k<w_{i+1}$ then there is a 0-1 sequence of variables $x_1,\dots, x_n$ such that $\sum\limits_{i=1}^nx_iw_i=w$ iff $$((\cdots((w\bmod{w_n})\bmod{w_{n-1}})\cdots )\bmod{w_2})\bmod{w_1}=1$$
-\end{theorem}
+
 \framebreak
 
 \begin{theorem}
@@ -420,7 +434,7 @@ After $m_1$, $x_1<2^1$ is the value carried by the 0th edge, the value of the $C
 \end{theorem}
 \end{frame}
 
-\subsection{$PIM$ is in $NC$}
+\subsection{Matrix Inversion}
 \begin{frame}
 \frametitle{Lower Triangular Matrix Inversion}
 
@@ -435,6 +449,7 @@ After $m_1$, $x_1<2^1$ is the value carried by the 0th edge, the value of the $C
 \end{theorem}
 
 \end{frame}
+\subsection{$PIM$ is in $NC$}
 \begin{frame}[allowframebreaks]
 	\frametitle{Reduction}
 	Given $a(x),b_1(x),\dots, b_n(x)$ over $\bbF$.\\
@@ -473,15 +488,19 @@ We need to inverse $M$ which is in $Arithmetic-NC$ for general fields and for fi
 \end{theorem}
 	
 \end{frame}
-\section{Open Problem}
+%\section{Open Problem}
+%\begin{frame}
+%\frametitle{Open Problem}
+%\begin{itemize}
+%	\item The $gcd$ problem we still don't know if it is in $NC$. 
+%	\item Modular Powering i.e. $a^e\bmod b$ where $a,b,e$ are $n$-bit integers are not knowen to be $P$-complete or in $NC$. 
+%\end{itemize}
+%\end{frame}
 \begin{frame}
-\frametitle{Open Problem}
-\begin{itemize}
-	\item The $gcd$ problem we still don't know if it is in $NC$. 
-	\item Modular Powering i.e. $a^e\bmod b$ where $a,b,e$ are $n$-bit integers are not knowen to be $P$-complete or in $NC$. 
-\end{itemize}
-\end{frame}
+\begin{center}
+		\Huge{Thank You!}
 
+	\end{center}\end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{References}
 \bibliographystyle{alpha}
