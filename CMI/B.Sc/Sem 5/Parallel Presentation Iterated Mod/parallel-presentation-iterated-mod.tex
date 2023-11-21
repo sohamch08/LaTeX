@@ -171,6 +171,7 @@
     \item  Sequential algorithm for computing $gcd$ is based on Euclidean Algorithm
     $r_0=a$, $r_1=b$. Then $$r_2=r_0\bmod{r_1},\quad r_{3}=r_{1}\bmod{r_2}, \quad \cdots$$ $gcd$ is the last nonzero $r_i$.
     \item But parallel complexity of $gcd$ is poorly understood. Fastest parallel  algorithm takes $O\left(\frac{n}{\log n}\right)$ time \cite{gcdfastpar}
+    \item $gcd$ for polynomials is in $NC$
     \item  The problem we will study related to the $gcd$ problem. It is given  integers or polynomials $x, m_n,m_{n-1},\dots, m_1$  find if $$((x\bmod{m_{n}})\bmod{m_{n-1}})\cdots)\bmod{m_{1}})=0$$
 \end{itemize}
 \end{frame}
