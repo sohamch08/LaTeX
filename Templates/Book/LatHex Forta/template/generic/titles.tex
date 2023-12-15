@@ -1,0 +1,56 @@
+\usepackage{titlesec}
+
+%----------------------------------------------------------------------------------------
+%   SECTION NUMBERING IN THE MARGIN
+%----------------------------------------------------------------------------------------
+
+\newcommand{\autodot}{.} % separate title numbers with dots
+\newcommand*{\numberinmargin}[3]{\makebox[0pt][r]{\textcolor{#3}{\fontsize{#2}{#2}\selectfont\headingfontfamily\bfseries\selectfont#1\autodot}\hskip\marginparsep}}
+
+%----------------------------------------------------------------------------------------
+%   LAYOUT
+%----------------------------------------------------------------------------------------
+
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%----------------------------------------------------------------------------------------
+%   FORMAT
+%----------------------------------------------------------------------------------------
+
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\headingfontfamily\bfseries\selectfont\color{accent}}
+  {\numberinmargin{\thechapter}{24}{accent}}
+  {0pt}
+  {\MakeUppercase}
+
+\titleformat{\section}
+  {\normalfont\large\headingfontfamily\bfseries\selectfont\color{fg}}
+  {\numberinmargin{\thesection}{16}{accent}}
+  {0pt}
+  {\MakeUppercase}
+
+\titleformat{\subsection}
+  {\normalfont\normalsize\headingfontfamily\bfseries\selectfont\color{fg}}
+  {\numberinmargin{\thesubsection}{12}{fg}}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\small\headingfontfamily\bfseries\selectfont\color{fg}}
+  {\numberinmargin{\thesubsubsection}{10}{fg}}
+  {0pt}
+  {}
+
+%----------------------------------------------------------------------------------------
+%   SPECIAL TITLE
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\paragraph}[1]{%
+  \par\vspace{3.25ex plus 1ex minus .2ex}%
+  \noindent\hspace*{-4cm}\colorbox{bgacc}{%
+    \hspace*{4cm}\normalfont\huge\headingfontfamily\selectfont\color{fgacc}\uppercase{#1}
+  }%
+  \par\nobreak\vspace{1.5ex plus .2ex}%
+}

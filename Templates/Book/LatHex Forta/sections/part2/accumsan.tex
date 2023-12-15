@@ -1,0 +1,67 @@
+\section{Phasellus tristique} \label{sec:phasellus-tristique}
+
+Lacus ac turpis semper fringilla. Mauris fermentum varius neque, vel congue
+elit tempus quis. Aliquam a nunc in nunc consectetur hendrerit ut quis felis. 
+
+Quisque id dui magna. Curabitur posuere nisl at magna vehicula aliquam \ref{fig:duis}.
+Duis et suscipit felis. Mauris non justo quis diam gravida placerat condimentum
+ut sapien. Praesent imperdiet libero id est tincidunt ullamcorper.
+
+\begin{figure}[ht]
+\hspace*{-1.6cm}
+\begin{tikzpicture}
+
+\node (logs) [io] {Logs};
+\node (storage) [io, right=2cm of logs] {Storage};
+\node (log-topics) [io, below=1cm of logs] {Log: topics, data};
+
+\node (parse-data) [block, below=1cm of log-topics] {Parse event arguments};
+\node (arguments) [io, below=2.7cm of parse-data] {Event arguments};
+
+\node (parse-selector) [block, left=2cm of parse-data] {Parse event selector};
+\node (reverse-selector) [block, below=1cm of parse-selector] {Reverse selector};
+\node (signature) [io, below=1cm of reverse-selector] {Event signature};
+
+\node (identify-standard) [block, below=1cm of signature] {Identify standard and event};
+\node (fetch-constraints) [block, below=1cm of identify-standard] {Fetch matching constraints};
+\node (check-constraints) [decision, below=4.3cm of arguments] {Constraints?};
+
+\node (references) [io, left=1.6cm of identify-standard] {References};
+\node (rules) [io, left=2cm of fetch-constraints] {Rules};
+
+\node (negative) [io, below=2cm of check-constraints] {False};
+\node (positive) [io, right=2cm of negative] {True};
+
+\node (c1) [container, fit=(parse-selector) (reverse-selector) (parse-data), draw=gray] {};
+
+\node (c2) [container, fit=(identify-standard) (fetch-constraints), draw=gray] {};
+
+\node (c3) [container, fit=(positive) (negative)] {};
+
+\node (c4) [container, fit=(references) (rules)] {};
+
+\node (c0) [container, fit=(log-topics) (c1) (c2) (check-constraints), inner ysep=6mm, yshift=-2mm] {};
+\node (t0) [label, above=2mm of c0, xshift=-4cm] {Event poisoning?};
+
+\draw [arrow] (logs) -- (log-topics);
+\draw [arrow] (log-topics) -| (parse-selector);
+\draw [arrow] (log-topics) -- (parse-data);
+\draw [arrow] (parse-selector) -- (reverse-selector);
+\draw [arrow] (reverse-selector) -- (signature);
+\draw [arrow] (signature) -- (identify-standard);
+\draw [arrow] (parse-data) -- (arguments);
+% \draw [arrow] (arguments) |- (identify-standard);
+\draw [arrow] (arguments) -- (check-constraints);
+\draw [arrow] (identify-standard) -- (fetch-constraints);
+\draw [arrow] (fetch-constraints) |- (check-constraints);
+\draw [arrow] (references) -- (identify-standard);
+\draw [arrow] (rules) -- (fetch-constraints);
+\draw [arrow] (storage) -- +(0,-9cm) -| (check-constraints);
+\draw [arrow] (check-constraints) -| node[label, near start, above] {no} (positive);
+\draw [arrow] (check-constraints) -- node[label, near start, right] {yes} (negative);
+
+\draw [arrow] (logs) edge [loop above] node[label, above] {Iterate} ();
+
+\end{tikzpicture}
+\caption{Maecenas hendrerit congue faucibus} \label{fig:duis}
+\end{figure}

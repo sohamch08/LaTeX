@@ -1,0 +1,144 @@
+\usepackage{titletoc} % Required for manipulating the table of contents
+
+\makeatletter
+
+%----------------------------------------------------------------------------------------
+%   PAGE LAYOUT
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\tableofcontents}{
+\backgroundbarvisiblefalse
+\pagestyle{empty} % No headers
+\newgeometry{left=0cm} % No left margin
+\setcounter{tocdepth}{1} % TOC depth
+
+{
+\setlength{\parskip}{0pt}
+\hypersetup{hidelinks,backref=true,pagebackref=true,hyperindex=true,colorlinks=true,breaklinks=true,urlcolor=accent,bookmarks=true,bookmarksopen=false,pdftitle={\TITLE},pdfauthor={\AUTHOR},pdfsubject={\SUBJECT}}
+\@starttoc{toc}
+}
+
+\clearpage
+\pagestyle{fancy} % Print headers again
+\restoregeometry
+\backgroundbarvisibletrue}
+
+%----------------------------------------------------------------------------------------
+%   LINE FORMATS
+%----------------------------------------------------------------------------------------
+
+% Part text styling
+\renewcommand*\l@part[2]{%
+\ifnum \c@tocdepth >-2
+  \addpenalty{-\@highpenalty}%
+  \vskip 0em
+  \begingroup
+    \parindent \z@ \rightskip \@pnumwidth
+    \leavevmode\colorbox{bgacc}{\vtop{\hsize=\dimexpr\textwidth\relax
+      \strut\color{fgacc}\bfseries\sffamily\uppercase{#1}%
+      \nobreak\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\strut}}\par
+    \penalty\@highpenalty
+  \endgroup
+\fi}
+
+% Chapter text styling
+\renewcommand*\l@chapter[2]{%
+\ifnum \c@tocdepth >\m@ne
+  \addpenalty{-\@highpenalty}%
+  \vskip 0pt
+  \begingroup
+    \parindent \z@ \rightskip \@pnumwidth
+    \leavevmode\colorbox{bgalt}{\vtop{\hsize=\dimexpr\textwidth\relax
+      \hspace*{4cm}\strut\color{fg}\bfseries\sffamily\uppercase{#1}
+      \nobreak\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\strut}}\par
+    \penalty\@highpenalty
+  \endgroup
+\fi}
+
+% Section text styling
+\renewcommand*\l@section[2]{%
+\ifnum \c@tocdepth >\z@
+  \addpenalty{-\@highpenalty}%
+  \vskip 0em
+  \begingroup
+    \parindent \z@ \rightskip \@pnumwidth
+    \leavevmode\colorbox{bg}{\vtop{\hsize=\dimexpr\textwidth\relax
+      \hspace*{4cm}\strut\color{fg}\sffamily#1
+      \nobreak\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\strut}}\par
+    \penalty\@highpenalty
+  \endgroup
+\fi}
+
+% Subsection text styling
+\renewcommand*\l@subsection[2]{%
+\ifnum \c@tocdepth >1
+  \addpenalty{-\@highpenalty}%
+  \vskip 0em
+  \begingroup
+    \parindent \z@ \rightskip \@pnumwidth
+    \leavevmode\colorbox{bg}{\vtop{\hsize=\dimexpr\textwidth\relax
+      \hspace*{4cm}\strut\color{fg}\sffamily#1
+      \nobreak\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}\strut}}\par
+    \penalty\@highpenalty
+  \endgroup
+\fi}
+
+%----------------------------------------------------------------------------------------
+%   LIST OF FIGURES
+%----------------------------------------------------------------------------------------
+
+\hypersetup{linkcolor=fg}
+
+\renewcommand\listfigurename{\paragraph{List of Figures}}
+
+\titlecontents{figure}[2em]
+{}
+{\contentslabel{3em}}
+{\hspace*{-3em}}
+{\titlerule*{\ }\contentspage}
+
+\pretocmd{\listoffigures}{\begin{outline}[4em]}{}{}
+\apptocmd{\listoffigures}{\end{outline}}{}{}
+
+%----------------------------------------------------------------------------------------
+%   LIST OF TABLES
+%----------------------------------------------------------------------------------------
+
+\renewcommand\listtablename{\paragraph{List of Tables}}
+
+\titlecontents{table}[2em]
+{}
+{\contentslabel{3em}}
+{\hspace*{-3em}}
+{\titlerule*{\ }\contentspage}
+
+\pretocmd{\listoftables}{\begin{outline}[4em]}{}{}
+\apptocmd{\listoftables}{\end{outline}}{}{}
+
+
+%----------------------------------------------------------------------------------------
+%   MINI TABLE OF CONTENTS IN PART HEADS
+%----------------------------------------------------------------------------------------
+
+% % Chapter text styling
+% \titlecontents{lchapter}[0em] % Indenting
+% {\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+% {\color{fgacc}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{fgacc}} % Chapter number
+% {}  
+% {\color{fgacc}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
+% % Section text styling
+% \titlecontents{lsection}[0em] % Indenting
+% {\sffamily\small} % Spacing and font options for sections
+% {\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+% {}
+% {}
+
+% % Subsection text styling
+% \titlecontents{lsubsection}[.5em] % Indentation
+% {\normalfont\footnotesize\sffamily} % Font settings
+% {}
+% {}
+% {}
+
+\makeatother

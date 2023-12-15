@@ -1,0 +1,48 @@
+\section{Ipsum primis}
+
+In faucibus orci luctus et ultrices posuere cubilia curae; Aliquam nunc ipsum,
+sollicitudin ut tempus consectetur, fermentum at lectus.
+
+Nullam molestie viverra \ref{sec:vestibulum} augue sit amet gravida.
+
+\newenvironment{nomenclature}[1]
+{
+\begin{table}[hbt]
+\caption{#1}
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Symbol} & \textbf{Unit} & \textbf{Description}\\
+\hline
+}
+{
+\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+}
+
+\subsection{Mauris pellentesque}
+
+\begin{nomenclature}{Massa sagittis malesuada}
+$g$     & $m/s^{2}$ & nisi in mollis gravida
+\end{nomenclature}
+
+\subsection{Nulla massa}
+
+\begin{nomenclature}{Quis imperdiet}
+$Q_{p}$         & $t/h$             & consectetur tortor
+\end{nomenclature}
+
+\begin{nomenclature}{Magna lectus}
+$\tau_{a}$    	& $^{\circ}C$       & integer mollis bibendum gravida\\
+$f_{s}$     	& $/jour$           & vestibulum porta urna at ex dignissim tincidunt
+\end{nomenclature}
+
+\subsection{Nam vitae}
+
+\begin{nomenclature}{Nibh a lacus tincidunt efficitur}
+$X_n$   & $m$               & venenatis nisi\\
+$Y_n$   & $m$               & integer malesuada eu ligula nec pharetra\\
+$Z_n$   & $m$               & fusce non elit lectus
+\end{nomenclature}

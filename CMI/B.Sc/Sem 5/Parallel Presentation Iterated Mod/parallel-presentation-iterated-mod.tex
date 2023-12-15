@@ -243,7 +243,7 @@ Let $n=2G$. %The reduction from $NANDCVP$ to the integer iterated mod problem is
 \frametitle{$NANDCVP\leq_l IIM$}
 \framesubtitle{Correctness}
 \begin{theorem}
-	Let $x_{G+1}=x$. And for all $1\leq g\leq G$ $x_g=((\cdots ((x\bmod{m_{2G}})\bmod{m_{2g-1}})\cdots\bmod{m_{2g}})\bmod{m_{2g-1}})=0$. Then:\begin{enumerate}
+	Let $x_{G+1}=x$. And for all $1\leq g\leq G$ $x_g=((\cdots ((x\bmod{m_{2G}})\bmod{m_{2G-1}})\cdots\bmod{m_{2g}})\bmod{m_{2g-1}})=0$. Then:\begin{enumerate}
 		\item For all $1\leq g\leq G+1$, $x_g\leq 2^{2g-1}$
 		\item For all $1\leq g\leq G+1$, $0\leq j\leq 2g-1$ if the $j$th edge is an outgoing edge from an input node or from a gate $h$ such that $h\geq g$ then $x_g$'s $j$th bit is the value carried by $j$th edge 		otherwise 1
 	\end{enumerate}
@@ -254,13 +254,13 @@ Let $n=2G$. %The reduction from $NANDCVP$ to the integer iterated mod problem is
 \textbf{Prove by downward induction:}
 \vspace{3mm}
 
- Base Case ($g=G+1$): We have $x< 2^{2(G+1)-1}=2^{2G+1}=2^{n}$. True as $x$ is $n$-bit number. And second condition follows by constuction.
+ Base Case ($g=G+1$): We have $x< 2^{2(G+1)-1}=2^{2G+1}=2^{n+1}$. True as $x$ is $n$-bit number. And second condition follows by constuction.
 %And by constuction $i$th bit has $Y_j$ if edge $i$ is going out from $y_j$ otherwise 1. So base case follows
 Let the theorem holds for all $g>k$. \framebreak
 
 \textbf{Part (a)}:
 
-\hspace{0.5cm} $x_k=(x_{k+1}\bmod{m_{2k}})\bmod{m_{2g-1}}$. $m_{2k-1}=2^{2k-1}$. So $x_k$ has $2k-1$ bits so $ x_k<2^{2k-1}$. So Part (a) is proved.
+\hspace{0.5cm} $x_k=(x_{k+1}\bmod{m_{2k}})\bmod{m_{2k-1}}$. $m_{2k-1}=2^{2k-1}$. So $x_k$ has $2k-1$ bits so $ x_k<2^{2k-1}$. So Part (a) is proved.
 \framebreak
 
 \textbf{Part (b):}
@@ -317,7 +317,7 @@ $x_1< 2^{1}$ is the value carried by the $0$th edge, value of the $CVP$ instance
 	Super Increasing Knaspsack Problem $\in P$
 \end{theorem}\vspace{5mm}
 
-Greedy strategy considering the $w_i'$ in decreasing order gives a linear time algorithm for solving super increasing knapsack problem.
+Greedy strategy considering the $w_i$ in decreasing order gives a linear time algorithm for solving super increasing knapsack problem.
 \end{frame}
 
 \subsection{Super Increasing Knaspsack Problem is $P$-complete}
@@ -342,7 +342,7 @@ Greedy strategy considering the $w_i'$ in decreasing order gives a linear time a
 
 \begin{itemize}
 	\item Let $x$ is $n+1$-length base 4 number whose $i$th digit is $Y_j$ if the $i$th edge is incident from the input $y_j$. Otherwise it is 1.
-	\item $1\leq g\leq G$  $$m_{2g}=4^{2g}+4^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}4^j$$ $$m_{2g-0.5}=4^{2g}-4^{2g-1},\ \ m_{2g-1}=4^{2g-1}$$
+	\item $1\leq g\leq G$  $$m_{2g}=4^{2g}+4^{2g-1}+\sum_{\substack{j\text{th edge}\\ \text{out-edge from }g}}4^j$$ $$m_{2g-0.5}=4^{2g}-4^{2g-1}=3\times 4^{2g-1},\ \ m_{2g-1}=4^{2g-1}$$
 \end{itemize}
 \framebreak
 Define for all $1\leq g\leq  G$,\\
@@ -378,7 +378,7 @@ Define for all $1\leq g\leq  G$,\\
 
  $x_{k+1}\bmod{m_{2k}}=x_{k+1}$. In $x_k$ positions where $m_{2k}$ has 1 will have 1. $$x_{k+1}=a\times 4^{2k}+b\times 4^{2k-1}+c\text{ where }a,b\in \{0,1\}$$\begin{itemize}
 	\item $a=1$, $b=0$: $$(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=1\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$$
-	\item $b=0,1$: $$(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=b\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$$
+	\item $a=0$: $$(x_{k+1}\bmod{m_{2k-0.5}})\bmod{m_{2k-1}}=b\times 4^{2k-1}+c\bmod{m_{2k-1}}=c$$
 \end{itemize}
 \framebreak
 

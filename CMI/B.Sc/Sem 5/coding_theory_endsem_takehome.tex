@@ -1,0 +1,162 @@
+%% This is a template for Assignments 
+%% My name is Soham Chatterjee
+%% I have created this theme.
+%% Thanks for using it.
+
+
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{fullpage} % changes the margin
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{amssymb,amsthm}  % assumes amsmath package installed
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue!70!red,
+	pdftitle={Assignment}, %%%%%%%%%%%%%%%%   WRITE ASSIGNMENT PDF NAME  %%%%%%%%%%%%%%%%%%%%
+}
+\usepackage[most,many,breakable]{tcolorbox}
+%\usepackage{mathpazo}
+\usepackage{mathpazo}
+\usepackage{libertine}
+
+\definecolor{mytheorembg}{HTML}{F2F2F9}
+\definecolor{mytheoremfr}{HTML}{00007B}
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{problem}{Problem}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{p}
+
+% To give references for any problem use like this
+% suppose the problem number is p3 then 2 options either 
+% \hyperref[p:p3]{<text you want to use to hyperlink> \ref{p:p3}}
+%                  or directly 
+%                   \ref{p:p3}
+
+
+
+\input{letterfonts}
+
+\input{macros}
+
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsf{\noindent \large\textbf{Soham Chatterjee} \hfill \textbf{Takehome Endsem}\\
+    Email: \href{sohamc@cmi.ac.in}{sohamc@cmi.ac.in} \hfill Roll: BMC202175\\
+    \normalsize Course: Algorithmic Coding Theory \hfill Date: November 24, 2023}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	List Decoding of RS Codes	
+}{p1
+% problem reference text
+}
+%Problem		
+In class we described a list deoding algorithm for RS codes that decoded from $n-2(k-1)\sqrt{n}$ errors where $n$ is the block length of the code and $k$ its dimension. In this problem we want you to improve this bound to correct $n-\sqrt{2kn}$ errors.
+
+Recall that the algorithm from class involved two steps:\begin{enumerate}[label=(\arabic*)]
+	\item Find a non-zero polynomial $Q(x,y)$ of degree at most $2\sqrt{n}$ such that $Q(\alpha_i,\beta_i)=0$ for every $i\in [n]$.
+	\item Factor this polynomial and include $P$ in the output if $y-P(x)$ divides $Q(x,y)$ and $|\{i,[n]\mid P(\alpha_i)=\beta_i\}|\geq t$
+\end{enumerate}
+Our modification will be obtained by carefully picking a set of monomials $M\subseteq \{x^iy^i\mid i,j\geq 0\}$ and requiring that $Q$ be only supported on the monomials of $M$. (I.e. if $Q(x,y)=\sum\limits_{i,j}c_{i,j}x^iy^j$ and $c_{ij}\neq 0$ for some $i,j$ then $x^iy^j\in M$.)
+
+Describe a set of monomials $M$ that allows you to solve the list-decoding algorithm above with $t=\sqrt{2kn}$. (No need to write the details of all remaining steps.)
+\end{problem}
+
+\solve{
+%Solution
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+}{p2% problem reference text
+}
+%Problem
+Consider the following algorithm for converting errors to erasures in an expander code:
+
+Given a codeword $c\in \bbF_2^n$ and a corrupted word $w\in \bbF_q^n$ with $\textsc{errors}\coloneqq \{i\in [n]\mid w_i\neq c_i\}$  satisfying $|\textsc{errors}|\leq rn$, let $U$ be the set of constriants left unsatisfied by the assignment $w$. Initially the algorithm sets $\textsc{erase}=\emptyset$ and $\textsc{unhappy}=U$ (\textsc{unhappy} for unHappy constraints). Then while there exists a variable $i\in [n]\setminus \textsc{erase}$ with more than 1/3rd of neighbors in \textsc{unhappy}, it sets $\textsc{erase}=\textsc{erase}\cup \{i\}$ and $\textsc{unhappy}=\textsc{unhappy}\cup N(i)$. When no such $i$ exists it stops and outputs \textsc{erase}.
+
+Prove that if the expander code is based on a $(c,d)$-regular $(\gm,\delta)$-expander with $\gm> \frac{2c}{3}$ then for some $\tau>0$ the alforithm's output satisfies \begin{enumerate}[label=(\arabic*)]
+	\item $|\textsc{erase}|<\delta n$
+	\item $\textsc{errors}\subseteq \textsc{erase}$
+\end{enumerate}
+\end{problem}
+
+\solve{
+%Solution
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+	}{p3% problem reference text
+	}
+	%Problem		
+Fix a matrix $A\in \bbF_q^{m\times n}$ for $m\leq n$. Suppose you have oracle access to $A$: that is  there is a magic box, $M$, so that in time $O(q)$, $M(i,j)$ returns $A_{i,j}$. Give a randomized streaming algorithm that takes in an input $y\in \bbF_q^n$ (in a straming fashionm so it sees $y_q$, then $y_2$, then $y_3$ and so on until $y_m$), and outputs its best guess about whether or not $Ay=0$.
+\end{problem}
+
+\solve{
+	%Solution
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{%problem statement
+		(Local) Decodability of Reed-Muller Codes:
+	}{p3% problem reference text
+	}
+	%Problem		
+	Recall that $\bbF_q\subseteq \bbF_{q^m}$. Show that there exist polynomials $p_1,\dots, p_m\in \bbF_{q^m}[X]$ of degree $q^{m-1}$ such that the map $p:\bbF_{q^m}\to \lt(\bbF_{q^m}\rt)^m$ given by $p(x)=(p_1(x),\dots, p_m(x))$ has image $\bbF_q^m$ and $p$ is a bijection from $\bbF_{q^m}$ to $\bbF_q^m$. Use this map to conclude that the Reed-Muller Code $RM(q,m,r)$ is a subcode of the reed solomon code obtained by evaluating polynomials of degree at most $rq^{m-1}$ over all of $\bbF_{q^m}$\begin{enumerate}[label=(\alph*)]
+		\item Use this bijection to give a polynomial times (non-local) decoding algorithm for correcting Reed-Muller codes with $r<q$ up to half their minimum distance.
+		\item Show how to correct $\eps_0\lt(1-\frac{r}{q}\rt)$ fraction of errors using a reduction to Reed-Solomon decoding with an $O(q)$ query algorithm. Your $\eps_0$ should be an absolute constant.
+	\end{enumerate}
+\end{problem}
+
+\solve{
+	%Solution
+}
+\end{document}

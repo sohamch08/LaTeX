@@ -1,0 +1,55 @@
+\usepackage[most]{tcolorbox}
+
+%----------------------------------------------------------------------------------------
+%   HIGHLIGHT ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+\newtcolorbox{highlight}{
+  colback=bg,
+  colframe=accent,
+  coltext=fg,
+  boxrule=2pt,
+  boxsep=4pt,
+  arc=0pt,
+  outer arc=0pt
+}
+
+%----------------------------------------------------------------------------------------
+%   REMARK ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+\newtcolorbox{remark}{
+  colback=bg,
+  colframe=accent,
+  coltext=fg,
+  boxrule=0pt,
+  leftrule=2pt,
+  boxsep=4pt,
+  arc=0pt,
+  outer arc=0pt,
+}
+
+%----------------------------------------------------------------------------------------
+%   OUTLINE ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+\newtcolorbox{outline}[1][4pt]{
+  enhanced,
+  colback=bg,
+  colframe=bg, % To essentially hide the frame, but we will draw the corners manually
+  coltext=fg,
+  boxrule=0pt,
+  boxsep=#1,
+  arc=0pt,
+  outer arc=0pt,
+  overlay={
+    % Top left corner
+    \draw[accent,line width=2pt] 
+      (frame.north west) -- ++(0,-0.25*\tcbtextheight)
+      (frame.north west) -- ++(0.25*\tcbtextwidth,0);
+    % Bottom right corner
+    \draw[accent,line width=2pt]
+      (frame.south east) -- ++(0,0.25*\tcbtextheight)
+      (frame.south east) -- ++(-0.25*\tcbtextwidth,0);
+  }
+}

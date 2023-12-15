@@ -1,0 +1,191 @@
+%----------------------------------------------------------------------------------------
+%   GEOMETRY
+%----------------------------------------------------------------------------------------
+
+\newcommand{\angletilta}[2]{
+    % #1 - Alpha, the angle between consecutive vertexes on a branch (eg. the angular width)
+    % #2 - Theta, the tilt angle
+    {#2 - 0.5*#1}
+}
+
+\newcommand{\angleouta}[3]{
+    % #1 - Beta, the curvatur angle, as a deviation from the direct line between nodes
+    % #2 - Theta, the tilt angle
+    % #3 - Index
+    {#2 + 90 + #1 + #3*72}
+}
+
+\newcommand{\angleina}[3]{
+    % #1 - Beta, the curvatur angle, as a deviation from the direct line between nodes
+    % #2 - Theta, the tilt angle
+    % #3 - Index
+    {#2 + 180 - #1 + #3*72}
+}
+
+\newcommand{\angletiltb}[2]{
+    % #1 - Alpha, the angle between consecutive vertexes on a branch (eg. the angular width)
+    % #2 - Theta, the tilt angle
+    {#2 + 0.5*#1}
+}
+
+\newcommand{\angleinb}[3]{
+    % #1 - Beta, the curvatur angle, as a deviation from the direct line between nodes
+    % #2 - Theta, the tilt angle
+    % #3 - Index
+    {#2 - 90 - #1 + #3*72}
+}
+
+\newcommand{\angleoutb}[3]{
+    % #1 - Beta, the curvatur angle, as a deviation from the direct line between nodes
+    % #2 - Theta, the tilt angle
+    % #3 - Index
+    {#2 + 180 + #1 + #3*72}
+}
+
+\newcommand{\angletiltc}[1]{
+    % #1 - Theta, the tilt angle
+    {#1 + 36}
+}
+
+\newcommand{\angleinc}[3]{
+    % #1 - Beta, the curvatur angle, as a deviation from the direct line between nodes
+    % #2 - Theta, the tilt angle
+    % #3 - Index
+    {#2 - #1 + #3*72}
+}
+
+\newcommand{\angleoutc}[3]{
+    % #1 - Beta, the curvatur angle, as a deviation from the direct line between nodes
+    % #2 - Theta, the tilt angle
+    % #3 - Index
+    {#2 + 72 + #1 + #3*72}
+}
+
+\newcommand{\radiusc}[1]{
+    % #1 - R, radius of the outer circle including the vertexes
+    {0.4*#1}
+}
+
+\newcommand{\vertexa}[7]{
+    % #1 - Ox
+    % #2 - Oy
+    % #3 - R, radius of the outer circle including the vertexes
+    % #4 - Alpha, the angle between consecutive vertexes on a branch (eg. the angular width)
+    % #5 - Beta, the curvature angle, as a deviation from the direct line between nodes
+    % #6 - Theta, the tilt angle
+    % #7 - Index
+    \coordinate (A#7) at (\pentagonvertex{#1}{#2}{#3}{\angletilta{#4}{#6}}{#7});
+}
+
+\newcommand{\vertexb}[7]{
+    % #1 - Ox
+    % #2 - Oy
+    % #3 - R, radius of the outer circle including the vertexes
+    % #4 - Alpha, the angle between consecutive vertexes on a branch (eg. the angular width)
+    % #5 - Beta, the curvature angle, as a deviation from the direct line between nodes
+    % #6 - Theta, the tilt angle
+    % #7 - Index
+    \coordinate (B#7) at (\pentagonvertex{#1}{#2}{#3}{\angletiltb{#4}{#6}}{#7});
+}
+
+\newcommand{\vertexc}[7]{
+    % #1 - Ox
+    % #2 - Oy
+    % #3 - R, radius of the outer circle including the vertexes
+    % #4 - Alpha, the angle between consecutive vertexes on a branch (eg. the angular width)
+    % #5 - Beta, the curvature angle, as a deviation from the direct line between nodes
+    % #6 - Theta, the tilt angle
+    % #7 - Index
+    \coordinate (C#7) at (\pentagonvertex{#1}{#2}{\radiusc{#3}}{\angletiltc{#6}}{#7});
+}
+
+\newcommand{\drawfortalogotest}[7]{
+    % #1 - Ox
+    % #2 - Oy
+    % #3 - R, radius of the outer circle including the vertexes
+    % #4 - Alpha, the angle between consecutive vertexes on a branch (eg. the angular width)
+    % #5 - Beta, the curvatur angle, as a deviation from the direct line between nodes
+    % #6 - Theta, the tilt angle
+    % #7 - Styling options
+    \vertexa{#1}{#2}{#3}{#4}{#5}{#6}{0}
+    \vertexb{#1}{#2}{#3}{#4}{#5}{#6}{0}
+    \vertexb{#1}{#2}{#3}{#4}{#5}{#6}{1}
+    \vertexb{#1}{#2}{#3}{#4}{#5}{#6}{2}
+    \vertexb{#1}{#2}{#3}{#4}{#5}{#6}{3}
+    \vertexb{#1}{#2}{#3}{#4}{#5}{#6}{4}
+    \vertexc{#1}{#2}{#3}{#4}{#5}{#6}{0}
+    \vertexc{#1}{#2}{#3}{#4}{#5}{#6}{1}
+    \vertexc{#1}{#2}{#3}{#4}{#5}{#6}{2}
+    \vertexc{#1}{#2}{#3}{#4}{#5}{#6}{3}
+    \vertexc{#1}{#2}{#3}{#4}{#5}{#6}{4}
+
+    \draw[#7] (A0)%
+    to[out=\angleouta{#5}{#6}{0},in=\angleinb{#5}{#6}{0}] (B0)%
+    to[out=\angleoutb{#5}{#6}{0},in=\angleinc{#5}{#6}{0}] (C0)%
+    to[out=\angleoutc{#5}{#6}{0},in=\angleina{#5}{#6}{1}] (A1)%
+    to[out=\angleouta{#5}{#6}{1},in=\angleinb{#5}{#6}{1}] (B1)%
+    to[out=\angleoutb{#5}{#6}{1},in=\angleinc{#5}{#6}{1}] (C1)%
+    to[out=\angleoutc{#5}{#6}{1},in=\angleina{#5}{#6}{2}] (A2)%
+    to[out=\angleouta{#5}{#6}{2},in=\angleinb{#5}{#6}{2}] (B2)%
+    to[out=\angleoutb{#5}{#6}{2},in=\angleinc{#5}{#6}{2}] (C2)%
+    to[out=\angleoutc{#5}{#6}{2},in=\angleina{#5}{#6}{3}] (A3)%
+    to[out=\angleouta{#5}{#6}{3},in=\angleinb{#5}{#6}{3}] (B3)%
+    to[out=\angleoutb{#5}{#6}{3},in=\angleinc{#5}{#6}{3}] (C3)%
+    to[out=\angleoutc{#5}{#6}{3},in=\angleina{#5}{#6}{4}] (A4)%
+    to[out=\angleouta{#5}{#6}{4},in=\angleinb{#5}{#6}{4}] (B4)%
+    to[out=\angleoutb{#5}{#6}{4},in=\angleinc{#5}{#6}{4}] (C4)%
+    to[out=\angleoutc{#5}{#6}{4},in=\angleina{#5}{#6}{0}] (A0);
+}
+
+\newcommand{\drawfortalogo}[7]{
+    % #1 - Ox
+    % #2 - Oy
+    % #3 - R, radius of the outer circle including the vertexes
+    % #4 - Alpha, the angle between consecutive vertexes on a branch (eg. the angular width)
+    % #5 - Beta, the curvatur angle, as a deviation from the direct line between nodes
+    % #6 - Theta, the tilt angle
+    % #7 - Styling options
+    % \draw[dotted]   \pentagonvertex{#1}{#2}{0.4*#3}{-36}{0} --
+    %                 \pentagonvertex{#1}{#2}{0.4*#3}{-36}{1} --
+    %                 \pentagonvertex{#1}{#2}{0.4*#3}{-36}{2} --
+    %                 \pentagonvertex{#1}{#2}{0.4*#3}{-36}{3} --
+    %                 \pentagonvertex{#1}{#2}{0.4*#3}{-36}{4} -- cycle;
+
+    % \draw[dotted, draw=blue]    \pentagonvertex{#1}{#2}{#3}{-0.5*#4}{0} --
+    %                     \pentagonvertex{#1}{#2}{#3}{-0.5*#4}{1} --
+    %                     \pentagonvertex{#1}{#2}{#3}{-0.5*#4}{2} --
+    %                     \pentagonvertex{#1}{#2}{#3}{-0.5*#4}{3} --
+    %                     \pentagonvertex{#1}{#2}{#3}{-0.5*#4}{4} -- cycle;
+
+    % \draw[dotted, draw=red]     \pentagonvertex{#1}{#2}{#3}{0.5*#4}{0} --
+    %                     \pentagonvertex{#1}{#2}{#3}{0.5*#4}{1} --
+    %                     \pentagonvertex{#1}{#2}{#3}{0.5*#4}{2} --
+    %                     \pentagonvertex{#1}{#2}{#3}{0.5*#4}{3} --
+    %                     \pentagonvertex{#1}{#2}{#3}{0.5*#4}{4} -- cycle;
+
+    \foreach \i [evaluate=\i as \j using {int(mod(\i+1,5))},
+                evaluate=\i as \Aout using {#6 + 90 + #5 + \i*72},
+                evaluate=\i as \Bin using {#6 - 90 - #5 + \i*72},
+                evaluate=\i as \Bout using {#6 + 180 + #5 + \i*72},
+                evaluate=\i as \Cin using {#6 - #5 + \i*72},
+                evaluate=\i as \Cout using {#6 + 72 + #5 + \i*72},
+                evaluate=\i as \Din using {#6 + 252 - #5 + \i*72}
+               ] in {0,1,2,3,4} {
+        \path let \p1 = \pentagonvertex{#1}{#2}{#3}{#6-0.5*#4}{\i},
+                  \p2 = \pentagonvertex{#1}{#2}{#3}{#6+0.5*#4}{\i},
+                  \p3 = \pentagonvertex{#1}{#2}{0.4*#3}{#6+36}{\i},
+                  \p4 = \pentagonvertex{#1}{#2}{#3}{#6-0.5*#4}{\j}
+              in coordinate (A) at (\p1)
+                 coordinate (B) at (\p2)
+                 coordinate (C) at (\p3)
+                 coordinate (D) at (\p4);
+        
+        \draw[#7] (A) to[out=\Aout,in=\Bin] (B) 
+                  to[out=\Bout,in=\Cin] (C) 
+                  to[out=\Cout,in=\Din] (D);
+    }
+}
+
+%----------------------------------------------------------------------------------------
+%   NODE TYPES
+%----------------------------------------------------------------------------------------

@@ -1,0 +1,68 @@
+\newcommand{\coverpage}[5]{
+% #1 - title
+% #2 - subtitle
+% #3 - author
+% #4 - date
+% #5 - subject
+\pagestyle{empty}
+\newgeometry{left=0cm,top=0cm,right=0cm,bottom=0cm}
+\begin{tikzpicture}[remember picture,overlay]
+
+% LAYERS ----------------------------------------------------------------------
+
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfdeclarelayer{fg}    % declare background layer
+\pgfsetlayers{bg,main,fg}  % set the order of the layers (main is the standard layer)
+
+% BG FILL ---------------------------------------------------------------------
+
+\begin{pgfonlayer}{bg}
+    \fill[bg] (current page.south west) rectangle (current page.north east);
+\end{pgfonlayer}
+
+% BG POLYGONS -----------------------------------------------------------------
+
+\begin{pgfonlayer}{bg}
+    \foreach \i [
+        evaluate=\i as \Ox using {5 + 0.2 * \i},
+        evaluate=\i as \Oy using {-4},
+        evaluate=\i as \R using {4 + 0.4 * \i},
+        evaluate=\i as \Tilt using {36 + 0.5 * \i},
+        evaluate=\i as \percent using {100-\i*5} % convert i to a percentage
+        ] in {0,...,20} {
+        \drawfortalogo{\Ox}{\Oy}{\R}{28}{8}{\Tilt}{very thick, densely dotted, draw=gray!\percent!black}
+    }
+\end{pgfonlayer}
+
+% FG TEXT ---------------------------------------------------------------------
+
+\begin{pgfonlayer}{fg}
+    % TITLE
+    \drawtext%
+    {\textsc{#1}}%
+    {$(current page.east)+(-2,-2)$}%
+    {2cm}%
+    {0}%
+    {anchor=east,text=fg,align=right,font=\fontsize{48}{16}\headingfontfamily\bfseries};
+
+    % SUBTITLE
+    \drawtext%
+    {\textsc{#2}}%
+    {$(current page.east)+(-2,-4)$}%
+    {2cm}%
+    {0}%
+    {anchor=east,text=fg,align=right,font=\fontsize{16}{16}\headingfontfamily};
+
+    % AUTHOR + DATE + SUBJECT
+    \drawtext%
+    {{\color{fgalt}Prepared by: }\textsc{\textbf{#3}}\\{\color{fgalt}Date: }\textsc{\textbf{#4}}\\{\color{fgalt}Visit: }\textsc{\textbf{#5}}}%
+    {$(current page.south east)+(-2,2)$}%
+    {6cm}%
+    {0}%
+    {anchor=east,text=fg,align=right,font=\fontsize{12}{12}\headingfontfamily};
+\end{pgfonlayer}
+
+% RESET -----------------------------------------------------------------------
+\end{tikzpicture}
+\restoregeometry
+}

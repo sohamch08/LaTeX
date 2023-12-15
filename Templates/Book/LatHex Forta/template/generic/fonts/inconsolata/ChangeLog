@@ -1,0 +1,157 @@
+2015-04-18 MihailJP <mihailjp@gmail.com>
+
+	* Add Makefile
+	* LICENSE file for package
+
+2013-05-12 MihailJP <mihailjp@gmail.com>
+
+	* Added Romanian comma accent forms
+
+2013-05-06 MihailJP <mihailjp@gmail.com>
+
+	* Merge branch 'hellenic'
+
+2013-05-05 MihailJP <mihailjp@gmail.com>
+
+	* Merge branch 'zhe_ef'
+
+2013-04-22 cosmix <cosm7x@yahoo.com>
+
+	* Fixed the lowercase theta regression introduced in 1.18.
+	* Improvements to hellenic letters across the board. New lowercase 
+	  lambda.
+
+2013-04-07 Greg Omelaenko <greg@mostlyinfinite.com>
+
+	* Improve forms of Cyrillic Ж, ж, Ф and ф.
+
+2012-12-26 MihailJP <mihailjp@gmail.com>
+
+	* Add Polish kreska forms
+
+2012-08-08 MihailJP <mihailjp@gmail.com>
+
+	* Merge remote-tracking branch 'origin/master'
+
+2012-08-05 cosmix <cosm7x@yahoo.com>
+
+	* Various minor fixes to several lowercase hellenic letters. Some 
+	  alignment fixes
+
+2012-08-03 MihailJP <mihailjp@gmail.com>
+
+	* Italicize lowercase y
+
+2012-05-03 MihailJP <mihailjp@gmail.com>
+
+	* Version number
+	* Added Cyrillic glyphs
+	* Modified Cyrillic hard sign
+	* Added some symbols
+	* Added some U+25xx glyphs
+	* Added some mathematical operators
+	* Added some glyphs
+	* Added some punctuations
+
+2012-05-02 MihailJP <mihailjp@gmail.com>
+
+	* Added remaining WGL4 Latin glyphs except for ligatures
+	* Added remaining Latin Extended-A glyphs
+	* Added Latin-4 glyphs
+	* Added Latin-3 glyphs
+
+2012-05-01 MihailJP <mihailjp@gmail.com>
+
+	* Fixed issue that the bold italic font fails to be recognized on 
+	  Windows
+	* Added numero sign
+	* Modified README
+	* Merge branch 'straightquote' into LGC
+	* Added Macedonian-Serbian italic variant
+	* Straight quotation marks (merged from Inconsolata-dz)
+	* Added bold italic font
+	* Italicized small e with ogonek
+	* Added bold font
+	* SFD font name
+	* Merge branch 'Italic' into LGC
+	* Rewrited README
+
+2012-04-30 MihailJP <mihailjp@gmail.com>
+
+	* Added Cyrillic Italic
+	* Merge commit '26d0fcaa7c804bfb47bf7c5256e75d9df88dbb3e' into Italic
+	* Rectified Cyrillic glyphs
+	* Added Dzhe and Ukrainian Ge
+	* Added Serbian Dj and Tj
+	* Added Macedonian/Serbian Lj and Nj
+	* Added Ukrainian Je
+
+2012-04-29 MihailJP <mihailjp@gmail.com>
+
+	* Added Cyrillic italic glyphs
+	* Rectification
+	* Italic dotless i, ae, oe, eng, kra, slashed l
+	* Modified lowercase italic A
+	* Added italic glyphs: e, g, i, l, p, r, s; modification of m, n, u
+	* Added italic glyphs: a, b, c, d, f, h, m, n, q, u
+	* Obliqued font, italicization to be done
+	* Added Gje, Dze, decimal I, Ji, J, Kje, short U
+	* Additional Cyrillic glyph slots
+	* Added Yo
+	* Added uppercase Ze
+	* Added lowercase Be
+	* Added lowercase Ya
+	* Added lowercase Yu
+	* Added Zhe
+	* Modified Tse and Shcha
+	* Correction
+	* Added upper- and lowercase De
+	* Modified lowercase Ve
+	* Modified upper- and lowercase El
+	* Added small Ze, El, Che
+	* Added small Ve, Sha, Shcha, hard sign, Yery, soft sign
+	* Modified uppercase hard sign
+	* Modified capital Sha, Shcha, Yery
+	* Added capital El, U, Yu
+	* Added uppercase Che, Sha Shcha, Hard sign, Yery
+
+2012-04-28 MihailJP <mihailjp@gmail.com>
+
+	* Added lowercase Ge, Octal I, Em, En, Pe, Tse
+	* Added uppercase Ya
+	* Added capital Tse and Reversed E, lowercase Reversed E
+	* Added capital octal I
+	* Added encoding slot for Cyrillic
+	* Rename
+
+2012-02-15 cosmix <cosm7x@yahoo.com>
+
+	* general fixes to lowercase greek characters, especially lowercase 
+	  epsilon and the stems for chi, psi.
+
+2011-03-13 cosmix <cosm7x@yahoo.com>
+
+	* Fixed Psi stem top alignment
+
+2011-01-13 cosmix <cosm7x@yahoo.com>
+
+	* minor improvements on alpha, delta, lambda, xi
+
+2011-01-09 cosmix <cosm7x@yahoo.com>
+
+	* Minor issue with lowercase phi
+
+2011-01-08 cosmix <cosm7x@yahoo.com>
+
+	* Fixed Phi stem centering, iota glyphs (with dialytika and with 
+	  dialytika and tonos)
+
+2011-01-07 cosmix <cosm7x@yahoo.com>
+
+	* Various fixes, mostly with accented characters and iota
+
+2011-01-06 cosmix <cosm7x@yahoo.com>
+
+	* Added ano teleia and Omega with tonos
+	* Added readme
+	* first commit/public release to github

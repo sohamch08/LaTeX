@@ -1,0 +1,47 @@
+\newcommand{\coverpage}[5]{
+    % #1 - title
+    % #2 - subtitle
+    % #3 - author
+    % #4 - date
+    % #5 - subject
+    \pagestyle{empty}
+    \newgeometry{left=0cm,top=0cm,right=0cm,bottom=0cm}
+
+    \begin{tikzpicture}[remember picture,overlay]
+
+    %%%%%%%%%%%%%%%%%%%% Layers %%%%%%%%%%%%%%%%%%%%%%%%
+    \pgfdeclarelayer{bg}    % declare background layer
+    \pgfdeclarelayer{fg}    % declare background layer
+    \pgfsetlayers{bg,main,fg}  % set the order of the layers (main is the standard layer)
+
+    %%%%%%%%%%%%%%%%%%%% Background %%%%%%%%%%%%%%%%%%%%%%%%
+    \fill[bg] (current page.south west) rectangle (current page.north east);
+
+    %%%%%%%%%%%%%%%%%%%% Background Polygon %%%%%%%%%%%%%%%%%%%%
+
+    % top left
+    \foreach \i in {0.5,...,20} {\drawhexagon{}{$(current page.north west)+(2.5,0)$}{\i cm}{0}{accent!60,draw};}
+
+    % bottom left
+    \foreach \i in {2.5,...,22} {\drawhexagon{}{$(current page.west)+(2.5,-5)$}{\i cm}{0}{accent!60,draw};}
+
+    % center right
+    \foreach \i in {0.5,...,22} {\drawhexagon{}{$(current page.north east)+(0,-9.5)$}{\i cm}{0}{accent!90,draw};}
+
+    % bottom right
+    \foreach \i in {21,...,2} {\drawhexagon{}{$(current page.south east)+(-0.2,-0.45)$}{\i cm}{0}{accent!85,draw};}
+
+    %%%%%%%%%%%%%%%%%%%% Title + Subtitle %%%%%%%%%%%%%%%%%%%%
+    \drawtext{\Huge\textsc{\textbf{#1}}\\\Large\textsc{#2}}{$(current page.center)+(3.2,-3.2)$}{3cm}{-60}{text=fg,align=right,font=\headingfontfamily};
+
+    %%%%%%%%%%%%%%%%%%%% Author Name %%%%%%%%%%%%%%%%%%%%
+    \begin{pgfonlayer}{fg}
+    \drawtext{\Large\textsc{#3}\\\Large\textsc{#4}}{$(current page.east)+(-0.5,-5.2)$}{2cm}{0}{text=fg,anchor=east,align=right,font=\headingfontfamily};
+    \end{pgfonlayer}
+
+    %%%%%%%%%%%%%%%%%%%% Year %%%%%%%%%%%%%%%%%%%%
+    \drawhexagon{\Large #5}{$(current page.west)+(2.5,-5)$}{2.5 cm}{0}{accent!60,draw,text=fg,font=\headingfontfamily};
+
+    \end{tikzpicture}
+    \restoregeometry
+}

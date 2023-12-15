@@ -1,0 +1,49 @@
+%----------------------------------------------------------------------------------------
+%   PAGE HEADERS
+%----------------------------------------------------------------------------------------
+
+% Add TikZ logo
+% \fancyhead[R]{%
+% \begin{tikzpicture}%
+%     \drawfortalogo{0}{0}{0.4cm}{28}{8}{36}{very thick, draw=white};%
+% \end{tikzpicture}%
+% }
+
+% Add href in the footer
+% \fancyfoot[C]{%
+%     \href{https://forta.org/}{Forta}%
+%     \hspace*{4mm}%
+%     \raisebox{1.5mm}{%
+%         \begin{tikzpicture}[baseline=(current bounding box.center)]
+%             \drawfortalogo{0}{0}{3mm}{28}{8}{36}{very thick, draw=white};
+%         \end{tikzpicture}%
+%     }
+% }
+
+\fancypagestyle{plain}{%
+    % Clear all headers and footers
+    \fancyhf{}
+
+    % Remove horizontal line in the header
+    \renewcommand{\headrulewidth}{0pt}
+
+    % Logo centered at the bottom
+    \fancyfoot[C]{\href{\URL}{\includegraphics[height=4mm]{logo.png}}}
+
+    % page number on the right
+    \fancyfoot[R]{\thepage}
+}
+
+\fancypagestyle{fancy}{%
+    % Clear all headers and footers
+    \fancyhf{}
+
+    % Remove horizontal line in the header
+    \renewcommand{\headrulewidth}{0pt}
+
+    % Logo centered at the bottom
+    \fancyfoot[C]{\href{\URL}{\includegraphics[height=4mm]{logo.png}}}
+
+    % page number on the right
+    \fancyfoot[R]{\thepage}
+}

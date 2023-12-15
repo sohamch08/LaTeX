@@ -1,0 +1,42 @@
+\usepackage{caption}
+
+%----------------------------------------------------------------------------------------
+%   COMMON
+%----------------------------------------------------------------------------------------
+
+\DeclareCaptionFont{fg}{\color{fg}}
+\DeclareCaptionFont{accent}{\color{accent}}
+
+%----------------------------------------------------------------------------------------
+%   CODE: LSTLISTING
+%----------------------------------------------------------------------------------------
+
+\DeclareCaptionFormat{listing}{\colorbox{border}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{#1#2#3}}}
+\captionsetup[lstlisting]{
+  format=listing,
+  labelfont=accent,
+  textfont=fg,
+  labelformat=empty,
+  listformat=empty,
+  singlelinecheck=false,
+  margin=0pt,
+  font={bf,footnotesize}
+}
+
+%----------------------------------------------------------------------------------------
+%   TABLES
+%----------------------------------------------------------------------------------------
+
+\captionsetup[table]{
+  labelformat=empty,
+  listformat=empty,
+}
+
+%----------------------------------------------------------------------------------------
+%   FIGURES
+%----------------------------------------------------------------------------------------
+
+\captionsetup[figure]{
+  labelformat=empty,
+  listformat=empty,
+}

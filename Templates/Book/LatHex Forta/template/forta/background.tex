@@ -1,0 +1,25 @@
+%----------------------------------------------------------------------------------------
+%   CONFIGURE LEFT BAR
+%----------------------------------------------------------------------------------------
+
+\backgroundsetup{
+  scale=1,
+  color=bgacc,
+  opacity=1,
+  angle=0,
+  position=current page.south west,
+  vshift=0mm,
+  hshift=16mm, % Adjust the distance from the left edge of the page
+  contents={%
+    \tikz{
+      % \fill[bgacc] (0,0) rectangle (6mm,16mm); % bottom bar, 6mm wide, 16mm tall
+      \ifbackgroundbarvisible
+        \fill[bgacc] (0,\paperheight) rectangle (8mm,-\paperheight); % bar width 6mm
+      \fi
+      \ifbackgroundtitlevisible
+        \node[rotate=90, fgacc, font=\huge\bfseries\headingfontfamily, anchor=west] at (4mm, 32mm) {\currentparttitle};
+        \drawfortalogo{4mm}{16mm}{3mm}{28}{8}{18}{ultra thick, draw=black};
+      \fi
+    }
+  }
+}

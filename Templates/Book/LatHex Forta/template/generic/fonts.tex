@@ -1,0 +1,35 @@
+\usepackage{fontspec} % import new fonts
+\usepackage[english]{babel}
+
+%----------------------------------------------------------------------------------------
+%   SPACING
+%----------------------------------------------------------------------------------------
+
+\usepackage{microtype}
+
+%----------------------------------------------------------------------------------------
+%   ADD BOLD + ITALIC
+%----------------------------------------------------------------------------------------
+
+\newfontfamily\inconsolatafontfamily[
+    Path=template/generic/fonts/inconsolata/,
+    Ligatures=TeX,
+    Scale=MatchUppercase,
+    UprightFont = *.otf,
+    BoldFont = *-Bold.otf,
+    ItalicFont = *-Italic.otf,
+    BoldItalicFont = *-BoldItalic.otf
+]{Inconsolata-LGC}
+
+%----------------------------------------------------------------------------------------
+%   FAMILY DEFAULTS
+%----------------------------------------------------------------------------------------
+
+% \setmonofont{\inconsolatafontfamily}
+% \renewcommand*{\familydefault}{\ttdefault}
+
+%----------------------------------------------------------------------------------------
+%   HEADINGS
+%----------------------------------------------------------------------------------------
+
+\let\headingfontfamily\inconsolatafontfamily

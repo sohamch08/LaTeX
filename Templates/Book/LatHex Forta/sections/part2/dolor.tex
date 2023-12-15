@@ -1,0 +1,38 @@
+\section{Sed ultrices} \label{sec:sed-ultrices}
+
+\subsection{Donec pellentesque}
+
+Tempus ipsum, vitae condimentum nisi efficitur id. In velit mauris, auctor eget
+sapien nec, viverra mattis neque. Nunc vel commodo nunc, eget cursus ex.
+
+\begin{enumerate}
+\item{Nunc maximus consequat tristique.}
+\item{Praesent luctus ex aliquam rhoncus consectetur.}
+\item{Suspendisse mattis velit ante, vitae mollis est pharetra a.}
+\item{Duis tincidunt, urna id auctor imperdiet, odio dui ullamcorper nisi.}
+\item{Integer tincidunt enim vitae nulla iaculis, in varius metus blandit.}
+\item{Nunc quam arcu, fermentum non dapibus condimentum, condimentum eget nunc.}
+\end{enumerate}
+
+\subsection{Euismod sodales}
+
+\begin{outline}
+\lipsum[2]
+\end{outline}
+
+\subsection{Pellentesque a nulla}
+
+\begin{lstlisting}[language=Solidity]
+contract KingOfTheHill is Ownable {
+    address public owner; // different from the owner in Ownable
+
+    function () public payable {
+        if(msg.value > jackpot) owner = msg.sender; // local owner
+        jackpot += msg.value;
+    }
+    function takeAll () public onlyOwner { // contract creator
+        msg.sender.transfer(this.balance);
+        jackpot = 0;
+    }
+}
+\end{lstlisting}
