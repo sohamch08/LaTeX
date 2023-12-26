@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,onesize,a4paper,titlepage]{article}
+
+%%%%%%%%%%%%%%% Formatting %%%%%%%%%%%%%%% 
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{adjustbox}
+\usepackage{geometry} % Margins
+\usepackage{sectsty} % Custom Sections
+
+%%%%%%%%%%%%%%% Font %%%%%%%%%%%%%%% 
+\usepackage{Archivo}
+\usepackage[T1]{fontenc}
+\sffamily
+
+%%%%%%%%%%%%%%% Graphics %%%%%%%%%%%%%%% 
+\usepackage{fontawesome5} % Icons
+\usepackage{graphicx} % Images
+\usepackage[most]{tcolorbox} % Color Box
+\usepackage{xcolor} % Colors
+\usepackage{tikz} % For Drawing Shapes
+%%%\usepackage{emoji} % For flags
+\tcbuselibrary{breakable}
+%%%\usepackage{academicons}
+
+%%%%%%%%%%%%%%% Miscelanous %%%%%%%%%%%%%%% 
+\usepackage{lipsum} % Lorem Ipsum
+\usepackage{hyperref} % For Hyperlinks
+
+%%%%%%%%%%%%%%% Colors %%%%%%%%%%%%%%% 
+\definecolor{title}{HTML}{b5bff5} % Color of the title
+\definecolor{bars}{HTML}{889af0} % Color of the title
+\definecolor{backdrop}{HTML}{f2f2f2} % Color of the side column
+\definecolor{lightgray}{HTML}{dfdfdf} % Color for the skill bars
+
+%%% TU green: #639a00
+%%% TU gray: #e6e6e6
+%\definecolor{title}{HTML}{639a00} % Color of the title TU
+%\definecolor{bars}{HTML}{889af0} % Color of the title TU
+
+% \definecolor{backdrop}{HTML}{f2f2f2} % Color of the side column
+\definecolor{backdrop}{HTML}{e6e6e6} % Color of the side column
+
+\definecolor{subtitle}{HTML}{606060} % 
+
+
+%%%%%%%%%%%%%%% Section Format %%%%%%%%%%%%%%% 
+\sectionfont{                     
+    \LARGE % Font size
+    \sectionrule{0pt}{0pt}{-8pt}{1pt} % Rule under Section name
+}
+
+\subsectionfont{
+    \Large % Font size
+    \fontfamily{phv}\selectfont % Font family
+    %\sectionrule{0pt}{0pt}{-8pt}{1pt} % Rule under Subsection name
+    \sectionrule{5pt}{0pt}{0pt}{0pt} % Rule under Subsection name
+}
+
+%%%%%%%%%%%%%%% Margins and Headers %%%%%%%%%%%%%%%
+\geometry{
+  a4paper,
+  left=7mm,
+  right=7mm,
+  bottom=10mm,
+  top=10mm
+}
+
+\pagestyle{empty} % Empty Headers
