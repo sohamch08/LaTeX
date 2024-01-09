@@ -1,0 +1,74 @@
+\chapter{Codes from Algebraic Curves}
+We have now came to define the Algebraic Geometric Codes.
+\section{Setting up the System}
+ First we will define the system where we will define the codes.
+\begin{itemize}
+	\item Our alphabet will be $\bbF_q$
+	\item We will consider the functions $f\in \bbF_q[X_1,\dots, X_n]$. Sometimes we will write $\ovX$ to denote $(X_1,\dots, X_n)$. $n$ depends on the context
+	\item If the affine curve $\mcX$ over $\bbF_q$ is defined by a prime ideal $I$ in $\bbF_q[\ovX]$ then its coordinate ring $\bbF_q[\mcX]=\bbF_q[\ovX]/I$ and its function field $\bbF_q(\mcX)$ is the quotient field of $\bbF_q[\mcX]$.
+	\item It is always assumed that the curve is \textit{absolutely irreducible}, i.e.  the defining ideal is also prime in $\bbF[\ovX]$ where $\bbF\coloneqq \overline{\bbF_q}$ i.e. $\bbF$ is the algebraic closure of $\bbF_q$.
+\end{itemize}
+Similar adaptations are made for projective curves. 
+
+\begin{observation*}
+	For any $F\in \bbF_q[\ovX]$, $F(x_1,\dots, x_n)^q=F(x_1^q,\dots, x_n^q)$. So if $(x_1,\dots, x_n)$ is a zero of $F$ and $F$ is defined over $\bbF_q$ then $(x_1^q,\dots, x_n^q)$ is also a zero of $F$.
+\end{observation*}
+We can extend the \textit{Frobenius Map}, $Fr:x\mapsto x^q$ coordinate-wise to points in affine and projective space by $Fr(x_1,\dots, x_n)=(x_1^q,\dots, x_n^q)$. If $\mcX$ is a curve defined over $\bbF_q$ and $P$ is a point of $\mcX$, then $Fr(P)$ is also a  point of $\mcX$.
+
+\begin{definition}[Rational Divisor]
+	A divisor $\mcD$ on $\mcX$ is called rational if the coefficients of $P$ and $Fr(P)$ is $\mcD$ are the same for any point $P$ of $\mcX$.
+\end{definition}
+\begin{remark}
+	Now on the space $\mcL(\mcD)$ will only be considered for rational divisors and as before but with the restriction of the rational functions to $\bbF_q(\mcX)$
+\end{remark}
+
+Let $\mcW$ be an absolutely irreducible nonsingular projective curve over $\bbF_q$. We will define two kinds of algebraic geometry codes from $\mcX$, \textit{Geometric Reed Solomon Codes} and \textit{Geometric Goppa Codes}. Let $P_1,\dots, P_n$ are rational points on $\mcX$ and $\mcD$ be the divisor $\mcD=P_1+\dots +P_n$. Furthermore $\mcG$ is some other divisor that has support disjoint from $\mcD$. 
+
+\begin{remark}
+	We will make more restrictions on $\mcG$, $\deg(\mcG)>2g-2$
+\end{remark}
+\section{Geometric Reed Solomon Codes}
+With the setting as above we define 
+\begin{definition}[Geometric Reed Solomon Codes]
+	The linear code $C(\mcD,\mcG)$ of length $n$ over $\bbF_q$ is the image of the linear map $\alpha:\mcL(\mcG)\to \bbF_q^n$ defined by $\alpha(f)=(f(P_1),\dots, f(P_n))$
+\end{definition}
+\begin{theorem}
+	The code $C(\mcD,\mcG)$ has dimension $$k=\deg(\mcG)-(g-1)$$ and distance $$d\geq n-\deg(\mcG)$$
+\end{theorem}
+\begin{corollary}
+	$k+d\geq n-(g-1)$ 
+\end{corollary}
+\begin{proof}
+	$k+n\geq \deg(\mcG)-(g-1) +  n-\deg(\mcG)=n-(g-1)$
+\end{proof}
+\begin{example}
+	Let $\mcX$ be the projective line over $\bbF_{q^m}$. Hence genus $g=0$. Let $n=q^m-1$.  Define $P_0=(0:1),$ $ P_{\infty}=(1:0)$. Let $\beta$ be the primitive $n$th root of unity. Define $P_i=(\beta^i:1)$ for all $i\in [n]$. Define $\mcD=\sum\limits_{i=1}^nP_i$ and $\mcG=aP_0+bP_{\infty}$ where $a,b\geq 0$ are non-negative integers. By \corref{divdimdeg}, $l(\mcG)=a+b+1$ and the functions $\lt(\frac{x}{y}\rt)^i$ for $-a\leq i\leq b$ forms a basis of $\mcL(\mcG)$. Consider the code $C(\mcD,\mcG)$. A generator matrix for this code has rows $(\beta^i,\beta^{2i},\dots, \beta^{ni})$ with $-a\leq i\leq b$. IT follows that $C(\mcD,\mcG)$ is a Reed-Solomon Code. 
+\end{example}
+
+\section{Geometric Goppa Codes}
+We now come to the second class of algebraic geometry codes. 
+\begin{definition}
+	The linear code $C^*(\mcD,\mcG)$ of length $n$ over $\bbF_q$ is the image of the linear map $\alpha^*:\Om(\mcG-\mcD)\to \bbF_q^n$ defined by $$\alpha^*(\om)=(\res_{P_1}(\eta), \dots, \res_{P_n}(\eta))$$
+\end{definition}
+\begin{theorem}
+	The code $C^*(\mcD,\mcG)$ has dimension $$k^*=n-\deg(\mcG)+(g-1)$$ and distance $$d^*\geq \deg(\mcG)-2(g-1)$$
+\end{theorem}
+\begin{corollary}
+	$k^*+d^*\geq n-(g-1)$
+\end{corollary}
+\begin{proof}
+	$k^*+d^*\geq n-\deg(\mcG)+(g-1)+\deg(\mcG)-2(g-1)=n-(g-1)$
+\end{proof}
+\begin{example}
+	Let $L=\{\alpha_1,\dots,\alpha_n\}$ be a set of $n$ distinct elements of $\bbF_{q^m}$. Let $g$ be a polynomial in $\bbF_{q^m}[X]$ which is not zero at $\alpha_i$ for all $i\in [n]$. The \textit{Classical Goppa Code} $\Gm(L,g)$ is defined by $$\Gm(L,g)=\lt\{\ovc\in \bbF_q^n\mid \sum_{i=1}^n\frac{c_i}{X-\alpha_i}\equiv 0 \pmod{g}\rt\}$$Let $P_i=(\alpha_i:1)$, $Q=(1:0)$ and $\mcD=P_1+\dots+P_n$. If we take for $E$ the divisor of zeros of $g$ on the projective line, then $$\Gm(L,g)=C^*(\mcD, E-Q)$$ and $$\ovc\in \Gm(L,g)\iff \sum_{i=1}^n\frac{c_i}{X-\alpha_i}dX\in \Om(E-Q-\mcD)$$
+	
+	It is a well-known fact that the parity check matrix of the Goppa Code $\Gm(L,g)$ is equal to the following generator matrix of a generalized $RS$ code $$\mat{g(\alpha_1)^{-1}  & \cdots & g(\alpha_n)^{-1}\\ \alpha_1g(\alpha_1)^{-1}  & \cdots & \alpha_ng(\alpha_n)^{-1}\\ \vdots & \ddots & \vdots \\ \alpha_1^{r-1}g(\alpha_1)^{-1}  & \cdots & \alpha_n^{r-1}g(\alpha_n)^{-1}}$$where $r$ is the degree of the Goppa polynomial $g$.
+\end{example}
+\section{Relation between the 2 Codes}
+\begin{theorem}
+	The codes $C(\mcD,\mcG)$ and $C^*(\mcD,\mcG)$ are dual codes.
+\end{theorem}
+\begin{theorem}
+	Let $\mcX$ be a curve defined over $\bbF_q$. Let $P_1,\dots, P_n$ be $n$ rational points on $\mcX$. Let $\mcD=P_1+\cdots+P_n$. Then there exists a differential form $\om$ with simple poles at the $P_i$ such that $\res_{P_i}(\om)=1$ for all $i\in [n]$. Furthermore $$C^*(\mcD,\mcG)=C(\mcD,W+\mcD-\mcG)$$
+\end{theorem}
+So one can do without differentials and the codes $C^*(\mcD,\mcG)$. However it is useful to have both classes when treating decoding methods. These use parity check, so one needs a generator matrix for the dual codes.

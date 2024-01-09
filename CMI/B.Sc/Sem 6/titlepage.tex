@@ -1,0 +1,21 @@
+\newcommand*{\rotrt}[1]{\rotatebox{90}{#1}} % Command to rotate right 90 degrees
+\newcommand*{\rotlft}[1]{\rotatebox{-90}{#1}} % Command to rotate left 90 degrees
+\newcommand{\titleBC}[1]{\begingroup % Create the command for including the title page in the document
+	\centering % Center all text
+	
+	\def\CP{\textit{\Huge #1}} % Title
+	
+	\settowidth{\unitlength}{\CP} % Set the width of the curly brackets to the width of the title
+	{\color{LightGoldenrod}\resizebox*{\unitlength}{\baselineskip}{\rotrt{$\}$}}} \\[\baselineskip] % Print top curly bracket
+	\textcolor{Sienna}{\CP} \\[\baselineskip] % Print title
+	{\color{RosyBrown}\LARGE Scribe: Soham Chatterjee} \\ % Tagline or further description
+	{\color{LightGoldenrod}\resizebox*{\unitlength}{\baselineskip}{\rotlft{$\}$}}} % Print bottom curly bracket
+	
+	\vfill % Whitespace between the title and the author name
+	
+	{\textbf{sohamchatterjee999@gmail.com \\ Website: \href{https://sohamch08.github.io/}{sohamch08.github.io} }}\\ % Author name
+	
+	\vfill % Whitespace between the author name and the publisher logo
+	
+	% Year published
+	\endgroup}

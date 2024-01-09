@@ -1,0 +1,59 @@
+\chapter{Asymptotically Good Sequences of Codes and Curves}
+\section{Introduction to Good Codes}
+Following the distance and dimension of both the Geometric Reed Solomon Codes and Geometric Goppa Codes we have the following theorem
+\begin{theorem}
+	For any algebraic geometry code with dimension $k$ and distance $d$ on a curve of genus $g$ with $n$ points that are defined over $\bbF_q$ satisfy $$k+d\geq n-(g-1)\iff R+\delta \geq 1-\frac{g-1}{n}$$
+\end{theorem}
+This bound feels almost like Singleton Bound but with the genus of the curve involved. First we define what Asymptotically Good code is
+\begin{definition}[Asymptotically Good Codes]
+	A sequence of codes $\{C_m\mid m\in \bbN\}$ with parameters $[n_m,k_m,d_m]$ over a fixed finite fields $\bbF)q$ is called asymptotically good if  $n_m$ tends to infinity, $\frac{d_m}{n_m}$ tends to a nonzero constant $\delta$ and $\frac{k_m}{n_m}$ tends to a nonzero constant $R$ for $m\to \infty$.
+\end{definition}By Gilbert-Vershamov bound there exists asymptotically good sequences of codes attaining the bound $R\geq 1-H_q(\delta)$. 
+
+In order to construct asymptotically good codes we therefore need curves with low genus and many $\bbF_q$-rational points.
+\begin{definition}
+	Let $N_q(g)$ be the maximal number of $\bbF_q$-rational points on an absolutely irreducible nonsingular projective curve over $\bbF_q$ of genus $g$. Let $$A(q)\coloneqq \limsup_{g\to \infty}\frac{N_q(g_)}{g}$$
+\end{definition}
+\section{Some Bounds}
+We know that to find good codes we must find long codes. To use the methods from algebraic geometry it is necessary to find rational points on a given curve. The number of these is a bound on the length of the codes. A central problem in algebraic geometry is finding for the number of rational points on a variety. So we mention the \textit{Hasse-Weil Bound}
+\begin{theorem}[Hasse-Weil Bound, \cite{Hasseweil}]
+	Let $\mcX$ be a curve of genus $g$ over $\bbF_q$. If $N_q(\mcX)$ denotes the number of rational points on $\mcX$ then $$|N_q(\mcX)-(q+1)|\leq g 2\sqrt{q}$$
+\end{theorem}
+Which was latter improved by Serre in \cite{weilserre}, known as \textit{Weil-Serre Bound}
+\begin{theorem}[Weil-Serre Bound, \cite{weilserre}]
+	Let $\mcX$ be a curve of genus $g$ over $\bbF_q$. If $N_q(\mcX)$ denotes the number of rational points on $\mcX$ then $$|N_q(\mcX)-(q+1)|\leq g\lfloor 2\sqrt{q}\rfloor$$
+\end{theorem}
+From this Bound by dividing both side by the genus (provided the genus is not 0) and taking the limit we obtain $$A(q)\leq 2\lfloor q\rfloor$$.This has been improved to the \textit{Drinfeld-Vl\u{a}du\c{t}}
+\begin{theorem}[Drinfeld-Vl\u{a}du\c{t} Bound, \cite{drinfeldvladut}]
+	$$A(q)\leq \sqrt{q}-1$$Equality holds if $q$ is a square.
+\end{theorem}
+And Ihara in \cite{Ihara} has shown that 
+\begin{theorem}[\cite{Ihara}]
+	$$A(q)\geq \sqrt{q}-1$$ when $q$ is a square
+\end{theorem}
+The equality is proved by studying the number of rational points of \textit{modular curves} over finite fields. Applying this to the algebraic geometric codes we finally get the \textit{Tsfasman-Vl\u{a}du\c{t}-Zink (TVZ) Bound}
+\begin{theorem}[Tsfasman-Vl\u{a}du\c{t}-Zink (TVZ) Bound, \cite{tvzbound}]
+	Let $q$ be a square. Then for every $R$ there exists an asymptotically good sequences of codes such that their rate tends to $R$ and relative distance $\delta$ and $$R+\delta\geq 1-\frac1{\sqrt{q}-1}$$
+\end{theorem} 
+This means that $TVZ$ bound is better than the $GV$ bound when $q$ is a square and $q\geq 49$ in a certain range of $\delta$.
+
+\section{Asymptotically Good Curves}
+First if $\mcX$ is absolutely irreducible then it is called a curve. Now we define what asymptotically good curve is. 
+\begin{definition}[Asymptotically Good Curves]
+	A sequence of curves $\{\mcX_m\mid m\in \bbN\}$ is called asymptotically good if $g(\mcX_m)$ tends to infinity and the following limit exists $$\lim_{m\to \infty}\frac{N_q(\mcX_m)}{g(\mcX_m)}>0$$ where $g(\mcX)$ is the genus of $\mcX$. 
+\end{definition}
+In the following we discuss an asymptotically good curve family. 
+
+Let $F\in \bbF_q[X,Y]$. Let $d=\deg_Y(F)$. Assume that there exists a subset $S$ of $\bbF_q$ such that for any $x\in S$ there exists exactly $d$ distinct $y_1,\dots, y_d\in S$ such that $F(x,y_i)=0$ for all $i\in [d]$. Now consider the algebraic set $\mcX_m$ in $\bbA^m$ defined by the equations $$F(X_i,X_{i+1})=0\quad \text{for $i\in [m-1]$}$$We can easily get a lower bound on the number of rational points for $\mcX_m$. $X_1$ has $|S|$ many choices and after words for all $X_i$, $2\leq i\leq m$ has $d$ choices. So number of rational points is at least $|S|\cdot d^{m-1}$. 
+\begin{example}
+	Let $q=4$. Let $F=XY^2+Y+X^2$. The $F$ is an example with $d=2$ and $S=\bbF^*_4$. Therefore this gives a curve with $3\cdot 2^{m-1}$ points with nonzero coordinates in $\bbF_4$ and in fact it gives a sequence of curves that is asymptotically good. 
+\end{example}
+In general let $q=r^2$. Consider $F=Z^{r-1}Y^r+Y=X^r$. Then we get an example with $a=r$ and $S=\bbF_q^*$. The equation $F=0$ has the property that for every given nonzero element $x\in \bbF_q$ there are exactly $r$ nonzero solutions in $\bbF_q$ of the equation $F(x,Y)=0$ in $Y$. To see this first multiply the equation with $X$ to get $XF=X^ry^r+XY-X^{r+1}$. Then replace $z=XY$ and we get $$G=Z^{r}+Z-X^{r+1}$$ This defines an hermitian curve $U^{r+1}+V^{r+1}+1=0$ whose homogeneous version is $U^{r+1}+V^{r+1}+W^{r+1}=0$, which is a Fermat curve. Therefore the corresponding sequence of curves $\mcX_m$ satisfies $$N_q(\mcX)\geq (q-1)r^{m-1}$$
+
+The genus of the curve $\mcX_m$ is computed by induction by applying formula of \textit{Hurwitz-Zeuthen}, \cite{hartshorne} to the covering $\pi_m:\mcX_m\to \mcX_{m-1}$ where $\pi_m(x_1,\dots, x_m)=(x_1,\dots, x_{m-1})$. It is easier to view this in terms of function fields. Let $\mcF_m$ be the function field of $\mcX_m$. Then $\mcF_1=\bbF_q(z_1)$ and $\mcF_m$ is obtained from $\mcF_{m-1}$ by adjoining a new element $z_m$ that satisfies the equation $$z_m^r+z_m=x_{m-1}^{r+1}$$ where $x_{m-1}=\frac{z_{m-1}}{x_{m-2}}\in \mcF_{m-1}$ for $m\geq 2$ and $x_1=z_1$, $x_0=1$.
+\begin{theorem}
+	The genus $g_m$ of the curve $\mcX_m$ or equivalently of the function field $\mcF_m$ is equal to $$g_m=\begin{cases}
+		r^m+r^{m-1}-r^{\frac{m+1}2}-2r^{\frac{m-1}2}+1 & \text{when $m$ is odd}\\
+		r^m+r^{m-1}-\frac12 r^{\frac{m+2}2}-\frac32r^{\frac{m}2}-r^{\frac{m-2}2}+1 & \text{when $m$ is even}
+	\end{cases}$$
+\end{theorem}
+Thus the Drinfeld-Vl\u{a}du\c{t} Bound is attained.

@@ -1,0 +1,34 @@
+\definecolor{mycolor1}{RGB}{110,120,180}
+\definecolor{mycolor2}{RGB}{240,240,240}
+\usepackage{anysize}
+\marginsize{1.5in}{1in}{0.5in}{0.5in}
+
+\newcommand*{\titre}[2]{\begingroup
+	\newlength{\drop}
+	\setlength{\drop}{0.1\textheight}
+	\centering
+	\settowidth{\unitlength}{\Huge\scshape La matière et l'espace\hspace{3pt}-temps}
+	\vspace*{\baselineskip}
+	\rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+	\rule{\unitlength}{0.4pt}\\[\baselineskip]
+	{\Huge\scshape\color{white} #1}\\[\baselineskip]
+	{\large\itshape Instructor: #2}\\[0.2\baselineskip]
+	\rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+	\rule{\unitlength}{1.6pt}\\[4\baselineskip]
+	{\Large\scshape Scribe: Soham Chatterjee\\[10mm] sohamchatterjee999@gmail.com \\[2mm] Website: \href{https://sohamch08.github.io/}{sohamch08.github.io} }\par
+	\vfill
+	{\large\scshape 2023}\par
+	\endgroup}
+
+\begin{document}
+	
+	\begin{titlepage}
+		
+		\begin{tikzpicture}[remember picture,overlay]
+			\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[minimum width=\paperwidth,minimum height=\paperheight,top color=mycolor1,bottom color=mycolor2]{};
+		\end{tikzpicture}\\[3\baselineskip]
+		
+		\titre{Course Name}{Instructor Name}
+	\end{titlepage}
+	
+\end{document}

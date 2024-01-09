@@ -1,45 +1,33 @@
 \documentclass{report}
-
+\usepackage{url}
 
 \usepackage[nottoc,numbib]{tocbibind}
-\input{preamble-formal}
-\input{letterfonts}
-\input{macros}
+\input{../preamble-formal}
+\input{../letterfonts}
+\input{../macros}
 
-\definecolor{mycolor1}{RGB}{10,120,100}
-\definecolor{mycolor2}{RGB}{240,240,240}
+\definecolor{mycolor1}{RGB}{120,120,120}
+\definecolor{mycolor2}{RGB}{250,250,250}
 %\usepackage{anysize}
 %\marginsize{1.5in}{1in}{0.5in}{0.5in}
 
-\newcommand*{\titre}[1]{\begingroup
+\newcommand*{\titre}[2]{\begingroup
 	\newlength{\drop}
 	\setlength{\drop}{0.1\textheight}
 	\centering
-	\settowidth{\unitlength}{\huge\scshape \hspace{1cm} #1\hspace{3pt}-temps}
+	\settowidth{\unitlength}{\Huge\scshape #1 \hspace{10pt}}
 	\vspace*{\baselineskip}
 	\rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
 	\rule{\unitlength}{0.4pt}\\[\baselineskip]
 	{\Huge\scshape\color{white} #1}\\[\baselineskip]
-%	{\large\itshape Instructor: #2}\\[0.2\baselineskip]
+	{\large\itshape Instructor: #2}\\[0.2\baselineskip]
 	\rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
 	\rule{\unitlength}{1.6pt}\\[4\baselineskip]
-	{\LARGE \begin{center}
-			\begin{tabular}{ccc}
-				\textsc{Soham Chatterjee} & \ \hspace*{3cm} & \textsc{Shree Ganesh S J}\\
-				sohamc@cmi.ac.in & & shreeganesh@cmi.ac.in\\
-				BMC202175 & & MCS202219
-			\end{tabular}
-			\vspace{3cm}
-			
-			\Large Course: Algorithmic Coding Theory\\
-			Instructor: Amit Kumar Sinhababu\\[3\baselineskip]
-			Chennai Mathematical Institute
-	\end{center} } \par
-
+	{\Large\scshape Scribe: Soham Chatterjee\\[10mm] sohamchatterjee999@gmail.com \\[2mm] Website: \href{https://sohamch08.github.io/}{sohamch08.github.io} }\par
 	\vfill
-	{\large\scshape 2023}\par
+	{\large\scshape 2024}\par
 	\endgroup}
-
+	
 
 %\title{\huge Algorithmic Coding Theory - Amit Kumar Sinhababu}
 %\author{ \vspace*{5mm} \LARGE Scribed: Soham Chatterjee\\\large sohamchatterjee999@gmail.com\\ \large Website: \href{https://sohamch08.github.io/}{sohamch08.github.io}}
@@ -54,36 +42,33 @@
 %\end{titlingpage}
 	
 %----------------------------------------------------------------------------------------
-%TITLE PAGE
+%	TITLE PAGE
 %----------------------------------------------------------------------------------------
 \thispagestyle{empty}
 %\titleBC{Algorithmic Coding Theory: 2023}
-	
+
 %{Soham Chatterjee}{\textbf{sohamchatterjee999@gmail.com \\ Website: \href{https://sohamch08.github.io/}{sohamch08.github.io}}
 \begin{titlepage}
-			
+	
 	\begin{tikzpicture}[remember picture,overlay]
 		\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[minimum width=\paperwidth,minimum height=\paperheight,top color=mycolor1,bottom color=mycolor2]{};
 	\end{tikzpicture}\\[3\baselineskip]
-			
-	\titre{Report on Algebraic Geometry Codes}
-\end{titlepage}
 	
-\input{ch-abstract}	
+	\titre{Expander Graphs and It's Application}{Partha Mukhopadhyay}
+\end{titlepage}
 	
 \pagebreak
 \tableofcontents 
 \pagebreak
-		
 
-\input{ch-math}
-\input{ch-agcode}
-\input{ch-goodcodebound}		
-		
-		
+\cite{hlw06}
+\cite{prcd}
+\cite{lt}
+\cite{shachar}
+\input{ch-intro}
 \pagebreak
 %\printbibliography[heading=none]
 %\addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{alpha}
 \bibliography{refs}
-	\end{document}
+\end{document}

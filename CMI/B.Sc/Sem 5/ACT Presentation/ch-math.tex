@@ -1,0 +1,85 @@
+\chapter{Preliminaries}
+\section{Introduction}
+Algebro-geometric codes (or Algebraic geometry codes as referred commonly) has been studied since the publication of Goppa's paper describing them \cite{goppafirst}, \cite{Goppa1981CodesOA}, \cite{Goppa1984CodesAI}. These codes attracted interest in the coding theory community because they have the ability to surpass the Gilbert–Varshamov bound; at the time this was discovered, the Gilbert–Varshamov bound had not been broken in the 30 years since its discovery. This was demonstrated by Tfasman, Vl\u{a}du\c{t}, and Zink in the same year as the code construction was published, in their paper  \cite{tvzbound}. To describe the construction of the codes we first need to set up the mathematics. We will define some objects like divisors, differentials which we need to define the code and also state some theorems. Then we will dive right into the construction and some bounds of the code.\\
+
+Where do these come from? Recall how the Reed-Solomon codes were defined. We took an Alphabet $\bbF_q$ where $q$ is a prime power and we took our codes to be the evaluation of polynomials on some predetermined point of $\bbF_q^n$. This gives us a tuple of evaluations of these polynomials which forms the codeword. How do we generalise this? A natural way to do so is to think about how we can choose these evaluation points. We can potentially choose an arbitrary algebraic curve sitting inside $\bbF_q^n$ and evaluate the polynomials on some points on this curve. Due to a few complicated reasons, defining such algebraic curves over some projective space defined over an algebraically closed field makes things easier from a computational perspective and hence we'll be investigating the same.
+\section{Mathematics}
+\subsection{Divisors}
+\begin{definition}[Divisor]
+	A divisor is a formal sum $\mcD=\sum\limits_{P\in X}n_pP$ with $n_P\in \bbZ$ and $n_P=0$ for all but finite number of points $P$.	
+\end{definition}
+	The support of a divisor is the set of all points with nonzero coefficient. A divisor $\mcD$ is called \textit{effective}  if all coefficients $n_P$ are nonnegative (We denote it by $\mcD\succcurlyeq 0$) The degree $\deg(\mcD)\coloneqq \sum\limits_{P\in X}n_P$.
+	\begin{definition}[Principal Divisor]
+		If $f$ is a rational function on $\mcX$ not identically $0$ the we define the divisor of $f$ to be $$(f)=\sum_{P\in X}v_P(f)P$$Divisor of a rational function is called a principal divisor.
+	\end{definition}
+	Two divisors $\mcD,\mcD'$ are linearly equivalent if and only if $\mcD-\mcD'$ is a principal divisor
+\subsection{Reimann-Roch Spaces}
+\begin{definition}[Reimann-Roch Spaces]
+	For any divisor $\mcD\in \tilde{\mfD}$ $$\mcL(\mcD)=\{f\in \bbF(\mcX)^*\mid (f)+\mcD\succcurlyeq 0 \}\cup \{0\}$$The dimension of $\mcL(\mcD)$ over $\bbF$ is denoted by $l(\mcD)$
+\end{definition}
+\begin{theorem}\label{rrspacedim}
+	\begin{enumerate}[label=(\roman*)]
+		\item If $\deg(\mcD)<0$ then $l(\mcD)=0$
+		\item $l(\mcD)\leq 1+\deg(\mcD)$
+	\end{enumerate}
+\end{theorem}
+\begin{theorem}\label{0divrrspacedim}
+	$\mcL(0)=\bbF$. Hence $l(0)=1$
+\end{theorem}
+
+\subsection{Differentials}
+\begin{definition}[Derivation]
+	Let $\mcV$ be a vector space over $\bbF(\mcX)$. An $\bbF$-linear map $D:\bbF(\mcX)\to\mcV$ is called a derivation if it satisfies the product rule $$D(fg)=fD(g)+gD(f)$$
+\end{definition}
+The set of all derivations $D:\bbF(\mcX)\to\mcV$ will be denoted by $Der(\mcX.\mcV)$. $Der(\mcX,\mcV)$ forms a vector space over $\bbF(\mcX)$. We denote $Der(\mcX,\mcV)$ by $Der(\mcX)$ if $\mcV=\bbF(\mcX)$. 
+\begin{theorem}
+	Let $t$ be a local parameter at a point $P$. Then there exists a unique derivation $D_t:\bbF(\mcX)\to \bbF(\mcX)$  such that $D_t(t)=1$ and $\dim_{\bbF(\mcX)}(Der(\mcX))=1$ and $D_t$ is a basis element for every local parameter $t$
+\end{theorem}
+\begin{definition}[Differential]
+	A rational differential form or differential on $\mcX$ is an $\bbF9\mcX)$-linear map from $Der(\mcX)$ to $\bbF(\mcX)$. The set of all rational differential forms $\mcX$ is denoted by $\Om(\mcX)$.
+\end{definition}
+Again $\Om(\mcX)$ forms a vector space over $\bbF(\mcX)$. The differential $df:Der(\mcX)\to \bbF(\mcX)$ is defined by $df(D)=D(f)$ for all $D\in Der(\mcX)$. Then $d$ is a derivation.
+\begin{theorem}
+	$\dim_{\bbF(\mcX)}(\Om(\mcX))=1$ and $dt$ is a basis for every point $P$ with local parameter $t$.
+\end{theorem}
+For every point $P$ and local parameter $t_P$ a differential  $\om$ on $\mcX$ can be represented in a unique way as $\om=f_Pdt_P$ where $f_P$ is a rational function. The order or valuation of $\om$ at $P$ is defined by $v_P(\om)=v_P(f_P)$. A differential form $\om$ is called \textit{regular} if it has no poles. The regular differentials on $\mcX$ form an $\bbF[\mcX]$-module which we denote by $\Om[\mcX]$
+\begin{definition}[Canonical Divisor]
+	Let $\om$ be a differential then the divisor $(\om)$ is defined by $$(\om)=\sum_{P\in \mcX}v_P(\om)P$$Divisors of differentials are called canonical divisor. 
+\end{definition}
+If $\om'$ be another nonzero differential then $\om'=f\om$ for some rational function $f$. Hence canonical divisors form one equivalence class. Let $W$ denote the divisor of the differential $\om$. Hence  $\mcL(W)\equiv \Om[\mcX]$
+\begin{definition}[Genus of a Curve]
+	Let $\mcX$ be a smooth projective curve over $\bbF$. The the genus $g$ of $\mcX$ is defined by $l(W)$.
+\end{definition}
+\begin{theorem}
+	Let $\mcX$ is nonsingular projective curve of degree $m$ in $\bbP^2$. Then $$g=\frac12(m-1)(m-2)$$
+\end{theorem}
+
+
+\subsection{Reimann-Roch Theorem}
+
+\begin{theorem}[Reimann-Roch Theorem]
+	$\mcD$ is a divisor on a smooth projective curve with genus $g$. Then for any canonical divisor $W$ $$l(\mcD) - l(W-\mcD)= \deg(\mcD)- (g-1)$$
+\end{theorem}
+\begin{corollary}\label{candivdeg}
+	For any canonical divisor $W$,  $\deg(W)=2g-2$
+\end{corollary}
+\begin{proof}
+	Take $\mcD=W$. Then $l(W-\mcD)=l(0)=1$ by \thmref{0divrrspacedim}. So we have $$l(W)-1=\deg(W)-(g-1)$$ By definition $l(W)=g$. Hence we have $g-1=\deg(W)-(g-1)\iff \deg(W)=2g-2$.
+\end{proof}
+With the help of this corollary we can finally focus on the divisors which we will actually use to define codes. The following corollary gives the dimension of the Reimann-Roch Spaces of divisors with degree more than $2g-2$.
+\begin{corollary}\label{divdimdeg}
+	Let $\mcD$ be a divisor on a smooth projective curve of genus $g$ and let $\deg(\mcD)>2g-2$. Then $$l(\mcD)=\deg(D)-(g-1)$$
+\end{corollary}
+\begin{proof}
+	We have $\deg(W-\mcD)=\deg(W)-\deg(\mcD)$. Now by \corref{candivdeg} $\deg(W-\mcD)<0$. So  $l(W-\mcD)=0$ by \thmref{rrspacedim} part (ii). So We have $l(D)=\deg(D)-(g-1)$.
+\end{proof}
+\subsection{Index of speciality}
+\begin{definition}[Index of Specialty]
+	Let $\mcD$ be a divisor on a curve $\mcX$. We define $$\Om(\mcD)=\{\om\in \Om(\mcX)\mid (w)-D\succcurlyeq 0\}$$ and we denote the dimension of $\Om(\mcD)$ over $\bbF$ by $\delta(\mcD)$ called the index of specialty of $\mcD$.
+\end{definition}
+\begin{theorem}
+	$\delta(\mcD)=l(W-\mcD)$
+\end{theorem}
+\begin{proof}
+	If $W=(\om)$. Define the linear map $\varphi:\mcL(W-\mcD)\to \Om(\mcD)$ by $\varphi(f)=f\om$. $$f\in \mcL(W-\mcD)\implies (f)+W-\mcD\succcurlyeq 0 \iff (f)+(\om)-\mcD\succcurlyeq \iff (f\om)-\mcD\succcurlyeq0\iff f\in \Om(\mcD)$$Hence $\varphi$ is an isomorphism. Therefore $\delta(\mcD)=l(W-\mcD)$
+\end{proof}

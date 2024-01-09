@@ -1,0 +1,86 @@
+\chapter{Introduction to Expanders}
+Consider you have many computers and you want to create a network among them. You want to have well connectivity so that you can communicate from any computer to any computer. But since adding all possible connections results in high cost you want to use minimum number of connections but still want to achieve well connected. Similarly you don't want to connect too many computers to one single computer to achieve that. Also if any connection fail you don't want to loose any computer.
+
+ So your connection graph should be symmetric. So the properties we need:
+\begin{enumerate}
+	\item ``Well Connected"
+	\item ``Nicely Symmetric"
+	\item They should be sparse
+	\item Low degree graph
+\end{enumerate}
+Because of this we study expander graphs to achieve all these 4 properties
+\begin{observation*}
+	Complete graph follows first 2 properties but not the last 2 properties.
+\end{observation*}
+\begin{remark}
+	Expander graphs are very good approximation of complete graphs
+\end{remark}
+Now the big question comes.
+\begin{question}
+	Do they exists? How to construct them explicitly?
+\end{question}
+Using probabilistic method one can show they exists in large number. Though constructions of expander graphs are highly non trivial. They often use: Group theory, Number Theory, Representation Theory, Combinatorics.
+
+
+Through out this we will study expander with keeping these two question in mind. Their study helps us in a lot of fields:
+\begin{itemize}
+	\item Derandomization of Randomized Algorithms
+	\item Error Reduction in Randomized Algorithms
+	\item Circuit Complexity
+	\item Error Correcting Codes
+	\item Counting
+	\item Space Complexity
+	\item PCP
+\end{itemize}
+\parinf
+
+\textbf{Assumptions:} By default we will assume our graphs $G=(V,E)$ are undirected and they are $d$-regular. 
+
+\parinn
+
+\section{Vertex Expander}
+By the term ``Expander Graphs" we can guess something should expand. So one example of expanders is we expander a set of vertices $S\subseteq V$.
+\begin{definition}[Vertex Boundary]
+	$\forall\ S\subseteq V$, the boundary of $S$ is $N(S)=\{v\in S\mid \exs\ u\in S, (v,u)\in E\}$
+\end{definition}
+\begin{definition}[Vertex Expander]
+	A graph $G$ is $(\delta,\eps)$-vertex expander if $\forall\ S\subseteq V$, $|S|\leq \delta |V|$, $\frac{|N(S)|}{|V|}\geq \eps$
+\end{definition}
+In general many times we will take $\delta $ to be $\frac12$.
+
+\section{Spectral Expander}
+First we take the adjacency matrix of $G$ and then normalize it. Let $A_G$ denote that matrix. So for every row of $A_G$ it is the corresponding row of the adjacency matrix then divided by $d$ as $G$ is $d-$regular graph. So $$A_G[i,j]=\begin{cases}
+	\frac1d & \text{when $(i,j)\in E$}\\ 0 &\text{otherwise}
+\end{cases}$$
+We can think of $A_G$ as a probability distribution over the vertices.
+\begin{observation}
+	The rows as well as columns sum up to 1. Such matrix is called doubly stochastic.
+\end{observation}
+\begin{observation}
+	$A_G$ is a real symmetric matrix
+\end{observation}
+\begin{lemma}
+	$A_G$ has real eigenvalues
+\end{lemma}
+\begin{proof}
+	Let $\lm$ be eigenvalue and the corresponding nonzero eigenvector is $v$. Then $A_Gv=\lm v$. Now $$\lm (v^{\dagger}v)=v^{\dagger}\lm v=v^{\dagger}Av=(A^{\dagger}v)^{\dagger}v=(Av)^{\dagger}v=\lm^{\dagger}(v^{\dagger}v)$$So we get $\lm=\lm^{\dagger}$. Hence $\lm $ is real.
+\end{proof}
+We define the vector $u\coloneqq  \lt(\frac1n\cdots \frac1n\rt)^T$ is uniform vector
+\begin{observation}
+	$A_Gu=u$. $u$ eigenvector with eigenvalue 1
+\end{observation}
+\begin{lemma}
+	$\forall\ i\in [n]$ $|\lm_i|\leq 1$
+\end{lemma}
+\begin{proof}
+	Let $\lm$ is an eigenvalue and corresponding nonzero eigenvector $x$. Let $|x_j|$ has the maximum absolute value among all the entries of $x$. Then $j$th entry of $\lm x$ is $\lm x_j$. $j$th entry of $A_Gx$ is $\sum\limits_{i=1}^nA_G[j,i]x_i$. So $$\lt|\sum\limits_{i=1}^nA_G[j,i]x_i\rt|=|\lm|\cdot |x_j|$$Now $$|x_j|\geq \lt|\sum\limits_{i=1}^nA_G[j,i]x_i\rt|=|\lm|\cdot |x_j|\implies |\lm|\leq 	1$$
+\end{proof}
+\begin{remark}
+	We will denote the eigenvalues of $A_G$ in this following manner $$1=|\lm_1|\geq |\lm _2|\geq \cdots \geq |\lm_n|$$
+\end{remark}
+\begin{definition}[Spectral Expander]
+	$G=(V,E)$ is $\lm$-spectral expander if $\lm_2\leq \lm$. The spectral expansion is $1-\lm_2\geq 1-\lm$, also called spectral gap.
+\end{definition}
+\begin{remark}
+	We are interested when $\lm$ is constant.
+\end{remark}

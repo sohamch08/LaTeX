@@ -1,0 +1,26 @@
+\newcommand*{\titlePM}{\begingroup% \titleGM with Ornaments
+	\drop = 0.1\textheight
+	\vspace*{\baselineskip}
+	\vfill
+	\hbox{%
+		\hspace*{0.1\textwidth}%
+		{\wb{18pt}{18pt}
+			\begin{picture}(0,0)
+				\multiput(0,0)(0,20){22}{\textcolor{Medium}{Q}}
+			\end{picture}
+		}
+		% \rule{1pt}{\textheight}
+		\hspace*{0.15\textwidth}%
+		\parbox[b]{0.75\textwidth}{
+			\vbox{%
+				\vspace{\drop}
+				{\noindent\HUGE\bfseries Some\\[0.5\baselineskip]
+					Conundrums}\\[2\baselineskip]
+				{\Large\itshape Puzzles for the Mind}\\[4\baselineskip]
+				{\Large THE AUTHOR}\par
+				\vspace{0.5\textheight}
+				{\noindent The Publisher}\\[\baselineskip]
+	}}}% ends of vbox/parbox/hbox
+	\vfill
+	\null
+	\endgroup}
