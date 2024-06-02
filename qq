@@ -1,0 +1,73 @@
+[1mdiff --git a/CV/cv.pdf b/CV/cv.pdf[m
+[1mindex 449407b..f9e4e63 100644[m
+Binary files a/CV/cv.pdf and b/CV/cv.pdf differ
+[1mdiff --git a/CV/cv.tex b/CV/cv.tex[m
+[1mindex cac5e03..6c0dc66 100644[m
+[1m--- a/CV/cv.tex[m
+[1m+++ b/CV/cv.tex[m
+[36m@@ -95,16 +95,23 @@[m
+ [m
+ [m
+ \begin{itemize}[m
+[32m+[m	[32m\item{\cventry{2024}{Entrance exam of Computer Science in Tata Institute of Fundamental Research, Mumbai}{TIFR Entrance GS, Computer Science}{TIFR, Mumbai}{}{}}[m
+[32m+[m	[32m\item{\cventry{2024}{Joint Entrance Screening Test. Entrance for IMSC}{JEST, TCS - Rank 5}{JEST}{}{}}[m
+ [m
+ 	\item{\cventry{2021}{Entrance exam of Chennai Mathematical Institute}{CMI Entrance}{Chennai Mathematical Institute}{}{}}[m
+ [m
+ 	\item{\cventry{2021}{Entrance exam of National Institute of Science Education and Research (NISER)}{NEST}{NISER}{}{}}[m
+ [m
+ 	\item{\cventry{2020}{West Bengal Joint Entrance Exam}{WBJEE - Rank 1893}{WBJEEB}{}{}}[m
+[31m-	\item{\cventry{2020}{C R Rao Advanced Institute of Mathematics, Statistics and Computer Science (AIMSCS)}{12th Statistics Olympiad - Rank 108}{AIMSCS}{}{}}[m
+[32m+[m	[32m\item{\cventry{2020}{C R Rao Advanced Institute of Mathematics, Statistics and Computer Science (AIMSCS)}{12th Statistics Olympiad - Rank 28}{AIMSCS}{}{}}[m
+ [m
+ \end{itemize}[m
+ [m
+[32m+[m[32m%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%[m
+[32m+[m[32m%%%%%%%%%%%% Internships %%%%%%%%%%%%%%%%%%%%%%%%%[m
+[32m+[m[32m%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%[m
+[32m+[m
+[32m+[m
+ \section{Internship}[m
+ \begin{itemize}[m
+ 	\item \textbf{Ramanujan's work on theta functions and $q$-series and their connections with number theory.}[m
+[36m@@ -118,10 +125,19 @@[m
+ 	\item \textbf{Factorization of Formula Arithmetic Circuits in Algebraic Complexity Theory }[m
+ 	[m
+ 	\hfill Under Professor \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}, IIT Kanpur during the summer break in May -- July, 2023.[m
+[31m-	\item \textbf{Quantum Property Testing and Junta Functions and Partially Symmetric Functions.}[m
+[32m+[m	[32m\item \textbf{Quantum Property Testing of Junta Functions and Partially Symmetric Functions.}[m
+[32m+[m[41m	[m
+[32m+[m	[32m\hfill Under Professor \href{https://sites.google.com/site/homepagearijitghosh/}{Arijit Ghosh}, ISI Kolkata during the winter break in Dec, 2023 -- Going on.[m
+ 	[m
+[31m-	\hfill Under Professor \href{https://sites.google.com/site/homepagearijitghosh/}{Arijit Ghosh}, ISI Kolkata during the winter break in Dec -- Jan, 2023.[m
+[32m+[m		[32m\item \textbf{Derandomization of Isolation Lemma}[m
+[32m+[m[41m	[m
+[32m+[m	[32m\hfill Under Professor \href{https://www.cse.iitb.ac.in/~rgurjar/}{Rohit Gurjar}, IIT Bombay during the summer break in May -- Jul, 2024.[m
+ \end{itemize}[m
+[32m+[m
+[32m+[m[32m%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%[m
+[32m+[m[32m%%%%%%%% Course Projects %%%%%%%%%%%%%%%%%%%%%%%%%[m
+[32m+[m[32m%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%[m
+[32m+[m
+ \section{Course Projects}[m
+ \begin{itemize}[m
+ 	\item \textbf{Presentation on Iterated Mod Problem:: \href{https://sohamch08.github.io/files/parallel-presentation-iterated-mod.pdf}{Slides}}[m
+[36m@@ -208,14 +224,14 @@[m
+ \item Discrete Mathematics - \href{https://sites.google.com/cse.iitm.ac.in/c-ramya}{C Ramya} \& \href{https://www.cmi.ac.in/~partham/}{Partha Mukhopadhyay}[m
+ \item Arithmetic Circuits - \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}[m
+ \item Computational Algebra and Number Theory - \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}[m
+[31m-\item Lambda Calculus[m
+[31m-\item Introductory Concurrent Programming[m
+[32m+[m[32m\item Lambda Calculus - \href{https://www.cmi.ac.in/~spsuresh/}{S P Suresh}[m
+[32m+[m[32m\item Introductory Concurrent Programming - \href{https://www.cmi.ac.in/~madhavan/}{Madhavan Mukund}[m
+ 		            \end{itemize}[m
+ 		            \vspace*{5mm}[m
+ 		      \item \textbf{Other CS Topics:} \begin{itemize}[m
+[31m-			            \item Introduction to Functional Programming (Haskell)[m
+[32m+[m			[32m            \item Introduction to Functional Programming (Haskell) - \href{https://www.cmi.ac.in/~spsuresh/}{S P Suresh}[m
+ 			            \item Advanced Programming with Python - \href{https://www.cmi.ac.in/~sdatta/}{Samir Dutta}[m
+[31m-			            \item Programming Language Concepts using Java[m
+[32m+[m			[32m            \item Programming Language Concepts using Java - \href{https://www.cmi.ac.in/~madhavan/}{Madhavan Mukund}[m
+ 		            \end{itemize}[m
+ [m
+ 	      \end{itemize}[m
