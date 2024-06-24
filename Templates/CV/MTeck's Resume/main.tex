@@ -1,0 +1,341 @@
+%%%%
+% MTecknology's Resume
+%%%%
+% Author: Michael Lustfield
+% License: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage,amsmath,mathtools}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{000000}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+\newcommand{\sbt}{\,\begin{picture}(-1,1)(-1,-3)\circle*{3}\end{picture}\ }
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\scshape\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\scshape\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{4pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% John Doe's Resume %
+%===================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+  %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{Soham Chatterjee}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    \href{tel:+919433548242}{
+      \raisebox{-0.05\height} \faPhone\ +91 943-354-8242} ~
+    \href{mailto:sohamc@cmi.ac.in}{
+      \raisebox{-0.15\height} \faEnvelope\ sohamc@cmi.ac.in} ~
+    \href{https://linkedin.com/in/soham-chatterjee-513b77202/}{
+      \raisebox{-0.15\height} \faLinkedin\ soham-chatterjee-513b77202} ~
+    \href{https://github.com/sohamch08}{
+      \raisebox{-0.15\height} \faGithub\ sohamch08}
+   \href{https://sohamch08.github.io}{
+  	\raisebox{-0.15\height} \faGlobe\ sohamch08.github.io}
+  }
+
+  %---------%
+  % Summary %
+  %---------%
+%
+%  \tinysection{Summary}
+%  Simplified version of a monstrosity that I built back in college using current best practices.
+
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Education}
+
+%  \begin{multicols}{2}
+%    \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=75pt]
+%      \item[\textbf{Automation}] SaltStack, Ansible, Chef, Puppet
+%      \item[\textbf{Cloud}] Salt-Cloud, Linode, GCP, AWS
+%      \item[\textbf{Languages}] Python, Bash, PHP, Perl, VB/C\#.Net
+%      \item[\textbf{OS}] Debian, Ubuntu, CentOS, BSD, AIX
+%      \item[\textbf{Policies}] CIS, SOC2, PCI-DSS, GDPR, ITIL
+%      \item[\textbf{Testing}] Pytest, Docker, CircleCI, Jenkins, Inspec
+%    \end{itemize}
+%  \end{multicols}
+
+\begin{resume_list}
+	\item \headingBf{Chennai Mathematical Institute}{2021 -- 2024}
+	\headingIt{B.Sc. - Mathematics and Computer Science}{Chennai, India}
+	\item \headingBf{Baranagar Narendranath Vidyamandir}{2018 -- 2020}
+	\headingIt{Higher Secondary ($12^{th}$ Standard) Education}{Kolkata, India}
+	\item \headingBf{Baranagar Ramakrishna Mission Ashrama High School}{2008 -- 2018}
+	\headingIt{Secondary ($12^{th}$ Standard) Education}{Kolkata, India}
+\end{resume_list}
+
+%------------%
+% Experience %
+%------------%
+\section{Academic Achievements}
+\begin{resume_list}
+	\item \headingBf{GS Exam, I-PhD, Computer Science, 2024}{TIFR Mumbai, India}
+	\headingIt{Nation wide entrance exam in Computer Science for Tata Insititute of Fundamental Reseach. Only 2 people got selected.}{}
+	
+	\item \headingBf{JEST, I-PhD, Theoretical Computer Science, 2024 - Rank 5}{IMSC, India}
+	\headingIt{Nation wide entrance exam in Computer Science for Insitute of Mathematical Sciences}{}
+	\item \headingBf{NEST, B.Sc., 2021}{NISER, India}
+	\headingIt{Nation wide bachelors entrance exam for National Institute of Science Education and Research }{}
+	\item \headingBf{WBJEE, B.Tech, 2020 - Rank 1893}{WBJEEB}
+	\headingIt{Joint Entrance exam for B.Tech for West Bengal state}{}
+	\item \headingBf{$\boldsymbol{12^{th}}$ Statistics Olympiad, 2020 - Rank 28}{AIMSCS}
+	\headingIt{Organised by C R Rao Advanced Institute of Mathematics, Statistics and Computer Science}{}
+	
+\end{resume_list}
+\section{Internships}
+\begin{resume_list}
+	\item \headingBf{Ramanujan’s work on theta functions and $q$-series and their connections with number theory.}{}
+	\headingIt{IIT Guahati}{May - Jul, 2022}
+	\begin{itemize}
+		\item Supervisor: \href{https://www.iitg.ac.in/rupam/}{Rupam Barman}
+		\item 
+	\end{itemize}
+
+\item \headingBf{Computational Number Theroy and Algebra for Algebraic Comlexity Theory.}{}
+\headingIt{IIT Kanpur}{Dec - Jan, 2022}
+\begin{itemize}
+	\item Supervisor: \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}
+	\item 
+\end{itemize}
+
+\item \headingBf{Factorization of Arithmetic Circuits in Algebraic Complexity Theory}{}
+\headingIt{IIT Kanpur}{May - Jul, 2022}
+\begin{itemize}
+	\item Supervisor: \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}
+	\item 
+\end{itemize}
+
+\item \headingBf{Quantum Property Testing of Junta Functions and Partially Symmetric Functions.}{}
+\headingIt{Indian Statistical Institute, Kolkata}{Dec, 2024 -- Going on}
+\begin{itemize}
+	\item Supervisor: \href{https://sites.google.com/site/homepagearijitghosh/}{Arijit Ghosh}
+	\item 
+\end{itemize}
+
+\item \headingBf{Polyhedral Combinatorics and Derandomization of Isolation Lemma}{}
+\headingIt{IIT Mumbai}{May - Jul, 2024}
+\begin{itemize}[label=$\sbt$]
+	\item Supervisor: \href{https://www.cse.iitb.ac.in/~rgurjar/}{Rohit Gurjar}
+	\item I read the paper 'Bipartite Perfect Matching is in \textsc{Quasi-NC}' by Fenner Gurjar Thierauf
+	\item In addition i learned about Matroid Polytopes and Their Properties from the paper 'Linear Matroid Intersection Is in \textsc{Quasi-NC}' by Gurjar and Thierauf. From this paper I also learned how the idea of isolating a bipartite perfect matching by find a weight assignment giving nonzero circulations to all cycles  of size twice the smallest cycle by making their number polynomially bounded generalized to matroid polytopes by defining new type cycles with respect to a face.
+	\item Then I read the paper `Fractional Linear Matroid Matching is in \textsc{Quasi-NC} which generalizes this idea further more by allowing half-integral vertices in the matroid matching polytope.
+	\item Additionally I read about isolating a path connecting the source vertex and sink vertex in a black-box layered graph with only knowledge of length and width of the graph from the paper `Derandomizing Isolation in Space-Bounded Settings' by Melkebeek and Prakriya.
+\end{itemize}
+
+\end{resume_list}
+
+\section{Relevant Course Work}
+
+  \headingBf{Consulting Corp}{Jul 2015 -- Jun 2025}
+  \headingIt{Senior DevOps Engineer (FTE Consultant)}{}
+  \begin{resume_list}
+    \itemTitle{Client: Notable Placement}
+    \item Analyzed network traffic patterns to identify bottlenecks and optimize performance
+    \item Implemented firewall rules to enhance network security and prevent unauthorized access
+    \item Conducted regular vulnerability assessments and applied patches to secure systems
+    \item Collaborated with cross-functional teams to streamline IT processes and improve efficiency
+    \vspace{3pt}
+    \itemTitle{Client: Challenges Unlimited}
+    \item Configured monitoring tools to track system performance and troubleshoot issues proactively
+    \item Automated routine tasks using scripts to reduce manual effort and increase productivity
+    \item Documented system configurations and procedures for knowledge sharing within the team
+    \item Participated in disaster recovery planning and drills to ensure business continuity in case of emergencies
+    \vspace{3pt}
+    \itemTitle{Client: Broken Galleries}
+    \item Implemented cloud migration strategies to move applications to a hybrid environment
+    \item Optimized database performance through indexing and query tuning techniques
+    \item Conducted capacity planning and scalability assessments to support future growth
+    \item Provided on-call support for critical issues and worked on root cause analysis for incident resolution
+  \end{resume_list}
+
+  \headingBf{HealthCo Industries}{Feb 2011 -- Mar 2016}
+  \headingIt{Senior Systems Administrator (SRE)}{}
+  \begin{resume_list}
+    \item Managed virtualized server environment spanning multiple data centers
+    \item Oversaw migration of critical business applications to cloud-based platforms
+    \item Configured and monitored network security measures, including firewalls and intrusion detection systems
+    \item Implemented multi-factor authentication for remote access to company systems
+    \item Streamlined patch management process, reducing vulnerabilities and downtime
+    \item Conducted regular vulnerability assessments and penetration testing
+    \item Automated server provisioning and configuration management tasks
+    \item Maintained documentation for IT policies and procedures
+    \item Coordinated responses to cybersecurity incidents with internal teams and external vendors
+  \end{resume_list}
+
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+  \section{Volunteer / Open Source}
+
+  \headingBf{Hospital / Health Science IRB}{Mar 2015 -- Present}
+  \begin{resume_list}
+    \item Served as non-scientific/unaffiliated patient-representative
+    \item Reviewed patient consent forms for completeness, accuracy, and clarity
+    \item Became familiar with industry standards and regulations (OHRP, HIPAA)
+  \end{resume_list}
+
+  \headingBf{Debian Linux}{Jan 2001 -- Present}
+  \begin{resume_list}
+    \item Maintained packages in Debian repositories
+    \item Reviewed and sponsored packages on behalf of prospective Developers
+    \item Resolved bugs reported in bug tracking system
+  \end{resume_list}
+
+\end{document}
