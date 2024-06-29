@@ -18,7 +18,6 @@
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{fontawesome5}
 \usepackage{multicol}
@@ -39,8 +38,11 @@
 % Use with \color{Name}
 % Can wrap entire heading with {\color{accent} [...] }
 \usepackage{xcolor}
-\definecolor{accentTitle}{HTML}{0e6e55}
-\definecolor{accentText}{HTML}{0e6e55}
+\usepackage{hyperref}
+\hypersetup{colorlinks,urlcolor=myblue}
+\definecolor{myblue}{HTML}{3972b3}       
+\definecolor{accentTitle}{HTML}{379a9b}
+\definecolor{accentText}{HTML}{379a9b}
 \definecolor{accentLine}{HTML}{000000}
 
 % Misc. Options
@@ -175,13 +177,13 @@
     %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
     %%
     \href{tel:+919433548242}{
-      \raisebox{-0.05\height} \faPhone\ +91 943-354-8242} ~
+      \raisebox{-0.05\height} \faPhone\ +91 94335 48242} ~
     \href{mailto:sohamc@cmi.ac.in}{
       \raisebox{-0.15\height} \faEnvelope\ sohamc@cmi.ac.in} ~
-    \href{https://linkedin.com/in/soham-chatterjee-513b77202/}{
-      \raisebox{-0.15\height} \faLinkedin\ soham-chatterjee-513b77202} ~
+%    \href{https://linkedin.com/in/soham-chatterjee-513b77202/}{
+%      \raisebox{-0.15\height} \faLinkedin\ soham-chatterjee-513b77202} ~
     \href{https://github.com/sohamch08}{
-      \raisebox{-0.15\height} \faGithub\ sohamch08}
+      \raisebox{-0.15\height} \faGithub\ sohamch08} ~
    \href{https://sohamch08.github.io}{
   	\raisebox{-0.15\height} \faGlobe\ sohamch08.github.io}
   }
@@ -239,103 +241,108 @@
 \end{resume_list}
 \section{Internships}
 \begin{resume_list}
-	\item \headingBf{Ramanujan’s work on theta functions and $q$-series and their connections with number theory.}{}
-	\headingIt{IIT Guahati}{May - Jul, 2022}
-	\begin{itemize}
-		\item Supervisor: \href{https://www.iitg.ac.in/rupam/}{Rupam Barman}
-		\item 
+	\item \headingBf{Polyhedral Combinatorics and Derandomization of Isolation Lemma}{}
+	\headingIt{Supervisor: \href{https://www.cse.iitb.ac.in/~rgurjar/}{Rohit Gurjar}, IIT Mumbai}{May - Jul, 2024}
+	\begin{itemize}[label=$\sbt$]
+		\item I read the paper 'Bipartite Perfect Matching is in \textsc{Quasi-NC}' by Fenner Gurjar Thierauf
+		\item In addition I learned about Matroid Polytopes and Their Properties from the paper 'Linear Matroid Intersection Is in \textsc{Quasi-NC}' by Gurjar and Thierauf and the generalization of the idea of using cycles with nonzero circulations in case of polytopes
+		\item I also read the paper `Fractional Linear Matroid Matching is in \textsc{Quasi-NC} which generalizes this idea further more by allowing half-integral vertices in the matroid matching polytope.
+		\item Additionally I read about isolating a path connecting the source vertex and sink vertex in a black-box layered graph from the paper `Derandomizing Isolation in Space-Bounded Settings' by Melkebeek and Prakriya.
 	\end{itemize}
 
-\item \headingBf{Computational Number Theroy and Algebra for Algebraic Comlexity Theory.}{}
-\headingIt{IIT Kanpur}{Dec - Jan, 2022}
+\item \headingBf{Quantum Property Testing of Junta Functions and Partially Symmetric Functions.}{}
+\headingIt{Supervisor: \href{https://sites.google.com/site/homepagearijitghosh/}{Arijit Ghosh}, Indian Statistical Institute, Kolkata}{Dec, 2024 -- Going on}
 \begin{itemize}
-	\item Supervisor: \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}
-	\item 
+	\item I read the survey `Quantum boolean functions' by Ashley Montanaro, Tobias J. Osborne and learned  about Fourier analysis of boolean functions in Quantum setting and Testing and Learning algorithms for Stabilizer states
+	\item I learned about Classical Junta Testing from Eric Blais' paper Testing Juntas Nearly Optimally and then read about Quantum Junta Testing Algorithm from `Testing and Learning Quantum Juntas Nearly Optimally' by Thomas Chen, Shivam Nadimpalli, Henry Yuen
+	\item Also learned about Partially Symmetric Boolean Functions and it's classical algorthm of testing partially symmetric functions from the paper `Partially Symmetric Functions are Efficiently Isomorphism-Testable' by Eric Blais, Amit Weinstein, Yuichi Yoshida
 \end{itemize}
+
 
 \item \headingBf{Factorization of Arithmetic Circuits in Algebraic Complexity Theory}{}
-\headingIt{IIT Kanpur}{May - Jul, 2022}
+\headingIt{Supervisor: \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}, IIT Kanpur}{May - Jul, 2022}
 \begin{itemize}
-	\item Supervisor: \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}
-	\item 
+	\item I read `Discovering the roots: Uniform closure results for algebraic classes under factoring' by Pranjal Dutta, Nitin Saxena and Amit Sinhababu  where I learned how to factorize arithmetic circuits and why \textsc{VP} is closed under factorization. Also leanred how Polynomial Identity Testing and Multivariate Factorizations are equivalent from `Equivalence of Polynomial Identity Testing and Deterministic Multivariate Polynomial Factorization' by Swastik Kopparty, Shubhangi Saraf, Amir Shpilka
+	\item  Also read the Kaltofen's proof of \textsc{VP} closed under factorization.
+	\item I also read how \textsc{VBP} is closed under factorization from Amit Sinhababu and Thomas Tierauf's paper `Factorization of Polynomials given by Arithmetic Branching Programs'
+	\item I also learned about the difficulties about proving factor closure for \textsc{VF} from the above mentioned two papers
+	\item I read about factorization of formulas with individual degree bounded form the paper `Factors of low individual degree polynomials' by Rafael Oliveira and we were trying to remove the condition for formulas
 \end{itemize}
 
-\item \headingBf{Quantum Property Testing of Junta Functions and Partially Symmetric Functions.}{}
-\headingIt{Indian Statistical Institute, Kolkata}{Dec, 2024 -- Going on}
+
+\item \headingBf{Computational Number Theroy and Algebra for Algebraic Comlexity Theory.}{}
+\headingIt{Supervisor: \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}, IIT Kanpur}{Dec - Jan, 2022}
 \begin{itemize}
-	\item Supervisor: \href{https://sites.google.com/site/homepagearijitghosh/}{Arijit Ghosh}
-	\item 
+	\item I learned about Computational Number Theory and Algebra from Nitin Saxena's Course and read the book `Modern Computer Algebra' by Von Zur Gathen and Jurgen Gerhard
+	\item Also I learned about Arithmetic Circuits from \href{https://www.nowpublishers.com/article/Details/TCS-039}{Amir Shpilka's Survey} and 
+	\href{https://github.com/dasarpmar/lowerbounds-survey}{Ramprasad Saptharishi's Survey} on Arithmetic Circuits.
 \end{itemize}
 
-\item \headingBf{Polyhedral Combinatorics and Derandomization of Isolation Lemma}{}
-\headingIt{IIT Mumbai}{May - Jul, 2024}
-\begin{itemize}[label=$\sbt$]
-	\item Supervisor: \href{https://www.cse.iitb.ac.in/~rgurjar/}{Rohit Gurjar}
-	\item I read the paper 'Bipartite Perfect Matching is in \textsc{Quasi-NC}' by Fenner Gurjar Thierauf
-	\item In addition i learned about Matroid Polytopes and Their Properties from the paper 'Linear Matroid Intersection Is in \textsc{Quasi-NC}' by Gurjar and Thierauf. From this paper I also learned how the idea of isolating a bipartite perfect matching by find a weight assignment giving nonzero circulations to all cycles  of size twice the smallest cycle by making their number polynomially bounded generalized to matroid polytopes by defining new type cycles with respect to a face.
-	\item Then I read the paper `Fractional Linear Matroid Matching is in \textsc{Quasi-NC} which generalizes this idea further more by allowing half-integral vertices in the matroid matching polytope.
-	\item Additionally I read about isolating a path connecting the source vertex and sink vertex in a black-box layered graph with only knowledge of length and width of the graph from the paper `Derandomizing Isolation in Space-Bounded Settings' by Melkebeek and Prakriya.
+\item \headingBf{Ramanujan’s work on theta functions and $q$-series and their connections with number theory.}{}
+\headingIt{Supervisor: \href{https://www.iitg.ac.in/rupam/}{Rupam Barman}, IIT Guahati}{May - Jul, 2022}
+\begin{itemize}
+	\item I read the book `Number Theoryin the Spirit of Ramanujan' by Bruce C Berndt
+	\item Also read the paper Matching coefficients in the series expansions of certain \(q\)-products and their reciprocals' by Nayandeep Deka Baruah, Hirakjyoti Das
 \end{itemize}
-
 \end{resume_list}
 
 \section{Relevant Course Work}
 
-  \headingBf{Consulting Corp}{Jul 2015 -- Jun 2025}
-  \headingIt{Senior DevOps Engineer (FTE Consultant)}{}
-  \begin{resume_list}
-    \itemTitle{Client: Notable Placement}
-    \item Analyzed network traffic patterns to identify bottlenecks and optimize performance
-    \item Implemented firewall rules to enhance network security and prevent unauthorized access
-    \item Conducted regular vulnerability assessments and applied patches to secure systems
-    \item Collaborated with cross-functional teams to streamline IT processes and improve efficiency
-    \vspace{3pt}
-    \itemTitle{Client: Challenges Unlimited}
-    \item Configured monitoring tools to track system performance and troubleshoot issues proactively
-    \item Automated routine tasks using scripts to reduce manual effort and increase productivity
-    \item Documented system configurations and procedures for knowledge sharing within the team
-    \item Participated in disaster recovery planning and drills to ensure business continuity in case of emergencies
-    \vspace{3pt}
-    \itemTitle{Client: Broken Galleries}
-    \item Implemented cloud migration strategies to move applications to a hybrid environment
-    \item Optimized database performance through indexing and query tuning techniques
-    \item Conducted capacity planning and scalability assessments to support future growth
-    \item Provided on-call support for critical issues and worked on root cause analysis for incident resolution
-  \end{resume_list}
+\headingBf{Math Courses:}{}
+\begin{resume_list}
+	\itemTitle{Algebra}
+	\item Linear Algebra (Algebra 1)
+	\item Group Theory (Algebra 2)
+	\item Ring and  Field Theory (Algebra 3)
+	\item Commutative Algebra
+	\itemTitle{Analysis}
+	\item Real Analysis (Analysis 1)
+	\item Analysis in Euclidean Space (Analysis 2)
+	\item Analysis in Metric Space (Analysis 3)
+	\vspace{3pt}
+	\itemTitle{Other Math Courses}
+	\item Complex Analysis
+	\item Calculus
+	\item Probability Theory
+	\item Topology
+\end{resume_list}
 
-  \headingBf{HealthCo Industries}{Feb 2011 -- Mar 2016}
-  \headingIt{Senior Systems Administrator (SRE)}{}
-  \begin{resume_list}
-    \item Managed virtualized server environment spanning multiple data centers
-    \item Oversaw migration of critical business applications to cloud-based platforms
-    \item Configured and monitored network security measures, including firewalls and intrusion detection systems
-    \item Implemented multi-factor authentication for remote access to company systems
-    \item Streamlined patch management process, reducing vulnerabilities and downtime
-    \item Conducted regular vulnerability assessments and penetration testing
-    \item Automated server provisioning and configuration management tasks
-    \item Maintained documentation for IT policies and procedures
-    \item Coordinated responses to cybersecurity incidents with internal teams and external vendors
-  \end{resume_list}
+\headingBf{Computer Science Courses:}{}
+\begin{resume_list}
+	\item Discrete Mathematics
+	\item  Design and Analysis of Algorithms
+	\item  Theory of Computation
+	\item Complexity Theory
+	\item  Expander Graphs and Application
+	\item Parallel Algorithms and Complexity
+	\item  Algorithmic Coding Theory (Two Parts)
+	\item  Quantum Algorithmic Thinking
+	\item  Quantum Information Theory
+\end{resume_list}
+
+
+\section{Workshop, Conferences Attended}
+\begin{resume_list}
+	\item \headingBf{\href{https://www.cmi.ac.in/activities/kohli-centre/quantum-semester-2024/}{Quantum Semester Online}}{Chennai Mathematical Institute}
+	\headingIt{Chennai, India}{2024, Jan-May}{}
+	\item \headingBf{\href{https://www.cmi.ac.in/~mkummini/sagedays122/index.html}{Sage Days 122}}{Chennai Mathematical Institute}
+	\headingIt{Chennai, India}{2024, Jan-May}{}
+	\item \headingBf{\href{https://sohamch08.github.io/certificates_merged_SohamChatterjee.pdf}{p-adic Number Theory Lecture Series: Ram Murty}}{Chennai Mathematical Institute}
+	\headingIt{Chennai, India}{2024, Jan-May}{}
+\end{resume_list}
 
 
   %----------------------------%
   % Extracurricular Activities %
   %----------------------------%
 
-  \section{Volunteer / Open Source}
+  \section{Computer Skills}
 
-  \headingBf{Hospital / Health Science IRB}{Mar 2015 -- Present}
+  
   \begin{resume_list}
-    \item Served as non-scientific/unaffiliated patient-representative
-    \item Reviewed patient consent forms for completeness, accuracy, and clarity
-    \item Became familiar with industry standards and regulations (OHRP, HIPAA)
-  \end{resume_list}
-
-  \headingBf{Debian Linux}{Jan 2001 -- Present}
-  \begin{resume_list}
-    \item Maintained packages in Debian repositories
-    \item Reviewed and sponsored packages on behalf of prospective Developers
-    \item Resolved bugs reported in bug tracking system
+    \item \textbf{Programming Languages:} C (Basic), Python (Basic), Haskell (Basic), Java (Intermediate), Unix/Linux
+    Shell Scripting, HTML, CSS
+    \item \textbf{Technical Skills:} LaTeX (Advanced), Markdown, Git, Basic works in terminal, VIM, Obsidian
   \end{resume_list}
 
 \end{document}
