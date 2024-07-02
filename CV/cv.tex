@@ -52,6 +52,25 @@
 %\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 %\makeatother
 %\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+\newcommand{\itemTitle}[1]{\vspace*{1pt}
+	\item[] \underline{#1}\vspace{2pt}
+}
+\newcommand{\heading}[2]{
+	\hspace{0pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+	\heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+	\heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
 
 % bibliography with mutiple entries
 %\usepackage{multibib}
@@ -75,16 +94,13 @@
 	\item{\cventry{2021 -- Ongoing}{B. Sc - Mathematics and Computer Science}{Chennai Mathematical Institute}{Chennai, Tamilnadu, India}{}{
 	            }}
 	\vspace{4pt}
-	\item{\cventry{2020 -- 2021}{B. Tech 1st Year - Electronics and Communication Engineering}{University of Calcutta}{Kolkata, West Bengal, India}{}{
+	\vspace{4pt}
+	\item{\cventry{2018 -- 2020}{Higher Secondary ($12^{\text{th}}$ Standard) Education}{Baranagar Narendranath Vidyamandir}{Kolkata, West Bengal, India}{}{
 	            }}
 
 	\vspace{4pt}
-	\item{\cventry{2018 -- 2020}{Higher Secondary ($12^{\text{th}}$ Standard)}{Baranagar Narendranath Vidyamandir}{Kolkata, West Bengal, India}{}{
-	            }}
 
-	\vspace{4pt}
-
-	\item{\cventry{2008 -- 2018}{Secondary ($10^{\text{th}}$ Standard)}{Baranagar Ramakrishna Mission Ashrama High School}{Kolkata, West Bengal, India}{}{
+	\item{\cventry{2008 -- 2018}{Secondary ($10^{\text{th}}$ Standard) Education}{Baranagar Ramakrishna Mission Ashrama High School}{Kolkata, West Bengal, India}{}{
 	            }}
 
 
@@ -95,16 +111,23 @@
 
 
 \begin{itemize}
-	\item{\cventry{2024}{Entrance exam of Computer Science in Tata Institute of Fundamental Research, Mumbai}{TIFR Entrance GS, Computer Science}{TIFR, Mumbai}{}{}}
-	\item{\cventry{2024}{Joint Entrance Screening Test. Entrance for IMSC}{JEST, TCS - Rank 5}{JEST}{}{}}
+	\item \textbf{GS Exam, I-PhD, Computer Science, 2024\hfill TIFR, Mumbai, India}
+	
+	Nation wide entrance exam in Computer Science for Tata Insititute of Fundamental Research. Only 2 people got selected.
+	\item \textbf{JEST, I-PhD, Theoretical Computer Science, 2024 - Rank 5\hfill IMSC, India}
+	
+	Nation wide entrance exam in Computer Science for Insitute of Mathematical Sciences
 
-	\item{\cventry{2021}{Entrance exam of Chennai Mathematical Institute}{CMI Entrance}{Chennai Mathematical Institute}{}{}}
+	\item \textbf{NEST, B.Sc., 2021\hfill NISER, India}
+	
+	Nation wide bachelors entrance exam for National Institute of Science Education and Research
 
-	\item{\cventry{2021}{Entrance exam of National Institute of Science Education and Research (NISER)}{NEST}{NISER}{}{}}
-
-	\item{\cventry{2020}{West Bengal Joint Entrance Exam}{WBJEE - Rank 1893}{WBJEEB}{}{}}
-	\item{\cventry{2020}{C R Rao Advanced Institute of Mathematics, Statistics and Computer Science (AIMSCS)}{12th Statistics Olympiad - Rank 28}{AIMSCS}{}{}}
-
+	\item \textbf{WBJEE, B.Tech, 2020 - Rank 1893\hfill WBJEEB, India}
+	
+	Joint Entrance exam for B.Tech for West Bengal state
+	\item \textbf{12$^{th}$ Statistics Olympiad, 2020 - Rank 28\hfill AIMSCS, India}
+	
+	Organized by C R Rao Advanced Institute of Mathematics, Statistics and Computer Science
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -112,55 +135,77 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Internship}
+\section{Internships}
 \begin{itemize}
-	\item \textbf{Ramanujan's work on theta functions and $q$-series and their connections with number theory.}
-
-	      \hfill Under Professor \href{https://www.iitg.ac.in/rupam/}{Rupam Barman}, IIT Guahati during the summer break in May -- Jul, 2022.
-
-	\item \textbf{Computational Number Theroy and Algebra for Algebraic Comlexity Theory }
-
-	      \hfill Under Professor \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}, IIT Kanpur during the winter break in Dec -- Jan, 2022.
-	      
-	\item \textbf{Factorization of Formula Arithmetic Circuits in Algebraic Complexity Theory }
+	\item \headingBf{Polyhedral Combinatorics and Derandomization of Isolation Lemma}{}
+	\headingIt{Supervisor: \href{https://www.cse.iitb.ac.in/~rgurjar/}{Rohit Gurjar}, IIT Mumbai}{May - Jul, 2024}
+	\begin{itemize}
+		\item I read the papers\begin{itemize}
+			\item  'Bipartite Perfect Matching is in \textsc{Quasi-NC}' by Fenner, Gurjar and Thierauf
+			\item 'Linear Matroid Intersection Is in \textsc{Quasi-NC}' by Gurjar and Thierauf
+			\item `Fractional Linear Matroid Matching is in \textsc{Quasi-NC}' by Gurjar, Oki and Raj
+		\end{itemize}Learned how the idea of giving nonzero circulations to cycles and bounding number of integral vectors (corresponding those cycles) twice the size of smallest vector helps construct an isolating weights for bipartite perfect matching polytope to fractional matroid matching polytopes
+		\item Additionally I read about isolating a path connecting the source vertex and sink vertex in a black-box layered graph from the paper `Derandomizing Isolation in Space-Bounded Settings' by Melkebeek and Prakriya.
+	\end{itemize}
 	
-	\hfill Under Professor \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}, IIT Kanpur during the summer break in May -- July, 2023.
-	\item \textbf{Quantum Property Testing of Junta Functions and Partially Symmetric Functions.}
+	\item \headingBf{Quantum Property Testing of Junta Functions and Partially Symmetric Functions.}{}
+	\headingIt{Supervisor: \href{https://sites.google.com/site/homepagearijitghosh/}{Arijit Ghosh}, Indian Statistical Institute, Kolkata}{Dec, 2024 -- Going on}
+	\begin{itemize}
+		\item I learned about Fourier Analysis of Quantum Boolean Functions and Quantum algorithms for Testing and Learning Stabilizer States from Quantum boolean functions' by Montanaro and Osborne 
+		\item Also  learned about Classical Junta Testing from Eric Blais' paper Testing Juntas Nearly Optimally and then read about Quantum Junta Testing Algorithm from `Testing and Learning Quantum Juntas Nearly Optimally' by Chen, Nadimpalli and Yuen
+		\item And I learned about Partially Symmetric Boolean Functions and it's classical algorithm of testing partially symmetric functions from the paper `Partially Symmetric Functions are Efficiently Isomorphism-Testable' by Blais, Weinstein and Yoshida and we were trying to come up with a Quantum Algorithm for Testing Partially Symmetric Boolean Functions.
+	\end{itemize}
 	
-	\hfill Under Professor \href{https://sites.google.com/site/homepagearijitghosh/}{Arijit Ghosh}, ISI Kolkata during the winter break in Dec, 2023 -- Going on.
 	
-		\item \textbf{Derandomization of Isolation Lemma}
+	\item \headingBf{Factorization of Arithmetic Circuits in Algebraic Complexity Theory}{}
+	\headingIt{Supervisor: \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}, IIT Kanpur}{May - Jul, 2022}
+	\begin{itemize}
+		\item I read `Discovering the roots: Uniform closure results for algebraic classes under factoring' by Dutta, Saxena and Sinhababu  where I learned factorizing multivariate arithmetic circuits and \textsc{VP} closure under factorization. 
+		\item  Also read the Kaltofen's proof of \textsc{VP} closed under factorization.
+		\item Also learned how Polynomial Identity Testing and Multivariate Factorizations are equivalent from `Equivalence of Polynomial Identity Testing and Deterministic Multivariate Polynomial Factorization' by  Kopparty, Saraf and Shpilka
+		\item I also read how \textsc{VBP} is closed under factorization from  Sinhababu and Tierauf's paper `Factorization of Polynomials given by Arithmetic Branching Programs'
+		\item Learned about the difficulties about proving factor closure for \textsc{VF} from the above mentioned two papers. I read about factorization of formulas with individual degree bounded form the paper `Factors of low individual degree polynomials' by Rafael Oliveira and we were trying to remove the condition for formulas
+	\end{itemize}
 	
-	\hfill Under Professor \href{https://www.cse.iitb.ac.in/~rgurjar/}{Rohit Gurjar}, IIT Bombay during the summer break in May -- Jul, 2024.
+	
+	\item \headingBf{Computational Number Theory and Algebra for Algebraic Comlexity Theory.}{}
+	\headingIt{Supervisor: \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}, IIT Kanpur}{Dec - Jan, 2022}
+	\begin{itemize}
+		\item I learned about Computational Number Theory and Algebra from Nitin Saxena's Course and read the book `Modern Computer Algebra' by Von Zur Gathen and Jurgen Gerhard
+		\item Also I learned about Arithmetic Circuits from \href{https://www.nowpublishers.com/article/Details/TCS-039}{Amir Shpilka's Survey} and 
+		\href{https://github.com/dasarpmar/lowerbounds-survey}{Ramprasad Saptharishi's Survey} on Arithmetic Circuits.
+	\end{itemize}
 \end{itemize}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% Course Projects %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Course Projects}
 \begin{itemize}
-	\item \textbf{Presentation on Iterated Mod Problem:: \href{https://sohamch08.github.io/files/parallel-presentation-iterated-mod.pdf}{Slides}}
+	\item \textbf{Presentation on Hensel Lifting, Newton Iteration and Factorization in Valuation Rings}
+
+	\hfill  Presented the paper ``\href{https://www.ams.org/journals/mcom/1984-42-166/S0025-5718-1984-0736459-9/}{Hensel and Newton methods in valuation rings}” by J von zur Gathen in Algebra and Computation course at CMI.
+	\item \textbf{Presentation on Iterated Mod Problem\hfill \href{https://sohamch08.github.io/assets/parallel-presentation-iterated-mod.pdf}{Slides}}
 	
-	\hfill  Presented the paper ``\href{https://www.sciencedirect.com/science/article/pii/0890540189900084}{Iterated Mod Problem}” by Howard J. Karloff and Walter L. Ruzzo in Parallel 	Algorithm and Complexity course.
-	\item \textbf{Report on Algebraic Geometric Codes: \href{https://sohamch08.github.io//files/act-report.pdf}{Link}}
+	\hfill  Presented the paper ``\href{https://www.sciencedirect.com/science/article/pii/0890540189900084}{Iterated Mod Problem}” by Karloff and Ruzzo in Parallel 	Algorithm and Complexity course at CMI.
+	\item \textbf{Report on Algebraic Geometric Codes\hfill \href{https://sohamch08.github.io//assets/act-report.pdf}{Link}}
 	
-	\hfill Followed the \href{https://dl.acm.org/doi/abs/10.5555/334156.334207}{Survey} by Ian Blake, Chris Heegard, Tom Høholdt, and Victor Wei and Gil Cohen's \href{https://www.gilcohen.org/2022-ag-codes}{Course} 
-	\item \textbf{Qiskit Implementation of Quantum Circuit of Modular Exponentiation: \href{https://github.com/bluecheese123/-Best_Project-}{Link}}
+	\hfill Followed the \href{https://dl.acm.org/doi/abs/10.5555/334156.334207}{Survey} by Blake, Heegard, Høholdt, and Wei and Gil Cohen's \href{https://www.gilcohen.org/2022-ag-codes}{Course}  in Algorithmic Coding Theory (II) course at CMI.
+	\item \textbf{Qiskit Implementation of Quantum Circuit of Modular Exponentiation\hfill \href{https://github.com/bluecheese123/-Best_Project-}{Link}}
 	
-	\hfill Implemented the paper: ``\href{https://arxiv.org/pdf/quant-ph/9511018.pdf}{Quantum Networks for Elementary Arithmetic Operations}" by Vlatko Vedral, Adriano Barenco and Artur Ekert 
+	\hfill Implemented the paper: ``\href{https://arxiv.org/pdf/quant-ph/9511018.pdf}{Quantum Networks for Elementary Arithmetic Operations}" by  Vedral, Barenco and Artur Ekert 
 	
-	\item \textbf{Qiskit Implementation of Kushlevitz and Mansour Algorithm:} \href{https://github.com/sohamch08/Qiskit-Quantum-Algo/blob/master/Kushlevitz%20and%20Mansour%20Algorithm.ipynb}{\textbf{Link}}
+	\item \textbf{Qiskit Implementation of Kushlevitz and Mansour Algorithm}\hfill \href{https://github.com/sohamch08/Qiskit-Quantum-Algo/blob/master/Kushlevitz%20and%20Mansour%20Algorithm.ipynb}{\textbf{Link}}
 	
-	\hfill Implemented the paper: ``\href{https://dl.acm.org/doi/pdf/10.1145/103418.103466}{Learning Decision Trees Using The Fourier Spectrum}” by Eyal Kushilevitz and Yishay Mansour
+	\hfill Implemented the paper: ``\href{https://dl.acm.org/doi/pdf/10.1145/103418.103466}{Learning Decision Trees Using The Fourier Spectrum}” by Kushilevitz and Mansour
 	
-	\item \textbf{Qiskit Implementation of Some Quantum Algorithms: \href{https://github.com/sohamch08/Qiskit-Quantum-Algo}{Link}}
+	\item \textbf{Qiskit Implementation of Some Quantum Algorithms\hfill  \href{https://github.com/sohamch08/Qiskit-Quantum-Algo}{Link}}
 	
 	\hfill Implemented Grover Search for 2 × 2 sudoku and Iterative Phase Estimation
 \end{itemize}
 \section{Workshop, Lecture Serires Attended}
 \begin{itemize}
-	\item{\cventry{Currently going on: 2024, Jan-May}{Chennai, India}{\href{https://www.cmi.ac.in/activities/kohli-centre/quantum-semester-2024/}{Quantum Semester Online}}{Chennai Mathematical Institute}{}{
+	\item{\cventry{2024, Jan-May}{Chennai, India}{\href{https://www.cmi.ac.in/activities/kohli-centre/quantum-semester-2024/}{Quantum Semester Online}}{Chennai Mathematical Institute}{}{
 	}}
 	\vspace{4pt}
 	
@@ -168,83 +213,55 @@
 	}}
 	\vspace{4pt}
 	
-	\item{\cventry{Online: August, 2023}{Mumbai, India}{\href{https://sohamch08.github.io/files/certificates_merged_SohamChatterjee.pdf}{p-adic Number Theory Lecture Series: Ram Murty}}{Math Dept, University of Mumbai}{}{
+	\item{\cventry{Online: August, 2023}{Mumbai, India}{\href{https://sohamch08.github.io/assets/certificates_merged_SohamChatterjee.pdf}{p-adic Number Theory Lecture Series: Ram Murty}}{Math Dept, University of Mumbai}{}{
 	}}
 	\vspace{4pt}	
 \end{itemize}
 
-\section{Topics I Learned}
+\section{Relevent Courses}
 
 
 
-\begin{itemize}
-	\item 	\textbf{Math Topics:-}
- \begin{multicols}{2}
-			      	\begin{itemize}
-			      		\item Real Analysis
-			      		\item Analysis over Euclidean Space
-			      		\item Analysis over Metric Space
-			      		 \item {Complex Analysis}
-			      		  \item {Probability Theory}
-			      		 
-			      		 
-			      		 \item {Calculus}
-			      		 \item {Differential Equations}
-			      \item {General Topology}
-			       \item {Algebraic Topology (Introductory)}
-			     
-			     
-			     \columnbreak
-			     \item Linear Algebra
-			     \item Group Theory
-			     \item Ring Theory
-			     \item Field Theory 
-			     \item Galois Theory
-			     \item {Commutative Algebra}
-			     \item {Algebraic Curves}
-			   
-			      
-	      \end{itemize}
-			      \end{multicols}
-	\item \textbf{Computer Science Topics:-}
-	      \begin{itemize}
-
-
-\item \textbf{Theoretical Computer Science Topics:} \begin{itemize}
-\item Design and Analysis of Algorithms - \href{https://www.cmi.ac.in/~gphilip/}{Geevarghese Philip} and \href{https://www.cmi.ac.in/~sdatta/}{Samir Dutta}
-\item Theory of Computation - \href{https://www.cmi.ac.in/~kumar/}{Narayan Kumar} and \href{https://www.cmi.ac.in/~aiswarya/}{C. Aiswarya}
-\item Complexity Theory - \href{https://www.cmi.ac.in/~partham/}{Partha Mukhopadhyay}
-\item Expander Graphs and Application - \href{https://www.cmi.ac.in/~partham/}{Partha Mukhopadhyay} - (Attending)
-\item Higher Dimensional Expanders (Paper: \href{https://arxiv.org/abs/1811.01816}{Log Concave Polynomial 2}) - \href{https://www.cmi.ac.in/~partham/}{Partha Mukhopadhyay} - (Attending)
-\item Parallel Algorithms and Complexity - \href{https://www.cmi.ac.in/~sdatta/}{Samir Dutta}
-\item Algorithmic Coding Theory - \href{https://www.cmi.ac.in/people/fac-profile.php?id=amitks}{Amit Kumar Sinhababu}
-\item Algebra and Computation - \href{https://www.cmi.ac.in/people/fac-profile.php?id=amitks}{Amit Kumar Sinhababu} and \href{https://sites.google.com/view/sumghosh/home}{Sumanta Ghosh} - (Attending)
-\item Quantum Algorithmic Thinking - \href{https://www.cmi.ac.in/~partham/}{Partha Mukhopadhyay}
-\item Classical and Quantum Information Theory - Arun Padakandla - (Attending)
-\item Discrete Mathematics - \href{https://sites.google.com/cse.iitm.ac.in/c-ramya}{C Ramya} \& \href{https://www.cmi.ac.in/~partham/}{Partha Mukhopadhyay}
-\item Arithmetic Circuits - \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}
-\item Computational Algebra and Number Theory - \href{https://www.cse.iitk.ac.in/users/nitin/}{Nitin Saxena}
-\item Lambda Calculus - \href{https://www.cmi.ac.in/~spsuresh/}{S P Suresh}
-\item Introductory Concurrent Programming - \href{https://www.cmi.ac.in/~madhavan/}{Madhavan Mukund}
-		            \end{itemize}
-		            \vspace*{5mm}
-		      \item \textbf{Other CS Topics:} \begin{itemize}
-			            \item Introduction to Functional Programming (Haskell) - \href{https://www.cmi.ac.in/~spsuresh/}{S P Suresh}
-			            \item Advanced Programming with Python - \href{https://www.cmi.ac.in/~sdatta/}{Samir Dutta}
-			            \item Programming Language Concepts using Java - \href{https://www.cmi.ac.in/~madhavan/}{Madhavan Mukund}
-		            \end{itemize}
-
-	      \end{itemize}
-
-\end{itemize}
-
-
+\begin{multicols}{2}
+	\textbf{Math Courses:}{}
+	\begin{itemize}
+		\itemTitle{Algebra}
+		\item Linear Algebra (Algebra 1)
+		\item Group Theory (Algebra 2)
+		\item Ring and  Field Theory (Algebra 3)
+		\item Commutative Algebra
+		\itemTitle{Analysis}
+		\item Real Analysis (Analysis 1)
+		\item Analysis in Euclidean Space (Analysis 2)
+		\item Analysis in Metric Space (Analysis 3)
+		\vspace{3pt}
+		\itemTitle{Other Math Courses}
+		\item Complex Analysis
+		\item Calculus
+		\item Probability Theory
+		\item Topology
+	\end{itemize}
+	\columnbreak
+	
+	\textbf{Computer Science Courses:}{}
+	\begin{itemize}
+		\item Discrete Mathematics
+		\item  Design and Analysis of Algorithms
+		\item  Theory of Computation
+		\item Complexity Theory
+		\item Parallel Algorithms and Complexity
+		\item  Expander Graphs and Application
+		\item  Algorithmic Coding Theory (Two Parts)
+		\item  Quantum Algorithmic Thinking
+		\item  Quantum Information Theory
+	\end{itemize}
+\end{multicols}
 
 \section{Computer Skills}
 
 \begin{itemize}
 
-	\item \textbf{Programming Languages:} C (Basic), Python (Intermediate), Haskell (Basic), Java (Intermediate), Unix/Linux Shell Scripting, HTML, CSS
+	\item \textbf{Programming Languages:} C (Basic), Python (Intermediate), Qiskit (Intermediate), Haskell (Basic), Java (Basic), Unix/Linux Shell Scripting, HTML, CSS
 
 	\item \textbf{Technical Skills:} \LaTeX (Advanced), Markdown, Git, Basic works in terminal, VIM, Obsidian
 
