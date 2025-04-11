@@ -1,0 +1,148 @@
+%%%%%%%%%%%%%%%
+% This CV example/template is based on my own
+% CV which I (lamely attempted) to clean up, so that
+% it's less of an eyesore and easier for others to use.
+%
+% LianTze Lim (liantze@gmail.com)
+% 23 Oct, 2022
+% 24 Aug, 2024 -- added simpleicons to provide X-twitter icon
+
+\RequirePackage{silence}
+\WarningsOff[longtable]
+\WarningsOff[array]
+
+\usepackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+\RequirePackage{graphicx}
+\RequirePackage[hyphens]{url}
+\RequirePackage{babel}
+\raggedright
+
+\RequirePackage[fixed]{fontawesome5}
+\RequirePackage{simpleicons}
+
+\newcommand{\smallcaps}[1]{\textsc{\lowercase{#1}}}
+
+\RequirePackage[a4paper,nohead,nofoot,hmargin=2.25cm,vmargin=2cm]{geometry}
+\RequirePackage{relsize}
+\RequirePackage[dvipsnames,svgnames]{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,shadows}
+
+\RequirePackage{comment}
+\definecolor{SwishLineColour}{HTML}{88AC0B}
+\definecolor{MarkerColour}{HTML}{B6073F}
+
+% If you're not a researcher nor an academic, you probably don't need biblatex; delete this line.
+\RequirePackage{biblatex}
+\RequirePackage{csquotes}
+
+\RequirePackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+   \node[shape=circle,text=white,fill=MarkerColour!80!black,font=\sffamily\scriptsize\bfseries,inner sep=1pt,text height=1.35ex,minimum width=1.5em,text centered] (char) {#1};}}
+   
+\newcounter{bibitem}
+\AtBeginBibliography{\setcounter{bibitem}{1}}
+\iffieldformatundef{labelnumberwidth}{%
+  % if author-year style
+  \AtEveryBibitem{\makebox[2.5em][l]{\circled{\thebibitem}\stepcounter{bibitem}}}%
+}{%
+  % if numeric style
+  \DeclareFieldFormat{labelnumberwidth}{\makebox[2.5em][l]{\circled{\thebibitem}}}%
+  \setlength{\biblabelsep}{0pt}%
+  \AtEveryBibitem{\stepcounter{bibitem}}%
+}
+\AtEveryBibitem{\iffieldundef{doi}{}{\clearfield{url}}}
+
+% \renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{1.5ex}
+\setlength{\bibhang}{2.5em}
+\RequirePackage{xpatch}
+\xpretofieldformat{doi}
+  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+  {}{}
+\xpretofieldformat{url}
+  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+  {}{}
+
+\headerscale{1}
+%\setlength{\headerspace}{6pt}
+\rubricfont{\Large\bfseries\sffamily}
+\setlength{\rubricspace}{2pt}
+%\setlength{\rubricafterspace}{-9pt}
+\setlength{\rubricafterspace}{-3pt}
+\setlength{\subrubricspace}{3pt}
+\setlength{\subrubricbeforespace}{4pt}
+\def\@@rubrichead#1{%
+  \begin{tikzpicture}[baseline]%\
+  \shade[left color=SwishLineColour!60!white, right color=white] rectangle (\@almosttextwidth,2.5pt);
+  \node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {#1};
+  \end{tikzpicture}%
+  \vspace\rubricspace%
+}
+
+\subrubricfont{\large\bfseries\sffamily}
+\subrubricalignment{l}
+
+\newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!80!black}#1} #2\hspace{2em}}
+
+\keyalignment{r}
+\rubricalignment{l}
+\renewcommand{\arraystretch}{1.25}
+\urlstyle{tt}
+
+\newcommand{\prefixmarker}[1]{\def\@prefixmarker{#1}}
+\def\@prefixmarker{\relscale{.9}\faBookmark}
+
+\prefix{%
+  \hspace*{-1ex}
+  \color{MarkerColour!80!black}\@prefixmarker%
+  \hspace*{1ex}%
+}
+
+\newcommand{\makerubrichead}[1]{\vskip\baselineskip\@@rubrichead{#1}}
+
+\defbibheading{subbibliography}{\vskip\subrubricbeforespace{\@subrubricfont\hspace{3pt}#1}\par}
+
+\defbibfilter{booksandchapters}{%
+( type=book or type=incollection )
+}
+
+\RequirePackage{pgffor}
+\newcommand{\mynames}[1]{\def\my@namelist{#1}}
+\newtoggle{boldname}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \global\togglefalse{boldname}%
+  \foreach \my@fname / \my@gname in \my@namelist {%
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\my@fname}}
+                 and
+                 test {\ifdefstrequal{\namepartgiven}{\my@gname}}}
+      {\global\toggletrue{boldname}}{}%
+  }%
+  \iftoggle{boldname}{\textbf{#1}}{#1}%
+}
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \global\togglefalse{boldname}%
+  \foreach \my@fname / \my@gname in \my@namelist{%
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\my@fname}}
+                 and
+                 test {\ifdefstrequal{\namepartgiven}{\my@gname}}}
+      {\global\toggletrue{boldname}\breakforeach}{}%
+  }%
+  \iftoggle{boldname}{\textbf{#1}}{#1}%
+}
+
+
+\RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
+

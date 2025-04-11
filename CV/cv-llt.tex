@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%
+% This CV example/template is based on my own
+% CV which I (lamely attempted) to clean up, so that
+% it's less of an eyesore and easier for others to use.
+%
+% LianTze Lim (liantze@gmail.com)
+% 23 Oct, 2022
+% 24 Aug, 2024 -- Updated X (Twitter) icon
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+
+% Uncomment to enable Chinese; needs XeLaTeX
+% \usepackage{ctex}
+
+
+% Default biblatex style used for the publication list is APA6. If you wish to use a different style or pass other options to biblatex you can change them here. 
+\PassOptionsToPackage{style=ieee,sorting=ydnt,uniquename=init,defernumbers=true}{biblatex}
+
+% Most commands and style definitions are in settings.sty.
+\usepackage{settings,multicol}
+
+% If you need to further customise your biblatex setup e.g. with \DeclareFieldFormat etc please add them here AFTER loading settings.sty. For example, to remove the default "[Online] Available:" prefix before URLs when using the IEEE style:
+\DefineBibliographyStrings{english}{url={\textsc{url}}}
+
+%% Only needed if you want a Publication List
+\addbibresource{own-bib.bib}
+
+%% Specify your last name(s) and first name(s) (as given in the .bib) to automatically bold your own name in the publications list. 
+%% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
+% \mynames{Lim/Lian\bibnamedelima Tze}
+
+%% You can specify multiple names like this, especially if you have changed your name or if you need to highlight multiple authors. See items 6–9 in the example "Journal Articles" output.
+\mynames{Lim/Lian\bibnamedelima Tze,
+  Wong/Lian\bibnamedelima Tze,
+  Lim/Tracy,
+  Lim/L.\bibnamedelimi T.}
+%% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+% Change the fonts if you want
+\ifxetexorluatex % If you're using XeLaTeX or LuaLaTeX
+  \usepackage{fontspec} 
+  %% You can use \setmainfont etc; I'm just using these font packages here because they provide OpenType fonts for use by XeLaTeX/LuaLaTeX anyway
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage[medium,bold]{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\else % If you're using pdfLaTeX or latex
+  \usepackage[T1]{fontenc}
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\fi
+
+% Change the page margins if you want
+% \geometry{left=1cm,right=1cm,top=1.5cm,bottom=1.5cm}
+
+% Change the colours if you want
+% \definecolor{SwishLineColour}{HTML}{00FFFF}
+% \definecolor{MarkerColour}{HTML}{0000CC}
+
+% Change the item prefix marker if you want
+% \prefixmarker{$\diamond$}
+
+%% Photo is only shown if "fullonly" is included
+\includecomment{fullonly}
+% \excludecomment{fullonly}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\leftheader{%
+  {\LARGE\bfseries\sffamily Soham Chatterjee}
+
+  % \makefield{\faEnvelope[regular]}{\href{mailto:sohamchatterjee999@gmail.com}{\texttt{sohamchatterjee999@gmail.com}}}
+  % fontawesome5 doesn't have the X icon so we use
+  % the simpleicons package here instead; but some 
+  % font size adjustment might be needed
+  \makefield{\faEnvelope[regular]}{\href{mailto:soham.chatterjee@tifr.res.in}{\texttt{soham.chatterjee@tifr.res.in}}}
+  % \makefield{{\scriptsize\simpleicon{x}}}{\!\href{https://x.com/overleaf_example}{\texttt{@overleaf\_example}}}
+  \makefield{\faLinkedin}
+  {\href{https://www.linkedin.com/in/soham-chatterjee-513b77202/}{\texttt{profile}}}
+\makefield{\faGithub[regular]}{\href{https://github.com/sohamch08}{\texttt{sohamch08}}}
+  %% Next line
+  
+  \makefield{\faGlobe}{\href{https://sohamch08.github.io}{sohamch08.github.io}}
+  % You can use a tabular here if you want to line up the fields.
+}
+
+\rightheader{~}
+\begin{fullonly}
+\photo[r]{photo}
+\photoscale{0.13}
+\end{fullonly}
+
+\title{Curriculum Vitae}
+
+\begin{document}
+\makeheaders[c]
+
+% \makerubric{employment}
+\makerubric{education}
+\makerubrichead{Research Intereset}
+Algorithms and Complexity Theory with Algebraic nature, Error Correcting Codes, Pseudorandomness, \\
+Polyhedral Combinatorics, Analysis of Boolean Functions
+
+% If you're not a researcher nor an academic, you probably don't have any publications; delete this line.
+%% Sometimes when a section can't be nicely modelled with the \entry[]... mechanism; hack our own and use \input NOT \makerubric
+% \input{publications}
+\makerubric{internships}
+\makerubric{talks}
+% \makerubric{skills}
+\makerubric{workshop}
+\makerubrichead{Relevent Courses}
+\begin{itemize}
+	\item \textbf{CMI Courses}
+
+	      \begin{multicols}{2}
+		      \textbf{Math Courses:}{}
+		      \begin{itemize}
+			      \item Linear Algebra (Algebra 1)
+			      \item Group Theory (Algebra 2)
+			      \item Ring and  Field Theory (Algebra 3)
+			      \item Commutative Algebra
+			      \item Real Analysis (Analysis 1)
+			      \item Analysis in Euclidean Space (Analysis 2)
+			      \item Analysis in Metric Space (Analysis 3)
+			      \item Complex Analysis
+			      \item Discrete Mathematics
+			      \item Calculus
+			      \item Probability Theory
+			      \item Topology
+			      \item Differential Equations
+		      \end{itemize}
+		      \columnbreak
+
+		      \textbf{Computer Science Courses:}{}
+		      \begin{itemize}
+			      \item Design and Analysis of Algorithms
+			      \item Theory of Computation
+			      \item Complexity Theory
+			      \item Parallel Algorithms and Complexity
+			      \item Expander Graphs and Application
+			      \item Algorithmic Coding Theory (Two Parts)
+			      \item Algebra \& Computation
+			      \item Quantum Algorithmic Thinking
+			      \item Quantum Information Theory
+			      \item Functional Programming with Haskell
+			      \item Advanced Programming with Python
+			      \item Programming Language Concepts (Java, Concurrent Programming, Lambda Calculus)
+		      \end{itemize}
+	      \end{multicols}
+	\item \textbf{TIFR Courses}
+	      \begin{itemize}
+		      \item Mathematical Foundations of Computer Science
+		      \item Algorithms
+		      \item Probability
+		      \item Computational Complexity
+		      \item Algebra, Number Theory \& Computation
+		      \item Combinatorial Optimization
+		      \item Algorithmic Game Theory
+	      \end{itemize}
+	      I have followed the following courses:
+	      \begin{itemize}
+		      \item Algebraic Complexity Theory
+		      \item Polynomial Methods in Combinatorics
+	      \end{itemize}
+\end{itemize}
+\makerubric{achievements}
+\makerubric{misc}
+\makerubric{computer-skills}
+% \makerubric{referee}
+% \input{referee-full}
+
+\end{document}

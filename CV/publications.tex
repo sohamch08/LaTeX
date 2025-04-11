@@ -1,0 +1,16 @@
+%% Sometimes when a section can't be nicely modelled with the \entry[]... mechanism; hack our own
+\makerubrichead{Research Publications}
+
+%% Assuming you've already given \addbibresource{own-bib.bib} in the main doc. Right? Right???
+\nocite{*}
+
+%% If you just want everything in one list
+% \printbibliography[heading={none}]
+
+\printbibliography[heading={subbibliography},title={Journal Articles},type=article]
+
+\printbibliography[heading={subbibliography},title={Conference Proceedings},type=inproceedings]
+
+\printbibliography[heading={subbibliography},title={Books and Chapters},filter={booksandchapters}]
+
+
