@@ -1,0 +1,80 @@
+\usepackage[
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100,
+    stretch=10,
+    shrink=10
+]{microtype}   % Better typography
+
+\usepackage[brazilian]{babel} % language
+\addto\captionsbrazilian{\renewcommand{\contentsname}{Conteúdo}}
+
+\usepackage{lettrine}   % Add drop caps to chapter openings
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{ebgaramond}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\newcommand{\hsp}{\kern 1pt}    % for nested quotation marks
+
+% Paragraph formatting
+\renewcommand{\baselinestretch}{1.125}      % Allow paragraphs to breathe by spreading the lines further
+\setlength{\parskip}{0pt}                   % Fixed space between paragraphs (i.e. disable variable parskip)
+\setlength{\parindent}{1em}
+
+% Don’t add extra space after sentences
+\frenchspacing
+
+% Reduce widows/orphans
+\widowpenalty=10000
+\clubpenalty=10000
+
+% Page size
+\usepackage[
+    paperheight=9in,
+    paperwidth=6in,
+    top=0.75in,
+    bottom=0.75in,
+    outer=0.75in,
+    inner=0.875in
+]{geometry}
+
+% Reduce overfull \hbox{} warnings
+\sloppy
+
+% Contents page
+\usepackage[titles]{tocloft}
+\renewcommand{\cftchapfont}{\large\itshape}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\numberline}[1]{}
+
+% chapter headings
+\usepackage[center,sc]{titlesec}
+
+% Redefinir o formato do número do capítulo para algarismos romanos maiúsculos
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+% Ajustar o estilo do título do capítulo
+\titleformat{\chapter}[block]
+  {\normalfont\scshape\huge\centering}
+  {\thechapter\\}
+  {0pt}
+  {}
+
+% headers/footers
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf[CFE,CFO]{\thepage}         % Set page numbers in the footer
+%\fancyhead[LE,RO]{\thepage}        % Set page numbers in the left/right sides of the header
+\fancyhead[CE]{\itshape\authorname} % Author name in middle of left-side page header
+\fancyhead[CO]{\itshape\booktitle}  % Book title in middle of right-side page header
+
+% custom colors
+\definecolor{customgold}{RGB}{203,161,53}

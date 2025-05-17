@@ -1,0 +1,122 @@
+\pagestyle{empty}
+
+% Capa
+\begin{center}
+\begin{tikzpicture}[remember picture,overlay]
+
+    % Proporção áurea
+    %\pgfmathsetmacro{\goldenheight}{\paperwidth / \goldenratio}
+    %\pgfmathsetmacro{\goldenwidth}{\paperwidth}
+
+    % Fundo preto
+    \fill[black] (current page.south west) rectangle (current page.north east);
+
+    % Autor
+    \node[white, font=\Huge, anchor=north, text width =\linewidth, align = center] (author) at ([yshift=-44pt] current page.north) {\textcolor{customgold}{\scshape\large\authorname}};
+
+    % Título
+    \node[white, font=\Large, anchor=north, text width =0.9\linewidth, align = center, below=4pt of author.south] (title) {\scshape\Huge\booktitle};
+
+    % Subtítulo
+    \ifx\subtitle\undefined\else\if\relax\detokenize\expandafter{\subtitle}\relax\else
+    {\node[white, font=\Large, text width =\linewidth, align = center, anchor=north, below=8pt of title.south] {\textcolor{lightgray}{\scshape\large\subtitle}};}
+    \fi\fi
+
+    % Padrão de círculos central
+    \begin{scope}[shift={(current page.center)}, scale=1.0871]
+        \foreach \x in {-20, -18, -16, -14, -12, -10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18} {
+            \foreach \y in {-2, 2} {
+                \begin{scope}[shift={(\x + 1, \y)}]
+                    \foreach \r in {0.2, 0.4, 0.6, 0.8, 1.0} {
+                        \draw[thick, darkgray] (0,0) circle (\r);
+                    }
+                \end{scope}
+            }
+            \foreach \y in {-3, -1, 1, 3} {
+                \begin{scope}[shift={(\x, \y)}]
+                    \foreach \r in {0.2, 0.4} {
+                        \draw[thick, darkgray] (0,0) circle (\r);
+                    }
+                \end{scope}
+            }
+            \foreach \y in {-1, 1} {
+                \begin{scope}[shift={(\x, 0)}]
+                    \foreach \r in {0.2, 0.4, 0.6, 0.8, 1.0} {
+                        \draw[thick, customgold] (0,0) circle (\r);
+                        \fill[thick, customgold] (0,0) circle (\r);
+                    }
+                \end{scope}
+            }
+            \foreach \y in {-1, 1} {
+                \begin{scope}[shift={(\x, \y)}]
+                    \foreach \r in {0.2, 0.4, 0.6, 0.8, 1.0} {
+                        \fill[black] (0,0) circle (\r);
+                    }
+                \end{scope}
+            }
+            \foreach \y in {-1, 1} {
+                \begin{scope}[shift={(\x, \y)}]
+                    \foreach \r in {0.2, 0.4, 0.6, 0.8, 1.0} {
+                        \draw[thick, darkgray] (0,0) circle (\r);
+                    }
+                \end{scope}
+            }
+        }
+    \end{scope}
+
+    % Editora
+    \node[white, font=\Huge, anchor=south] (publisher) at ([yshift=32pt] current page.south) {\textcolor{gray}{\scshape\large\publisher}};
+
+    % Logotipo da editora
+    \node[anchor=north, above=4pt of publisher.north] {\includegraphics[width=0.07\textwidth]{frontmatter/logo-white.png}};
+
+    % Outras informações
+    \ifx\translatorname\undefined
+    \else
+        \if\relax\detokenize\expandafter{\translatorname}\relax
+        \else{   
+            \node[white, font=\Large, anchor=north, above=114pt of publisher.north] (translatedBy) {\textcolor{gray}{\itshape\large{Tradução por}}};
+            
+            \node[white, font=\Large, anchor=south, below=2pt of translatedBy.south] (translatorAuthor) {\textcolor{lightgray}{\itshape\large\translatorname}};       
+            }
+        \fi
+    \fi        
+\end{tikzpicture}
+\end{center}
+
+\cleardoublepage
+
+% Página de título (contra-capa)
+\begin{titlepage}
+	\centering
+	\newgeometry{top=1in,bottom=1in,right=0in,left=0in}
+    \thispagestyle{empty}
+	~	
+    % Autor
+	\vspace{24pt}
+	{\scshape\large \authorname\par}
+
+    % Título
+	\vspace{6pt}
+	{\scshape\Huge \booktitle\par}
+
+    % Subtítulo
+    \ifx\subtitle\undefined\else\if\relax\detokenize\expandafter{\subtitle}\relax\else
+    {\vspace{6pt}
+	{\scshape\large \subtitle\par}
+ 
+	\vspace{\stretch{1.25}}}
+    \fi\fi
+    
+    % Quem fez a tradução
+    \ifx\translatorname\undefined\else\if\relax\detokenize\expandafter{\translatorname}\relax\else
+    {{\itshape\large{Tradução por}\par}
+	\vspace{6pt}
+
+    {\itshape\Large\translatorname\par}}
+    \fi\fi
+
+    % Editora
+    \vspace{\stretch{6}}
+	{\Huge\scshape\large\publisher\par}
+\end{titlepage}

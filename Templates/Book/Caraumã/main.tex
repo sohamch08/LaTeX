@@ -1,0 +1,48 @@
+% Caraumã book template by @jndgomes
+% 2024 (c) Janderson Gomes
+% See more <artientista.blogspot.com> or <carauman.blogspot.com>
+
+% paper size is in preamble.sty
+\documentclass[12pt,openany]{book} 
+
+% Definindo proporção áurea
+\newcommand{\goldenratio}{1.618}
+
+% Codificação de entrada e saída
+\usepackage[T1]{fontenc}
+
+% Informações do livro
+\newcommand{\authorname}{Anupam Gupta, Ryan O’Donnell}
+\newcommand{\translatorname}{}
+\newcommand{\booktitle}{\Large{Linear Programming \&\\ Semidefinite Programming}}
+\newcommand{\subtitle}{Lecture notes for CMU’s course}
+\newcommand{\publisher}{CMU, 2013: 15-859E}
+\newcommand{\editionyear}{2024}
+\newcommand{\isbn}{}
+\title{\booktitle}
+\author{\authorname}
+
+% Pacotes adicionais
+\usepackage{misc/options}
+
+\begin{document}
+
+% Front matter
+\frontmatter
+\input{frontmatter/titlepage}      % Página de título
+% \input{frontmatter/copyrightpage}  % Página de direitos autorais
+% \input{frontmatter/preface}        % Prefácio
+% \input{frontmatter/tocpage}        % Sumário
+
+% Main matter
+% \mainmatter
+\pagestyle{fancy}                  % Estilo de página fancy para o conteúdo principal
+
+% Conteúdo dos capítulos
+% \input{content/chapter1}           % Capítulo 1
+
+% Back matter
+\backmatter
+% \input{frontmatter/backpage}       % Página final (contracapa)
+
+\end{document}
