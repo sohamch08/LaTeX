@@ -22,7 +22,7 @@
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-*.pdf
+# *.pdf
 */auto/*
 auto/*
 *.swp
@@ -134,3 +134,7 @@ ignore-*
 .dropbox
 *.orig
 sha.tex
+.auctex-auto
+_region*
+.DS_Store
+.vscode
